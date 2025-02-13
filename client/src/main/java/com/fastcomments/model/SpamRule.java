@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SpamRule
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class SpamRule {
   /**
    * Gets or Sets actions
@@ -109,16 +108,18 @@ public class SpamRule {
 
   public static final String SERIALIZED_NAME_ACTIONS = "actions";
   @SerializedName(SERIALIZED_NAME_ACTIONS)
+  @javax.annotation.Nonnull
   private List<ActionsEnum> actions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_COMMENT_CONTAINS = "commentContains";
   @SerializedName(SERIALIZED_NAME_COMMENT_CONTAINS)
+  @javax.annotation.Nullable
   private String commentContains;
 
   public SpamRule() {
   }
 
-  public SpamRule actions(List<ActionsEnum> actions) {
+  public SpamRule actions(@javax.annotation.Nonnull List<ActionsEnum> actions) {
     this.actions = actions;
     return this;
   }
@@ -131,35 +132,35 @@ public class SpamRule {
     return this;
   }
 
-   /**
+  /**
    * Get actions
    * @return actions
-  **/
+   */
   @javax.annotation.Nonnull
   public List<ActionsEnum> getActions() {
     return actions;
   }
 
-  public void setActions(List<ActionsEnum> actions) {
+  public void setActions(@javax.annotation.Nonnull List<ActionsEnum> actions) {
     this.actions = actions;
   }
 
 
-  public SpamRule commentContains(String commentContains) {
+  public SpamRule commentContains(@javax.annotation.Nullable String commentContains) {
     this.commentContains = commentContains;
     return this;
   }
 
-   /**
+  /**
    * Get commentContains
    * @return commentContains
-  **/
+   */
   @javax.annotation.Nullable
   public String getCommentContains() {
     return commentContains;
   }
 
-  public void setCommentContains(String commentContains) {
+  public void setCommentContains(@javax.annotation.Nullable String commentContains) {
     this.commentContains = commentContains;
   }
 
@@ -219,12 +220,12 @@ public class SpamRule {
     openapiRequiredFields.add("actions");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SpamRule
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SpamRule
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SpamRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -287,22 +288,22 @@ public class SpamRule {
     }
   }
 
- /**
-  * Create an instance of SpamRule given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SpamRule
-  * @throws IOException if the JSON string is invalid with respect to SpamRule
-  */
+  /**
+   * Create an instance of SpamRule given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SpamRule
+   * @throws IOException if the JSON string is invalid with respect to SpamRule
+   */
   public static SpamRule fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SpamRule.class);
   }
 
- /**
-  * Convert an instance of SpamRule to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SpamRule to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

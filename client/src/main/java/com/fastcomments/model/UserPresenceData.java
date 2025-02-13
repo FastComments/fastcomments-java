@@ -37,7 +37,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -49,76 +48,79 @@ import com.fastcomments.invoker.JSON;
 /**
  * UserPresenceData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class UserPresenceData {
   public static final String SERIALIZED_NAME_URL_ID_W_S = "urlIdWS";
   @SerializedName(SERIALIZED_NAME_URL_ID_W_S)
+  @javax.annotation.Nullable
   private String urlIdWS;
 
   public static final String SERIALIZED_NAME_USER_ID_W_S = "userIdWS";
   @SerializedName(SERIALIZED_NAME_USER_ID_W_S)
+  @javax.annotation.Nullable
   private String userIdWS;
 
   public static final String SERIALIZED_NAME_TENANT_ID_W_S = "tenantIdWS";
   @SerializedName(SERIALIZED_NAME_TENANT_ID_W_S)
+  @javax.annotation.Nullable
   private String tenantIdWS;
 
   public UserPresenceData() {
   }
 
-  public UserPresenceData urlIdWS(String urlIdWS) {
+  public UserPresenceData urlIdWS(@javax.annotation.Nullable String urlIdWS) {
     this.urlIdWS = urlIdWS;
     return this;
   }
 
-   /**
+  /**
    * Get urlIdWS
    * @return urlIdWS
-  **/
+   */
   @javax.annotation.Nullable
   public String getUrlIdWS() {
     return urlIdWS;
   }
 
-  public void setUrlIdWS(String urlIdWS) {
+  public void setUrlIdWS(@javax.annotation.Nullable String urlIdWS) {
     this.urlIdWS = urlIdWS;
   }
 
 
-  public UserPresenceData userIdWS(String userIdWS) {
+  public UserPresenceData userIdWS(@javax.annotation.Nullable String userIdWS) {
     this.userIdWS = userIdWS;
     return this;
   }
 
-   /**
+  /**
    * Get userIdWS
    * @return userIdWS
-  **/
+   */
   @javax.annotation.Nullable
   public String getUserIdWS() {
     return userIdWS;
   }
 
-  public void setUserIdWS(String userIdWS) {
+  public void setUserIdWS(@javax.annotation.Nullable String userIdWS) {
     this.userIdWS = userIdWS;
   }
 
 
-  public UserPresenceData tenantIdWS(String tenantIdWS) {
+  public UserPresenceData tenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
     this.tenantIdWS = tenantIdWS;
     return this;
   }
 
-   /**
+  /**
    * Get tenantIdWS
    * @return tenantIdWS
-  **/
+   */
   @javax.annotation.Nullable
   public String getTenantIdWS() {
     return tenantIdWS;
   }
 
-  public void setTenantIdWS(String tenantIdWS) {
+  public void setTenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
     this.tenantIdWS = tenantIdWS;
   }
 
@@ -180,12 +182,12 @@ public class UserPresenceData {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to UserPresenceData
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to UserPresenceData
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UserPresenceData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -241,22 +243,22 @@ public class UserPresenceData {
     }
   }
 
- /**
-  * Create an instance of UserPresenceData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UserPresenceData
-  * @throws IOException if the JSON string is invalid with respect to UserPresenceData
-  */
+  /**
+   * Create an instance of UserPresenceData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of UserPresenceData
+   * @throws IOException if the JSON string is invalid with respect to UserPresenceData
+   */
   public static UserPresenceData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, UserPresenceData.class);
   }
 
- /**
-  * Convert an instance of UserPresenceData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of UserPresenceData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

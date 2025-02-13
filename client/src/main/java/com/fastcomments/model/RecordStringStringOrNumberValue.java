@@ -50,7 +50,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class RecordStringStringOrNumberValue extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(RecordStringStringOrNumberValue.class.getName());
 
@@ -75,17 +75,17 @@ public class RecordStringStringOrNumberValue extends AbstractOpenApiSchema {
 
                     // check if the actual instance is of the type `String`
                     if (value.getActualInstance() instanceof String) {
-                      JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                      elementAdapter.write(out, primitive);
-                      return;
+                        JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
+                        elementAdapter.write(out, primitive);
+                        return;
                     }
                     // check if the actual instance is of the type `Double`
                     if (value.getActualInstance() instanceof Double) {
-                      JsonPrimitive primitive = adapterDouble.toJsonTree((Double)value.getActualInstance()).getAsJsonPrimitive();
-                      elementAdapter.write(out, primitive);
-                      return;
+                        JsonPrimitive primitive = adapterDouble.toJsonTree((Double)value.getActualInstance()).getAsJsonPrimitive();
+                        elementAdapter.write(out, primitive);
+                        return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemae: Double, String");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: Double, String");
                 }
 
                 @Override
@@ -98,33 +98,33 @@ public class RecordStringStringOrNumberValue extends AbstractOpenApiSchema {
 
                     // deserialize String
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      if(!jsonElement.getAsJsonPrimitive().isString()) {
-                        throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-                      }
-                      actualAdapter = adapterString;
-                      RecordStringStringOrNumberValue ret = new RecordStringStringOrNumberValue();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        if (!jsonElement.getAsJsonPrimitive().isString()) {
+                            throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
+                        }
+                        actualAdapter = adapterString;
+                        RecordStringStringOrNumberValue ret = new RecordStringStringOrNumberValue();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'String'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'String'", e);
                     }
                     // deserialize Double
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      if(!jsonElement.getAsJsonPrimitive().isNumber()) {
-                        throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-                      }
-                      actualAdapter = adapterDouble;
-                      RecordStringStringOrNumberValue ret = new RecordStringStringOrNumberValue();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
+                            throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
+                        }
+                        actualAdapter = adapterDouble;
+                        RecordStringStringOrNumberValue ret = new RecordStringStringOrNumberValue();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for Double failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'Double'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for Double failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'Double'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for RecordStringStringOrNumberValue: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -140,12 +140,7 @@ public class RecordStringStringOrNumberValue extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
-    public RecordStringStringOrNumberValue(Double o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public RecordStringStringOrNumberValue(String o) {
+    public RecordStringStringOrNumberValue(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -188,6 +183,7 @@ public class RecordStringStringOrNumberValue extends AbstractOpenApiSchema {
      *
      * @return The actual instance (Double, String)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -203,6 +199,7 @@ public class RecordStringStringOrNumberValue extends AbstractOpenApiSchema {
     public String getString() throws ClassCastException {
         return (String)super.getActualInstance();
     }
+
     /**
      * Get the actual instance of `Double`. If the actual instance is not `Double`,
      * the ClassCastException will be thrown.
@@ -214,57 +211,56 @@ public class RecordStringStringOrNumberValue extends AbstractOpenApiSchema {
         return (Double)super.getActualInstance();
     }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to RecordStringStringOrNumberValue
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate anyOf schemas one by one
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with String
-    try {
-      if(!jsonElement.getAsJsonPrimitive().isString()) {
-        throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-      }
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to RecordStringStringOrNumberValue
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with String
+        try {
+            if (!jsonElement.getAsJsonPrimitive().isString()) {
+                throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
+            }
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with Double
+        try {
+            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
+                throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
+            }
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for Double failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(String.format("The JSON string is invalid for RecordStringStringOrNumberValue with anyOf schemas: Double, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
-    // validate the json string with Double
-    try {
-      if(!jsonElement.getAsJsonPrimitive().isNumber()) {
-        throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-      }
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for Double failed with `%s`.", e.getMessage()));
-      // continue to the next one
+
+    /**
+     * Create an instance of RecordStringStringOrNumberValue given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of RecordStringStringOrNumberValue
+     * @throws IOException if the JSON string is invalid with respect to RecordStringStringOrNumberValue
+     */
+    public static RecordStringStringOrNumberValue fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, RecordStringStringOrNumberValue.class);
     }
-    throw new IOException(String.format("The JSON string is invalid for RecordStringStringOrNumberValue with anyOf schemas: Double, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-    
-  }
 
- /**
-  * Create an instance of RecordStringStringOrNumberValue given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of RecordStringStringOrNumberValue
-  * @throws IOException if the JSON string is invalid with respect to RecordStringStringOrNumberValue
-  */
-  public static RecordStringStringOrNumberValue fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RecordStringStringOrNumberValue.class);
-  }
-
- /**
-  * Convert an instance of RecordStringStringOrNumberValue to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Convert an instance of RecordStringStringOrNumberValue to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 

@@ -37,7 +37,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -49,191 +48,199 @@ import com.fastcomments.invoker.JSON;
 /**
  * AnonUserDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class AnonUserDetails {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nonnull
   private String username;
 
   public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
   @SerializedName(SERIALIZED_NAME_SESSION_ID)
+  @javax.annotation.Nullable
   private String sessionId;
 
   public static final String SERIALIZED_NAME_IS_ANON_SESSION = "isAnonSession";
   @SerializedName(SERIALIZED_NAME_IS_ANON_SESSION)
+  @javax.annotation.Nonnull
   private Boolean isAnonSession;
 
   public static final String SERIALIZED_NAME_HAS_BLOCKED_USERS = "hasBlockedUsers";
   @SerializedName(SERIALIZED_NAME_HAS_BLOCKED_USERS)
+  @javax.annotation.Nullable
   private Boolean hasBlockedUsers;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
+  @javax.annotation.Nullable
   private String email;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  @javax.annotation.Nullable
   private String displayName;
 
   public static final String SERIALIZED_NAME_AUTHORIZED = "authorized";
   @SerializedName(SERIALIZED_NAME_AUTHORIZED)
+  @javax.annotation.Nullable
   private Boolean authorized;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nullable
   private String id;
 
   public AnonUserDetails() {
   }
 
-  public AnonUserDetails username(String username) {
+  public AnonUserDetails username(@javax.annotation.Nonnull String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * Get username
    * @return username
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUsername() {
     return username;
   }
 
-  public void setUsername(String username) {
+  public void setUsername(@javax.annotation.Nonnull String username) {
     this.username = username;
   }
 
 
-  public AnonUserDetails sessionId(String sessionId) {
+  public AnonUserDetails sessionId(@javax.annotation.Nullable String sessionId) {
     this.sessionId = sessionId;
     return this;
   }
 
-   /**
+  /**
    * Get sessionId
    * @return sessionId
-  **/
+   */
   @javax.annotation.Nullable
   public String getSessionId() {
     return sessionId;
   }
 
-  public void setSessionId(String sessionId) {
+  public void setSessionId(@javax.annotation.Nullable String sessionId) {
     this.sessionId = sessionId;
   }
 
 
-  public AnonUserDetails isAnonSession(Boolean isAnonSession) {
+  public AnonUserDetails isAnonSession(@javax.annotation.Nonnull Boolean isAnonSession) {
     this.isAnonSession = isAnonSession;
     return this;
   }
 
-   /**
+  /**
    * Get isAnonSession
    * @return isAnonSession
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getIsAnonSession() {
     return isAnonSession;
   }
 
-  public void setIsAnonSession(Boolean isAnonSession) {
+  public void setIsAnonSession(@javax.annotation.Nonnull Boolean isAnonSession) {
     this.isAnonSession = isAnonSession;
   }
 
 
-  public AnonUserDetails hasBlockedUsers(Boolean hasBlockedUsers) {
+  public AnonUserDetails hasBlockedUsers(@javax.annotation.Nullable Boolean hasBlockedUsers) {
     this.hasBlockedUsers = hasBlockedUsers;
     return this;
   }
 
-   /**
+  /**
    * Get hasBlockedUsers
    * @return hasBlockedUsers
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasBlockedUsers() {
     return hasBlockedUsers;
   }
 
-  public void setHasBlockedUsers(Boolean hasBlockedUsers) {
+  public void setHasBlockedUsers(@javax.annotation.Nullable Boolean hasBlockedUsers) {
     this.hasBlockedUsers = hasBlockedUsers;
   }
 
 
-  public AnonUserDetails email(String email) {
+  public AnonUserDetails email(@javax.annotation.Nullable String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @javax.annotation.Nullable
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(String email) {
+  public void setEmail(@javax.annotation.Nullable String email) {
     this.email = email;
   }
 
 
-  public AnonUserDetails displayName(String displayName) {
+  public AnonUserDetails displayName(@javax.annotation.Nullable String displayName) {
     this.displayName = displayName;
     return this;
   }
 
-   /**
+  /**
    * Get displayName
    * @return displayName
-  **/
+   */
   @javax.annotation.Nullable
   public String getDisplayName() {
     return displayName;
   }
 
-  public void setDisplayName(String displayName) {
+  public void setDisplayName(@javax.annotation.Nullable String displayName) {
     this.displayName = displayName;
   }
 
 
-  public AnonUserDetails authorized(Boolean authorized) {
+  public AnonUserDetails authorized(@javax.annotation.Nullable Boolean authorized) {
     this.authorized = authorized;
     return this;
   }
 
-   /**
+  /**
    * Get authorized
    * @return authorized
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAuthorized() {
     return authorized;
   }
 
-  public void setAuthorized(Boolean authorized) {
+  public void setAuthorized(@javax.annotation.Nullable Boolean authorized) {
     this.authorized = authorized;
   }
 
 
-  public AnonUserDetails id(String id) {
+  public AnonUserDetails id(@javax.annotation.Nullable String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
   }
 
@@ -313,12 +320,12 @@ public class AnonUserDetails {
     openapiRequiredFields.add("email");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AnonUserDetails
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AnonUserDetails
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AnonUserDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -387,22 +394,22 @@ public class AnonUserDetails {
     }
   }
 
- /**
-  * Create an instance of AnonUserDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AnonUserDetails
-  * @throws IOException if the JSON string is invalid with respect to AnonUserDetails
-  */
+  /**
+   * Create an instance of AnonUserDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AnonUserDetails
+   * @throws IOException if the JSON string is invalid with respect to AnonUserDetails
+   */
   public static AnonUserDetails fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AnonUserDetails.class);
   }
 
- /**
-  * Convert an instance of AnonUserDetails to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AnonUserDetails to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

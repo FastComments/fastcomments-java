@@ -37,7 +37,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -49,99 +48,103 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentUserHashTagInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CommentUserHashTagInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private String id;
 
   public static final String SERIALIZED_NAME_TAG = "tag";
   @SerializedName(SERIALIZED_NAME_TAG)
+  @javax.annotation.Nonnull
   private String tag;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nullable
   private String url;
 
   public static final String SERIALIZED_NAME_RETAIN = "retain";
   @SerializedName(SERIALIZED_NAME_RETAIN)
+  @javax.annotation.Nullable
   private Boolean retain;
 
   public CommentUserHashTagInfo() {
   }
 
-  public CommentUserHashTagInfo id(String id) {
+  public CommentUserHashTagInfo id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@javax.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public CommentUserHashTagInfo tag(String tag) {
+  public CommentUserHashTagInfo tag(@javax.annotation.Nonnull String tag) {
     this.tag = tag;
     return this;
   }
 
-   /**
+  /**
    * Get tag
    * @return tag
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTag() {
     return tag;
   }
 
-  public void setTag(String tag) {
+  public void setTag(@javax.annotation.Nonnull String tag) {
     this.tag = tag;
   }
 
 
-  public CommentUserHashTagInfo url(String url) {
+  public CommentUserHashTagInfo url(@javax.annotation.Nullable String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @javax.annotation.Nullable
   public String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@javax.annotation.Nullable String url) {
     this.url = url;
   }
 
 
-  public CommentUserHashTagInfo retain(Boolean retain) {
+  public CommentUserHashTagInfo retain(@javax.annotation.Nullable Boolean retain) {
     this.retain = retain;
     return this;
   }
 
-   /**
+  /**
    * Get retain
    * @return retain
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getRetain() {
     return retain;
   }
 
-  public void setRetain(Boolean retain) {
+  public void setRetain(@javax.annotation.Nullable Boolean retain) {
     this.retain = retain;
   }
 
@@ -209,12 +212,12 @@ public class CommentUserHashTagInfo {
     openapiRequiredFields.add("url");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CommentUserHashTagInfo
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CommentUserHashTagInfo
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CommentUserHashTagInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -277,22 +280,22 @@ public class CommentUserHashTagInfo {
     }
   }
 
- /**
-  * Create an instance of CommentUserHashTagInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CommentUserHashTagInfo
-  * @throws IOException if the JSON string is invalid with respect to CommentUserHashTagInfo
-  */
+  /**
+   * Create an instance of CommentUserHashTagInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CommentUserHashTagInfo
+   * @throws IOException if the JSON string is invalid with respect to CommentUserHashTagInfo
+   */
   public static CommentUserHashTagInfo fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CommentUserHashTagInfo.class);
   }
 
- /**
-  * Convert an instance of CommentUserHashTagInfo to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CommentUserHashTagInfo to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

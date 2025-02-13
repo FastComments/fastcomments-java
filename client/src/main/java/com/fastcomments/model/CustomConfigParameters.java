@@ -53,7 +53,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -65,379 +64,447 @@ import com.fastcomments.invoker.JSON;
 /**
  * CustomConfigParameters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CustomConfigParameters {
   public static final String SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES = "absoluteAndRelativeDates";
   @SerializedName(SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES)
+  @javax.annotation.Nullable
   private Boolean absoluteAndRelativeDates;
 
   public static final String SERIALIZED_NAME_ABSOLUTE_DATES = "absoluteDates";
   @SerializedName(SERIALIZED_NAME_ABSOLUTE_DATES)
+  @javax.annotation.Nullable
   private Boolean absoluteDates;
 
   public static final String SERIALIZED_NAME_ALLOW_ANON = "allowAnon";
   @SerializedName(SERIALIZED_NAME_ALLOW_ANON)
+  @javax.annotation.Nullable
   private Boolean allowAnon;
 
   public static final String SERIALIZED_NAME_ALLOW_ANON_FLAG = "allowAnonFlag";
   @SerializedName(SERIALIZED_NAME_ALLOW_ANON_FLAG)
+  @javax.annotation.Nullable
   private Boolean allowAnonFlag;
 
   public static final String SERIALIZED_NAME_ALLOW_ANON_VOTES = "allowAnonVotes";
   @SerializedName(SERIALIZED_NAME_ALLOW_ANON_VOTES)
+  @javax.annotation.Nullable
   private Boolean allowAnonVotes;
 
   public static final String SERIALIZED_NAME_ALLOWED_LANGUAGES = "allowedLanguages";
   @SerializedName(SERIALIZED_NAME_ALLOWED_LANGUAGES)
+  @javax.annotation.Nullable
   private List<String> allowedLanguages;
 
   public static final String SERIALIZED_NAME_COLLAPSE_REPLIES = "collapseReplies";
   @SerializedName(SERIALIZED_NAME_COLLAPSE_REPLIES)
+  @javax.annotation.Nullable
   private Boolean collapseReplies;
 
   public static final String SERIALIZED_NAME_COMMENT_COUNT_FORMAT = "commentCountFormat";
   @SerializedName(SERIALIZED_NAME_COMMENT_COUNT_FORMAT)
+  @javax.annotation.Nullable
   private String commentCountFormat;
 
   public static final String SERIALIZED_NAME_COMMENT_H_T_M_L_RENDERING_MODE = "commentHTMLRenderingMode";
   @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L_RENDERING_MODE)
+  @javax.annotation.Nullable
   private CommentHTMLRenderingMode commentHTMLRenderingMode;
 
   public static final String SERIALIZED_NAME_COMMENT_THREAD_DELETE_MODE = "commentThreadDeleteMode";
   @SerializedName(SERIALIZED_NAME_COMMENT_THREAD_DELETE_MODE)
+  @javax.annotation.Nullable
   private CommentThreadDeletionMode commentThreadDeleteMode;
 
   public static final String SERIALIZED_NAME_COMMENTER_NAME_FORMAT = "commenterNameFormat";
   @SerializedName(SERIALIZED_NAME_COMMENTER_NAME_FORMAT)
+  @javax.annotation.Nullable
   private CommenterNameFormats commenterNameFormat;
 
   public static final String SERIALIZED_NAME_COUNT_ABOVE_TOGGLE = "countAboveToggle";
   @SerializedName(SERIALIZED_NAME_COUNT_ABOVE_TOGGLE)
+  @javax.annotation.Nullable
   private Double countAboveToggle;
 
   public static final String SERIALIZED_NAME_CUSTOM_C_S_S = "customCSS";
   @SerializedName(SERIALIZED_NAME_CUSTOM_C_S_S)
+  @javax.annotation.Nullable
   private String customCSS;
 
   public static final String SERIALIZED_NAME_DEFAULT_AVATAR_SRC = "defaultAvatarSrc";
   @SerializedName(SERIALIZED_NAME_DEFAULT_AVATAR_SRC)
+  @javax.annotation.Nullable
   private String defaultAvatarSrc;
 
   public static final String SERIALIZED_NAME_DEFAULT_SORT_DIRECTION = "defaultSortDirection";
   @SerializedName(SERIALIZED_NAME_DEFAULT_SORT_DIRECTION)
+  @javax.annotation.Nullable
   private SortDirections defaultSortDirection;
 
   public static final String SERIALIZED_NAME_DEFAULT_USERNAME = "defaultUsername";
   @SerializedName(SERIALIZED_NAME_DEFAULT_USERNAME)
+  @javax.annotation.Nullable
   private String defaultUsername;
 
   public static final String SERIALIZED_NAME_DISABLE_AUTO_ADMIN_MIGRATION = "disableAutoAdminMigration";
   @SerializedName(SERIALIZED_NAME_DISABLE_AUTO_ADMIN_MIGRATION)
+  @javax.annotation.Nullable
   private Boolean disableAutoAdminMigration;
 
   public static final String SERIALIZED_NAME_DISABLE_AUTO_HASH_TAG_CREATION = "disableAutoHashTagCreation";
   @SerializedName(SERIALIZED_NAME_DISABLE_AUTO_HASH_TAG_CREATION)
+  @javax.annotation.Nullable
   private Boolean disableAutoHashTagCreation;
 
   public static final String SERIALIZED_NAME_DISABLE_BLOCKING = "disableBlocking";
   @SerializedName(SERIALIZED_NAME_DISABLE_BLOCKING)
+  @javax.annotation.Nullable
   private Boolean disableBlocking;
 
   public static final String SERIALIZED_NAME_DISABLE_COMMENTER_COMMENT_DELETE = "disableCommenterCommentDelete";
   @SerializedName(SERIALIZED_NAME_DISABLE_COMMENTER_COMMENT_DELETE)
+  @javax.annotation.Nullable
   private Boolean disableCommenterCommentDelete;
 
   public static final String SERIALIZED_NAME_DISABLE_COMMENTER_COMMENT_EDIT = "disableCommenterCommentEdit";
   @SerializedName(SERIALIZED_NAME_DISABLE_COMMENTER_COMMENT_EDIT)
+  @javax.annotation.Nullable
   private Boolean disableCommenterCommentEdit;
 
   public static final String SERIALIZED_NAME_DISABLE_EMAIL_INPUTS = "disableEmailInputs";
   @SerializedName(SERIALIZED_NAME_DISABLE_EMAIL_INPUTS)
+  @javax.annotation.Nullable
   private Boolean disableEmailInputs;
 
   public static final String SERIALIZED_NAME_DISABLE_LIVE_COMMENTING = "disableLiveCommenting";
   @SerializedName(SERIALIZED_NAME_DISABLE_LIVE_COMMENTING)
+  @javax.annotation.Nullable
   private Boolean disableLiveCommenting;
 
   public static final String SERIALIZED_NAME_DISABLE_NOTIFICATION_BELL = "disableNotificationBell";
   @SerializedName(SERIALIZED_NAME_DISABLE_NOTIFICATION_BELL)
+  @javax.annotation.Nullable
   private Boolean disableNotificationBell;
 
   public static final String SERIALIZED_NAME_DISABLE_PROFILES = "disableProfiles";
   @SerializedName(SERIALIZED_NAME_DISABLE_PROFILES)
+  @javax.annotation.Nullable
   private Boolean disableProfiles;
 
   public static final String SERIALIZED_NAME_DISABLE_SUCCESS_MESSAGE = "disableSuccessMessage";
   @SerializedName(SERIALIZED_NAME_DISABLE_SUCCESS_MESSAGE)
+  @javax.annotation.Nullable
   private Boolean disableSuccessMessage;
 
   public static final String SERIALIZED_NAME_DISABLE_TOOLBAR = "disableToolbar";
   @SerializedName(SERIALIZED_NAME_DISABLE_TOOLBAR)
+  @javax.annotation.Nullable
   private Boolean disableToolbar;
 
   public static final String SERIALIZED_NAME_DISABLE_UNVERIFIED_LABEL = "disableUnverifiedLabel";
   @SerializedName(SERIALIZED_NAME_DISABLE_UNVERIFIED_LABEL)
+  @javax.annotation.Nullable
   private Boolean disableUnverifiedLabel;
 
   public static final String SERIALIZED_NAME_DISABLE_VOTING = "disableVoting";
   @SerializedName(SERIALIZED_NAME_DISABLE_VOTING)
+  @javax.annotation.Nullable
   private Boolean disableVoting;
 
   public static final String SERIALIZED_NAME_ENABLE_COMMENTER_LINKS = "enableCommenterLinks";
   @SerializedName(SERIALIZED_NAME_ENABLE_COMMENTER_LINKS)
+  @javax.annotation.Nullable
   private Boolean enableCommenterLinks;
 
   public static final String SERIALIZED_NAME_ENABLE_SEARCH = "enableSearch";
   @SerializedName(SERIALIZED_NAME_ENABLE_SEARCH)
+  @javax.annotation.Nullable
   private Boolean enableSearch;
 
   public static final String SERIALIZED_NAME_ENABLE_SPOILERS = "enableSpoilers";
   @SerializedName(SERIALIZED_NAME_ENABLE_SPOILERS)
+  @javax.annotation.Nullable
   private Boolean enableSpoilers;
 
   public static final String SERIALIZED_NAME_ENABLE_THIRD_PARTY_COOKIE_BYPASS = "enableThirdPartyCookieBypass";
   @SerializedName(SERIALIZED_NAME_ENABLE_THIRD_PARTY_COOKIE_BYPASS)
+  @javax.annotation.Nullable
   private Boolean enableThirdPartyCookieBypass;
 
   public static final String SERIALIZED_NAME_ENABLE_VIEW_COUNTS = "enableViewCounts";
   @SerializedName(SERIALIZED_NAME_ENABLE_VIEW_COUNTS)
+  @javax.annotation.Nullable
   private Boolean enableViewCounts;
 
   public static final String SERIALIZED_NAME_ENABLE_VOTE_LIST = "enableVoteList";
   @SerializedName(SERIALIZED_NAME_ENABLE_VOTE_LIST)
+  @javax.annotation.Nullable
   private Boolean enableVoteList;
 
   public static final String SERIALIZED_NAME_ENABLE_W_Y_S_I_W_Y_G = "enableWYSIWYG";
   @SerializedName(SERIALIZED_NAME_ENABLE_W_Y_S_I_W_Y_G)
+  @javax.annotation.Nullable
   private Boolean enableWYSIWYG;
 
   public static final String SERIALIZED_NAME_GIF_RATING = "gifRating";
   @SerializedName(SERIALIZED_NAME_GIF_RATING)
+  @javax.annotation.Nullable
   private GifRating gifRating;
 
   public static final String SERIALIZED_NAME_HAS_DARK_BACKGROUND = "hasDarkBackground";
   @SerializedName(SERIALIZED_NAME_HAS_DARK_BACKGROUND)
+  @javax.annotation.Nullable
   private Boolean hasDarkBackground;
 
   public static final String SERIALIZED_NAME_HEADER_H_T_M_L = "headerHTML";
   @SerializedName(SERIALIZED_NAME_HEADER_H_T_M_L)
+  @javax.annotation.Nullable
   private String headerHTML;
 
   public static final String SERIALIZED_NAME_HIDE_AVATARS = "hideAvatars";
   @SerializedName(SERIALIZED_NAME_HIDE_AVATARS)
+  @javax.annotation.Nullable
   private Boolean hideAvatars;
 
   public static final String SERIALIZED_NAME_HIDE_COMMENTS_UNDER_COUNT_TEXT_FORMAT = "hideCommentsUnderCountTextFormat";
   @SerializedName(SERIALIZED_NAME_HIDE_COMMENTS_UNDER_COUNT_TEXT_FORMAT)
+  @javax.annotation.Nullable
   private String hideCommentsUnderCountTextFormat;
 
   public static final String SERIALIZED_NAME_INPUT_AFTER_COMMENTS = "inputAfterComments";
   @SerializedName(SERIALIZED_NAME_INPUT_AFTER_COMMENTS)
+  @javax.annotation.Nullable
   private Boolean inputAfterComments;
 
   public static final String SERIALIZED_NAME_LIMIT_COMMENTS_BY_GROUPS = "limitCommentsByGroups";
   @SerializedName(SERIALIZED_NAME_LIMIT_COMMENTS_BY_GROUPS)
+  @javax.annotation.Nullable
   private Boolean limitCommentsByGroups;
 
   public static final String SERIALIZED_NAME_LOCALE = "locale";
   @SerializedName(SERIALIZED_NAME_LOCALE)
+  @javax.annotation.Nullable
   private String locale;
 
   public static final String SERIALIZED_NAME_MAX_COMMENT_CHARACTER_LENGTH = "maxCommentCharacterLength";
   @SerializedName(SERIALIZED_NAME_MAX_COMMENT_CHARACTER_LENGTH)
+  @javax.annotation.Nullable
   private Double maxCommentCharacterLength;
 
   public static final String SERIALIZED_NAME_MAX_COMMENT_CREATED_COUNT_P_U_P_M = "maxCommentCreatedCountPUPM";
   @SerializedName(SERIALIZED_NAME_MAX_COMMENT_CREATED_COUNT_P_U_P_M)
+  @javax.annotation.Nullable
   private Double maxCommentCreatedCountPUPM;
 
   public static final String SERIALIZED_NAME_NO_CUSTOM_CONFIG = "noCustomConfig";
   @SerializedName(SERIALIZED_NAME_NO_CUSTOM_CONFIG)
+  @javax.annotation.Nullable
   private Boolean noCustomConfig;
 
   public static final String SERIALIZED_NAME_NO_IMAGE_UPLOADS = "noImageUploads";
   @SerializedName(SERIALIZED_NAME_NO_IMAGE_UPLOADS)
+  @javax.annotation.Nullable
   private Boolean noImageUploads;
 
   public static final String SERIALIZED_NAME_NO_STYLES = "noStyles";
   @SerializedName(SERIALIZED_NAME_NO_STYLES)
+  @javax.annotation.Nullable
   private Boolean noStyles;
 
   public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+  @javax.annotation.Nullable
   private Double pageSize;
 
   public static final String SERIALIZED_NAME_READONLY = "readonly";
   @SerializedName(SERIALIZED_NAME_READONLY)
+  @javax.annotation.Nullable
   private Boolean readonly;
 
   public static final String SERIALIZED_NAME_REQUIRE_S_S_O = "requireSSO";
   @SerializedName(SERIALIZED_NAME_REQUIRE_S_S_O)
+  @javax.annotation.Nullable
   private Boolean requireSSO;
 
   public static final String SERIALIZED_NAME_RESTRICTED_LINK_DOMAINS = "restrictedLinkDomains";
   @SerializedName(SERIALIZED_NAME_RESTRICTED_LINK_DOMAINS)
+  @javax.annotation.Nullable
   private List<String> restrictedLinkDomains;
 
   public static final String SERIALIZED_NAME_SHOW_COMMENT_SAVE_SUCCESS = "showCommentSaveSuccess";
   @SerializedName(SERIALIZED_NAME_SHOW_COMMENT_SAVE_SUCCESS)
+  @javax.annotation.Nullable
   private Boolean showCommentSaveSuccess;
 
   public static final String SERIALIZED_NAME_SHOW_LIVE_RIGHT_AWAY = "showLiveRightAway";
   @SerializedName(SERIALIZED_NAME_SHOW_LIVE_RIGHT_AWAY)
+  @javax.annotation.Nullable
   private Boolean showLiveRightAway;
 
   public static final String SERIALIZED_NAME_SHOW_QUESTION = "showQuestion";
   @SerializedName(SERIALIZED_NAME_SHOW_QUESTION)
+  @javax.annotation.Nullable
   private Boolean showQuestion;
 
   public static final String SERIALIZED_NAME_SPAM_RULES = "spamRules";
   @SerializedName(SERIALIZED_NAME_SPAM_RULES)
-  private List<SpamRule> spamRules;
+  @javax.annotation.Nullable
+  private List<SpamRule> spamRules = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TRANSLATIONS = "translations";
   @SerializedName(SERIALIZED_NAME_TRANSLATIONS)
+  @javax.annotation.Nullable
   private Map<String, String> translations;
 
   public static final String SERIALIZED_NAME_USE_SHOW_COMMENTS_TOGGLE = "useShowCommentsToggle";
   @SerializedName(SERIALIZED_NAME_USE_SHOW_COMMENTS_TOGGLE)
+  @javax.annotation.Nullable
   private Boolean useShowCommentsToggle;
 
   public static final String SERIALIZED_NAME_USE_SINGLE_LINE_COMMENT_INPUT = "useSingleLineCommentInput";
   @SerializedName(SERIALIZED_NAME_USE_SINGLE_LINE_COMMENT_INPUT)
+  @javax.annotation.Nullable
   private Boolean useSingleLineCommentInput;
 
   public static final String SERIALIZED_NAME_VOTE_STYLE = "voteStyle";
   @SerializedName(SERIALIZED_NAME_VOTE_STYLE)
+  @javax.annotation.Nullable
   private VoteStyle voteStyle;
 
   public static final String SERIALIZED_NAME_WIDGET_QUESTION_ID = "widgetQuestionId";
   @SerializedName(SERIALIZED_NAME_WIDGET_QUESTION_ID)
+  @javax.annotation.Nullable
   private String widgetQuestionId;
 
   public static final String SERIALIZED_NAME_WIDGET_QUESTION_RESULTS_STYLE = "widgetQuestionResultsStyle";
   @SerializedName(SERIALIZED_NAME_WIDGET_QUESTION_RESULTS_STYLE)
+  @javax.annotation.Nullable
   private CommentQuestionResultsRenderingType widgetQuestionResultsStyle;
 
   public static final String SERIALIZED_NAME_WIDGET_QUESTION_STYLE = "widgetQuestionStyle";
   @SerializedName(SERIALIZED_NAME_WIDGET_QUESTION_STYLE)
+  @javax.annotation.Nullable
   private QuestionRenderingType widgetQuestionStyle;
 
   public static final String SERIALIZED_NAME_WIDGET_QUESTION_WHEN_TO_SAVE = "widgetQuestionWhenToSave";
   @SerializedName(SERIALIZED_NAME_WIDGET_QUESTION_WHEN_TO_SAVE)
+  @javax.annotation.Nullable
   private QuestionWhenSave widgetQuestionWhenToSave;
 
   public static final String SERIALIZED_NAME_WIDGET_QUESTIONS_REQUIRED = "widgetQuestionsRequired";
   @SerializedName(SERIALIZED_NAME_WIDGET_QUESTIONS_REQUIRED)
+  @javax.annotation.Nullable
   private CommentQuestionsRequired widgetQuestionsRequired;
 
   public static final String SERIALIZED_NAME_WIDGET_SUB_QUESTION_VISIBILITY = "widgetSubQuestionVisibility";
   @SerializedName(SERIALIZED_NAME_WIDGET_SUB_QUESTION_VISIBILITY)
+  @javax.annotation.Nullable
   private QuestionSubQuestionVisibility widgetSubQuestionVisibility;
 
   public static final String SERIALIZED_NAME_WRAP = "wrap";
   @SerializedName(SERIALIZED_NAME_WRAP)
+  @javax.annotation.Nullable
   private Boolean wrap;
 
   public CustomConfigParameters() {
   }
 
-  public CustomConfigParameters absoluteAndRelativeDates(Boolean absoluteAndRelativeDates) {
+  public CustomConfigParameters absoluteAndRelativeDates(@javax.annotation.Nullable Boolean absoluteAndRelativeDates) {
     this.absoluteAndRelativeDates = absoluteAndRelativeDates;
     return this;
   }
 
-   /**
+  /**
    * Get absoluteAndRelativeDates
    * @return absoluteAndRelativeDates
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAbsoluteAndRelativeDates() {
     return absoluteAndRelativeDates;
   }
 
-  public void setAbsoluteAndRelativeDates(Boolean absoluteAndRelativeDates) {
+  public void setAbsoluteAndRelativeDates(@javax.annotation.Nullable Boolean absoluteAndRelativeDates) {
     this.absoluteAndRelativeDates = absoluteAndRelativeDates;
   }
 
 
-  public CustomConfigParameters absoluteDates(Boolean absoluteDates) {
+  public CustomConfigParameters absoluteDates(@javax.annotation.Nullable Boolean absoluteDates) {
     this.absoluteDates = absoluteDates;
     return this;
   }
 
-   /**
+  /**
    * Get absoluteDates
    * @return absoluteDates
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAbsoluteDates() {
     return absoluteDates;
   }
 
-  public void setAbsoluteDates(Boolean absoluteDates) {
+  public void setAbsoluteDates(@javax.annotation.Nullable Boolean absoluteDates) {
     this.absoluteDates = absoluteDates;
   }
 
 
-  public CustomConfigParameters allowAnon(Boolean allowAnon) {
+  public CustomConfigParameters allowAnon(@javax.annotation.Nullable Boolean allowAnon) {
     this.allowAnon = allowAnon;
     return this;
   }
 
-   /**
+  /**
    * Get allowAnon
    * @return allowAnon
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAllowAnon() {
     return allowAnon;
   }
 
-  public void setAllowAnon(Boolean allowAnon) {
+  public void setAllowAnon(@javax.annotation.Nullable Boolean allowAnon) {
     this.allowAnon = allowAnon;
   }
 
 
-  public CustomConfigParameters allowAnonFlag(Boolean allowAnonFlag) {
+  public CustomConfigParameters allowAnonFlag(@javax.annotation.Nullable Boolean allowAnonFlag) {
     this.allowAnonFlag = allowAnonFlag;
     return this;
   }
 
-   /**
+  /**
    * Get allowAnonFlag
    * @return allowAnonFlag
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAllowAnonFlag() {
     return allowAnonFlag;
   }
 
-  public void setAllowAnonFlag(Boolean allowAnonFlag) {
+  public void setAllowAnonFlag(@javax.annotation.Nullable Boolean allowAnonFlag) {
     this.allowAnonFlag = allowAnonFlag;
   }
 
 
-  public CustomConfigParameters allowAnonVotes(Boolean allowAnonVotes) {
+  public CustomConfigParameters allowAnonVotes(@javax.annotation.Nullable Boolean allowAnonVotes) {
     this.allowAnonVotes = allowAnonVotes;
     return this;
   }
 
-   /**
+  /**
    * Get allowAnonVotes
    * @return allowAnonVotes
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAllowAnonVotes() {
     return allowAnonVotes;
   }
 
-  public void setAllowAnonVotes(Boolean allowAnonVotes) {
+  public void setAllowAnonVotes(@javax.annotation.Nullable Boolean allowAnonVotes) {
     this.allowAnonVotes = allowAnonVotes;
   }
 
 
-  public CustomConfigParameters allowedLanguages(List<String> allowedLanguages) {
+  public CustomConfigParameters allowedLanguages(@javax.annotation.Nullable List<String> allowedLanguages) {
     this.allowedLanguages = allowedLanguages;
     return this;
   }
@@ -450,895 +517,895 @@ public class CustomConfigParameters {
     return this;
   }
 
-   /**
+  /**
    * Get allowedLanguages
    * @return allowedLanguages
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getAllowedLanguages() {
     return allowedLanguages;
   }
 
-  public void setAllowedLanguages(List<String> allowedLanguages) {
+  public void setAllowedLanguages(@javax.annotation.Nullable List<String> allowedLanguages) {
     this.allowedLanguages = allowedLanguages;
   }
 
 
-  public CustomConfigParameters collapseReplies(Boolean collapseReplies) {
+  public CustomConfigParameters collapseReplies(@javax.annotation.Nullable Boolean collapseReplies) {
     this.collapseReplies = collapseReplies;
     return this;
   }
 
-   /**
+  /**
    * Get collapseReplies
    * @return collapseReplies
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getCollapseReplies() {
     return collapseReplies;
   }
 
-  public void setCollapseReplies(Boolean collapseReplies) {
+  public void setCollapseReplies(@javax.annotation.Nullable Boolean collapseReplies) {
     this.collapseReplies = collapseReplies;
   }
 
 
-  public CustomConfigParameters commentCountFormat(String commentCountFormat) {
+  public CustomConfigParameters commentCountFormat(@javax.annotation.Nullable String commentCountFormat) {
     this.commentCountFormat = commentCountFormat;
     return this;
   }
 
-   /**
+  /**
    * Get commentCountFormat
    * @return commentCountFormat
-  **/
+   */
   @javax.annotation.Nullable
   public String getCommentCountFormat() {
     return commentCountFormat;
   }
 
-  public void setCommentCountFormat(String commentCountFormat) {
+  public void setCommentCountFormat(@javax.annotation.Nullable String commentCountFormat) {
     this.commentCountFormat = commentCountFormat;
   }
 
 
-  public CustomConfigParameters commentHTMLRenderingMode(CommentHTMLRenderingMode commentHTMLRenderingMode) {
+  public CustomConfigParameters commentHTMLRenderingMode(@javax.annotation.Nullable CommentHTMLRenderingMode commentHTMLRenderingMode) {
     this.commentHTMLRenderingMode = commentHTMLRenderingMode;
     return this;
   }
 
-   /**
+  /**
    * Get commentHTMLRenderingMode
    * @return commentHTMLRenderingMode
-  **/
+   */
   @javax.annotation.Nullable
   public CommentHTMLRenderingMode getCommentHTMLRenderingMode() {
     return commentHTMLRenderingMode;
   }
 
-  public void setCommentHTMLRenderingMode(CommentHTMLRenderingMode commentHTMLRenderingMode) {
+  public void setCommentHTMLRenderingMode(@javax.annotation.Nullable CommentHTMLRenderingMode commentHTMLRenderingMode) {
     this.commentHTMLRenderingMode = commentHTMLRenderingMode;
   }
 
 
-  public CustomConfigParameters commentThreadDeleteMode(CommentThreadDeletionMode commentThreadDeleteMode) {
+  public CustomConfigParameters commentThreadDeleteMode(@javax.annotation.Nullable CommentThreadDeletionMode commentThreadDeleteMode) {
     this.commentThreadDeleteMode = commentThreadDeleteMode;
     return this;
   }
 
-   /**
+  /**
    * Get commentThreadDeleteMode
    * @return commentThreadDeleteMode
-  **/
+   */
   @javax.annotation.Nullable
   public CommentThreadDeletionMode getCommentThreadDeleteMode() {
     return commentThreadDeleteMode;
   }
 
-  public void setCommentThreadDeleteMode(CommentThreadDeletionMode commentThreadDeleteMode) {
+  public void setCommentThreadDeleteMode(@javax.annotation.Nullable CommentThreadDeletionMode commentThreadDeleteMode) {
     this.commentThreadDeleteMode = commentThreadDeleteMode;
   }
 
 
-  public CustomConfigParameters commenterNameFormat(CommenterNameFormats commenterNameFormat) {
+  public CustomConfigParameters commenterNameFormat(@javax.annotation.Nullable CommenterNameFormats commenterNameFormat) {
     this.commenterNameFormat = commenterNameFormat;
     return this;
   }
 
-   /**
+  /**
    * Get commenterNameFormat
    * @return commenterNameFormat
-  **/
+   */
   @javax.annotation.Nullable
   public CommenterNameFormats getCommenterNameFormat() {
     return commenterNameFormat;
   }
 
-  public void setCommenterNameFormat(CommenterNameFormats commenterNameFormat) {
+  public void setCommenterNameFormat(@javax.annotation.Nullable CommenterNameFormats commenterNameFormat) {
     this.commenterNameFormat = commenterNameFormat;
   }
 
 
-  public CustomConfigParameters countAboveToggle(Double countAboveToggle) {
+  public CustomConfigParameters countAboveToggle(@javax.annotation.Nullable Double countAboveToggle) {
     this.countAboveToggle = countAboveToggle;
     return this;
   }
 
-   /**
+  /**
    * Get countAboveToggle
    * @return countAboveToggle
-  **/
+   */
   @javax.annotation.Nullable
   public Double getCountAboveToggle() {
     return countAboveToggle;
   }
 
-  public void setCountAboveToggle(Double countAboveToggle) {
+  public void setCountAboveToggle(@javax.annotation.Nullable Double countAboveToggle) {
     this.countAboveToggle = countAboveToggle;
   }
 
 
-  public CustomConfigParameters customCSS(String customCSS) {
+  public CustomConfigParameters customCSS(@javax.annotation.Nullable String customCSS) {
     this.customCSS = customCSS;
     return this;
   }
 
-   /**
+  /**
    * Get customCSS
    * @return customCSS
-  **/
+   */
   @javax.annotation.Nullable
   public String getCustomCSS() {
     return customCSS;
   }
 
-  public void setCustomCSS(String customCSS) {
+  public void setCustomCSS(@javax.annotation.Nullable String customCSS) {
     this.customCSS = customCSS;
   }
 
 
-  public CustomConfigParameters defaultAvatarSrc(String defaultAvatarSrc) {
+  public CustomConfigParameters defaultAvatarSrc(@javax.annotation.Nullable String defaultAvatarSrc) {
     this.defaultAvatarSrc = defaultAvatarSrc;
     return this;
   }
 
-   /**
+  /**
    * Get defaultAvatarSrc
    * @return defaultAvatarSrc
-  **/
+   */
   @javax.annotation.Nullable
   public String getDefaultAvatarSrc() {
     return defaultAvatarSrc;
   }
 
-  public void setDefaultAvatarSrc(String defaultAvatarSrc) {
+  public void setDefaultAvatarSrc(@javax.annotation.Nullable String defaultAvatarSrc) {
     this.defaultAvatarSrc = defaultAvatarSrc;
   }
 
 
-  public CustomConfigParameters defaultSortDirection(SortDirections defaultSortDirection) {
+  public CustomConfigParameters defaultSortDirection(@javax.annotation.Nullable SortDirections defaultSortDirection) {
     this.defaultSortDirection = defaultSortDirection;
     return this;
   }
 
-   /**
+  /**
    * Get defaultSortDirection
    * @return defaultSortDirection
-  **/
+   */
   @javax.annotation.Nullable
   public SortDirections getDefaultSortDirection() {
     return defaultSortDirection;
   }
 
-  public void setDefaultSortDirection(SortDirections defaultSortDirection) {
+  public void setDefaultSortDirection(@javax.annotation.Nullable SortDirections defaultSortDirection) {
     this.defaultSortDirection = defaultSortDirection;
   }
 
 
-  public CustomConfigParameters defaultUsername(String defaultUsername) {
+  public CustomConfigParameters defaultUsername(@javax.annotation.Nullable String defaultUsername) {
     this.defaultUsername = defaultUsername;
     return this;
   }
 
-   /**
+  /**
    * Get defaultUsername
    * @return defaultUsername
-  **/
+   */
   @javax.annotation.Nullable
   public String getDefaultUsername() {
     return defaultUsername;
   }
 
-  public void setDefaultUsername(String defaultUsername) {
+  public void setDefaultUsername(@javax.annotation.Nullable String defaultUsername) {
     this.defaultUsername = defaultUsername;
   }
 
 
-  public CustomConfigParameters disableAutoAdminMigration(Boolean disableAutoAdminMigration) {
+  public CustomConfigParameters disableAutoAdminMigration(@javax.annotation.Nullable Boolean disableAutoAdminMigration) {
     this.disableAutoAdminMigration = disableAutoAdminMigration;
     return this;
   }
 
-   /**
+  /**
    * Get disableAutoAdminMigration
    * @return disableAutoAdminMigration
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableAutoAdminMigration() {
     return disableAutoAdminMigration;
   }
 
-  public void setDisableAutoAdminMigration(Boolean disableAutoAdminMigration) {
+  public void setDisableAutoAdminMigration(@javax.annotation.Nullable Boolean disableAutoAdminMigration) {
     this.disableAutoAdminMigration = disableAutoAdminMigration;
   }
 
 
-  public CustomConfigParameters disableAutoHashTagCreation(Boolean disableAutoHashTagCreation) {
+  public CustomConfigParameters disableAutoHashTagCreation(@javax.annotation.Nullable Boolean disableAutoHashTagCreation) {
     this.disableAutoHashTagCreation = disableAutoHashTagCreation;
     return this;
   }
 
-   /**
+  /**
    * Get disableAutoHashTagCreation
    * @return disableAutoHashTagCreation
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableAutoHashTagCreation() {
     return disableAutoHashTagCreation;
   }
 
-  public void setDisableAutoHashTagCreation(Boolean disableAutoHashTagCreation) {
+  public void setDisableAutoHashTagCreation(@javax.annotation.Nullable Boolean disableAutoHashTagCreation) {
     this.disableAutoHashTagCreation = disableAutoHashTagCreation;
   }
 
 
-  public CustomConfigParameters disableBlocking(Boolean disableBlocking) {
+  public CustomConfigParameters disableBlocking(@javax.annotation.Nullable Boolean disableBlocking) {
     this.disableBlocking = disableBlocking;
     return this;
   }
 
-   /**
+  /**
    * Get disableBlocking
    * @return disableBlocking
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableBlocking() {
     return disableBlocking;
   }
 
-  public void setDisableBlocking(Boolean disableBlocking) {
+  public void setDisableBlocking(@javax.annotation.Nullable Boolean disableBlocking) {
     this.disableBlocking = disableBlocking;
   }
 
 
-  public CustomConfigParameters disableCommenterCommentDelete(Boolean disableCommenterCommentDelete) {
+  public CustomConfigParameters disableCommenterCommentDelete(@javax.annotation.Nullable Boolean disableCommenterCommentDelete) {
     this.disableCommenterCommentDelete = disableCommenterCommentDelete;
     return this;
   }
 
-   /**
+  /**
    * Get disableCommenterCommentDelete
    * @return disableCommenterCommentDelete
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableCommenterCommentDelete() {
     return disableCommenterCommentDelete;
   }
 
-  public void setDisableCommenterCommentDelete(Boolean disableCommenterCommentDelete) {
+  public void setDisableCommenterCommentDelete(@javax.annotation.Nullable Boolean disableCommenterCommentDelete) {
     this.disableCommenterCommentDelete = disableCommenterCommentDelete;
   }
 
 
-  public CustomConfigParameters disableCommenterCommentEdit(Boolean disableCommenterCommentEdit) {
+  public CustomConfigParameters disableCommenterCommentEdit(@javax.annotation.Nullable Boolean disableCommenterCommentEdit) {
     this.disableCommenterCommentEdit = disableCommenterCommentEdit;
     return this;
   }
 
-   /**
+  /**
    * Get disableCommenterCommentEdit
    * @return disableCommenterCommentEdit
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableCommenterCommentEdit() {
     return disableCommenterCommentEdit;
   }
 
-  public void setDisableCommenterCommentEdit(Boolean disableCommenterCommentEdit) {
+  public void setDisableCommenterCommentEdit(@javax.annotation.Nullable Boolean disableCommenterCommentEdit) {
     this.disableCommenterCommentEdit = disableCommenterCommentEdit;
   }
 
 
-  public CustomConfigParameters disableEmailInputs(Boolean disableEmailInputs) {
+  public CustomConfigParameters disableEmailInputs(@javax.annotation.Nullable Boolean disableEmailInputs) {
     this.disableEmailInputs = disableEmailInputs;
     return this;
   }
 
-   /**
+  /**
    * Get disableEmailInputs
    * @return disableEmailInputs
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableEmailInputs() {
     return disableEmailInputs;
   }
 
-  public void setDisableEmailInputs(Boolean disableEmailInputs) {
+  public void setDisableEmailInputs(@javax.annotation.Nullable Boolean disableEmailInputs) {
     this.disableEmailInputs = disableEmailInputs;
   }
 
 
-  public CustomConfigParameters disableLiveCommenting(Boolean disableLiveCommenting) {
+  public CustomConfigParameters disableLiveCommenting(@javax.annotation.Nullable Boolean disableLiveCommenting) {
     this.disableLiveCommenting = disableLiveCommenting;
     return this;
   }
 
-   /**
+  /**
    * Get disableLiveCommenting
    * @return disableLiveCommenting
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableLiveCommenting() {
     return disableLiveCommenting;
   }
 
-  public void setDisableLiveCommenting(Boolean disableLiveCommenting) {
+  public void setDisableLiveCommenting(@javax.annotation.Nullable Boolean disableLiveCommenting) {
     this.disableLiveCommenting = disableLiveCommenting;
   }
 
 
-  public CustomConfigParameters disableNotificationBell(Boolean disableNotificationBell) {
+  public CustomConfigParameters disableNotificationBell(@javax.annotation.Nullable Boolean disableNotificationBell) {
     this.disableNotificationBell = disableNotificationBell;
     return this;
   }
 
-   /**
+  /**
    * Get disableNotificationBell
    * @return disableNotificationBell
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableNotificationBell() {
     return disableNotificationBell;
   }
 
-  public void setDisableNotificationBell(Boolean disableNotificationBell) {
+  public void setDisableNotificationBell(@javax.annotation.Nullable Boolean disableNotificationBell) {
     this.disableNotificationBell = disableNotificationBell;
   }
 
 
-  public CustomConfigParameters disableProfiles(Boolean disableProfiles) {
+  public CustomConfigParameters disableProfiles(@javax.annotation.Nullable Boolean disableProfiles) {
     this.disableProfiles = disableProfiles;
     return this;
   }
 
-   /**
+  /**
    * Get disableProfiles
    * @return disableProfiles
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableProfiles() {
     return disableProfiles;
   }
 
-  public void setDisableProfiles(Boolean disableProfiles) {
+  public void setDisableProfiles(@javax.annotation.Nullable Boolean disableProfiles) {
     this.disableProfiles = disableProfiles;
   }
 
 
-  public CustomConfigParameters disableSuccessMessage(Boolean disableSuccessMessage) {
+  public CustomConfigParameters disableSuccessMessage(@javax.annotation.Nullable Boolean disableSuccessMessage) {
     this.disableSuccessMessage = disableSuccessMessage;
     return this;
   }
 
-   /**
+  /**
    * Get disableSuccessMessage
    * @return disableSuccessMessage
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableSuccessMessage() {
     return disableSuccessMessage;
   }
 
-  public void setDisableSuccessMessage(Boolean disableSuccessMessage) {
+  public void setDisableSuccessMessage(@javax.annotation.Nullable Boolean disableSuccessMessage) {
     this.disableSuccessMessage = disableSuccessMessage;
   }
 
 
-  public CustomConfigParameters disableToolbar(Boolean disableToolbar) {
+  public CustomConfigParameters disableToolbar(@javax.annotation.Nullable Boolean disableToolbar) {
     this.disableToolbar = disableToolbar;
     return this;
   }
 
-   /**
+  /**
    * Get disableToolbar
    * @return disableToolbar
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableToolbar() {
     return disableToolbar;
   }
 
-  public void setDisableToolbar(Boolean disableToolbar) {
+  public void setDisableToolbar(@javax.annotation.Nullable Boolean disableToolbar) {
     this.disableToolbar = disableToolbar;
   }
 
 
-  public CustomConfigParameters disableUnverifiedLabel(Boolean disableUnverifiedLabel) {
+  public CustomConfigParameters disableUnverifiedLabel(@javax.annotation.Nullable Boolean disableUnverifiedLabel) {
     this.disableUnverifiedLabel = disableUnverifiedLabel;
     return this;
   }
 
-   /**
+  /**
    * Get disableUnverifiedLabel
    * @return disableUnverifiedLabel
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableUnverifiedLabel() {
     return disableUnverifiedLabel;
   }
 
-  public void setDisableUnverifiedLabel(Boolean disableUnverifiedLabel) {
+  public void setDisableUnverifiedLabel(@javax.annotation.Nullable Boolean disableUnverifiedLabel) {
     this.disableUnverifiedLabel = disableUnverifiedLabel;
   }
 
 
-  public CustomConfigParameters disableVoting(Boolean disableVoting) {
+  public CustomConfigParameters disableVoting(@javax.annotation.Nullable Boolean disableVoting) {
     this.disableVoting = disableVoting;
     return this;
   }
 
-   /**
+  /**
    * Get disableVoting
    * @return disableVoting
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDisableVoting() {
     return disableVoting;
   }
 
-  public void setDisableVoting(Boolean disableVoting) {
+  public void setDisableVoting(@javax.annotation.Nullable Boolean disableVoting) {
     this.disableVoting = disableVoting;
   }
 
 
-  public CustomConfigParameters enableCommenterLinks(Boolean enableCommenterLinks) {
+  public CustomConfigParameters enableCommenterLinks(@javax.annotation.Nullable Boolean enableCommenterLinks) {
     this.enableCommenterLinks = enableCommenterLinks;
     return this;
   }
 
-   /**
+  /**
    * Get enableCommenterLinks
    * @return enableCommenterLinks
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getEnableCommenterLinks() {
     return enableCommenterLinks;
   }
 
-  public void setEnableCommenterLinks(Boolean enableCommenterLinks) {
+  public void setEnableCommenterLinks(@javax.annotation.Nullable Boolean enableCommenterLinks) {
     this.enableCommenterLinks = enableCommenterLinks;
   }
 
 
-  public CustomConfigParameters enableSearch(Boolean enableSearch) {
+  public CustomConfigParameters enableSearch(@javax.annotation.Nullable Boolean enableSearch) {
     this.enableSearch = enableSearch;
     return this;
   }
 
-   /**
+  /**
    * Get enableSearch
    * @return enableSearch
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getEnableSearch() {
     return enableSearch;
   }
 
-  public void setEnableSearch(Boolean enableSearch) {
+  public void setEnableSearch(@javax.annotation.Nullable Boolean enableSearch) {
     this.enableSearch = enableSearch;
   }
 
 
-  public CustomConfigParameters enableSpoilers(Boolean enableSpoilers) {
+  public CustomConfigParameters enableSpoilers(@javax.annotation.Nullable Boolean enableSpoilers) {
     this.enableSpoilers = enableSpoilers;
     return this;
   }
 
-   /**
+  /**
    * Get enableSpoilers
    * @return enableSpoilers
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getEnableSpoilers() {
     return enableSpoilers;
   }
 
-  public void setEnableSpoilers(Boolean enableSpoilers) {
+  public void setEnableSpoilers(@javax.annotation.Nullable Boolean enableSpoilers) {
     this.enableSpoilers = enableSpoilers;
   }
 
 
-  public CustomConfigParameters enableThirdPartyCookieBypass(Boolean enableThirdPartyCookieBypass) {
+  public CustomConfigParameters enableThirdPartyCookieBypass(@javax.annotation.Nullable Boolean enableThirdPartyCookieBypass) {
     this.enableThirdPartyCookieBypass = enableThirdPartyCookieBypass;
     return this;
   }
 
-   /**
+  /**
    * Get enableThirdPartyCookieBypass
    * @return enableThirdPartyCookieBypass
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getEnableThirdPartyCookieBypass() {
     return enableThirdPartyCookieBypass;
   }
 
-  public void setEnableThirdPartyCookieBypass(Boolean enableThirdPartyCookieBypass) {
+  public void setEnableThirdPartyCookieBypass(@javax.annotation.Nullable Boolean enableThirdPartyCookieBypass) {
     this.enableThirdPartyCookieBypass = enableThirdPartyCookieBypass;
   }
 
 
-  public CustomConfigParameters enableViewCounts(Boolean enableViewCounts) {
+  public CustomConfigParameters enableViewCounts(@javax.annotation.Nullable Boolean enableViewCounts) {
     this.enableViewCounts = enableViewCounts;
     return this;
   }
 
-   /**
+  /**
    * Get enableViewCounts
    * @return enableViewCounts
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getEnableViewCounts() {
     return enableViewCounts;
   }
 
-  public void setEnableViewCounts(Boolean enableViewCounts) {
+  public void setEnableViewCounts(@javax.annotation.Nullable Boolean enableViewCounts) {
     this.enableViewCounts = enableViewCounts;
   }
 
 
-  public CustomConfigParameters enableVoteList(Boolean enableVoteList) {
+  public CustomConfigParameters enableVoteList(@javax.annotation.Nullable Boolean enableVoteList) {
     this.enableVoteList = enableVoteList;
     return this;
   }
 
-   /**
+  /**
    * Get enableVoteList
    * @return enableVoteList
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getEnableVoteList() {
     return enableVoteList;
   }
 
-  public void setEnableVoteList(Boolean enableVoteList) {
+  public void setEnableVoteList(@javax.annotation.Nullable Boolean enableVoteList) {
     this.enableVoteList = enableVoteList;
   }
 
 
-  public CustomConfigParameters enableWYSIWYG(Boolean enableWYSIWYG) {
+  public CustomConfigParameters enableWYSIWYG(@javax.annotation.Nullable Boolean enableWYSIWYG) {
     this.enableWYSIWYG = enableWYSIWYG;
     return this;
   }
 
-   /**
+  /**
    * Get enableWYSIWYG
    * @return enableWYSIWYG
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getEnableWYSIWYG() {
     return enableWYSIWYG;
   }
 
-  public void setEnableWYSIWYG(Boolean enableWYSIWYG) {
+  public void setEnableWYSIWYG(@javax.annotation.Nullable Boolean enableWYSIWYG) {
     this.enableWYSIWYG = enableWYSIWYG;
   }
 
 
-  public CustomConfigParameters gifRating(GifRating gifRating) {
+  public CustomConfigParameters gifRating(@javax.annotation.Nullable GifRating gifRating) {
     this.gifRating = gifRating;
     return this;
   }
 
-   /**
+  /**
    * Get gifRating
    * @return gifRating
-  **/
+   */
   @javax.annotation.Nullable
   public GifRating getGifRating() {
     return gifRating;
   }
 
-  public void setGifRating(GifRating gifRating) {
+  public void setGifRating(@javax.annotation.Nullable GifRating gifRating) {
     this.gifRating = gifRating;
   }
 
 
-  public CustomConfigParameters hasDarkBackground(Boolean hasDarkBackground) {
+  public CustomConfigParameters hasDarkBackground(@javax.annotation.Nullable Boolean hasDarkBackground) {
     this.hasDarkBackground = hasDarkBackground;
     return this;
   }
 
-   /**
+  /**
    * Get hasDarkBackground
    * @return hasDarkBackground
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasDarkBackground() {
     return hasDarkBackground;
   }
 
-  public void setHasDarkBackground(Boolean hasDarkBackground) {
+  public void setHasDarkBackground(@javax.annotation.Nullable Boolean hasDarkBackground) {
     this.hasDarkBackground = hasDarkBackground;
   }
 
 
-  public CustomConfigParameters headerHTML(String headerHTML) {
+  public CustomConfigParameters headerHTML(@javax.annotation.Nullable String headerHTML) {
     this.headerHTML = headerHTML;
     return this;
   }
 
-   /**
+  /**
    * Get headerHTML
    * @return headerHTML
-  **/
+   */
   @javax.annotation.Nullable
   public String getHeaderHTML() {
     return headerHTML;
   }
 
-  public void setHeaderHTML(String headerHTML) {
+  public void setHeaderHTML(@javax.annotation.Nullable String headerHTML) {
     this.headerHTML = headerHTML;
   }
 
 
-  public CustomConfigParameters hideAvatars(Boolean hideAvatars) {
+  public CustomConfigParameters hideAvatars(@javax.annotation.Nullable Boolean hideAvatars) {
     this.hideAvatars = hideAvatars;
     return this;
   }
 
-   /**
+  /**
    * Get hideAvatars
    * @return hideAvatars
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHideAvatars() {
     return hideAvatars;
   }
 
-  public void setHideAvatars(Boolean hideAvatars) {
+  public void setHideAvatars(@javax.annotation.Nullable Boolean hideAvatars) {
     this.hideAvatars = hideAvatars;
   }
 
 
-  public CustomConfigParameters hideCommentsUnderCountTextFormat(String hideCommentsUnderCountTextFormat) {
+  public CustomConfigParameters hideCommentsUnderCountTextFormat(@javax.annotation.Nullable String hideCommentsUnderCountTextFormat) {
     this.hideCommentsUnderCountTextFormat = hideCommentsUnderCountTextFormat;
     return this;
   }
 
-   /**
+  /**
    * Get hideCommentsUnderCountTextFormat
    * @return hideCommentsUnderCountTextFormat
-  **/
+   */
   @javax.annotation.Nullable
   public String getHideCommentsUnderCountTextFormat() {
     return hideCommentsUnderCountTextFormat;
   }
 
-  public void setHideCommentsUnderCountTextFormat(String hideCommentsUnderCountTextFormat) {
+  public void setHideCommentsUnderCountTextFormat(@javax.annotation.Nullable String hideCommentsUnderCountTextFormat) {
     this.hideCommentsUnderCountTextFormat = hideCommentsUnderCountTextFormat;
   }
 
 
-  public CustomConfigParameters inputAfterComments(Boolean inputAfterComments) {
+  public CustomConfigParameters inputAfterComments(@javax.annotation.Nullable Boolean inputAfterComments) {
     this.inputAfterComments = inputAfterComments;
     return this;
   }
 
-   /**
+  /**
    * Get inputAfterComments
    * @return inputAfterComments
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getInputAfterComments() {
     return inputAfterComments;
   }
 
-  public void setInputAfterComments(Boolean inputAfterComments) {
+  public void setInputAfterComments(@javax.annotation.Nullable Boolean inputAfterComments) {
     this.inputAfterComments = inputAfterComments;
   }
 
 
-  public CustomConfigParameters limitCommentsByGroups(Boolean limitCommentsByGroups) {
+  public CustomConfigParameters limitCommentsByGroups(@javax.annotation.Nullable Boolean limitCommentsByGroups) {
     this.limitCommentsByGroups = limitCommentsByGroups;
     return this;
   }
 
-   /**
+  /**
    * Get limitCommentsByGroups
    * @return limitCommentsByGroups
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getLimitCommentsByGroups() {
     return limitCommentsByGroups;
   }
 
-  public void setLimitCommentsByGroups(Boolean limitCommentsByGroups) {
+  public void setLimitCommentsByGroups(@javax.annotation.Nullable Boolean limitCommentsByGroups) {
     this.limitCommentsByGroups = limitCommentsByGroups;
   }
 
 
-  public CustomConfigParameters locale(String locale) {
+  public CustomConfigParameters locale(@javax.annotation.Nullable String locale) {
     this.locale = locale;
     return this;
   }
 
-   /**
+  /**
    * Get locale
    * @return locale
-  **/
+   */
   @javax.annotation.Nullable
   public String getLocale() {
     return locale;
   }
 
-  public void setLocale(String locale) {
+  public void setLocale(@javax.annotation.Nullable String locale) {
     this.locale = locale;
   }
 
 
-  public CustomConfigParameters maxCommentCharacterLength(Double maxCommentCharacterLength) {
+  public CustomConfigParameters maxCommentCharacterLength(@javax.annotation.Nullable Double maxCommentCharacterLength) {
     this.maxCommentCharacterLength = maxCommentCharacterLength;
     return this;
   }
 
-   /**
+  /**
    * Get maxCommentCharacterLength
    * @return maxCommentCharacterLength
-  **/
+   */
   @javax.annotation.Nullable
   public Double getMaxCommentCharacterLength() {
     return maxCommentCharacterLength;
   }
 
-  public void setMaxCommentCharacterLength(Double maxCommentCharacterLength) {
+  public void setMaxCommentCharacterLength(@javax.annotation.Nullable Double maxCommentCharacterLength) {
     this.maxCommentCharacterLength = maxCommentCharacterLength;
   }
 
 
-  public CustomConfigParameters maxCommentCreatedCountPUPM(Double maxCommentCreatedCountPUPM) {
+  public CustomConfigParameters maxCommentCreatedCountPUPM(@javax.annotation.Nullable Double maxCommentCreatedCountPUPM) {
     this.maxCommentCreatedCountPUPM = maxCommentCreatedCountPUPM;
     return this;
   }
 
-   /**
+  /**
    * Get maxCommentCreatedCountPUPM
    * @return maxCommentCreatedCountPUPM
-  **/
+   */
   @javax.annotation.Nullable
   public Double getMaxCommentCreatedCountPUPM() {
     return maxCommentCreatedCountPUPM;
   }
 
-  public void setMaxCommentCreatedCountPUPM(Double maxCommentCreatedCountPUPM) {
+  public void setMaxCommentCreatedCountPUPM(@javax.annotation.Nullable Double maxCommentCreatedCountPUPM) {
     this.maxCommentCreatedCountPUPM = maxCommentCreatedCountPUPM;
   }
 
 
-  public CustomConfigParameters noCustomConfig(Boolean noCustomConfig) {
+  public CustomConfigParameters noCustomConfig(@javax.annotation.Nullable Boolean noCustomConfig) {
     this.noCustomConfig = noCustomConfig;
     return this;
   }
 
-   /**
+  /**
    * Get noCustomConfig
    * @return noCustomConfig
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getNoCustomConfig() {
     return noCustomConfig;
   }
 
-  public void setNoCustomConfig(Boolean noCustomConfig) {
+  public void setNoCustomConfig(@javax.annotation.Nullable Boolean noCustomConfig) {
     this.noCustomConfig = noCustomConfig;
   }
 
 
-  public CustomConfigParameters noImageUploads(Boolean noImageUploads) {
+  public CustomConfigParameters noImageUploads(@javax.annotation.Nullable Boolean noImageUploads) {
     this.noImageUploads = noImageUploads;
     return this;
   }
 
-   /**
+  /**
    * Get noImageUploads
    * @return noImageUploads
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getNoImageUploads() {
     return noImageUploads;
   }
 
-  public void setNoImageUploads(Boolean noImageUploads) {
+  public void setNoImageUploads(@javax.annotation.Nullable Boolean noImageUploads) {
     this.noImageUploads = noImageUploads;
   }
 
 
-  public CustomConfigParameters noStyles(Boolean noStyles) {
+  public CustomConfigParameters noStyles(@javax.annotation.Nullable Boolean noStyles) {
     this.noStyles = noStyles;
     return this;
   }
 
-   /**
+  /**
    * Get noStyles
    * @return noStyles
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getNoStyles() {
     return noStyles;
   }
 
-  public void setNoStyles(Boolean noStyles) {
+  public void setNoStyles(@javax.annotation.Nullable Boolean noStyles) {
     this.noStyles = noStyles;
   }
 
 
-  public CustomConfigParameters pageSize(Double pageSize) {
+  public CustomConfigParameters pageSize(@javax.annotation.Nullable Double pageSize) {
     this.pageSize = pageSize;
     return this;
   }
 
-   /**
+  /**
    * Get pageSize
    * @return pageSize
-  **/
+   */
   @javax.annotation.Nullable
   public Double getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(Double pageSize) {
+  public void setPageSize(@javax.annotation.Nullable Double pageSize) {
     this.pageSize = pageSize;
   }
 
 
-  public CustomConfigParameters readonly(Boolean readonly) {
+  public CustomConfigParameters readonly(@javax.annotation.Nullable Boolean readonly) {
     this.readonly = readonly;
     return this;
   }
 
-   /**
+  /**
    * Get readonly
    * @return readonly
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getReadonly() {
     return readonly;
   }
 
-  public void setReadonly(Boolean readonly) {
+  public void setReadonly(@javax.annotation.Nullable Boolean readonly) {
     this.readonly = readonly;
   }
 
 
-  public CustomConfigParameters requireSSO(Boolean requireSSO) {
+  public CustomConfigParameters requireSSO(@javax.annotation.Nullable Boolean requireSSO) {
     this.requireSSO = requireSSO;
     return this;
   }
 
-   /**
+  /**
    * Get requireSSO
    * @return requireSSO
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getRequireSSO() {
     return requireSSO;
   }
 
-  public void setRequireSSO(Boolean requireSSO) {
+  public void setRequireSSO(@javax.annotation.Nullable Boolean requireSSO) {
     this.requireSSO = requireSSO;
   }
 
 
-  public CustomConfigParameters restrictedLinkDomains(List<String> restrictedLinkDomains) {
+  public CustomConfigParameters restrictedLinkDomains(@javax.annotation.Nullable List<String> restrictedLinkDomains) {
     this.restrictedLinkDomains = restrictedLinkDomains;
     return this;
   }
@@ -1351,78 +1418,78 @@ public class CustomConfigParameters {
     return this;
   }
 
-   /**
+  /**
    * Get restrictedLinkDomains
    * @return restrictedLinkDomains
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getRestrictedLinkDomains() {
     return restrictedLinkDomains;
   }
 
-  public void setRestrictedLinkDomains(List<String> restrictedLinkDomains) {
+  public void setRestrictedLinkDomains(@javax.annotation.Nullable List<String> restrictedLinkDomains) {
     this.restrictedLinkDomains = restrictedLinkDomains;
   }
 
 
-  public CustomConfigParameters showCommentSaveSuccess(Boolean showCommentSaveSuccess) {
+  public CustomConfigParameters showCommentSaveSuccess(@javax.annotation.Nullable Boolean showCommentSaveSuccess) {
     this.showCommentSaveSuccess = showCommentSaveSuccess;
     return this;
   }
 
-   /**
+  /**
    * Get showCommentSaveSuccess
    * @return showCommentSaveSuccess
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getShowCommentSaveSuccess() {
     return showCommentSaveSuccess;
   }
 
-  public void setShowCommentSaveSuccess(Boolean showCommentSaveSuccess) {
+  public void setShowCommentSaveSuccess(@javax.annotation.Nullable Boolean showCommentSaveSuccess) {
     this.showCommentSaveSuccess = showCommentSaveSuccess;
   }
 
 
-  public CustomConfigParameters showLiveRightAway(Boolean showLiveRightAway) {
+  public CustomConfigParameters showLiveRightAway(@javax.annotation.Nullable Boolean showLiveRightAway) {
     this.showLiveRightAway = showLiveRightAway;
     return this;
   }
 
-   /**
+  /**
    * Get showLiveRightAway
    * @return showLiveRightAway
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getShowLiveRightAway() {
     return showLiveRightAway;
   }
 
-  public void setShowLiveRightAway(Boolean showLiveRightAway) {
+  public void setShowLiveRightAway(@javax.annotation.Nullable Boolean showLiveRightAway) {
     this.showLiveRightAway = showLiveRightAway;
   }
 
 
-  public CustomConfigParameters showQuestion(Boolean showQuestion) {
+  public CustomConfigParameters showQuestion(@javax.annotation.Nullable Boolean showQuestion) {
     this.showQuestion = showQuestion;
     return this;
   }
 
-   /**
+  /**
    * Get showQuestion
    * @return showQuestion
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getShowQuestion() {
     return showQuestion;
   }
 
-  public void setShowQuestion(Boolean showQuestion) {
+  public void setShowQuestion(@javax.annotation.Nullable Boolean showQuestion) {
     this.showQuestion = showQuestion;
   }
 
 
-  public CustomConfigParameters spamRules(List<SpamRule> spamRules) {
+  public CustomConfigParameters spamRules(@javax.annotation.Nullable List<SpamRule> spamRules) {
     this.spamRules = spamRules;
     return this;
   }
@@ -1435,21 +1502,21 @@ public class CustomConfigParameters {
     return this;
   }
 
-   /**
+  /**
    * Get spamRules
    * @return spamRules
-  **/
+   */
   @javax.annotation.Nullable
   public List<SpamRule> getSpamRules() {
     return spamRules;
   }
 
-  public void setSpamRules(List<SpamRule> spamRules) {
+  public void setSpamRules(@javax.annotation.Nullable List<SpamRule> spamRules) {
     this.spamRules = spamRules;
   }
 
 
-  public CustomConfigParameters translations(Map<String, String> translations) {
+  public CustomConfigParameters translations(@javax.annotation.Nullable Map<String, String> translations) {
     this.translations = translations;
     return this;
   }
@@ -1462,206 +1529,206 @@ public class CustomConfigParameters {
     return this;
   }
 
-   /**
+  /**
    * Construct a type with a set of properties K of type T
    * @return translations
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, String> getTranslations() {
     return translations;
   }
 
-  public void setTranslations(Map<String, String> translations) {
+  public void setTranslations(@javax.annotation.Nullable Map<String, String> translations) {
     this.translations = translations;
   }
 
 
-  public CustomConfigParameters useShowCommentsToggle(Boolean useShowCommentsToggle) {
+  public CustomConfigParameters useShowCommentsToggle(@javax.annotation.Nullable Boolean useShowCommentsToggle) {
     this.useShowCommentsToggle = useShowCommentsToggle;
     return this;
   }
 
-   /**
+  /**
    * Get useShowCommentsToggle
    * @return useShowCommentsToggle
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getUseShowCommentsToggle() {
     return useShowCommentsToggle;
   }
 
-  public void setUseShowCommentsToggle(Boolean useShowCommentsToggle) {
+  public void setUseShowCommentsToggle(@javax.annotation.Nullable Boolean useShowCommentsToggle) {
     this.useShowCommentsToggle = useShowCommentsToggle;
   }
 
 
-  public CustomConfigParameters useSingleLineCommentInput(Boolean useSingleLineCommentInput) {
+  public CustomConfigParameters useSingleLineCommentInput(@javax.annotation.Nullable Boolean useSingleLineCommentInput) {
     this.useSingleLineCommentInput = useSingleLineCommentInput;
     return this;
   }
 
-   /**
+  /**
    * Get useSingleLineCommentInput
    * @return useSingleLineCommentInput
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getUseSingleLineCommentInput() {
     return useSingleLineCommentInput;
   }
 
-  public void setUseSingleLineCommentInput(Boolean useSingleLineCommentInput) {
+  public void setUseSingleLineCommentInput(@javax.annotation.Nullable Boolean useSingleLineCommentInput) {
     this.useSingleLineCommentInput = useSingleLineCommentInput;
   }
 
 
-  public CustomConfigParameters voteStyle(VoteStyle voteStyle) {
+  public CustomConfigParameters voteStyle(@javax.annotation.Nullable VoteStyle voteStyle) {
     this.voteStyle = voteStyle;
     return this;
   }
 
-   /**
+  /**
    * Get voteStyle
    * @return voteStyle
-  **/
+   */
   @javax.annotation.Nullable
   public VoteStyle getVoteStyle() {
     return voteStyle;
   }
 
-  public void setVoteStyle(VoteStyle voteStyle) {
+  public void setVoteStyle(@javax.annotation.Nullable VoteStyle voteStyle) {
     this.voteStyle = voteStyle;
   }
 
 
-  public CustomConfigParameters widgetQuestionId(String widgetQuestionId) {
+  public CustomConfigParameters widgetQuestionId(@javax.annotation.Nullable String widgetQuestionId) {
     this.widgetQuestionId = widgetQuestionId;
     return this;
   }
 
-   /**
+  /**
    * Get widgetQuestionId
    * @return widgetQuestionId
-  **/
+   */
   @javax.annotation.Nullable
   public String getWidgetQuestionId() {
     return widgetQuestionId;
   }
 
-  public void setWidgetQuestionId(String widgetQuestionId) {
+  public void setWidgetQuestionId(@javax.annotation.Nullable String widgetQuestionId) {
     this.widgetQuestionId = widgetQuestionId;
   }
 
 
-  public CustomConfigParameters widgetQuestionResultsStyle(CommentQuestionResultsRenderingType widgetQuestionResultsStyle) {
+  public CustomConfigParameters widgetQuestionResultsStyle(@javax.annotation.Nullable CommentQuestionResultsRenderingType widgetQuestionResultsStyle) {
     this.widgetQuestionResultsStyle = widgetQuestionResultsStyle;
     return this;
   }
 
-   /**
+  /**
    * Get widgetQuestionResultsStyle
    * @return widgetQuestionResultsStyle
-  **/
+   */
   @javax.annotation.Nullable
   public CommentQuestionResultsRenderingType getWidgetQuestionResultsStyle() {
     return widgetQuestionResultsStyle;
   }
 
-  public void setWidgetQuestionResultsStyle(CommentQuestionResultsRenderingType widgetQuestionResultsStyle) {
+  public void setWidgetQuestionResultsStyle(@javax.annotation.Nullable CommentQuestionResultsRenderingType widgetQuestionResultsStyle) {
     this.widgetQuestionResultsStyle = widgetQuestionResultsStyle;
   }
 
 
-  public CustomConfigParameters widgetQuestionStyle(QuestionRenderingType widgetQuestionStyle) {
+  public CustomConfigParameters widgetQuestionStyle(@javax.annotation.Nullable QuestionRenderingType widgetQuestionStyle) {
     this.widgetQuestionStyle = widgetQuestionStyle;
     return this;
   }
 
-   /**
+  /**
    * Get widgetQuestionStyle
    * @return widgetQuestionStyle
-  **/
+   */
   @javax.annotation.Nullable
   public QuestionRenderingType getWidgetQuestionStyle() {
     return widgetQuestionStyle;
   }
 
-  public void setWidgetQuestionStyle(QuestionRenderingType widgetQuestionStyle) {
+  public void setWidgetQuestionStyle(@javax.annotation.Nullable QuestionRenderingType widgetQuestionStyle) {
     this.widgetQuestionStyle = widgetQuestionStyle;
   }
 
 
-  public CustomConfigParameters widgetQuestionWhenToSave(QuestionWhenSave widgetQuestionWhenToSave) {
+  public CustomConfigParameters widgetQuestionWhenToSave(@javax.annotation.Nullable QuestionWhenSave widgetQuestionWhenToSave) {
     this.widgetQuestionWhenToSave = widgetQuestionWhenToSave;
     return this;
   }
 
-   /**
+  /**
    * Get widgetQuestionWhenToSave
    * @return widgetQuestionWhenToSave
-  **/
+   */
   @javax.annotation.Nullable
   public QuestionWhenSave getWidgetQuestionWhenToSave() {
     return widgetQuestionWhenToSave;
   }
 
-  public void setWidgetQuestionWhenToSave(QuestionWhenSave widgetQuestionWhenToSave) {
+  public void setWidgetQuestionWhenToSave(@javax.annotation.Nullable QuestionWhenSave widgetQuestionWhenToSave) {
     this.widgetQuestionWhenToSave = widgetQuestionWhenToSave;
   }
 
 
-  public CustomConfigParameters widgetQuestionsRequired(CommentQuestionsRequired widgetQuestionsRequired) {
+  public CustomConfigParameters widgetQuestionsRequired(@javax.annotation.Nullable CommentQuestionsRequired widgetQuestionsRequired) {
     this.widgetQuestionsRequired = widgetQuestionsRequired;
     return this;
   }
 
-   /**
+  /**
    * Get widgetQuestionsRequired
    * @return widgetQuestionsRequired
-  **/
+   */
   @javax.annotation.Nullable
   public CommentQuestionsRequired getWidgetQuestionsRequired() {
     return widgetQuestionsRequired;
   }
 
-  public void setWidgetQuestionsRequired(CommentQuestionsRequired widgetQuestionsRequired) {
+  public void setWidgetQuestionsRequired(@javax.annotation.Nullable CommentQuestionsRequired widgetQuestionsRequired) {
     this.widgetQuestionsRequired = widgetQuestionsRequired;
   }
 
 
-  public CustomConfigParameters widgetSubQuestionVisibility(QuestionSubQuestionVisibility widgetSubQuestionVisibility) {
+  public CustomConfigParameters widgetSubQuestionVisibility(@javax.annotation.Nullable QuestionSubQuestionVisibility widgetSubQuestionVisibility) {
     this.widgetSubQuestionVisibility = widgetSubQuestionVisibility;
     return this;
   }
 
-   /**
+  /**
    * Get widgetSubQuestionVisibility
    * @return widgetSubQuestionVisibility
-  **/
+   */
   @javax.annotation.Nullable
   public QuestionSubQuestionVisibility getWidgetSubQuestionVisibility() {
     return widgetSubQuestionVisibility;
   }
 
-  public void setWidgetSubQuestionVisibility(QuestionSubQuestionVisibility widgetSubQuestionVisibility) {
+  public void setWidgetSubQuestionVisibility(@javax.annotation.Nullable QuestionSubQuestionVisibility widgetSubQuestionVisibility) {
     this.widgetSubQuestionVisibility = widgetSubQuestionVisibility;
   }
 
 
-  public CustomConfigParameters wrap(Boolean wrap) {
+  public CustomConfigParameters wrap(@javax.annotation.Nullable Boolean wrap) {
     this.wrap = wrap;
     return this;
   }
 
-   /**
+  /**
    * Get wrap
    * @return wrap
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getWrap() {
     return wrap;
   }
 
-  public void setWrap(Boolean wrap) {
+  public void setWrap(@javax.annotation.Nullable Boolean wrap) {
     this.wrap = wrap;
   }
 
@@ -1918,12 +1985,12 @@ public class CustomConfigParameters {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CustomConfigParameters
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CustomConfigParameters
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CustomConfigParameters.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -2060,22 +2127,22 @@ public class CustomConfigParameters {
     }
   }
 
- /**
-  * Create an instance of CustomConfigParameters given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CustomConfigParameters
-  * @throws IOException if the JSON string is invalid with respect to CustomConfigParameters
-  */
+  /**
+   * Create an instance of CustomConfigParameters given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CustomConfigParameters
+   * @throws IOException if the JSON string is invalid with respect to CustomConfigParameters
+   */
   public static CustomConfigParameters fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CustomConfigParameters.class);
   }
 
- /**
-  * Convert an instance of CustomConfigParameters to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CustomConfigParameters to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

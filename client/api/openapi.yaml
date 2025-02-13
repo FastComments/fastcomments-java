@@ -202,7 +202,8 @@ paths:
                 $ref: '#/components/schemas/GetComments_200_response'
           description: Ok
       security: []
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     options:
       operationId: CommentsOptions
       parameters:
@@ -221,7 +222,8 @@ paths:
                 type: string
           description: Ok
       security: []
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     post:
       operationId: CreateUser
       parameters:
@@ -275,7 +277,8 @@ paths:
           description: Ok
       security: []
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
 components:
   examples: {}
   headers: {}
@@ -742,12 +745,12 @@ components:
         disableAutoHashTagCreation: true
         disableCommenterCommentDelete: true
         enableVoteList: true
-        pageSize: 2.027123023002322
+        pageSize: 4.145608029883936
         collapseReplies: true
         disableProfiles: true
         disableSuccessMessage: true
         allowAnon: true
-        countAboveToggle: 7.061401241503109
+        countAboveToggle: 9.301444243932576
         readonly: true
         useShowCommentsToggle: true
         noImageUploads: true
@@ -766,18 +769,18 @@ components:
         defaultSortDirection: ""
         disableVoting: true
         noCustomConfig: true
-        gifRating: null
+        gifRating: g
         enableSearch: true
         requireSSO: true
         disableToolbar: true
         hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
-        maxCommentCreatedCountPUPM: 3.616076749251911
+        maxCommentCreatedCountPUPM: 2.027123023002322
         disableBlocking: true
         disableEmailInputs: true
-        widgetQuestionWhenToSave: null
+        widgetQuestionWhenToSave: 1.4894159098541704
         allowAnonFlag: true
-        widgetSubQuestionVisibility: null
-        widgetQuestionStyle: null
+        widgetSubQuestionVisibility: 7.457744773683766
+        widgetQuestionStyle: 1.0246457001441578
         restrictedLinkDomains:
         - restrictedLinkDomains
         - restrictedLinkDomains
@@ -787,7 +790,7 @@ components:
         commentThreadDeleteMode: ""
         commentCountFormat: commentCountFormat
         disableNotificationBell: true
-        voteStyle: null
+        voteStyle: 7.386281948385884
         disableAutoAdminMigration: true
         absoluteAndRelativeDates: true
         commenterNameFormat: ""
@@ -807,16 +810,16 @@ components:
         headerHTML: headerHTML
         hideAvatars: true
         defaultAvatarSrc: defaultAvatarSrc
-        commentHTMLRenderingMode: null
-        maxCommentCharacterLength: 9.301444243932576
+        commentHTMLRenderingMode: 7.061401241503109
+        maxCommentCharacterLength: 3.616076749251911
         useSingleLineCommentInput: true
         allowedLanguages:
         - allowedLanguages
         - allowedLanguages
         defaultUsername: defaultUsername
-        widgetQuestionResultsStyle: null
+        widgetQuestionResultsStyle: 1.2315135367772556
         showLiveRightAway: true
-        widgetQuestionsRequired: null
+        widgetQuestionsRequired: 6.84685269835264
         hasDarkBackground: true
         wrap: true
       properties:
@@ -1095,12 +1098,12 @@ components:
           disableAutoHashTagCreation: true
           disableCommenterCommentDelete: true
           enableVoteList: true
-          pageSize: 2.027123023002322
+          pageSize: 4.145608029883936
           collapseReplies: true
           disableProfiles: true
           disableSuccessMessage: true
           allowAnon: true
-          countAboveToggle: 7.061401241503109
+          countAboveToggle: 9.301444243932576
           readonly: true
           useShowCommentsToggle: true
           noImageUploads: true
@@ -1119,18 +1122,18 @@ components:
           defaultSortDirection: ""
           disableVoting: true
           noCustomConfig: true
-          gifRating: null
+          gifRating: g
           enableSearch: true
           requireSSO: true
           disableToolbar: true
           hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
-          maxCommentCreatedCountPUPM: 3.616076749251911
+          maxCommentCreatedCountPUPM: 2.027123023002322
           disableBlocking: true
           disableEmailInputs: true
-          widgetQuestionWhenToSave: null
+          widgetQuestionWhenToSave: 1.4894159098541704
           allowAnonFlag: true
-          widgetSubQuestionVisibility: null
-          widgetQuestionStyle: null
+          widgetSubQuestionVisibility: 7.457744773683766
+          widgetQuestionStyle: 1.0246457001441578
           restrictedLinkDomains:
           - restrictedLinkDomains
           - restrictedLinkDomains
@@ -1140,7 +1143,7 @@ components:
           commentThreadDeleteMode: ""
           commentCountFormat: commentCountFormat
           disableNotificationBell: true
-          voteStyle: null
+          voteStyle: 7.386281948385884
           disableAutoAdminMigration: true
           absoluteAndRelativeDates: true
           commenterNameFormat: ""
@@ -1160,16 +1163,16 @@ components:
           headerHTML: headerHTML
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
-          commentHTMLRenderingMode: null
-          maxCommentCharacterLength: 9.301444243932576
+          commentHTMLRenderingMode: 7.061401241503109
+          maxCommentCharacterLength: 3.616076749251911
           useSingleLineCommentInput: true
           allowedLanguages:
           - allowedLanguages
           - allowedLanguages
           defaultUsername: defaultUsername
-          widgetQuestionResultsStyle: null
+          widgetQuestionResultsStyle: 1.2315135367772556
           showLiveRightAway: true
-          widgetQuestionsRequired: null
+          widgetQuestionsRequired: 6.84685269835264
           hasDarkBackground: true
           wrap: true
         hasBillingIssue: true
@@ -1689,7 +1692,7 @@ components:
         moduleData:
           key: ""
         user: ""
-        status: null
+        status: success
     Record_string.string-or-number_:
       additionalProperties:
         $ref: '#/components/schemas/Record_string_string_or_number__value'

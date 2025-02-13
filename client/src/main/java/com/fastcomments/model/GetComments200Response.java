@@ -67,7 +67,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetComments200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GetComments200Response.class.getName());
 
@@ -92,17 +92,17 @@ public class GetComments200Response extends AbstractOpenApiSchema {
 
                     // check if the actual instance is of the type `GetCommentsResponseWithPresenceFCommentOptimized`
                     if (value.getActualInstance() instanceof GetCommentsResponseWithPresenceFCommentOptimized) {
-                      JsonElement element = adapterGetCommentsResponseWithPresenceFCommentOptimized.toJsonTree((GetCommentsResponseWithPresenceFCommentOptimized)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
+                        JsonElement element = adapterGetCommentsResponseWithPresenceFCommentOptimized.toJsonTree((GetCommentsResponseWithPresenceFCommentOptimized)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
                     }
                     // check if the actual instance is of the type `APIError`
                     if (value.getActualInstance() instanceof APIError) {
-                      JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
+                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemae: APIError, GetCommentsResponseWithPresenceFCommentOptimized");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, GetCommentsResponseWithPresenceFCommentOptimized");
                 }
 
                 @Override
@@ -115,29 +115,29 @@ public class GetComments200Response extends AbstractOpenApiSchema {
 
                     // deserialize GetCommentsResponseWithPresenceFCommentOptimized
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      GetCommentsResponseWithPresenceFCommentOptimized.validateJsonElement(jsonElement);
-                      actualAdapter = adapterGetCommentsResponseWithPresenceFCommentOptimized;
-                      GetComments200Response ret = new GetComments200Response();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        GetCommentsResponseWithPresenceFCommentOptimized.validateJsonElement(jsonElement);
+                        actualAdapter = adapterGetCommentsResponseWithPresenceFCommentOptimized;
+                        GetComments200Response ret = new GetComments200Response();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresenceFCommentOptimized failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'GetCommentsResponseWithPresenceFCommentOptimized'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresenceFCommentOptimized failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'GetCommentsResponseWithPresenceFCommentOptimized'", e);
                     }
                     // deserialize APIError
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      APIError.validateJsonElement(jsonElement);
-                      actualAdapter = adapterAPIError;
-                      GetComments200Response ret = new GetComments200Response();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        APIError.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPIError;
+                        GetComments200Response ret = new GetComments200Response();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for GetComments200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -153,12 +153,7 @@ public class GetComments200Response extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
-    public GetComments200Response(APIError o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public GetComments200Response(GetCommentsResponseWithPresenceFCommentOptimized o) {
+    public GetComments200Response(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -201,6 +196,7 @@ public class GetComments200Response extends AbstractOpenApiSchema {
      *
      * @return The actual instance (APIError, GetCommentsResponseWithPresenceFCommentOptimized)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -216,6 +212,7 @@ public class GetComments200Response extends AbstractOpenApiSchema {
     public GetCommentsResponseWithPresenceFCommentOptimized getGetCommentsResponseWithPresenceFCommentOptimized() throws ClassCastException {
         return (GetCommentsResponseWithPresenceFCommentOptimized)super.getActualInstance();
     }
+
     /**
      * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
      * the ClassCastException will be thrown.
@@ -227,53 +224,52 @@ public class GetComments200Response extends AbstractOpenApiSchema {
         return (APIError)super.getActualInstance();
     }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetComments200Response
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate anyOf schemas one by one
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with GetCommentsResponseWithPresenceFCommentOptimized
-    try {
-      GetCommentsResponseWithPresenceFCommentOptimized.validateJsonElement(jsonElement);
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresenceFCommentOptimized failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to GetComments200Response
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with GetCommentsResponseWithPresenceFCommentOptimized
+        try {
+            GetCommentsResponseWithPresenceFCommentOptimized.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresenceFCommentOptimized failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with APIError
+        try {
+            APIError.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(String.format("The JSON string is invalid for GetComments200Response with anyOf schemas: APIError, GetCommentsResponseWithPresenceFCommentOptimized. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
-    // validate the json string with APIError
-    try {
-      APIError.validateJsonElement(jsonElement);
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-      // continue to the next one
+
+    /**
+     * Create an instance of GetComments200Response given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of GetComments200Response
+     * @throws IOException if the JSON string is invalid with respect to GetComments200Response
+     */
+    public static GetComments200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetComments200Response.class);
     }
-    throw new IOException(String.format("The JSON string is invalid for GetComments200Response with anyOf schemas: APIError, GetCommentsResponseWithPresenceFCommentOptimized. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-    
-  }
 
- /**
-  * Create an instance of GetComments200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetComments200Response
-  * @throws IOException if the JSON string is invalid with respect to GetComments200Response
-  */
-  public static GetComments200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetComments200Response.class);
-  }
-
- /**
-  * Convert an instance of GetComments200Response to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Convert an instance of GetComments200Response to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 

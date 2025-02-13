@@ -37,7 +37,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -49,18 +48,21 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentUserMentionInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CommentUserMentionInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private String id;
 
   public static final String SERIALIZED_NAME_TAG = "tag";
   @SerializedName(SERIALIZED_NAME_TAG)
+  @javax.annotation.Nonnull
   private String tag;
 
   public static final String SERIALIZED_NAME_RAW_TAG = "rawTag";
   @SerializedName(SERIALIZED_NAME_RAW_TAG)
+  @javax.annotation.Nullable
   private String rawTag;
 
   /**
@@ -117,106 +119,108 @@ public class CommentUserMentionInfo {
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
   private TypeEnum type;
 
   public static final String SERIALIZED_NAME_SENT = "sent";
   @SerializedName(SERIALIZED_NAME_SENT)
+  @javax.annotation.Nullable
   private Boolean sent;
 
   public CommentUserMentionInfo() {
   }
 
-  public CommentUserMentionInfo id(String id) {
+  public CommentUserMentionInfo id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@javax.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public CommentUserMentionInfo tag(String tag) {
+  public CommentUserMentionInfo tag(@javax.annotation.Nonnull String tag) {
     this.tag = tag;
     return this;
   }
 
-   /**
+  /**
    * Get tag
    * @return tag
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTag() {
     return tag;
   }
 
-  public void setTag(String tag) {
+  public void setTag(@javax.annotation.Nonnull String tag) {
     this.tag = tag;
   }
 
 
-  public CommentUserMentionInfo rawTag(String rawTag) {
+  public CommentUserMentionInfo rawTag(@javax.annotation.Nullable String rawTag) {
     this.rawTag = rawTag;
     return this;
   }
 
-   /**
+  /**
    * Get rawTag
    * @return rawTag
-  **/
+   */
   @javax.annotation.Nullable
   public String getRawTag() {
     return rawTag;
   }
 
-  public void setRawTag(String rawTag) {
+  public void setRawTag(@javax.annotation.Nullable String rawTag) {
     this.rawTag = rawTag;
   }
 
 
-  public CommentUserMentionInfo type(TypeEnum type) {
+  public CommentUserMentionInfo type(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   public TypeEnum getType() {
     return type;
   }
 
-  public void setType(TypeEnum type) {
+  public void setType(@javax.annotation.Nullable TypeEnum type) {
     this.type = type;
   }
 
 
-  public CommentUserMentionInfo sent(Boolean sent) {
+  public CommentUserMentionInfo sent(@javax.annotation.Nullable Boolean sent) {
     this.sent = sent;
     return this;
   }
 
-   /**
+  /**
    * Get sent
    * @return sent
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getSent() {
     return sent;
   }
 
-  public void setSent(Boolean sent) {
+  public void setSent(@javax.annotation.Nullable Boolean sent) {
     this.sent = sent;
   }
 
@@ -286,12 +290,12 @@ public class CommentUserMentionInfo {
     openapiRequiredFields.add("tag");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CommentUserMentionInfo
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CommentUserMentionInfo
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CommentUserMentionInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -361,22 +365,22 @@ public class CommentUserMentionInfo {
     }
   }
 
- /**
-  * Create an instance of CommentUserMentionInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CommentUserMentionInfo
-  * @throws IOException if the JSON string is invalid with respect to CommentUserMentionInfo
-  */
+  /**
+   * Create an instance of CommentUserMentionInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CommentUserMentionInfo
+   * @throws IOException if the JSON string is invalid with respect to CommentUserMentionInfo
+   */
   public static CommentUserMentionInfo fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CommentUserMentionInfo.class);
   }
 
- /**
-  * Convert an instance of CommentUserMentionInfo to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CommentUserMentionInfo to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

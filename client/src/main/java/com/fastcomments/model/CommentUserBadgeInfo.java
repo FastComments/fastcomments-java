@@ -37,7 +37,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -49,214 +48,223 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentUserBadgeInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CommentUserBadgeInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private String id;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
   private Double type;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
   @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
+  @javax.annotation.Nonnull
   private String displayLabel;
 
   public static final String SERIALIZED_NAME_DISPLAY_SRC = "displaySrc";
   @SerializedName(SERIALIZED_NAME_DISPLAY_SRC)
+  @javax.annotation.Nonnull
   private String displaySrc;
 
   public static final String SERIALIZED_NAME_BACKGROUND_COLOR = "backgroundColor";
   @SerializedName(SERIALIZED_NAME_BACKGROUND_COLOR)
+  @javax.annotation.Nonnull
   private String backgroundColor;
 
   public static final String SERIALIZED_NAME_BORDER_COLOR = "borderColor";
   @SerializedName(SERIALIZED_NAME_BORDER_COLOR)
+  @javax.annotation.Nonnull
   private String borderColor;
 
   public static final String SERIALIZED_NAME_TEXT_COLOR = "textColor";
   @SerializedName(SERIALIZED_NAME_TEXT_COLOR)
+  @javax.annotation.Nonnull
   private String textColor;
 
   public static final String SERIALIZED_NAME_CSS_CLASS = "cssClass";
   @SerializedName(SERIALIZED_NAME_CSS_CLASS)
+  @javax.annotation.Nonnull
   private String cssClass;
 
   public CommentUserBadgeInfo() {
   }
 
-  public CommentUserBadgeInfo id(String id) {
+  public CommentUserBadgeInfo id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@javax.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public CommentUserBadgeInfo type(Double type) {
+  public CommentUserBadgeInfo type(@javax.annotation.Nonnull Double type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   public Double getType() {
     return type;
   }
 
-  public void setType(Double type) {
+  public void setType(@javax.annotation.Nonnull Double type) {
     this.type = type;
   }
 
 
-  public CommentUserBadgeInfo description(String description) {
+  public CommentUserBadgeInfo description(@javax.annotation.Nonnull String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Get description
    * @return description
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nonnull String description) {
     this.description = description;
   }
 
 
-  public CommentUserBadgeInfo displayLabel(String displayLabel) {
+  public CommentUserBadgeInfo displayLabel(@javax.annotation.Nonnull String displayLabel) {
     this.displayLabel = displayLabel;
     return this;
   }
 
-   /**
+  /**
    * Get displayLabel
    * @return displayLabel
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDisplayLabel() {
     return displayLabel;
   }
 
-  public void setDisplayLabel(String displayLabel) {
+  public void setDisplayLabel(@javax.annotation.Nonnull String displayLabel) {
     this.displayLabel = displayLabel;
   }
 
 
-  public CommentUserBadgeInfo displaySrc(String displaySrc) {
+  public CommentUserBadgeInfo displaySrc(@javax.annotation.Nonnull String displaySrc) {
     this.displaySrc = displaySrc;
     return this;
   }
 
-   /**
+  /**
    * Get displaySrc
    * @return displaySrc
-  **/
+   */
   @javax.annotation.Nonnull
   public String getDisplaySrc() {
     return displaySrc;
   }
 
-  public void setDisplaySrc(String displaySrc) {
+  public void setDisplaySrc(@javax.annotation.Nonnull String displaySrc) {
     this.displaySrc = displaySrc;
   }
 
 
-  public CommentUserBadgeInfo backgroundColor(String backgroundColor) {
+  public CommentUserBadgeInfo backgroundColor(@javax.annotation.Nonnull String backgroundColor) {
     this.backgroundColor = backgroundColor;
     return this;
   }
 
-   /**
+  /**
    * Get backgroundColor
    * @return backgroundColor
-  **/
+   */
   @javax.annotation.Nonnull
   public String getBackgroundColor() {
     return backgroundColor;
   }
 
-  public void setBackgroundColor(String backgroundColor) {
+  public void setBackgroundColor(@javax.annotation.Nonnull String backgroundColor) {
     this.backgroundColor = backgroundColor;
   }
 
 
-  public CommentUserBadgeInfo borderColor(String borderColor) {
+  public CommentUserBadgeInfo borderColor(@javax.annotation.Nonnull String borderColor) {
     this.borderColor = borderColor;
     return this;
   }
 
-   /**
+  /**
    * Get borderColor
    * @return borderColor
-  **/
+   */
   @javax.annotation.Nonnull
   public String getBorderColor() {
     return borderColor;
   }
 
-  public void setBorderColor(String borderColor) {
+  public void setBorderColor(@javax.annotation.Nonnull String borderColor) {
     this.borderColor = borderColor;
   }
 
 
-  public CommentUserBadgeInfo textColor(String textColor) {
+  public CommentUserBadgeInfo textColor(@javax.annotation.Nonnull String textColor) {
     this.textColor = textColor;
     return this;
   }
 
-   /**
+  /**
    * Get textColor
    * @return textColor
-  **/
+   */
   @javax.annotation.Nonnull
   public String getTextColor() {
     return textColor;
   }
 
-  public void setTextColor(String textColor) {
+  public void setTextColor(@javax.annotation.Nonnull String textColor) {
     this.textColor = textColor;
   }
 
 
-  public CommentUserBadgeInfo cssClass(String cssClass) {
+  public CommentUserBadgeInfo cssClass(@javax.annotation.Nonnull String cssClass) {
     this.cssClass = cssClass;
     return this;
   }
 
-   /**
+  /**
    * Get cssClass
    * @return cssClass
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCssClass() {
     return cssClass;
   }
 
-  public void setCssClass(String cssClass) {
+  public void setCssClass(@javax.annotation.Nonnull String cssClass) {
     this.cssClass = cssClass;
   }
 
@@ -345,12 +353,12 @@ public class CommentUserBadgeInfo {
     openapiRequiredFields.add("cssClass");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CommentUserBadgeInfo
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CommentUserBadgeInfo
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CommentUserBadgeInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -428,22 +436,22 @@ public class CommentUserBadgeInfo {
     }
   }
 
- /**
-  * Create an instance of CommentUserBadgeInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CommentUserBadgeInfo
-  * @throws IOException if the JSON string is invalid with respect to CommentUserBadgeInfo
-  */
+  /**
+   * Create an instance of CommentUserBadgeInfo given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CommentUserBadgeInfo
+   * @throws IOException if the JSON string is invalid with respect to CommentUserBadgeInfo
+   */
   public static CommentUserBadgeInfo fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CommentUserBadgeInfo.class);
   }
 
- /**
-  * Convert an instance of CommentUserBadgeInfo to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CommentUserBadgeInfo to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,317 +55,341 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CommentData {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nonnull
   private Double date;
 
   public static final String SERIALIZED_NAME_LOCAL_DATE_STRING = "localDateString";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_STRING)
+  @javax.annotation.Nullable
   private String localDateString;
 
   public static final String SERIALIZED_NAME_LOCAL_DATE_HOURS = "localDateHours";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_HOURS)
+  @javax.annotation.Nullable
   private Double localDateHours;
 
   public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
   @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
+  @javax.annotation.Nonnull
   private String commenterName;
 
   public static final String SERIALIZED_NAME_COMMENTER_EMAIL = "commenterEmail";
   @SerializedName(SERIALIZED_NAME_COMMENTER_EMAIL)
+  @javax.annotation.Nullable
   private String commenterEmail;
 
   public static final String SERIALIZED_NAME_COMMENTER_LINK = "commenterLink";
   @SerializedName(SERIALIZED_NAME_COMMENTER_LINK)
+  @javax.annotation.Nullable
   private String commenterLink;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nonnull
   private String comment;
 
   public static final String SERIALIZED_NAME_PRODUCT_ID = "productId";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
+  @javax.annotation.Nullable
   private Double productId;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nullable
   private String userId;
 
   public static final String SERIALIZED_NAME_AVATAR_SRC = "avatarSrc";
   @SerializedName(SERIALIZED_NAME_AVATAR_SRC)
+  @javax.annotation.Nullable
   private String avatarSrc;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  @javax.annotation.Nullable
   private String parentId;
 
   public static final String SERIALIZED_NAME_MENTIONS = "mentions";
   @SerializedName(SERIALIZED_NAME_MENTIONS)
-  private List<CommentUserMentionInfo> mentions;
+  @javax.annotation.Nullable
+  private List<CommentUserMentionInfo> mentions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HASH_TAGS = "hashTags";
   @SerializedName(SERIALIZED_NAME_HASH_TAGS)
-  private List<CommentUserHashTagInfo> hashTags;
+  @javax.annotation.Nullable
+  private List<CommentUserHashTagInfo> hashTags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PAGE_TITLE = "pageTitle";
   @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
+  @javax.annotation.Nullable
   private String pageTitle;
 
   public static final String SERIALIZED_NAME_IS_FROM_MY_ACCOUNT_PAGE = "isFromMyAccountPage";
   @SerializedName(SERIALIZED_NAME_IS_FROM_MY_ACCOUNT_PAGE)
+  @javax.annotation.Nullable
   private Boolean isFromMyAccountPage;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_URL_ID = "urlId";
   @SerializedName(SERIALIZED_NAME_URL_ID)
+  @javax.annotation.Nonnull
   private String urlId;
 
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
+  @javax.annotation.Nullable
   private Object meta;
 
   public static final String SERIALIZED_NAME_MODERATION_GROUP_IDS = "moderationGroupIds";
   @SerializedName(SERIALIZED_NAME_MODERATION_GROUP_IDS)
-  private List<String> moderationGroupIds;
+  @javax.annotation.Nullable
+  private List<String> moderationGroupIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RATING = "rating";
   @SerializedName(SERIALIZED_NAME_RATING)
+  @javax.annotation.Nullable
   private Double rating;
 
   public static final String SERIALIZED_NAME_FROM_OFFLINE_RESTORE = "fromOfflineRestore";
   @SerializedName(SERIALIZED_NAME_FROM_OFFLINE_RESTORE)
+  @javax.annotation.Nullable
   private Boolean fromOfflineRestore;
 
   public static final String SERIALIZED_NAME_AUTOPLAY_DELAY_M_S = "autoplayDelayMS";
   @SerializedName(SERIALIZED_NAME_AUTOPLAY_DELAY_M_S)
+  @javax.annotation.Nullable
   private Double autoplayDelayMS;
 
   public static final String SERIALIZED_NAME_FEEDBACK_IDS = "feedbackIds";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
-  private List<String> feedbackIds;
+  @javax.annotation.Nullable
+  private List<String> feedbackIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_QUESTION_VALUES = "questionValues";
   @SerializedName(SERIALIZED_NAME_QUESTION_VALUES)
+  @javax.annotation.Nullable
   private Map<String, RecordStringStringOrNumberValue> questionValues = new HashMap<>();
 
   public CommentData() {
   }
 
-  public CommentData date(Double date) {
+  public CommentData date(@javax.annotation.Nonnull Double date) {
     this.date = date;
     return this;
   }
 
-   /**
+  /**
    * Get date
    * @return date
-  **/
+   */
   @javax.annotation.Nonnull
   public Double getDate() {
     return date;
   }
 
-  public void setDate(Double date) {
+  public void setDate(@javax.annotation.Nonnull Double date) {
     this.date = date;
   }
 
 
-  public CommentData localDateString(String localDateString) {
+  public CommentData localDateString(@javax.annotation.Nullable String localDateString) {
     this.localDateString = localDateString;
     return this;
   }
 
-   /**
+  /**
    * Get localDateString
    * @return localDateString
-  **/
+   */
   @javax.annotation.Nullable
   public String getLocalDateString() {
     return localDateString;
   }
 
-  public void setLocalDateString(String localDateString) {
+  public void setLocalDateString(@javax.annotation.Nullable String localDateString) {
     this.localDateString = localDateString;
   }
 
 
-  public CommentData localDateHours(Double localDateHours) {
+  public CommentData localDateHours(@javax.annotation.Nullable Double localDateHours) {
     this.localDateHours = localDateHours;
     return this;
   }
 
-   /**
+  /**
    * Get localDateHours
    * @return localDateHours
-  **/
+   */
   @javax.annotation.Nullable
   public Double getLocalDateHours() {
     return localDateHours;
   }
 
-  public void setLocalDateHours(Double localDateHours) {
+  public void setLocalDateHours(@javax.annotation.Nullable Double localDateHours) {
     this.localDateHours = localDateHours;
   }
 
 
-  public CommentData commenterName(String commenterName) {
+  public CommentData commenterName(@javax.annotation.Nonnull String commenterName) {
     this.commenterName = commenterName;
     return this;
   }
 
-   /**
+  /**
    * Get commenterName
    * @return commenterName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCommenterName() {
     return commenterName;
   }
 
-  public void setCommenterName(String commenterName) {
+  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
     this.commenterName = commenterName;
   }
 
 
-  public CommentData commenterEmail(String commenterEmail) {
+  public CommentData commenterEmail(@javax.annotation.Nullable String commenterEmail) {
     this.commenterEmail = commenterEmail;
     return this;
   }
 
-   /**
+  /**
    * Get commenterEmail
    * @return commenterEmail
-  **/
+   */
   @javax.annotation.Nullable
   public String getCommenterEmail() {
     return commenterEmail;
   }
 
-  public void setCommenterEmail(String commenterEmail) {
+  public void setCommenterEmail(@javax.annotation.Nullable String commenterEmail) {
     this.commenterEmail = commenterEmail;
   }
 
 
-  public CommentData commenterLink(String commenterLink) {
+  public CommentData commenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
     return this;
   }
 
-   /**
+  /**
    * Get commenterLink
    * @return commenterLink
-  **/
+   */
   @javax.annotation.Nullable
   public String getCommenterLink() {
     return commenterLink;
   }
 
-  public void setCommenterLink(String commenterLink) {
+  public void setCommenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
   }
 
 
-  public CommentData comment(String comment) {
+  public CommentData comment(@javax.annotation.Nonnull String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nonnull
   public String getComment() {
     return comment;
   }
 
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nonnull String comment) {
     this.comment = comment;
   }
 
 
-  public CommentData productId(Double productId) {
+  public CommentData productId(@javax.annotation.Nullable Double productId) {
     this.productId = productId;
     return this;
   }
 
-   /**
+  /**
    * Get productId
    * @return productId
-  **/
+   */
   @javax.annotation.Nullable
   public Double getProductId() {
     return productId;
   }
 
-  public void setProductId(Double productId) {
+  public void setProductId(@javax.annotation.Nullable Double productId) {
     this.productId = productId;
   }
 
 
-  public CommentData userId(String userId) {
+  public CommentData userId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
     return this;
   }
 
-   /**
+  /**
    * Get userId
    * @return userId
-  **/
+   */
   @javax.annotation.Nullable
   public String getUserId() {
     return userId;
   }
 
-  public void setUserId(String userId) {
+  public void setUserId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
   }
 
 
-  public CommentData avatarSrc(String avatarSrc) {
+  public CommentData avatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
     return this;
   }
 
-   /**
+  /**
    * Get avatarSrc
    * @return avatarSrc
-  **/
+   */
   @javax.annotation.Nullable
   public String getAvatarSrc() {
     return avatarSrc;
   }
 
-  public void setAvatarSrc(String avatarSrc) {
+  public void setAvatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
   }
 
 
-  public CommentData parentId(String parentId) {
+  public CommentData parentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
     return this;
   }
 
-   /**
+  /**
    * Get parentId
    * @return parentId
-  **/
+   */
   @javax.annotation.Nullable
   public String getParentId() {
     return parentId;
   }
 
-  public void setParentId(String parentId) {
+  public void setParentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
   }
 
 
-  public CommentData mentions(List<CommentUserMentionInfo> mentions) {
+  public CommentData mentions(@javax.annotation.Nullable List<CommentUserMentionInfo> mentions) {
     this.mentions = mentions;
     return this;
   }
@@ -379,21 +402,21 @@ public class CommentData {
     return this;
   }
 
-   /**
+  /**
    * Get mentions
    * @return mentions
-  **/
+   */
   @javax.annotation.Nullable
   public List<CommentUserMentionInfo> getMentions() {
     return mentions;
   }
 
-  public void setMentions(List<CommentUserMentionInfo> mentions) {
+  public void setMentions(@javax.annotation.Nullable List<CommentUserMentionInfo> mentions) {
     this.mentions = mentions;
   }
 
 
-  public CommentData hashTags(List<CommentUserHashTagInfo> hashTags) {
+  public CommentData hashTags(@javax.annotation.Nullable List<CommentUserHashTagInfo> hashTags) {
     this.hashTags = hashTags;
     return this;
   }
@@ -406,116 +429,116 @@ public class CommentData {
     return this;
   }
 
-   /**
+  /**
    * Get hashTags
    * @return hashTags
-  **/
+   */
   @javax.annotation.Nullable
   public List<CommentUserHashTagInfo> getHashTags() {
     return hashTags;
   }
 
-  public void setHashTags(List<CommentUserHashTagInfo> hashTags) {
+  public void setHashTags(@javax.annotation.Nullable List<CommentUserHashTagInfo> hashTags) {
     this.hashTags = hashTags;
   }
 
 
-  public CommentData pageTitle(String pageTitle) {
+  public CommentData pageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
     return this;
   }
 
-   /**
+  /**
    * Get pageTitle
    * @return pageTitle
-  **/
+   */
   @javax.annotation.Nullable
   public String getPageTitle() {
     return pageTitle;
   }
 
-  public void setPageTitle(String pageTitle) {
+  public void setPageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
   }
 
 
-  public CommentData isFromMyAccountPage(Boolean isFromMyAccountPage) {
+  public CommentData isFromMyAccountPage(@javax.annotation.Nullable Boolean isFromMyAccountPage) {
     this.isFromMyAccountPage = isFromMyAccountPage;
     return this;
   }
 
-   /**
+  /**
    * Get isFromMyAccountPage
    * @return isFromMyAccountPage
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsFromMyAccountPage() {
     return isFromMyAccountPage;
   }
 
-  public void setIsFromMyAccountPage(Boolean isFromMyAccountPage) {
+  public void setIsFromMyAccountPage(@javax.annotation.Nullable Boolean isFromMyAccountPage) {
     this.isFromMyAccountPage = isFromMyAccountPage;
   }
 
 
-  public CommentData url(String url) {
+  public CommentData url(@javax.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@javax.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public CommentData urlId(String urlId) {
+  public CommentData urlId(@javax.annotation.Nonnull String urlId) {
     this.urlId = urlId;
     return this;
   }
 
-   /**
+  /**
    * Get urlId
    * @return urlId
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUrlId() {
     return urlId;
   }
 
-  public void setUrlId(String urlId) {
+  public void setUrlId(@javax.annotation.Nonnull String urlId) {
     this.urlId = urlId;
   }
 
 
-  public CommentData meta(Object meta) {
+  public CommentData meta(@javax.annotation.Nullable Object meta) {
     this.meta = meta;
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   public Object getMeta() {
     return meta;
   }
 
-  public void setMeta(Object meta) {
+  public void setMeta(@javax.annotation.Nullable Object meta) {
     this.meta = meta;
   }
 
 
-  public CommentData moderationGroupIds(List<String> moderationGroupIds) {
+  public CommentData moderationGroupIds(@javax.annotation.Nullable List<String> moderationGroupIds) {
     this.moderationGroupIds = moderationGroupIds;
     return this;
   }
@@ -528,78 +551,78 @@ public class CommentData {
     return this;
   }
 
-   /**
+  /**
    * Get moderationGroupIds
    * @return moderationGroupIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getModerationGroupIds() {
     return moderationGroupIds;
   }
 
-  public void setModerationGroupIds(List<String> moderationGroupIds) {
+  public void setModerationGroupIds(@javax.annotation.Nullable List<String> moderationGroupIds) {
     this.moderationGroupIds = moderationGroupIds;
   }
 
 
-  public CommentData rating(Double rating) {
+  public CommentData rating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
     return this;
   }
 
-   /**
+  /**
    * Get rating
    * @return rating
-  **/
+   */
   @javax.annotation.Nullable
   public Double getRating() {
     return rating;
   }
 
-  public void setRating(Double rating) {
+  public void setRating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
   }
 
 
-  public CommentData fromOfflineRestore(Boolean fromOfflineRestore) {
+  public CommentData fromOfflineRestore(@javax.annotation.Nullable Boolean fromOfflineRestore) {
     this.fromOfflineRestore = fromOfflineRestore;
     return this;
   }
 
-   /**
+  /**
    * Get fromOfflineRestore
    * @return fromOfflineRestore
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getFromOfflineRestore() {
     return fromOfflineRestore;
   }
 
-  public void setFromOfflineRestore(Boolean fromOfflineRestore) {
+  public void setFromOfflineRestore(@javax.annotation.Nullable Boolean fromOfflineRestore) {
     this.fromOfflineRestore = fromOfflineRestore;
   }
 
 
-  public CommentData autoplayDelayMS(Double autoplayDelayMS) {
+  public CommentData autoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
     return this;
   }
 
-   /**
+  /**
    * Get autoplayDelayMS
    * @return autoplayDelayMS
-  **/
+   */
   @javax.annotation.Nullable
   public Double getAutoplayDelayMS() {
     return autoplayDelayMS;
   }
 
-  public void setAutoplayDelayMS(Double autoplayDelayMS) {
+  public void setAutoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
   }
 
 
-  public CommentData feedbackIds(List<String> feedbackIds) {
+  public CommentData feedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
     return this;
   }
@@ -612,21 +635,21 @@ public class CommentData {
     return this;
   }
 
-   /**
+  /**
    * Get feedbackIds
    * @return feedbackIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getFeedbackIds() {
     return feedbackIds;
   }
 
-  public void setFeedbackIds(List<String> feedbackIds) {
+  public void setFeedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
   }
 
 
-  public CommentData questionValues(Map<String, RecordStringStringOrNumberValue> questionValues) {
+  public CommentData questionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberValue> questionValues) {
     this.questionValues = questionValues;
     return this;
   }
@@ -639,16 +662,16 @@ public class CommentData {
     return this;
   }
 
-   /**
+  /**
    * Construct a type with a set of properties K of type T
    * @return questionValues
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, RecordStringStringOrNumberValue> getQuestionValues() {
     return questionValues;
   }
 
-  public void setQuestionValues(Map<String, RecordStringStringOrNumberValue> questionValues) {
+  public void setQuestionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberValue> questionValues) {
     this.questionValues = questionValues;
   }
 
@@ -778,12 +801,12 @@ public class CommentData {
     openapiRequiredFields.add("urlId");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CommentData
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to CommentData
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CommentData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -906,22 +929,22 @@ public class CommentData {
     }
   }
 
- /**
-  * Create an instance of CommentData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CommentData
-  * @throws IOException if the JSON string is invalid with respect to CommentData
-  */
+  /**
+   * Create an instance of CommentData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of CommentData
+   * @throws IOException if the JSON string is invalid with respect to CommentData
+   */
   public static CommentData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CommentData.class);
   }
 
- /**
-  * Convert an instance of CommentData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of CommentData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

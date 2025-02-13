@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,85 +53,89 @@ import com.fastcomments.invoker.JSON;
 /**
  * SaveCommentResponseOptimized
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class SaveCommentResponseOptimized {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
   private ImportedAPIStatusSUCCESS status;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nonnull
   private PickFCommentExcludeKeyofFCommentLogs comment;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @javax.annotation.Nullable
   private UserSessionInfo user;
 
   public static final String SERIALIZED_NAME_MODULE_DATA = "moduleData";
   @SerializedName(SERIALIZED_NAME_MODULE_DATA)
+  @javax.annotation.Nullable
   private Map<String, Object> moduleData = new HashMap<>();
 
   public SaveCommentResponseOptimized() {
   }
 
-  public SaveCommentResponseOptimized status(ImportedAPIStatusSUCCESS status) {
+  public SaveCommentResponseOptimized status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nonnull
   public ImportedAPIStatusSUCCESS getStatus() {
     return status;
   }
 
-  public void setStatus(ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
     this.status = status;
   }
 
 
-  public SaveCommentResponseOptimized comment(PickFCommentExcludeKeyofFCommentLogs comment) {
+  public SaveCommentResponseOptimized comment(@javax.annotation.Nonnull PickFCommentExcludeKeyofFCommentLogs comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nonnull
   public PickFCommentExcludeKeyofFCommentLogs getComment() {
     return comment;
   }
 
-  public void setComment(PickFCommentExcludeKeyofFCommentLogs comment) {
+  public void setComment(@javax.annotation.Nonnull PickFCommentExcludeKeyofFCommentLogs comment) {
     this.comment = comment;
   }
 
 
-  public SaveCommentResponseOptimized user(UserSessionInfo user) {
+  public SaveCommentResponseOptimized user(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
   public UserSessionInfo getUser() {
     return user;
   }
 
-  public void setUser(UserSessionInfo user) {
+  public void setUser(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
   }
 
 
-  public SaveCommentResponseOptimized moduleData(Map<String, Object> moduleData) {
+  public SaveCommentResponseOptimized moduleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
     return this;
   }
@@ -145,16 +148,16 @@ public class SaveCommentResponseOptimized {
     return this;
   }
 
-   /**
+  /**
    * Construct a type with a set of properties K of type T
    * @return moduleData
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, Object> getModuleData() {
     return moduleData;
   }
 
-  public void setModuleData(Map<String, Object> moduleData) {
+  public void setModuleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
   }
 
@@ -222,12 +225,12 @@ public class SaveCommentResponseOptimized {
     openapiRequiredFields.add("user");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SaveCommentResponseOptimized
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SaveCommentResponseOptimized
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SaveCommentResponseOptimized.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -287,22 +290,22 @@ public class SaveCommentResponseOptimized {
     }
   }
 
- /**
-  * Create an instance of SaveCommentResponseOptimized given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SaveCommentResponseOptimized
-  * @throws IOException if the JSON string is invalid with respect to SaveCommentResponseOptimized
-  */
+  /**
+   * Create an instance of SaveCommentResponseOptimized given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SaveCommentResponseOptimized
+   * @throws IOException if the JSON string is invalid with respect to SaveCommentResponseOptimized
+   */
   public static SaveCommentResponseOptimized fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SaveCommentResponseOptimized.class);
   }
 
- /**
-  * Convert an instance of SaveCommentResponseOptimized to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SaveCommentResponseOptimized to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

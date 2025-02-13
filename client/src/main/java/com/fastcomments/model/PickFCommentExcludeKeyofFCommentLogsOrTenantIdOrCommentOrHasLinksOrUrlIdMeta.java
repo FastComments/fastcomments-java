@@ -37,7 +37,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -49,53 +48,55 @@ import com.fastcomments.invoker.JSON;
 /**
  * PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta {
   public static final String SERIALIZED_NAME_WP_USER_ID = "wpUserId";
   @SerializedName(SERIALIZED_NAME_WP_USER_ID)
+  @javax.annotation.Nullable
   private String wpUserId;
 
   public static final String SERIALIZED_NAME_WP_POST_ID = "wpPostId";
   @SerializedName(SERIALIZED_NAME_WP_POST_ID)
+  @javax.annotation.Nullable
   private String wpPostId;
 
   public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta() {
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta wpUserId(String wpUserId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta wpUserId(@javax.annotation.Nullable String wpUserId) {
     this.wpUserId = wpUserId;
     return this;
   }
 
-   /**
+  /**
    * Get wpUserId
    * @return wpUserId
-  **/
+   */
   @javax.annotation.Nullable
   public String getWpUserId() {
     return wpUserId;
   }
 
-  public void setWpUserId(String wpUserId) {
+  public void setWpUserId(@javax.annotation.Nullable String wpUserId) {
     this.wpUserId = wpUserId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta wpPostId(String wpPostId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta wpPostId(@javax.annotation.Nullable String wpPostId) {
     this.wpPostId = wpPostId;
     return this;
   }
 
-   /**
+  /**
    * Get wpPostId
    * @return wpPostId
-  **/
+   */
   @javax.annotation.Nullable
   public String getWpPostId() {
     return wpPostId;
   }
 
-  public void setWpPostId(String wpPostId) {
+  public void setWpPostId(@javax.annotation.Nullable String wpPostId) {
     this.wpPostId = wpPostId;
   }
 
@@ -200,12 +201,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -293,22 +294,22 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     }
   }
 
- /**
-  * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
-  * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
-  */
+  /**
+   * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
+   * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
+   */
   public static PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.class);
   }
 
- /**
-  * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

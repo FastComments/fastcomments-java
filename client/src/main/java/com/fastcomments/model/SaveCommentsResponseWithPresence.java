@@ -42,7 +42,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -54,89 +53,94 @@ import com.fastcomments.invoker.JSON;
 /**
  * SaveCommentsResponseWithPresence
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class SaveCommentsResponseWithPresence {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
   private ImportedAPIStatusSUCCESS status;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nonnull
   private PickFCommentExcludeKeyofFCommentLogs comment;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @javax.annotation.Nullable
   private UserSessionInfo user;
 
   public static final String SERIALIZED_NAME_MODULE_DATA = "moduleData";
   @SerializedName(SERIALIZED_NAME_MODULE_DATA)
+  @javax.annotation.Nullable
   private Map<String, Object> moduleData = new HashMap<>();
 
   public static final String SERIALIZED_NAME_USER_ID_W_S = "userIdWS";
   @SerializedName(SERIALIZED_NAME_USER_ID_W_S)
+  @javax.annotation.Nullable
   private String userIdWS;
 
   public SaveCommentsResponseWithPresence() {
   }
 
-  public SaveCommentsResponseWithPresence status(ImportedAPIStatusSUCCESS status) {
+  public SaveCommentsResponseWithPresence status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nonnull
   public ImportedAPIStatusSUCCESS getStatus() {
     return status;
   }
 
-  public void setStatus(ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
     this.status = status;
   }
 
 
-  public SaveCommentsResponseWithPresence comment(PickFCommentExcludeKeyofFCommentLogs comment) {
+  public SaveCommentsResponseWithPresence comment(@javax.annotation.Nonnull PickFCommentExcludeKeyofFCommentLogs comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nonnull
   public PickFCommentExcludeKeyofFCommentLogs getComment() {
     return comment;
   }
 
-  public void setComment(PickFCommentExcludeKeyofFCommentLogs comment) {
+  public void setComment(@javax.annotation.Nonnull PickFCommentExcludeKeyofFCommentLogs comment) {
     this.comment = comment;
   }
 
 
-  public SaveCommentsResponseWithPresence user(UserSessionInfo user) {
+  public SaveCommentsResponseWithPresence user(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
   public UserSessionInfo getUser() {
     return user;
   }
 
-  public void setUser(UserSessionInfo user) {
+  public void setUser(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
   }
 
 
-  public SaveCommentsResponseWithPresence moduleData(Map<String, Object> moduleData) {
+  public SaveCommentsResponseWithPresence moduleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
     return this;
   }
@@ -149,35 +153,35 @@ public class SaveCommentsResponseWithPresence {
     return this;
   }
 
-   /**
+  /**
    * Construct a type with a set of properties K of type T
    * @return moduleData
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, Object> getModuleData() {
     return moduleData;
   }
 
-  public void setModuleData(Map<String, Object> moduleData) {
+  public void setModuleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
   }
 
 
-  public SaveCommentsResponseWithPresence userIdWS(String userIdWS) {
+  public SaveCommentsResponseWithPresence userIdWS(@javax.annotation.Nullable String userIdWS) {
     this.userIdWS = userIdWS;
     return this;
   }
 
-   /**
+  /**
    * Get userIdWS
    * @return userIdWS
-  **/
+   */
   @javax.annotation.Nullable
   public String getUserIdWS() {
     return userIdWS;
   }
 
-  public void setUserIdWS(String userIdWS) {
+  public void setUserIdWS(@javax.annotation.Nullable String userIdWS) {
     this.userIdWS = userIdWS;
   }
 
@@ -248,12 +252,12 @@ public class SaveCommentsResponseWithPresence {
     openapiRequiredFields.add("user");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SaveCommentsResponseWithPresence
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to SaveCommentsResponseWithPresence
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SaveCommentsResponseWithPresence.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -316,22 +320,22 @@ public class SaveCommentsResponseWithPresence {
     }
   }
 
- /**
-  * Create an instance of SaveCommentsResponseWithPresence given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of SaveCommentsResponseWithPresence
-  * @throws IOException if the JSON string is invalid with respect to SaveCommentsResponseWithPresence
-  */
+  /**
+   * Create an instance of SaveCommentsResponseWithPresence given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of SaveCommentsResponseWithPresence
+   * @throws IOException if the JSON string is invalid with respect to SaveCommentsResponseWithPresence
+   */
   public static SaveCommentsResponseWithPresence fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, SaveCommentsResponseWithPresence.class);
   }
 
- /**
-  * Convert an instance of SaveCommentsResponseWithPresence to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of SaveCommentsResponseWithPresence to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

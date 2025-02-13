@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,196 +55,223 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponseWithPresenceFCommentOptimized
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentsResponseWithPresenceFCommentOptimized {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
+  @javax.annotation.Nullable
   private Double statusCode;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
+  @javax.annotation.Nullable
   private String code;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @javax.annotation.Nullable
   private String reason;
 
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
+  @javax.annotation.Nonnull
   private List<APICommentFCommentOptimized> comments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
+  @javax.annotation.Nullable
   private UserSessionInfo user;
 
   public static final String SERIALIZED_NAME_URL_ID_CLEAN = "urlIdClean";
   @SerializedName(SERIALIZED_NAME_URL_ID_CLEAN)
+  @javax.annotation.Nullable
   private String urlIdClean;
 
   public static final String SERIALIZED_NAME_LAST_GEN_DATE = "lastGenDate";
   @SerializedName(SERIALIZED_NAME_LAST_GEN_DATE)
+  @javax.annotation.Nullable
   private Double lastGenDate;
 
   public static final String SERIALIZED_NAME_INCLUDES_PAST_PAGES = "includesPastPages";
   @SerializedName(SERIALIZED_NAME_INCLUDES_PAST_PAGES)
+  @javax.annotation.Nullable
   private Boolean includesPastPages;
 
   public static final String SERIALIZED_NAME_IS_DEMO = "isDemo";
   @SerializedName(SERIALIZED_NAME_IS_DEMO)
+  @javax.annotation.Nullable
   private Boolean isDemo;
 
   public static final String SERIALIZED_NAME_COMMENT_COUNT = "commentCount";
   @SerializedName(SERIALIZED_NAME_COMMENT_COUNT)
+  @javax.annotation.Nullable
   private Double commentCount;
 
   public static final String SERIALIZED_NAME_IS_SITE_ADMIN = "isSiteAdmin";
   @SerializedName(SERIALIZED_NAME_IS_SITE_ADMIN)
+  @javax.annotation.Nullable
   private Boolean isSiteAdmin;
 
   public static final String SERIALIZED_NAME_HAS_BILLING_ISSUE = "hasBillingIssue";
   @SerializedName(SERIALIZED_NAME_HAS_BILLING_ISSUE)
+  @javax.annotation.Nullable
   private Boolean hasBillingIssue;
 
   public static final String SERIALIZED_NAME_IS_COMMENTS_HIDDEN = "isCommentsHidden";
   @SerializedName(SERIALIZED_NAME_IS_COMMENTS_HIDDEN)
+  @javax.annotation.Nullable
   private Boolean isCommentsHidden;
 
   public static final String SERIALIZED_NAME_MODULE_DATA = "moduleData";
   @SerializedName(SERIALIZED_NAME_MODULE_DATA)
+  @javax.annotation.Nullable
   private Map<String, Object> moduleData = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER = "pageNumber";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
+  @javax.annotation.Nonnull
   private Double pageNumber;
 
   public static final String SERIALIZED_NAME_IS_WHITE_LABELED = "isWhiteLabeled";
   @SerializedName(SERIALIZED_NAME_IS_WHITE_LABELED)
+  @javax.annotation.Nullable
   private Boolean isWhiteLabeled;
 
   public static final String SERIALIZED_NAME_IS_PROD = "isProd";
   @SerializedName(SERIALIZED_NAME_IS_PROD)
+  @javax.annotation.Nullable
   private Boolean isProd;
 
   public static final String SERIALIZED_NAME_IS_CRAWLER = "isCrawler";
   @SerializedName(SERIALIZED_NAME_IS_CRAWLER)
+  @javax.annotation.Nullable
   private Boolean isCrawler;
 
   public static final String SERIALIZED_NAME_NOTIFICATION_COUNT = "notificationCount";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_COUNT)
+  @javax.annotation.Nullable
   private Double notificationCount;
 
   public static final String SERIALIZED_NAME_HAS_MORE = "hasMore";
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
+  @javax.annotation.Nullable
   private Boolean hasMore;
 
   public static final String SERIALIZED_NAME_IS_CLOSED = "isClosed";
   @SerializedName(SERIALIZED_NAME_IS_CLOSED)
+  @javax.annotation.Nullable
   private Boolean isClosed;
 
   public static final String SERIALIZED_NAME_PRESENCE_POLL_STATE = "presencePollState";
   @SerializedName(SERIALIZED_NAME_PRESENCE_POLL_STATE)
+  @javax.annotation.Nullable
   private Double presencePollState;
 
   public static final String SERIALIZED_NAME_CUSTOM_CONFIG = "customConfig";
   @SerializedName(SERIALIZED_NAME_CUSTOM_CONFIG)
+  @javax.annotation.Nullable
   private CustomConfigParameters customConfig;
 
   public static final String SERIALIZED_NAME_URL_ID_W_S = "urlIdWS";
   @SerializedName(SERIALIZED_NAME_URL_ID_W_S)
+  @javax.annotation.Nullable
   private String urlIdWS;
 
   public static final String SERIALIZED_NAME_USER_ID_W_S = "userIdWS";
   @SerializedName(SERIALIZED_NAME_USER_ID_W_S)
+  @javax.annotation.Nullable
   private String userIdWS;
 
   public static final String SERIALIZED_NAME_TENANT_ID_W_S = "tenantIdWS";
   @SerializedName(SERIALIZED_NAME_TENANT_ID_W_S)
+  @javax.annotation.Nullable
   private String tenantIdWS;
 
   public GetCommentsResponseWithPresenceFCommentOptimized() {
   }
 
-  public GetCommentsResponseWithPresenceFCommentOptimized statusCode(Double statusCode) {
+  public GetCommentsResponseWithPresenceFCommentOptimized statusCode(@javax.annotation.Nullable Double statusCode) {
     this.statusCode = statusCode;
     return this;
   }
 
-   /**
+  /**
    * Get statusCode
    * @return statusCode
-  **/
+   */
   @javax.annotation.Nullable
   public Double getStatusCode() {
     return statusCode;
   }
 
-  public void setStatusCode(Double statusCode) {
+  public void setStatusCode(@javax.annotation.Nullable Double statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized status(String status) {
+  public GetCommentsResponseWithPresenceFCommentOptimized status(@javax.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nonnull
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(@javax.annotation.Nonnull String status) {
     this.status = status;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized code(String code) {
+  public GetCommentsResponseWithPresenceFCommentOptimized code(@javax.annotation.Nullable String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * Get code
    * @return code
-  **/
+   */
   @javax.annotation.Nullable
   public String getCode() {
     return code;
   }
 
-  public void setCode(String code) {
+  public void setCode(@javax.annotation.Nullable String code) {
     this.code = code;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized reason(String reason) {
+  public GetCommentsResponseWithPresenceFCommentOptimized reason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @javax.annotation.Nullable
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized comments(List<APICommentFCommentOptimized> comments) {
+  public GetCommentsResponseWithPresenceFCommentOptimized comments(@javax.annotation.Nonnull List<APICommentFCommentOptimized> comments) {
     this.comments = comments;
     return this;
   }
@@ -258,192 +284,192 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
     return this;
   }
 
-   /**
+  /**
    * Get comments
    * @return comments
-  **/
+   */
   @javax.annotation.Nonnull
   public List<APICommentFCommentOptimized> getComments() {
     return comments;
   }
 
-  public void setComments(List<APICommentFCommentOptimized> comments) {
+  public void setComments(@javax.annotation.Nonnull List<APICommentFCommentOptimized> comments) {
     this.comments = comments;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized user(UserSessionInfo user) {
+  public GetCommentsResponseWithPresenceFCommentOptimized user(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
   public UserSessionInfo getUser() {
     return user;
   }
 
-  public void setUser(UserSessionInfo user) {
+  public void setUser(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized urlIdClean(String urlIdClean) {
+  public GetCommentsResponseWithPresenceFCommentOptimized urlIdClean(@javax.annotation.Nullable String urlIdClean) {
     this.urlIdClean = urlIdClean;
     return this;
   }
 
-   /**
+  /**
    * Get urlIdClean
    * @return urlIdClean
-  **/
+   */
   @javax.annotation.Nullable
   public String getUrlIdClean() {
     return urlIdClean;
   }
 
-  public void setUrlIdClean(String urlIdClean) {
+  public void setUrlIdClean(@javax.annotation.Nullable String urlIdClean) {
     this.urlIdClean = urlIdClean;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized lastGenDate(Double lastGenDate) {
+  public GetCommentsResponseWithPresenceFCommentOptimized lastGenDate(@javax.annotation.Nullable Double lastGenDate) {
     this.lastGenDate = lastGenDate;
     return this;
   }
 
-   /**
+  /**
    * Get lastGenDate
    * @return lastGenDate
-  **/
+   */
   @javax.annotation.Nullable
   public Double getLastGenDate() {
     return lastGenDate;
   }
 
-  public void setLastGenDate(Double lastGenDate) {
+  public void setLastGenDate(@javax.annotation.Nullable Double lastGenDate) {
     this.lastGenDate = lastGenDate;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized includesPastPages(Boolean includesPastPages) {
+  public GetCommentsResponseWithPresenceFCommentOptimized includesPastPages(@javax.annotation.Nullable Boolean includesPastPages) {
     this.includesPastPages = includesPastPages;
     return this;
   }
 
-   /**
+  /**
    * Get includesPastPages
    * @return includesPastPages
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIncludesPastPages() {
     return includesPastPages;
   }
 
-  public void setIncludesPastPages(Boolean includesPastPages) {
+  public void setIncludesPastPages(@javax.annotation.Nullable Boolean includesPastPages) {
     this.includesPastPages = includesPastPages;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isDemo(Boolean isDemo) {
+  public GetCommentsResponseWithPresenceFCommentOptimized isDemo(@javax.annotation.Nullable Boolean isDemo) {
     this.isDemo = isDemo;
     return this;
   }
 
-   /**
+  /**
    * Get isDemo
    * @return isDemo
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsDemo() {
     return isDemo;
   }
 
-  public void setIsDemo(Boolean isDemo) {
+  public void setIsDemo(@javax.annotation.Nullable Boolean isDemo) {
     this.isDemo = isDemo;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized commentCount(Double commentCount) {
+  public GetCommentsResponseWithPresenceFCommentOptimized commentCount(@javax.annotation.Nullable Double commentCount) {
     this.commentCount = commentCount;
     return this;
   }
 
-   /**
+  /**
    * Get commentCount
    * @return commentCount
-  **/
+   */
   @javax.annotation.Nullable
   public Double getCommentCount() {
     return commentCount;
   }
 
-  public void setCommentCount(Double commentCount) {
+  public void setCommentCount(@javax.annotation.Nullable Double commentCount) {
     this.commentCount = commentCount;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isSiteAdmin(Boolean isSiteAdmin) {
+  public GetCommentsResponseWithPresenceFCommentOptimized isSiteAdmin(@javax.annotation.Nullable Boolean isSiteAdmin) {
     this.isSiteAdmin = isSiteAdmin;
     return this;
   }
 
-   /**
+  /**
    * Get isSiteAdmin
    * @return isSiteAdmin
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsSiteAdmin() {
     return isSiteAdmin;
   }
 
-  public void setIsSiteAdmin(Boolean isSiteAdmin) {
+  public void setIsSiteAdmin(@javax.annotation.Nullable Boolean isSiteAdmin) {
     this.isSiteAdmin = isSiteAdmin;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized hasBillingIssue(Boolean hasBillingIssue) {
+  public GetCommentsResponseWithPresenceFCommentOptimized hasBillingIssue(@javax.annotation.Nullable Boolean hasBillingIssue) {
     this.hasBillingIssue = hasBillingIssue;
     return this;
   }
 
-   /**
+  /**
    * Get hasBillingIssue
    * @return hasBillingIssue
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasBillingIssue() {
     return hasBillingIssue;
   }
 
-  public void setHasBillingIssue(Boolean hasBillingIssue) {
+  public void setHasBillingIssue(@javax.annotation.Nullable Boolean hasBillingIssue) {
     this.hasBillingIssue = hasBillingIssue;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isCommentsHidden(Boolean isCommentsHidden) {
+  public GetCommentsResponseWithPresenceFCommentOptimized isCommentsHidden(@javax.annotation.Nullable Boolean isCommentsHidden) {
     this.isCommentsHidden = isCommentsHidden;
     return this;
   }
 
-   /**
+  /**
    * Get isCommentsHidden
    * @return isCommentsHidden
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsCommentsHidden() {
     return isCommentsHidden;
   }
 
-  public void setIsCommentsHidden(Boolean isCommentsHidden) {
+  public void setIsCommentsHidden(@javax.annotation.Nullable Boolean isCommentsHidden) {
     this.isCommentsHidden = isCommentsHidden;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized moduleData(Map<String, Object> moduleData) {
+  public GetCommentsResponseWithPresenceFCommentOptimized moduleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
     return this;
   }
@@ -456,244 +482,244 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
     return this;
   }
 
-   /**
+  /**
    * Construct a type with a set of properties K of type T
    * @return moduleData
-  **/
+   */
   @javax.annotation.Nullable
   public Map<String, Object> getModuleData() {
     return moduleData;
   }
 
-  public void setModuleData(Map<String, Object> moduleData) {
+  public void setModuleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized pageNumber(Double pageNumber) {
+  public GetCommentsResponseWithPresenceFCommentOptimized pageNumber(@javax.annotation.Nonnull Double pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
 
-   /**
+  /**
    * Get pageNumber
    * @return pageNumber
-  **/
+   */
   @javax.annotation.Nonnull
   public Double getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Double pageNumber) {
+  public void setPageNumber(@javax.annotation.Nonnull Double pageNumber) {
     this.pageNumber = pageNumber;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isWhiteLabeled(Boolean isWhiteLabeled) {
+  public GetCommentsResponseWithPresenceFCommentOptimized isWhiteLabeled(@javax.annotation.Nullable Boolean isWhiteLabeled) {
     this.isWhiteLabeled = isWhiteLabeled;
     return this;
   }
 
-   /**
+  /**
    * Get isWhiteLabeled
    * @return isWhiteLabeled
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsWhiteLabeled() {
     return isWhiteLabeled;
   }
 
-  public void setIsWhiteLabeled(Boolean isWhiteLabeled) {
+  public void setIsWhiteLabeled(@javax.annotation.Nullable Boolean isWhiteLabeled) {
     this.isWhiteLabeled = isWhiteLabeled;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isProd(Boolean isProd) {
+  public GetCommentsResponseWithPresenceFCommentOptimized isProd(@javax.annotation.Nullable Boolean isProd) {
     this.isProd = isProd;
     return this;
   }
 
-   /**
+  /**
    * Get isProd
    * @return isProd
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsProd() {
     return isProd;
   }
 
-  public void setIsProd(Boolean isProd) {
+  public void setIsProd(@javax.annotation.Nullable Boolean isProd) {
     this.isProd = isProd;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isCrawler(Boolean isCrawler) {
+  public GetCommentsResponseWithPresenceFCommentOptimized isCrawler(@javax.annotation.Nullable Boolean isCrawler) {
     this.isCrawler = isCrawler;
     return this;
   }
 
-   /**
+  /**
    * Get isCrawler
    * @return isCrawler
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsCrawler() {
     return isCrawler;
   }
 
-  public void setIsCrawler(Boolean isCrawler) {
+  public void setIsCrawler(@javax.annotation.Nullable Boolean isCrawler) {
     this.isCrawler = isCrawler;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized notificationCount(Double notificationCount) {
+  public GetCommentsResponseWithPresenceFCommentOptimized notificationCount(@javax.annotation.Nullable Double notificationCount) {
     this.notificationCount = notificationCount;
     return this;
   }
 
-   /**
+  /**
    * Get notificationCount
    * @return notificationCount
-  **/
+   */
   @javax.annotation.Nullable
   public Double getNotificationCount() {
     return notificationCount;
   }
 
-  public void setNotificationCount(Double notificationCount) {
+  public void setNotificationCount(@javax.annotation.Nullable Double notificationCount) {
     this.notificationCount = notificationCount;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized hasMore(Boolean hasMore) {
+  public GetCommentsResponseWithPresenceFCommentOptimized hasMore(@javax.annotation.Nullable Boolean hasMore) {
     this.hasMore = hasMore;
     return this;
   }
 
-   /**
+  /**
    * Get hasMore
    * @return hasMore
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasMore() {
     return hasMore;
   }
 
-  public void setHasMore(Boolean hasMore) {
+  public void setHasMore(@javax.annotation.Nullable Boolean hasMore) {
     this.hasMore = hasMore;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isClosed(Boolean isClosed) {
+  public GetCommentsResponseWithPresenceFCommentOptimized isClosed(@javax.annotation.Nullable Boolean isClosed) {
     this.isClosed = isClosed;
     return this;
   }
 
-   /**
+  /**
    * Get isClosed
    * @return isClosed
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsClosed() {
     return isClosed;
   }
 
-  public void setIsClosed(Boolean isClosed) {
+  public void setIsClosed(@javax.annotation.Nullable Boolean isClosed) {
     this.isClosed = isClosed;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized presencePollState(Double presencePollState) {
+  public GetCommentsResponseWithPresenceFCommentOptimized presencePollState(@javax.annotation.Nullable Double presencePollState) {
     this.presencePollState = presencePollState;
     return this;
   }
 
-   /**
+  /**
    * Get presencePollState
    * @return presencePollState
-  **/
+   */
   @javax.annotation.Nullable
   public Double getPresencePollState() {
     return presencePollState;
   }
 
-  public void setPresencePollState(Double presencePollState) {
+  public void setPresencePollState(@javax.annotation.Nullable Double presencePollState) {
     this.presencePollState = presencePollState;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized customConfig(CustomConfigParameters customConfig) {
+  public GetCommentsResponseWithPresenceFCommentOptimized customConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
     this.customConfig = customConfig;
     return this;
   }
 
-   /**
+  /**
    * Get customConfig
    * @return customConfig
-  **/
+   */
   @javax.annotation.Nullable
   public CustomConfigParameters getCustomConfig() {
     return customConfig;
   }
 
-  public void setCustomConfig(CustomConfigParameters customConfig) {
+  public void setCustomConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
     this.customConfig = customConfig;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized urlIdWS(String urlIdWS) {
+  public GetCommentsResponseWithPresenceFCommentOptimized urlIdWS(@javax.annotation.Nullable String urlIdWS) {
     this.urlIdWS = urlIdWS;
     return this;
   }
 
-   /**
+  /**
    * Get urlIdWS
    * @return urlIdWS
-  **/
+   */
   @javax.annotation.Nullable
   public String getUrlIdWS() {
     return urlIdWS;
   }
 
-  public void setUrlIdWS(String urlIdWS) {
+  public void setUrlIdWS(@javax.annotation.Nullable String urlIdWS) {
     this.urlIdWS = urlIdWS;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized userIdWS(String userIdWS) {
+  public GetCommentsResponseWithPresenceFCommentOptimized userIdWS(@javax.annotation.Nullable String userIdWS) {
     this.userIdWS = userIdWS;
     return this;
   }
 
-   /**
+  /**
    * Get userIdWS
    * @return userIdWS
-  **/
+   */
   @javax.annotation.Nullable
   public String getUserIdWS() {
     return userIdWS;
   }
 
-  public void setUserIdWS(String userIdWS) {
+  public void setUserIdWS(@javax.annotation.Nullable String userIdWS) {
     this.userIdWS = userIdWS;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized tenantIdWS(String tenantIdWS) {
+  public GetCommentsResponseWithPresenceFCommentOptimized tenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
     this.tenantIdWS = tenantIdWS;
     return this;
   }
 
-   /**
+  /**
    * Get tenantIdWS
    * @return tenantIdWS
-  **/
+   */
   @javax.annotation.Nullable
   public String getTenantIdWS() {
     return tenantIdWS;
   }
 
-  public void setTenantIdWS(String tenantIdWS) {
+  public void setTenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
     this.tenantIdWS = tenantIdWS;
   }
 
@@ -831,12 +857,12 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
     openapiRequiredFields.add("pageNumber");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetCommentsResponseWithPresenceFCommentOptimized
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetCommentsResponseWithPresenceFCommentOptimized
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetCommentsResponseWithPresenceFCommentOptimized.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -927,22 +953,22 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
     }
   }
 
- /**
-  * Create an instance of GetCommentsResponseWithPresenceFCommentOptimized given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetCommentsResponseWithPresenceFCommentOptimized
-  * @throws IOException if the JSON string is invalid with respect to GetCommentsResponseWithPresenceFCommentOptimized
-  */
+  /**
+   * Create an instance of GetCommentsResponseWithPresenceFCommentOptimized given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetCommentsResponseWithPresenceFCommentOptimized
+   * @throws IOException if the JSON string is invalid with respect to GetCommentsResponseWithPresenceFCommentOptimized
+   */
   public static GetCommentsResponseWithPresenceFCommentOptimized fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetCommentsResponseWithPresenceFCommentOptimized.class);
   }
 
- /**
-  * Convert an instance of GetCommentsResponseWithPresenceFCommentOptimized to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of GetCommentsResponseWithPresenceFCommentOptimized to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

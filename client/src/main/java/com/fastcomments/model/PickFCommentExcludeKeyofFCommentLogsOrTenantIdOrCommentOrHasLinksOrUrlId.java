@@ -44,7 +44,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -56,1214 +55,1277 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private String id;
 
   public static final String SERIALIZED_NAME_URL_ID_RAW = "urlIdRaw";
   @SerializedName(SERIALIZED_NAME_URL_ID_RAW)
+  @javax.annotation.Nullable
   private String urlIdRaw;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nonnull
   private String url;
 
   public static final String SERIALIZED_NAME_PAGE_TITLE = "pageTitle";
   @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
+  @javax.annotation.Nullable
   private String pageTitle;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nullable
   private String userId;
 
   public static final String SERIALIZED_NAME_ANON_USER_ID = "anonUserId";
   @SerializedName(SERIALIZED_NAME_ANON_USER_ID)
+  @javax.annotation.Nullable
   private String anonUserId;
 
   public static final String SERIALIZED_NAME_COMMENTER_EMAIL = "commenterEmail";
   @SerializedName(SERIALIZED_NAME_COMMENTER_EMAIL)
+  @javax.annotation.Nullable
   private String commenterEmail;
 
   public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
   @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
+  @javax.annotation.Nonnull
   private String commenterName;
 
   public static final String SERIALIZED_NAME_COMMENTER_LINK = "commenterLink";
   @SerializedName(SERIALIZED_NAME_COMMENTER_LINK)
+  @javax.annotation.Nullable
   private String commenterLink;
 
   public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
   @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
+  @javax.annotation.Nonnull
   private String commentHTML;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  @javax.annotation.Nullable
   private String parentId;
 
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nonnull
   private OffsetDateTime date;
 
   public static final String SERIALIZED_NAME_LOCAL_DATE_STRING = "localDateString";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_STRING)
+  @javax.annotation.Nullable
   private String localDateString;
 
   public static final String SERIALIZED_NAME_LOCAL_DATE_HOURS = "localDateHours";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_HOURS)
+  @javax.annotation.Nullable
   private Double localDateHours;
 
   public static final String SERIALIZED_NAME_VOTES = "votes";
   @SerializedName(SERIALIZED_NAME_VOTES)
+  @javax.annotation.Nonnull
   private Double votes;
 
   public static final String SERIALIZED_NAME_VOTES_UP = "votesUp";
   @SerializedName(SERIALIZED_NAME_VOTES_UP)
+  @javax.annotation.Nonnull
   private Double votesUp;
 
   public static final String SERIALIZED_NAME_VOTES_DOWN = "votesDown";
   @SerializedName(SERIALIZED_NAME_VOTES_DOWN)
+  @javax.annotation.Nonnull
   private Double votesDown;
 
   public static final String SERIALIZED_NAME_EXPIRE_AT = "expireAt";
   @SerializedName(SERIALIZED_NAME_EXPIRE_AT)
+  @javax.annotation.Nullable
   private OffsetDateTime expireAt;
 
   public static final String SERIALIZED_NAME_VERIFIED = "verified";
   @SerializedName(SERIALIZED_NAME_VERIFIED)
+  @javax.annotation.Nonnull
   private Boolean verified;
 
   public static final String SERIALIZED_NAME_VERIFIED_DATE = "verifiedDate";
   @SerializedName(SERIALIZED_NAME_VERIFIED_DATE)
+  @javax.annotation.Nullable
   private OffsetDateTime verifiedDate;
 
   public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
+  @javax.annotation.Nullable
   private String verificationId;
 
   public static final String SERIALIZED_NAME_NOTIFICATION_SENT_FOR_PARENT = "notificationSentForParent";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_SENT_FOR_PARENT)
+  @javax.annotation.Nullable
   private Boolean notificationSentForParent;
 
   public static final String SERIALIZED_NAME_NOTIFICATION_SENT_FOR_PARENT_TENANT = "notificationSentForParentTenant";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_SENT_FOR_PARENT_TENANT)
+  @javax.annotation.Nullable
   private Boolean notificationSentForParentTenant;
 
   public static final String SERIALIZED_NAME_REVIEWED = "reviewed";
   @SerializedName(SERIALIZED_NAME_REVIEWED)
+  @javax.annotation.Nullable
   private Boolean reviewed;
 
   public static final String SERIALIZED_NAME_IMPORTED = "imported";
   @SerializedName(SERIALIZED_NAME_IMPORTED)
+  @javax.annotation.Nullable
   private Boolean imported;
 
   public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String SERIALIZED_NAME_EXTERNAL_PARENT_ID = "externalParentId";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_PARENT_ID)
+  @javax.annotation.Nullable
   private String externalParentId;
 
   public static final String SERIALIZED_NAME_AVATAR_SRC = "avatarSrc";
   @SerializedName(SERIALIZED_NAME_AVATAR_SRC)
+  @javax.annotation.Nullable
   private String avatarSrc;
 
   public static final String SERIALIZED_NAME_IS_SPAM = "isSpam";
   @SerializedName(SERIALIZED_NAME_IS_SPAM)
+  @javax.annotation.Nullable
   private Boolean isSpam;
 
   public static final String SERIALIZED_NAME_AI_DETERMINED_SPAM = "aiDeterminedSpam";
   @SerializedName(SERIALIZED_NAME_AI_DETERMINED_SPAM)
+  @javax.annotation.Nullable
   private Boolean aiDeterminedSpam;
 
   public static final String SERIALIZED_NAME_HAS_IMAGES = "hasImages";
   @SerializedName(SERIALIZED_NAME_HAS_IMAGES)
+  @javax.annotation.Nullable
   private Boolean hasImages;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER = "pageNumber";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
+  @javax.annotation.Nullable
   private Double pageNumber;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER_O_F = "pageNumberOF";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER_O_F)
+  @javax.annotation.Nullable
   private Double pageNumberOF;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER_N_F = "pageNumberNF";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER_N_F)
+  @javax.annotation.Nullable
   private Double pageNumberNF;
 
   public static final String SERIALIZED_NAME_HAS_CODE = "hasCode";
   @SerializedName(SERIALIZED_NAME_HAS_CODE)
+  @javax.annotation.Nullable
   private Boolean hasCode;
 
   public static final String SERIALIZED_NAME_APPROVED = "approved";
   @SerializedName(SERIALIZED_NAME_APPROVED)
+  @javax.annotation.Nonnull
   private Boolean approved;
 
   public static final String SERIALIZED_NAME_LOCALE = "locale";
   @SerializedName(SERIALIZED_NAME_LOCALE)
+  @javax.annotation.Nonnull
   private String locale;
 
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nullable
   private Boolean isDeleted;
 
   public static final String SERIALIZED_NAME_IS_DELETED_USER = "isDeletedUser";
   @SerializedName(SERIALIZED_NAME_IS_DELETED_USER)
+  @javax.annotation.Nullable
   private Boolean isDeletedUser;
 
   public static final String SERIALIZED_NAME_IS_BANNED_USER = "isBannedUser";
   @SerializedName(SERIALIZED_NAME_IS_BANNED_USER)
+  @javax.annotation.Nullable
   private Boolean isBannedUser;
 
   public static final String SERIALIZED_NAME_IS_BY_ADMIN = "isByAdmin";
   @SerializedName(SERIALIZED_NAME_IS_BY_ADMIN)
+  @javax.annotation.Nullable
   private Boolean isByAdmin;
 
   public static final String SERIALIZED_NAME_IS_BY_MODERATOR = "isByModerator";
   @SerializedName(SERIALIZED_NAME_IS_BY_MODERATOR)
+  @javax.annotation.Nullable
   private Boolean isByModerator;
 
   public static final String SERIALIZED_NAME_IS_PINNED = "isPinned";
   @SerializedName(SERIALIZED_NAME_IS_PINNED)
+  @javax.annotation.Nullable
   private Boolean isPinned;
 
   public static final String SERIALIZED_NAME_IS_LOCKED = "isLocked";
   @SerializedName(SERIALIZED_NAME_IS_LOCKED)
+  @javax.annotation.Nullable
   private Boolean isLocked;
 
   public static final String SERIALIZED_NAME_FLAG_COUNT = "flagCount";
   @SerializedName(SERIALIZED_NAME_FLAG_COUNT)
+  @javax.annotation.Nullable
   private Double flagCount;
 
   public static final String SERIALIZED_NAME_RATING = "rating";
   @SerializedName(SERIALIZED_NAME_RATING)
+  @javax.annotation.Nullable
   private Double rating;
 
   public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
   @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
+  @javax.annotation.Nullable
   private String displayLabel;
 
   public static final String SERIALIZED_NAME_FROM_PRODUCT_ID = "fromProductId";
   @SerializedName(SERIALIZED_NAME_FROM_PRODUCT_ID)
+  @javax.annotation.Nullable
   private Double fromProductId;
 
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
+  @javax.annotation.Nullable
   private PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta;
 
   public static final String SERIALIZED_NAME_IP_HASH = "ipHash";
   @SerializedName(SERIALIZED_NAME_IP_HASH)
+  @javax.annotation.Nullable
   private String ipHash;
 
   public static final String SERIALIZED_NAME_MENTIONS = "mentions";
   @SerializedName(SERIALIZED_NAME_MENTIONS)
-  private List<CommentUserMentionInfo> mentions;
+  @javax.annotation.Nullable
+  private List<CommentUserMentionInfo> mentions = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HASH_TAGS = "hashTags";
   @SerializedName(SERIALIZED_NAME_HASH_TAGS)
-  private List<CommentUserHashTagInfo> hashTags;
+  @javax.annotation.Nullable
+  private List<CommentUserHashTagInfo> hashTags = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BADGES = "badges";
   @SerializedName(SERIALIZED_NAME_BADGES)
-  private List<CommentUserBadgeInfo> badges;
+  @javax.annotation.Nullable
+  private List<CommentUserBadgeInfo> badges = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DOMAIN = "domain";
   @SerializedName(SERIALIZED_NAME_DOMAIN)
+  @javax.annotation.Nullable
   private String domain;
 
   public static final String SERIALIZED_NAME_VETERAN_BADGE_PROCESSED = "veteranBadgeProcessed";
   @SerializedName(SERIALIZED_NAME_VETERAN_BADGE_PROCESSED)
+  @javax.annotation.Nullable
   private String veteranBadgeProcessed;
 
   public static final String SERIALIZED_NAME_MODERATION_GROUP_IDS = "moderationGroupIds";
   @SerializedName(SERIALIZED_NAME_MODERATION_GROUP_IDS)
-  private List<String> moderationGroupIds;
+  @javax.annotation.Nullable
+  private List<String> moderationGroupIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DID_PROCESS_BADGES = "didProcessBadges";
   @SerializedName(SERIALIZED_NAME_DID_PROCESS_BADGES)
+  @javax.annotation.Nullable
   private Boolean didProcessBadges;
 
   public static final String SERIALIZED_NAME_FROM_OFFLINE_RESTORE = "fromOfflineRestore";
   @SerializedName(SERIALIZED_NAME_FROM_OFFLINE_RESTORE)
+  @javax.annotation.Nullable
   private Boolean fromOfflineRestore;
 
   public static final String SERIALIZED_NAME_AUTOPLAY_JOB_ID = "autoplayJobId";
   @SerializedName(SERIALIZED_NAME_AUTOPLAY_JOB_ID)
+  @javax.annotation.Nullable
   private String autoplayJobId;
 
   public static final String SERIALIZED_NAME_AUTOPLAY_DELAY_M_S = "autoplayDelayMS";
   @SerializedName(SERIALIZED_NAME_AUTOPLAY_DELAY_M_S)
+  @javax.annotation.Nullable
   private Double autoplayDelayMS;
 
   public static final String SERIALIZED_NAME_FEEDBACK_IDS = "feedbackIds";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
-  private List<String> feedbackIds;
+  @javax.annotation.Nullable
+  private List<String> feedbackIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GROUP_IDS = "groupIds";
   @SerializedName(SERIALIZED_NAME_GROUP_IDS)
-  private List<String> groupIds;
+  @javax.annotation.Nullable
+  private List<String> groupIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VIEW_COUNT = "viewCount";
   @SerializedName(SERIALIZED_NAME_VIEW_COUNT)
+  @javax.annotation.Nullable
   private Double viewCount;
 
   public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId() {
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId id(String id) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   public String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@javax.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId urlIdRaw(String urlIdRaw) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId urlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
     this.urlIdRaw = urlIdRaw;
     return this;
   }
 
-   /**
+  /**
    * Get urlIdRaw
    * @return urlIdRaw
-  **/
+   */
   @javax.annotation.Nullable
   public String getUrlIdRaw() {
     return urlIdRaw;
   }
 
-  public void setUrlIdRaw(String urlIdRaw) {
+  public void setUrlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
     this.urlIdRaw = urlIdRaw;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId url(String url) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId url(@javax.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * Get url
    * @return url
-  **/
+   */
   @javax.annotation.Nonnull
   public String getUrl() {
     return url;
   }
 
-  public void setUrl(String url) {
+  public void setUrl(@javax.annotation.Nonnull String url) {
     this.url = url;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageTitle(String pageTitle) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
     return this;
   }
 
-   /**
+  /**
    * Get pageTitle
    * @return pageTitle
-  **/
+   */
   @javax.annotation.Nullable
   public String getPageTitle() {
     return pageTitle;
   }
 
-  public void setPageTitle(String pageTitle) {
+  public void setPageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId userId(String userId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId userId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
     return this;
   }
 
-   /**
+  /**
    * Get userId
    * @return userId
-  **/
+   */
   @javax.annotation.Nullable
   public String getUserId() {
     return userId;
   }
 
-  public void setUserId(String userId) {
+  public void setUserId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId anonUserId(String anonUserId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId anonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
     return this;
   }
 
-   /**
+  /**
    * Get anonUserId
    * @return anonUserId
-  **/
+   */
   @javax.annotation.Nullable
   public String getAnonUserId() {
     return anonUserId;
   }
 
-  public void setAnonUserId(String anonUserId) {
+  public void setAnonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterEmail(String commenterEmail) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterEmail(@javax.annotation.Nullable String commenterEmail) {
     this.commenterEmail = commenterEmail;
     return this;
   }
 
-   /**
+  /**
    * Get commenterEmail
    * @return commenterEmail
-  **/
+   */
   @javax.annotation.Nullable
   public String getCommenterEmail() {
     return commenterEmail;
   }
 
-  public void setCommenterEmail(String commenterEmail) {
+  public void setCommenterEmail(@javax.annotation.Nullable String commenterEmail) {
     this.commenterEmail = commenterEmail;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterName(String commenterName) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterName(@javax.annotation.Nonnull String commenterName) {
     this.commenterName = commenterName;
     return this;
   }
 
-   /**
+  /**
    * Get commenterName
    * @return commenterName
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCommenterName() {
     return commenterName;
   }
 
-  public void setCommenterName(String commenterName) {
+  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
     this.commenterName = commenterName;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterLink(String commenterLink) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
     return this;
   }
 
-   /**
+  /**
    * Get commenterLink
    * @return commenterLink
-  **/
+   */
   @javax.annotation.Nullable
   public String getCommenterLink() {
     return commenterLink;
   }
 
-  public void setCommenterLink(String commenterLink) {
+  public void setCommenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commentHTML(String commentHTML) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commentHTML(@javax.annotation.Nonnull String commentHTML) {
     this.commentHTML = commentHTML;
     return this;
   }
 
-   /**
+  /**
    * Get commentHTML
    * @return commentHTML
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCommentHTML() {
     return commentHTML;
   }
 
-  public void setCommentHTML(String commentHTML) {
+  public void setCommentHTML(@javax.annotation.Nonnull String commentHTML) {
     this.commentHTML = commentHTML;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId parentId(String parentId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId parentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
     return this;
   }
 
-   /**
+  /**
    * Get parentId
    * @return parentId
-  **/
+   */
   @javax.annotation.Nullable
   public String getParentId() {
     return parentId;
   }
 
-  public void setParentId(String parentId) {
+  public void setParentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId date(OffsetDateTime date) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
   }
 
-   /**
+  /**
    * Get date
    * @return date
-  **/
+   */
   @javax.annotation.Nonnull
   public OffsetDateTime getDate() {
     return date;
   }
 
-  public void setDate(OffsetDateTime date) {
+  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateString(String localDateString) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateString(@javax.annotation.Nullable String localDateString) {
     this.localDateString = localDateString;
     return this;
   }
 
-   /**
+  /**
    * Get localDateString
    * @return localDateString
-  **/
+   */
   @javax.annotation.Nullable
   public String getLocalDateString() {
     return localDateString;
   }
 
-  public void setLocalDateString(String localDateString) {
+  public void setLocalDateString(@javax.annotation.Nullable String localDateString) {
     this.localDateString = localDateString;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateHours(Double localDateHours) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateHours(@javax.annotation.Nullable Double localDateHours) {
     this.localDateHours = localDateHours;
     return this;
   }
 
-   /**
+  /**
    * Get localDateHours
    * @return localDateHours
-  **/
+   */
   @javax.annotation.Nullable
   public Double getLocalDateHours() {
     return localDateHours;
   }
 
-  public void setLocalDateHours(Double localDateHours) {
+  public void setLocalDateHours(@javax.annotation.Nullable Double localDateHours) {
     this.localDateHours = localDateHours;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votes(Double votes) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votes(@javax.annotation.Nonnull Double votes) {
     this.votes = votes;
     return this;
   }
 
-   /**
+  /**
    * Get votes
    * @return votes
-  **/
+   */
   @javax.annotation.Nonnull
   public Double getVotes() {
     return votes;
   }
 
-  public void setVotes(Double votes) {
+  public void setVotes(@javax.annotation.Nonnull Double votes) {
     this.votes = votes;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesUp(Double votesUp) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesUp(@javax.annotation.Nonnull Double votesUp) {
     this.votesUp = votesUp;
     return this;
   }
 
-   /**
+  /**
    * Get votesUp
    * @return votesUp
-  **/
+   */
   @javax.annotation.Nonnull
   public Double getVotesUp() {
     return votesUp;
   }
 
-  public void setVotesUp(Double votesUp) {
+  public void setVotesUp(@javax.annotation.Nonnull Double votesUp) {
     this.votesUp = votesUp;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesDown(Double votesDown) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesDown(@javax.annotation.Nonnull Double votesDown) {
     this.votesDown = votesDown;
     return this;
   }
 
-   /**
+  /**
    * Get votesDown
    * @return votesDown
-  **/
+   */
   @javax.annotation.Nonnull
   public Double getVotesDown() {
     return votesDown;
   }
 
-  public void setVotesDown(Double votesDown) {
+  public void setVotesDown(@javax.annotation.Nonnull Double votesDown) {
     this.votesDown = votesDown;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId expireAt(OffsetDateTime expireAt) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId expireAt(@javax.annotation.Nullable OffsetDateTime expireAt) {
     this.expireAt = expireAt;
     return this;
   }
 
-   /**
+  /**
    * Get expireAt
    * @return expireAt
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getExpireAt() {
     return expireAt;
   }
 
-  public void setExpireAt(OffsetDateTime expireAt) {
+  public void setExpireAt(@javax.annotation.Nullable OffsetDateTime expireAt) {
     this.expireAt = expireAt;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verified(Boolean verified) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verified(@javax.annotation.Nonnull Boolean verified) {
     this.verified = verified;
     return this;
   }
 
-   /**
+  /**
    * Get verified
    * @return verified
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getVerified() {
     return verified;
   }
 
-  public void setVerified(Boolean verified) {
+  public void setVerified(@javax.annotation.Nonnull Boolean verified) {
     this.verified = verified;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verifiedDate(OffsetDateTime verifiedDate) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verifiedDate(@javax.annotation.Nullable OffsetDateTime verifiedDate) {
     this.verifiedDate = verifiedDate;
     return this;
   }
 
-   /**
+  /**
    * Get verifiedDate
    * @return verifiedDate
-  **/
+   */
   @javax.annotation.Nullable
   public OffsetDateTime getVerifiedDate() {
     return verifiedDate;
   }
 
-  public void setVerifiedDate(OffsetDateTime verifiedDate) {
+  public void setVerifiedDate(@javax.annotation.Nullable OffsetDateTime verifiedDate) {
     this.verifiedDate = verifiedDate;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verificationId(String verificationId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verificationId(@javax.annotation.Nullable String verificationId) {
     this.verificationId = verificationId;
     return this;
   }
 
-   /**
+  /**
    * Get verificationId
    * @return verificationId
-  **/
+   */
   @javax.annotation.Nullable
   public String getVerificationId() {
     return verificationId;
   }
 
-  public void setVerificationId(String verificationId) {
+  public void setVerificationId(@javax.annotation.Nullable String verificationId) {
     this.verificationId = verificationId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId notificationSentForParent(Boolean notificationSentForParent) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId notificationSentForParent(@javax.annotation.Nullable Boolean notificationSentForParent) {
     this.notificationSentForParent = notificationSentForParent;
     return this;
   }
 
-   /**
+  /**
    * Get notificationSentForParent
    * @return notificationSentForParent
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getNotificationSentForParent() {
     return notificationSentForParent;
   }
 
-  public void setNotificationSentForParent(Boolean notificationSentForParent) {
+  public void setNotificationSentForParent(@javax.annotation.Nullable Boolean notificationSentForParent) {
     this.notificationSentForParent = notificationSentForParent;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId notificationSentForParentTenant(Boolean notificationSentForParentTenant) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId notificationSentForParentTenant(@javax.annotation.Nullable Boolean notificationSentForParentTenant) {
     this.notificationSentForParentTenant = notificationSentForParentTenant;
     return this;
   }
 
-   /**
+  /**
    * Get notificationSentForParentTenant
    * @return notificationSentForParentTenant
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getNotificationSentForParentTenant() {
     return notificationSentForParentTenant;
   }
 
-  public void setNotificationSentForParentTenant(Boolean notificationSentForParentTenant) {
+  public void setNotificationSentForParentTenant(@javax.annotation.Nullable Boolean notificationSentForParentTenant) {
     this.notificationSentForParentTenant = notificationSentForParentTenant;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId reviewed(Boolean reviewed) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId reviewed(@javax.annotation.Nullable Boolean reviewed) {
     this.reviewed = reviewed;
     return this;
   }
 
-   /**
+  /**
    * Get reviewed
    * @return reviewed
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getReviewed() {
     return reviewed;
   }
 
-  public void setReviewed(Boolean reviewed) {
+  public void setReviewed(@javax.annotation.Nullable Boolean reviewed) {
     this.reviewed = reviewed;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId imported(Boolean imported) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId imported(@javax.annotation.Nullable Boolean imported) {
     this.imported = imported;
     return this;
   }
 
-   /**
+  /**
    * Get imported
    * @return imported
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getImported() {
     return imported;
   }
 
-  public void setImported(Boolean imported) {
+  public void setImported(@javax.annotation.Nullable Boolean imported) {
     this.imported = imported;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId externalId(String externalId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId externalId(@javax.annotation.Nullable String externalId) {
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * Get externalId
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   public String getExternalId() {
     return externalId;
   }
 
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nullable String externalId) {
     this.externalId = externalId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId externalParentId(String externalParentId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId externalParentId(@javax.annotation.Nullable String externalParentId) {
     this.externalParentId = externalParentId;
     return this;
   }
 
-   /**
+  /**
    * Get externalParentId
    * @return externalParentId
-  **/
+   */
   @javax.annotation.Nullable
   public String getExternalParentId() {
     return externalParentId;
   }
 
-  public void setExternalParentId(String externalParentId) {
+  public void setExternalParentId(@javax.annotation.Nullable String externalParentId) {
     this.externalParentId = externalParentId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId avatarSrc(String avatarSrc) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId avatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
     return this;
   }
 
-   /**
+  /**
    * Get avatarSrc
    * @return avatarSrc
-  **/
+   */
   @javax.annotation.Nullable
   public String getAvatarSrc() {
     return avatarSrc;
   }
 
-  public void setAvatarSrc(String avatarSrc) {
+  public void setAvatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isSpam(Boolean isSpam) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isSpam(@javax.annotation.Nullable Boolean isSpam) {
     this.isSpam = isSpam;
     return this;
   }
 
-   /**
+  /**
    * Get isSpam
    * @return isSpam
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsSpam() {
     return isSpam;
   }
 
-  public void setIsSpam(Boolean isSpam) {
+  public void setIsSpam(@javax.annotation.Nullable Boolean isSpam) {
     this.isSpam = isSpam;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId aiDeterminedSpam(Boolean aiDeterminedSpam) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId aiDeterminedSpam(@javax.annotation.Nullable Boolean aiDeterminedSpam) {
     this.aiDeterminedSpam = aiDeterminedSpam;
     return this;
   }
 
-   /**
+  /**
    * Get aiDeterminedSpam
    * @return aiDeterminedSpam
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAiDeterminedSpam() {
     return aiDeterminedSpam;
   }
 
-  public void setAiDeterminedSpam(Boolean aiDeterminedSpam) {
+  public void setAiDeterminedSpam(@javax.annotation.Nullable Boolean aiDeterminedSpam) {
     this.aiDeterminedSpam = aiDeterminedSpam;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hasImages(Boolean hasImages) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hasImages(@javax.annotation.Nullable Boolean hasImages) {
     this.hasImages = hasImages;
     return this;
   }
 
-   /**
+  /**
    * Get hasImages
    * @return hasImages
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasImages() {
     return hasImages;
   }
 
-  public void setHasImages(Boolean hasImages) {
+  public void setHasImages(@javax.annotation.Nullable Boolean hasImages) {
     this.hasImages = hasImages;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumber(Double pageNumber) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumber(@javax.annotation.Nullable Double pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
 
-   /**
+  /**
    * Get pageNumber
    * @return pageNumber
-  **/
+   */
   @javax.annotation.Nullable
   public Double getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(Double pageNumber) {
+  public void setPageNumber(@javax.annotation.Nullable Double pageNumber) {
     this.pageNumber = pageNumber;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberOF(Double pageNumberOF) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberOF(@javax.annotation.Nullable Double pageNumberOF) {
     this.pageNumberOF = pageNumberOF;
     return this;
   }
 
-   /**
+  /**
    * Get pageNumberOF
    * @return pageNumberOF
-  **/
+   */
   @javax.annotation.Nullable
   public Double getPageNumberOF() {
     return pageNumberOF;
   }
 
-  public void setPageNumberOF(Double pageNumberOF) {
+  public void setPageNumberOF(@javax.annotation.Nullable Double pageNumberOF) {
     this.pageNumberOF = pageNumberOF;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberNF(Double pageNumberNF) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberNF(@javax.annotation.Nullable Double pageNumberNF) {
     this.pageNumberNF = pageNumberNF;
     return this;
   }
 
-   /**
+  /**
    * Get pageNumberNF
    * @return pageNumberNF
-  **/
+   */
   @javax.annotation.Nullable
   public Double getPageNumberNF() {
     return pageNumberNF;
   }
 
-  public void setPageNumberNF(Double pageNumberNF) {
+  public void setPageNumberNF(@javax.annotation.Nullable Double pageNumberNF) {
     this.pageNumberNF = pageNumberNF;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hasCode(Boolean hasCode) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hasCode(@javax.annotation.Nullable Boolean hasCode) {
     this.hasCode = hasCode;
     return this;
   }
 
-   /**
+  /**
    * Get hasCode
    * @return hasCode
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasCode() {
     return hasCode;
   }
 
-  public void setHasCode(Boolean hasCode) {
+  public void setHasCode(@javax.annotation.Nullable Boolean hasCode) {
     this.hasCode = hasCode;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId approved(Boolean approved) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId approved(@javax.annotation.Nonnull Boolean approved) {
     this.approved = approved;
     return this;
   }
 
-   /**
+  /**
    * Get approved
    * @return approved
-  **/
+   */
   @javax.annotation.Nonnull
   public Boolean getApproved() {
     return approved;
   }
 
-  public void setApproved(Boolean approved) {
+  public void setApproved(@javax.annotation.Nonnull Boolean approved) {
     this.approved = approved;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId locale(String locale) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId locale(@javax.annotation.Nonnull String locale) {
     this.locale = locale;
     return this;
   }
 
-   /**
+  /**
    * Get locale
    * @return locale
-  **/
+   */
   @javax.annotation.Nonnull
   public String getLocale() {
     return locale;
   }
 
-  public void setLocale(String locale) {
+  public void setLocale(@javax.annotation.Nonnull String locale) {
     this.locale = locale;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isDeleted(Boolean isDeleted) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
 
-   /**
+  /**
    * Get isDeleted
    * @return isDeleted
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsDeleted() {
     return isDeleted;
   }
 
-  public void setIsDeleted(Boolean isDeleted) {
+  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isDeletedUser(Boolean isDeletedUser) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
     this.isDeletedUser = isDeletedUser;
     return this;
   }
 
-   /**
+  /**
    * Get isDeletedUser
    * @return isDeletedUser
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsDeletedUser() {
     return isDeletedUser;
   }
 
-  public void setIsDeletedUser(Boolean isDeletedUser) {
+  public void setIsDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
     this.isDeletedUser = isDeletedUser;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isBannedUser(Boolean isBannedUser) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isBannedUser(@javax.annotation.Nullable Boolean isBannedUser) {
     this.isBannedUser = isBannedUser;
     return this;
   }
 
-   /**
+  /**
    * Get isBannedUser
    * @return isBannedUser
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsBannedUser() {
     return isBannedUser;
   }
 
-  public void setIsBannedUser(Boolean isBannedUser) {
+  public void setIsBannedUser(@javax.annotation.Nullable Boolean isBannedUser) {
     this.isBannedUser = isBannedUser;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isByAdmin(Boolean isByAdmin) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isByAdmin(@javax.annotation.Nullable Boolean isByAdmin) {
     this.isByAdmin = isByAdmin;
     return this;
   }
 
-   /**
+  /**
    * Get isByAdmin
    * @return isByAdmin
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsByAdmin() {
     return isByAdmin;
   }
 
-  public void setIsByAdmin(Boolean isByAdmin) {
+  public void setIsByAdmin(@javax.annotation.Nullable Boolean isByAdmin) {
     this.isByAdmin = isByAdmin;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isByModerator(Boolean isByModerator) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isByModerator(@javax.annotation.Nullable Boolean isByModerator) {
     this.isByModerator = isByModerator;
     return this;
   }
 
-   /**
+  /**
    * Get isByModerator
    * @return isByModerator
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsByModerator() {
     return isByModerator;
   }
 
-  public void setIsByModerator(Boolean isByModerator) {
+  public void setIsByModerator(@javax.annotation.Nullable Boolean isByModerator) {
     this.isByModerator = isByModerator;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isPinned(Boolean isPinned) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isPinned(@javax.annotation.Nullable Boolean isPinned) {
     this.isPinned = isPinned;
     return this;
   }
 
-   /**
+  /**
    * Get isPinned
    * @return isPinned
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsPinned() {
     return isPinned;
   }
 
-  public void setIsPinned(Boolean isPinned) {
+  public void setIsPinned(@javax.annotation.Nullable Boolean isPinned) {
     this.isPinned = isPinned;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isLocked(Boolean isLocked) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isLocked(@javax.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
     return this;
   }
 
-   /**
+  /**
    * Get isLocked
    * @return isLocked
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getIsLocked() {
     return isLocked;
   }
 
-  public void setIsLocked(Boolean isLocked) {
+  public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId flagCount(Double flagCount) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId flagCount(@javax.annotation.Nullable Double flagCount) {
     this.flagCount = flagCount;
     return this;
   }
 
-   /**
+  /**
    * Get flagCount
    * @return flagCount
-  **/
+   */
   @javax.annotation.Nullable
   public Double getFlagCount() {
     return flagCount;
   }
 
-  public void setFlagCount(Double flagCount) {
+  public void setFlagCount(@javax.annotation.Nullable Double flagCount) {
     this.flagCount = flagCount;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId rating(Double rating) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId rating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
     return this;
   }
 
-   /**
+  /**
    * Get rating
    * @return rating
-  **/
+   */
   @javax.annotation.Nullable
   public Double getRating() {
     return rating;
   }
 
-  public void setRating(Double rating) {
+  public void setRating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId displayLabel(String displayLabel) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId displayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
     return this;
   }
 
-   /**
+  /**
    * Get displayLabel
    * @return displayLabel
-  **/
+   */
   @javax.annotation.Nullable
   public String getDisplayLabel() {
     return displayLabel;
   }
 
-  public void setDisplayLabel(String displayLabel) {
+  public void setDisplayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromProductId(Double fromProductId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromProductId(@javax.annotation.Nullable Double fromProductId) {
     this.fromProductId = fromProductId;
     return this;
   }
 
-   /**
+  /**
    * Get fromProductId
    * @return fromProductId
-  **/
+   */
   @javax.annotation.Nullable
   public Double getFromProductId() {
     return fromProductId;
   }
 
-  public void setFromProductId(Double fromProductId) {
+  public void setFromProductId(@javax.annotation.Nullable Double fromProductId) {
     this.fromProductId = fromProductId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId meta(PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId meta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
     this.meta = meta;
     return this;
   }
 
-   /**
+  /**
    * Get meta
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
+  public void setMeta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
     this.meta = meta;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId ipHash(String ipHash) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId ipHash(@javax.annotation.Nullable String ipHash) {
     this.ipHash = ipHash;
     return this;
   }
 
-   /**
+  /**
    * Get ipHash
    * @return ipHash
-  **/
+   */
   @javax.annotation.Nullable
   public String getIpHash() {
     return ipHash;
   }
 
-  public void setIpHash(String ipHash) {
+  public void setIpHash(@javax.annotation.Nullable String ipHash) {
     this.ipHash = ipHash;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId mentions(List<CommentUserMentionInfo> mentions) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId mentions(@javax.annotation.Nullable List<CommentUserMentionInfo> mentions) {
     this.mentions = mentions;
     return this;
   }
@@ -1276,21 +1338,21 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     return this;
   }
 
-   /**
+  /**
    * Get mentions
    * @return mentions
-  **/
+   */
   @javax.annotation.Nullable
   public List<CommentUserMentionInfo> getMentions() {
     return mentions;
   }
 
-  public void setMentions(List<CommentUserMentionInfo> mentions) {
+  public void setMentions(@javax.annotation.Nullable List<CommentUserMentionInfo> mentions) {
     this.mentions = mentions;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hashTags(List<CommentUserHashTagInfo> hashTags) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hashTags(@javax.annotation.Nullable List<CommentUserHashTagInfo> hashTags) {
     this.hashTags = hashTags;
     return this;
   }
@@ -1303,21 +1365,21 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     return this;
   }
 
-   /**
+  /**
    * Get hashTags
    * @return hashTags
-  **/
+   */
   @javax.annotation.Nullable
   public List<CommentUserHashTagInfo> getHashTags() {
     return hashTags;
   }
 
-  public void setHashTags(List<CommentUserHashTagInfo> hashTags) {
+  public void setHashTags(@javax.annotation.Nullable List<CommentUserHashTagInfo> hashTags) {
     this.hashTags = hashTags;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId badges(List<CommentUserBadgeInfo> badges) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId badges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
     this.badges = badges;
     return this;
   }
@@ -1330,59 +1392,59 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     return this;
   }
 
-   /**
+  /**
    * Get badges
    * @return badges
-  **/
+   */
   @javax.annotation.Nullable
   public List<CommentUserBadgeInfo> getBadges() {
     return badges;
   }
 
-  public void setBadges(List<CommentUserBadgeInfo> badges) {
+  public void setBadges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
     this.badges = badges;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId domain(String domain) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId domain(@javax.annotation.Nullable String domain) {
     this.domain = domain;
     return this;
   }
 
-   /**
+  /**
    * Get domain
    * @return domain
-  **/
+   */
   @javax.annotation.Nullable
   public String getDomain() {
     return domain;
   }
 
-  public void setDomain(String domain) {
+  public void setDomain(@javax.annotation.Nullable String domain) {
     this.domain = domain;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId veteranBadgeProcessed(String veteranBadgeProcessed) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId veteranBadgeProcessed(@javax.annotation.Nullable String veteranBadgeProcessed) {
     this.veteranBadgeProcessed = veteranBadgeProcessed;
     return this;
   }
 
-   /**
+  /**
    * Get veteranBadgeProcessed
    * @return veteranBadgeProcessed
-  **/
+   */
   @javax.annotation.Nullable
   public String getVeteranBadgeProcessed() {
     return veteranBadgeProcessed;
   }
 
-  public void setVeteranBadgeProcessed(String veteranBadgeProcessed) {
+  public void setVeteranBadgeProcessed(@javax.annotation.Nullable String veteranBadgeProcessed) {
     this.veteranBadgeProcessed = veteranBadgeProcessed;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId moderationGroupIds(List<String> moderationGroupIds) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId moderationGroupIds(@javax.annotation.Nullable List<String> moderationGroupIds) {
     this.moderationGroupIds = moderationGroupIds;
     return this;
   }
@@ -1395,97 +1457,97 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     return this;
   }
 
-   /**
+  /**
    * Get moderationGroupIds
    * @return moderationGroupIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getModerationGroupIds() {
     return moderationGroupIds;
   }
 
-  public void setModerationGroupIds(List<String> moderationGroupIds) {
+  public void setModerationGroupIds(@javax.annotation.Nullable List<String> moderationGroupIds) {
     this.moderationGroupIds = moderationGroupIds;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId didProcessBadges(Boolean didProcessBadges) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId didProcessBadges(@javax.annotation.Nullable Boolean didProcessBadges) {
     this.didProcessBadges = didProcessBadges;
     return this;
   }
 
-   /**
+  /**
    * Get didProcessBadges
    * @return didProcessBadges
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getDidProcessBadges() {
     return didProcessBadges;
   }
 
-  public void setDidProcessBadges(Boolean didProcessBadges) {
+  public void setDidProcessBadges(@javax.annotation.Nullable Boolean didProcessBadges) {
     this.didProcessBadges = didProcessBadges;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromOfflineRestore(Boolean fromOfflineRestore) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromOfflineRestore(@javax.annotation.Nullable Boolean fromOfflineRestore) {
     this.fromOfflineRestore = fromOfflineRestore;
     return this;
   }
 
-   /**
+  /**
    * Get fromOfflineRestore
    * @return fromOfflineRestore
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getFromOfflineRestore() {
     return fromOfflineRestore;
   }
 
-  public void setFromOfflineRestore(Boolean fromOfflineRestore) {
+  public void setFromOfflineRestore(@javax.annotation.Nullable Boolean fromOfflineRestore) {
     this.fromOfflineRestore = fromOfflineRestore;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayJobId(String autoplayJobId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayJobId(@javax.annotation.Nullable String autoplayJobId) {
     this.autoplayJobId = autoplayJobId;
     return this;
   }
 
-   /**
+  /**
    * Get autoplayJobId
    * @return autoplayJobId
-  **/
+   */
   @javax.annotation.Nullable
   public String getAutoplayJobId() {
     return autoplayJobId;
   }
 
-  public void setAutoplayJobId(String autoplayJobId) {
+  public void setAutoplayJobId(@javax.annotation.Nullable String autoplayJobId) {
     this.autoplayJobId = autoplayJobId;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayDelayMS(Double autoplayDelayMS) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
     return this;
   }
 
-   /**
+  /**
    * Get autoplayDelayMS
    * @return autoplayDelayMS
-  **/
+   */
   @javax.annotation.Nullable
   public Double getAutoplayDelayMS() {
     return autoplayDelayMS;
   }
 
-  public void setAutoplayDelayMS(Double autoplayDelayMS) {
+  public void setAutoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId feedbackIds(List<String> feedbackIds) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId feedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
     return this;
   }
@@ -1498,21 +1560,21 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     return this;
   }
 
-   /**
+  /**
    * Get feedbackIds
    * @return feedbackIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getFeedbackIds() {
     return feedbackIds;
   }
 
-  public void setFeedbackIds(List<String> feedbackIds) {
+  public void setFeedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId groupIds(List<String> groupIds) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId groupIds(@javax.annotation.Nullable List<String> groupIds) {
     this.groupIds = groupIds;
     return this;
   }
@@ -1525,35 +1587,35 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     return this;
   }
 
-   /**
+  /**
    * Get groupIds
    * @return groupIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getGroupIds() {
     return groupIds;
   }
 
-  public void setGroupIds(List<String> groupIds) {
+  public void setGroupIds(@javax.annotation.Nullable List<String> groupIds) {
     this.groupIds = groupIds;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId viewCount(Double viewCount) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId viewCount(@javax.annotation.Nullable Double viewCount) {
     this.viewCount = viewCount;
     return this;
   }
 
-   /**
+  /**
    * Get viewCount
    * @return viewCount
-  **/
+   */
   @javax.annotation.Nullable
   public Double getViewCount() {
     return viewCount;
   }
 
-  public void setViewCount(Double viewCount) {
+  public void setViewCount(@javax.annotation.Nullable Double viewCount) {
     this.viewCount = viewCount;
   }
 
@@ -1806,12 +1868,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     openapiRequiredFields.add("locale");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -1985,22 +2047,22 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     }
   }
 
- /**
-  * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
-  * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
-  */
+  /**
+   * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+   * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+   */
   public static PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.class);
   }
 
- /**
-  * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

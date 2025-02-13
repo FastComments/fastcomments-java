@@ -65,7 +65,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CreateUser200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CreateUser200Response.class.getName());
 
@@ -90,17 +90,17 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
 
                     // check if the actual instance is of the type `SaveCommentsResponseWithPresence`
                     if (value.getActualInstance() instanceof SaveCommentsResponseWithPresence) {
-                      JsonElement element = adapterSaveCommentsResponseWithPresence.toJsonTree((SaveCommentsResponseWithPresence)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
+                        JsonElement element = adapterSaveCommentsResponseWithPresence.toJsonTree((SaveCommentsResponseWithPresence)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
                     }
                     // check if the actual instance is of the type `APIError`
                     if (value.getActualInstance() instanceof APIError) {
-                      JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
+                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemae: APIError, SaveCommentsResponseWithPresence");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, SaveCommentsResponseWithPresence");
                 }
 
                 @Override
@@ -113,29 +113,29 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
 
                     // deserialize SaveCommentsResponseWithPresence
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      SaveCommentsResponseWithPresence.validateJsonElement(jsonElement);
-                      actualAdapter = adapterSaveCommentsResponseWithPresence;
-                      CreateUser200Response ret = new CreateUser200Response();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        SaveCommentsResponseWithPresence.validateJsonElement(jsonElement);
+                        actualAdapter = adapterSaveCommentsResponseWithPresence;
+                        CreateUser200Response ret = new CreateUser200Response();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'SaveCommentsResponseWithPresence'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'SaveCommentsResponseWithPresence'", e);
                     }
                     // deserialize APIError
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      APIError.validateJsonElement(jsonElement);
-                      actualAdapter = adapterAPIError;
-                      CreateUser200Response ret = new CreateUser200Response();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        APIError.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPIError;
+                        CreateUser200Response ret = new CreateUser200Response();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for CreateUser200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -151,12 +151,7 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
-    public CreateUser200Response(APIError o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public CreateUser200Response(SaveCommentsResponseWithPresence o) {
+    public CreateUser200Response(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -199,6 +194,7 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
      *
      * @return The actual instance (APIError, SaveCommentsResponseWithPresence)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -214,6 +210,7 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
     public SaveCommentsResponseWithPresence getSaveCommentsResponseWithPresence() throws ClassCastException {
         return (SaveCommentsResponseWithPresence)super.getActualInstance();
     }
+
     /**
      * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
      * the ClassCastException will be thrown.
@@ -225,53 +222,52 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
         return (APIError)super.getActualInstance();
     }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CreateUser200Response
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate anyOf schemas one by one
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with SaveCommentsResponseWithPresence
-    try {
-      SaveCommentsResponseWithPresence.validateJsonElement(jsonElement);
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to CreateUser200Response
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with SaveCommentsResponseWithPresence
+        try {
+            SaveCommentsResponseWithPresence.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with APIError
+        try {
+            APIError.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(String.format("The JSON string is invalid for CreateUser200Response with anyOf schemas: APIError, SaveCommentsResponseWithPresence. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
-    // validate the json string with APIError
-    try {
-      APIError.validateJsonElement(jsonElement);
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-      // continue to the next one
+
+    /**
+     * Create an instance of CreateUser200Response given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of CreateUser200Response
+     * @throws IOException if the JSON string is invalid with respect to CreateUser200Response
+     */
+    public static CreateUser200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateUser200Response.class);
     }
-    throw new IOException(String.format("The JSON string is invalid for CreateUser200Response with anyOf schemas: APIError, SaveCommentsResponseWithPresence. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-    
-  }
 
- /**
-  * Create an instance of CreateUser200Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of CreateUser200Response
-  * @throws IOException if the JSON string is invalid with respect to CreateUser200Response
-  */
-  public static CreateUser200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateUser200Response.class);
-  }
-
- /**
-  * Convert an instance of CreateUser200Response to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Convert an instance of CreateUser200Response to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 

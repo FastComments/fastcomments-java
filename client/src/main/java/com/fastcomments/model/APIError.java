@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,214 +50,223 @@ import com.fastcomments.invoker.JSON;
 /**
  * APIError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class APIError {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
+  @javax.annotation.Nullable
   private Double statusCode;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
   private ImportedAPIStatusFAILED status;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
+  @javax.annotation.Nonnull
   private String reason;
 
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
+  @javax.annotation.Nonnull
   private String code;
 
   public static final String SERIALIZED_NAME_SECONDARY_CODE = "secondaryCode";
   @SerializedName(SERIALIZED_NAME_SECONDARY_CODE)
+  @javax.annotation.Nullable
   private String secondaryCode;
 
   public static final String SERIALIZED_NAME_BANNED_UNTIL = "bannedUntil";
   @SerializedName(SERIALIZED_NAME_BANNED_UNTIL)
+  @javax.annotation.Nullable
   private Double bannedUntil;
 
   public static final String SERIALIZED_NAME_MAX_CHARACTER_LENGTH = "maxCharacterLength";
   @SerializedName(SERIALIZED_NAME_MAX_CHARACTER_LENGTH)
+  @javax.annotation.Nullable
   private Double maxCharacterLength;
 
   public static final String SERIALIZED_NAME_TRANSLATED_ERROR = "translatedError";
   @SerializedName(SERIALIZED_NAME_TRANSLATED_ERROR)
+  @javax.annotation.Nullable
   private String translatedError;
 
   public static final String SERIALIZED_NAME_CUSTOM_CONFIG = "customConfig";
   @SerializedName(SERIALIZED_NAME_CUSTOM_CONFIG)
+  @javax.annotation.Nullable
   private CustomConfigParameters customConfig;
 
   public APIError() {
   }
 
-  public APIError statusCode(Double statusCode) {
+  public APIError statusCode(@javax.annotation.Nullable Double statusCode) {
     this.statusCode = statusCode;
     return this;
   }
 
-   /**
+  /**
    * Get statusCode
    * @return statusCode
-  **/
+   */
   @javax.annotation.Nullable
   public Double getStatusCode() {
     return statusCode;
   }
 
-  public void setStatusCode(Double statusCode) {
+  public void setStatusCode(@javax.annotation.Nullable Double statusCode) {
     this.statusCode = statusCode;
   }
 
 
-  public APIError status(ImportedAPIStatusFAILED status) {
+  public APIError status(@javax.annotation.Nonnull ImportedAPIStatusFAILED status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nonnull
   public ImportedAPIStatusFAILED getStatus() {
     return status;
   }
 
-  public void setStatus(ImportedAPIStatusFAILED status) {
+  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusFAILED status) {
     this.status = status;
   }
 
 
-  public APIError reason(String reason) {
+  public APIError reason(@javax.annotation.Nonnull String reason) {
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @javax.annotation.Nonnull
   public String getReason() {
     return reason;
   }
 
-  public void setReason(String reason) {
+  public void setReason(@javax.annotation.Nonnull String reason) {
     this.reason = reason;
   }
 
 
-  public APIError code(String code) {
+  public APIError code(@javax.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
 
-   /**
+  /**
    * Get code
    * @return code
-  **/
+   */
   @javax.annotation.Nonnull
   public String getCode() {
     return code;
   }
 
-  public void setCode(String code) {
+  public void setCode(@javax.annotation.Nonnull String code) {
     this.code = code;
   }
 
 
-  public APIError secondaryCode(String secondaryCode) {
+  public APIError secondaryCode(@javax.annotation.Nullable String secondaryCode) {
     this.secondaryCode = secondaryCode;
     return this;
   }
 
-   /**
+  /**
    * Get secondaryCode
    * @return secondaryCode
-  **/
+   */
   @javax.annotation.Nullable
   public String getSecondaryCode() {
     return secondaryCode;
   }
 
-  public void setSecondaryCode(String secondaryCode) {
+  public void setSecondaryCode(@javax.annotation.Nullable String secondaryCode) {
     this.secondaryCode = secondaryCode;
   }
 
 
-  public APIError bannedUntil(Double bannedUntil) {
+  public APIError bannedUntil(@javax.annotation.Nullable Double bannedUntil) {
     this.bannedUntil = bannedUntil;
     return this;
   }
 
-   /**
+  /**
    * Get bannedUntil
    * @return bannedUntil
-  **/
+   */
   @javax.annotation.Nullable
   public Double getBannedUntil() {
     return bannedUntil;
   }
 
-  public void setBannedUntil(Double bannedUntil) {
+  public void setBannedUntil(@javax.annotation.Nullable Double bannedUntil) {
     this.bannedUntil = bannedUntil;
   }
 
 
-  public APIError maxCharacterLength(Double maxCharacterLength) {
+  public APIError maxCharacterLength(@javax.annotation.Nullable Double maxCharacterLength) {
     this.maxCharacterLength = maxCharacterLength;
     return this;
   }
 
-   /**
+  /**
    * Get maxCharacterLength
    * @return maxCharacterLength
-  **/
+   */
   @javax.annotation.Nullable
   public Double getMaxCharacterLength() {
     return maxCharacterLength;
   }
 
-  public void setMaxCharacterLength(Double maxCharacterLength) {
+  public void setMaxCharacterLength(@javax.annotation.Nullable Double maxCharacterLength) {
     this.maxCharacterLength = maxCharacterLength;
   }
 
 
-  public APIError translatedError(String translatedError) {
+  public APIError translatedError(@javax.annotation.Nullable String translatedError) {
     this.translatedError = translatedError;
     return this;
   }
 
-   /**
+  /**
    * Get translatedError
    * @return translatedError
-  **/
+   */
   @javax.annotation.Nullable
   public String getTranslatedError() {
     return translatedError;
   }
 
-  public void setTranslatedError(String translatedError) {
+  public void setTranslatedError(@javax.annotation.Nullable String translatedError) {
     this.translatedError = translatedError;
   }
 
 
-  public APIError customConfig(CustomConfigParameters customConfig) {
+  public APIError customConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
     this.customConfig = customConfig;
     return this;
   }
 
-   /**
+  /**
    * Get customConfig
    * @return customConfig
-  **/
+   */
   @javax.annotation.Nullable
   public CustomConfigParameters getCustomConfig() {
     return customConfig;
   }
 
-  public void setCustomConfig(CustomConfigParameters customConfig) {
+  public void setCustomConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
     this.customConfig = customConfig;
   }
 
@@ -341,12 +349,12 @@ public class APIError {
     openapiRequiredFields.add("code");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to APIError
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to APIError
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!APIError.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -418,22 +426,22 @@ public class APIError {
     }
   }
 
- /**
-  * Create an instance of APIError given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of APIError
-  * @throws IOException if the JSON string is invalid with respect to APIError
-  */
+  /**
+   * Create an instance of APIError given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of APIError
+   * @throws IOException if the JSON string is invalid with respect to APIError
+   */
   public static APIError fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, APIError.class);
   }
 
- /**
-  * Convert an instance of APIError to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of APIError to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

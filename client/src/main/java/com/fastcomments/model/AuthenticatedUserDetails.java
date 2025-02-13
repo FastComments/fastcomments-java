@@ -39,7 +39,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -51,132 +50,143 @@ import com.fastcomments.invoker.JSON;
 /**
  * AuthenticatedUserDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class AuthenticatedUserDetails {
   public static final String SERIALIZED_NAME_WEBSITE_URL = "websiteUrl";
   @SerializedName(SERIALIZED_NAME_WEBSITE_URL)
+  @javax.annotation.Nullable
   private String websiteUrl;
 
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nullable
   private String username;
 
   public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
   @SerializedName(SERIALIZED_NAME_SESSION_ID)
+  @javax.annotation.Nullable
   private String sessionId;
 
   public static final String SERIALIZED_NAME_HAS_BLOCKED_USERS = "hasBlockedUsers";
   @SerializedName(SERIALIZED_NAME_HAS_BLOCKED_USERS)
+  @javax.annotation.Nullable
   private Boolean hasBlockedUsers;
 
   public static final String SERIALIZED_NAME_GROUP_IDS = "groupIds";
   @SerializedName(SERIALIZED_NAME_GROUP_IDS)
-  private List<String> groupIds;
+  @javax.annotation.Nullable
+  private List<String> groupIds = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
+  @javax.annotation.Nullable
   private String email;
 
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+  @javax.annotation.Nullable
   private String displayName;
 
   public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
   @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
+  @javax.annotation.Nullable
   private String displayLabel;
 
   public static final String SERIALIZED_NAME_AVATAR_SRC = "avatarSrc";
   @SerializedName(SERIALIZED_NAME_AVATAR_SRC)
+  @javax.annotation.Nullable
   private String avatarSrc;
 
   public static final String SERIALIZED_NAME_AUTHORIZED = "authorized";
   @SerializedName(SERIALIZED_NAME_AUTHORIZED)
+  @javax.annotation.Nullable
   private Boolean authorized;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nullable
   private String id;
 
   public AuthenticatedUserDetails() {
   }
 
-  public AuthenticatedUserDetails websiteUrl(String websiteUrl) {
+  public AuthenticatedUserDetails websiteUrl(@javax.annotation.Nullable String websiteUrl) {
     this.websiteUrl = websiteUrl;
     return this;
   }
 
-   /**
+  /**
    * Get websiteUrl
    * @return websiteUrl
-  **/
+   */
   @javax.annotation.Nullable
   public String getWebsiteUrl() {
     return websiteUrl;
   }
 
-  public void setWebsiteUrl(String websiteUrl) {
+  public void setWebsiteUrl(@javax.annotation.Nullable String websiteUrl) {
     this.websiteUrl = websiteUrl;
   }
 
 
-  public AuthenticatedUserDetails username(String username) {
+  public AuthenticatedUserDetails username(@javax.annotation.Nullable String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * Get username
    * @return username
-  **/
+   */
   @javax.annotation.Nullable
   public String getUsername() {
     return username;
   }
 
-  public void setUsername(String username) {
+  public void setUsername(@javax.annotation.Nullable String username) {
     this.username = username;
   }
 
 
-  public AuthenticatedUserDetails sessionId(String sessionId) {
+  public AuthenticatedUserDetails sessionId(@javax.annotation.Nullable String sessionId) {
     this.sessionId = sessionId;
     return this;
   }
 
-   /**
+  /**
    * Get sessionId
    * @return sessionId
-  **/
+   */
   @javax.annotation.Nullable
   public String getSessionId() {
     return sessionId;
   }
 
-  public void setSessionId(String sessionId) {
+  public void setSessionId(@javax.annotation.Nullable String sessionId) {
     this.sessionId = sessionId;
   }
 
 
-  public AuthenticatedUserDetails hasBlockedUsers(Boolean hasBlockedUsers) {
+  public AuthenticatedUserDetails hasBlockedUsers(@javax.annotation.Nullable Boolean hasBlockedUsers) {
     this.hasBlockedUsers = hasBlockedUsers;
     return this;
   }
 
-   /**
+  /**
    * Get hasBlockedUsers
    * @return hasBlockedUsers
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getHasBlockedUsers() {
     return hasBlockedUsers;
   }
 
-  public void setHasBlockedUsers(Boolean hasBlockedUsers) {
+  public void setHasBlockedUsers(@javax.annotation.Nullable Boolean hasBlockedUsers) {
     this.hasBlockedUsers = hasBlockedUsers;
   }
 
 
-  public AuthenticatedUserDetails groupIds(List<String> groupIds) {
+  public AuthenticatedUserDetails groupIds(@javax.annotation.Nullable List<String> groupIds) {
     this.groupIds = groupIds;
     return this;
   }
@@ -189,130 +199,130 @@ public class AuthenticatedUserDetails {
     return this;
   }
 
-   /**
+  /**
    * Get groupIds
    * @return groupIds
-  **/
+   */
   @javax.annotation.Nullable
   public List<String> getGroupIds() {
     return groupIds;
   }
 
-  public void setGroupIds(List<String> groupIds) {
+  public void setGroupIds(@javax.annotation.Nullable List<String> groupIds) {
     this.groupIds = groupIds;
   }
 
 
-  public AuthenticatedUserDetails email(String email) {
+  public AuthenticatedUserDetails email(@javax.annotation.Nullable String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * Get email
    * @return email
-  **/
+   */
   @javax.annotation.Nullable
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(String email) {
+  public void setEmail(@javax.annotation.Nullable String email) {
     this.email = email;
   }
 
 
-  public AuthenticatedUserDetails displayName(String displayName) {
+  public AuthenticatedUserDetails displayName(@javax.annotation.Nullable String displayName) {
     this.displayName = displayName;
     return this;
   }
 
-   /**
+  /**
    * Get displayName
    * @return displayName
-  **/
+   */
   @javax.annotation.Nullable
   public String getDisplayName() {
     return displayName;
   }
 
-  public void setDisplayName(String displayName) {
+  public void setDisplayName(@javax.annotation.Nullable String displayName) {
     this.displayName = displayName;
   }
 
 
-  public AuthenticatedUserDetails displayLabel(String displayLabel) {
+  public AuthenticatedUserDetails displayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
     return this;
   }
 
-   /**
+  /**
    * Get displayLabel
    * @return displayLabel
-  **/
+   */
   @javax.annotation.Nullable
   public String getDisplayLabel() {
     return displayLabel;
   }
 
-  public void setDisplayLabel(String displayLabel) {
+  public void setDisplayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
   }
 
 
-  public AuthenticatedUserDetails avatarSrc(String avatarSrc) {
+  public AuthenticatedUserDetails avatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
     return this;
   }
 
-   /**
+  /**
    * Get avatarSrc
    * @return avatarSrc
-  **/
+   */
   @javax.annotation.Nullable
   public String getAvatarSrc() {
     return avatarSrc;
   }
 
-  public void setAvatarSrc(String avatarSrc) {
+  public void setAvatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
   }
 
 
-  public AuthenticatedUserDetails authorized(Boolean authorized) {
+  public AuthenticatedUserDetails authorized(@javax.annotation.Nullable Boolean authorized) {
     this.authorized = authorized;
     return this;
   }
 
-   /**
+  /**
    * Get authorized
    * @return authorized
-  **/
+   */
   @javax.annotation.Nullable
   public Boolean getAuthorized() {
     return authorized;
   }
 
-  public void setAuthorized(Boolean authorized) {
+  public void setAuthorized(@javax.annotation.Nullable Boolean authorized) {
     this.authorized = authorized;
   }
 
 
-  public AuthenticatedUserDetails id(String id) {
+  public AuthenticatedUserDetails id(@javax.annotation.Nullable String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   public String getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(@javax.annotation.Nullable String id) {
     this.id = id;
   }
 
@@ -398,12 +408,12 @@ public class AuthenticatedUserDetails {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to AuthenticatedUserDetails
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to AuthenticatedUserDetails
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AuthenticatedUserDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
@@ -478,22 +488,22 @@ public class AuthenticatedUserDetails {
     }
   }
 
- /**
-  * Create an instance of AuthenticatedUserDetails given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of AuthenticatedUserDetails
-  * @throws IOException if the JSON string is invalid with respect to AuthenticatedUserDetails
-  */
+  /**
+   * Create an instance of AuthenticatedUserDetails given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of AuthenticatedUserDetails
+   * @throws IOException if the JSON string is invalid with respect to AuthenticatedUserDetails
+   */
   public static AuthenticatedUserDetails fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AuthenticatedUserDetails.class);
   }
 
- /**
-  * Convert an instance of AuthenticatedUserDetails to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of AuthenticatedUserDetails to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

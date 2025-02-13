@@ -61,7 +61,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T12:29:11.559332196-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class UserSessionInfo extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(UserSessionInfo.class.getName());
 
@@ -86,17 +86,17 @@ public class UserSessionInfo extends AbstractOpenApiSchema {
 
                     // check if the actual instance is of the type `AuthenticatedUserDetails`
                     if (value.getActualInstance() instanceof AuthenticatedUserDetails) {
-                      JsonElement element = adapterAuthenticatedUserDetails.toJsonTree((AuthenticatedUserDetails)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
+                        JsonElement element = adapterAuthenticatedUserDetails.toJsonTree((AuthenticatedUserDetails)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
                     }
                     // check if the actual instance is of the type `AnonUserDetails`
                     if (value.getActualInstance() instanceof AnonUserDetails) {
-                      JsonElement element = adapterAnonUserDetails.toJsonTree((AnonUserDetails)value.getActualInstance());
-                      elementAdapter.write(out, element);
-                      return;
+                        JsonElement element = adapterAnonUserDetails.toJsonTree((AnonUserDetails)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemae: AnonUserDetails, AuthenticatedUserDetails");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: AnonUserDetails, AuthenticatedUserDetails");
                 }
 
                 @Override
@@ -109,29 +109,29 @@ public class UserSessionInfo extends AbstractOpenApiSchema {
 
                     // deserialize AuthenticatedUserDetails
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      AuthenticatedUserDetails.validateJsonElement(jsonElement);
-                      actualAdapter = adapterAuthenticatedUserDetails;
-                      UserSessionInfo ret = new UserSessionInfo();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        AuthenticatedUserDetails.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAuthenticatedUserDetails;
+                        UserSessionInfo ret = new UserSessionInfo();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for AuthenticatedUserDetails failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'AuthenticatedUserDetails'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for AuthenticatedUserDetails failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'AuthenticatedUserDetails'", e);
                     }
                     // deserialize AnonUserDetails
                     try {
-                      // validate the JSON object to see if any exception is thrown
-                      AnonUserDetails.validateJsonElement(jsonElement);
-                      actualAdapter = adapterAnonUserDetails;
-                      UserSessionInfo ret = new UserSessionInfo();
-                      ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                      return ret;
+                        // validate the JSON object to see if any exception is thrown
+                        AnonUserDetails.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAnonUserDetails;
+                        UserSessionInfo ret = new UserSessionInfo();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
                     } catch (Exception e) {
-                      // deserialization failed, continue
-                      errorMessages.add(String.format("Deserialization for AnonUserDetails failed with `%s`.", e.getMessage()));
-                      log.log(Level.FINER, "Input data does not match schema 'AnonUserDetails'", e);
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for AnonUserDetails failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'AnonUserDetails'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for UserSessionInfo: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -147,12 +147,7 @@ public class UserSessionInfo extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
-    public UserSessionInfo(AnonUserDetails o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public UserSessionInfo(AuthenticatedUserDetails o) {
+    public UserSessionInfo(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -195,6 +190,7 @@ public class UserSessionInfo extends AbstractOpenApiSchema {
      *
      * @return The actual instance (AnonUserDetails, AuthenticatedUserDetails)
      */
+    @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
@@ -210,6 +206,7 @@ public class UserSessionInfo extends AbstractOpenApiSchema {
     public AuthenticatedUserDetails getAuthenticatedUserDetails() throws ClassCastException {
         return (AuthenticatedUserDetails)super.getActualInstance();
     }
+
     /**
      * Get the actual instance of `AnonUserDetails`. If the actual instance is not `AnonUserDetails`,
      * the ClassCastException will be thrown.
@@ -221,53 +218,52 @@ public class UserSessionInfo extends AbstractOpenApiSchema {
         return (AnonUserDetails)super.getActualInstance();
     }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to UserSessionInfo
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate anyOf schemas one by one
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with AuthenticatedUserDetails
-    try {
-      AuthenticatedUserDetails.validateJsonElement(jsonElement);
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for AuthenticatedUserDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to UserSessionInfo
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with AuthenticatedUserDetails
+        try {
+            AuthenticatedUserDetails.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for AuthenticatedUserDetails failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with AnonUserDetails
+        try {
+            AnonUserDetails.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for AnonUserDetails failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(String.format("The JSON string is invalid for UserSessionInfo with anyOf schemas: AnonUserDetails, AuthenticatedUserDetails. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
-    // validate the json string with AnonUserDetails
-    try {
-      AnonUserDetails.validateJsonElement(jsonElement);
-      return;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for AnonUserDetails failed with `%s`.", e.getMessage()));
-      // continue to the next one
+
+    /**
+     * Create an instance of UserSessionInfo given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of UserSessionInfo
+     * @throws IOException if the JSON string is invalid with respect to UserSessionInfo
+     */
+    public static UserSessionInfo fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, UserSessionInfo.class);
     }
-    throw new IOException(String.format("The JSON string is invalid for UserSessionInfo with anyOf schemas: AnonUserDetails, AuthenticatedUserDetails. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-    
-  }
 
- /**
-  * Create an instance of UserSessionInfo given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UserSessionInfo
-  * @throws IOException if the JSON string is invalid with respect to UserSessionInfo
-  */
-  public static UserSessionInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UserSessionInfo.class);
-  }
-
- /**
-  * Convert an instance of UserSessionInfo to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Convert an instance of UserSessionInfo to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 
