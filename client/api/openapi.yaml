@@ -1,0 +1,1853 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  title: fastcomments
+  version: 0.0.0
+servers:
+- url: /
+paths:
+  /comments/{tenantId}:
+    get:
+      operationId: GetComments
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: direction
+        required: false
+        schema:
+          $ref: '#/components/schemas/SortDirections'
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: skipChildren
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: limitChildren
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: lastGenDate
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: fetchPageForCommentId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: includeConfig
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: countAll
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: includei10n
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: modules
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: isCrawler
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: includeNotificationCount
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: asTree
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: maxTreeDepth
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: useFullTranslationIds
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: parentId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: searchText
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: hashTags
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: customConfigStr
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetComments_200_response'
+          description: Ok
+      security: []
+      x-accepts: application/json
+    options:
+      operationId: CommentsOptions
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Ok
+      security: []
+      x-accepts: application/json
+    post:
+      operationId: CreateUser
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sessionId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUser_200_response'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts: application/json
+components:
+  examples: {}
+  headers: {}
+  parameters: {}
+  requestBodies: {}
+  responses: {}
+  schemas:
+    CommentUserMentionInfo:
+      additionalProperties: false
+      example:
+        rawTag: rawTag
+        id: id
+        tag: tag
+        type: user
+        sent: true
+      properties:
+        id:
+          type: string
+        tag:
+          type: string
+        rawTag:
+          type: string
+        type:
+          enum:
+          - user
+          - sso
+          type: string
+        sent:
+          type: boolean
+      required:
+      - id
+      - tag
+      type: object
+    CommentUserHashTagInfo:
+      additionalProperties: false
+      example:
+        retain: true
+        id: id
+        tag: tag
+        url: url
+      properties:
+        id:
+          type: string
+        tag:
+          type: string
+        url:
+          nullable: true
+          type: string
+        retain:
+          type: boolean
+      required:
+      - id
+      - tag
+      - url
+      type: object
+    CommentUserBadgeInfo:
+      additionalProperties: false
+      example:
+        displayLabel: displayLabel
+        backgroundColor: backgroundColor
+        borderColor: borderColor
+        cssClass: cssClass
+        description: description
+        id: id
+        type: 4.145608029883936
+        textColor: textColor
+        displaySrc: displaySrc
+      properties:
+        id:
+          type: string
+        type:
+          format: double
+          type: number
+        description:
+          type: string
+        displayLabel:
+          type: string
+        displaySrc:
+          type: string
+        backgroundColor:
+          type: string
+        borderColor:
+          type: string
+        textColor:
+          type: string
+        cssClass:
+          type: string
+      required:
+      - backgroundColor
+      - borderColor
+      - cssClass
+      - description
+      - displayLabel
+      - displaySrc
+      - id
+      - textColor
+      - type
+      type: object
+    Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        _id:
+          type: string
+        urlIdRaw:
+          type: string
+        url:
+          type: string
+        pageTitle:
+          type: string
+        userId:
+          type: string
+        anonUserId:
+          type: string
+        commenterEmail:
+          type: string
+        commenterName:
+          type: string
+        commenterLink:
+          type: string
+        commentHTML:
+          type: string
+        parentId:
+          type: string
+        date:
+          format: date-time
+          type: string
+        localDateString:
+          type: string
+        localDateHours:
+          format: double
+          type: number
+        votes:
+          format: double
+          type: number
+        votesUp:
+          format: double
+          type: number
+        votesDown:
+          format: double
+          type: number
+        expireAt:
+          format: date-time
+          type: string
+        verified:
+          type: boolean
+        verifiedDate:
+          format: date-time
+          type: string
+        verificationId:
+          type: string
+        notificationSentForParent:
+          type: boolean
+        notificationSentForParentTenant:
+          type: boolean
+        reviewed:
+          type: boolean
+        imported:
+          type: boolean
+        externalId:
+          type: string
+        externalParentId:
+          type: string
+        avatarSrc:
+          type: string
+        isSpam:
+          type: boolean
+        aiDeterminedSpam:
+          type: boolean
+        hasImages:
+          type: boolean
+        pageNumber:
+          format: double
+          type: number
+        pageNumberOF:
+          format: double
+          type: number
+        pageNumberNF:
+          format: double
+          type: number
+        hasCode:
+          type: boolean
+        approved:
+          type: boolean
+        locale:
+          type: string
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isBannedUser:
+          type: boolean
+        isByAdmin:
+          type: boolean
+        isByModerator:
+          type: boolean
+        isPinned:
+          type: boolean
+        isLocked:
+          type: boolean
+        flagCount:
+          format: double
+          type: number
+        rating:
+          format: double
+          type: number
+        displayLabel:
+          type: string
+        fromProductId:
+          format: double
+          type: number
+        meta:
+          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta'
+        ipHash:
+          type: string
+        mentions:
+          items:
+            $ref: '#/components/schemas/CommentUserMentionInfo'
+          type: array
+        hashTags:
+          items:
+            $ref: '#/components/schemas/CommentUserHashTagInfo'
+          type: array
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          type: array
+        domain:
+          type: string
+        veteranBadgeProcessed:
+          type: string
+        moderationGroupIds:
+          items:
+            type: string
+          type: array
+        didProcessBadges:
+          type: boolean
+        fromOfflineRestore:
+          type: boolean
+        autoplayJobId:
+          type: string
+        autoplayDelayMS:
+          format: double
+          type: number
+        feedbackIds:
+          items:
+            type: string
+          type: array
+        groupIds:
+          items:
+            type: string
+          type: array
+        viewCount:
+          format: double
+          type: number
+      required:
+      - _id
+      - approved
+      - commentHTML
+      - commenterName
+      - date
+      - locale
+      - url
+      - verified
+      - votes
+      - votesDown
+      - votesUp
+      type: object
+    Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_:
+      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__'
+    FCommentOptimized:
+      $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_'
+    APIComment_FCommentOptimized_:
+      allOf:
+      - $ref: '#/components/schemas/FCommentOptimized'
+      - properties:
+          isUnread:
+            type: boolean
+          myVoteId:
+            type: string
+          isVotedDown:
+            type: boolean
+          isVotedUp:
+            type: boolean
+          hasChildren:
+            type: boolean
+          children:
+            items:
+              $ref: '#/components/schemas/FCommentOptimized'
+            type: array
+          isFlagged:
+            type: boolean
+          isBlocked:
+            type: boolean
+        type: object
+      example:
+        myVoteId: myVoteId
+        children:
+        - null
+        - null
+        hasChildren: true
+        isVotedUp: true
+        isBlocked: true
+        isVotedDown: true
+        isUnread: true
+        isFlagged: true
+    AuthenticatedUserDetails:
+      properties:
+        websiteUrl:
+          type: string
+        username:
+          type: string
+        sessionId:
+          nullable: true
+          type: string
+        hasBlockedUsers:
+          type: boolean
+        groupIds:
+          items:
+            type: string
+          type: array
+        email:
+          nullable: true
+          type: string
+        displayName:
+          type: string
+        displayLabel:
+          type: string
+        avatarSrc:
+          nullable: true
+          type: string
+        authorized:
+          type: boolean
+        id:
+          type: string
+      type: object
+    AnonUserDetails:
+      properties:
+        username:
+          type: string
+        sessionId:
+          nullable: true
+          type: string
+        isAnonSession:
+          type: boolean
+        hasBlockedUsers:
+          type: boolean
+        email:
+          nullable: true
+          type: string
+        displayName:
+          type: string
+        authorized:
+          type: boolean
+        id:
+          type: string
+      required:
+      - email
+      - isAnonSession
+      - username
+      type: object
+    UserSessionInfo:
+      anyOf:
+      - $ref: '#/components/schemas/AuthenticatedUserDetails'
+      - $ref: '#/components/schemas/AnonUserDetails'
+    Record_string.any_:
+      additionalProperties: {}
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    CommentHTMLRenderingMode:
+      enum:
+      - 0
+      - 1
+      type: number
+    CommentThreadDeletionMode:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      type: number
+    CommenterNameFormats:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      type: number
+    SortDirections:
+      enum:
+      - OF
+      - NF
+      - MR
+      type: string
+    GifRating:
+      enum:
+      - g
+      - pg
+      - pg-13
+      - r
+      type: string
+    SpamRule:
+      additionalProperties: false
+      example:
+        commentContains: commentContains
+        actions:
+        - spam
+        - spam
+      properties:
+        actions:
+          items:
+            enum:
+            - spam
+            - not-spam
+            - ignore-repeat
+            type: string
+          type: array
+        commentContains:
+          type: string
+      required:
+      - actions
+      type: object
+    Record_string.string_:
+      additionalProperties:
+        type: string
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    VoteStyle:
+      enum:
+      - 0
+      - 1
+      type: number
+    CommentQuestionResultsRenderingType:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    QuestionRenderingType:
+      enum:
+      - 0
+      - 1
+      type: number
+    QuestionWhenSave:
+      enum:
+      - 0
+      - 1
+      type: number
+    CommentQuestionsRequired:
+      enum:
+      - 0
+      - 1
+      type: number
+    QuestionSubQuestionVisibility:
+      enum:
+      - 0
+      - 1
+      type: number
+    CustomConfigParameters:
+      additionalProperties: false
+      example:
+        disableAutoHashTagCreation: true
+        disableCommenterCommentDelete: true
+        enableVoteList: true
+        pageSize: 2.027123023002322
+        collapseReplies: true
+        disableProfiles: true
+        disableSuccessMessage: true
+        allowAnon: true
+        countAboveToggle: 7.061401241503109
+        readonly: true
+        useShowCommentsToggle: true
+        noImageUploads: true
+        spamRules:
+        - commentContains: commentContains
+          actions:
+          - spam
+          - spam
+        - commentContains: commentContains
+          actions:
+          - spam
+          - spam
+        translations: ""
+        widgetQuestionId: widgetQuestionId
+        disableLiveCommenting: true
+        defaultSortDirection: ""
+        disableVoting: true
+        noCustomConfig: true
+        gifRating: null
+        enableSearch: true
+        requireSSO: true
+        disableToolbar: true
+        hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
+        maxCommentCreatedCountPUPM: 3.616076749251911
+        disableBlocking: true
+        disableEmailInputs: true
+        widgetQuestionWhenToSave: null
+        allowAnonFlag: true
+        widgetSubQuestionVisibility: null
+        widgetQuestionStyle: null
+        restrictedLinkDomains:
+        - restrictedLinkDomains
+        - restrictedLinkDomains
+        showQuestion: true
+        inputAfterComments: true
+        allowAnonVotes: true
+        commentThreadDeleteMode: ""
+        commentCountFormat: commentCountFormat
+        disableNotificationBell: true
+        voteStyle: null
+        disableAutoAdminMigration: true
+        absoluteAndRelativeDates: true
+        commenterNameFormat: ""
+        enableThirdPartyCookieBypass: true
+        locale: locale
+        showCommentSaveSuccess: true
+        disableCommenterCommentEdit: true
+        enableCommenterLinks: true
+        enableSpoilers: true
+        disableUnverifiedLabel: true
+        noStyles: true
+        absoluteDates: true
+        limitCommentsByGroups: true
+        enableWYSIWYG: true
+        customCSS: customCSS
+        enableViewCounts: true
+        headerHTML: headerHTML
+        hideAvatars: true
+        defaultAvatarSrc: defaultAvatarSrc
+        commentHTMLRenderingMode: null
+        maxCommentCharacterLength: 9.301444243932576
+        useSingleLineCommentInput: true
+        allowedLanguages:
+        - allowedLanguages
+        - allowedLanguages
+        defaultUsername: defaultUsername
+        widgetQuestionResultsStyle: null
+        showLiveRightAway: true
+        widgetQuestionsRequired: null
+        hasDarkBackground: true
+        wrap: true
+      properties:
+        absoluteAndRelativeDates:
+          type: boolean
+        absoluteDates:
+          type: boolean
+        allowAnon:
+          type: boolean
+        allowAnonFlag:
+          type: boolean
+        allowAnonVotes:
+          type: boolean
+        allowedLanguages:
+          items:
+            type: string
+          nullable: true
+          type: array
+        collapseReplies:
+          type: boolean
+        commentCountFormat:
+          nullable: true
+          type: string
+        commentHTMLRenderingMode:
+          $ref: '#/components/schemas/CommentHTMLRenderingMode'
+        commentThreadDeleteMode:
+          allOf:
+          - $ref: '#/components/schemas/CommentThreadDeletionMode'
+          nullable: true
+        commenterNameFormat:
+          allOf:
+          - $ref: '#/components/schemas/CommenterNameFormats'
+          nullable: true
+        countAboveToggle:
+          format: double
+          type: number
+        customCSS:
+          nullable: true
+          type: string
+        defaultAvatarSrc:
+          nullable: true
+          type: string
+        defaultSortDirection:
+          allOf:
+          - $ref: '#/components/schemas/SortDirections'
+          nullable: true
+        defaultUsername:
+          nullable: true
+          type: string
+        disableAutoAdminMigration:
+          type: boolean
+        disableAutoHashTagCreation:
+          type: boolean
+        disableBlocking:
+          type: boolean
+        disableCommenterCommentDelete:
+          type: boolean
+        disableCommenterCommentEdit:
+          type: boolean
+        disableEmailInputs:
+          type: boolean
+        disableLiveCommenting:
+          type: boolean
+        disableNotificationBell:
+          type: boolean
+        disableProfiles:
+          type: boolean
+        disableSuccessMessage:
+          type: boolean
+        disableToolbar:
+          type: boolean
+        disableUnverifiedLabel:
+          type: boolean
+        disableVoting:
+          type: boolean
+        enableCommenterLinks:
+          type: boolean
+        enableSearch:
+          type: boolean
+        enableSpoilers:
+          type: boolean
+        enableThirdPartyCookieBypass:
+          type: boolean
+        enableViewCounts:
+          type: boolean
+        enableVoteList:
+          type: boolean
+        enableWYSIWYG:
+          type: boolean
+        gifRating:
+          $ref: '#/components/schemas/GifRating'
+        hasDarkBackground:
+          type: boolean
+        headerHTML:
+          nullable: true
+          type: string
+        hideAvatars:
+          type: boolean
+        hideCommentsUnderCountTextFormat:
+          nullable: true
+          type: string
+        inputAfterComments:
+          type: boolean
+        limitCommentsByGroups:
+          type: boolean
+        locale:
+          nullable: true
+          type: string
+        maxCommentCharacterLength:
+          format: double
+          nullable: true
+          type: number
+        maxCommentCreatedCountPUPM:
+          format: double
+          nullable: true
+          type: number
+        noCustomConfig:
+          type: boolean
+        noImageUploads:
+          type: boolean
+        noStyles:
+          type: boolean
+        pageSize:
+          format: double
+          nullable: true
+          type: number
+        readonly:
+          type: boolean
+        requireSSO:
+          type: boolean
+        restrictedLinkDomains:
+          items:
+            type: string
+          nullable: true
+          type: array
+        showCommentSaveSuccess:
+          type: boolean
+        showLiveRightAway:
+          type: boolean
+        showQuestion:
+          type: boolean
+        spamRules:
+          items:
+            $ref: '#/components/schemas/SpamRule'
+          type: array
+        translations:
+          allOf:
+          - $ref: '#/components/schemas/Record_string.string_'
+          nullable: true
+        useShowCommentsToggle:
+          type: boolean
+        useSingleLineCommentInput:
+          type: boolean
+        voteStyle:
+          $ref: '#/components/schemas/VoteStyle'
+        widgetQuestionId:
+          type: string
+        widgetQuestionResultsStyle:
+          $ref: '#/components/schemas/CommentQuestionResultsRenderingType'
+        widgetQuestionStyle:
+          $ref: '#/components/schemas/QuestionRenderingType'
+        widgetQuestionWhenToSave:
+          $ref: '#/components/schemas/QuestionWhenSave'
+        widgetQuestionsRequired:
+          $ref: '#/components/schemas/CommentQuestionsRequired'
+        widgetSubQuestionVisibility:
+          $ref: '#/components/schemas/QuestionSubQuestionVisibility'
+        wrap:
+          type: boolean
+      type: object
+    GetCommentsResponse_FCommentOptimized_:
+      additionalProperties: false
+      properties:
+        statusCode:
+          format: double
+          type: number
+        status:
+          type: string
+        code:
+          type: string
+        reason:
+          type: string
+        comments:
+          items:
+            $ref: '#/components/schemas/APIComment_FCommentOptimized_'
+          type: array
+        user:
+          allOf:
+          - $ref: '#/components/schemas/UserSessionInfo'
+          nullable: true
+        urlIdClean:
+          type: string
+        lastGenDate:
+          format: double
+          nullable: true
+          type: number
+        includesPastPages:
+          type: boolean
+        isDemo:
+          nullable: false
+          type: boolean
+        commentCount:
+          format: double
+          type: number
+        isSiteAdmin:
+          type: boolean
+        hasBillingIssue:
+          nullable: false
+          type: boolean
+        isCommentsHidden:
+          nullable: false
+          type: boolean
+        moduleData:
+          additionalProperties: {}
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        pageNumber:
+          format: double
+          type: number
+        isWhiteLabeled:
+          type: boolean
+        isProd:
+          nullable: false
+          type: boolean
+        isCrawler:
+          nullable: false
+          type: boolean
+        notificationCount:
+          format: double
+          type: number
+        hasMore:
+          type: boolean
+        isClosed:
+          type: boolean
+        presencePollState:
+          format: double
+          type: number
+        customConfig:
+          $ref: '#/components/schemas/CustomConfigParameters'
+      required:
+      - comments
+      - pageNumber
+      - status
+      - user
+      type: object
+    TenantIdWS:
+      type: string
+    UserIdWS:
+      type: string
+    UrlIdWS:
+      type: string
+    UserPresenceData:
+      properties:
+        urlIdWS:
+          type: string
+        userIdWS:
+          type: string
+        tenantIdWS:
+          type: string
+      type: object
+    GetCommentsResponseWithPresence_FCommentOptimized_:
+      allOf:
+      - $ref: '#/components/schemas/GetCommentsResponse_FCommentOptimized_'
+      - $ref: '#/components/schemas/UserPresenceData'
+      example:
+        reason: reason
+        code: code
+        pageNumber: 5.962133916683182
+        isProd: true
+        urlIdClean: urlIdClean
+        hasMore: true
+        isDemo: true
+        urlIdWS: urlIdWS
+        customConfig:
+          disableAutoHashTagCreation: true
+          disableCommenterCommentDelete: true
+          enableVoteList: true
+          pageSize: 2.027123023002322
+          collapseReplies: true
+          disableProfiles: true
+          disableSuccessMessage: true
+          allowAnon: true
+          countAboveToggle: 7.061401241503109
+          readonly: true
+          useShowCommentsToggle: true
+          noImageUploads: true
+          spamRules:
+          - commentContains: commentContains
+            actions:
+            - spam
+            - spam
+          - commentContains: commentContains
+            actions:
+            - spam
+            - spam
+          translations: ""
+          widgetQuestionId: widgetQuestionId
+          disableLiveCommenting: true
+          defaultSortDirection: ""
+          disableVoting: true
+          noCustomConfig: true
+          gifRating: null
+          enableSearch: true
+          requireSSO: true
+          disableToolbar: true
+          hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
+          maxCommentCreatedCountPUPM: 3.616076749251911
+          disableBlocking: true
+          disableEmailInputs: true
+          widgetQuestionWhenToSave: null
+          allowAnonFlag: true
+          widgetSubQuestionVisibility: null
+          widgetQuestionStyle: null
+          restrictedLinkDomains:
+          - restrictedLinkDomains
+          - restrictedLinkDomains
+          showQuestion: true
+          inputAfterComments: true
+          allowAnonVotes: true
+          commentThreadDeleteMode: ""
+          commentCountFormat: commentCountFormat
+          disableNotificationBell: true
+          voteStyle: null
+          disableAutoAdminMigration: true
+          absoluteAndRelativeDates: true
+          commenterNameFormat: ""
+          enableThirdPartyCookieBypass: true
+          locale: locale
+          showCommentSaveSuccess: true
+          disableCommenterCommentEdit: true
+          enableCommenterLinks: true
+          enableSpoilers: true
+          disableUnverifiedLabel: true
+          noStyles: true
+          absoluteDates: true
+          limitCommentsByGroups: true
+          enableWYSIWYG: true
+          customCSS: customCSS
+          enableViewCounts: true
+          headerHTML: headerHTML
+          hideAvatars: true
+          defaultAvatarSrc: defaultAvatarSrc
+          commentHTMLRenderingMode: null
+          maxCommentCharacterLength: 9.301444243932576
+          useSingleLineCommentInput: true
+          allowedLanguages:
+          - allowedLanguages
+          - allowedLanguages
+          defaultUsername: defaultUsername
+          widgetQuestionResultsStyle: null
+          showLiveRightAway: true
+          widgetQuestionsRequired: null
+          hasDarkBackground: true
+          wrap: true
+        hasBillingIssue: true
+        isCrawler: true
+        lastGenDate: 6.027456183070403
+        comments:
+        - myVoteId: myVoteId
+          children:
+          - null
+          - null
+          hasChildren: true
+          isVotedUp: true
+          isBlocked: true
+          isVotedDown: true
+          isUnread: true
+          isFlagged: true
+        - myVoteId: myVoteId
+          children:
+          - null
+          - null
+          hasChildren: true
+          isVotedUp: true
+          isBlocked: true
+          isVotedDown: true
+          isUnread: true
+          isFlagged: true
+        isCommentsHidden: true
+        notificationCount: 5.637376656633329
+        includesPastPages: true
+        moduleData:
+          key: ""
+        commentCount: 1.4658129805029452
+        isClosed: true
+        presencePollState: 2.3021358869347655
+        userIdWS: userIdWS
+        isSiteAdmin: true
+        isWhiteLabeled: true
+        user: ""
+        tenantIdWS: tenantIdWS
+        statusCode: 0.8008281904610115
+        status: status
+    ImportedAPIStatus.FAILED:
+      enum:
+      - failed
+      type: string
+    APIError:
+      additionalProperties: false
+      properties:
+        statusCode:
+          format: double
+          type: number
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
+        reason:
+          type: string
+        code:
+          type: string
+        secondaryCode:
+          type: string
+        bannedUntil:
+          format: double
+          type: number
+        maxCharacterLength:
+          format: double
+          type: number
+        translatedError:
+          type: string
+        customConfig:
+          $ref: '#/components/schemas/CustomConfigParameters'
+      required:
+      - code
+      - reason
+      - status
+      type: object
+    ImportedAPIStatus.SUCCESS:
+      enum:
+      - success
+      type: string
+    Pick_FComment.Exclude_keyofFComment.logs__:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        pageNumber: 5.637376656633329
+        pageTitle: pageTitle
+        rating: 3.616076749251911
+        approved: true
+        hashTags:
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        localDateString: localDateString
+        notificationSentForParentTenant: true
+        verifiedDate: 2000-01-23T04:56:07.000+00:00
+        isLocked: true
+        groupIds:
+        - groupIds
+        - groupIds
+        aiDeterminedSpam: true
+        reviewed: true
+        fromProductId: 2.027123023002322
+        flagCount: 9.301444243932576
+        pageNumberNF: 7.061401241503109
+        hasCode: true
+        feedbackIds:
+        - feedbackIds
+        - feedbackIds
+        autoplayJobId: autoplayJobId
+        ipHash: ipHash
+        fromOfflineRestore: true
+        urlIdRaw: urlIdRaw
+        moderationGroupIds:
+        - moderationGroupIds
+        - moderationGroupIds
+        didProcessBadges: true
+        isDeletedUser: true
+        meta:
+          wpUserId: wpUserId
+          wpPostId: wpPostId
+        mentions:
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        domain: domain
+        avatarSrc: avatarSrc
+        _id: _id
+        isSpam: true
+        veteranBadgeProcessed: veteranBadgeProcessed
+        externalParentId: externalParentId
+        votesDown: 5.962133916683182
+        commenterName: commenterName
+        isByModerator: true
+        commenterLink: commenterLink
+        urlId: urlId
+        locale: locale
+        commentHTML: commentHTML
+        isDeleted: true
+        imported: true
+        pageNumberOF: 2.3021358869347655
+        localDateHours: 0.8008281904610115
+        viewCount: 1.2315135367772556
+        votesUp: 1.4658129805029452
+        displayLabel: displayLabel
+        isPinned: true
+        verified: true
+        anonUserId: anonUserId
+        externalId: externalId
+        hasLinks: true
+        autoplayDelayMS: 7.386281948385884
+        expireAt: 2000-01-23T04:56:07.000+00:00
+        userId: userId
+        url: url
+        parentId: parentId
+        commenterEmail: commenterEmail
+        badges:
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 4.145608029883936
+          textColor: textColor
+          displaySrc: displaySrc
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 4.145608029883936
+          textColor: textColor
+          displaySrc: displaySrc
+        notificationSentForParent: true
+        tenantId: tenantId
+        hasImages: true
+        comment: comment
+        votes: 6.027456183070403
+        isBannedUser: true
+        verificationId: verificationId
+        isByAdmin: true
+      properties:
+        tenantId:
+          type: string
+        comment:
+          type: string
+        hasLinks:
+          type: boolean
+        urlId:
+          type: string
+        _id:
+          type: string
+        urlIdRaw:
+          type: string
+        url:
+          type: string
+        pageTitle:
+          type: string
+        userId:
+          type: string
+        anonUserId:
+          type: string
+        commenterEmail:
+          type: string
+        commenterName:
+          type: string
+        commenterLink:
+          type: string
+        commentHTML:
+          type: string
+        parentId:
+          type: string
+        date:
+          format: date-time
+          type: string
+        localDateString:
+          type: string
+        localDateHours:
+          format: double
+          type: number
+        votes:
+          format: double
+          type: number
+        votesUp:
+          format: double
+          type: number
+        votesDown:
+          format: double
+          type: number
+        expireAt:
+          format: date-time
+          type: string
+        verified:
+          type: boolean
+        verifiedDate:
+          format: date-time
+          type: string
+        verificationId:
+          type: string
+        notificationSentForParent:
+          type: boolean
+        notificationSentForParentTenant:
+          type: boolean
+        reviewed:
+          type: boolean
+        imported:
+          type: boolean
+        externalId:
+          type: string
+        externalParentId:
+          type: string
+        avatarSrc:
+          type: string
+        isSpam:
+          type: boolean
+        aiDeterminedSpam:
+          type: boolean
+        hasImages:
+          type: boolean
+        pageNumber:
+          format: double
+          type: number
+        pageNumberOF:
+          format: double
+          type: number
+        pageNumberNF:
+          format: double
+          type: number
+        hasCode:
+          type: boolean
+        approved:
+          type: boolean
+        locale:
+          type: string
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isBannedUser:
+          type: boolean
+        isByAdmin:
+          type: boolean
+        isByModerator:
+          type: boolean
+        isPinned:
+          type: boolean
+        isLocked:
+          type: boolean
+        flagCount:
+          format: double
+          type: number
+        rating:
+          format: double
+          type: number
+        displayLabel:
+          type: string
+        fromProductId:
+          format: double
+          type: number
+        meta:
+          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta'
+        ipHash:
+          type: string
+        mentions:
+          items:
+            $ref: '#/components/schemas/CommentUserMentionInfo'
+          type: array
+        hashTags:
+          items:
+            $ref: '#/components/schemas/CommentUserHashTagInfo'
+          type: array
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          type: array
+        domain:
+          type: string
+        veteranBadgeProcessed:
+          type: string
+        moderationGroupIds:
+          items:
+            type: string
+          type: array
+        didProcessBadges:
+          type: boolean
+        fromOfflineRestore:
+          type: boolean
+        autoplayJobId:
+          type: string
+        autoplayDelayMS:
+          format: double
+          type: number
+        feedbackIds:
+          items:
+            type: string
+          type: array
+        groupIds:
+          items:
+            type: string
+          type: array
+        viewCount:
+          format: double
+          type: number
+      required:
+      - _id
+      - approved
+      - comment
+      - commentHTML
+      - commenterName
+      - date
+      - locale
+      - tenantId
+      - url
+      - urlId
+      - verified
+      - votes
+      - votesDown
+      - votesUp
+      type: object
+    Omit_FComment.logs_:
+      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs__'
+    FCommentSaved:
+      $ref: '#/components/schemas/Omit_FComment.logs_'
+    SaveCommentResponseOptimized:
+      additionalProperties: false
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        comment:
+          $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs__'
+        user:
+          allOf:
+          - $ref: '#/components/schemas/UserSessionInfo'
+          nullable: true
+        moduleData:
+          additionalProperties: {}
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - comment
+      - status
+      - user
+      type: object
+    SaveCommentsResponseWithPresence:
+      allOf:
+      - $ref: '#/components/schemas/SaveCommentResponseOptimized'
+      - properties:
+          userIdWS:
+            $ref: '#/components/schemas/UserIdWS'
+        type: object
+      example:
+        comment:
+          date: 2000-01-23T04:56:07.000+00:00
+          pageNumber: 5.637376656633329
+          pageTitle: pageTitle
+          rating: 3.616076749251911
+          approved: true
+          hashTags:
+          - retain: true
+            id: id
+            tag: tag
+            url: url
+          - retain: true
+            id: id
+            tag: tag
+            url: url
+          localDateString: localDateString
+          notificationSentForParentTenant: true
+          verifiedDate: 2000-01-23T04:56:07.000+00:00
+          isLocked: true
+          groupIds:
+          - groupIds
+          - groupIds
+          aiDeterminedSpam: true
+          reviewed: true
+          fromProductId: 2.027123023002322
+          flagCount: 9.301444243932576
+          pageNumberNF: 7.061401241503109
+          hasCode: true
+          feedbackIds:
+          - feedbackIds
+          - feedbackIds
+          autoplayJobId: autoplayJobId
+          ipHash: ipHash
+          fromOfflineRestore: true
+          urlIdRaw: urlIdRaw
+          moderationGroupIds:
+          - moderationGroupIds
+          - moderationGroupIds
+          didProcessBadges: true
+          isDeletedUser: true
+          meta:
+            wpUserId: wpUserId
+            wpPostId: wpPostId
+          mentions:
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          domain: domain
+          avatarSrc: avatarSrc
+          _id: _id
+          isSpam: true
+          veteranBadgeProcessed: veteranBadgeProcessed
+          externalParentId: externalParentId
+          votesDown: 5.962133916683182
+          commenterName: commenterName
+          isByModerator: true
+          commenterLink: commenterLink
+          urlId: urlId
+          locale: locale
+          commentHTML: commentHTML
+          isDeleted: true
+          imported: true
+          pageNumberOF: 2.3021358869347655
+          localDateHours: 0.8008281904610115
+          viewCount: 1.2315135367772556
+          votesUp: 1.4658129805029452
+          displayLabel: displayLabel
+          isPinned: true
+          verified: true
+          anonUserId: anonUserId
+          externalId: externalId
+          hasLinks: true
+          autoplayDelayMS: 7.386281948385884
+          expireAt: 2000-01-23T04:56:07.000+00:00
+          userId: userId
+          url: url
+          parentId: parentId
+          commenterEmail: commenterEmail
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 4.145608029883936
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 4.145608029883936
+            textColor: textColor
+            displaySrc: displaySrc
+          notificationSentForParent: true
+          tenantId: tenantId
+          hasImages: true
+          comment: comment
+          votes: 6.027456183070403
+          isBannedUser: true
+          verificationId: verificationId
+          isByAdmin: true
+        userIdWS: null
+        moduleData:
+          key: ""
+        user: ""
+        status: null
+    Record_string.string-or-number_:
+      additionalProperties:
+        $ref: '#/components/schemas/Record_string_string_or_number__value'
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    CommentData:
+      additionalProperties: false
+      example:
+        date: 0.8008281904610115
+        productId: 1.4658129805029452
+        questionValues:
+          key: Record_string_string_or_number__value
+        pageTitle: pageTitle
+        commenterName: commenterName
+        rating: 5.962133916683182
+        feedbackIds:
+        - feedbackIds
+        - feedbackIds
+        commenterLink: commenterLink
+        autoplayDelayMS: 5.637376656633329
+        urlId: urlId
+        userId: userId
+        parentId: parentId
+        url: url
+        commenterEmail: commenterEmail
+        fromOfflineRestore: true
+        isFromMyAccountPage: true
+        hashTags:
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        moderationGroupIds:
+        - moderationGroupIds
+        - moderationGroupIds
+        localDateString: localDateString
+        meta: "{}"
+        mentions:
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        avatarSrc: avatarSrc
+        comment: comment
+        localDateHours: 6.027456183070403
+      properties:
+        date:
+          format: double
+          type: number
+        localDateString:
+          type: string
+        localDateHours:
+          format: double
+          type: number
+        commenterName:
+          type: string
+        commenterEmail:
+          nullable: true
+          type: string
+        commenterLink:
+          nullable: true
+          type: string
+        comment:
+          type: string
+        productId:
+          format: double
+          type: number
+        userId:
+          nullable: true
+          type: string
+        avatarSrc:
+          nullable: true
+          type: string
+        parentId:
+          nullable: true
+          type: string
+        mentions:
+          items:
+            $ref: '#/components/schemas/CommentUserMentionInfo'
+          type: array
+        hashTags:
+          items:
+            $ref: '#/components/schemas/CommentUserHashTagInfo'
+          type: array
+        pageTitle:
+          type: string
+        isFromMyAccountPage:
+          type: boolean
+        url:
+          type: string
+        urlId:
+          type: string
+        meta:
+          additionalProperties: false
+          type: object
+        moderationGroupIds:
+          items:
+            type: string
+          type: array
+        rating:
+          format: double
+          type: number
+        fromOfflineRestore:
+          type: boolean
+        autoplayDelayMS:
+          format: double
+          type: number
+        feedbackIds:
+          items:
+            type: string
+          type: array
+        questionValues:
+          additionalProperties:
+            $ref: '#/components/schemas/Record_string_string_or_number__value'
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - comment
+      - commenterName
+      - date
+      - url
+      - urlId
+      type: object
+    GetComments_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetCommentsResponseWithPresence_FCommentOptimized_'
+      - $ref: '#/components/schemas/APIError'
+    CreateUser_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/SaveCommentsResponseWithPresence'
+      - $ref: '#/components/schemas/APIError'
+    Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta:
+      additionalProperties: {}
+      example:
+        wpUserId: wpUserId
+        wpPostId: wpPostId
+      properties:
+        wpUserId:
+          type: string
+        wpPostId:
+          type: string
+      type: object
+    Record_string_string_or_number__value:
+      anyOf:
+      - type: string
+      - format: double
+        type: number
+  securitySchemes: {}
+
