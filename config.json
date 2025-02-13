@@ -1,0 +1,12 @@
+{
+  "groupId": "com.fastcomments",
+  "artifactId": "client",
+  "artifactVersion": "0.0.1",
+  "packageName": "com.fastcomments",
+  "apiPackage": "com.fastcomments.api",
+  "modelPackage": "com.fastcomments.model",
+  "invokerPackage": "com.fastcomments.invoker",
+  "openApiNullable": false,
+  "library": "okhttp-gson",
+  "serializationLibrary": "gson"
+}
