@@ -14,7 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APICommentFCommentOptimized;
+import com.fastcomments.model.APICommentPublicComment;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
@@ -53,10 +53,10 @@ import java.util.Set;
 import com.fastcomments.invoker.JSON;
 
 /**
- * GetCommentsResponseWithPresenceFCommentOptimized
+ * GetCommentsResponseWithPresencePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class GetCommentsResponseWithPresenceFCommentOptimized {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
   @javax.annotation.Nullable
@@ -80,7 +80,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
   @javax.annotation.Nonnull
-  private List<APICommentFCommentOptimized> comments = new ArrayList<>();
+  private List<APICommentPublicComment> comments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -192,10 +192,10 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   @javax.annotation.Nullable
   private String tenantIdWS;
 
-  public GetCommentsResponseWithPresenceFCommentOptimized() {
+  public GetCommentsResponseWithPresencePublicComment() {
   }
 
-  public GetCommentsResponseWithPresenceFCommentOptimized statusCode(@javax.annotation.Nullable Double statusCode) {
+  public GetCommentsResponseWithPresencePublicComment statusCode(@javax.annotation.Nullable Double statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -214,7 +214,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized status(@javax.annotation.Nonnull String status) {
+  public GetCommentsResponseWithPresencePublicComment status(@javax.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
@@ -233,7 +233,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized code(@javax.annotation.Nullable String code) {
+  public GetCommentsResponseWithPresencePublicComment code(@javax.annotation.Nullable String code) {
     this.code = code;
     return this;
   }
@@ -252,7 +252,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized reason(@javax.annotation.Nullable String reason) {
+  public GetCommentsResponseWithPresencePublicComment reason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
     return this;
   }
@@ -271,12 +271,12 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized comments(@javax.annotation.Nonnull List<APICommentFCommentOptimized> comments) {
+  public GetCommentsResponseWithPresencePublicComment comments(@javax.annotation.Nonnull List<APICommentPublicComment> comments) {
     this.comments = comments;
     return this;
   }
 
-  public GetCommentsResponseWithPresenceFCommentOptimized addCommentsItem(APICommentFCommentOptimized commentsItem) {
+  public GetCommentsResponseWithPresencePublicComment addCommentsItem(APICommentPublicComment commentsItem) {
     if (this.comments == null) {
       this.comments = new ArrayList<>();
     }
@@ -289,16 +289,16 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
    * @return comments
    */
   @javax.annotation.Nonnull
-  public List<APICommentFCommentOptimized> getComments() {
+  public List<APICommentPublicComment> getComments() {
     return comments;
   }
 
-  public void setComments(@javax.annotation.Nonnull List<APICommentFCommentOptimized> comments) {
+  public void setComments(@javax.annotation.Nonnull List<APICommentPublicComment> comments) {
     this.comments = comments;
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized user(@javax.annotation.Nullable UserSessionInfo user) {
+  public GetCommentsResponseWithPresencePublicComment user(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
     return this;
   }
@@ -317,7 +317,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized urlIdClean(@javax.annotation.Nullable String urlIdClean) {
+  public GetCommentsResponseWithPresencePublicComment urlIdClean(@javax.annotation.Nullable String urlIdClean) {
     this.urlIdClean = urlIdClean;
     return this;
   }
@@ -336,7 +336,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized lastGenDate(@javax.annotation.Nullable Double lastGenDate) {
+  public GetCommentsResponseWithPresencePublicComment lastGenDate(@javax.annotation.Nullable Double lastGenDate) {
     this.lastGenDate = lastGenDate;
     return this;
   }
@@ -355,7 +355,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized includesPastPages(@javax.annotation.Nullable Boolean includesPastPages) {
+  public GetCommentsResponseWithPresencePublicComment includesPastPages(@javax.annotation.Nullable Boolean includesPastPages) {
     this.includesPastPages = includesPastPages;
     return this;
   }
@@ -374,7 +374,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isDemo(@javax.annotation.Nullable Boolean isDemo) {
+  public GetCommentsResponseWithPresencePublicComment isDemo(@javax.annotation.Nullable Boolean isDemo) {
     this.isDemo = isDemo;
     return this;
   }
@@ -393,7 +393,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized commentCount(@javax.annotation.Nullable Double commentCount) {
+  public GetCommentsResponseWithPresencePublicComment commentCount(@javax.annotation.Nullable Double commentCount) {
     this.commentCount = commentCount;
     return this;
   }
@@ -412,7 +412,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isSiteAdmin(@javax.annotation.Nullable Boolean isSiteAdmin) {
+  public GetCommentsResponseWithPresencePublicComment isSiteAdmin(@javax.annotation.Nullable Boolean isSiteAdmin) {
     this.isSiteAdmin = isSiteAdmin;
     return this;
   }
@@ -431,7 +431,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized hasBillingIssue(@javax.annotation.Nullable Boolean hasBillingIssue) {
+  public GetCommentsResponseWithPresencePublicComment hasBillingIssue(@javax.annotation.Nullable Boolean hasBillingIssue) {
     this.hasBillingIssue = hasBillingIssue;
     return this;
   }
@@ -450,7 +450,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isCommentsHidden(@javax.annotation.Nullable Boolean isCommentsHidden) {
+  public GetCommentsResponseWithPresencePublicComment isCommentsHidden(@javax.annotation.Nullable Boolean isCommentsHidden) {
     this.isCommentsHidden = isCommentsHidden;
     return this;
   }
@@ -469,12 +469,12 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized moduleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
+  public GetCommentsResponseWithPresencePublicComment moduleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
     return this;
   }
 
-  public GetCommentsResponseWithPresenceFCommentOptimized putModuleDataItem(String key, Object moduleDataItem) {
+  public GetCommentsResponseWithPresencePublicComment putModuleDataItem(String key, Object moduleDataItem) {
     if (this.moduleData == null) {
       this.moduleData = new HashMap<>();
     }
@@ -496,7 +496,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized pageNumber(@javax.annotation.Nonnull Double pageNumber) {
+  public GetCommentsResponseWithPresencePublicComment pageNumber(@javax.annotation.Nonnull Double pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -515,7 +515,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isWhiteLabeled(@javax.annotation.Nullable Boolean isWhiteLabeled) {
+  public GetCommentsResponseWithPresencePublicComment isWhiteLabeled(@javax.annotation.Nullable Boolean isWhiteLabeled) {
     this.isWhiteLabeled = isWhiteLabeled;
     return this;
   }
@@ -534,7 +534,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isProd(@javax.annotation.Nullable Boolean isProd) {
+  public GetCommentsResponseWithPresencePublicComment isProd(@javax.annotation.Nullable Boolean isProd) {
     this.isProd = isProd;
     return this;
   }
@@ -553,7 +553,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isCrawler(@javax.annotation.Nullable Boolean isCrawler) {
+  public GetCommentsResponseWithPresencePublicComment isCrawler(@javax.annotation.Nullable Boolean isCrawler) {
     this.isCrawler = isCrawler;
     return this;
   }
@@ -572,7 +572,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized notificationCount(@javax.annotation.Nullable Double notificationCount) {
+  public GetCommentsResponseWithPresencePublicComment notificationCount(@javax.annotation.Nullable Double notificationCount) {
     this.notificationCount = notificationCount;
     return this;
   }
@@ -591,7 +591,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized hasMore(@javax.annotation.Nullable Boolean hasMore) {
+  public GetCommentsResponseWithPresencePublicComment hasMore(@javax.annotation.Nullable Boolean hasMore) {
     this.hasMore = hasMore;
     return this;
   }
@@ -610,7 +610,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized isClosed(@javax.annotation.Nullable Boolean isClosed) {
+  public GetCommentsResponseWithPresencePublicComment isClosed(@javax.annotation.Nullable Boolean isClosed) {
     this.isClosed = isClosed;
     return this;
   }
@@ -629,7 +629,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized presencePollState(@javax.annotation.Nullable Double presencePollState) {
+  public GetCommentsResponseWithPresencePublicComment presencePollState(@javax.annotation.Nullable Double presencePollState) {
     this.presencePollState = presencePollState;
     return this;
   }
@@ -648,7 +648,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized customConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
+  public GetCommentsResponseWithPresencePublicComment customConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
     this.customConfig = customConfig;
     return this;
   }
@@ -667,7 +667,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized urlIdWS(@javax.annotation.Nullable String urlIdWS) {
+  public GetCommentsResponseWithPresencePublicComment urlIdWS(@javax.annotation.Nullable String urlIdWS) {
     this.urlIdWS = urlIdWS;
     return this;
   }
@@ -686,7 +686,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized userIdWS(@javax.annotation.Nullable String userIdWS) {
+  public GetCommentsResponseWithPresencePublicComment userIdWS(@javax.annotation.Nullable String userIdWS) {
     this.userIdWS = userIdWS;
     return this;
   }
@@ -705,7 +705,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
 
-  public GetCommentsResponseWithPresenceFCommentOptimized tenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
+  public GetCommentsResponseWithPresencePublicComment tenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
     this.tenantIdWS = tenantIdWS;
     return this;
   }
@@ -733,34 +733,34 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetCommentsResponseWithPresenceFCommentOptimized getCommentsResponseWithPresenceFCommentOptimized = (GetCommentsResponseWithPresenceFCommentOptimized) o;
-    return Objects.equals(this.statusCode, getCommentsResponseWithPresenceFCommentOptimized.statusCode) &&
-        Objects.equals(this.status, getCommentsResponseWithPresenceFCommentOptimized.status) &&
-        Objects.equals(this.code, getCommentsResponseWithPresenceFCommentOptimized.code) &&
-        Objects.equals(this.reason, getCommentsResponseWithPresenceFCommentOptimized.reason) &&
-        Objects.equals(this.comments, getCommentsResponseWithPresenceFCommentOptimized.comments) &&
-        Objects.equals(this.user, getCommentsResponseWithPresenceFCommentOptimized.user) &&
-        Objects.equals(this.urlIdClean, getCommentsResponseWithPresenceFCommentOptimized.urlIdClean) &&
-        Objects.equals(this.lastGenDate, getCommentsResponseWithPresenceFCommentOptimized.lastGenDate) &&
-        Objects.equals(this.includesPastPages, getCommentsResponseWithPresenceFCommentOptimized.includesPastPages) &&
-        Objects.equals(this.isDemo, getCommentsResponseWithPresenceFCommentOptimized.isDemo) &&
-        Objects.equals(this.commentCount, getCommentsResponseWithPresenceFCommentOptimized.commentCount) &&
-        Objects.equals(this.isSiteAdmin, getCommentsResponseWithPresenceFCommentOptimized.isSiteAdmin) &&
-        Objects.equals(this.hasBillingIssue, getCommentsResponseWithPresenceFCommentOptimized.hasBillingIssue) &&
-        Objects.equals(this.isCommentsHidden, getCommentsResponseWithPresenceFCommentOptimized.isCommentsHidden) &&
-        Objects.equals(this.moduleData, getCommentsResponseWithPresenceFCommentOptimized.moduleData) &&
-        Objects.equals(this.pageNumber, getCommentsResponseWithPresenceFCommentOptimized.pageNumber) &&
-        Objects.equals(this.isWhiteLabeled, getCommentsResponseWithPresenceFCommentOptimized.isWhiteLabeled) &&
-        Objects.equals(this.isProd, getCommentsResponseWithPresenceFCommentOptimized.isProd) &&
-        Objects.equals(this.isCrawler, getCommentsResponseWithPresenceFCommentOptimized.isCrawler) &&
-        Objects.equals(this.notificationCount, getCommentsResponseWithPresenceFCommentOptimized.notificationCount) &&
-        Objects.equals(this.hasMore, getCommentsResponseWithPresenceFCommentOptimized.hasMore) &&
-        Objects.equals(this.isClosed, getCommentsResponseWithPresenceFCommentOptimized.isClosed) &&
-        Objects.equals(this.presencePollState, getCommentsResponseWithPresenceFCommentOptimized.presencePollState) &&
-        Objects.equals(this.customConfig, getCommentsResponseWithPresenceFCommentOptimized.customConfig) &&
-        Objects.equals(this.urlIdWS, getCommentsResponseWithPresenceFCommentOptimized.urlIdWS) &&
-        Objects.equals(this.userIdWS, getCommentsResponseWithPresenceFCommentOptimized.userIdWS) &&
-        Objects.equals(this.tenantIdWS, getCommentsResponseWithPresenceFCommentOptimized.tenantIdWS);
+    GetCommentsResponseWithPresencePublicComment getCommentsResponseWithPresencePublicComment = (GetCommentsResponseWithPresencePublicComment) o;
+    return Objects.equals(this.statusCode, getCommentsResponseWithPresencePublicComment.statusCode) &&
+        Objects.equals(this.status, getCommentsResponseWithPresencePublicComment.status) &&
+        Objects.equals(this.code, getCommentsResponseWithPresencePublicComment.code) &&
+        Objects.equals(this.reason, getCommentsResponseWithPresencePublicComment.reason) &&
+        Objects.equals(this.comments, getCommentsResponseWithPresencePublicComment.comments) &&
+        Objects.equals(this.user, getCommentsResponseWithPresencePublicComment.user) &&
+        Objects.equals(this.urlIdClean, getCommentsResponseWithPresencePublicComment.urlIdClean) &&
+        Objects.equals(this.lastGenDate, getCommentsResponseWithPresencePublicComment.lastGenDate) &&
+        Objects.equals(this.includesPastPages, getCommentsResponseWithPresencePublicComment.includesPastPages) &&
+        Objects.equals(this.isDemo, getCommentsResponseWithPresencePublicComment.isDemo) &&
+        Objects.equals(this.commentCount, getCommentsResponseWithPresencePublicComment.commentCount) &&
+        Objects.equals(this.isSiteAdmin, getCommentsResponseWithPresencePublicComment.isSiteAdmin) &&
+        Objects.equals(this.hasBillingIssue, getCommentsResponseWithPresencePublicComment.hasBillingIssue) &&
+        Objects.equals(this.isCommentsHidden, getCommentsResponseWithPresencePublicComment.isCommentsHidden) &&
+        Objects.equals(this.moduleData, getCommentsResponseWithPresencePublicComment.moduleData) &&
+        Objects.equals(this.pageNumber, getCommentsResponseWithPresencePublicComment.pageNumber) &&
+        Objects.equals(this.isWhiteLabeled, getCommentsResponseWithPresencePublicComment.isWhiteLabeled) &&
+        Objects.equals(this.isProd, getCommentsResponseWithPresencePublicComment.isProd) &&
+        Objects.equals(this.isCrawler, getCommentsResponseWithPresencePublicComment.isCrawler) &&
+        Objects.equals(this.notificationCount, getCommentsResponseWithPresencePublicComment.notificationCount) &&
+        Objects.equals(this.hasMore, getCommentsResponseWithPresencePublicComment.hasMore) &&
+        Objects.equals(this.isClosed, getCommentsResponseWithPresencePublicComment.isClosed) &&
+        Objects.equals(this.presencePollState, getCommentsResponseWithPresencePublicComment.presencePollState) &&
+        Objects.equals(this.customConfig, getCommentsResponseWithPresencePublicComment.customConfig) &&
+        Objects.equals(this.urlIdWS, getCommentsResponseWithPresencePublicComment.urlIdWS) &&
+        Objects.equals(this.userIdWS, getCommentsResponseWithPresencePublicComment.userIdWS) &&
+        Objects.equals(this.tenantIdWS, getCommentsResponseWithPresencePublicComment.tenantIdWS);
   }
 
   @Override
@@ -771,7 +771,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetCommentsResponseWithPresenceFCommentOptimized {\n");
+    sb.append("class GetCommentsResponseWithPresencePublicComment {\n");
     sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
@@ -861,25 +861,25 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetCommentsResponseWithPresenceFCommentOptimized
+   * @throws IOException if the JSON Element is invalid with respect to GetCommentsResponseWithPresencePublicComment
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GetCommentsResponseWithPresenceFCommentOptimized.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetCommentsResponseWithPresenceFCommentOptimized is not found in the empty JSON string", GetCommentsResponseWithPresenceFCommentOptimized.openapiRequiredFields.toString()));
+        if (!GetCommentsResponseWithPresencePublicComment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GetCommentsResponseWithPresencePublicComment is not found in the empty JSON string", GetCommentsResponseWithPresencePublicComment.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!GetCommentsResponseWithPresenceFCommentOptimized.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetCommentsResponseWithPresenceFCommentOptimized` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!GetCommentsResponseWithPresencePublicComment.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetCommentsResponseWithPresencePublicComment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : GetCommentsResponseWithPresenceFCommentOptimized.openapiRequiredFields) {
+      for (String requiredField : GetCommentsResponseWithPresencePublicComment.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -902,7 +902,7 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
       JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");
       // validate the required field `comments` (array)
       for (int i = 0; i < jsonArraycomments.size(); i++) {
-        APICommentFCommentOptimized.validateJsonElement(jsonArraycomments.get(i));
+        APICommentPublicComment.validateJsonElement(jsonArraycomments.get(i));
       };
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
@@ -928,22 +928,22 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetCommentsResponseWithPresenceFCommentOptimized.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetCommentsResponseWithPresenceFCommentOptimized' and its subtypes
+       if (!GetCommentsResponseWithPresencePublicComment.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GetCommentsResponseWithPresencePublicComment' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetCommentsResponseWithPresenceFCommentOptimized> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetCommentsResponseWithPresenceFCommentOptimized.class));
+       final TypeAdapter<GetCommentsResponseWithPresencePublicComment> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GetCommentsResponseWithPresencePublicComment.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetCommentsResponseWithPresenceFCommentOptimized>() {
+       return (TypeAdapter<T>) new TypeAdapter<GetCommentsResponseWithPresencePublicComment>() {
            @Override
-           public void write(JsonWriter out, GetCommentsResponseWithPresenceFCommentOptimized value) throws IOException {
+           public void write(JsonWriter out, GetCommentsResponseWithPresencePublicComment value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetCommentsResponseWithPresenceFCommentOptimized read(JsonReader in) throws IOException {
+           public GetCommentsResponseWithPresencePublicComment read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -954,18 +954,18 @@ public class GetCommentsResponseWithPresenceFCommentOptimized {
   }
 
   /**
-   * Create an instance of GetCommentsResponseWithPresenceFCommentOptimized given an JSON string
+   * Create an instance of GetCommentsResponseWithPresencePublicComment given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of GetCommentsResponseWithPresenceFCommentOptimized
-   * @throws IOException if the JSON string is invalid with respect to GetCommentsResponseWithPresenceFCommentOptimized
+   * @return An instance of GetCommentsResponseWithPresencePublicComment
+   * @throws IOException if the JSON string is invalid with respect to GetCommentsResponseWithPresencePublicComment
    */
-  public static GetCommentsResponseWithPresenceFCommentOptimized fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetCommentsResponseWithPresenceFCommentOptimized.class);
+  public static GetCommentsResponseWithPresencePublicComment fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GetCommentsResponseWithPresencePublicComment.class);
   }
 
   /**
-   * Convert an instance of GetCommentsResponseWithPresenceFCommentOptimized to an JSON string
+   * Convert an instance of GetCommentsResponseWithPresencePublicComment to an JSON string
    *
    * @return JSON string
    */

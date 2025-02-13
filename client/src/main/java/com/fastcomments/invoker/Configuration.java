@@ -13,7 +13,7 @@
 
 package com.fastcomments.invoker;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class Configuration {
     public static final String VERSION = "0.0.1";
 

@@ -1,6 +1,6 @@
 
 
-# GetComments200Response
+# GetCommentsResponsePublicComment
 
 
 ## Properties
@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**statusCode** | **Double** |  |  [optional] |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
-|**code** | **String** |  |  |
-|**reason** | **String** |  |  |
+|**status** | **String** |  |  |
+|**code** | **String** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
 |**comments** | [**List&lt;APICommentPublicComment&gt;**](APICommentPublicComment.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
 |**urlIdClean** | **String** |  |  [optional] |
@@ -31,13 +31,6 @@
 |**isClosed** | **Boolean** |  |  [optional] |
 |**presencePollState** | **Double** |  |  [optional] |
 |**customConfig** | [**CustomConfigParameters**](CustomConfigParameters.md) |  |  [optional] |
-|**urlIdWS** | **String** |  |  [optional] |
-|**userIdWS** | **String** |  |  [optional] |
-|**tenantIdWS** | **String** |  |  [optional] |
-|**secondaryCode** | **String** |  |  [optional] |
-|**bannedUntil** | **Double** |  |  [optional] |
-|**maxCharacterLength** | **Double** |  |  [optional] |
-|**translatedError** | **String** |  |  [optional] |
 
 
 

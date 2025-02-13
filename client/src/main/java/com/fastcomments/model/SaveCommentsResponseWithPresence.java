@@ -15,7 +15,6 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.ImportedAPIStatusSUCCESS;
-import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogs;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -53,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SaveCommentsResponseWithPresence
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class SaveCommentsResponseWithPresence {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -63,7 +62,7 @@ public class SaveCommentsResponseWithPresence {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   @javax.annotation.Nonnull
-  private PickFCommentExcludeKeyofFCommentLogs comment;
+  private Object comment;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -102,7 +101,7 @@ public class SaveCommentsResponseWithPresence {
   }
 
 
-  public SaveCommentsResponseWithPresence comment(@javax.annotation.Nonnull PickFCommentExcludeKeyofFCommentLogs comment) {
+  public SaveCommentsResponseWithPresence comment(@javax.annotation.Nonnull Object comment) {
     this.comment = comment;
     return this;
   }
@@ -112,11 +111,11 @@ public class SaveCommentsResponseWithPresence {
    * @return comment
    */
   @javax.annotation.Nonnull
-  public PickFCommentExcludeKeyofFCommentLogs getComment() {
+  public Object getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nonnull PickFCommentExcludeKeyofFCommentLogs comment) {
+  public void setComment(@javax.annotation.Nonnull Object comment) {
     this.comment = comment;
   }
 
@@ -282,8 +281,6 @@ public class SaveCommentsResponseWithPresence {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
-      // validate the required field `comment`
-      PickFCommentExcludeKeyofFCommentLogs.validateJsonElement(jsonObj.get("comment"));
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
       if ((jsonObj.get("userIdWS") != null && !jsonObj.get("userIdWS").isJsonNull()) && !jsonObj.get("userIdWS").isJsonPrimitive()) {

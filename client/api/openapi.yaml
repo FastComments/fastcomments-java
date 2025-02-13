@@ -336,16 +336,6 @@ components:
       type: object
     CommentUserBadgeInfo:
       additionalProperties: false
-      example:
-        displayLabel: displayLabel
-        backgroundColor: backgroundColor
-        borderColor: borderColor
-        cssClass: cssClass
-        description: description
-        id: id
-        type: 4.145608029883936
-        textColor: textColor
-        displaySrc: displaySrc
       properties:
         id:
           type: string
@@ -548,11 +538,16 @@ components:
       type: object
     Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_:
       $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__'
-    FCommentOptimized:
+    PublicCommentMongo:
       $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_'
-    APIComment_FCommentOptimized_:
+    PublicComment:
+      additionalProperties: false
+      example: {}
+      properties: {}
+      type: object
+    APIComment_PublicComment_:
       allOf:
-      - $ref: '#/components/schemas/FCommentOptimized'
+      - $ref: '#/components/schemas/PublicComment'
       - properties:
           isUnread:
             type: boolean
@@ -566,7 +561,7 @@ components:
             type: boolean
           children:
             items:
-              $ref: '#/components/schemas/FCommentOptimized'
+              $ref: '#/components/schemas/PublicComment'
             type: array
           isFlagged:
             type: boolean
@@ -576,8 +571,8 @@ components:
       example:
         myVoteId: myVoteId
         children:
-        - null
-        - null
+        - {}
+        - {}
         hasChildren: true
         isVotedUp: true
         isBlocked: true
@@ -990,7 +985,7 @@ components:
         wrap:
           type: boolean
       type: object
-    GetCommentsResponse_FCommentOptimized_:
+    GetCommentsResponse_PublicComment_:
       additionalProperties: false
       properties:
         statusCode:
@@ -1004,7 +999,7 @@ components:
           type: string
         comments:
           items:
-            $ref: '#/components/schemas/APIComment_FCommentOptimized_'
+            $ref: '#/components/schemas/APIComment_PublicComment_'
           type: array
         user:
           allOf:
@@ -1081,9 +1076,9 @@ components:
         tenantIdWS:
           type: string
       type: object
-    GetCommentsResponseWithPresence_FCommentOptimized_:
+    GetCommentsResponseWithPresence_PublicComment_:
       allOf:
-      - $ref: '#/components/schemas/GetCommentsResponse_FCommentOptimized_'
+      - $ref: '#/components/schemas/GetCommentsResponse_PublicComment_'
       - $ref: '#/components/schemas/UserPresenceData'
       example:
         reason: reason
@@ -1181,8 +1176,8 @@ components:
         comments:
         - myVoteId: myVoteId
           children:
-          - null
-          - null
+          - {}
+          - {}
           hasChildren: true
           isVotedUp: true
           isBlocked: true
@@ -1191,8 +1186,8 @@ components:
           isFlagged: true
         - myVoteId: myVoteId
           children:
-          - null
-          - null
+          - {}
+          - {}
           hasChildren: true
           isVotedUp: true
           isBlocked: true
@@ -1251,309 +1246,16 @@ components:
       enum:
       - success
       type: string
-    Pick_FComment.Exclude_keyofFComment.logs__:
-      description: "From T, pick a set of properties whose keys are in the union K"
-      example:
-        date: 2000-01-23T04:56:07.000+00:00
-        pageNumber: 5.637376656633329
-        pageTitle: pageTitle
-        rating: 3.616076749251911
-        approved: true
-        hashTags:
-        - retain: true
-          id: id
-          tag: tag
-          url: url
-        - retain: true
-          id: id
-          tag: tag
-          url: url
-        localDateString: localDateString
-        notificationSentForParentTenant: true
-        verifiedDate: 2000-01-23T04:56:07.000+00:00
-        isLocked: true
-        groupIds:
-        - groupIds
-        - groupIds
-        aiDeterminedSpam: true
-        reviewed: true
-        fromProductId: 2.027123023002322
-        flagCount: 9.301444243932576
-        pageNumberNF: 7.061401241503109
-        hasCode: true
-        feedbackIds:
-        - feedbackIds
-        - feedbackIds
-        autoplayJobId: autoplayJobId
-        ipHash: ipHash
-        fromOfflineRestore: true
-        urlIdRaw: urlIdRaw
-        moderationGroupIds:
-        - moderationGroupIds
-        - moderationGroupIds
-        didProcessBadges: true
-        isDeletedUser: true
-        meta:
-          wpUserId: wpUserId
-          wpPostId: wpPostId
-        mentions:
-        - rawTag: rawTag
-          id: id
-          tag: tag
-          type: user
-          sent: true
-        - rawTag: rawTag
-          id: id
-          tag: tag
-          type: user
-          sent: true
-        domain: domain
-        avatarSrc: avatarSrc
-        _id: _id
-        isSpam: true
-        veteranBadgeProcessed: veteranBadgeProcessed
-        externalParentId: externalParentId
-        votesDown: 5.962133916683182
-        commenterName: commenterName
-        isByModerator: true
-        commenterLink: commenterLink
-        urlId: urlId
-        locale: locale
-        commentHTML: commentHTML
-        isDeleted: true
-        imported: true
-        pageNumberOF: 2.3021358869347655
-        localDateHours: 0.8008281904610115
-        viewCount: 1.2315135367772556
-        votesUp: 1.4658129805029452
-        displayLabel: displayLabel
-        isPinned: true
-        verified: true
-        anonUserId: anonUserId
-        externalId: externalId
-        hasLinks: true
-        autoplayDelayMS: 7.386281948385884
-        expireAt: 2000-01-23T04:56:07.000+00:00
-        userId: userId
-        url: url
-        parentId: parentId
-        commenterEmail: commenterEmail
-        badges:
-        - displayLabel: displayLabel
-          backgroundColor: backgroundColor
-          borderColor: borderColor
-          cssClass: cssClass
-          description: description
-          id: id
-          type: 4.145608029883936
-          textColor: textColor
-          displaySrc: displaySrc
-        - displayLabel: displayLabel
-          backgroundColor: backgroundColor
-          borderColor: borderColor
-          cssClass: cssClass
-          description: description
-          id: id
-          type: 4.145608029883936
-          textColor: textColor
-          displaySrc: displaySrc
-        notificationSentForParent: true
-        tenantId: tenantId
-        hasImages: true
-        comment: comment
-        votes: 6.027456183070403
-        isBannedUser: true
-        verificationId: verificationId
-        isByAdmin: true
-      properties:
-        tenantId:
-          type: string
-        comment:
-          type: string
-        hasLinks:
-          type: boolean
-        urlId:
-          type: string
-        _id:
-          type: string
-        urlIdRaw:
-          type: string
-        url:
-          type: string
-        pageTitle:
-          type: string
-        userId:
-          type: string
-        anonUserId:
-          type: string
-        commenterEmail:
-          type: string
-        commenterName:
-          type: string
-        commenterLink:
-          type: string
-        commentHTML:
-          type: string
-        parentId:
-          type: string
-        date:
-          format: date-time
-          type: string
-        localDateString:
-          type: string
-        localDateHours:
-          format: double
-          type: number
-        votes:
-          format: double
-          type: number
-        votesUp:
-          format: double
-          type: number
-        votesDown:
-          format: double
-          type: number
-        expireAt:
-          format: date-time
-          type: string
-        verified:
-          type: boolean
-        verifiedDate:
-          format: date-time
-          type: string
-        verificationId:
-          type: string
-        notificationSentForParent:
-          type: boolean
-        notificationSentForParentTenant:
-          type: boolean
-        reviewed:
-          type: boolean
-        imported:
-          type: boolean
-        externalId:
-          type: string
-        externalParentId:
-          type: string
-        avatarSrc:
-          type: string
-        isSpam:
-          type: boolean
-        aiDeterminedSpam:
-          type: boolean
-        hasImages:
-          type: boolean
-        pageNumber:
-          format: double
-          type: number
-        pageNumberOF:
-          format: double
-          type: number
-        pageNumberNF:
-          format: double
-          type: number
-        hasCode:
-          type: boolean
-        approved:
-          type: boolean
-        locale:
-          type: string
-        isDeleted:
-          type: boolean
-        isDeletedUser:
-          type: boolean
-        isBannedUser:
-          type: boolean
-        isByAdmin:
-          type: boolean
-        isByModerator:
-          type: boolean
-        isPinned:
-          type: boolean
-        isLocked:
-          type: boolean
-        flagCount:
-          format: double
-          type: number
-        rating:
-          format: double
-          type: number
-        displayLabel:
-          type: string
-        fromProductId:
-          format: double
-          type: number
-        meta:
-          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta'
-        ipHash:
-          type: string
-        mentions:
-          items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
-          type: array
-        hashTags:
-          items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
-          type: array
-        badges:
-          items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
-          type: array
-        domain:
-          type: string
-        veteranBadgeProcessed:
-          type: string
-        moderationGroupIds:
-          items:
-            type: string
-          type: array
-        didProcessBadges:
-          type: boolean
-        fromOfflineRestore:
-          type: boolean
-        autoplayJobId:
-          type: string
-        autoplayDelayMS:
-          format: double
-          type: number
-        feedbackIds:
-          items:
-            type: string
-          type: array
-        groupIds:
-          items:
-            type: string
-          type: array
-        viewCount:
-          format: double
-          type: number
-      required:
-      - _id
-      - approved
-      - comment
-      - commentHTML
-      - commenterName
-      - date
-      - locale
-      - tenantId
-      - url
-      - urlId
-      - verified
-      - votes
-      - votesDown
-      - votesUp
-      type: object
-    Omit_FComment.logs_:
-      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs__'
-    FCommentSaved:
-      $ref: '#/components/schemas/Omit_FComment.logs_'
     SaveCommentResponseOptimized:
       additionalProperties: false
       properties:
         status:
           $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
         comment:
-          $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs__'
+          additionalProperties: false
+          example: {}
+          properties: {}
+          type: object
         user:
           allOf:
           - $ref: '#/components/schemas/UserSessionInfo'
@@ -1576,118 +1278,7 @@ components:
             $ref: '#/components/schemas/UserIdWS'
         type: object
       example:
-        comment:
-          date: 2000-01-23T04:56:07.000+00:00
-          pageNumber: 5.637376656633329
-          pageTitle: pageTitle
-          rating: 3.616076749251911
-          approved: true
-          hashTags:
-          - retain: true
-            id: id
-            tag: tag
-            url: url
-          - retain: true
-            id: id
-            tag: tag
-            url: url
-          localDateString: localDateString
-          notificationSentForParentTenant: true
-          verifiedDate: 2000-01-23T04:56:07.000+00:00
-          isLocked: true
-          groupIds:
-          - groupIds
-          - groupIds
-          aiDeterminedSpam: true
-          reviewed: true
-          fromProductId: 2.027123023002322
-          flagCount: 9.301444243932576
-          pageNumberNF: 7.061401241503109
-          hasCode: true
-          feedbackIds:
-          - feedbackIds
-          - feedbackIds
-          autoplayJobId: autoplayJobId
-          ipHash: ipHash
-          fromOfflineRestore: true
-          urlIdRaw: urlIdRaw
-          moderationGroupIds:
-          - moderationGroupIds
-          - moderationGroupIds
-          didProcessBadges: true
-          isDeletedUser: true
-          meta:
-            wpUserId: wpUserId
-            wpPostId: wpPostId
-          mentions:
-          - rawTag: rawTag
-            id: id
-            tag: tag
-            type: user
-            sent: true
-          - rawTag: rawTag
-            id: id
-            tag: tag
-            type: user
-            sent: true
-          domain: domain
-          avatarSrc: avatarSrc
-          _id: _id
-          isSpam: true
-          veteranBadgeProcessed: veteranBadgeProcessed
-          externalParentId: externalParentId
-          votesDown: 5.962133916683182
-          commenterName: commenterName
-          isByModerator: true
-          commenterLink: commenterLink
-          urlId: urlId
-          locale: locale
-          commentHTML: commentHTML
-          isDeleted: true
-          imported: true
-          pageNumberOF: 2.3021358869347655
-          localDateHours: 0.8008281904610115
-          viewCount: 1.2315135367772556
-          votesUp: 1.4658129805029452
-          displayLabel: displayLabel
-          isPinned: true
-          verified: true
-          anonUserId: anonUserId
-          externalId: externalId
-          hasLinks: true
-          autoplayDelayMS: 7.386281948385884
-          expireAt: 2000-01-23T04:56:07.000+00:00
-          userId: userId
-          url: url
-          parentId: parentId
-          commenterEmail: commenterEmail
-          badges:
-          - displayLabel: displayLabel
-            backgroundColor: backgroundColor
-            borderColor: borderColor
-            cssClass: cssClass
-            description: description
-            id: id
-            type: 4.145608029883936
-            textColor: textColor
-            displaySrc: displaySrc
-          - displayLabel: displayLabel
-            backgroundColor: backgroundColor
-            borderColor: borderColor
-            cssClass: cssClass
-            description: description
-            id: id
-            type: 4.145608029883936
-            textColor: textColor
-            displaySrc: displaySrc
-          notificationSentForParent: true
-          tenantId: tenantId
-          hasImages: true
-          comment: comment
-          votes: 6.027456183070403
-          isBannedUser: true
-          verificationId: verificationId
-          isByAdmin: true
+        comment: {}
         userIdWS: null
         moduleData:
           key: ""
@@ -1830,7 +1421,7 @@ components:
       type: object
     GetComments_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetCommentsResponseWithPresence_FCommentOptimized_'
+      - $ref: '#/components/schemas/GetCommentsResponseWithPresence_PublicComment_'
       - $ref: '#/components/schemas/APIError'
     CreateUser_200_response:
       anyOf:
@@ -1838,9 +1429,6 @@ components:
       - $ref: '#/components/schemas/APIError'
     Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta:
       additionalProperties: {}
-      example:
-        wpUserId: wpUserId
-        wpPostId: wpPostId
       properties:
         wpUserId:
           type: string

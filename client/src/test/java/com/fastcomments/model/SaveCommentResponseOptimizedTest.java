@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.ImportedAPIStatusSUCCESS;
-import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogs;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

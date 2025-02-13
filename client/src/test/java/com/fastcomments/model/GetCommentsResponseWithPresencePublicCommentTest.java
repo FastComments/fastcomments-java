@@ -13,7 +13,7 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APICommentFCommentOptimized;
+import com.fastcomments.model.APICommentPublicComment;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
@@ -31,17 +31,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for GetCommentsResponseWithPresenceFCommentOptimized
+ * Model tests for GetCommentsResponseWithPresencePublicComment
  */
-public class GetCommentsResponseWithPresenceFCommentOptimizedTest {
-    private final GetCommentsResponseWithPresenceFCommentOptimized model = new GetCommentsResponseWithPresenceFCommentOptimized();
+public class GetCommentsResponseWithPresencePublicCommentTest {
+    private final GetCommentsResponseWithPresencePublicComment model = new GetCommentsResponseWithPresencePublicComment();
 
     /**
-     * Model tests for GetCommentsResponseWithPresenceFCommentOptimized
+     * Model tests for GetCommentsResponseWithPresencePublicComment
      */
     @Test
-    public void testGetCommentsResponseWithPresenceFCommentOptimized() {
-        // TODO: test GetCommentsResponseWithPresenceFCommentOptimized
+    public void testGetCommentsResponseWithPresencePublicComment() {
+        // TODO: test GetCommentsResponseWithPresencePublicComment
     }
 
     /**

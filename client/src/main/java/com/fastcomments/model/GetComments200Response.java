@@ -14,10 +14,10 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APICommentFCommentOptimized;
+import com.fastcomments.model.APICommentPublicComment;
 import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.GetCommentsResponseWithPresenceFCommentOptimized;
+import com.fastcomments.model.GetCommentsResponseWithPresencePublicComment;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
@@ -67,7 +67,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T13:29:44.579096779-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetComments200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GetComments200Response.class.getName());
 
@@ -79,7 +79,7 @@ public class GetComments200Response extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'GetComments200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetCommentsResponseWithPresenceFCommentOptimized> adapterGetCommentsResponseWithPresenceFCommentOptimized = gson.getDelegateAdapter(this, TypeToken.get(GetCommentsResponseWithPresenceFCommentOptimized.class));
+            final TypeAdapter<GetCommentsResponseWithPresencePublicComment> adapterGetCommentsResponseWithPresencePublicComment = gson.getDelegateAdapter(this, TypeToken.get(GetCommentsResponseWithPresencePublicComment.class));
             final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
             return (TypeAdapter<T>) new TypeAdapter<GetComments200Response>() {
@@ -90,9 +90,9 @@ public class GetComments200Response extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `GetCommentsResponseWithPresenceFCommentOptimized`
-                    if (value.getActualInstance() instanceof GetCommentsResponseWithPresenceFCommentOptimized) {
-                        JsonElement element = adapterGetCommentsResponseWithPresenceFCommentOptimized.toJsonTree((GetCommentsResponseWithPresenceFCommentOptimized)value.getActualInstance());
+                    // check if the actual instance is of the type `GetCommentsResponseWithPresencePublicComment`
+                    if (value.getActualInstance() instanceof GetCommentsResponseWithPresencePublicComment) {
+                        JsonElement element = adapterGetCommentsResponseWithPresencePublicComment.toJsonTree((GetCommentsResponseWithPresencePublicComment)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -102,7 +102,7 @@ public class GetComments200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, GetCommentsResponseWithPresenceFCommentOptimized");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, GetCommentsResponseWithPresencePublicComment");
                 }
 
                 @Override
@@ -113,18 +113,18 @@ public class GetComments200Response extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize GetCommentsResponseWithPresenceFCommentOptimized
+                    // deserialize GetCommentsResponseWithPresencePublicComment
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        GetCommentsResponseWithPresenceFCommentOptimized.validateJsonElement(jsonElement);
-                        actualAdapter = adapterGetCommentsResponseWithPresenceFCommentOptimized;
+                        GetCommentsResponseWithPresencePublicComment.validateJsonElement(jsonElement);
+                        actualAdapter = adapterGetCommentsResponseWithPresencePublicComment;
                         GetComments200Response ret = new GetComments200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresenceFCommentOptimized failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'GetCommentsResponseWithPresenceFCommentOptimized'", e);
+                        errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresencePublicComment failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'GetCommentsResponseWithPresencePublicComment'", e);
                     }
                     // deserialize APIError
                     try {
@@ -159,7 +159,7 @@ public class GetComments200Response extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("GetCommentsResponseWithPresenceFCommentOptimized", GetCommentsResponseWithPresenceFCommentOptimized.class);
+        schemas.put("GetCommentsResponseWithPresencePublicComment", GetCommentsResponseWithPresencePublicComment.class);
         schemas.put("APIError", APIError.class);
     }
 
@@ -171,13 +171,13 @@ public class GetComments200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, GetCommentsResponseWithPresenceFCommentOptimized
+     * APIError, GetCommentsResponseWithPresencePublicComment
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof GetCommentsResponseWithPresenceFCommentOptimized) {
+        if (instance instanceof GetCommentsResponseWithPresencePublicComment) {
             super.setActualInstance(instance);
             return;
         }
@@ -187,14 +187,14 @@ public class GetComments200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, GetCommentsResponseWithPresenceFCommentOptimized");
+        throw new RuntimeException("Invalid instance type. Must be APIError, GetCommentsResponseWithPresencePublicComment");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, GetCommentsResponseWithPresenceFCommentOptimized
+     * APIError, GetCommentsResponseWithPresencePublicComment
      *
-     * @return The actual instance (APIError, GetCommentsResponseWithPresenceFCommentOptimized)
+     * @return The actual instance (APIError, GetCommentsResponseWithPresencePublicComment)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -203,14 +203,14 @@ public class GetComments200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `GetCommentsResponseWithPresenceFCommentOptimized`. If the actual instance is not `GetCommentsResponseWithPresenceFCommentOptimized`,
+     * Get the actual instance of `GetCommentsResponseWithPresencePublicComment`. If the actual instance is not `GetCommentsResponseWithPresencePublicComment`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `GetCommentsResponseWithPresenceFCommentOptimized`
-     * @throws ClassCastException if the instance is not `GetCommentsResponseWithPresenceFCommentOptimized`
+     * @return The actual instance of `GetCommentsResponseWithPresencePublicComment`
+     * @throws ClassCastException if the instance is not `GetCommentsResponseWithPresencePublicComment`
      */
-    public GetCommentsResponseWithPresenceFCommentOptimized getGetCommentsResponseWithPresenceFCommentOptimized() throws ClassCastException {
-        return (GetCommentsResponseWithPresenceFCommentOptimized)super.getActualInstance();
+    public GetCommentsResponseWithPresencePublicComment getGetCommentsResponseWithPresencePublicComment() throws ClassCastException {
+        return (GetCommentsResponseWithPresencePublicComment)super.getActualInstance();
     }
 
     /**
@@ -233,12 +233,12 @@ public class GetComments200Response extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with GetCommentsResponseWithPresenceFCommentOptimized
+        // validate the json string with GetCommentsResponseWithPresencePublicComment
         try {
-            GetCommentsResponseWithPresenceFCommentOptimized.validateJsonElement(jsonElement);
+            GetCommentsResponseWithPresencePublicComment.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresenceFCommentOptimized failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for GetCommentsResponseWithPresencePublicComment failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with APIError
@@ -249,7 +249,7 @@ public class GetComments200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for GetComments200Response with anyOf schemas: APIError, GetCommentsResponseWithPresenceFCommentOptimized. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for GetComments200Response with anyOf schemas: APIError, GetCommentsResponseWithPresencePublicComment. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
