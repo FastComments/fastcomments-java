@@ -2,6 +2,8 @@ package com.fastcomments.core;
 
 import com.fastcomments.model.APICommentPublicComment;
 import com.fastcomments.model.CustomConfigParameters;
+import com.fastcomments.model.GifRating;
+import com.fastcomments.model.SortDirections;
 
 import java.util.List;
 import java.util.Map;
@@ -150,7 +152,7 @@ public class CommentWidgetConfig {
      * The default sort direction. "MR" (most relevant), "NF" (newest first), or "OF" (oldest first).
      * Null indicates the default.
      */
-    public String defaultSortDirection;
+    public SortDirections defaultSortDirection;
     /**
      * Changes the comment input field to be single line instead of a textarea.
      */
@@ -238,7 +240,7 @@ public class CommentWidgetConfig {
     /**
      * The rating used for the gif picker. (e.g., "g", "pg", "pg-13", "r")
      */
-    public String gifRating;
+    public GifRating gifRating;
     /**
      * Add new comments to the bottom rather than the top.
      */
@@ -361,6 +363,123 @@ public class CommentWidgetConfig {
     }
 
     public void mergeWith(CustomConfigParameters parameters) {
-
+        if (parameters.getDefaultAvatarSrc() != null) {
+            defaultAvatarSrc = parameters.getDefaultAvatarSrc();
+        }
+        if (parameters.getHasDarkBackground() != null) {
+            hasDarkBackground = parameters.getHasDarkBackground();
+        }
+        if (parameters.getCommentCountFormat() != null) {
+            commentCountFormat = parameters.getCommentCountFormat();
+        }
+        if (parameters.getHideAvatars() != null) {
+            hideAvatars = parameters.getHideAvatars();
+        }
+        if (parameters.getReadonly() != null) {
+            readonly = parameters.getReadonly();
+        }
+        if (parameters.getInputAfterComments() != null) {
+            inputAfterComments = parameters.getInputAfterComments();
+        }
+        if (parameters.getMaxCommentCharacterLength() != null) {
+            maxCommentCharacterLength = parameters.getMaxCommentCharacterLength().intValue();
+        }
+        if (parameters.getAbsoluteDates() != null) {
+            absoluteDates = parameters.getAbsoluteDates();
+        }
+        if (parameters.getAbsoluteAndRelativeDates() != null) {
+            absoluteAndRelativeDates = parameters.getAbsoluteAndRelativeDates();
+        }
+        if (parameters.getCustomCSS() != null) {
+            customCSS = parameters.getCustomCSS();
+        }
+        if (parameters.getUseShowCommentsToggle() != null) {
+            useShowCommentsToggle = parameters.getUseShowCommentsToggle();
+        }
+        if (parameters.getAllowAnon() != null) {
+            allowAnon = parameters.getAllowAnon();
+        }
+        if (parameters.getAllowAnonVotes() != null) {
+            allowAnonVotes = parameters.getAllowAnonVotes();
+        }
+        if (parameters.getDisableBlocking() != null) {
+            disableBlocking = parameters.getDisableBlocking();
+        }
+        if (parameters.getDisableEmailInputs() != null) {
+            disableEmailInputs = parameters.getDisableEmailInputs();
+        }
+        if (parameters.getDisableUnverifiedLabel() != null) {
+            disableUnverifiedLabel = parameters.getDisableUnverifiedLabel();
+        }
+        if (parameters.getDefaultUsername() != null) {
+            defaultUsername = parameters.getDefaultUsername();
+        }
+        if (parameters.getNoImageUploads() != null) {
+            noImageUploads = parameters.getNoImageUploads();
+        }
+        if (parameters.getDisableToolbar() != null) {
+            disableToolbar = parameters.getDisableToolbar();
+        }
+        if (parameters.getLocale() != null) {
+            locale = parameters.getLocale();
+        }
+        if (parameters.getShowLiveRightAway() != null) {
+            showLiveRightAway = parameters.getShowLiveRightAway();
+        }
+        if (parameters.getEnableCommenterLinks() != null) {
+            enableCommenterLinks = parameters.getEnableCommenterLinks();
+        }
+        if (parameters.getEnableViewCounts() != null) {
+            enableViewCounts = parameters.getEnableViewCounts();
+        }
+        if (parameters.getDefaultSortDirection() != null) {
+            defaultSortDirection = parameters.getDefaultSortDirection();
+        }
+        if (parameters.getUseSingleLineCommentInput() != null) {
+            useSingleLineCommentInput = parameters.getUseSingleLineCommentInput();
+        }
+        if (parameters.getGifRating() != null) {
+            gifRating = parameters.getGifRating();
+        }
+        if (parameters.getCollapseReplies() != null) {
+            collapseReplies = parameters.getCollapseReplies();
+        }
+        if (parameters.getDisableLiveCommenting() != null) {
+            disableLiveCommenting = parameters.getDisableLiveCommenting();
+        }
+        if (parameters.getDisableSuccessMessage() != null) {
+            disableSuccessMessage = parameters.getDisableSuccessMessage();
+        }
+        if (parameters.getDisableNotificationBell() != null) {
+            disableNotificationBell = parameters.getDisableNotificationBell();
+        }
+        if (parameters.getDisableProfiles() != null) {
+            disableProfiles = parameters.getDisableProfiles();
+        }
+        if (parameters.getDisableVoting() != null) {
+            disableVoting = parameters.getDisableVoting();
+        }
+        if (parameters.getTranslations() != null) {
+            translations = parameters.getTranslations();
+        }
+        if (parameters.getVoteStyle() != null) {
+            switch (parameters.getVoteStyle()) {
+                case NUMBER_0:
+                    voteStyle = VoteStyle.UpDown;
+                    break;
+                case NUMBER_1:
+                    voteStyle = VoteStyle.Heart;
+                    break;
+            }
+        }
+        if (parameters.getNoCustomConfig() != null) {
+            noCustomConfig = parameters.getNoCustomConfig();
+        }
+        if (parameters.getEnableVoteList() != null) {
+            enableVoteList = parameters.getEnableVoteList();
+        }
+        if (parameters.getEnableSearch() != null) {
+            enableSearch = parameters.getEnableSearch();
+        }
     }
 }
