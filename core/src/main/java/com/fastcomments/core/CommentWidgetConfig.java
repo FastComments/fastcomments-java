@@ -347,10 +347,6 @@ public class CommentWidgetConfig {
      * Enables a search box to search for comments on the current page.
      */
     public Boolean enableSearch;
-    /**
-     * Ignore the comment menu when determining the widget height.
-     */
-    public Boolean ignoreCommentMenuHeight;
 
     public CommentWidgetConfig(String tenantId, String urlId) {
         this.tenantId = tenantId;
