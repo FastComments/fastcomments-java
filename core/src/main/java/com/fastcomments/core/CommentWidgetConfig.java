@@ -1,6 +1,7 @@
 package com.fastcomments.core;
 
 import com.fastcomments.model.APICommentPublicComment;
+import com.fastcomments.model.CustomConfigParameters;
 
 import java.util.List;
 import java.util.Map;
@@ -86,26 +87,9 @@ public class CommentWidgetConfig {
      */
     public String customCSS;
     /**
-     * @Deprecated – Text like "Show [count] comments".
-     * When defined, we won't show the comment list.
-     */
-    public String hideCommentsUnderCountTextFormat;
-    /**
      * Enables a "Show Comments" toggle button.
      */
     public Boolean useShowCommentsToggle;
-    /**
-     * Header HTML.
-     */
-    public Boolean headerHTML;
-    /**
-     * Logs time to create HTML for rendering.
-     */
-    public Boolean debugRenderTime;
-    /**
-     * Disables inserting default style tag into DOM.
-     */
-    public Boolean noStyles;
     /**
      * Disables email requirement.
      */
@@ -256,10 +240,6 @@ public class CommentWidgetConfig {
      */
     public String gifRating;
     /**
-     * Disable the image redirect that occurs when clicking an image.
-     */
-    public Boolean disableImageRedirect;
-    /**
      * Add new comments to the bottom rather than the top.
      */
     public Boolean newCommentsToBottom;
@@ -299,11 +279,6 @@ public class CommentWidgetConfig {
      * EXPERIMENTAL: A list of small images to use for reactions.
      */
     public List<String> inlineReactImages;
-    /**
-     * EXPERIMENTAL: Changes the textarea to a content-editable div.
-     */
-    public Boolean experimentalWYSIWYG;
-    public Boolean enableWYSIWYG;
     /**
      * Clicking reply to a comment will re-use the root reply field.
      */
@@ -357,18 +332,9 @@ public class CommentWidgetConfig {
      */
     public VoteStyle voteStyle;
     /**
-     * Internal instance id (read-only).
-     */
-    public String instanceId;
-    /**
      * Jump to a given hashtag.
      */
     public String jumpToHashTag;
-    /**
-     * You can specify a list of extensions to load by id,
-     * or specify a path to load a custom extension script.
-     */
-    public List<Extension> extensions;
     /**
      * Tell the library to not fetch the widget config from the server.
      */
@@ -377,10 +343,6 @@ public class CommentWidgetConfig {
      * Show list of users that voted on a comment when hovering over the vote button.
      */
     public Boolean enableVoteList;
-    /**
-     * Whether to wrap the widget in a container with a background/border/shadow.
-     */
-    public Boolean wrap;
     /**
      * Enables a search box to search for comments on the current page.
      */
@@ -399,6 +361,10 @@ public class CommentWidgetConfig {
      * You probably don't want to use this. This is here for serialization etc. Use one of the constructors with args.
      */
     public CommentWidgetConfig() {
+
+    }
+
+    public void mergeWith(CustomConfigParameters parameters) {
 
     }
 }
