@@ -1,0 +1,3 @@
+rootProject.name = 'fastcomments'
+include ':client'
+include ':core'
