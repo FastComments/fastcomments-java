@@ -1,0 +1,72 @@
+name: Release Java Library
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: 'Version bump type (major, minor, patch)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required for tagging releases
+      packages: write  # Required for pushing packages
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Ensure full history for versioning
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          server-id: ossrh  # Should Matches the <id> in your settings.xml for Sonatype
+          settings-path: ${{ github.workspace }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Determine next version
+        id: version
+        run: |
+          CURRENT_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. -v bump=${{ github.event.inputs.version_bump }} '
+            {
+              if (bump == "major") { $1++; $2=0; $3=0 }
+              else if (bump == "minor") { $2++; $3=0 }
+              else if (bump == "patch") { $3++ }
+              print $1 "." $2 "." $3
+            }')
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+          echo "New version: $NEW_VERSION"
+
+      - name: Update version in pom.xml
+        run: mvn versions:set -DnewVersion=${{ env.NEW_VERSION }} -DgenerateBackupPoms=false
+
+      - name: Build and test
+        run: mvn clean verify
+
+      - name: Publish to Maven Central (Sonatype OSSRH)
+        run: mvn deploy -P release -DskipTests
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+
+      - name: Commit and tag new version
+        run: |
+          git commit -am "Release version ${{ env.NEW_VERSION }}"
+          git tag v${{ env.NEW_VERSION }}
+          git push origin main --tags
