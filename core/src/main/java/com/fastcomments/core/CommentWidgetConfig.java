@@ -351,16 +351,24 @@ public class CommentWidgetConfig {
      */
     public Boolean enableSearch;
 
+    /**
+     * Basic construction of the widget configuration - we need your account (tenant) and page/article id (urlId).
+     * However, you probably want to use the constructor that takes page title etc - this will provide a better experience.
+     */
     public CommentWidgetConfig(String tenantId, String urlId) {
         this.tenantId = tenantId;
         this.urlId = urlId;
     }
 
-    public CommentWidgetConfig(String tenantId, String urlId, String url, String domain) {
+    /**
+     * Specifying the url, page title, etc, provides a better user experience for notifications and so on.
+     */
+    public CommentWidgetConfig(String tenantId, String urlId, String url, String domain, String pageTitle) {
         this.tenantId = tenantId;
         this.urlId = urlId;
         this.url = url;
         this.domain = domain;
+        this.pageTitle = pageTitle;
     }
 
     /**
