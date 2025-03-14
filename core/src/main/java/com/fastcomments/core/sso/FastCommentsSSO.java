@@ -5,8 +5,9 @@ import com.google.gson.Gson;
 import java.util.function.Consumer;
 
 public class FastCommentsSSO {
-    public SecureSSOPayload secureSSOPayload;
-    public SimpleSSOUserData simpleSSOUserData;
+    private SecureSSOPayload secureSSOPayload;
+    private SimpleSSOUserData simpleSSOUserData;
+    private String cachedToken;
 
     // For URL- or callback-based parameters.
     /**
@@ -56,10 +57,42 @@ public class FastCommentsSSO {
 
     }
 
-    public String prepareToSend() {
+    private String createToken() {
         if (secureSSOPayload != null) {
             return gson.toJson(secureSSOPayload);
         }
         return gson.toJson(simpleSSOUserData);
+    }
+
+    public String prepareToSend() {
+        if (cachedToken == null) {
+            cachedToken = createToken();
+        }
+        return cachedToken;
+    }
+
+    public SecureSSOPayload getSecureSSOPayload() {
+        return secureSSOPayload;
+    }
+
+    public SimpleSSOUserData getSimpleSSOUserData() {
+        return simpleSSOUserData;
+    }
+
+    public void setSecureSSOPayload(SecureSSOPayload secureSSOPayload) {
+        this.secureSSOPayload = secureSSOPayload;
+        this.resetToken();
+    }
+
+    public void setSimpleSSOUserData(SimpleSSOUserData simpleSSOUserData) {
+        this.simpleSSOUserData = simpleSSOUserData;
+        this.resetToken();
+    }
+
+    /**
+     * You probably don't want to call this. Calling the set methods already resets the token.
+     */
+    public void resetToken() {
+        this.cachedToken = null;
     }
 }

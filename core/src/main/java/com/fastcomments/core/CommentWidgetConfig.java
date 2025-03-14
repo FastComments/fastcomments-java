@@ -1,7 +1,6 @@
 package com.fastcomments.core;
 
 import com.fastcomments.core.sso.FastCommentsSSO;
-import com.fastcomments.core.sso.SimpleSSOUserData;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GifRating;
 import com.fastcomments.model.SortDirections;
@@ -174,10 +173,6 @@ public class CommentWidgetConfig {
      * SSO Configuration.
      */
     public FastCommentsSSO sso;
-    /**
-     * Simple SSO Configuration.
-     */
-    public SimpleSSOUserData simpleSSO;
 
     // Callbacks
     /**
@@ -395,6 +390,13 @@ public class CommentWidgetConfig {
      */
     public CommentWidgetConfig() {
 
+    }
+
+    public String getSSOToken() {
+        if (sso != null) {
+            return sso.prepareToSend();
+        }
+        return null;
     }
 
     public void mergeWith(CustomConfigParameters parameters) {
