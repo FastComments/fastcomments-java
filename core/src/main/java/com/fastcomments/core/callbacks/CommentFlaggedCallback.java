@@ -1,4 +1,4 @@
-package com.fastcomments.core;
+package com.fastcomments.core.callbacks;
 
 import com.fastcomments.model.PublicComment;
 
