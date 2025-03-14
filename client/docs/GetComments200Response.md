@@ -11,7 +11,7 @@
 |**status** | **ImportedAPIStatusFAILED** |  |  |
 |**code** | **String** |  |  |
 |**reason** | **String** |  |  |
-|**comments** | [**List&lt;APICommentPublicComment&gt;**](APICommentPublicComment.md) |  |  |
+|**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
 |**urlIdClean** | **String** |  |  [optional] |
 |**lastGenDate** | **Double** |  |  [optional] |

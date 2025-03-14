@@ -11,7 +11,7 @@
 |**status** | **String** |  |  |
 |**code** | **String** |  |  [optional] |
 |**reason** | **String** |  |  [optional] |
-|**comments** | [**List&lt;APICommentPublicComment&gt;**](APICommentPublicComment.md) |  |  |
+|**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
 |**urlIdClean** | **String** |  |  [optional] |
 |**lastGenDate** | **Double** |  |  [optional] |

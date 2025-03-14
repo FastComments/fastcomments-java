@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APICommentPublicComment;
 import com.fastcomments.model.CustomConfigParameters;
+import com.fastcomments.model.PublicComment;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponseWithPresencePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-13T21:53:04.228145884-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
@@ -80,7 +80,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
   @javax.annotation.Nonnull
-  private List<APICommentPublicComment> comments = new ArrayList<>();
+  private List<PublicComment> comments = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -271,12 +271,12 @@ public class GetCommentsResponseWithPresencePublicComment {
   }
 
 
-  public GetCommentsResponseWithPresencePublicComment comments(@javax.annotation.Nonnull List<APICommentPublicComment> comments) {
+  public GetCommentsResponseWithPresencePublicComment comments(@javax.annotation.Nonnull List<PublicComment> comments) {
     this.comments = comments;
     return this;
   }
 
-  public GetCommentsResponseWithPresencePublicComment addCommentsItem(APICommentPublicComment commentsItem) {
+  public GetCommentsResponseWithPresencePublicComment addCommentsItem(PublicComment commentsItem) {
     if (this.comments == null) {
       this.comments = new ArrayList<>();
     }
@@ -289,11 +289,11 @@ public class GetCommentsResponseWithPresencePublicComment {
    * @return comments
    */
   @javax.annotation.Nonnull
-  public List<APICommentPublicComment> getComments() {
+  public List<PublicComment> getComments() {
     return comments;
   }
 
-  public void setComments(@javax.annotation.Nonnull List<APICommentPublicComment> comments) {
+  public void setComments(@javax.annotation.Nonnull List<PublicComment> comments) {
     this.comments = comments;
   }
 
@@ -902,7 +902,7 @@ public class GetCommentsResponseWithPresencePublicComment {
       JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");
       // validate the required field `comments` (array)
       for (int i = 0; i < jsonArraycomments.size(); i++) {
-        APICommentPublicComment.validateJsonElement(jsonArraycomments.get(i));
+        PublicComment.validateJsonElement(jsonArraycomments.get(i));
       };
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));

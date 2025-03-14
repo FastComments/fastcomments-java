@@ -15,6 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.PublicComment;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -52,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SaveCommentResponseOptimized
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-13T21:53:04.228145884-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class SaveCommentResponseOptimized {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -62,7 +63,7 @@ public class SaveCommentResponseOptimized {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   @javax.annotation.Nonnull
-  private Object comment;
+  private PublicComment comment;
 
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
@@ -96,7 +97,7 @@ public class SaveCommentResponseOptimized {
   }
 
 
-  public SaveCommentResponseOptimized comment(@javax.annotation.Nonnull Object comment) {
+  public SaveCommentResponseOptimized comment(@javax.annotation.Nonnull PublicComment comment) {
     this.comment = comment;
     return this;
   }
@@ -106,11 +107,11 @@ public class SaveCommentResponseOptimized {
    * @return comment
    */
   @javax.annotation.Nonnull
-  public Object getComment() {
+  public PublicComment getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nonnull Object comment) {
+  public void setComment(@javax.annotation.Nonnull PublicComment comment) {
     this.comment = comment;
   }
 
@@ -254,6 +255,8 @@ public class SaveCommentResponseOptimized {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      // validate the required field `comment`
+      PublicComment.validateJsonElement(jsonObj.get("comment"));
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
   }

@@ -53,14 +53,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     }
 
     /**
-     * Test the property 'urlIdRaw'
-     */
-    @Test
-    public void urlIdRawTest() {
-        // TODO: test urlIdRaw
-    }
-
-    /**
      * Test the property 'url'
      */
     @Test
@@ -74,6 +66,30 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     @Test
     public void pageTitleTest() {
         // TODO: test pageTitle
+    }
+
+    /**
+     * Test the property 'approved'
+     */
+    @Test
+    public void approvedTest() {
+        // TODO: test approved
+    }
+
+    /**
+     * Test the property 'commentHTML'
+     */
+    @Test
+    public void commentHTMLTest() {
+        // TODO: test commentHTML
+    }
+
+    /**
+     * Test the property 'urlIdRaw'
+     */
+    @Test
+    public void urlIdRawTest() {
+        // TODO: test urlIdRaw
     }
 
     /**
@@ -114,14 +130,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     @Test
     public void commenterLinkTest() {
         // TODO: test commenterLink
-    }
-
-    /**
-     * Test the property 'commentHTML'
-     */
-    @Test
-    public void commentHTMLTest() {
-        // TODO: test commentHTML
     }
 
     /**
@@ -322,14 +330,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     @Test
     public void hasCodeTest() {
         // TODO: test hasCode
-    }
-
-    /**
-     * Test the property 'approved'
-     */
-    @Test
-    public void approvedTest() {
-        // TODO: test approved
     }
 
     /**

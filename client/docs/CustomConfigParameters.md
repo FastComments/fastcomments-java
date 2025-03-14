@@ -59,6 +59,7 @@
 |**pageSize** | **Double** |  |  [optional] |
 |**readonly** | **Boolean** |  |  [optional] |
 |**requireSSO** | **Boolean** |  |  [optional] |
+|**ssoSecLvl** | **SSOSecurityLevel** |  |  [optional] |
 |**restrictedLinkDomains** | **List&lt;String&gt;** |  |  [optional] |
 |**showCommentSaveSuccess** | **Boolean** |  |  [optional] |
 |**showLiveRightAway** | **Boolean** |  |  [optional] |

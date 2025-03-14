@@ -55,17 +55,12 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-13T21:53:04.228145884-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private String id;
-
-  public static final String SERIALIZED_NAME_URL_ID_RAW = "urlIdRaw";
-  @SerializedName(SERIALIZED_NAME_URL_ID_RAW)
-  @javax.annotation.Nullable
-  private String urlIdRaw;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
@@ -76,6 +71,21 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
   @javax.annotation.Nullable
   private String pageTitle;
+
+  public static final String SERIALIZED_NAME_APPROVED = "approved";
+  @SerializedName(SERIALIZED_NAME_APPROVED)
+  @javax.annotation.Nonnull
+  private Boolean approved;
+
+  public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
+  @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
+  @javax.annotation.Nonnull
+  private String commentHTML;
+
+  public static final String SERIALIZED_NAME_URL_ID_RAW = "urlIdRaw";
+  @SerializedName(SERIALIZED_NAME_URL_ID_RAW)
+  @javax.annotation.Nullable
+  private String urlIdRaw;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -101,11 +111,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   @SerializedName(SERIALIZED_NAME_COMMENTER_LINK)
   @javax.annotation.Nullable
   private String commenterLink;
-
-  public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
-  @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
-  @javax.annotation.Nonnull
-  private String commentHTML;
 
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
@@ -231,11 +236,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   @SerializedName(SERIALIZED_NAME_HAS_CODE)
   @javax.annotation.Nullable
   private Boolean hasCode;
-
-  public static final String SERIALIZED_NAME_APPROVED = "approved";
-  @SerializedName(SERIALIZED_NAME_APPROVED)
-  @javax.annotation.Nonnull
-  private Boolean approved;
 
   public static final String SERIALIZED_NAME_LOCALE = "locale";
   @SerializedName(SERIALIZED_NAME_LOCALE)
@@ -394,25 +394,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId urlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
-    this.urlIdRaw = urlIdRaw;
-    return this;
-  }
-
-  /**
-   * Get urlIdRaw
-   * @return urlIdRaw
-   */
-  @javax.annotation.Nullable
-  public String getUrlIdRaw() {
-    return urlIdRaw;
-  }
-
-  public void setUrlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
-    this.urlIdRaw = urlIdRaw;
-  }
-
-
   public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId url(@javax.annotation.Nonnull String url) {
     this.url = url;
     return this;
@@ -448,6 +429,63 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
 
   public void setPageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
+  }
+
+
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId approved(@javax.annotation.Nonnull Boolean approved) {
+    this.approved = approved;
+    return this;
+  }
+
+  /**
+   * Get approved
+   * @return approved
+   */
+  @javax.annotation.Nonnull
+  public Boolean getApproved() {
+    return approved;
+  }
+
+  public void setApproved(@javax.annotation.Nonnull Boolean approved) {
+    this.approved = approved;
+  }
+
+
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commentHTML(@javax.annotation.Nonnull String commentHTML) {
+    this.commentHTML = commentHTML;
+    return this;
+  }
+
+  /**
+   * Get commentHTML
+   * @return commentHTML
+   */
+  @javax.annotation.Nonnull
+  public String getCommentHTML() {
+    return commentHTML;
+  }
+
+  public void setCommentHTML(@javax.annotation.Nonnull String commentHTML) {
+    this.commentHTML = commentHTML;
+  }
+
+
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId urlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
+    this.urlIdRaw = urlIdRaw;
+    return this;
+  }
+
+  /**
+   * Get urlIdRaw
+   * @return urlIdRaw
+   */
+  @javax.annotation.Nullable
+  public String getUrlIdRaw() {
+    return urlIdRaw;
+  }
+
+  public void setUrlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
+    this.urlIdRaw = urlIdRaw;
   }
 
 
@@ -543,25 +581,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
 
   public void setCommenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
-  }
-
-
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commentHTML(@javax.annotation.Nonnull String commentHTML) {
-    this.commentHTML = commentHTML;
-    return this;
-  }
-
-  /**
-   * Get commentHTML
-   * @return commentHTML
-   */
-  @javax.annotation.Nonnull
-  public String getCommentHTML() {
-    return commentHTML;
-  }
-
-  public void setCommentHTML(@javax.annotation.Nonnull String commentHTML) {
-    this.commentHTML = commentHTML;
   }
 
 
@@ -1037,25 +1056,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
 
   public void setHasCode(@javax.annotation.Nullable Boolean hasCode) {
     this.hasCode = hasCode;
-  }
-
-
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId approved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
-    return this;
-  }
-
-  /**
-   * Get approved
-   * @return approved
-   */
-  @javax.annotation.Nonnull
-  public Boolean getApproved() {
-    return approved;
-  }
-
-  public void setApproved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
   }
 
 
@@ -1631,15 +1631,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     }
     PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId = (PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId) o;
     return Objects.equals(this.id, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.id) &&
-        Objects.equals(this.urlIdRaw, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.urlIdRaw) &&
         Objects.equals(this.url, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.url) &&
         Objects.equals(this.pageTitle, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.pageTitle) &&
+        Objects.equals(this.approved, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.approved) &&
+        Objects.equals(this.commentHTML, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commentHTML) &&
+        Objects.equals(this.urlIdRaw, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.urlIdRaw) &&
         Objects.equals(this.userId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.userId) &&
         Objects.equals(this.anonUserId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.anonUserId) &&
         Objects.equals(this.commenterEmail, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commenterEmail) &&
         Objects.equals(this.commenterName, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commenterName) &&
         Objects.equals(this.commenterLink, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commenterLink) &&
-        Objects.equals(this.commentHTML, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commentHTML) &&
         Objects.equals(this.parentId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.parentId) &&
         Objects.equals(this.date, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.date) &&
         Objects.equals(this.localDateString, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.localDateString) &&
@@ -1665,7 +1666,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
         Objects.equals(this.pageNumberOF, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.pageNumberOF) &&
         Objects.equals(this.pageNumberNF, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.pageNumberNF) &&
         Objects.equals(this.hasCode, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.hasCode) &&
-        Objects.equals(this.approved, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.approved) &&
         Objects.equals(this.locale, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.locale) &&
         Objects.equals(this.isDeleted, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isDeleted) &&
         Objects.equals(this.isDeletedUser, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isDeletedUser) &&
@@ -1697,7 +1697,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount);
+    return Objects.hash(id, url, pageTitle, approved, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount);
   }
 
   @Override
@@ -1705,15 +1705,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     StringBuilder sb = new StringBuilder();
     sb.append("class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    urlIdRaw: ").append(toIndentedString(urlIdRaw)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
+    sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
+    sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
+    sb.append("    urlIdRaw: ").append(toIndentedString(urlIdRaw)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    commenterEmail: ").append(toIndentedString(commenterEmail)).append("\n");
     sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
     sb.append("    commenterLink: ").append(toIndentedString(commenterLink)).append("\n");
-    sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    localDateString: ").append(toIndentedString(localDateString)).append("\n");
@@ -1739,7 +1740,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     sb.append("    pageNumberOF: ").append(toIndentedString(pageNumberOF)).append("\n");
     sb.append("    pageNumberNF: ").append(toIndentedString(pageNumberNF)).append("\n");
     sb.append("    hasCode: ").append(toIndentedString(hasCode)).append("\n");
-    sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    isDeletedUser: ").append(toIndentedString(isDeletedUser)).append("\n");
@@ -1790,15 +1790,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("_id");
-    openapiFields.add("urlIdRaw");
     openapiFields.add("url");
     openapiFields.add("pageTitle");
+    openapiFields.add("approved");
+    openapiFields.add("commentHTML");
+    openapiFields.add("urlIdRaw");
     openapiFields.add("userId");
     openapiFields.add("anonUserId");
     openapiFields.add("commenterEmail");
     openapiFields.add("commenterName");
     openapiFields.add("commenterLink");
-    openapiFields.add("commentHTML");
     openapiFields.add("parentId");
     openapiFields.add("date");
     openapiFields.add("localDateString");
@@ -1824,7 +1825,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     openapiFields.add("pageNumberOF");
     openapiFields.add("pageNumberNF");
     openapiFields.add("hasCode");
-    openapiFields.add("approved");
     openapiFields.add("locale");
     openapiFields.add("isDeleted");
     openapiFields.add("isDeletedUser");
@@ -1857,14 +1857,14 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("_id");
     openapiRequiredFields.add("url");
-    openapiRequiredFields.add("commenterName");
+    openapiRequiredFields.add("approved");
     openapiRequiredFields.add("commentHTML");
+    openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("date");
     openapiRequiredFields.add("votes");
     openapiRequiredFields.add("votesUp");
     openapiRequiredFields.add("votesDown");
     openapiRequiredFields.add("verified");
-    openapiRequiredFields.add("approved");
     openapiRequiredFields.add("locale");
   }
 
@@ -1899,14 +1899,17 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
       if (!jsonObj.get("_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
-      if ((jsonObj.get("urlIdRaw") != null && !jsonObj.get("urlIdRaw").isJsonNull()) && !jsonObj.get("urlIdRaw").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlIdRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdRaw").toString()));
-      }
       if (!jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       if ((jsonObj.get("pageTitle") != null && !jsonObj.get("pageTitle").isJsonNull()) && !jsonObj.get("pageTitle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pageTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageTitle").toString()));
+      }
+      if (!jsonObj.get("commentHTML").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentHTML").toString()));
+      }
+      if ((jsonObj.get("urlIdRaw") != null && !jsonObj.get("urlIdRaw").isJsonNull()) && !jsonObj.get("urlIdRaw").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlIdRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdRaw").toString()));
       }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
@@ -1922,9 +1925,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
       }
       if ((jsonObj.get("commenterLink") != null && !jsonObj.get("commenterLink").isJsonNull()) && !jsonObj.get("commenterLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `commenterLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterLink").toString()));
-      }
-      if (!jsonObj.get("commentHTML").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentHTML").toString()));
       }
       if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));

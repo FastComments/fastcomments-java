@@ -14,10 +14,8 @@
 package com.fastcomments.api;
 
 import com.fastcomments.invoker.ApiException;
-import com.fastcomments.model.CommentData;
-import com.fastcomments.model.CreateUser200Response;
-import com.fastcomments.model.GetComments200Response;
-import com.fastcomments.model.SortDirections;
+import com.fastcomments.model.AggregationRequest;
+import com.fastcomments.model.AggregationResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -35,61 +33,27 @@ public class DefaultApiTest {
     private final DefaultApi api = new DefaultApi();
 
     /**
+     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void aggregateTest() throws ApiException {
+        String tenantId = null;
+        AggregationRequest aggregationRequest = null;
+        String parentTenantId = null;
+        Boolean includeStats = null;
+        AggregationResponse response = api.aggregate(tenantId, aggregationRequest, parentTenantId, includeStats);
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
     public void commentsOptionsTest() throws ApiException {
         String tenantId = null;
         String response = api.commentsOptions(tenantId);
-        // TODO: test validations
-    }
-
-    /**
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createUserTest() throws ApiException {
-        String tenantId = null;
-        String urlId = null;
-        String broadcastId = null;
-        CommentData commentData = null;
-        String sessionId = null;
-        String sso = null;
-        CreateUser200Response response = api.createUser(tenantId, urlId, broadcastId, commentData, sessionId, sso);
-        // TODO: test validations
-    }
-
-    /**
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getCommentsTest() throws ApiException {
-        String tenantId = null;
-        Double page = null;
-        SortDirections direction = null;
-        String sso = null;
-        Double skip = null;
-        Double skipChildren = null;
-        Double limit = null;
-        Double limitChildren = null;
-        Double lastGenDate = null;
-        String fetchPageForCommentId = null;
-        Boolean includeConfig = null;
-        Boolean countAll = null;
-        Boolean includei10n = null;
-        String locale = null;
-        String modules = null;
-        Boolean isCrawler = null;
-        Boolean includeNotificationCount = null;
-        Boolean asTree = null;
-        Double maxTreeDepth = null;
-        Boolean useFullTranslationIds = null;
-        String parentId = null;
-        String searchText = null;
-        List<String> hashTags = null;
-        String userId = null;
-        String customConfigStr = null;
-        GetComments200Response response = api.getComments(tenantId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
         // TODO: test validations
     }
 

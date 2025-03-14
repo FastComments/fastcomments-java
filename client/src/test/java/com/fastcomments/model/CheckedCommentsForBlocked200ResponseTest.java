@@ -14,10 +14,9 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.APIError;
+import com.fastcomments.model.CheckBlockedCommentsResponse;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.SaveCommentsResponseWithPresence;
-import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,17 +30,25 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CreateUser200Response
+ * Model tests for CheckedCommentsForBlocked200Response
  */
-public class CreateUser200ResponseTest {
-    private final CreateUser200Response model = new CreateUser200Response();
+public class CheckedCommentsForBlocked200ResponseTest {
+    private final CheckedCommentsForBlocked200Response model = new CheckedCommentsForBlocked200Response();
 
     /**
-     * Model tests for CreateUser200Response
+     * Model tests for CheckedCommentsForBlocked200Response
      */
     @Test
-    public void testCreateUser200Response() {
-        // TODO: test CreateUser200Response
+    public void testCheckedCommentsForBlocked200Response() {
+        // TODO: test CheckedCommentsForBlocked200Response
+    }
+
+    /**
+     * Test the property 'commentStatuses'
+     */
+    @Test
+    public void commentStatusesTest() {
+        // TODO: test commentStatuses
     }
 
     /**
@@ -50,38 +57,6 @@ public class CreateUser200ResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
-    }
-
-    /**
-     * Test the property 'comment'
-     */
-    @Test
-    public void commentTest() {
-        // TODO: test comment
-    }
-
-    /**
-     * Test the property 'user'
-     */
-    @Test
-    public void userTest() {
-        // TODO: test user
-    }
-
-    /**
-     * Test the property 'moduleData'
-     */
-    @Test
-    public void moduleDataTest() {
-        // TODO: test moduleData
-    }
-
-    /**
-     * Test the property 'userIdWS'
-     */
-    @Test
-    public void userIdWSTest() {
-        // TODO: test userIdWS
     }
 
     /**

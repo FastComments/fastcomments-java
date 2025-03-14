@@ -27,10 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.fastcomments.model.CommentData;
-import com.fastcomments.model.CreateUser200Response;
-import com.fastcomments.model.GetComments200Response;
-import com.fastcomments.model.SortDirections;
+import com.fastcomments.model.AggregationRequest;
+import com.fastcomments.model.AggregationResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -75,6 +73,162 @@ public class DefaultApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for aggregate
+     * @param tenantId  (required)
+     * @param aggregationRequest  (required)
+     * @param parentTenantId  (optional)
+     * @param includeStats  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call aggregateCall(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = aggregationRequest;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/aggregate";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (parentTenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("parentTenantId", parentTenantId));
+        }
+
+        if (includeStats != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeStats", includeStats));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call aggregateValidateBeforeCall(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling aggregate(Async)");
+        }
+
+        // verify the required parameter 'aggregationRequest' is set
+        if (aggregationRequest == null) {
+            throw new ApiException("Missing the required parameter 'aggregationRequest' when calling aggregate(Async)");
+        }
+
+        return aggregateCall(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
+
+    }
+
+    /**
+     * 
+     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
+     * @param tenantId  (required)
+     * @param aggregationRequest  (required)
+     * @param parentTenantId  (optional)
+     * @param includeStats  (optional)
+     * @return AggregationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public AggregationResponse aggregate(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats) throws ApiException {
+        ApiResponse<AggregationResponse> localVarResp = aggregateWithHttpInfo(tenantId, aggregationRequest, parentTenantId, includeStats);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
+     * @param tenantId  (required)
+     * @param aggregationRequest  (required)
+     * @param parentTenantId  (optional)
+     * @param includeStats  (optional)
+     * @return ApiResponse&lt;AggregationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AggregationResponse> aggregateWithHttpInfo(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats) throws ApiException {
+        okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, null);
+        Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
+     * @param tenantId  (required)
+     * @param aggregationRequest  (required)
+     * @param parentTenantId  (optional)
+     * @param includeStats  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call aggregateAsync(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback<AggregationResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
+        Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for commentsOptions
      * @param tenantId  (required)
@@ -199,504 +353,6 @@ public class DefaultApi {
 
         okhttp3.Call localVarCall = commentsOptionsValidateBeforeCall(tenantId, _callback);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for createUser
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createUserCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = commentData;
-
-        // create path and map variables
-        String localVarPath = "/comments/{tenantId}"
-            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (urlId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
-        }
-
-        if (broadcastId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
-        }
-
-        if (sessionId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sessionId", sessionId));
-        }
-
-        if (sso != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createUserValidateBeforeCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tenantId' is set
-        if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling createUser(Async)");
-        }
-
-        // verify the required parameter 'urlId' is set
-        if (urlId == null) {
-            throw new ApiException("Missing the required parameter 'urlId' when calling createUser(Async)");
-        }
-
-        // verify the required parameter 'broadcastId' is set
-        if (broadcastId == null) {
-            throw new ApiException("Missing the required parameter 'broadcastId' when calling createUser(Async)");
-        }
-
-        // verify the required parameter 'commentData' is set
-        if (commentData == null) {
-            throw new ApiException("Missing the required parameter 'commentData' when calling createUser(Async)");
-        }
-
-        return createUserCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @return CreateUser200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateUser200Response createUser(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso) throws ApiException {
-        ApiResponse<CreateUser200Response> localVarResp = createUserWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;CreateUser200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateUser200Response> createUserWithHttpInfo(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso) throws ApiException {
-        okhttp3.Call localVarCall = createUserValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, null);
-        Type localVarReturnType = new TypeToken<CreateUser200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createUserAsync(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback<CreateUser200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createUserValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
-        Type localVarReturnType = new TypeToken<CreateUser200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getComments
-     * @param tenantId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCommentsCall(String tenantId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Double maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/comments/{tenantId}"
-            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (page != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
-        }
-
-        if (direction != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
-        }
-
-        if (sso != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
-        }
-
-        if (skip != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
-        }
-
-        if (skipChildren != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skipChildren", skipChildren));
-        }
-
-        if (limit != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
-        }
-
-        if (limitChildren != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limitChildren", limitChildren));
-        }
-
-        if (lastGenDate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lastGenDate", lastGenDate));
-        }
-
-        if (fetchPageForCommentId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fetchPageForCommentId", fetchPageForCommentId));
-        }
-
-        if (includeConfig != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeConfig", includeConfig));
-        }
-
-        if (countAll != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("countAll", countAll));
-        }
-
-        if (includei10n != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includei10n", includei10n));
-        }
-
-        if (locale != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("locale", locale));
-        }
-
-        if (modules != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("modules", modules));
-        }
-
-        if (isCrawler != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isCrawler", isCrawler));
-        }
-
-        if (includeNotificationCount != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeNotificationCount", includeNotificationCount));
-        }
-
-        if (asTree != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("asTree", asTree));
-        }
-
-        if (maxTreeDepth != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxTreeDepth", maxTreeDepth));
-        }
-
-        if (useFullTranslationIds != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("useFullTranslationIds", useFullTranslationIds));
-        }
-
-        if (parentId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("parentId", parentId));
-        }
-
-        if (searchText != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("searchText", searchText));
-        }
-
-        if (hashTags != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "hashTags", hashTags));
-        }
-
-        if (userId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
-        }
-
-        if (customConfigStr != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("customConfigStr", customConfigStr));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Double maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tenantId' is set
-        if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling getComments(Async)");
-        }
-
-        return getCommentsCall(tenantId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
-
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @return GetComments200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetComments200Response getComments(String tenantId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Double maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
-        ApiResponse<GetComments200Response> localVarResp = getCommentsWithHttpInfo(tenantId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @return ApiResponse&lt;GetComments200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Double maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
-        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, null);
-        Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCommentsAsync(String tenantId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Double maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
-        Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

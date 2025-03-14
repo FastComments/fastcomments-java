@@ -17,8 +17,8 @@ import java.util.Objects;
 import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.SaveCommentsResponseWithPresence;
-import com.fastcomments.model.UserSessionInfo;
+import com.fastcomments.model.VoteResponse;
+import com.fastcomments.model.VoteResponseUser;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,8 +26,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 
 
@@ -64,32 +62,32 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class CreateUser200Response extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(CreateUser200Response.class.getName());
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-13T21:53:04.228145884-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class VoteComment200Response extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(VoteComment200Response.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateUser200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateUser200Response' and its subtypes
+            if (!VoteComment200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'VoteComment200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<SaveCommentsResponseWithPresence> adapterSaveCommentsResponseWithPresence = gson.getDelegateAdapter(this, TypeToken.get(SaveCommentsResponseWithPresence.class));
+            final TypeAdapter<VoteResponse> adapterVoteResponse = gson.getDelegateAdapter(this, TypeToken.get(VoteResponse.class));
             final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<CreateUser200Response>() {
+            return (TypeAdapter<T>) new TypeAdapter<VoteComment200Response>() {
                 @Override
-                public void write(JsonWriter out, CreateUser200Response value) throws IOException {
+                public void write(JsonWriter out, VoteComment200Response value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
                         return;
                     }
 
-                    // check if the actual instance is of the type `SaveCommentsResponseWithPresence`
-                    if (value.getActualInstance() instanceof SaveCommentsResponseWithPresence) {
-                        JsonElement element = adapterSaveCommentsResponseWithPresence.toJsonTree((SaveCommentsResponseWithPresence)value.getActualInstance());
+                    // check if the actual instance is of the type `VoteResponse`
+                    if (value.getActualInstance() instanceof VoteResponse) {
+                        JsonElement element = adapterVoteResponse.toJsonTree((VoteResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -99,36 +97,36 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, SaveCommentsResponseWithPresence");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, VoteResponse");
                 }
 
                 @Override
-                public CreateUser200Response read(JsonReader in) throws IOException {
+                public VoteComment200Response read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize SaveCommentsResponseWithPresence
+                    // deserialize VoteResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        SaveCommentsResponseWithPresence.validateJsonElement(jsonElement);
-                        actualAdapter = adapterSaveCommentsResponseWithPresence;
-                        CreateUser200Response ret = new CreateUser200Response();
+                        VoteResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterVoteResponse;
+                        VoteComment200Response ret = new VoteComment200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'SaveCommentsResponseWithPresence'", e);
+                        errorMessages.add(String.format("Deserialization for VoteResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'VoteResponse'", e);
                     }
                     // deserialize APIError
                     try {
                         // validate the JSON object to see if any exception is thrown
                         APIError.validateJsonElement(jsonElement);
                         actualAdapter = adapterAPIError;
-                        CreateUser200Response ret = new CreateUser200Response();
+                        VoteComment200Response ret = new VoteComment200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
@@ -137,7 +135,7 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
                     }
 
-                    throw new IOException(String.format("Failed deserialization for CreateUser200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format("Failed deserialization for VoteComment200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -146,35 +144,35 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
     // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public CreateUser200Response() {
+    public VoteComment200Response() {
         super("anyOf", Boolean.FALSE);
     }
 
-    public CreateUser200Response(Object o) {
+    public VoteComment200Response(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("SaveCommentsResponseWithPresence", SaveCommentsResponseWithPresence.class);
+        schemas.put("VoteResponse", VoteResponse.class);
         schemas.put("APIError", APIError.class);
     }
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return CreateUser200Response.schemas;
+        return VoteComment200Response.schemas;
     }
 
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, SaveCommentsResponseWithPresence
+     * APIError, VoteResponse
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof SaveCommentsResponseWithPresence) {
+        if (instance instanceof VoteResponse) {
             super.setActualInstance(instance);
             return;
         }
@@ -184,14 +182,14 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, SaveCommentsResponseWithPresence");
+        throw new RuntimeException("Invalid instance type. Must be APIError, VoteResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, SaveCommentsResponseWithPresence
+     * APIError, VoteResponse
      *
-     * @return The actual instance (APIError, SaveCommentsResponseWithPresence)
+     * @return The actual instance (APIError, VoteResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -200,14 +198,14 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `SaveCommentsResponseWithPresence`. If the actual instance is not `SaveCommentsResponseWithPresence`,
+     * Get the actual instance of `VoteResponse`. If the actual instance is not `VoteResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `SaveCommentsResponseWithPresence`
-     * @throws ClassCastException if the instance is not `SaveCommentsResponseWithPresence`
+     * @return The actual instance of `VoteResponse`
+     * @throws ClassCastException if the instance is not `VoteResponse`
      */
-    public SaveCommentsResponseWithPresence getSaveCommentsResponseWithPresence() throws ClassCastException {
-        return (SaveCommentsResponseWithPresence)super.getActualInstance();
+    public VoteResponse getVoteResponse() throws ClassCastException {
+        return (VoteResponse)super.getActualInstance();
     }
 
     /**
@@ -225,17 +223,17 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateUser200Response
+     * @throws IOException if the JSON Element is invalid with respect to VoteComment200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with SaveCommentsResponseWithPresence
+        // validate the json string with VoteResponse
         try {
-            SaveCommentsResponseWithPresence.validateJsonElement(jsonElement);
+            VoteResponse.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for VoteResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with APIError
@@ -246,22 +244,22 @@ public class CreateUser200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for CreateUser200Response with anyOf schemas: APIError, SaveCommentsResponseWithPresence. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for VoteComment200Response with anyOf schemas: APIError, VoteResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
-     * Create an instance of CreateUser200Response given an JSON string
+     * Create an instance of VoteComment200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateUser200Response
-     * @throws IOException if the JSON string is invalid with respect to CreateUser200Response
+     * @return An instance of VoteComment200Response
+     * @throws IOException if the JSON string is invalid with respect to VoteComment200Response
      */
-    public static CreateUser200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateUser200Response.class);
+    public static VoteComment200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, VoteComment200Response.class);
     }
 
     /**
-     * Convert an instance of CreateUser200Response to an JSON string
+     * Convert an instance of VoteComment200Response to an JSON string
      *
      * @return JSON string
      */

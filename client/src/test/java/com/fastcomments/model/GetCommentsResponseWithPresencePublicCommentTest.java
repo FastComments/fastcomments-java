@@ -13,8 +13,8 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APICommentPublicComment;
 import com.fastcomments.model.CustomConfigParameters;
+import com.fastcomments.model.PublicComment;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

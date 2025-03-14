@@ -9,15 +9,16 @@ From T, pick a set of properties whose keys are in the union K
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**urlIdRaw** | **String** |  |  [optional] |
 |**url** | **String** |  |  |
 |**pageTitle** | **String** |  |  [optional] |
+|**approved** | **Boolean** |  |  |
+|**commentHTML** | **String** |  |  |
+|**urlIdRaw** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**commenterEmail** | **String** |  |  [optional] |
 |**commenterName** | **String** |  |  |
 |**commenterLink** | **String** |  |  [optional] |
-|**commentHTML** | **String** |  |  |
 |**parentId** | **String** |  |  [optional] |
 |**date** | **OffsetDateTime** |  |  |
 |**localDateString** | **String** |  |  [optional] |
@@ -43,7 +44,6 @@ From T, pick a set of properties whose keys are in the union K
 |**pageNumberOF** | **Double** |  |  [optional] |
 |**pageNumberNF** | **Double** |  |  [optional] |
 |**hasCode** | **Boolean** |  |  [optional] |
-|**approved** | **Boolean** |  |  |
 |**locale** | **String** |  |  |
 |**isDeleted** | **Boolean** |  |  [optional] |
 |**isDeletedUser** | **Boolean** |  |  [optional] |

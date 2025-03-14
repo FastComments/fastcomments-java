@@ -14,11 +14,11 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APICommentPublicComment;
 import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GetCommentsResponseWithPresencePublicComment;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PublicComment;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -67,7 +67,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-02-13T15:35:31.564388153-08:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-13T21:53:04.228145884-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetComments200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GetComments200Response.class.getName());
 

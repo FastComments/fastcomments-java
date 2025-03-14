@@ -6,6 +6,533 @@ info:
 servers:
 - url: /
 paths:
+  /user-notifications:
+    get:
+      operationId: GetUserNotifications
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: Defaults to 20.
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: afterId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: includeContext
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: afterCreatedAt
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: unreadOnly
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: dmOnly
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: noDm
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: includeTranslations
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserNotifications_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /user-notifications/reset:
+    post:
+      operationId: ResetUserNotifications
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: afterId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: afterCreatedAt
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: unreadOnly
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: dmOnly
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: noDm
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetUserNotifications_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /user-notifications/get-count:
+    get:
+      operationId: GetUserNotificationCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserNotificationCount_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /user-notifications/reset-count:
+    post:
+      operationId: ResetUserNotificationCount
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetUserNotifications_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /user-notifications/{notificationId}/mark/{newStatus}:
+    post:
+      operationId: UpdateUserNotificationStatus
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: notificationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: newStatus
+        required: true
+        schema:
+          enum:
+          - read
+          - unread
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserNotificationStatus_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /user-notifications/{notificationId}/mark-opted/{optedInOrOut}:
+    post:
+      description: Enable or disable notifications for a specific comment.
+      operationId: UpdateUserNotificationCommentSubscriptionStatus
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: notificationId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: optedInOrOut
+        required: true
+        schema:
+          enum:
+          - in
+          - out
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserNotificationStatus_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /user-notifications/set-subscription-state/{subscribedOrUnsubscribed}:
+    post:
+      description: |-
+        Enable or disable notifications for a page. When users are subscribed to a page, notifications are created
+        for new root comments, and also
+      operationId: UpdateUserNotificationPageSubscriptionStatus
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: url
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pageTitle
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: subscribedOrUnsubscribed
+        required: true
+        schema:
+          enum:
+          - subscribe
+          - unsubscribe
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserNotificationStatus_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /flag-comment/{commentId}:
+    post:
+      operationId: FlagComment
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: isFlagged
+        required: true
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlagComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/text:
+    get:
+      operationId: GetCommentText
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: editKey
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCommentText_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/update-text:
+    post:
+      operationId: SetCommentText
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: editKey
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentTextUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetCommentText_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /comments/{tenantId}:
     get:
       operationId: GetComments
@@ -17,6 +544,13 @@ paths:
         schema:
           type: string
         style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: page
@@ -91,21 +625,21 @@ paths:
         name: includeConfig
         required: false
         schema:
-          type: boolean
+          $ref: '#/components/schemas/BooleanQueryParam'
         style: form
       - explode: true
         in: query
         name: countAll
         required: false
         schema:
-          type: boolean
+          $ref: '#/components/schemas/BooleanQueryParam'
         style: form
       - explode: true
         in: query
         name: includei10n
         required: false
         schema:
-          type: boolean
+          $ref: '#/components/schemas/BooleanQueryParam'
         style: form
       - explode: true
         in: query
@@ -126,21 +660,21 @@ paths:
         name: isCrawler
         required: false
         schema:
-          type: boolean
+          $ref: '#/components/schemas/BooleanQueryParam'
         style: form
       - explode: true
         in: query
         name: includeNotificationCount
         required: false
         schema:
-          type: boolean
+          $ref: '#/components/schemas/BooleanQueryParam'
         style: form
       - explode: true
         in: query
         name: asTree
         required: false
         schema:
-          type: boolean
+          $ref: '#/components/schemas/BooleanQueryParam'
         style: form
       - explode: true
         in: query
@@ -155,7 +689,7 @@ paths:
         name: useFullTranslationIds
         required: false
         schema:
-          type: boolean
+          $ref: '#/components/schemas/BooleanQueryParam'
         style: form
       - explode: true
         in: query
@@ -202,6 +736,8 @@ paths:
                 $ref: '#/components/schemas/GetComments_200_response'
           description: Ok
       security: []
+      tags:
+      - Public
       x-accepts:
       - application/json
     options:
@@ -225,7 +761,7 @@ paths:
       x-accepts:
       - application/json
     post:
-      operationId: CreateUser
+      operationId: CreateComment
       parameters:
       - explode: false
         in: path
@@ -273,7 +809,576 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateUser_200_response'
+                $ref: '#/components/schemas/CreateComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}:
+    delete:
+      operationId: DeleteComment
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: editKey
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /check-blocked-comments:
+    get:
+      operationId: CheckedCommentsForBlocked
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: A comma separated list of comment ids.
+        explode: true
+        in: query
+        name: commentIds
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckedCommentsForBlocked_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/vote:
+    post:
+      operationId: VoteComment
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sessionId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoteBodyParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoteComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/vote/{voteId}:
+    delete:
+      operationId: DeleteCommentVote
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: voteId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: editKey
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteCommentVote_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/votes:
+    get:
+      operationId: GetCommentVoteUserNames
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Pass 1 for getting the names of users that up voted, and -1\
+          \ for the usernames for users that down voted."
+        explode: true
+        in: query
+        name: direction
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCommentVoteUserNames_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/pin:
+    post:
+      operationId: PinComment
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/unpin:
+    post:
+      operationId: UnPinComment
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/lock:
+    post:
+      operationId: LockComment
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LockComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/{commentId}/unlock:
+    post:
+      operationId: UnLockComment
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LockComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /block-from-comment/{commentId}:
+    delete:
+      operationId: UnBlockComment
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BlockFromCommentParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnBlockComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+    post:
+      operationId: BlockFromComment
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BlockFromCommentParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BlockFromComment_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/aggregate:
+    post:
+      description: |-
+        Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations.
+        Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
+      operationId: Aggregate
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: parentTenantId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: includeStats
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AggregationRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AggregationResponse'
           description: Ok
       security: []
       x-content-type: application/json
@@ -286,363 +1391,107 @@ components:
   requestBodies: {}
   responses: {}
   schemas:
-    CommentUserMentionInfo:
-      additionalProperties: false
-      example:
-        rawTag: rawTag
-        id: id
-        tag: tag
-        type: user
-        sent: true
-      properties:
-        id:
-          type: string
-        tag:
-          type: string
-        rawTag:
-          type: string
-        type:
-          enum:
-          - user
-          - sso
-          type: string
-        sent:
-          type: boolean
-      required:
-      - id
-      - tag
-      type: object
-    CommentUserHashTagInfo:
-      additionalProperties: false
-      example:
-        retain: true
-        id: id
-        tag: tag
-        url: url
-      properties:
-        id:
-          type: string
-        tag:
-          type: string
-        url:
-          nullable: true
-          type: string
-        retain:
-          type: boolean
-      required:
-      - id
-      - tag
-      - url
-      type: object
-    CommentUserBadgeInfo:
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        type:
-          format: double
-          type: number
-        description:
-          type: string
-        displayLabel:
-          type: string
-        displaySrc:
-          type: string
-        backgroundColor:
-          type: string
-        borderColor:
-          type: string
-        textColor:
-          type: string
-        cssClass:
-          type: string
-      required:
-      - backgroundColor
-      - borderColor
-      - cssClass
-      - description
-      - displayLabel
-      - displaySrc
-      - id
-      - textColor
-      - type
-      type: object
-    Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    ImportedAPIStatus.SUCCESS:
+      enum:
+      - success
+      type: string
+    NotificationType:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      type: number
+    ? Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_
+    : description: "From T, pick a set of properties whose keys are in the union K"
       properties:
         _id:
           type: string
-        urlIdRaw:
+        urlId:
           type: string
         url:
           type: string
         pageTitle:
           type: string
-        userId:
+        relatedObjectType:
+          format: double
+          type: number
+        relatedObjectId:
           type: string
-        anonUserId:
-          type: string
-        commenterEmail:
-          type: string
-        commenterName:
-          type: string
-        commenterLink:
-          type: string
-        commentHTML:
-          type: string
-        parentId:
-          type: string
-        date:
+        viewed:
+          type: boolean
+        sent:
+          type: boolean
+        createdAt:
           format: date-time
           type: string
-        localDateString:
+        type:
+          $ref: '#/components/schemas/NotificationType'
+        fromCommentId:
           type: string
-        localDateHours:
-          format: double
-          type: number
-        votes:
-          format: double
-          type: number
-        votesUp:
-          format: double
-          type: number
-        votesDown:
-          format: double
-          type: number
-        expireAt:
-          format: date-time
+        fromUserName:
           type: string
-        verified:
-          type: boolean
-        verifiedDate:
-          format: date-time
+        fromUserId:
           type: string
-        verificationId:
+        fromUserAvatarSrc:
           type: string
-        notificationSentForParent:
+        optedOut:
           type: boolean
-        notificationSentForParentTenant:
-          type: boolean
-        reviewed:
-          type: boolean
-        imported:
-          type: boolean
-        externalId:
-          type: string
-        externalParentId:
-          type: string
-        avatarSrc:
-          type: string
-        isSpam:
-          type: boolean
-        aiDeterminedSpam:
-          type: boolean
-        hasImages:
-          type: boolean
-        pageNumber:
-          format: double
-          type: number
-        pageNumberOF:
-          format: double
-          type: number
-        pageNumberNF:
-          format: double
-          type: number
-        hasCode:
-          type: boolean
-        approved:
-          type: boolean
-        locale:
-          type: string
-        isDeleted:
-          type: boolean
-        isDeletedUser:
-          type: boolean
-        isBannedUser:
-          type: boolean
-        isByAdmin:
-          type: boolean
-        isByModerator:
-          type: boolean
-        isPinned:
-          type: boolean
-        isLocked:
-          type: boolean
-        flagCount:
-          format: double
-          type: number
-        rating:
-          format: double
-          type: number
-        displayLabel:
-          type: string
-        fromProductId:
-          format: double
-          type: number
-        meta:
-          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta'
-        ipHash:
-          type: string
-        mentions:
-          items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
-          type: array
-        hashTags:
-          items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
-          type: array
-        badges:
-          items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
-          type: array
-        domain:
-          type: string
-        veteranBadgeProcessed:
-          type: string
-        moderationGroupIds:
-          items:
-            type: string
-          type: array
-        didProcessBadges:
-          type: boolean
-        fromOfflineRestore:
-          type: boolean
-        autoplayJobId:
-          type: string
-        autoplayDelayMS:
-          format: double
-          type: number
-        feedbackIds:
-          items:
-            type: string
-          type: array
-        groupIds:
-          items:
-            type: string
-          type: array
-        viewCount:
-          format: double
-          type: number
       required:
       - _id
-      - approved
-      - commentHTML
-      - commenterName
-      - date
-      - locale
+      - createdAt
+      - fromUserId
+      - fromUserName
+      - optedOut
+      - relatedObjectId
+      - relatedObjectType
+      - sent
+      - type
       - url
-      - verified
-      - votes
-      - votesDown
-      - votesUp
+      - urlId
+      - viewed
       type: object
-    Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_:
-      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__'
-    PublicCommentMongo:
-      $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_'
-    PublicComment:
-      additionalProperties: false
-      example: {}
-      properties: {}
-      type: object
-    APIComment_PublicComment_:
+    RenderableUserNotification:
       allOf:
-      - $ref: '#/components/schemas/PublicComment'
+      - $ref: '#/components/schemas/Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_'
       - properties:
-          isUnread:
-            type: boolean
-          myVoteId:
+          conversationId:
             type: string
-          isVotedDown:
-            type: boolean
-          isVotedUp:
-            type: boolean
-          hasChildren:
-            type: boolean
-          children:
-            items:
-              $ref: '#/components/schemas/PublicComment'
-            type: array
-          isFlagged:
-            type: boolean
-          isBlocked:
-            type: boolean
+          contextHTML:
+            type: string
         type: object
       example:
-        myVoteId: myVoteId
-        children:
-        - {}
-        - {}
-        hasChildren: true
-        isVotedUp: true
-        isBlocked: true
-        isVotedDown: true
-        isUnread: true
-        isFlagged: true
-    AuthenticatedUserDetails:
-      properties:
-        websiteUrl:
-          type: string
-        username:
-          type: string
-        sessionId:
-          nullable: true
-          type: string
-        hasBlockedUsers:
-          type: boolean
-        groupIds:
-          items:
-            type: string
-          type: array
-        email:
-          nullable: true
-          type: string
-        displayName:
-          type: string
-        displayLabel:
-          type: string
-        avatarSrc:
-          nullable: true
-          type: string
-        authorized:
-          type: boolean
-        id:
-          type: string
-      type: object
-    AnonUserDetails:
-      properties:
-        username:
-          type: string
-        sessionId:
-          nullable: true
-          type: string
-        isAnonSession:
-          type: boolean
-        hasBlockedUsers:
-          type: boolean
-        email:
-          nullable: true
-          type: string
-        displayName:
-          type: string
-        authorized:
-          type: boolean
-        id:
-          type: string
-      required:
-      - email
-      - isAnonSession
-      - username
-      type: object
-    UserSessionInfo:
-      anyOf:
-      - $ref: '#/components/schemas/AuthenticatedUserDetails'
-      - $ref: '#/components/schemas/AnonUserDetails'
-    Record_string.any_:
-      additionalProperties: {}
+        fromUserAvatarSrc: fromUserAvatarSrc
+        contextHTML: contextHTML
+        relatedObjectId: relatedObjectId
+        fromCommentId: fromCommentId
+        pageTitle: pageTitle
+        fromUserId: fromUserId
+        conversationId: conversationId
+        urlId: urlId
+        type: 6.027456183070403
+        sent: true
+        url: url
+        fromUserName: fromUserName
+        optedOut: true
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        viewed: true
+        _id: _id
+        relatedObjectType: 0.8008281904610115
+    Record_string.string_:
+      additionalProperties:
+        type: string
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
+    ImportedAPIStatus.FAILED:
+      enum:
+      - failed
+      type: string
     CommentHTMLRenderingMode:
       enum:
       - 0
@@ -676,6 +1525,11 @@ components:
       - pg-13
       - r
       type: string
+    SSOSecurityLevel:
+      enum:
+      - 0
+      - 1
+      type: number
     SpamRule:
       additionalProperties: false
       example:
@@ -696,12 +1550,6 @@ components:
           type: string
       required:
       - actions
-      type: object
-    Record_string.string_:
-      additionalProperties:
-        type: string
-      description: Construct a type with a set of properties K of type T
-      properties: {}
       type: object
     VoteStyle:
       enum:
@@ -740,12 +1588,12 @@ components:
         disableAutoHashTagCreation: true
         disableCommenterCommentDelete: true
         enableVoteList: true
-        pageSize: 4.145608029883936
+        pageSize: 9.301444243932576
         collapseReplies: true
         disableProfiles: true
         disableSuccessMessage: true
         allowAnon: true
-        countAboveToggle: 9.301444243932576
+        countAboveToggle: 5.637376656633329
         readonly: true
         useShowCommentsToggle: true
         noImageUploads: true
@@ -761,6 +1609,7 @@ components:
         translations: ""
         widgetQuestionId: widgetQuestionId
         disableLiveCommenting: true
+        ssoSecLvl: 3.616076749251911
         defaultSortDirection: ""
         disableVoting: true
         noCustomConfig: true
@@ -769,13 +1618,13 @@ components:
         requireSSO: true
         disableToolbar: true
         hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
-        maxCommentCreatedCountPUPM: 2.027123023002322
+        maxCommentCreatedCountPUPM: 7.061401241503109
         disableBlocking: true
         disableEmailInputs: true
-        widgetQuestionWhenToSave: 1.4894159098541704
+        widgetQuestionWhenToSave: 1.2315135367772556
         allowAnonFlag: true
-        widgetSubQuestionVisibility: 7.457744773683766
-        widgetQuestionStyle: 1.0246457001441578
+        widgetSubQuestionVisibility: 1.4894159098541704
+        widgetQuestionStyle: 7.386281948385884
         restrictedLinkDomains:
         - restrictedLinkDomains
         - restrictedLinkDomains
@@ -785,7 +1634,7 @@ components:
         commentThreadDeleteMode: ""
         commentCountFormat: commentCountFormat
         disableNotificationBell: true
-        voteStyle: 7.386281948385884
+        voteStyle: 2.027123023002322
         disableAutoAdminMigration: true
         absoluteAndRelativeDates: true
         commenterNameFormat: ""
@@ -805,16 +1654,16 @@ components:
         headerHTML: headerHTML
         hideAvatars: true
         defaultAvatarSrc: defaultAvatarSrc
-        commentHTMLRenderingMode: 7.061401241503109
-        maxCommentCharacterLength: 3.616076749251911
+        commentHTMLRenderingMode: 5.962133916683182
+        maxCommentCharacterLength: 2.3021358869347655
         useSingleLineCommentInput: true
         allowedLanguages:
         - allowedLanguages
         - allowedLanguages
         defaultUsername: defaultUsername
-        widgetQuestionResultsStyle: 1.2315135367772556
+        widgetQuestionResultsStyle: 4.145608029883936
         showLiveRightAway: true
-        widgetQuestionsRequired: 6.84685269835264
+        widgetQuestionsRequired: 1.0246457001441578
         hasDarkBackground: true
         wrap: true
       properties:
@@ -945,6 +1794,8 @@ components:
           type: boolean
         requireSSO:
           type: boolean
+        ssoSecLvl:
+          $ref: '#/components/schemas/SSOSecurityLevel'
         restrictedLinkDomains:
           items:
             type: string
@@ -985,6 +1836,651 @@ components:
         wrap:
           type: boolean
       type: object
+    APIError:
+      additionalProperties: false
+      example:
+        reason: reason
+        code: code
+        bannedUntil: 6.027456183070403
+        customConfig:
+          disableAutoHashTagCreation: true
+          disableCommenterCommentDelete: true
+          enableVoteList: true
+          pageSize: 9.301444243932576
+          collapseReplies: true
+          disableProfiles: true
+          disableSuccessMessage: true
+          allowAnon: true
+          countAboveToggle: 5.637376656633329
+          readonly: true
+          useShowCommentsToggle: true
+          noImageUploads: true
+          spamRules:
+          - commentContains: commentContains
+            actions:
+            - spam
+            - spam
+          - commentContains: commentContains
+            actions:
+            - spam
+            - spam
+          translations: ""
+          widgetQuestionId: widgetQuestionId
+          disableLiveCommenting: true
+          ssoSecLvl: 3.616076749251911
+          defaultSortDirection: ""
+          disableVoting: true
+          noCustomConfig: true
+          gifRating: g
+          enableSearch: true
+          requireSSO: true
+          disableToolbar: true
+          hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
+          maxCommentCreatedCountPUPM: 7.061401241503109
+          disableBlocking: true
+          disableEmailInputs: true
+          widgetQuestionWhenToSave: 1.2315135367772556
+          allowAnonFlag: true
+          widgetSubQuestionVisibility: 1.4894159098541704
+          widgetQuestionStyle: 7.386281948385884
+          restrictedLinkDomains:
+          - restrictedLinkDomains
+          - restrictedLinkDomains
+          showQuestion: true
+          inputAfterComments: true
+          allowAnonVotes: true
+          commentThreadDeleteMode: ""
+          commentCountFormat: commentCountFormat
+          disableNotificationBell: true
+          voteStyle: 2.027123023002322
+          disableAutoAdminMigration: true
+          absoluteAndRelativeDates: true
+          commenterNameFormat: ""
+          enableThirdPartyCookieBypass: true
+          locale: locale
+          showCommentSaveSuccess: true
+          disableCommenterCommentEdit: true
+          enableCommenterLinks: true
+          enableSpoilers: true
+          disableUnverifiedLabel: true
+          noStyles: true
+          absoluteDates: true
+          limitCommentsByGroups: true
+          enableWYSIWYG: true
+          customCSS: customCSS
+          enableViewCounts: true
+          headerHTML: headerHTML
+          hideAvatars: true
+          defaultAvatarSrc: defaultAvatarSrc
+          commentHTMLRenderingMode: 5.962133916683182
+          maxCommentCharacterLength: 2.3021358869347655
+          useSingleLineCommentInput: true
+          allowedLanguages:
+          - allowedLanguages
+          - allowedLanguages
+          defaultUsername: defaultUsername
+          widgetQuestionResultsStyle: 4.145608029883936
+          showLiveRightAway: true
+          widgetQuestionsRequired: 1.0246457001441578
+          hasDarkBackground: true
+          wrap: true
+        translatedError: translatedError
+        secondaryCode: secondaryCode
+        maxCharacterLength: 1.4658129805029452
+        statusCode: 0.8008281904610115
+        status: failed
+      properties:
+        statusCode:
+          format: double
+          type: number
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
+        reason:
+          type: string
+        code:
+          type: string
+        secondaryCode:
+          type: string
+        bannedUntil:
+          format: double
+          type: number
+        maxCharacterLength:
+          format: double
+          type: number
+        translatedError:
+          type: string
+        customConfig:
+          $ref: '#/components/schemas/CustomConfigParameters'
+      required:
+      - code
+      - reason
+      - status
+      type: object
+    GetMyNotificationsResponse:
+      anyOf:
+      - $ref: '#/components/schemas/GetMyNotificationsResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    BooleanQueryParam:
+      enum:
+      - "true"
+      - "false"
+      type: string
+    ResetUserNotificationsResponse:
+      additionalProperties: false
+      example:
+        code: ignored-since-impersonated
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        code:
+          enum:
+          - ignored-since-impersonated
+          nullable: false
+          type: string
+      required:
+      - status
+      type: object
+    GetUserNotificationCountResponse:
+      additionalProperties: false
+      example:
+        count: 0.8008281904610115
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        count:
+          format: double
+          type: number
+      required:
+      - count
+      - status
+      type: object
+    EnumAsObject_typeofNotificationType_:
+      properties: {}
+      type: object
+    NotificationAndCount:
+      additionalProperties: false
+      properties:
+        type:
+          $ref: '#/components/schemas/NotificationType'
+        count:
+          format: double
+          type: number
+      required:
+      - count
+      - type
+      type: object
+    HeaderState:
+      additionalProperties: false
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        NotificationType:
+          properties: {}
+          type: object
+        userId:
+          type: string
+        userIdWS:
+          type: string
+        notificationCounts:
+          items:
+            $ref: '#/components/schemas/NotificationAndCount'
+          type: array
+      required:
+      - NotificationType
+      - notificationCounts
+      - status
+      - userId
+      - userIdWS
+      type: object
+    UserNotificationWriteResponse:
+      additionalProperties: false
+      example:
+        modifiedCount: 6.027456183070403
+        matchedCount: 0.8008281904610115
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        matchedCount:
+          format: double
+          type: number
+        modifiedCount:
+          format: double
+          type: number
+      required:
+      - matchedCount
+      - modifiedCount
+      - status
+      type: object
+    IgnoredResponse:
+      additionalProperties: false
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        note:
+          enum:
+          - ignored-since-impersonated
+          - demo-noop
+          type: string
+      required:
+      - note
+      - status
+      type: object
+    APIEmptyResponse:
+      anyOf:
+      - $ref: '#/components/schemas/APIEmptyResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    PublicAPIGetCommentTextResponse:
+      anyOf:
+      - $ref: '#/components/schemas/PublicAPIGetCommentTextResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    Pick_FComment.approved-or-commentHTML_:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        approved:
+          type: boolean
+        commentHTML:
+          type: string
+      required:
+      - approved
+      - commentHTML
+      type: object
+    PublicAPISetCommentTextResponse:
+      anyOf:
+      - $ref: '#/components/schemas/PublicAPISetCommentTextResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    CommentUserMentionInfo:
+      additionalProperties: false
+      example:
+        rawTag: rawTag
+        id: id
+        tag: tag
+        type: user
+        sent: true
+      properties:
+        id:
+          type: string
+        tag:
+          type: string
+        rawTag:
+          type: string
+        type:
+          enum:
+          - user
+          - sso
+          type: string
+        sent:
+          type: boolean
+      required:
+      - id
+      - tag
+      type: object
+    CommentUserHashTagInfo:
+      additionalProperties: false
+      example:
+        retain: true
+        id: id
+        tag: tag
+        url: url
+      properties:
+        id:
+          type: string
+        tag:
+          type: string
+        url:
+          nullable: true
+          type: string
+        retain:
+          type: boolean
+      required:
+      - id
+      - tag
+      - url
+      type: object
+    CommentTextUpdateRequest:
+      additionalProperties: false
+      example:
+        hashTags:
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        mentions:
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        comment: comment
+      properties:
+        comment:
+          type: string
+        mentions:
+          items:
+            $ref: '#/components/schemas/CommentUserMentionInfo'
+          type: array
+        hashTags:
+          items:
+            $ref: '#/components/schemas/CommentUserHashTagInfo'
+          type: array
+      required:
+      - comment
+      type: object
+    PublicComment:
+      allOf:
+      - properties:
+          isUnread:
+            type: boolean
+          myVoteId:
+            type: string
+          isVotedDown:
+            type: boolean
+          isVotedUp:
+            type: boolean
+          hasChildren:
+            type: boolean
+          children:
+            items:
+              $ref: '#/components/schemas/PublicComment'
+            type: array
+          isFlagged:
+            type: boolean
+          isBlocked:
+            type: boolean
+        type: object
+      - $ref: '#/components/schemas/PublicCommentMongo'
+      example:
+        myVoteId: myVoteId
+        children:
+        - null
+        - null
+        hasChildren: true
+        isVotedUp: true
+        isBlocked: true
+        isVotedDown: true
+        isUnread: true
+        isFlagged: true
+    CommentUserBadgeInfo:
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+        type:
+          format: double
+          type: number
+        description:
+          type: string
+        displayLabel:
+          type: string
+        displaySrc:
+          type: string
+        backgroundColor:
+          type: string
+        borderColor:
+          type: string
+        textColor:
+          type: string
+        cssClass:
+          type: string
+      required:
+      - backgroundColor
+      - borderColor
+      - cssClass
+      - description
+      - displayLabel
+      - displaySrc
+      - id
+      - textColor
+      - type
+      type: object
+    Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        _id:
+          type: string
+        url:
+          type: string
+        pageTitle:
+          type: string
+        approved:
+          type: boolean
+        commentHTML:
+          type: string
+        urlIdRaw:
+          type: string
+        userId:
+          type: string
+        anonUserId:
+          type: string
+        commenterEmail:
+          type: string
+        commenterName:
+          type: string
+        commenterLink:
+          type: string
+        parentId:
+          type: string
+        date:
+          format: date-time
+          type: string
+        localDateString:
+          type: string
+        localDateHours:
+          format: double
+          type: number
+        votes:
+          format: double
+          type: number
+        votesUp:
+          format: double
+          type: number
+        votesDown:
+          format: double
+          type: number
+        expireAt:
+          format: date-time
+          type: string
+        verified:
+          type: boolean
+        verifiedDate:
+          format: date-time
+          type: string
+        verificationId:
+          type: string
+        notificationSentForParent:
+          type: boolean
+        notificationSentForParentTenant:
+          type: boolean
+        reviewed:
+          type: boolean
+        imported:
+          type: boolean
+        externalId:
+          type: string
+        externalParentId:
+          type: string
+        avatarSrc:
+          type: string
+        isSpam:
+          type: boolean
+        aiDeterminedSpam:
+          type: boolean
+        hasImages:
+          type: boolean
+        pageNumber:
+          format: double
+          type: number
+        pageNumberOF:
+          format: double
+          type: number
+        pageNumberNF:
+          format: double
+          type: number
+        hasCode:
+          type: boolean
+        locale:
+          type: string
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isBannedUser:
+          type: boolean
+        isByAdmin:
+          type: boolean
+        isByModerator:
+          type: boolean
+        isPinned:
+          type: boolean
+        isLocked:
+          type: boolean
+        flagCount:
+          format: double
+          type: number
+        rating:
+          format: double
+          type: number
+        displayLabel:
+          type: string
+        fromProductId:
+          format: double
+          type: number
+        meta:
+          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta'
+        ipHash:
+          type: string
+        mentions:
+          items:
+            $ref: '#/components/schemas/CommentUserMentionInfo'
+          type: array
+        hashTags:
+          items:
+            $ref: '#/components/schemas/CommentUserHashTagInfo'
+          type: array
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          type: array
+        domain:
+          type: string
+        veteranBadgeProcessed:
+          type: string
+        moderationGroupIds:
+          items:
+            type: string
+          type: array
+        didProcessBadges:
+          type: boolean
+        fromOfflineRestore:
+          type: boolean
+        autoplayJobId:
+          type: string
+        autoplayDelayMS:
+          format: double
+          type: number
+        feedbackIds:
+          items:
+            type: string
+          type: array
+        groupIds:
+          items:
+            type: string
+          type: array
+        viewCount:
+          format: double
+          type: number
+      required:
+      - _id
+      - approved
+      - commentHTML
+      - commenterName
+      - date
+      - locale
+      - url
+      - verified
+      - votes
+      - votesDown
+      - votesUp
+      type: object
+    Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_:
+      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__'
+    PublicCommentMongo:
+      $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_'
+    AuthenticatedUserDetails:
+      properties:
+        websiteUrl:
+          type: string
+        username:
+          type: string
+        sessionId:
+          nullable: true
+          type: string
+        hasBlockedUsers:
+          type: boolean
+        groupIds:
+          items:
+            type: string
+          type: array
+        email:
+          nullable: true
+          type: string
+        displayName:
+          type: string
+        displayLabel:
+          type: string
+        avatarSrc:
+          nullable: true
+          type: string
+        authorized:
+          type: boolean
+        id:
+          type: string
+      type: object
+    AnonUserDetails:
+      properties:
+        username:
+          type: string
+        sessionId:
+          nullable: true
+          type: string
+        isAnonSession:
+          type: boolean
+        hasBlockedUsers:
+          type: boolean
+        email:
+          nullable: true
+          type: string
+        displayName:
+          type: string
+        authorized:
+          type: boolean
+        id:
+          type: string
+      required:
+      - email
+      - isAnonSession
+      - username
+      type: object
+    UserSessionInfo:
+      anyOf:
+      - $ref: '#/components/schemas/AuthenticatedUserDetails'
+      - $ref: '#/components/schemas/AnonUserDetails'
+    Record_string.any_:
+      additionalProperties: {}
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
     GetCommentsResponse_PublicComment_:
       additionalProperties: false
       properties:
@@ -999,7 +2495,7 @@ components:
           type: string
         comments:
           items:
-            $ref: '#/components/schemas/APIComment_PublicComment_'
+            $ref: '#/components/schemas/PublicComment'
           type: array
         user:
           allOf:
@@ -1093,12 +2589,12 @@ components:
           disableAutoHashTagCreation: true
           disableCommenterCommentDelete: true
           enableVoteList: true
-          pageSize: 4.145608029883936
+          pageSize: 9.301444243932576
           collapseReplies: true
           disableProfiles: true
           disableSuccessMessage: true
           allowAnon: true
-          countAboveToggle: 9.301444243932576
+          countAboveToggle: 5.637376656633329
           readonly: true
           useShowCommentsToggle: true
           noImageUploads: true
@@ -1114,6 +2610,7 @@ components:
           translations: ""
           widgetQuestionId: widgetQuestionId
           disableLiveCommenting: true
+          ssoSecLvl: 3.616076749251911
           defaultSortDirection: ""
           disableVoting: true
           noCustomConfig: true
@@ -1122,13 +2619,13 @@ components:
           requireSSO: true
           disableToolbar: true
           hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
-          maxCommentCreatedCountPUPM: 2.027123023002322
+          maxCommentCreatedCountPUPM: 7.061401241503109
           disableBlocking: true
           disableEmailInputs: true
-          widgetQuestionWhenToSave: 1.4894159098541704
+          widgetQuestionWhenToSave: 1.2315135367772556
           allowAnonFlag: true
-          widgetSubQuestionVisibility: 7.457744773683766
-          widgetQuestionStyle: 1.0246457001441578
+          widgetSubQuestionVisibility: 1.4894159098541704
+          widgetQuestionStyle: 7.386281948385884
           restrictedLinkDomains:
           - restrictedLinkDomains
           - restrictedLinkDomains
@@ -1138,7 +2635,7 @@ components:
           commentThreadDeleteMode: ""
           commentCountFormat: commentCountFormat
           disableNotificationBell: true
-          voteStyle: 7.386281948385884
+          voteStyle: 2.027123023002322
           disableAutoAdminMigration: true
           absoluteAndRelativeDates: true
           commenterNameFormat: ""
@@ -1158,16 +2655,16 @@ components:
           headerHTML: headerHTML
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
-          commentHTMLRenderingMode: 7.061401241503109
-          maxCommentCharacterLength: 3.616076749251911
+          commentHTMLRenderingMode: 5.962133916683182
+          maxCommentCharacterLength: 2.3021358869347655
           useSingleLineCommentInput: true
           allowedLanguages:
           - allowedLanguages
           - allowedLanguages
           defaultUsername: defaultUsername
-          widgetQuestionResultsStyle: 1.2315135367772556
+          widgetQuestionResultsStyle: 4.145608029883936
           showLiveRightAway: true
-          widgetQuestionsRequired: 6.84685269835264
+          widgetQuestionsRequired: 1.0246457001441578
           hasDarkBackground: true
           wrap: true
         hasBillingIssue: true
@@ -1176,8 +2673,8 @@ components:
         comments:
         - myVoteId: myVoteId
           children:
-          - {}
-          - {}
+          - null
+          - null
           hasChildren: true
           isVotedUp: true
           isBlocked: true
@@ -1186,8 +2683,8 @@ components:
           isFlagged: true
         - myVoteId: myVoteId
           children:
-          - {}
-          - {}
+          - null
+          - null
           hasChildren: true
           isVotedUp: true
           isBlocked: true
@@ -1209,53 +2706,13 @@ components:
         tenantIdWS: tenantIdWS
         statusCode: 0.8008281904610115
         status: status
-    ImportedAPIStatus.FAILED:
-      enum:
-      - failed
-      type: string
-    APIError:
-      additionalProperties: false
-      properties:
-        statusCode:
-          format: double
-          type: number
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
-        reason:
-          type: string
-        code:
-          type: string
-        secondaryCode:
-          type: string
-        bannedUntil:
-          format: double
-          type: number
-        maxCharacterLength:
-          format: double
-          type: number
-        translatedError:
-          type: string
-        customConfig:
-          $ref: '#/components/schemas/CustomConfigParameters'
-      required:
-      - code
-      - reason
-      - status
-      type: object
-    ImportedAPIStatus.SUCCESS:
-      enum:
-      - success
-      type: string
     SaveCommentResponseOptimized:
       additionalProperties: false
       properties:
         status:
           $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
         comment:
-          additionalProperties: false
-          example: {}
-          properties: {}
-          type: object
+          $ref: '#/components/schemas/PublicComment'
         user:
           allOf:
           - $ref: '#/components/schemas/UserSessionInfo'
@@ -1278,7 +2735,17 @@ components:
             $ref: '#/components/schemas/UserIdWS'
         type: object
       example:
-        comment: {}
+        comment:
+          myVoteId: myVoteId
+          children:
+          - null
+          - null
+          hasChildren: true
+          isVotedUp: true
+          isBlocked: true
+          isVotedDown: true
+          isUnread: true
+          isFlagged: true
         userIdWS: null
         moduleData:
           key: ""
@@ -1419,14 +2886,557 @@ components:
       - url
       - urlId
       type: object
+    Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      example:
+        commentHTML: commentHTML
+        isDeleted: true
+        commenterName: commenterName
+        userId: userId
+      properties:
+        commentHTML:
+          type: string
+        userId:
+          type: string
+        commenterName:
+          type: string
+        isDeleted:
+          type: boolean
+      required:
+      - commentHTML
+      - commenterName
+      type: object
+    PublicAPIDeleteCommentResponse:
+      anyOf:
+      - $ref: '#/components/schemas/PublicAPIDeleteCommentResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    Record_string.boolean_:
+      additionalProperties:
+        type: boolean
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    CheckBlockedCommentsResponse:
+      anyOf:
+      - $ref: '#/components/schemas/CheckBlockedCommentsResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    VoteResponseUser:
+      additionalProperties: false
+      example:
+        sessionId: sessionId
+      properties:
+        sessionId:
+          nullable: true
+          type: string
+      type: object
+    VoteResponse:
+      additionalProperties: false
+      example:
+        editKey: editKey
+        isVerified: true
+        voteId: voteId
+        user:
+          sessionId: sessionId
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/VoteResponse_status'
+        voteId:
+          type: string
+        isVerified:
+          type: boolean
+        user:
+          $ref: '#/components/schemas/VoteResponseUser'
+        editKey:
+          type: string
+      required:
+      - status
+      type: object
+    VoteBodyParams:
+      additionalProperties: false
+      example:
+        commenterName: commenterName
+        voteDir: up
+        url: url
+        commenterEmail: commenterEmail
+      properties:
+        commenterEmail:
+          nullable: true
+          type: string
+        commenterName:
+          nullable: true
+          type: string
+        voteDir:
+          enum:
+          - up
+          - down
+          type: string
+        url:
+          nullable: true
+          type: string
+      required:
+      - commenterEmail
+      - commenterName
+      - url
+      - voteDir
+      type: object
+    VoteDeleteResponse:
+      additionalProperties: false
+      example:
+        wasPendingVote: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/VoteDeleteResponse_status'
+        wasPendingVote:
+          type: boolean
+      required:
+      - status
+      type: object
+    GetCommentVoteUserNamesSuccessResponse:
+      additionalProperties: false
+      example:
+        hasMore: true
+        voteUserNames:
+        - voteUserNames
+        - voteUserNames
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        voteUserNames:
+          items:
+            type: string
+          type: array
+        hasMore:
+          type: boolean
+      required:
+      - hasMore
+      - status
+      - voteUserNames
+      type: object
+    Record_string._before-string-or-null--after-string-or-null__:
+      additionalProperties:
+        $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    ChangeCommentPinStatusResponse:
+      anyOf:
+      - $ref: '#/components/schemas/ChangeCommentPinStatusResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    BlockSuccess:
+      additionalProperties: false
+      example:
+        commentStatuses:
+          key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        commentStatuses:
+          additionalProperties:
+            type: boolean
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - commentStatuses
+      - status
+      type: object
+    BlockFromCommentParams:
+      additionalProperties: false
+      example:
+        commentIds:
+        - commentIds
+        - commentIds
+      properties:
+        commentIds:
+          description: A list of comment ids to check if are blocked after performing
+            the update.
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - commentIds
+      type: object
+    UnblockSuccess:
+      additionalProperties: false
+      example:
+        commentStatuses:
+          key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        commentStatuses:
+          additionalProperties:
+            type: boolean
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - commentStatuses
+      - status
+      type: object
+    APIStatus:
+      enum:
+      - success
+      - failed
+      type: string
+    Record_string.number_:
+      additionalProperties:
+        format: double
+        type: number
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    DistinctAccumulator:
+      $ref: '#/components/schemas/Record_string.number_'
+    GroupValues:
+      $ref: '#/components/schemas/Record_string.string_'
+    AggregationValue:
+      properties:
+        groups:
+          additionalProperties:
+            type: string
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        stringValue:
+          type: string
+        numericValue:
+          format: double
+          type: number
+        distinctCount:
+          format: double
+          type: number
+        distinctCounts:
+          additionalProperties:
+            format: double
+            type: number
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      type: object
+    Record_string.AggregationValue_:
+      additionalProperties:
+        $ref: '#/components/schemas/AggregationValue'
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    AggregationItem:
+      allOf:
+      - $ref: '#/components/schemas/Record_string.AggregationValue_'
+      - properties:
+          groups:
+            $ref: '#/components/schemas/GroupValues'
+        type: object
+      example:
+        groups: null
+    AggregationResponse:
+      additionalProperties: false
+      description: The API response returns the aggregated data along with simple
+        stats
+      example:
+        data:
+        - groups: null
+        - groups: null
+        stats:
+          scanned: 6.027456183070403
+          timeMS: 0.8008281904610115
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        data:
+          items:
+            $ref: '#/components/schemas/AggregationItem'
+          type: array
+        stats:
+          $ref: '#/components/schemas/AggregationResponse_stats'
+      required:
+      - data
+      - status
+      type: object
+    QueryPredicate:
+      additionalProperties: false
+      example:
+        value: QueryPredicate_value
+        key: key
+        operator: eq
+      properties:
+        key:
+          type: string
+        value:
+          $ref: '#/components/schemas/QueryPredicate_value'
+        operator:
+          enum:
+          - eq
+          - not_eq
+          - greater_than
+          - less_than
+          type: string
+      required:
+      - key
+      - operator
+      - value
+      type: object
+    AggregationOpType:
+      description: The supported aggregation operation types
+      enum:
+      - sum
+      - countDistinct
+      - distinct
+      - avg
+      - min
+      - max
+      - count
+      type: string
+    AggregationOperation:
+      additionalProperties: false
+      description: An operation that will be applied on a field
+      example:
+        op: sum
+        field: field
+        alias: alias
+        expandArray: true
+      properties:
+        field:
+          description: The field to operate on
+          type: string
+        op:
+          $ref: '#/components/schemas/AggregationOpType'
+        alias:
+          description: "Optional alias for the output; if not provided, a default\
+            \ alias is computed"
+          type: string
+        expandArray:
+          type: boolean
+      required:
+      - field
+      - op
+      type: object
+    AggregationRequest:
+      additionalProperties: false
+      description: "The aggregation request accepts a resource, optional grouping\
+        \ keys, an array of operations, and an optional sort"
+      example:
+        operations:
+        - op: sum
+          field: field
+          alias: alias
+          expandArray: true
+        - op: sum
+          field: field
+          alias: alias
+          expandArray: true
+        query:
+        - value: QueryPredicate_value
+          key: key
+          operator: eq
+        - value: QueryPredicate_value
+          key: key
+          operator: eq
+        resourceName: resourceName
+        groupBy:
+        - groupBy
+        - groupBy
+        sort:
+          field: field
+          dir: asc
+      properties:
+        query:
+          items:
+            $ref: '#/components/schemas/QueryPredicate'
+          type: array
+        resourceName:
+          type: string
+        groupBy:
+          items:
+            type: string
+          type: array
+        operations:
+          items:
+            $ref: '#/components/schemas/AggregationOperation'
+          type: array
+        sort:
+          $ref: '#/components/schemas/AggregationRequest_sort'
+      required:
+      - operations
+      - resourceName
+      type: object
+    GetUserNotifications_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetMyNotificationsResponse'
+      - $ref: '#/components/schemas/APIError'
+    ResetUserNotifications_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/ResetUserNotificationsResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetUserNotificationCount_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetUserNotificationCountResponse'
+      - $ref: '#/components/schemas/APIError'
+    UpdateUserNotificationStatus_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/UserNotificationWriteResponse'
+      - $ref: '#/components/schemas/IgnoredResponse'
+      - $ref: '#/components/schemas/APIError'
+    FlagComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIEmptyResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetCommentText_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIError'
+      - $ref: '#/components/schemas/PublicAPIGetCommentTextResponse'
+    SetCommentText_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIError'
+      - $ref: '#/components/schemas/PublicAPISetCommentTextResponse'
     GetComments_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetCommentsResponseWithPresence_PublicComment_'
       - $ref: '#/components/schemas/APIError'
-    CreateUser_200_response:
+    CreateComment_200_response:
       anyOf:
       - $ref: '#/components/schemas/SaveCommentsResponseWithPresence'
       - $ref: '#/components/schemas/APIError'
+    DeleteComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/PublicAPIDeleteCommentResponse'
+      - $ref: '#/components/schemas/APIError'
+    CheckedCommentsForBlocked_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/CheckBlockedCommentsResponse'
+      - $ref: '#/components/schemas/APIError'
+    VoteComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/VoteResponse'
+      - $ref: '#/components/schemas/APIError'
+    DeleteCommentVote_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/VoteDeleteResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetCommentVoteUserNames_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetCommentVoteUserNamesSuccessResponse'
+      - $ref: '#/components/schemas/APIError'
+    PinComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/ChangeCommentPinStatusResponse'
+      - $ref: '#/components/schemas/APIError'
+    LockComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIError'
+      - $ref: '#/components/schemas/APIEmptyResponse'
+    BlockFromComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/BlockSuccess'
+      - $ref: '#/components/schemas/APIError'
+    UnBlockComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/UnblockSuccess'
+      - $ref: '#/components/schemas/APIError'
+    GetMyNotificationsResponse_anyOf:
+      example:
+        isSubscribed: true
+        translations:
+          key: translations
+        hasMore: true
+        notifications:
+        - fromUserAvatarSrc: fromUserAvatarSrc
+          contextHTML: contextHTML
+          relatedObjectId: relatedObjectId
+          fromCommentId: fromCommentId
+          pageTitle: pageTitle
+          fromUserId: fromUserId
+          conversationId: conversationId
+          urlId: urlId
+          type: 6.027456183070403
+          sent: true
+          url: url
+          fromUserName: fromUserName
+          optedOut: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          viewed: true
+          _id: _id
+          relatedObjectType: 0.8008281904610115
+        - fromUserAvatarSrc: fromUserAvatarSrc
+          contextHTML: contextHTML
+          relatedObjectId: relatedObjectId
+          fromCommentId: fromCommentId
+          pageTitle: pageTitle
+          fromUserId: fromUserId
+          conversationId: conversationId
+          urlId: urlId
+          type: 6.027456183070403
+          sent: true
+          url: url
+          fromUserName: fromUserName
+          optedOut: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          viewed: true
+          _id: _id
+          relatedObjectType: 0.8008281904610115
+        status: success
+      properties:
+        translations:
+          additionalProperties:
+            type: string
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        isSubscribed:
+          type: boolean
+        hasMore:
+          type: boolean
+        notifications:
+          items:
+            $ref: '#/components/schemas/RenderableUserNotification'
+          type: array
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - hasMore
+      - isSubscribed
+      - notifications
+      - status
+      type: object
+    APIEmptyResponse_anyOf:
+      example:
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - status
+      type: object
+    PublicAPIGetCommentTextResponse_anyOf:
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        commentText:
+          type: string
+        sanitizedCommentText:
+          type: string
+      required:
+      - commentText
+      - sanitizedCommentText
+      - status
+      type: object
+    PublicAPISetCommentTextResponse_anyOf:
+      properties:
+        comment:
+          $ref: '#/components/schemas/Pick_FComment.approved-or-commentHTML_'
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - comment
+      - status
+      type: object
     Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta:
       additionalProperties: {}
       properties:
@@ -1440,5 +3450,124 @@ components:
       - type: string
       - format: double
         type: number
+    PublicAPIDeleteCommentResponse_anyOf:
+      example:
+        comment:
+          commentHTML: commentHTML
+          isDeleted: true
+          commenterName: commenterName
+          userId: userId
+        hardRemoved: true
+        status: success
+      properties:
+        comment:
+          $ref: '#/components/schemas/Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_'
+        hardRemoved:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - hardRemoved
+      - status
+      type: object
+    CheckBlockedCommentsResponse_anyOf:
+      example:
+        commentStatuses:
+          key: true
+        status: success
+      properties:
+        commentStatuses:
+          additionalProperties:
+            type: boolean
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - commentStatuses
+      - status
+      type: object
+    VoteResponse_status:
+      anyOf:
+      - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      - $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
+      - enum:
+        - pending-verification
+        type: string
+    VoteDeleteResponse_status:
+      anyOf:
+      - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      - $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
+    Record_string__before_string_or_null__after_string_or_null___value:
+      example:
+        before: before
+        after: after
+      properties:
+        after:
+          type: string
+        before:
+          type: string
+      required:
+      - after
+      - before
+      type: object
+    ChangeCommentPinStatusResponse_anyOf:
+      example:
+        commentPositions:
+          key:
+            before: before
+            after: after
+        status: success
+      properties:
+        commentPositions:
+          additionalProperties:
+            $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - commentPositions
+      - status
+      type: object
+    AggregationResponse_stats:
+      example:
+        scanned: 6.027456183070403
+        timeMS: 0.8008281904610115
+      properties:
+        timeMS:
+          format: double
+          type: number
+        scanned:
+          format: double
+          type: number
+      required:
+      - scanned
+      - timeMS
+      type: object
+    QueryPredicate_value:
+      anyOf:
+      - type: string
+      - format: double
+        type: number
+      - type: boolean
+    AggregationRequest_sort:
+      example:
+        field: field
+        dir: asc
+      properties:
+        dir:
+          enum:
+          - asc
+          - desc
+          type: string
+        field:
+          type: string
+      required:
+      - dir
+      - field
+      type: object
   securitySchemes: {}
 

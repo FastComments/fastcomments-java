@@ -22,6 +22,7 @@ import com.fastcomments.model.GifRating;
 import com.fastcomments.model.QuestionRenderingType;
 import com.fastcomments.model.QuestionSubQuestionVisibility;
 import com.fastcomments.model.QuestionWhenSave;
+import com.fastcomments.model.SSOSecurityLevel;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.SpamRule;
 import com.fastcomments.model.VoteStyle;
@@ -467,6 +468,14 @@ public class CustomConfigParametersTest {
     @Test
     public void requireSSOTest() {
         // TODO: test requireSSO
+    }
+
+    /**
+     * Test the property 'ssoSecLvl'
+     */
+    @Test
+    public void ssoSecLvlTest() {
+        // TODO: test ssoSecLvl
     }
 
     /**
