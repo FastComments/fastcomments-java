@@ -126,6 +126,7 @@ ext {
 
 dependencies {
     implementation project(':client')
+    implementation 'com.google.code.gson:gson:2.12.1'
 }
 
 javadoc {

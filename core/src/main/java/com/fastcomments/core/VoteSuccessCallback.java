@@ -1,8 +1,8 @@
 package com.fastcomments.core;
 
-import com.fastcomments.model.APICommentPublicComment;
+import com.fastcomments.model.PublicComment;
 
 @FunctionalInterface
 public interface VoteSuccessCallback {
-    void onVoteSuccess(APICommentPublicComment comment, String voteId, String direction, String status);
+    void onVoteSuccess(PublicComment comment, String voteId, String direction, String status);
 }

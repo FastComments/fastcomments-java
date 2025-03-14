@@ -1,11 +1,11 @@
-package com.fastcomments.core;
+package com.fastcomments.core.sso;
 
 import java.util.List;
 
 /**
  * An object that represents a user, for SecureSSO.
  */
-public class SSOUserData {
+public class SecureSSOUserData {
     // Required. 1k Characters Max.
     public String id;
     // Required. 1k Characters Max. Must be unique.
@@ -31,11 +31,11 @@ public class SSOUserData {
     // Optional, default true.
     public Boolean isProfileActivityPrivate;
 
-    public SSOUserData(String id) {
+    public SecureSSOUserData(String id) {
         this.id = id;
     }
 
-    public SSOUserData(String id, String email, String username, String avatar) {
+    public SecureSSOUserData(String id, String email, String username, String avatar) {
         this.id = id;
         this.email = email;
         this.username = username;

@@ -1,8 +1,8 @@
 package com.fastcomments.core;
 
-import com.fastcomments.model.APICommentPublicComment;
+import com.fastcomments.model.PublicComment;
 
 @FunctionalInterface
 interface UserBlockedCallback {
-    void onUserBlocked(String userId, APICommentPublicComment comment, boolean isBlocked);
+    void onUserBlocked(String userId, PublicComment comment, boolean isBlocked);
 }

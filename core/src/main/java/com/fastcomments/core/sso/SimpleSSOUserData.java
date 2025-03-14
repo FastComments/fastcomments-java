@@ -1,11 +1,11 @@
-package com.fastcomments.core;
+package com.fastcomments.core.sso;
 
 import java.util.function.Consumer;
 
 /**
  * An object that represents a user, for SimpleSSO.
  */
-public class SSOUserDataSimple {
+public class SimpleSSOUserData {
     /** This must be unique when paired with an email. */
     public String username;
     /** The user's email. */
@@ -15,17 +15,11 @@ public class SSOUserDataSimple {
     /** The user's website, blog, or personal account page. */
     public String websiteUrl;
 
-    // For URL- or callback-based parameters.
-    public String logoutURL;
-    public String loginURL;
-    public Consumer<String> logoutCallback;
-    public Consumer<String> loginCallback;
-
-    public SSOUserDataSimple(String username) {
+    public SimpleSSOUserData(String username) {
         this.username = username;
     }
 
-    public SSOUserDataSimple(String username, String email, String avatar) {
+    public SimpleSSOUserData(String username, String email, String avatar) {
         this.username = username;
         this.email = email;
         this.avatar = avatar;
@@ -34,7 +28,7 @@ public class SSOUserDataSimple {
     /**
      * You probably don't want to use this. This is here for serialization etc. Use one of the constructors with args.
      */
-    public SSOUserDataSimple() {
+    public SimpleSSOUserData() {
     }
 }
 

@@ -1,10 +1,10 @@
 package com.fastcomments.core;
 
-import com.fastcomments.model.APICommentPublicComment;
+import com.fastcomments.model.PublicComment;
 
 import java.util.function.Consumer;
 
 @FunctionalInterface
 public interface CommentSubmitStartCallback {
-    void onCommentSubmitStart(APICommentPublicComment comment, Runnable continueSubmitFn, Consumer<String> cancelFn);
+    void onCommentSubmitStart(PublicComment comment, Runnable continueSubmitFn, Consumer<String> cancelFn);
 }

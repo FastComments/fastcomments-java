@@ -1,5 +1,9 @@
 package com.fastcomments.core;
 
+import com.fastcomments.core.sso.FastCommentsSSO;
+import com.fastcomments.core.sso.SimpleSSOUserData;
+import com.fastcomments.model.SortDirections;
+
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -151,7 +155,7 @@ public class CommentWidgetConfig {
      * The default sort direction. "MR" (most relevant), "NF" (newest first), or "OF" (oldest first).
      * Null indicates the default.
      */
-    public String defaultSortDirection;
+    public SortDirections defaultSortDirection;
     /**
      * Changes the comment input field to be single line instead of a textarea.
      */
@@ -171,7 +175,7 @@ public class CommentWidgetConfig {
     /**
      * Simple SSO Configuration.
      */
-    public SSOUserDataSimple simpleSSO;
+    public SimpleSSOUserData simpleSSO;
 
     // Callbacks
     /**
