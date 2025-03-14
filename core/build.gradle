@@ -125,7 +125,7 @@ ext {
 }
 
 dependencies {
-    implementation(project(":client"))
+    implementation project(':client')
 }
 
 javadoc {
