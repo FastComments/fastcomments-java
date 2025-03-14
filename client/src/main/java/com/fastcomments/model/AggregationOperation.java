@@ -49,7 +49,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * An operation that will be applied on a field
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-13T21:53:04.228145884-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T16:35:28.973572523-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class AggregationOperation {
   public static final String SERIALIZED_NAME_FIELD = "field";
   @SerializedName(SERIALIZED_NAME_FIELD)

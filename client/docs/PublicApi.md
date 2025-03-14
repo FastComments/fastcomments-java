@@ -571,6 +571,8 @@ No authorization required
 
 
 
+ req tenantId urlId
+
 ### Example
 ```java
 // Import classes:
@@ -588,14 +590,14 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
-    Double page = 3.4D; // Double | 
+    Integer page = 56; // Integer | 
     SortDirections direction = SortDirections.fromValue("OF"); // SortDirections | 
     String sso = "sso_example"; // String | 
-    Double skip = 3.4D; // Double | 
-    Double skipChildren = 3.4D; // Double | 
-    Double limit = 3.4D; // Double | 
-    Double limitChildren = 3.4D; // Double | 
-    Double lastGenDate = 3.4D; // Double | 
+    Integer skip = 56; // Integer | 
+    Integer skipChildren = 56; // Integer | 
+    Integer limit = 56; // Integer | 
+    Integer limitChildren = 56; // Integer | 
+    Long lastGenDate = 56L; // Long | 
     String fetchPageForCommentId = "fetchPageForCommentId_example"; // String | 
     BooleanQueryParam includeConfig = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     BooleanQueryParam countAll = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
@@ -605,7 +607,7 @@ public class Example {
     BooleanQueryParam isCrawler = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     BooleanQueryParam includeNotificationCount = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     BooleanQueryParam asTree = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    Double maxTreeDepth = 3.4D; // Double | 
+    Integer maxTreeDepth = 56; // Integer | 
     BooleanQueryParam useFullTranslationIds = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     String parentId = "parentId_example"; // String | 
     String searchText = "searchText_example"; // String | 
@@ -632,14 +634,14 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
-| **page** | **Double**|  | [optional] |
+| **page** | **Integer**|  | [optional] |
 | **direction** | [**SortDirections**](.md)|  | [optional] [enum: OF, NF, MR] |
 | **sso** | **String**|  | [optional] |
-| **skip** | **Double**|  | [optional] |
-| **skipChildren** | **Double**|  | [optional] |
-| **limit** | **Double**|  | [optional] |
-| **limitChildren** | **Double**|  | [optional] |
-| **lastGenDate** | **Double**|  | [optional] |
+| **skip** | **Integer**|  | [optional] |
+| **skipChildren** | **Integer**|  | [optional] |
+| **limit** | **Integer**|  | [optional] |
+| **limitChildren** | **Integer**|  | [optional] |
+| **lastGenDate** | **Long**|  | [optional] |
 | **fetchPageForCommentId** | **String**|  | [optional] |
 | **includeConfig** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
 | **countAll** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
@@ -649,7 +651,7 @@ public class Example {
 | **isCrawler** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
 | **includeNotificationCount** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
 | **asTree** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **maxTreeDepth** | **Double**|  | [optional] |
+| **maxTreeDepth** | **Integer**|  | [optional] |
 | **useFullTranslationIds** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
 | **parentId** | **String**|  | [optional] |
 | **searchText** | **String**|  | [optional] |

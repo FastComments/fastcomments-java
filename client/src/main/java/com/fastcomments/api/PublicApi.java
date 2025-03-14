@@ -1440,7 +1440,7 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommentsCall(String tenantId, String urlId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Double maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCommentsCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1586,7 +1586,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, String urlId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Double maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getComments(Async)");
@@ -1603,7 +1603,7 @@ public class PublicApi {
 
     /**
      * 
-     * 
+     *  req tenantId urlId
      * @param tenantId  (required)
      * @param urlId  (required)
      * @param page  (optional)
@@ -1639,14 +1639,14 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public GetComments200Response getComments(String tenantId, String urlId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Double maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
+    public GetComments200Response getComments(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
         ApiResponse<GetComments200Response> localVarResp = getCommentsWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
         return localVarResp.getData();
     }
 
     /**
      * 
-     * 
+     *  req tenantId urlId
      * @param tenantId  (required)
      * @param urlId  (required)
      * @param page  (optional)
@@ -1682,7 +1682,7 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, String urlId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Double maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
+    public ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, null);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1690,7 +1690,7 @@ public class PublicApi {
 
     /**
      *  (asynchronously)
-     * 
+     *  req tenantId urlId
      * @param tenantId  (required)
      * @param urlId  (required)
      * @param page  (optional)
@@ -1727,7 +1727,7 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommentsAsync(String tenantId, String urlId, Double page, SortDirections direction, String sso, Double skip, Double skipChildren, Double limit, Double limitChildren, Double lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Double maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
+    public okhttp3.Call getCommentsAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();

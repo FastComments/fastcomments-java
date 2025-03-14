@@ -163,20 +163,22 @@ public class PublicApiTest {
     }
 
     /**
+     *  req tenantId urlId
+     *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getCommentsTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
-        Double page = null;
+        Integer page = null;
         SortDirections direction = null;
         String sso = null;
-        Double skip = null;
-        Double skipChildren = null;
-        Double limit = null;
-        Double limitChildren = null;
-        Double lastGenDate = null;
+        Integer skip = null;
+        Integer skipChildren = null;
+        Integer limit = null;
+        Integer limitChildren = null;
+        Long lastGenDate = null;
         String fetchPageForCommentId = null;
         BooleanQueryParam includeConfig = null;
         BooleanQueryParam countAll = null;
@@ -186,7 +188,7 @@ public class PublicApiTest {
         BooleanQueryParam isCrawler = null;
         BooleanQueryParam includeNotificationCount = null;
         BooleanQueryParam asTree = null;
-        Double maxTreeDepth = null;
+        Integer maxTreeDepth = null;
         BooleanQueryParam useFullTranslationIds = null;
         String parentId = null;
         String searchText = null;

@@ -535,6 +535,11 @@ paths:
       - application/json
   /comments/{tenantId}:
     get:
+      description: |2-
+
+        req
+        tenantId
+        urlId
       operationId: GetComments
       parameters:
       - explode: false
@@ -556,8 +561,8 @@ paths:
         name: page
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
@@ -578,40 +583,40 @@ paths:
         name: skip
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: skipChildren
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: limit
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: limitChildren
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: lastGenDate
         required: false
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       - explode: true
         in: query
@@ -681,8 +686,8 @@ paths:
         name: maxTreeDepth
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
