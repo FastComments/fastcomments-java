@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:43:03.210315774-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:44:18.870123162-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta {
   public static final String SERIALIZED_NAME_WP_USER_ID = "wpUserId";
   @SerializedName(SERIALIZED_NAME_WP_USER_ID)

@@ -14,10 +14,10 @@
 |**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
 |**urlIdClean** | **String** |  |  [optional] |
-|**lastGenDate** | **Double** |  |  [optional] |
+|**lastGenDate** | **Integer** |  |  [optional] |
 |**includesPastPages** | **Boolean** |  |  [optional] |
 |**isDemo** | **Boolean** |  |  [optional] |
-|**commentCount** | **Double** |  |  [optional] |
+|**commentCount** | **Integer** |  |  [optional] |
 |**isSiteAdmin** | **Boolean** |  |  [optional] |
 |**hasBillingIssue** | **Boolean** |  |  [optional] |
 |**isCommentsHidden** | **Boolean** |  |  [optional] |

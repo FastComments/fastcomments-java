@@ -2486,8 +2486,8 @@ components:
       additionalProperties: false
       properties:
         statusCode:
-          format: double
-          type: number
+          format: int32
+          type: integer
         status:
           type: string
         code:
@@ -2505,17 +2505,17 @@ components:
         urlIdClean:
           type: string
         lastGenDate:
-          format: double
+          format: int32
           nullable: true
-          type: number
+          type: integer
         includesPastPages:
           type: boolean
         isDemo:
           nullable: false
           type: boolean
         commentCount:
-          format: double
-          type: number
+          format: int32
+          type: integer
         isSiteAdmin:
           type: boolean
         hasBillingIssue:
@@ -2670,7 +2670,7 @@ components:
           wrap: true
         hasBillingIssue: true
         isCrawler: true
-        lastGenDate: 5.962133916683182
+        lastGenDate: 5
         comments:
         - myVoteId: myVoteId
           children:
@@ -2701,7 +2701,7 @@ components:
         includesPastPages: true
         moduleData:
           key: ""
-        commentCount: 5.637376656633329
+        commentCount: 5
         isClosed: true
         presencePollState: 9
         userIdWS: userIdWS
@@ -2709,7 +2709,7 @@ components:
         isWhiteLabeled: true
         user: ""
         tenantIdWS: tenantIdWS
-        statusCode: 0.8008281904610115
+        statusCode: 0
         status: status
     SaveCommentResponseOptimized:
       additionalProperties: false

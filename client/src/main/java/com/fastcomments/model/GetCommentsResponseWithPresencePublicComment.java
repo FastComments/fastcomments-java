@@ -55,12 +55,12 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponseWithPresencePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:43:03.210315774-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:44:18.870123162-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
   @javax.annotation.Nullable
-  private Double statusCode;
+  private Integer statusCode;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -95,7 +95,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_LAST_GEN_DATE = "lastGenDate";
   @SerializedName(SERIALIZED_NAME_LAST_GEN_DATE)
   @javax.annotation.Nullable
-  private Double lastGenDate;
+  private Integer lastGenDate;
 
   public static final String SERIALIZED_NAME_INCLUDES_PAST_PAGES = "includesPastPages";
   @SerializedName(SERIALIZED_NAME_INCLUDES_PAST_PAGES)
@@ -110,7 +110,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_COMMENT_COUNT = "commentCount";
   @SerializedName(SERIALIZED_NAME_COMMENT_COUNT)
   @javax.annotation.Nullable
-  private Double commentCount;
+  private Integer commentCount;
 
   public static final String SERIALIZED_NAME_IS_SITE_ADMIN = "isSiteAdmin";
   @SerializedName(SERIALIZED_NAME_IS_SITE_ADMIN)
@@ -195,7 +195,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   public GetCommentsResponseWithPresencePublicComment() {
   }
 
-  public GetCommentsResponseWithPresencePublicComment statusCode(@javax.annotation.Nullable Double statusCode) {
+  public GetCommentsResponseWithPresencePublicComment statusCode(@javax.annotation.Nullable Integer statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -205,11 +205,11 @@ public class GetCommentsResponseWithPresencePublicComment {
    * @return statusCode
    */
   @javax.annotation.Nullable
-  public Double getStatusCode() {
+  public Integer getStatusCode() {
     return statusCode;
   }
 
-  public void setStatusCode(@javax.annotation.Nullable Double statusCode) {
+  public void setStatusCode(@javax.annotation.Nullable Integer statusCode) {
     this.statusCode = statusCode;
   }
 
@@ -336,7 +336,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   }
 
 
-  public GetCommentsResponseWithPresencePublicComment lastGenDate(@javax.annotation.Nullable Double lastGenDate) {
+  public GetCommentsResponseWithPresencePublicComment lastGenDate(@javax.annotation.Nullable Integer lastGenDate) {
     this.lastGenDate = lastGenDate;
     return this;
   }
@@ -346,11 +346,11 @@ public class GetCommentsResponseWithPresencePublicComment {
    * @return lastGenDate
    */
   @javax.annotation.Nullable
-  public Double getLastGenDate() {
+  public Integer getLastGenDate() {
     return lastGenDate;
   }
 
-  public void setLastGenDate(@javax.annotation.Nullable Double lastGenDate) {
+  public void setLastGenDate(@javax.annotation.Nullable Integer lastGenDate) {
     this.lastGenDate = lastGenDate;
   }
 
@@ -393,7 +393,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   }
 
 
-  public GetCommentsResponseWithPresencePublicComment commentCount(@javax.annotation.Nullable Double commentCount) {
+  public GetCommentsResponseWithPresencePublicComment commentCount(@javax.annotation.Nullable Integer commentCount) {
     this.commentCount = commentCount;
     return this;
   }
@@ -403,11 +403,11 @@ public class GetCommentsResponseWithPresencePublicComment {
    * @return commentCount
    */
   @javax.annotation.Nullable
-  public Double getCommentCount() {
+  public Integer getCommentCount() {
     return commentCount;
   }
 
-  public void setCommentCount(@javax.annotation.Nullable Double commentCount) {
+  public void setCommentCount(@javax.annotation.Nullable Integer commentCount) {
     this.commentCount = commentCount;
   }
 
