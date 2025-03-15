@@ -197,6 +197,7 @@ public class PublicApiTest {
         Integer skipChildren = null;
         Integer limit = null;
         Integer limitChildren = null;
+        BooleanQueryParam countChildren = null;
         Long lastGenDate = null;
         String fetchPageForCommentId = null;
         BooleanQueryParam includeConfig = null;
@@ -222,6 +223,7 @@ public class PublicApiTest {
                 .skipChildren(skipChildren)
                 .limit(limit)
                 .limitChildren(limitChildren)
+                .countChildren(countChildren)
                 .lastGenDate(lastGenDate)
                 .fetchPageForCommentId(fetchPageForCommentId)
                 .includeConfig(includeConfig)

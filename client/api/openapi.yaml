@@ -612,6 +612,13 @@ paths:
         style: form
       - explode: true
         in: query
+        name: countChildren
+        required: false
+        schema:
+          $ref: '#/components/schemas/BooleanQueryParam'
+        style: form
+      - explode: true
+        in: query
         name: lastGenDate
         required: false
         schema:

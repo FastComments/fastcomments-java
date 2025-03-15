@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CheckBlockedCommentsResponseAnyOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T18:56:10.361953904-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:07:52.302063809-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CheckBlockedCommentsResponseAnyOf {
   public static final String SERIALIZED_NAME_COMMENT_STATUSES = "commentStatuses";
   @SerializedName(SERIALIZED_NAME_COMMENT_STATUSES)

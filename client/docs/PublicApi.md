@@ -586,7 +586,7 @@ No authorization required
 
 <a id="getComments"></a>
 # **getComments**
-> GetComments200Response getComments(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).lastGenDate(lastGenDate).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).execute();
+> GetComments200Response getComments(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).lastGenDate(lastGenDate).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).execute();
 
 
 
@@ -616,6 +616,7 @@ public class Example {
     Integer skipChildren = 56; // Integer | 
     Integer limit = 56; // Integer | 
     Integer limitChildren = 56; // Integer | 
+    BooleanQueryParam countChildren = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     Long lastGenDate = 56L; // Long | 
     String fetchPageForCommentId = "fetchPageForCommentId_example"; // String | 
     BooleanQueryParam includeConfig = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
@@ -642,6 +643,7 @@ public class Example {
             .skipChildren(skipChildren)
             .limit(limit)
             .limitChildren(limitChildren)
+            .countChildren(countChildren)
             .lastGenDate(lastGenDate)
             .fetchPageForCommentId(fetchPageForCommentId)
             .includeConfig(includeConfig)
@@ -685,6 +687,7 @@ public class Example {
 | **skipChildren** | **Integer**|  | [optional] |
 | **limit** | **Integer**|  | [optional] |
 | **limitChildren** | **Integer**|  | [optional] |
+| **countChildren** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
 | **lastGenDate** | **Long**|  | [optional] |
 | **fetchPageForCommentId** | **String**|  | [optional] |
 | **includeConfig** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
