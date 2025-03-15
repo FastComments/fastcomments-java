@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * RenderableUserNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:51:57.638293329-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:02:23.231864030-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class RenderableUserNotification {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)

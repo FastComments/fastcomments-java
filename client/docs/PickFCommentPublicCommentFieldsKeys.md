@@ -1,7 +1,8 @@
 
 
-# PublicComment
+# PickFCommentPublicCommentFieldsKeys
 
+From T, pick a set of properties whose keys are in the union K
 
 ## Properties
 
@@ -33,16 +34,6 @@
 |**isSpam** | **Boolean** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
-|**isUnread** | **Boolean** |  |  [optional] |
-|**myVoteId** | **String** |  |  [optional] |
-|**isVotedDown** | **Boolean** |  |  [optional] |
-|**isVotedUp** | **Boolean** |  |  [optional] |
-|**hasChildren** | **Boolean** | This is always set when asTree&#x3D;true |  [optional] |
-|**nestedChildrenCount** | **Integer** | The total nested child count included in this response (may be more available w/ pagination) Only set with asTree&#x3D;true, otherwise this will be null. |  [optional] |
-|**childCount** | **Integer** | You must ask the API to count children (with asTree&#x3D;true&amp;countChildren&#x3D;true), otherwise this will be null. This will be the complete direct child count, whereas children may only contain a subset based on pagination. |  [optional] |
-|**children** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  [optional] |
-|**isFlagged** | **Boolean** |  |  [optional] |
-|**isBlocked** | **Boolean** |  |  [optional] |
 
 
 

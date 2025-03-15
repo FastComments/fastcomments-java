@@ -50,10 +50,10 @@ import java.util.Set;
 import com.fastcomments.invoker.JSON;
 
 /**
- * PublicComment
+ * From T, pick a set of properties whose keys are in the union K
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:02:23.231864030-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class PublicComment {
+public class PickFCommentPublicCommentFieldsKeys {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -184,60 +184,10 @@ public class PublicComment {
   @javax.annotation.Nullable
   private List<String> feedbackIds = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_IS_UNREAD = "isUnread";
-  @SerializedName(SERIALIZED_NAME_IS_UNREAD)
-  @javax.annotation.Nullable
-  private Boolean isUnread;
-
-  public static final String SERIALIZED_NAME_MY_VOTE_ID = "myVoteId";
-  @SerializedName(SERIALIZED_NAME_MY_VOTE_ID)
-  @javax.annotation.Nullable
-  private String myVoteId;
-
-  public static final String SERIALIZED_NAME_IS_VOTED_DOWN = "isVotedDown";
-  @SerializedName(SERIALIZED_NAME_IS_VOTED_DOWN)
-  @javax.annotation.Nullable
-  private Boolean isVotedDown;
-
-  public static final String SERIALIZED_NAME_IS_VOTED_UP = "isVotedUp";
-  @SerializedName(SERIALIZED_NAME_IS_VOTED_UP)
-  @javax.annotation.Nullable
-  private Boolean isVotedUp;
-
-  public static final String SERIALIZED_NAME_HAS_CHILDREN = "hasChildren";
-  @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
-  @javax.annotation.Nullable
-  private Boolean hasChildren;
-
-  public static final String SERIALIZED_NAME_NESTED_CHILDREN_COUNT = "nestedChildrenCount";
-  @SerializedName(SERIALIZED_NAME_NESTED_CHILDREN_COUNT)
-  @javax.annotation.Nullable
-  private Integer nestedChildrenCount;
-
-  public static final String SERIALIZED_NAME_CHILD_COUNT = "childCount";
-  @SerializedName(SERIALIZED_NAME_CHILD_COUNT)
-  @javax.annotation.Nullable
-  private Integer childCount;
-
-  public static final String SERIALIZED_NAME_CHILDREN = "children";
-  @SerializedName(SERIALIZED_NAME_CHILDREN)
-  @javax.annotation.Nullable
-  private List<PublicComment> children = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_IS_FLAGGED = "isFlagged";
-  @SerializedName(SERIALIZED_NAME_IS_FLAGGED)
-  @javax.annotation.Nullable
-  private Boolean isFlagged;
-
-  public static final String SERIALIZED_NAME_IS_BLOCKED = "isBlocked";
-  @SerializedName(SERIALIZED_NAME_IS_BLOCKED)
-  @javax.annotation.Nullable
-  private Boolean isBlocked;
-
-  public PublicComment() {
+  public PickFCommentPublicCommentFieldsKeys() {
   }
 
-  public PublicComment id(@javax.annotation.Nonnull String id) {
+  public PickFCommentPublicCommentFieldsKeys id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
@@ -256,7 +206,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment commentHTML(@javax.annotation.Nonnull String commentHTML) {
+  public PickFCommentPublicCommentFieldsKeys commentHTML(@javax.annotation.Nonnull String commentHTML) {
     this.commentHTML = commentHTML;
     return this;
   }
@@ -275,7 +225,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment userId(@javax.annotation.Nullable String userId) {
+  public PickFCommentPublicCommentFieldsKeys userId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
     return this;
   }
@@ -294,7 +244,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment commenterName(@javax.annotation.Nonnull String commenterName) {
+  public PickFCommentPublicCommentFieldsKeys commenterName(@javax.annotation.Nonnull String commenterName) {
     this.commenterName = commenterName;
     return this;
   }
@@ -313,7 +263,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment commenterLink(@javax.annotation.Nullable String commenterLink) {
+  public PickFCommentPublicCommentFieldsKeys commenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
     return this;
   }
@@ -332,7 +282,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment parentId(@javax.annotation.Nullable String parentId) {
+  public PickFCommentPublicCommentFieldsKeys parentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -351,7 +301,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment date(@javax.annotation.Nonnull OffsetDateTime date) {
+  public PickFCommentPublicCommentFieldsKeys date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
   }
@@ -370,7 +320,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment votes(@javax.annotation.Nonnull Integer votes) {
+  public PickFCommentPublicCommentFieldsKeys votes(@javax.annotation.Nonnull Integer votes) {
     this.votes = votes;
     return this;
   }
@@ -389,7 +339,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment votesUp(@javax.annotation.Nonnull Integer votesUp) {
+  public PickFCommentPublicCommentFieldsKeys votesUp(@javax.annotation.Nonnull Integer votesUp) {
     this.votesUp = votesUp;
     return this;
   }
@@ -408,7 +358,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment votesDown(@javax.annotation.Nonnull Integer votesDown) {
+  public PickFCommentPublicCommentFieldsKeys votesDown(@javax.annotation.Nonnull Integer votesDown) {
     this.votesDown = votesDown;
     return this;
   }
@@ -427,7 +377,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment verified(@javax.annotation.Nonnull Boolean verified) {
+  public PickFCommentPublicCommentFieldsKeys verified(@javax.annotation.Nonnull Boolean verified) {
     this.verified = verified;
     return this;
   }
@@ -446,7 +396,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment avatarSrc(@javax.annotation.Nullable String avatarSrc) {
+  public PickFCommentPublicCommentFieldsKeys avatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
     return this;
   }
@@ -465,7 +415,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment hasImages(@javax.annotation.Nullable Boolean hasImages) {
+  public PickFCommentPublicCommentFieldsKeys hasImages(@javax.annotation.Nullable Boolean hasImages) {
     this.hasImages = hasImages;
     return this;
   }
@@ -484,7 +434,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment isByAdmin(@javax.annotation.Nullable Boolean isByAdmin) {
+  public PickFCommentPublicCommentFieldsKeys isByAdmin(@javax.annotation.Nullable Boolean isByAdmin) {
     this.isByAdmin = isByAdmin;
     return this;
   }
@@ -503,7 +453,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment isByModerator(@javax.annotation.Nullable Boolean isByModerator) {
+  public PickFCommentPublicCommentFieldsKeys isByModerator(@javax.annotation.Nullable Boolean isByModerator) {
     this.isByModerator = isByModerator;
     return this;
   }
@@ -522,7 +472,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment isPinned(@javax.annotation.Nullable Boolean isPinned) {
+  public PickFCommentPublicCommentFieldsKeys isPinned(@javax.annotation.Nullable Boolean isPinned) {
     this.isPinned = isPinned;
     return this;
   }
@@ -541,7 +491,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment isLocked(@javax.annotation.Nullable Boolean isLocked) {
+  public PickFCommentPublicCommentFieldsKeys isLocked(@javax.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
     return this;
   }
@@ -560,7 +510,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment displayLabel(@javax.annotation.Nullable String displayLabel) {
+  public PickFCommentPublicCommentFieldsKeys displayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
     return this;
   }
@@ -579,7 +529,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment rating(@javax.annotation.Nullable Double rating) {
+  public PickFCommentPublicCommentFieldsKeys rating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
     return this;
   }
@@ -598,12 +548,12 @@ public class PublicComment {
   }
 
 
-  public PublicComment badges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
+  public PickFCommentPublicCommentFieldsKeys badges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
     this.badges = badges;
     return this;
   }
 
-  public PublicComment addBadgesItem(CommentUserBadgeInfo badgesItem) {
+  public PickFCommentPublicCommentFieldsKeys addBadgesItem(CommentUserBadgeInfo badgesItem) {
     if (this.badges == null) {
       this.badges = new ArrayList<>();
     }
@@ -625,7 +575,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment viewCount(@javax.annotation.Nullable Double viewCount) {
+  public PickFCommentPublicCommentFieldsKeys viewCount(@javax.annotation.Nullable Double viewCount) {
     this.viewCount = viewCount;
     return this;
   }
@@ -644,7 +594,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public PickFCommentPublicCommentFieldsKeys isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -663,7 +613,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment isDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
+  public PickFCommentPublicCommentFieldsKeys isDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
     this.isDeletedUser = isDeletedUser;
     return this;
   }
@@ -682,7 +632,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment isSpam(@javax.annotation.Nullable Boolean isSpam) {
+  public PickFCommentPublicCommentFieldsKeys isSpam(@javax.annotation.Nullable Boolean isSpam) {
     this.isSpam = isSpam;
     return this;
   }
@@ -701,7 +651,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment anonUserId(@javax.annotation.Nullable String anonUserId) {
+  public PickFCommentPublicCommentFieldsKeys anonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
     return this;
   }
@@ -720,12 +670,12 @@ public class PublicComment {
   }
 
 
-  public PublicComment feedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
+  public PickFCommentPublicCommentFieldsKeys feedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
     return this;
   }
 
-  public PublicComment addFeedbackIdsItem(String feedbackIdsItem) {
+  public PickFCommentPublicCommentFieldsKeys addFeedbackIdsItem(String feedbackIdsItem) {
     if (this.feedbackIds == null) {
       this.feedbackIds = new ArrayList<>();
     }
@@ -747,204 +697,6 @@ public class PublicComment {
   }
 
 
-  public PublicComment isUnread(@javax.annotation.Nullable Boolean isUnread) {
-    this.isUnread = isUnread;
-    return this;
-  }
-
-  /**
-   * Get isUnread
-   * @return isUnread
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsUnread() {
-    return isUnread;
-  }
-
-  public void setIsUnread(@javax.annotation.Nullable Boolean isUnread) {
-    this.isUnread = isUnread;
-  }
-
-
-  public PublicComment myVoteId(@javax.annotation.Nullable String myVoteId) {
-    this.myVoteId = myVoteId;
-    return this;
-  }
-
-  /**
-   * Get myVoteId
-   * @return myVoteId
-   */
-  @javax.annotation.Nullable
-  public String getMyVoteId() {
-    return myVoteId;
-  }
-
-  public void setMyVoteId(@javax.annotation.Nullable String myVoteId) {
-    this.myVoteId = myVoteId;
-  }
-
-
-  public PublicComment isVotedDown(@javax.annotation.Nullable Boolean isVotedDown) {
-    this.isVotedDown = isVotedDown;
-    return this;
-  }
-
-  /**
-   * Get isVotedDown
-   * @return isVotedDown
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsVotedDown() {
-    return isVotedDown;
-  }
-
-  public void setIsVotedDown(@javax.annotation.Nullable Boolean isVotedDown) {
-    this.isVotedDown = isVotedDown;
-  }
-
-
-  public PublicComment isVotedUp(@javax.annotation.Nullable Boolean isVotedUp) {
-    this.isVotedUp = isVotedUp;
-    return this;
-  }
-
-  /**
-   * Get isVotedUp
-   * @return isVotedUp
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsVotedUp() {
-    return isVotedUp;
-  }
-
-  public void setIsVotedUp(@javax.annotation.Nullable Boolean isVotedUp) {
-    this.isVotedUp = isVotedUp;
-  }
-
-
-  public PublicComment hasChildren(@javax.annotation.Nullable Boolean hasChildren) {
-    this.hasChildren = hasChildren;
-    return this;
-  }
-
-  /**
-   * This is always set when asTree&#x3D;true
-   * @return hasChildren
-   */
-  @javax.annotation.Nullable
-  public Boolean getHasChildren() {
-    return hasChildren;
-  }
-
-  public void setHasChildren(@javax.annotation.Nullable Boolean hasChildren) {
-    this.hasChildren = hasChildren;
-  }
-
-
-  public PublicComment nestedChildrenCount(@javax.annotation.Nullable Integer nestedChildrenCount) {
-    this.nestedChildrenCount = nestedChildrenCount;
-    return this;
-  }
-
-  /**
-   * The total nested child count included in this response (may be more available w/ pagination) Only set with asTree&#x3D;true, otherwise this will be null.
-   * @return nestedChildrenCount
-   */
-  @javax.annotation.Nullable
-  public Integer getNestedChildrenCount() {
-    return nestedChildrenCount;
-  }
-
-  public void setNestedChildrenCount(@javax.annotation.Nullable Integer nestedChildrenCount) {
-    this.nestedChildrenCount = nestedChildrenCount;
-  }
-
-
-  public PublicComment childCount(@javax.annotation.Nullable Integer childCount) {
-    this.childCount = childCount;
-    return this;
-  }
-
-  /**
-   * You must ask the API to count children (with asTree&#x3D;true&amp;countChildren&#x3D;true), otherwise this will be null. This will be the complete direct child count, whereas children may only contain a subset based on pagination.
-   * @return childCount
-   */
-  @javax.annotation.Nullable
-  public Integer getChildCount() {
-    return childCount;
-  }
-
-  public void setChildCount(@javax.annotation.Nullable Integer childCount) {
-    this.childCount = childCount;
-  }
-
-
-  public PublicComment children(@javax.annotation.Nullable List<PublicComment> children) {
-    this.children = children;
-    return this;
-  }
-
-  public PublicComment addChildrenItem(PublicComment childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<>();
-    }
-    this.children.add(childrenItem);
-    return this;
-  }
-
-  /**
-   * Get children
-   * @return children
-   */
-  @javax.annotation.Nullable
-  public List<PublicComment> getChildren() {
-    return children;
-  }
-
-  public void setChildren(@javax.annotation.Nullable List<PublicComment> children) {
-    this.children = children;
-  }
-
-
-  public PublicComment isFlagged(@javax.annotation.Nullable Boolean isFlagged) {
-    this.isFlagged = isFlagged;
-    return this;
-  }
-
-  /**
-   * Get isFlagged
-   * @return isFlagged
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsFlagged() {
-    return isFlagged;
-  }
-
-  public void setIsFlagged(@javax.annotation.Nullable Boolean isFlagged) {
-    this.isFlagged = isFlagged;
-  }
-
-
-  public PublicComment isBlocked(@javax.annotation.Nullable Boolean isBlocked) {
-    this.isBlocked = isBlocked;
-    return this;
-  }
-
-  /**
-   * Get isBlocked
-   * @return isBlocked
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsBlocked() {
-    return isBlocked;
-  }
-
-  public void setIsBlocked(@javax.annotation.Nullable Boolean isBlocked) {
-    this.isBlocked = isBlocked;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -954,54 +706,44 @@ public class PublicComment {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PublicComment publicComment = (PublicComment) o;
-    return Objects.equals(this.id, publicComment.id) &&
-        Objects.equals(this.commentHTML, publicComment.commentHTML) &&
-        Objects.equals(this.userId, publicComment.userId) &&
-        Objects.equals(this.commenterName, publicComment.commenterName) &&
-        Objects.equals(this.commenterLink, publicComment.commenterLink) &&
-        Objects.equals(this.parentId, publicComment.parentId) &&
-        Objects.equals(this.date, publicComment.date) &&
-        Objects.equals(this.votes, publicComment.votes) &&
-        Objects.equals(this.votesUp, publicComment.votesUp) &&
-        Objects.equals(this.votesDown, publicComment.votesDown) &&
-        Objects.equals(this.verified, publicComment.verified) &&
-        Objects.equals(this.avatarSrc, publicComment.avatarSrc) &&
-        Objects.equals(this.hasImages, publicComment.hasImages) &&
-        Objects.equals(this.isByAdmin, publicComment.isByAdmin) &&
-        Objects.equals(this.isByModerator, publicComment.isByModerator) &&
-        Objects.equals(this.isPinned, publicComment.isPinned) &&
-        Objects.equals(this.isLocked, publicComment.isLocked) &&
-        Objects.equals(this.displayLabel, publicComment.displayLabel) &&
-        Objects.equals(this.rating, publicComment.rating) &&
-        Objects.equals(this.badges, publicComment.badges) &&
-        Objects.equals(this.viewCount, publicComment.viewCount) &&
-        Objects.equals(this.isDeleted, publicComment.isDeleted) &&
-        Objects.equals(this.isDeletedUser, publicComment.isDeletedUser) &&
-        Objects.equals(this.isSpam, publicComment.isSpam) &&
-        Objects.equals(this.anonUserId, publicComment.anonUserId) &&
-        Objects.equals(this.feedbackIds, publicComment.feedbackIds) &&
-        Objects.equals(this.isUnread, publicComment.isUnread) &&
-        Objects.equals(this.myVoteId, publicComment.myVoteId) &&
-        Objects.equals(this.isVotedDown, publicComment.isVotedDown) &&
-        Objects.equals(this.isVotedUp, publicComment.isVotedUp) &&
-        Objects.equals(this.hasChildren, publicComment.hasChildren) &&
-        Objects.equals(this.nestedChildrenCount, publicComment.nestedChildrenCount) &&
-        Objects.equals(this.childCount, publicComment.childCount) &&
-        Objects.equals(this.children, publicComment.children) &&
-        Objects.equals(this.isFlagged, publicComment.isFlagged) &&
-        Objects.equals(this.isBlocked, publicComment.isBlocked);
+    PickFCommentPublicCommentFieldsKeys pickFCommentPublicCommentFieldsKeys = (PickFCommentPublicCommentFieldsKeys) o;
+    return Objects.equals(this.id, pickFCommentPublicCommentFieldsKeys.id) &&
+        Objects.equals(this.commentHTML, pickFCommentPublicCommentFieldsKeys.commentHTML) &&
+        Objects.equals(this.userId, pickFCommentPublicCommentFieldsKeys.userId) &&
+        Objects.equals(this.commenterName, pickFCommentPublicCommentFieldsKeys.commenterName) &&
+        Objects.equals(this.commenterLink, pickFCommentPublicCommentFieldsKeys.commenterLink) &&
+        Objects.equals(this.parentId, pickFCommentPublicCommentFieldsKeys.parentId) &&
+        Objects.equals(this.date, pickFCommentPublicCommentFieldsKeys.date) &&
+        Objects.equals(this.votes, pickFCommentPublicCommentFieldsKeys.votes) &&
+        Objects.equals(this.votesUp, pickFCommentPublicCommentFieldsKeys.votesUp) &&
+        Objects.equals(this.votesDown, pickFCommentPublicCommentFieldsKeys.votesDown) &&
+        Objects.equals(this.verified, pickFCommentPublicCommentFieldsKeys.verified) &&
+        Objects.equals(this.avatarSrc, pickFCommentPublicCommentFieldsKeys.avatarSrc) &&
+        Objects.equals(this.hasImages, pickFCommentPublicCommentFieldsKeys.hasImages) &&
+        Objects.equals(this.isByAdmin, pickFCommentPublicCommentFieldsKeys.isByAdmin) &&
+        Objects.equals(this.isByModerator, pickFCommentPublicCommentFieldsKeys.isByModerator) &&
+        Objects.equals(this.isPinned, pickFCommentPublicCommentFieldsKeys.isPinned) &&
+        Objects.equals(this.isLocked, pickFCommentPublicCommentFieldsKeys.isLocked) &&
+        Objects.equals(this.displayLabel, pickFCommentPublicCommentFieldsKeys.displayLabel) &&
+        Objects.equals(this.rating, pickFCommentPublicCommentFieldsKeys.rating) &&
+        Objects.equals(this.badges, pickFCommentPublicCommentFieldsKeys.badges) &&
+        Objects.equals(this.viewCount, pickFCommentPublicCommentFieldsKeys.viewCount) &&
+        Objects.equals(this.isDeleted, pickFCommentPublicCommentFieldsKeys.isDeleted) &&
+        Objects.equals(this.isDeletedUser, pickFCommentPublicCommentFieldsKeys.isDeletedUser) &&
+        Objects.equals(this.isSpam, pickFCommentPublicCommentFieldsKeys.isSpam) &&
+        Objects.equals(this.anonUserId, pickFCommentPublicCommentFieldsKeys.anonUserId) &&
+        Objects.equals(this.feedbackIds, pickFCommentPublicCommentFieldsKeys.feedbackIds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, commentHTML, userId, commenterName, commenterLink, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
+    return Objects.hash(id, commentHTML, userId, commenterName, commenterLink, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PublicComment {\n");
+    sb.append("class PickFCommentPublicCommentFieldsKeys {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -1028,16 +770,6 @@ public class PublicComment {
     sb.append("    isSpam: ").append(toIndentedString(isSpam)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
-    sb.append("    isUnread: ").append(toIndentedString(isUnread)).append("\n");
-    sb.append("    myVoteId: ").append(toIndentedString(myVoteId)).append("\n");
-    sb.append("    isVotedDown: ").append(toIndentedString(isVotedDown)).append("\n");
-    sb.append("    isVotedUp: ").append(toIndentedString(isVotedUp)).append("\n");
-    sb.append("    hasChildren: ").append(toIndentedString(hasChildren)).append("\n");
-    sb.append("    nestedChildrenCount: ").append(toIndentedString(nestedChildrenCount)).append("\n");
-    sb.append("    childCount: ").append(toIndentedString(childCount)).append("\n");
-    sb.append("    children: ").append(toIndentedString(children)).append("\n");
-    sb.append("    isFlagged: ").append(toIndentedString(isFlagged)).append("\n");
-    sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1086,16 +818,6 @@ public class PublicComment {
     openapiFields.add("isSpam");
     openapiFields.add("anonUserId");
     openapiFields.add("feedbackIds");
-    openapiFields.add("isUnread");
-    openapiFields.add("myVoteId");
-    openapiFields.add("isVotedDown");
-    openapiFields.add("isVotedUp");
-    openapiFields.add("hasChildren");
-    openapiFields.add("nestedChildrenCount");
-    openapiFields.add("childCount");
-    openapiFields.add("children");
-    openapiFields.add("isFlagged");
-    openapiFields.add("isBlocked");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1113,25 +835,25 @@ public class PublicComment {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to PublicComment
+   * @throws IOException if the JSON Element is invalid with respect to PickFCommentPublicCommentFieldsKeys
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PublicComment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PublicComment is not found in the empty JSON string", PublicComment.openapiRequiredFields.toString()));
+        if (!PickFCommentPublicCommentFieldsKeys.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PickFCommentPublicCommentFieldsKeys is not found in the empty JSON string", PickFCommentPublicCommentFieldsKeys.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!PublicComment.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicComment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!PickFCommentPublicCommentFieldsKeys.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PickFCommentPublicCommentFieldsKeys` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PublicComment.openapiRequiredFields) {
+      for (String requiredField : PickFCommentPublicCommentFieldsKeys.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -1182,45 +904,28 @@ public class PublicComment {
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
       }
-      if ((jsonObj.get("myVoteId") != null && !jsonObj.get("myVoteId").isJsonNull()) && !jsonObj.get("myVoteId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `myVoteId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("myVoteId").toString()));
-      }
-      if (jsonObj.get("children") != null && !jsonObj.get("children").isJsonNull()) {
-        JsonArray jsonArraychildren = jsonObj.getAsJsonArray("children");
-        if (jsonArraychildren != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("children").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `children` to be an array in the JSON string but got `%s`", jsonObj.get("children").toString()));
-          }
-
-          // validate the optional field `children` (array)
-          for (int i = 0; i < jsonArraychildren.size(); i++) {
-            PublicComment.validateJsonElement(jsonArraychildren.get(i));
-          };
-        }
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PublicComment.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PublicComment' and its subtypes
+       if (!PickFCommentPublicCommentFieldsKeys.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PickFCommentPublicCommentFieldsKeys' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PublicComment> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PublicComment.class));
+       final TypeAdapter<PickFCommentPublicCommentFieldsKeys> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PickFCommentPublicCommentFieldsKeys.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PublicComment>() {
+       return (TypeAdapter<T>) new TypeAdapter<PickFCommentPublicCommentFieldsKeys>() {
            @Override
-           public void write(JsonWriter out, PublicComment value) throws IOException {
+           public void write(JsonWriter out, PickFCommentPublicCommentFieldsKeys value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public PublicComment read(JsonReader in) throws IOException {
+           public PickFCommentPublicCommentFieldsKeys read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -1231,18 +936,18 @@ public class PublicComment {
   }
 
   /**
-   * Create an instance of PublicComment given an JSON string
+   * Create an instance of PickFCommentPublicCommentFieldsKeys given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PublicComment
-   * @throws IOException if the JSON string is invalid with respect to PublicComment
+   * @return An instance of PickFCommentPublicCommentFieldsKeys
+   * @throws IOException if the JSON string is invalid with respect to PickFCommentPublicCommentFieldsKeys
    */
-  public static PublicComment fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PublicComment.class);
+  public static PickFCommentPublicCommentFieldsKeys fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PickFCommentPublicCommentFieldsKeys.class);
   }
 
   /**
-   * Convert an instance of PublicComment to an JSON string
+   * Convert an instance of PickFCommentPublicCommentFieldsKeys to an JSON string
    *
    * @return JSON string
    */

@@ -28,17 +28,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PublicComment
+ * Model tests for PickFCommentPublicCommentFieldsKeys
  */
-public class PublicCommentTest {
-    private final PublicComment model = new PublicComment();
+public class PickFCommentPublicCommentFieldsKeysTest {
+    private final PickFCommentPublicCommentFieldsKeys model = new PickFCommentPublicCommentFieldsKeys();
 
     /**
-     * Model tests for PublicComment
+     * Model tests for PickFCommentPublicCommentFieldsKeys
      */
     @Test
-    public void testPublicComment() {
-        // TODO: test PublicComment
+    public void testPickFCommentPublicCommentFieldsKeys() {
+        // TODO: test PickFCommentPublicCommentFieldsKeys
     }
 
     /**
@@ -247,86 +247,6 @@ public class PublicCommentTest {
     @Test
     public void feedbackIdsTest() {
         // TODO: test feedbackIds
-    }
-
-    /**
-     * Test the property 'isUnread'
-     */
-    @Test
-    public void isUnreadTest() {
-        // TODO: test isUnread
-    }
-
-    /**
-     * Test the property 'myVoteId'
-     */
-    @Test
-    public void myVoteIdTest() {
-        // TODO: test myVoteId
-    }
-
-    /**
-     * Test the property 'isVotedDown'
-     */
-    @Test
-    public void isVotedDownTest() {
-        // TODO: test isVotedDown
-    }
-
-    /**
-     * Test the property 'isVotedUp'
-     */
-    @Test
-    public void isVotedUpTest() {
-        // TODO: test isVotedUp
-    }
-
-    /**
-     * Test the property 'hasChildren'
-     */
-    @Test
-    public void hasChildrenTest() {
-        // TODO: test hasChildren
-    }
-
-    /**
-     * Test the property 'nestedChildrenCount'
-     */
-    @Test
-    public void nestedChildrenCountTest() {
-        // TODO: test nestedChildrenCount
-    }
-
-    /**
-     * Test the property 'childCount'
-     */
-    @Test
-    public void childCountTest() {
-        // TODO: test childCount
-    }
-
-    /**
-     * Test the property 'children'
-     */
-    @Test
-    public void childrenTest() {
-        // TODO: test children
-    }
-
-    /**
-     * Test the property 'isFlagged'
-     */
-    @Test
-    public void isFlaggedTest() {
-        // TODO: test isFlagged
-    }
-
-    /**
-     * Test the property 'isBlocked'
-     */
-    @Test
-    public void isBlockedTest() {
-        // TODO: test isBlocked
     }
 
 }

@@ -2224,22 +2224,78 @@ components:
           isBlocked:
             type: boolean
         type: object
-      - $ref: '#/components/schemas/PublicCommentMongo'
+      - $ref: '#/components/schemas/Pick_FComment.PublicCommentFieldsKeys_'
       example:
-        myVoteId: myVoteId
+        date: 2000-01-23T04:56:07.000+00:00
+        votesDown: 2
+        hasChildren: true
+        commenterName: commenterName
+        isBlocked: true
+        isByModerator: true
+        rating: 7.061401241503109
+        commenterLink: commenterLink
+        isVotedDown: true
+        commentHTML: commentHTML
+        isDeleted: true
         children:
         - null
         - null
-        hasChildren: true
-        isVotedUp: true
         nestedChildrenCount: 6
-        isBlocked: true
-        isVotedDown: true
+        isLocked: true
+        viewCount: 3.616076749251911
+        votesUp: 5
+        displayLabel: displayLabel
+        isPinned: true
+        isVotedUp: true
+        verified: true
+        feedbackIds:
+        - feedbackIds
+        - feedbackIds
+        anonUserId: anonUserId
         childCount: 1
+        userId: userId
         isUnread: true
+        parentId: parentId
         isFlagged: true
+        badges:
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 9.301444243932576
+          textColor: textColor
+          displaySrc: displaySrc
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 9.301444243932576
+          textColor: textColor
+          displaySrc: displaySrc
+        myVoteId: myVoteId
+        isDeletedUser: true
+        avatarSrc: avatarSrc
+        hasImages: true
+        votes: 5
+        _id: _id
+        isSpam: true
+        isByAdmin: true
     CommentUserBadgeInfo:
       additionalProperties: false
+      example:
+        displayLabel: displayLabel
+        backgroundColor: backgroundColor
+        borderColor: borderColor
+        cssClass: cssClass
+        description: description
+        id: id
+        type: 9.301444243932576
+        textColor: textColor
+        displaySrc: displaySrc
       properties:
         id:
           type: string
@@ -2271,24 +2327,14 @@ components:
       - textColor
       - type
       type: object
-    Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved__:
+    Pick_FComment.PublicCommentFieldsKeys_:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
         _id:
           type: string
-        url:
-          type: string
-        pageTitle:
-          type: string
         commentHTML:
           type: string
-        urlIdRaw:
-          type: string
         userId:
-          type: string
-        anonUserId:
-          type: string
-        commenterEmail:
           type: string
         commenterName:
           type: string
@@ -2299,11 +2345,6 @@ components:
         date:
           format: date-time
           type: string
-        localDateString:
-          type: string
-        localDateHours:
-          format: int32
-          type: integer
         votes:
           format: int32
           type: integer
@@ -2313,54 +2354,11 @@ components:
         votesDown:
           format: int32
           type: integer
-        expireAt:
-          format: date-time
-          type: string
         verified:
           type: boolean
-        verifiedDate:
-          format: date-time
-          type: string
-        verificationId:
-          type: string
-        notificationSentForParent:
-          type: boolean
-        notificationSentForParentTenant:
-          type: boolean
-        reviewed:
-          type: boolean
-        imported:
-          type: boolean
-        externalId:
-          type: string
-        externalParentId:
-          type: string
         avatarSrc:
           type: string
-        isSpam:
-          type: boolean
-        aiDeterminedSpam:
-          type: boolean
         hasImages:
-          type: boolean
-        pageNumber:
-          format: int32
-          type: integer
-        pageNumberOF:
-          format: int32
-          type: integer
-        pageNumberNF:
-          format: int32
-          type: integer
-        hasCode:
-          type: boolean
-        locale:
-          type: string
-        isDeleted:
-          type: boolean
-        isDeletedUser:
-          type: boolean
-        isBannedUser:
           type: boolean
         isByAdmin:
           type: boolean
@@ -2370,77 +2368,40 @@ components:
           type: boolean
         isLocked:
           type: boolean
-        flagCount:
-          format: int32
-          type: integer
+        displayLabel:
+          type: string
         rating:
           format: double
           type: number
-        displayLabel:
-          type: string
-        fromProductId:
-          format: int32
-          type: integer
-        meta:
-          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId_or_approved___meta'
-        ipHash:
-          type: string
-        mentions:
-          items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
-          type: array
-        hashTags:
-          items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
-          type: array
         badges:
           items:
             $ref: '#/components/schemas/CommentUserBadgeInfo'
           type: array
-        domain:
-          type: string
-        veteranBadgeProcessed:
-          type: string
-        moderationGroupIds:
-          items:
-            type: string
-          type: array
-        didProcessBadges:
+        viewCount:
+          format: double
+          type: number
+        isDeleted:
           type: boolean
-        fromOfflineRestore:
+        isDeletedUser:
           type: boolean
-        autoplayJobId:
+        isSpam:
+          type: boolean
+        anonUserId:
           type: string
-        autoplayDelayMS:
-          format: int64
-          type: integer
         feedbackIds:
           items:
             type: string
           type: array
-        groupIds:
-          items:
-            type: string
-          type: array
-        viewCount:
-          format: double
-          type: number
       required:
       - _id
       - commentHTML
       - commenterName
       - date
-      - locale
-      - url
       - verified
       - votes
       - votesDown
       - votesUp
       type: object
-    Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved_:
-      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved__'
-    PublicCommentMongo:
-      $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved_'
     UserSessionInfo:
       additionalProperties: false
       properties:
@@ -2577,7 +2538,7 @@ components:
       example:
         reason: reason
         code: code
-        pageNumber: 2
+        pageNumber: 7
         isProd: true
         urlIdClean: urlIdClean
         hasMore: true
@@ -2667,40 +2628,132 @@ components:
           wrap: true
         hasBillingIssue: true
         isCrawler: true
-        lastGenDate: 5
+        lastGenDate: 2
         comments:
-        - myVoteId: myVoteId
+        - date: 2000-01-23T04:56:07.000+00:00
+          votesDown: 2
+          hasChildren: true
+          commenterName: commenterName
+          isBlocked: true
+          isByModerator: true
+          rating: 7.061401241503109
+          commenterLink: commenterLink
+          isVotedDown: true
+          commentHTML: commentHTML
+          isDeleted: true
           children:
           - null
           - null
-          hasChildren: true
-          isVotedUp: true
           nestedChildrenCount: 6
-          isBlocked: true
-          isVotedDown: true
+          isLocked: true
+          viewCount: 3.616076749251911
+          votesUp: 5
+          displayLabel: displayLabel
+          isPinned: true
+          isVotedUp: true
+          verified: true
+          feedbackIds:
+          - feedbackIds
+          - feedbackIds
+          anonUserId: anonUserId
           childCount: 1
+          userId: userId
           isUnread: true
+          parentId: parentId
           isFlagged: true
-        - myVoteId: myVoteId
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9.301444243932576
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9.301444243932576
+            textColor: textColor
+            displaySrc: displaySrc
+          myVoteId: myVoteId
+          isDeletedUser: true
+          avatarSrc: avatarSrc
+          hasImages: true
+          votes: 5
+          _id: _id
+          isSpam: true
+          isByAdmin: true
+        - date: 2000-01-23T04:56:07.000+00:00
+          votesDown: 2
+          hasChildren: true
+          commenterName: commenterName
+          isBlocked: true
+          isByModerator: true
+          rating: 7.061401241503109
+          commenterLink: commenterLink
+          isVotedDown: true
+          commentHTML: commentHTML
+          isDeleted: true
           children:
           - null
           - null
-          hasChildren: true
-          isVotedUp: true
           nestedChildrenCount: 6
-          isBlocked: true
-          isVotedDown: true
+          isLocked: true
+          viewCount: 3.616076749251911
+          votesUp: 5
+          displayLabel: displayLabel
+          isPinned: true
+          isVotedUp: true
+          verified: true
+          feedbackIds:
+          - feedbackIds
+          - feedbackIds
+          anonUserId: anonUserId
           childCount: 1
+          userId: userId
           isUnread: true
+          parentId: parentId
           isFlagged: true
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9.301444243932576
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9.301444243932576
+            textColor: textColor
+            displaySrc: displaySrc
+          myVoteId: myVoteId
+          isDeletedUser: true
+          avatarSrc: avatarSrc
+          hasImages: true
+          votes: 5
+          _id: _id
+          isSpam: true
+          isByAdmin: true
         isCommentsHidden: true
-        notificationCount: 7
+        notificationCount: 1
         includesPastPages: true
         moduleData:
           key: ""
-        commentCount: 5
+        commentCount: 4
         isClosed: true
-        presencePollState: 9
+        presencePollState: 1
         userIdWS: userIdWS
         isSiteAdmin: true
         isWhiteLabeled: true
@@ -2738,18 +2791,64 @@ components:
         type: object
       example:
         comment:
-          myVoteId: myVoteId
+          date: 2000-01-23T04:56:07.000+00:00
+          votesDown: 2
+          hasChildren: true
+          commenterName: commenterName
+          isBlocked: true
+          isByModerator: true
+          rating: 7.061401241503109
+          commenterLink: commenterLink
+          isVotedDown: true
+          commentHTML: commentHTML
+          isDeleted: true
           children:
           - null
           - null
-          hasChildren: true
-          isVotedUp: true
           nestedChildrenCount: 6
-          isBlocked: true
-          isVotedDown: true
+          isLocked: true
+          viewCount: 3.616076749251911
+          votesUp: 5
+          displayLabel: displayLabel
+          isPinned: true
+          isVotedUp: true
+          verified: true
+          feedbackIds:
+          - feedbackIds
+          - feedbackIds
+          anonUserId: anonUserId
           childCount: 1
+          userId: userId
           isUnread: true
+          parentId: parentId
           isFlagged: true
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9.301444243932576
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9.301444243932576
+            textColor: textColor
+            displaySrc: displaySrc
+          myVoteId: myVoteId
+          isDeletedUser: true
+          avatarSrc: avatarSrc
+          hasImages: true
+          votes: 5
+          _id: _id
+          isSpam: true
+          isByAdmin: true
         userIdWS: null
         moduleData:
           key: ""
@@ -3440,14 +3539,6 @@ components:
       required:
       - comment
       - status
-      type: object
-    Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId_or_approved___meta:
-      additionalProperties: {}
-      properties:
-        wpUserId:
-          type: string
-        wpPostId:
-          type: string
       type: object
     Record_string_string_or_number__value:
       anyOf:

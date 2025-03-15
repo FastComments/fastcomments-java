@@ -137,9 +137,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.LockComment200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.NotificationAndCount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PickFCommentApprovedOrCommentHTML.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PickFCommentPublicCommentFieldsKeys.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PickUserNotificationIdOrUrlIdOrUrlOrPageTitleOrRelatedObjectTypeOrRelatedObjectIdOrViewedOrSentOrCreatedAtOrTypeOrFromCommentIdOrFromUserNameOrFromUserIdOrFromUserAvatarSrcOrOptedOut.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PinComment200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PublicAPIDeleteCommentResponse.CustomTypeAdapterFactory());
