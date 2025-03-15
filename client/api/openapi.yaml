@@ -2398,9 +2398,6 @@ components:
       - commenterName
       - date
       - verified
-      - votes
-      - votesDown
-      - votesUp
       type: object
     UserSessionInfo:
       additionalProperties: false

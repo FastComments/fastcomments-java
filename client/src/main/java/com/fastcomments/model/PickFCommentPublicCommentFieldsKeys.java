@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:02:23.231864030-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:09:23.339081741-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentPublicCommentFieldsKeys {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -91,17 +91,17 @@ public class PickFCommentPublicCommentFieldsKeys {
 
   public static final String SERIALIZED_NAME_VOTES = "votes";
   @SerializedName(SERIALIZED_NAME_VOTES)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Integer votes;
 
   public static final String SERIALIZED_NAME_VOTES_UP = "votesUp";
   @SerializedName(SERIALIZED_NAME_VOTES_UP)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Integer votesUp;
 
   public static final String SERIALIZED_NAME_VOTES_DOWN = "votesDown";
   @SerializedName(SERIALIZED_NAME_VOTES_DOWN)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Integer votesDown;
 
   public static final String SERIALIZED_NAME_VERIFIED = "verified";
@@ -320,7 +320,7 @@ public class PickFCommentPublicCommentFieldsKeys {
   }
 
 
-  public PickFCommentPublicCommentFieldsKeys votes(@javax.annotation.Nonnull Integer votes) {
+  public PickFCommentPublicCommentFieldsKeys votes(@javax.annotation.Nullable Integer votes) {
     this.votes = votes;
     return this;
   }
@@ -329,17 +329,17 @@ public class PickFCommentPublicCommentFieldsKeys {
    * Get votes
    * @return votes
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Integer getVotes() {
     return votes;
   }
 
-  public void setVotes(@javax.annotation.Nonnull Integer votes) {
+  public void setVotes(@javax.annotation.Nullable Integer votes) {
     this.votes = votes;
   }
 
 
-  public PickFCommentPublicCommentFieldsKeys votesUp(@javax.annotation.Nonnull Integer votesUp) {
+  public PickFCommentPublicCommentFieldsKeys votesUp(@javax.annotation.Nullable Integer votesUp) {
     this.votesUp = votesUp;
     return this;
   }
@@ -348,17 +348,17 @@ public class PickFCommentPublicCommentFieldsKeys {
    * Get votesUp
    * @return votesUp
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Integer getVotesUp() {
     return votesUp;
   }
 
-  public void setVotesUp(@javax.annotation.Nonnull Integer votesUp) {
+  public void setVotesUp(@javax.annotation.Nullable Integer votesUp) {
     this.votesUp = votesUp;
   }
 
 
-  public PickFCommentPublicCommentFieldsKeys votesDown(@javax.annotation.Nonnull Integer votesDown) {
+  public PickFCommentPublicCommentFieldsKeys votesDown(@javax.annotation.Nullable Integer votesDown) {
     this.votesDown = votesDown;
     return this;
   }
@@ -367,12 +367,12 @@ public class PickFCommentPublicCommentFieldsKeys {
    * Get votesDown
    * @return votesDown
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Integer getVotesDown() {
     return votesDown;
   }
 
-  public void setVotesDown(@javax.annotation.Nonnull Integer votesDown) {
+  public void setVotesDown(@javax.annotation.Nullable Integer votesDown) {
     this.votesDown = votesDown;
   }
 
@@ -825,9 +825,6 @@ public class PickFCommentPublicCommentFieldsKeys {
     openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("date");
-    openapiRequiredFields.add("votes");
-    openapiRequiredFields.add("votesUp");
-    openapiRequiredFields.add("votesDown");
     openapiRequiredFields.add("verified");
   }
 

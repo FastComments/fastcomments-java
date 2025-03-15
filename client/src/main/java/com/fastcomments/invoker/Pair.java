@@ -13,7 +13,7 @@
 
 package com.fastcomments.invoker;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:02:23.231864030-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:09:23.339081741-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class Pair {
     private String name = "";
     private String value = "";

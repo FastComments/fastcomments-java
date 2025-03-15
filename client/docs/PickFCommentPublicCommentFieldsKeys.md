@@ -15,9 +15,9 @@ From T, pick a set of properties whose keys are in the union K
 |**commenterLink** | **String** |  |  [optional] |
 |**parentId** | **String** |  |  [optional] |
 |**date** | **OffsetDateTime** |  |  |
-|**votes** | **Integer** |  |  |
-|**votesUp** | **Integer** |  |  |
-|**votesDown** | **Integer** |  |  |
+|**votes** | **Integer** |  |  [optional] |
+|**votesUp** | **Integer** |  |  [optional] |
+|**votesDown** | **Integer** |  |  [optional] |
 |**verified** | **Boolean** |  |  |
 |**avatarSrc** | **String** |  |  [optional] |
 |**hasImages** | **Boolean** |  |  [optional] |
