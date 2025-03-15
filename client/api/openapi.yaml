@@ -2201,7 +2201,14 @@ components:
           isVotedUp:
             type: boolean
           hasChildren:
+            description: This is always set when asTree=true
             type: boolean
+          childCount:
+            description: "You must ask the API to count children (with asTree=true&countChildren=true),\
+              \ otherwise this will be null. This will be the complete direct child\
+              \ count, whereas children may only contain a subset based on pagination."
+            format: int32
+            type: integer
           children:
             items:
               $ref: '#/components/schemas/PublicComment'
@@ -2221,6 +2228,7 @@ components:
         isVotedUp: true
         isBlocked: true
         isVotedDown: true
+        childCount: 6
         isUnread: true
         isFlagged: true
     CommentUserBadgeInfo:
@@ -2289,17 +2297,17 @@ components:
         localDateString:
           type: string
         localDateHours:
-          format: double
-          type: number
+          format: int32
+          type: integer
         votes:
-          format: double
-          type: number
+          format: int32
+          type: integer
         votesUp:
-          format: double
-          type: number
+          format: int32
+          type: integer
         votesDown:
-          format: double
-          type: number
+          format: int32
+          type: integer
         expireAt:
           format: date-time
           type: string
@@ -2331,14 +2339,14 @@ components:
         hasImages:
           type: boolean
         pageNumber:
-          format: double
-          type: number
+          format: int32
+          type: integer
         pageNumberOF:
-          format: double
-          type: number
+          format: int32
+          type: integer
         pageNumberNF:
-          format: double
-          type: number
+          format: int32
+          type: integer
         hasCode:
           type: boolean
         locale:
@@ -2358,16 +2366,16 @@ components:
         isLocked:
           type: boolean
         flagCount:
-          format: double
-          type: number
+          format: int32
+          type: integer
         rating:
           format: double
           type: number
         displayLabel:
           type: string
         fromProductId:
-          format: double
-          type: number
+          format: int32
+          type: integer
         meta:
           $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta'
         ipHash:
@@ -2399,8 +2407,8 @@ components:
         autoplayJobId:
           type: string
         autoplayDelayMS:
-          format: double
-          type: number
+          format: int64
+          type: integer
         feedbackIds:
           items:
             type: string
@@ -2517,8 +2525,8 @@ components:
           properties: {}
           type: object
         pageNumber:
-          format: double
-          type: number
+          format: int32
+          type: integer
         isWhiteLabeled:
           type: boolean
         isProd:
@@ -2528,15 +2536,15 @@ components:
           nullable: false
           type: boolean
         notificationCount:
-          format: double
-          type: number
+          format: int32
+          type: integer
         hasMore:
           type: boolean
         isClosed:
           type: boolean
         presencePollState:
-          format: double
-          type: number
+          format: int32
+          type: integer
         customConfig:
           $ref: '#/components/schemas/CustomConfigParameters'
       required:
@@ -2567,7 +2575,7 @@ components:
       example:
         reason: reason
         code: code
-        pageNumber: 5.962133916683182
+        pageNumber: 5
         isProd: true
         urlIdClean: urlIdClean
         hasMore: true
@@ -2657,7 +2665,7 @@ components:
           wrap: true
         hasBillingIssue: true
         isCrawler: true
-        lastGenDate: 6.027456183070403
+        lastGenDate: 1.4658129805029452
         comments:
         - myVoteId: myVoteId
           children:
@@ -2667,6 +2675,7 @@ components:
           isVotedUp: true
           isBlocked: true
           isVotedDown: true
+          childCount: 6
           isUnread: true
           isFlagged: true
         - myVoteId: myVoteId
@@ -2677,16 +2686,17 @@ components:
           isVotedUp: true
           isBlocked: true
           isVotedDown: true
+          childCount: 6
           isUnread: true
           isFlagged: true
         isCommentsHidden: true
-        notificationCount: 5.637376656633329
+        notificationCount: 2
         includesPastPages: true
         moduleData:
           key: ""
-        commentCount: 1.4658129805029452
+        commentCount: 5.962133916683182
         isClosed: true
-        presencePollState: 2.3021358869347655
+        presencePollState: 7
         userIdWS: userIdWS
         isSiteAdmin: true
         isWhiteLabeled: true
@@ -2732,6 +2742,7 @@ components:
           isVotedUp: true
           isBlocked: true
           isVotedDown: true
+          childCount: 6
           isUnread: true
           isFlagged: true
         userIdWS: null

@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponseWithPresencePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:07:52.302063809-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:15:59.035975264-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
@@ -135,7 +135,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_PAGE_NUMBER = "pageNumber";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
   @javax.annotation.Nonnull
-  private Double pageNumber;
+  private Integer pageNumber;
 
   public static final String SERIALIZED_NAME_IS_WHITE_LABELED = "isWhiteLabeled";
   @SerializedName(SERIALIZED_NAME_IS_WHITE_LABELED)
@@ -155,7 +155,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_NOTIFICATION_COUNT = "notificationCount";
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_COUNT)
   @javax.annotation.Nullable
-  private Double notificationCount;
+  private Integer notificationCount;
 
   public static final String SERIALIZED_NAME_HAS_MORE = "hasMore";
   @SerializedName(SERIALIZED_NAME_HAS_MORE)
@@ -170,7 +170,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_PRESENCE_POLL_STATE = "presencePollState";
   @SerializedName(SERIALIZED_NAME_PRESENCE_POLL_STATE)
   @javax.annotation.Nullable
-  private Double presencePollState;
+  private Integer presencePollState;
 
   public static final String SERIALIZED_NAME_CUSTOM_CONFIG = "customConfig";
   @SerializedName(SERIALIZED_NAME_CUSTOM_CONFIG)
@@ -496,7 +496,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   }
 
 
-  public GetCommentsResponseWithPresencePublicComment pageNumber(@javax.annotation.Nonnull Double pageNumber) {
+  public GetCommentsResponseWithPresencePublicComment pageNumber(@javax.annotation.Nonnull Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -506,11 +506,11 @@ public class GetCommentsResponseWithPresencePublicComment {
    * @return pageNumber
    */
   @javax.annotation.Nonnull
-  public Double getPageNumber() {
+  public Integer getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(@javax.annotation.Nonnull Double pageNumber) {
+  public void setPageNumber(@javax.annotation.Nonnull Integer pageNumber) {
     this.pageNumber = pageNumber;
   }
 
@@ -572,7 +572,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   }
 
 
-  public GetCommentsResponseWithPresencePublicComment notificationCount(@javax.annotation.Nullable Double notificationCount) {
+  public GetCommentsResponseWithPresencePublicComment notificationCount(@javax.annotation.Nullable Integer notificationCount) {
     this.notificationCount = notificationCount;
     return this;
   }
@@ -582,11 +582,11 @@ public class GetCommentsResponseWithPresencePublicComment {
    * @return notificationCount
    */
   @javax.annotation.Nullable
-  public Double getNotificationCount() {
+  public Integer getNotificationCount() {
     return notificationCount;
   }
 
-  public void setNotificationCount(@javax.annotation.Nullable Double notificationCount) {
+  public void setNotificationCount(@javax.annotation.Nullable Integer notificationCount) {
     this.notificationCount = notificationCount;
   }
 
@@ -629,7 +629,7 @@ public class GetCommentsResponseWithPresencePublicComment {
   }
 
 
-  public GetCommentsResponseWithPresencePublicComment presencePollState(@javax.annotation.Nullable Double presencePollState) {
+  public GetCommentsResponseWithPresencePublicComment presencePollState(@javax.annotation.Nullable Integer presencePollState) {
     this.presencePollState = presencePollState;
     return this;
   }
@@ -639,11 +639,11 @@ public class GetCommentsResponseWithPresencePublicComment {
    * @return presencePollState
    */
   @javax.annotation.Nullable
-  public Double getPresencePollState() {
+  public Integer getPresencePollState() {
     return presencePollState;
   }
 
-  public void setPresencePollState(@javax.annotation.Nullable Double presencePollState) {
+  public void setPresencePollState(@javax.annotation.Nullable Integer presencePollState) {
     this.presencePollState = presencePollState;
   }
 

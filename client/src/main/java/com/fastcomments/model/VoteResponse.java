@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * VoteResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:07:52.302063809-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:15:59.035975264-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class VoteResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)

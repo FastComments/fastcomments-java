@@ -21,10 +21,10 @@
 |**parentId** | **String** |  |  [optional] |
 |**date** | **OffsetDateTime** |  |  |
 |**localDateString** | **String** |  |  [optional] |
-|**localDateHours** | **Double** |  |  [optional] |
-|**votes** | **Double** |  |  |
-|**votesUp** | **Double** |  |  |
-|**votesDown** | **Double** |  |  |
+|**localDateHours** | **Integer** |  |  [optional] |
+|**votes** | **Integer** |  |  |
+|**votesUp** | **Integer** |  |  |
+|**votesDown** | **Integer** |  |  |
 |**expireAt** | **OffsetDateTime** |  |  [optional] |
 |**verified** | **Boolean** |  |  |
 |**verifiedDate** | **OffsetDateTime** |  |  [optional] |
@@ -39,9 +39,9 @@
 |**isSpam** | **Boolean** |  |  [optional] |
 |**aiDeterminedSpam** | **Boolean** |  |  [optional] |
 |**hasImages** | **Boolean** |  |  [optional] |
-|**pageNumber** | **Double** |  |  [optional] |
-|**pageNumberOF** | **Double** |  |  [optional] |
-|**pageNumberNF** | **Double** |  |  [optional] |
+|**pageNumber** | **Integer** |  |  [optional] |
+|**pageNumberOF** | **Integer** |  |  [optional] |
+|**pageNumberNF** | **Integer** |  |  [optional] |
 |**hasCode** | **Boolean** |  |  [optional] |
 |**locale** | **String** |  |  |
 |**isDeleted** | **Boolean** |  |  [optional] |
@@ -51,10 +51,10 @@
 |**isByModerator** | **Boolean** |  |  [optional] |
 |**isPinned** | **Boolean** |  |  [optional] |
 |**isLocked** | **Boolean** |  |  [optional] |
-|**flagCount** | **Double** |  |  [optional] |
+|**flagCount** | **Integer** |  |  [optional] |
 |**rating** | **Double** |  |  [optional] |
 |**displayLabel** | **String** |  |  [optional] |
-|**fromProductId** | **Double** |  |  [optional] |
+|**fromProductId** | **Integer** |  |  [optional] |
 |**meta** | **PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta** |  |  [optional] |
 |**ipHash** | **String** |  |  [optional] |
 |**mentions** | [**List&lt;CommentUserMentionInfo&gt;**](CommentUserMentionInfo.md) |  |  [optional] |
@@ -66,7 +66,7 @@
 |**didProcessBadges** | **Boolean** |  |  [optional] |
 |**fromOfflineRestore** | **Boolean** |  |  [optional] |
 |**autoplayJobId** | **String** |  |  [optional] |
-|**autoplayDelayMS** | **Double** |  |  [optional] |
+|**autoplayDelayMS** | **Long** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**viewCount** | **Double** |  |  [optional] |
@@ -74,7 +74,8 @@
 |**myVoteId** | **String** |  |  [optional] |
 |**isVotedDown** | **Boolean** |  |  [optional] |
 |**isVotedUp** | **Boolean** |  |  [optional] |
-|**hasChildren** | **Boolean** |  |  [optional] |
+|**hasChildren** | **Boolean** | This is always set when asTree&#x3D;true |  [optional] |
+|**childCount** | **Integer** | You must ask the API to count children (with asTree&#x3D;true&amp;countChildren&#x3D;true), otherwise this will be null. This will be the complete direct child count, whereas children may only contain a subset based on pagination. |  [optional] |
 |**children** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  [optional] |
 |**isFlagged** | **Boolean** |  |  [optional] |
 |**isBlocked** | **Boolean** |  |  [optional] |

@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * PublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:07:52.302063809-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:15:59.035975264-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PublicComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -130,22 +130,22 @@ public class PublicComment {
   public static final String SERIALIZED_NAME_LOCAL_DATE_HOURS = "localDateHours";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_HOURS)
   @javax.annotation.Nullable
-  private Double localDateHours;
+  private Integer localDateHours;
 
   public static final String SERIALIZED_NAME_VOTES = "votes";
   @SerializedName(SERIALIZED_NAME_VOTES)
   @javax.annotation.Nonnull
-  private Double votes;
+  private Integer votes;
 
   public static final String SERIALIZED_NAME_VOTES_UP = "votesUp";
   @SerializedName(SERIALIZED_NAME_VOTES_UP)
   @javax.annotation.Nonnull
-  private Double votesUp;
+  private Integer votesUp;
 
   public static final String SERIALIZED_NAME_VOTES_DOWN = "votesDown";
   @SerializedName(SERIALIZED_NAME_VOTES_DOWN)
   @javax.annotation.Nonnull
-  private Double votesDown;
+  private Integer votesDown;
 
   public static final String SERIALIZED_NAME_EXPIRE_AT = "expireAt";
   @SerializedName(SERIALIZED_NAME_EXPIRE_AT)
@@ -220,17 +220,17 @@ public class PublicComment {
   public static final String SERIALIZED_NAME_PAGE_NUMBER = "pageNumber";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
   @javax.annotation.Nullable
-  private Double pageNumber;
+  private Integer pageNumber;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER_O_F = "pageNumberOF";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER_O_F)
   @javax.annotation.Nullable
-  private Double pageNumberOF;
+  private Integer pageNumberOF;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER_N_F = "pageNumberNF";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER_N_F)
   @javax.annotation.Nullable
-  private Double pageNumberNF;
+  private Integer pageNumberNF;
 
   public static final String SERIALIZED_NAME_HAS_CODE = "hasCode";
   @SerializedName(SERIALIZED_NAME_HAS_CODE)
@@ -280,7 +280,7 @@ public class PublicComment {
   public static final String SERIALIZED_NAME_FLAG_COUNT = "flagCount";
   @SerializedName(SERIALIZED_NAME_FLAG_COUNT)
   @javax.annotation.Nullable
-  private Double flagCount;
+  private Integer flagCount;
 
   public static final String SERIALIZED_NAME_RATING = "rating";
   @SerializedName(SERIALIZED_NAME_RATING)
@@ -295,7 +295,7 @@ public class PublicComment {
   public static final String SERIALIZED_NAME_FROM_PRODUCT_ID = "fromProductId";
   @SerializedName(SERIALIZED_NAME_FROM_PRODUCT_ID)
   @javax.annotation.Nullable
-  private Double fromProductId;
+  private Integer fromProductId;
 
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
@@ -355,7 +355,7 @@ public class PublicComment {
   public static final String SERIALIZED_NAME_AUTOPLAY_DELAY_M_S = "autoplayDelayMS";
   @SerializedName(SERIALIZED_NAME_AUTOPLAY_DELAY_M_S)
   @javax.annotation.Nullable
-  private Double autoplayDelayMS;
+  private Long autoplayDelayMS;
 
   public static final String SERIALIZED_NAME_FEEDBACK_IDS = "feedbackIds";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
@@ -396,6 +396,11 @@ public class PublicComment {
   @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
   @javax.annotation.Nullable
   private Boolean hasChildren;
+
+  public static final String SERIALIZED_NAME_CHILD_COUNT = "childCount";
+  @SerializedName(SERIALIZED_NAME_CHILD_COUNT)
+  @javax.annotation.Nullable
+  private Integer childCount;
 
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
@@ -681,7 +686,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment localDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public PublicComment localDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
     return this;
   }
@@ -691,16 +696,16 @@ public class PublicComment {
    * @return localDateHours
    */
   @javax.annotation.Nullable
-  public Double getLocalDateHours() {
+  public Integer getLocalDateHours() {
     return localDateHours;
   }
 
-  public void setLocalDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public void setLocalDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
   }
 
 
-  public PublicComment votes(@javax.annotation.Nonnull Double votes) {
+  public PublicComment votes(@javax.annotation.Nonnull Integer votes) {
     this.votes = votes;
     return this;
   }
@@ -710,16 +715,16 @@ public class PublicComment {
    * @return votes
    */
   @javax.annotation.Nonnull
-  public Double getVotes() {
+  public Integer getVotes() {
     return votes;
   }
 
-  public void setVotes(@javax.annotation.Nonnull Double votes) {
+  public void setVotes(@javax.annotation.Nonnull Integer votes) {
     this.votes = votes;
   }
 
 
-  public PublicComment votesUp(@javax.annotation.Nonnull Double votesUp) {
+  public PublicComment votesUp(@javax.annotation.Nonnull Integer votesUp) {
     this.votesUp = votesUp;
     return this;
   }
@@ -729,16 +734,16 @@ public class PublicComment {
    * @return votesUp
    */
   @javax.annotation.Nonnull
-  public Double getVotesUp() {
+  public Integer getVotesUp() {
     return votesUp;
   }
 
-  public void setVotesUp(@javax.annotation.Nonnull Double votesUp) {
+  public void setVotesUp(@javax.annotation.Nonnull Integer votesUp) {
     this.votesUp = votesUp;
   }
 
 
-  public PublicComment votesDown(@javax.annotation.Nonnull Double votesDown) {
+  public PublicComment votesDown(@javax.annotation.Nonnull Integer votesDown) {
     this.votesDown = votesDown;
     return this;
   }
@@ -748,11 +753,11 @@ public class PublicComment {
    * @return votesDown
    */
   @javax.annotation.Nonnull
-  public Double getVotesDown() {
+  public Integer getVotesDown() {
     return votesDown;
   }
 
-  public void setVotesDown(@javax.annotation.Nonnull Double votesDown) {
+  public void setVotesDown(@javax.annotation.Nonnull Integer votesDown) {
     this.votesDown = votesDown;
   }
 
@@ -1023,7 +1028,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment pageNumber(@javax.annotation.Nullable Double pageNumber) {
+  public PublicComment pageNumber(@javax.annotation.Nullable Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -1033,16 +1038,16 @@ public class PublicComment {
    * @return pageNumber
    */
   @javax.annotation.Nullable
-  public Double getPageNumber() {
+  public Integer getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(@javax.annotation.Nullable Double pageNumber) {
+  public void setPageNumber(@javax.annotation.Nullable Integer pageNumber) {
     this.pageNumber = pageNumber;
   }
 
 
-  public PublicComment pageNumberOF(@javax.annotation.Nullable Double pageNumberOF) {
+  public PublicComment pageNumberOF(@javax.annotation.Nullable Integer pageNumberOF) {
     this.pageNumberOF = pageNumberOF;
     return this;
   }
@@ -1052,16 +1057,16 @@ public class PublicComment {
    * @return pageNumberOF
    */
   @javax.annotation.Nullable
-  public Double getPageNumberOF() {
+  public Integer getPageNumberOF() {
     return pageNumberOF;
   }
 
-  public void setPageNumberOF(@javax.annotation.Nullable Double pageNumberOF) {
+  public void setPageNumberOF(@javax.annotation.Nullable Integer pageNumberOF) {
     this.pageNumberOF = pageNumberOF;
   }
 
 
-  public PublicComment pageNumberNF(@javax.annotation.Nullable Double pageNumberNF) {
+  public PublicComment pageNumberNF(@javax.annotation.Nullable Integer pageNumberNF) {
     this.pageNumberNF = pageNumberNF;
     return this;
   }
@@ -1071,11 +1076,11 @@ public class PublicComment {
    * @return pageNumberNF
    */
   @javax.annotation.Nullable
-  public Double getPageNumberNF() {
+  public Integer getPageNumberNF() {
     return pageNumberNF;
   }
 
-  public void setPageNumberNF(@javax.annotation.Nullable Double pageNumberNF) {
+  public void setPageNumberNF(@javax.annotation.Nullable Integer pageNumberNF) {
     this.pageNumberNF = pageNumberNF;
   }
 
@@ -1251,7 +1256,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment flagCount(@javax.annotation.Nullable Double flagCount) {
+  public PublicComment flagCount(@javax.annotation.Nullable Integer flagCount) {
     this.flagCount = flagCount;
     return this;
   }
@@ -1261,11 +1266,11 @@ public class PublicComment {
    * @return flagCount
    */
   @javax.annotation.Nullable
-  public Double getFlagCount() {
+  public Integer getFlagCount() {
     return flagCount;
   }
 
-  public void setFlagCount(@javax.annotation.Nullable Double flagCount) {
+  public void setFlagCount(@javax.annotation.Nullable Integer flagCount) {
     this.flagCount = flagCount;
   }
 
@@ -1308,7 +1313,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment fromProductId(@javax.annotation.Nullable Double fromProductId) {
+  public PublicComment fromProductId(@javax.annotation.Nullable Integer fromProductId) {
     this.fromProductId = fromProductId;
     return this;
   }
@@ -1318,11 +1323,11 @@ public class PublicComment {
    * @return fromProductId
    */
   @javax.annotation.Nullable
-  public Double getFromProductId() {
+  public Integer getFromProductId() {
     return fromProductId;
   }
 
-  public void setFromProductId(@javax.annotation.Nullable Double fromProductId) {
+  public void setFromProductId(@javax.annotation.Nullable Integer fromProductId) {
     this.fromProductId = fromProductId;
   }
 
@@ -1568,7 +1573,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment autoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public PublicComment autoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
     return this;
   }
@@ -1578,11 +1583,11 @@ public class PublicComment {
    * @return autoplayDelayMS
    */
   @javax.annotation.Nullable
-  public Double getAutoplayDelayMS() {
+  public Long getAutoplayDelayMS() {
     return autoplayDelayMS;
   }
 
-  public void setAutoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public void setAutoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
   }
 
@@ -1742,7 +1747,7 @@ public class PublicComment {
   }
 
   /**
-   * Get hasChildren
+   * This is always set when asTree&#x3D;true
    * @return hasChildren
    */
   @javax.annotation.Nullable
@@ -1752,6 +1757,25 @@ public class PublicComment {
 
   public void setHasChildren(@javax.annotation.Nullable Boolean hasChildren) {
     this.hasChildren = hasChildren;
+  }
+
+
+  public PublicComment childCount(@javax.annotation.Nullable Integer childCount) {
+    this.childCount = childCount;
+    return this;
+  }
+
+  /**
+   * You must ask the API to count children (with asTree&#x3D;true&amp;countChildren&#x3D;true), otherwise this will be null. This will be the complete direct child count, whereas children may only contain a subset based on pagination.
+   * @return childCount
+   */
+  @javax.annotation.Nullable
+  public Integer getChildCount() {
+    return childCount;
+  }
+
+  public void setChildCount(@javax.annotation.Nullable Integer childCount) {
+    this.childCount = childCount;
   }
 
 
@@ -1898,6 +1922,7 @@ public class PublicComment {
         Objects.equals(this.isVotedDown, publicComment.isVotedDown) &&
         Objects.equals(this.isVotedUp, publicComment.isVotedUp) &&
         Objects.equals(this.hasChildren, publicComment.hasChildren) &&
+        Objects.equals(this.childCount, publicComment.childCount) &&
         Objects.equals(this.children, publicComment.children) &&
         Objects.equals(this.isFlagged, publicComment.isFlagged) &&
         Objects.equals(this.isBlocked, publicComment.isBlocked);
@@ -1905,7 +1930,7 @@ public class PublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url, pageTitle, approved, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, children, isFlagged, isBlocked);
+    return Objects.hash(id, url, pageTitle, approved, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, childCount, children, isFlagged, isBlocked);
   }
 
   @Override
@@ -1980,6 +2005,7 @@ public class PublicComment {
     sb.append("    isVotedDown: ").append(toIndentedString(isVotedDown)).append("\n");
     sb.append("    isVotedUp: ").append(toIndentedString(isVotedUp)).append("\n");
     sb.append("    hasChildren: ").append(toIndentedString(hasChildren)).append("\n");
+    sb.append("    childCount: ").append(toIndentedString(childCount)).append("\n");
     sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("    isFlagged: ").append(toIndentedString(isFlagged)).append("\n");
     sb.append("    isBlocked: ").append(toIndentedString(isBlocked)).append("\n");
@@ -2073,6 +2099,7 @@ public class PublicComment {
     openapiFields.add("isVotedDown");
     openapiFields.add("isVotedUp");
     openapiFields.add("hasChildren");
+    openapiFields.add("childCount");
     openapiFields.add("children");
     openapiFields.add("isFlagged");
     openapiFields.add("isBlocked");

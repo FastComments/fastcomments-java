@@ -589,6 +589,14 @@ public class PublicCommentTest {
     }
 
     /**
+     * Test the property 'childCount'
+     */
+    @Test
+    public void childCountTest() {
+        // TODO: test childCount
+    }
+
+    /**
      * Test the property 'children'
      */
     @Test

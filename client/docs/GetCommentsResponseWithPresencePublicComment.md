@@ -22,14 +22,14 @@
 |**hasBillingIssue** | **Boolean** |  |  [optional] |
 |**isCommentsHidden** | **Boolean** |  |  [optional] |
 |**moduleData** | **Map&lt;String, Object&gt;** | Construct a type with a set of properties K of type T |  [optional] |
-|**pageNumber** | **Double** |  |  |
+|**pageNumber** | **Integer** |  |  |
 |**isWhiteLabeled** | **Boolean** |  |  [optional] |
 |**isProd** | **Boolean** |  |  [optional] |
 |**isCrawler** | **Boolean** |  |  [optional] |
-|**notificationCount** | **Double** |  |  [optional] |
+|**notificationCount** | **Integer** |  |  [optional] |
 |**hasMore** | **Boolean** |  |  [optional] |
 |**isClosed** | **Boolean** |  |  [optional] |
-|**presencePollState** | **Double** |  |  [optional] |
+|**presencePollState** | **Integer** |  |  [optional] |
 |**customConfig** | [**CustomConfigParameters**](CustomConfigParameters.md) |  |  [optional] |
 |**urlIdWS** | **String** |  |  [optional] |
 |**userIdWS** | **String** |  |  [optional] |

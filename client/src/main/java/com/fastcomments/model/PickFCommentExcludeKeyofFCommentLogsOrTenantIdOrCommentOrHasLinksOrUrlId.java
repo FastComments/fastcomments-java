@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:07:52.302063809-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:15:59.035975264-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -130,22 +130,22 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   public static final String SERIALIZED_NAME_LOCAL_DATE_HOURS = "localDateHours";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_HOURS)
   @javax.annotation.Nullable
-  private Double localDateHours;
+  private Integer localDateHours;
 
   public static final String SERIALIZED_NAME_VOTES = "votes";
   @SerializedName(SERIALIZED_NAME_VOTES)
   @javax.annotation.Nonnull
-  private Double votes;
+  private Integer votes;
 
   public static final String SERIALIZED_NAME_VOTES_UP = "votesUp";
   @SerializedName(SERIALIZED_NAME_VOTES_UP)
   @javax.annotation.Nonnull
-  private Double votesUp;
+  private Integer votesUp;
 
   public static final String SERIALIZED_NAME_VOTES_DOWN = "votesDown";
   @SerializedName(SERIALIZED_NAME_VOTES_DOWN)
   @javax.annotation.Nonnull
-  private Double votesDown;
+  private Integer votesDown;
 
   public static final String SERIALIZED_NAME_EXPIRE_AT = "expireAt";
   @SerializedName(SERIALIZED_NAME_EXPIRE_AT)
@@ -220,17 +220,17 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   public static final String SERIALIZED_NAME_PAGE_NUMBER = "pageNumber";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
   @javax.annotation.Nullable
-  private Double pageNumber;
+  private Integer pageNumber;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER_O_F = "pageNumberOF";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER_O_F)
   @javax.annotation.Nullable
-  private Double pageNumberOF;
+  private Integer pageNumberOF;
 
   public static final String SERIALIZED_NAME_PAGE_NUMBER_N_F = "pageNumberNF";
   @SerializedName(SERIALIZED_NAME_PAGE_NUMBER_N_F)
   @javax.annotation.Nullable
-  private Double pageNumberNF;
+  private Integer pageNumberNF;
 
   public static final String SERIALIZED_NAME_HAS_CODE = "hasCode";
   @SerializedName(SERIALIZED_NAME_HAS_CODE)
@@ -280,7 +280,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   public static final String SERIALIZED_NAME_FLAG_COUNT = "flagCount";
   @SerializedName(SERIALIZED_NAME_FLAG_COUNT)
   @javax.annotation.Nullable
-  private Double flagCount;
+  private Integer flagCount;
 
   public static final String SERIALIZED_NAME_RATING = "rating";
   @SerializedName(SERIALIZED_NAME_RATING)
@@ -295,7 +295,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   public static final String SERIALIZED_NAME_FROM_PRODUCT_ID = "fromProductId";
   @SerializedName(SERIALIZED_NAME_FROM_PRODUCT_ID)
   @javax.annotation.Nullable
-  private Double fromProductId;
+  private Integer fromProductId;
 
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
@@ -355,7 +355,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   public static final String SERIALIZED_NAME_AUTOPLAY_DELAY_M_S = "autoplayDelayMS";
   @SerializedName(SERIALIZED_NAME_AUTOPLAY_DELAY_M_S)
   @javax.annotation.Nullable
-  private Double autoplayDelayMS;
+  private Long autoplayDelayMS;
 
   public static final String SERIALIZED_NAME_FEEDBACK_IDS = "feedbackIds";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
@@ -641,7 +641,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
     return this;
   }
@@ -651,16 +651,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return localDateHours
    */
   @javax.annotation.Nullable
-  public Double getLocalDateHours() {
+  public Integer getLocalDateHours() {
     return localDateHours;
   }
 
-  public void setLocalDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public void setLocalDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votes(@javax.annotation.Nonnull Double votes) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votes(@javax.annotation.Nonnull Integer votes) {
     this.votes = votes;
     return this;
   }
@@ -670,16 +670,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return votes
    */
   @javax.annotation.Nonnull
-  public Double getVotes() {
+  public Integer getVotes() {
     return votes;
   }
 
-  public void setVotes(@javax.annotation.Nonnull Double votes) {
+  public void setVotes(@javax.annotation.Nonnull Integer votes) {
     this.votes = votes;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesUp(@javax.annotation.Nonnull Double votesUp) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesUp(@javax.annotation.Nonnull Integer votesUp) {
     this.votesUp = votesUp;
     return this;
   }
@@ -689,16 +689,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return votesUp
    */
   @javax.annotation.Nonnull
-  public Double getVotesUp() {
+  public Integer getVotesUp() {
     return votesUp;
   }
 
-  public void setVotesUp(@javax.annotation.Nonnull Double votesUp) {
+  public void setVotesUp(@javax.annotation.Nonnull Integer votesUp) {
     this.votesUp = votesUp;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesDown(@javax.annotation.Nonnull Double votesDown) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesDown(@javax.annotation.Nonnull Integer votesDown) {
     this.votesDown = votesDown;
     return this;
   }
@@ -708,11 +708,11 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return votesDown
    */
   @javax.annotation.Nonnull
-  public Double getVotesDown() {
+  public Integer getVotesDown() {
     return votesDown;
   }
 
-  public void setVotesDown(@javax.annotation.Nonnull Double votesDown) {
+  public void setVotesDown(@javax.annotation.Nonnull Integer votesDown) {
     this.votesDown = votesDown;
   }
 
@@ -983,7 +983,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumber(@javax.annotation.Nullable Double pageNumber) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumber(@javax.annotation.Nullable Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -993,16 +993,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return pageNumber
    */
   @javax.annotation.Nullable
-  public Double getPageNumber() {
+  public Integer getPageNumber() {
     return pageNumber;
   }
 
-  public void setPageNumber(@javax.annotation.Nullable Double pageNumber) {
+  public void setPageNumber(@javax.annotation.Nullable Integer pageNumber) {
     this.pageNumber = pageNumber;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberOF(@javax.annotation.Nullable Double pageNumberOF) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberOF(@javax.annotation.Nullable Integer pageNumberOF) {
     this.pageNumberOF = pageNumberOF;
     return this;
   }
@@ -1012,16 +1012,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return pageNumberOF
    */
   @javax.annotation.Nullable
-  public Double getPageNumberOF() {
+  public Integer getPageNumberOF() {
     return pageNumberOF;
   }
 
-  public void setPageNumberOF(@javax.annotation.Nullable Double pageNumberOF) {
+  public void setPageNumberOF(@javax.annotation.Nullable Integer pageNumberOF) {
     this.pageNumberOF = pageNumberOF;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberNF(@javax.annotation.Nullable Double pageNumberNF) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberNF(@javax.annotation.Nullable Integer pageNumberNF) {
     this.pageNumberNF = pageNumberNF;
     return this;
   }
@@ -1031,11 +1031,11 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return pageNumberNF
    */
   @javax.annotation.Nullable
-  public Double getPageNumberNF() {
+  public Integer getPageNumberNF() {
     return pageNumberNF;
   }
 
-  public void setPageNumberNF(@javax.annotation.Nullable Double pageNumberNF) {
+  public void setPageNumberNF(@javax.annotation.Nullable Integer pageNumberNF) {
     this.pageNumberNF = pageNumberNF;
   }
 
@@ -1211,7 +1211,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId flagCount(@javax.annotation.Nullable Double flagCount) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId flagCount(@javax.annotation.Nullable Integer flagCount) {
     this.flagCount = flagCount;
     return this;
   }
@@ -1221,11 +1221,11 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return flagCount
    */
   @javax.annotation.Nullable
-  public Double getFlagCount() {
+  public Integer getFlagCount() {
     return flagCount;
   }
 
-  public void setFlagCount(@javax.annotation.Nullable Double flagCount) {
+  public void setFlagCount(@javax.annotation.Nullable Integer flagCount) {
     this.flagCount = flagCount;
   }
 
@@ -1268,7 +1268,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromProductId(@javax.annotation.Nullable Double fromProductId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromProductId(@javax.annotation.Nullable Integer fromProductId) {
     this.fromProductId = fromProductId;
     return this;
   }
@@ -1278,11 +1278,11 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return fromProductId
    */
   @javax.annotation.Nullable
-  public Double getFromProductId() {
+  public Integer getFromProductId() {
     return fromProductId;
   }
 
-  public void setFromProductId(@javax.annotation.Nullable Double fromProductId) {
+  public void setFromProductId(@javax.annotation.Nullable Integer fromProductId) {
     this.fromProductId = fromProductId;
   }
 
@@ -1528,7 +1528,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
     return this;
   }
@@ -1538,11 +1538,11 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return autoplayDelayMS
    */
   @javax.annotation.Nullable
-  public Double getAutoplayDelayMS() {
+  public Long getAutoplayDelayMS() {
     return autoplayDelayMS;
   }
 
-  public void setAutoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public void setAutoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
   }
 

@@ -22,10 +22,10 @@ From T, pick a set of properties whose keys are in the union K
 |**parentId** | **String** |  |  [optional] |
 |**date** | **OffsetDateTime** |  |  |
 |**localDateString** | **String** |  |  [optional] |
-|**localDateHours** | **Double** |  |  [optional] |
-|**votes** | **Double** |  |  |
-|**votesUp** | **Double** |  |  |
-|**votesDown** | **Double** |  |  |
+|**localDateHours** | **Integer** |  |  [optional] |
+|**votes** | **Integer** |  |  |
+|**votesUp** | **Integer** |  |  |
+|**votesDown** | **Integer** |  |  |
 |**expireAt** | **OffsetDateTime** |  |  [optional] |
 |**verified** | **Boolean** |  |  |
 |**verifiedDate** | **OffsetDateTime** |  |  [optional] |
@@ -40,9 +40,9 @@ From T, pick a set of properties whose keys are in the union K
 |**isSpam** | **Boolean** |  |  [optional] |
 |**aiDeterminedSpam** | **Boolean** |  |  [optional] |
 |**hasImages** | **Boolean** |  |  [optional] |
-|**pageNumber** | **Double** |  |  [optional] |
-|**pageNumberOF** | **Double** |  |  [optional] |
-|**pageNumberNF** | **Double** |  |  [optional] |
+|**pageNumber** | **Integer** |  |  [optional] |
+|**pageNumberOF** | **Integer** |  |  [optional] |
+|**pageNumberNF** | **Integer** |  |  [optional] |
 |**hasCode** | **Boolean** |  |  [optional] |
 |**locale** | **String** |  |  |
 |**isDeleted** | **Boolean** |  |  [optional] |
@@ -52,10 +52,10 @@ From T, pick a set of properties whose keys are in the union K
 |**isByModerator** | **Boolean** |  |  [optional] |
 |**isPinned** | **Boolean** |  |  [optional] |
 |**isLocked** | **Boolean** |  |  [optional] |
-|**flagCount** | **Double** |  |  [optional] |
+|**flagCount** | **Integer** |  |  [optional] |
 |**rating** | **Double** |  |  [optional] |
 |**displayLabel** | **String** |  |  [optional] |
-|**fromProductId** | **Double** |  |  [optional] |
+|**fromProductId** | **Integer** |  |  [optional] |
 |**meta** | **PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta** |  |  [optional] |
 |**ipHash** | **String** |  |  [optional] |
 |**mentions** | [**List&lt;CommentUserMentionInfo&gt;**](CommentUserMentionInfo.md) |  |  [optional] |
@@ -67,7 +67,7 @@ From T, pick a set of properties whose keys are in the union K
 |**didProcessBadges** | **Boolean** |  |  [optional] |
 |**fromOfflineRestore** | **Boolean** |  |  [optional] |
 |**autoplayJobId** | **String** |  |  [optional] |
-|**autoplayDelayMS** | **Double** |  |  [optional] |
+|**autoplayDelayMS** | **Long** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**viewCount** | **Double** |  |  [optional] |
