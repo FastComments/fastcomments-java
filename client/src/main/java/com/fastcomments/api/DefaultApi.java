@@ -73,23 +73,7 @@ public class DefaultApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for aggregate
-     * @param tenantId  (required)
-     * @param aggregationRequest  (required)
-     * @param parentTenantId  (optional)
-     * @param includeStats  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call aggregateCall(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateCall(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -162,79 +146,122 @@ public class DefaultApi {
 
     }
 
-    /**
-     * 
-     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
-     * @param tenantId  (required)
-     * @param aggregationRequest  (required)
-     * @param parentTenantId  (optional)
-     * @param includeStats  (optional)
-     * @return AggregationResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public AggregationResponse aggregate(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats) throws ApiException {
-        ApiResponse<AggregationResponse> localVarResp = aggregateWithHttpInfo(tenantId, aggregationRequest, parentTenantId, includeStats);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
-     * @param tenantId  (required)
-     * @param aggregationRequest  (required)
-     * @param parentTenantId  (optional)
-     * @param includeStats  (optional)
-     * @return ApiResponse&lt;AggregationResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<AggregationResponse> aggregateWithHttpInfo(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats) throws ApiException {
+    private ApiResponse<AggregationResponse> aggregateWithHttpInfo(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats) throws ApiException {
         okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, null);
         Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
-     * @param tenantId  (required)
-     * @param aggregationRequest  (required)
-     * @param parentTenantId  (optional)
-     * @param includeStats  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call aggregateAsync(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback<AggregationResponse> _callback) throws ApiException {
+    private okhttp3.Call aggregateAsync(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback<AggregationResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
         Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIaggregateRequest {
+        private final String tenantId;
+        private final AggregationRequest aggregationRequest;
+        private String parentTenantId;
+        private Boolean includeStats;
+
+        private APIaggregateRequest(String tenantId, AggregationRequest aggregationRequest) {
+            this.tenantId = tenantId;
+            this.aggregationRequest = aggregationRequest;
+        }
+
+        /**
+         * Set parentTenantId
+         * @param parentTenantId  (optional)
+         * @return APIaggregateRequest
+         */
+        public APIaggregateRequest parentTenantId(String parentTenantId) {
+            this.parentTenantId = parentTenantId;
+            return this;
+        }
+
+        /**
+         * Set includeStats
+         * @param includeStats  (optional)
+         * @return APIaggregateRequest
+         */
+        public APIaggregateRequest includeStats(Boolean includeStats) {
+            this.includeStats = includeStats;
+            return this;
+        }
+
+        /**
+         * Build call for aggregate
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return aggregateCall(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
+        }
+
+        /**
+         * Execute aggregate request
+         * @return AggregationResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public AggregationResponse execute() throws ApiException {
+            ApiResponse<AggregationResponse> localVarResp = aggregateWithHttpInfo(tenantId, aggregationRequest, parentTenantId, includeStats);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute aggregate request with HTTP info returned
+         * @return ApiResponse&lt;AggregationResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<AggregationResponse> executeWithHttpInfo() throws ApiException {
+            return aggregateWithHttpInfo(tenantId, aggregationRequest, parentTenantId, includeStats);
+        }
+
+        /**
+         * Execute aggregate request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AggregationResponse> _callback) throws ApiException {
+            return aggregateAsync(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
+        }
+    }
+
     /**
-     * Build call for commentsOptions
+     * 
+     * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
      * @param tenantId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param aggregationRequest  (required)
+     * @return APIaggregateRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -242,7 +269,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call commentsOptionsCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    public APIaggregateRequest aggregate(String tenantId, AggregationRequest aggregationRequest) {
+        return new APIaggregateRequest(tenantId, aggregationRequest);
+    }
+    private okhttp3.Call commentsOptionsCall(String tenantId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -298,50 +328,97 @@ public class DefaultApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public String commentsOptions(String tenantId) throws ApiException {
-        ApiResponse<String> localVarResp = commentsOptionsWithHttpInfo(tenantId);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<String> commentsOptionsWithHttpInfo(String tenantId) throws ApiException {
+    private ApiResponse<String> commentsOptionsWithHttpInfo(String tenantId) throws ApiException {
         okhttp3.Call localVarCall = commentsOptionsValidateBeforeCall(tenantId, null);
         Type localVarReturnType = new TypeToken<String>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call commentsOptionsAsync(String tenantId, final ApiCallback<String> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = commentsOptionsValidateBeforeCall(tenantId, _callback);
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcommentsOptionsRequest {
+        private final String tenantId;
+
+        private APIcommentsOptionsRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Build call for commentsOptions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return commentsOptionsCall(tenantId, _callback);
+        }
+
+        /**
+         * Execute commentsOptions request
+         * @return String
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public String execute() throws ApiException {
+            ApiResponse<String> localVarResp = commentsOptionsWithHttpInfo(tenantId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute commentsOptions request with HTTP info returned
+         * @return ApiResponse&lt;String&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<String> executeWithHttpInfo() throws ApiException {
+            return commentsOptionsWithHttpInfo(tenantId);
+        }
+
+        /**
+         * Execute commentsOptions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<String> _callback) throws ApiException {
+            return commentsOptionsAsync(tenantId, _callback);
+        }
+    }
+
     /**
-     *  (asynchronously)
+     * 
      * 
      * @param tenantId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIcommentsOptionsRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -349,11 +426,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call commentsOptionsAsync(String tenantId, final ApiCallback<String> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = commentsOptionsValidateBeforeCall(tenantId, _callback);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIcommentsOptionsRequest commentsOptions(String tenantId) {
+        return new APIcommentsOptionsRequest(tenantId);
     }
 }

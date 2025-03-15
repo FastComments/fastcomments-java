@@ -6,6 +6,7 @@ rm -rvf ./client/src \
         -i /tmp/fastcomments-openapi.json \
         -g java \
         -o ./client \
+        --additional-properties=useSingleRequestParameter=true \
         -c config.json
 
 # Change to the desired Gradle version

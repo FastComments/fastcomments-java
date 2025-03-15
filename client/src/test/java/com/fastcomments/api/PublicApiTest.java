@@ -63,7 +63,9 @@ public class PublicApiTest {
         String commentId = null;
         BlockFromCommentParams blockFromCommentParams = null;
         String sso = null;
-        BlockFromComment200Response response = api.blockFromComment(tenantId, commentId, blockFromCommentParams, sso);
+        BlockFromComment200Response response = api.blockFromComment(tenantId, commentId, blockFromCommentParams)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -75,7 +77,9 @@ public class PublicApiTest {
         String tenantId = null;
         String commentIds = null;
         String sso = null;
-        CheckedCommentsForBlocked200Response response = api.checkedCommentsForBlocked(tenantId, commentIds, sso);
+        CheckedCommentsForBlocked200Response response = api.checkedCommentsForBlocked(tenantId, commentIds)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -90,7 +94,10 @@ public class PublicApiTest {
         CommentData commentData = null;
         String sessionId = null;
         String sso = null;
-        CreateComment200Response response = api.createComment(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+        CreateComment200Response response = api.createComment(tenantId, urlId, broadcastId, commentData)
+                .sessionId(sessionId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -103,7 +110,9 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String editKey = null;
-        DeleteComment200Response response = api.deleteComment(tenantId, commentId, broadcastId, editKey);
+        DeleteComment200Response response = api.deleteComment(tenantId, commentId, broadcastId)
+                .editKey(editKey)
+                .execute();
         // TODO: test validations
     }
 
@@ -119,7 +128,10 @@ public class PublicApiTest {
         String broadcastId = null;
         String editKey = null;
         String sso = null;
-        DeleteCommentVote200Response response = api.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso);
+        DeleteCommentVote200Response response = api.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
+                .editKey(editKey)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -132,7 +144,9 @@ public class PublicApiTest {
         String commentId = null;
         BooleanQueryParam isFlagged = null;
         String sso = null;
-        FlagComment200Response response = api.flagComment(tenantId, commentId, isFlagged, sso);
+        FlagComment200Response response = api.flagComment(tenantId, commentId, isFlagged)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -145,7 +159,10 @@ public class PublicApiTest {
         String commentId = null;
         String editKey = null;
         String sso = null;
-        GetCommentText200Response response = api.getCommentText(tenantId, commentId, editKey, sso);
+        GetCommentText200Response response = api.getCommentText(tenantId, commentId)
+                .editKey(editKey)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -158,7 +175,9 @@ public class PublicApiTest {
         String commentId = null;
         Double direction = null;
         String sso = null;
-        GetCommentVoteUserNames200Response response = api.getCommentVoteUserNames(tenantId, commentId, direction, sso);
+        GetCommentVoteUserNames200Response response = api.getCommentVoteUserNames(tenantId, commentId, direction)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -195,7 +214,32 @@ public class PublicApiTest {
         List<String> hashTags = null;
         String userId = null;
         String customConfigStr = null;
-        GetComments200Response response = api.getComments(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+        GetComments200Response response = api.getComments(tenantId, urlId)
+                .page(page)
+                .direction(direction)
+                .sso(sso)
+                .skip(skip)
+                .skipChildren(skipChildren)
+                .limit(limit)
+                .limitChildren(limitChildren)
+                .lastGenDate(lastGenDate)
+                .fetchPageForCommentId(fetchPageForCommentId)
+                .includeConfig(includeConfig)
+                .countAll(countAll)
+                .includei10n(includei10n)
+                .locale(locale)
+                .modules(modules)
+                .isCrawler(isCrawler)
+                .includeNotificationCount(includeNotificationCount)
+                .asTree(asTree)
+                .maxTreeDepth(maxTreeDepth)
+                .useFullTranslationIds(useFullTranslationIds)
+                .parentId(parentId)
+                .searchText(searchText)
+                .hashTags(hashTags)
+                .userId(userId)
+                .customConfigStr(customConfigStr)
+                .execute();
         // TODO: test validations
     }
 
@@ -206,7 +250,9 @@ public class PublicApiTest {
     public void getUserNotificationCountTest() throws ApiException {
         String tenantId = null;
         String sso = null;
-        GetUserNotificationCount200Response response = api.getUserNotificationCount(tenantId, sso);
+        GetUserNotificationCount200Response response = api.getUserNotificationCount(tenantId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -225,7 +271,17 @@ public class PublicApiTest {
         BooleanQueryParam noDm = null;
         BooleanQueryParam includeTranslations = null;
         String sso = null;
-        GetUserNotifications200Response response = api.getUserNotifications(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso);
+        GetUserNotifications200Response response = api.getUserNotifications(tenantId)
+                .pageSize(pageSize)
+                .afterId(afterId)
+                .includeContext(includeContext)
+                .afterCreatedAt(afterCreatedAt)
+                .unreadOnly(unreadOnly)
+                .dmOnly(dmOnly)
+                .noDm(noDm)
+                .includeTranslations(includeTranslations)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -238,7 +294,9 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        LockComment200Response response = api.lockComment(tenantId, commentId, broadcastId, sso);
+        LockComment200Response response = api.lockComment(tenantId, commentId, broadcastId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -251,7 +309,9 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        PinComment200Response response = api.pinComment(tenantId, commentId, broadcastId, sso);
+        PinComment200Response response = api.pinComment(tenantId, commentId, broadcastId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -262,7 +322,9 @@ public class PublicApiTest {
     public void resetUserNotificationCountTest() throws ApiException {
         String tenantId = null;
         String sso = null;
-        ResetUserNotifications200Response response = api.resetUserNotificationCount(tenantId, sso);
+        ResetUserNotifications200Response response = api.resetUserNotificationCount(tenantId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -278,7 +340,14 @@ public class PublicApiTest {
         BooleanQueryParam dmOnly = null;
         BooleanQueryParam noDm = null;
         String sso = null;
-        ResetUserNotifications200Response response = api.resetUserNotifications(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso);
+        ResetUserNotifications200Response response = api.resetUserNotifications(tenantId)
+                .afterId(afterId)
+                .afterCreatedAt(afterCreatedAt)
+                .unreadOnly(unreadOnly)
+                .dmOnly(dmOnly)
+                .noDm(noDm)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -293,7 +362,9 @@ public class PublicApiTest {
         String editKey = null;
         CommentTextUpdateRequest commentTextUpdateRequest = null;
         String sso = null;
-        SetCommentText200Response response = api.setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso);
+        SetCommentText200Response response = api.setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -306,7 +377,9 @@ public class PublicApiTest {
         String commentId = null;
         BlockFromCommentParams blockFromCommentParams = null;
         String sso = null;
-        UnBlockComment200Response response = api.unBlockComment(tenantId, commentId, blockFromCommentParams, sso);
+        UnBlockComment200Response response = api.unBlockComment(tenantId, commentId, blockFromCommentParams)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -319,7 +392,9 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        LockComment200Response response = api.unLockComment(tenantId, commentId, broadcastId, sso);
+        LockComment200Response response = api.unLockComment(tenantId, commentId, broadcastId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -332,7 +407,9 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        PinComment200Response response = api.unPinComment(tenantId, commentId, broadcastId, sso);
+        PinComment200Response response = api.unPinComment(tenantId, commentId, broadcastId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -348,7 +425,9 @@ public class PublicApiTest {
         String optedInOrOut = null;
         String commentId = null;
         String sso = null;
-        UpdateUserNotificationStatus200Response response = api.updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId, sso);
+        UpdateUserNotificationStatus200Response response = api.updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -365,7 +444,9 @@ public class PublicApiTest {
         String pageTitle = null;
         String subscribedOrUnsubscribed = null;
         String sso = null;
-        UpdateUserNotificationStatus200Response response = api.updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso);
+        UpdateUserNotificationStatus200Response response = api.updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -378,7 +459,9 @@ public class PublicApiTest {
         String notificationId = null;
         String newStatus = null;
         String sso = null;
-        UpdateUserNotificationStatus200Response response = api.updateUserNotificationStatus(tenantId, notificationId, newStatus, sso);
+        UpdateUserNotificationStatus200Response response = api.updateUserNotificationStatus(tenantId, notificationId, newStatus)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 
@@ -394,7 +477,10 @@ public class PublicApiTest {
         VoteBodyParams voteBodyParams = null;
         String sessionId = null;
         String sso = null;
-        VoteComment200Response response = api.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso);
+        VoteComment200Response response = api.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
+                .sessionId(sessionId)
+                .sso(sso)
+                .execute();
         // TODO: test validations
     }
 

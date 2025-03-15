@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 <a id="aggregate"></a>
 # **aggregate**
-> AggregationResponse aggregate(tenantId, aggregationRequest, parentTenantId, includeStats)
+> AggregationResponse aggregate(tenantId, aggregationRequest).parentTenantId(parentTenantId).includeStats(includeStats).execute();
 
 
 
@@ -36,7 +36,10 @@ public class Example {
     String parentTenantId = "parentTenantId_example"; // String | 
     Boolean includeStats = true; // Boolean | 
     try {
-      AggregationResponse result = apiInstance.aggregate(tenantId, aggregationRequest, parentTenantId, includeStats);
+      AggregationResponse result = apiInstance.aggregate(tenantId, aggregationRequest)
+            .parentTenantId(parentTenantId)
+            .includeStats(includeStats)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#aggregate");
@@ -78,7 +81,7 @@ No authorization required
 
 <a id="commentsOptions"></a>
 # **commentsOptions**
-> String commentsOptions(tenantId)
+> String commentsOptions(tenantId).execute();
 
 
 
@@ -99,7 +102,8 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     try {
-      String result = apiInstance.commentsOptions(tenantId);
+      String result = apiInstance.commentsOptions(tenantId)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#commentsOptions");

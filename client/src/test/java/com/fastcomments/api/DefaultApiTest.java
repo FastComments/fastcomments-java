@@ -43,7 +43,10 @@ public class DefaultApiTest {
         AggregationRequest aggregationRequest = null;
         String parentTenantId = null;
         Boolean includeStats = null;
-        AggregationResponse response = api.aggregate(tenantId, aggregationRequest, parentTenantId, includeStats);
+        AggregationResponse response = api.aggregate(tenantId, aggregationRequest)
+                .parentTenantId(parentTenantId)
+                .includeStats(includeStats)
+                .execute();
         // TODO: test validations
     }
 
@@ -53,7 +56,8 @@ public class DefaultApiTest {
     @Test
     public void commentsOptionsTest() throws ApiException {
         String tenantId = null;
-        String response = api.commentsOptions(tenantId);
+        String response = api.commentsOptions(tenantId)
+                .execute();
         // TODO: test validations
     }
 

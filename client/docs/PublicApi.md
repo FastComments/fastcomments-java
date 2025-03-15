@@ -31,7 +31,7 @@ All URIs are relative to *http://localhost*
 
 <a id="blockFromComment"></a>
 # **blockFromComment**
-> BlockFromComment200Response blockFromComment(tenantId, commentId, blockFromCommentParams, sso)
+> BlockFromComment200Response blockFromComment(tenantId, commentId, blockFromCommentParams).sso(sso).execute();
 
 
 
@@ -55,7 +55,9 @@ public class Example {
     BlockFromCommentParams blockFromCommentParams = new BlockFromCommentParams(); // BlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      BlockFromComment200Response result = apiInstance.blockFromComment(tenantId, commentId, blockFromCommentParams, sso);
+      BlockFromComment200Response result = apiInstance.blockFromComment(tenantId, commentId, blockFromCommentParams)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#blockFromComment");
@@ -97,7 +99,7 @@ No authorization required
 
 <a id="checkedCommentsForBlocked"></a>
 # **checkedCommentsForBlocked**
-> CheckedCommentsForBlocked200Response checkedCommentsForBlocked(tenantId, commentIds, sso)
+> CheckedCommentsForBlocked200Response checkedCommentsForBlocked(tenantId, commentIds).sso(sso).execute();
 
 
 
@@ -120,7 +122,9 @@ public class Example {
     String commentIds = "commentIds_example"; // String | A comma separated list of comment ids.
     String sso = "sso_example"; // String | 
     try {
-      CheckedCommentsForBlocked200Response result = apiInstance.checkedCommentsForBlocked(tenantId, commentIds, sso);
+      CheckedCommentsForBlocked200Response result = apiInstance.checkedCommentsForBlocked(tenantId, commentIds)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#checkedCommentsForBlocked");
@@ -161,7 +165,7 @@ No authorization required
 
 <a id="createComment"></a>
 # **createComment**
-> CreateComment200Response createComment(tenantId, urlId, broadcastId, commentData, sessionId, sso)
+> CreateComment200Response createComment(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
 
 
 
@@ -187,7 +191,10 @@ public class Example {
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      CreateComment200Response result = apiInstance.createComment(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+      CreateComment200Response result = apiInstance.createComment(tenantId, urlId, broadcastId, commentData)
+            .sessionId(sessionId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#createComment");
@@ -231,7 +238,7 @@ No authorization required
 
 <a id="deleteComment"></a>
 # **deleteComment**
-> DeleteComment200Response deleteComment(tenantId, commentId, broadcastId, editKey)
+> DeleteComment200Response deleteComment(tenantId, commentId, broadcastId).editKey(editKey).execute();
 
 
 
@@ -255,7 +262,9 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String editKey = "editKey_example"; // String | 
     try {
-      DeleteComment200Response result = apiInstance.deleteComment(tenantId, commentId, broadcastId, editKey);
+      DeleteComment200Response result = apiInstance.deleteComment(tenantId, commentId, broadcastId)
+            .editKey(editKey)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#deleteComment");
@@ -297,7 +306,7 @@ No authorization required
 
 <a id="deleteCommentVote"></a>
 # **deleteCommentVote**
-> DeleteCommentVote200Response deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso)
+> DeleteCommentVote200Response deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -324,7 +333,10 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      DeleteCommentVote200Response result = apiInstance.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso);
+      DeleteCommentVote200Response result = apiInstance.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
+            .editKey(editKey)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#deleteCommentVote");
@@ -369,7 +381,7 @@ No authorization required
 
 <a id="flagComment"></a>
 # **flagComment**
-> FlagComment200Response flagComment(tenantId, commentId, isFlagged, sso)
+> FlagComment200Response flagComment(tenantId, commentId, isFlagged).sso(sso).execute();
 
 
 
@@ -393,7 +405,9 @@ public class Example {
     BooleanQueryParam isFlagged = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     String sso = "sso_example"; // String | 
     try {
-      FlagComment200Response result = apiInstance.flagComment(tenantId, commentId, isFlagged, sso);
+      FlagComment200Response result = apiInstance.flagComment(tenantId, commentId, isFlagged)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#flagComment");
@@ -435,7 +449,7 @@ No authorization required
 
 <a id="getCommentText"></a>
 # **getCommentText**
-> GetCommentText200Response getCommentText(tenantId, commentId, editKey, sso)
+> GetCommentText200Response getCommentText(tenantId, commentId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -459,7 +473,10 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentText200Response result = apiInstance.getCommentText(tenantId, commentId, editKey, sso);
+      GetCommentText200Response result = apiInstance.getCommentText(tenantId, commentId)
+            .editKey(editKey)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#getCommentText");
@@ -501,7 +518,7 @@ No authorization required
 
 <a id="getCommentVoteUserNames"></a>
 # **getCommentVoteUserNames**
-> GetCommentVoteUserNames200Response getCommentVoteUserNames(tenantId, commentId, direction, sso)
+> GetCommentVoteUserNames200Response getCommentVoteUserNames(tenantId, commentId, direction).sso(sso).execute();
 
 
 
@@ -525,7 +542,9 @@ public class Example {
     Double direction = 3.4D; // Double | Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted.
     String sso = "sso_example"; // String | 
     try {
-      GetCommentVoteUserNames200Response result = apiInstance.getCommentVoteUserNames(tenantId, commentId, direction, sso);
+      GetCommentVoteUserNames200Response result = apiInstance.getCommentVoteUserNames(tenantId, commentId, direction)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#getCommentVoteUserNames");
@@ -567,7 +586,7 @@ No authorization required
 
 <a id="getComments"></a>
 # **getComments**
-> GetComments200Response getComments(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr)
+> GetComments200Response getComments(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).lastGenDate(lastGenDate).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).execute();
 
 
 
@@ -615,7 +634,32 @@ public class Example {
     String userId = "userId_example"; // String | 
     String customConfigStr = "customConfigStr_example"; // String | 
     try {
-      GetComments200Response result = apiInstance.getComments(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+      GetComments200Response result = apiInstance.getComments(tenantId, urlId)
+            .page(page)
+            .direction(direction)
+            .sso(sso)
+            .skip(skip)
+            .skipChildren(skipChildren)
+            .limit(limit)
+            .limitChildren(limitChildren)
+            .lastGenDate(lastGenDate)
+            .fetchPageForCommentId(fetchPageForCommentId)
+            .includeConfig(includeConfig)
+            .countAll(countAll)
+            .includei10n(includei10n)
+            .locale(locale)
+            .modules(modules)
+            .isCrawler(isCrawler)
+            .includeNotificationCount(includeNotificationCount)
+            .asTree(asTree)
+            .maxTreeDepth(maxTreeDepth)
+            .useFullTranslationIds(useFullTranslationIds)
+            .parentId(parentId)
+            .searchText(searchText)
+            .hashTags(hashTags)
+            .userId(userId)
+            .customConfigStr(customConfigStr)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#getComments");
@@ -679,7 +723,7 @@ No authorization required
 
 <a id="getUserNotificationCount"></a>
 # **getUserNotificationCount**
-> GetUserNotificationCount200Response getUserNotificationCount(tenantId, sso)
+> GetUserNotificationCount200Response getUserNotificationCount(tenantId).sso(sso).execute();
 
 
 
@@ -701,7 +745,9 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserNotificationCount200Response result = apiInstance.getUserNotificationCount(tenantId, sso);
+      GetUserNotificationCount200Response result = apiInstance.getUserNotificationCount(tenantId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#getUserNotificationCount");
@@ -741,7 +787,7 @@ No authorization required
 
 <a id="getUserNotifications"></a>
 # **getUserNotifications**
-> GetUserNotifications200Response getUserNotifications(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso)
+> GetUserNotifications200Response getUserNotifications(tenantId).pageSize(pageSize).afterId(afterId).includeContext(includeContext).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).includeTranslations(includeTranslations).sso(sso).execute();
 
 
 
@@ -771,7 +817,17 @@ public class Example {
     BooleanQueryParam includeTranslations = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserNotifications200Response result = apiInstance.getUserNotifications(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso);
+      GetUserNotifications200Response result = apiInstance.getUserNotifications(tenantId)
+            .pageSize(pageSize)
+            .afterId(afterId)
+            .includeContext(includeContext)
+            .afterCreatedAt(afterCreatedAt)
+            .unreadOnly(unreadOnly)
+            .dmOnly(dmOnly)
+            .noDm(noDm)
+            .includeTranslations(includeTranslations)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#getUserNotifications");
@@ -819,7 +875,7 @@ No authorization required
 
 <a id="lockComment"></a>
 # **lockComment**
-> LockComment200Response lockComment(tenantId, commentId, broadcastId, sso)
+> LockComment200Response lockComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -843,7 +899,9 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      LockComment200Response result = apiInstance.lockComment(tenantId, commentId, broadcastId, sso);
+      LockComment200Response result = apiInstance.lockComment(tenantId, commentId, broadcastId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#lockComment");
@@ -885,7 +943,7 @@ No authorization required
 
 <a id="pinComment"></a>
 # **pinComment**
-> PinComment200Response pinComment(tenantId, commentId, broadcastId, sso)
+> PinComment200Response pinComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -909,7 +967,9 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PinComment200Response result = apiInstance.pinComment(tenantId, commentId, broadcastId, sso);
+      PinComment200Response result = apiInstance.pinComment(tenantId, commentId, broadcastId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#pinComment");
@@ -951,7 +1011,7 @@ No authorization required
 
 <a id="resetUserNotificationCount"></a>
 # **resetUserNotificationCount**
-> ResetUserNotifications200Response resetUserNotificationCount(tenantId, sso)
+> ResetUserNotifications200Response resetUserNotificationCount(tenantId).sso(sso).execute();
 
 
 
@@ -973,7 +1033,9 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ResetUserNotifications200Response result = apiInstance.resetUserNotificationCount(tenantId, sso);
+      ResetUserNotifications200Response result = apiInstance.resetUserNotificationCount(tenantId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#resetUserNotificationCount");
@@ -1013,7 +1075,7 @@ No authorization required
 
 <a id="resetUserNotifications"></a>
 # **resetUserNotifications**
-> ResetUserNotifications200Response resetUserNotifications(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso)
+> ResetUserNotifications200Response resetUserNotifications(tenantId).afterId(afterId).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).sso(sso).execute();
 
 
 
@@ -1040,7 +1102,14 @@ public class Example {
     BooleanQueryParam noDm = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
     String sso = "sso_example"; // String | 
     try {
-      ResetUserNotifications200Response result = apiInstance.resetUserNotifications(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso);
+      ResetUserNotifications200Response result = apiInstance.resetUserNotifications(tenantId)
+            .afterId(afterId)
+            .afterCreatedAt(afterCreatedAt)
+            .unreadOnly(unreadOnly)
+            .dmOnly(dmOnly)
+            .noDm(noDm)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#resetUserNotifications");
@@ -1085,7 +1154,7 @@ No authorization required
 
 <a id="setCommentText"></a>
 # **setCommentText**
-> SetCommentText200Response setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso)
+> SetCommentText200Response setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest).sso(sso).execute();
 
 
 
@@ -1111,7 +1180,9 @@ public class Example {
     CommentTextUpdateRequest commentTextUpdateRequest = new CommentTextUpdateRequest(); // CommentTextUpdateRequest | 
     String sso = "sso_example"; // String | 
     try {
-      SetCommentText200Response result = apiInstance.setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso);
+      SetCommentText200Response result = apiInstance.setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#setCommentText");
@@ -1155,7 +1226,7 @@ No authorization required
 
 <a id="unBlockComment"></a>
 # **unBlockComment**
-> UnBlockComment200Response unBlockComment(tenantId, commentId, blockFromCommentParams, sso)
+> UnBlockComment200Response unBlockComment(tenantId, commentId, blockFromCommentParams).sso(sso).execute();
 
 
 
@@ -1179,7 +1250,9 @@ public class Example {
     BlockFromCommentParams blockFromCommentParams = new BlockFromCommentParams(); // BlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      UnBlockComment200Response result = apiInstance.unBlockComment(tenantId, commentId, blockFromCommentParams, sso);
+      UnBlockComment200Response result = apiInstance.unBlockComment(tenantId, commentId, blockFromCommentParams)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#unBlockComment");
@@ -1221,7 +1294,7 @@ No authorization required
 
 <a id="unLockComment"></a>
 # **unLockComment**
-> LockComment200Response unLockComment(tenantId, commentId, broadcastId, sso)
+> LockComment200Response unLockComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -1245,7 +1318,9 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      LockComment200Response result = apiInstance.unLockComment(tenantId, commentId, broadcastId, sso);
+      LockComment200Response result = apiInstance.unLockComment(tenantId, commentId, broadcastId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#unLockComment");
@@ -1287,7 +1362,7 @@ No authorization required
 
 <a id="unPinComment"></a>
 # **unPinComment**
-> PinComment200Response unPinComment(tenantId, commentId, broadcastId, sso)
+> PinComment200Response unPinComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -1311,7 +1386,9 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PinComment200Response result = apiInstance.unPinComment(tenantId, commentId, broadcastId, sso);
+      PinComment200Response result = apiInstance.unPinComment(tenantId, commentId, broadcastId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#unPinComment");
@@ -1353,7 +1430,7 @@ No authorization required
 
 <a id="updateUserNotificationCommentSubscriptionStatus"></a>
 # **updateUserNotificationCommentSubscriptionStatus**
-> UpdateUserNotificationStatus200Response updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId, sso)
+> UpdateUserNotificationStatus200Response updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId).sso(sso).execute();
 
 
 
@@ -1380,7 +1457,9 @@ public class Example {
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId, sso);
+      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#updateUserNotificationCommentSubscriptionStatus");
@@ -1423,7 +1502,7 @@ No authorization required
 
 <a id="updateUserNotificationPageSubscriptionStatus"></a>
 # **updateUserNotificationPageSubscriptionStatus**
-> UpdateUserNotificationStatus200Response updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso)
+> UpdateUserNotificationStatus200Response updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed).sso(sso).execute();
 
 
 
@@ -1451,7 +1530,9 @@ public class Example {
     String subscribedOrUnsubscribed = "subscribe"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso);
+      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#updateUserNotificationPageSubscriptionStatus");
@@ -1495,7 +1576,7 @@ No authorization required
 
 <a id="updateUserNotificationStatus"></a>
 # **updateUserNotificationStatus**
-> UpdateUserNotificationStatus200Response updateUserNotificationStatus(tenantId, notificationId, newStatus, sso)
+> UpdateUserNotificationStatus200Response updateUserNotificationStatus(tenantId, notificationId, newStatus).sso(sso).execute();
 
 
 
@@ -1519,7 +1600,9 @@ public class Example {
     String newStatus = "read"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationStatus(tenantId, notificationId, newStatus, sso);
+      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationStatus(tenantId, notificationId, newStatus)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#updateUserNotificationStatus");
@@ -1561,7 +1644,7 @@ No authorization required
 
 <a id="voteComment"></a>
 # **voteComment**
-> VoteComment200Response voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso)
+> VoteComment200Response voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams).sessionId(sessionId).sso(sso).execute();
 
 
 
@@ -1588,7 +1671,10 @@ public class Example {
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteComment200Response result = apiInstance.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso);
+      VoteComment200Response result = apiInstance.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
+            .sessionId(sessionId)
+            .sso(sso)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PublicApi#voteComment");

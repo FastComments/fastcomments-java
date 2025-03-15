@@ -95,23 +95,7 @@ public class PublicApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for blockFromComment
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call blockFromCommentCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -186,81 +170,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @return BlockFromComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public BlockFromComment200Response blockFromComment(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
-        ApiResponse<BlockFromComment200Response> localVarResp = blockFromCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;BlockFromComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<BlockFromComment200Response> blockFromCommentWithHttpInfo(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
+    private ApiResponse<BlockFromComment200Response> blockFromCommentWithHttpInfo(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
         okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, null);
         Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call blockFromCommentAsync(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentAsync(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
         Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIblockFromCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final BlockFromCommentParams blockFromCommentParams;
+        private String sso;
+
+        private APIblockFromCommentRequest(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.blockFromCommentParams = blockFromCommentParams;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIblockFromCommentRequest
+         */
+        public APIblockFromCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for blockFromComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return blockFromCommentCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        }
+
+        /**
+         * Execute blockFromComment request
+         * @return BlockFromComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public BlockFromComment200Response execute() throws ApiException {
+            ApiResponse<BlockFromComment200Response> localVarResp = blockFromCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute blockFromComment request with HTTP info returned
+         * @return ApiResponse&lt;BlockFromComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<BlockFromComment200Response> executeWithHttpInfo() throws ApiException {
+            return blockFromCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+        }
+
+        /**
+         * Execute blockFromComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
+            return blockFromCommentAsync(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for checkedCommentsForBlocked
+     * 
+     * 
      * @param tenantId  (required)
-     * @param commentIds A comma separated list of comment ids. (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param commentId  (required)
+     * @param blockFromCommentParams  (required)
+     * @return APIblockFromCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -268,7 +285,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call checkedCommentsForBlockedCall(String tenantId, String commentIds, String sso, final ApiCallback _callback) throws ApiException {
+    public APIblockFromCommentRequest blockFromComment(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
+        return new APIblockFromCommentRequest(tenantId, commentId, blockFromCommentParams);
+    }
+    private okhttp3.Call checkedCommentsForBlockedCall(String tenantId, String commentIds, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -340,81 +360,111 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentIds A comma separated list of comment ids. (required)
-     * @param sso  (optional)
-     * @return CheckedCommentsForBlocked200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public CheckedCommentsForBlocked200Response checkedCommentsForBlocked(String tenantId, String commentIds, String sso) throws ApiException {
-        ApiResponse<CheckedCommentsForBlocked200Response> localVarResp = checkedCommentsForBlockedWithHttpInfo(tenantId, commentIds, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentIds A comma separated list of comment ids. (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;CheckedCommentsForBlocked200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CheckedCommentsForBlocked200Response> checkedCommentsForBlockedWithHttpInfo(String tenantId, String commentIds, String sso) throws ApiException {
+    private ApiResponse<CheckedCommentsForBlocked200Response> checkedCommentsForBlockedWithHttpInfo(String tenantId, String commentIds, String sso) throws ApiException {
         okhttp3.Call localVarCall = checkedCommentsForBlockedValidateBeforeCall(tenantId, commentIds, sso, null);
         Type localVarReturnType = new TypeToken<CheckedCommentsForBlocked200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentIds A comma separated list of comment ids. (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call checkedCommentsForBlockedAsync(String tenantId, String commentIds, String sso, final ApiCallback<CheckedCommentsForBlocked200Response> _callback) throws ApiException {
+    private okhttp3.Call checkedCommentsForBlockedAsync(String tenantId, String commentIds, String sso, final ApiCallback<CheckedCommentsForBlocked200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = checkedCommentsForBlockedValidateBeforeCall(tenantId, commentIds, sso, _callback);
         Type localVarReturnType = new TypeToken<CheckedCommentsForBlocked200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIcheckedCommentsForBlockedRequest {
+        private final String tenantId;
+        private final String commentIds;
+        private String sso;
+
+        private APIcheckedCommentsForBlockedRequest(String tenantId, String commentIds) {
+            this.tenantId = tenantId;
+            this.commentIds = commentIds;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIcheckedCommentsForBlockedRequest
+         */
+        public APIcheckedCommentsForBlockedRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for checkedCommentsForBlocked
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return checkedCommentsForBlockedCall(tenantId, commentIds, sso, _callback);
+        }
+
+        /**
+         * Execute checkedCommentsForBlocked request
+         * @return CheckedCommentsForBlocked200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public CheckedCommentsForBlocked200Response execute() throws ApiException {
+            ApiResponse<CheckedCommentsForBlocked200Response> localVarResp = checkedCommentsForBlockedWithHttpInfo(tenantId, commentIds, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute checkedCommentsForBlocked request with HTTP info returned
+         * @return ApiResponse&lt;CheckedCommentsForBlocked200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CheckedCommentsForBlocked200Response> executeWithHttpInfo() throws ApiException {
+            return checkedCommentsForBlockedWithHttpInfo(tenantId, commentIds, sso);
+        }
+
+        /**
+         * Execute checkedCommentsForBlocked request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CheckedCommentsForBlocked200Response> _callback) throws ApiException {
+            return checkedCommentsForBlockedAsync(tenantId, commentIds, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for createComment
+     * 
+     * 
      * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param commentIds A comma separated list of comment ids. (required)
+     * @return APIcheckedCommentsForBlockedRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -422,7 +472,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCommentCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIcheckedCommentsForBlockedRequest checkedCommentsForBlocked(String tenantId, String commentIds) {
+        return new APIcheckedCommentsForBlockedRequest(tenantId, commentIds);
+    }
+    private okhttp3.Call createCommentCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -510,88 +563,128 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @return CreateComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateComment200Response createComment(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso) throws ApiException {
-        ApiResponse<CreateComment200Response> localVarResp = createCommentWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;CreateComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateComment200Response> createCommentWithHttpInfo(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso) throws ApiException {
+    private ApiResponse<CreateComment200Response> createCommentWithHttpInfo(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso) throws ApiException {
         okhttp3.Call localVarCall = createCommentValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, null);
         Type localVarReturnType = new TypeToken<CreateComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param commentData  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createCommentAsync(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback<CreateComment200Response> _callback) throws ApiException {
+    private okhttp3.Call createCommentAsync(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback<CreateComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createCommentValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
         Type localVarReturnType = new TypeToken<CreateComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIcreateCommentRequest {
+        private final String tenantId;
+        private final String urlId;
+        private final String broadcastId;
+        private final CommentData commentData;
+        private String sessionId;
+        private String sso;
+
+        private APIcreateCommentRequest(String tenantId, String urlId, String broadcastId, CommentData commentData) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+            this.broadcastId = broadcastId;
+            this.commentData = commentData;
+        }
+
+        /**
+         * Set sessionId
+         * @param sessionId  (optional)
+         * @return APIcreateCommentRequest
+         */
+        public APIcreateCommentRequest sessionId(String sessionId) {
+            this.sessionId = sessionId;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIcreateCommentRequest
+         */
+        public APIcreateCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for createComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createCommentCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+        }
+
+        /**
+         * Execute createComment request
+         * @return CreateComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public CreateComment200Response execute() throws ApiException {
+            ApiResponse<CreateComment200Response> localVarResp = createCommentWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createComment request with HTTP info returned
+         * @return ApiResponse&lt;CreateComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CreateComment200Response> executeWithHttpInfo() throws ApiException {
+            return createCommentWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+        }
+
+        /**
+         * Execute createComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CreateComment200Response> _callback) throws ApiException {
+            return createCommentAsync(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteComment
+     * 
+     * 
      * @param tenantId  (required)
-     * @param commentId  (required)
+     * @param urlId  (required)
      * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param commentData  (required)
+     * @return APIcreateCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -599,7 +692,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCommentCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
+    public APIcreateCommentRequest createComment(String tenantId, String urlId, String broadcastId, CommentData commentData) {
+        return new APIcreateCommentRequest(tenantId, urlId, broadcastId, commentData);
+    }
+    private okhttp3.Call deleteCommentCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -674,85 +770,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @return DeleteComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public DeleteComment200Response deleteComment(String tenantId, String commentId, String broadcastId, String editKey) throws ApiException {
-        ApiResponse<DeleteComment200Response> localVarResp = deleteCommentWithHttpInfo(tenantId, commentId, broadcastId, editKey);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @return ApiResponse&lt;DeleteComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<DeleteComment200Response> deleteCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey) throws ApiException {
+    private ApiResponse<DeleteComment200Response> deleteCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey) throws ApiException {
         okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, commentId, broadcastId, editKey, null);
         Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteCommentAsync(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteCommentAsync(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, commentId, broadcastId, editKey, _callback);
         Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIdeleteCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String broadcastId;
+        private String editKey;
+
+        private APIdeleteCommentRequest(String tenantId, String commentId, String broadcastId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.broadcastId = broadcastId;
+        }
+
+        /**
+         * Set editKey
+         * @param editKey  (optional)
+         * @return APIdeleteCommentRequest
+         */
+        public APIdeleteCommentRequest editKey(String editKey) {
+            this.editKey = editKey;
+            return this;
+        }
+
+        /**
+         * Build call for deleteComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteCommentCall(tenantId, commentId, broadcastId, editKey, _callback);
+        }
+
+        /**
+         * Execute deleteComment request
+         * @return DeleteComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public DeleteComment200Response execute() throws ApiException {
+            ApiResponse<DeleteComment200Response> localVarResp = deleteCommentWithHttpInfo(tenantId, commentId, broadcastId, editKey);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteComment request with HTTP info returned
+         * @return ApiResponse&lt;DeleteComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<DeleteComment200Response> executeWithHttpInfo() throws ApiException {
+            return deleteCommentWithHttpInfo(tenantId, commentId, broadcastId, editKey);
+        }
+
+        /**
+         * Execute deleteComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
+            return deleteCommentAsync(tenantId, commentId, broadcastId, editKey, _callback);
+        }
+    }
+
     /**
-     * Build call for deleteCommentVote
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param voteId  (required)
-     * @param urlId  (required)
      * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIdeleteCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -760,7 +885,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCommentVoteCall(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
+    public APIdeleteCommentRequest deleteComment(String tenantId, String commentId, String broadcastId) {
+        return new APIdeleteCommentRequest(tenantId, commentId, broadcastId);
+    }
+    private okhttp3.Call deleteCommentVoteCall(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -854,91 +982,131 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param voteId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @return DeleteCommentVote200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public DeleteCommentVote200Response deleteCommentVote(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso) throws ApiException {
-        ApiResponse<DeleteCommentVote200Response> localVarResp = deleteCommentVoteWithHttpInfo(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param voteId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;DeleteCommentVote200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<DeleteCommentVote200Response> deleteCommentVoteWithHttpInfo(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso) throws ApiException {
+    private ApiResponse<DeleteCommentVote200Response> deleteCommentVoteWithHttpInfo(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso) throws ApiException {
         okhttp3.Call localVarCall = deleteCommentVoteValidateBeforeCall(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso, null);
         Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param voteId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteCommentVoteAsync(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso, final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteCommentVoteAsync(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso, final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCommentVoteValidateBeforeCall(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso, _callback);
         Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIdeleteCommentVoteRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String voteId;
+        private final String urlId;
+        private final String broadcastId;
+        private String editKey;
+        private String sso;
+
+        private APIdeleteCommentVoteRequest(String tenantId, String commentId, String voteId, String urlId, String broadcastId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.voteId = voteId;
+            this.urlId = urlId;
+            this.broadcastId = broadcastId;
+        }
+
+        /**
+         * Set editKey
+         * @param editKey  (optional)
+         * @return APIdeleteCommentVoteRequest
+         */
+        public APIdeleteCommentVoteRequest editKey(String editKey) {
+            this.editKey = editKey;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIdeleteCommentVoteRequest
+         */
+        public APIdeleteCommentVoteRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for deleteCommentVote
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteCommentVoteCall(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso, _callback);
+        }
+
+        /**
+         * Execute deleteCommentVote request
+         * @return DeleteCommentVote200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public DeleteCommentVote200Response execute() throws ApiException {
+            ApiResponse<DeleteCommentVote200Response> localVarResp = deleteCommentVoteWithHttpInfo(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteCommentVote request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCommentVote200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<DeleteCommentVote200Response> executeWithHttpInfo() throws ApiException {
+            return deleteCommentVoteWithHttpInfo(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso);
+        }
+
+        /**
+         * Execute deleteCommentVote request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
+            return deleteCommentVoteAsync(tenantId, commentId, voteId, urlId, broadcastId, editKey, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for flagComment
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param isFlagged  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param voteId  (required)
+     * @param urlId  (required)
+     * @param broadcastId  (required)
+     * @return APIdeleteCommentVoteRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -946,7 +1114,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call flagCommentCall(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso, final ApiCallback _callback) throws ApiException {
+    public APIdeleteCommentVoteRequest deleteCommentVote(String tenantId, String commentId, String voteId, String urlId, String broadcastId) {
+        return new APIdeleteCommentVoteRequest(tenantId, commentId, voteId, urlId, broadcastId);
+    }
+    private okhttp3.Call flagCommentCall(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1024,82 +1195,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param isFlagged  (required)
-     * @param sso  (optional)
-     * @return FlagComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public FlagComment200Response flagComment(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso) throws ApiException {
-        ApiResponse<FlagComment200Response> localVarResp = flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param isFlagged  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;FlagComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso) throws ApiException {
+    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso) throws ApiException {
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, null);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param isFlagged  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call flagCommentAsync(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+    private okhttp3.Call flagCommentAsync(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, _callback);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIflagCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final BooleanQueryParam isFlagged;
+        private String sso;
+
+        private APIflagCommentRequest(String tenantId, String commentId, BooleanQueryParam isFlagged) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.isFlagged = isFlagged;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIflagCommentRequest
+         */
+        public APIflagCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for flagComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return flagCommentCall(tenantId, commentId, isFlagged, sso, _callback);
+        }
+
+        /**
+         * Execute flagComment request
+         * @return FlagComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public FlagComment200Response execute() throws ApiException {
+            ApiResponse<FlagComment200Response> localVarResp = flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute flagComment request with HTTP info returned
+         * @return ApiResponse&lt;FlagComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<FlagComment200Response> executeWithHttpInfo() throws ApiException {
+            return flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
+        }
+
+        /**
+         * Execute flagComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+            return flagCommentAsync(tenantId, commentId, isFlagged, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for getCommentText
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param isFlagged  (required)
+     * @return APIflagCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -1107,7 +1310,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommentTextCall(String tenantId, String commentId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
+    public APIflagCommentRequest flagComment(String tenantId, String commentId, BooleanQueryParam isFlagged) {
+        return new APIflagCommentRequest(tenantId, commentId, isFlagged);
+    }
+    private okhttp3.Call getCommentTextCall(String tenantId, String commentId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1177,82 +1383,122 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @return GetCommentText200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetCommentText200Response getCommentText(String tenantId, String commentId, String editKey, String sso) throws ApiException {
-        ApiResponse<GetCommentText200Response> localVarResp = getCommentTextWithHttpInfo(tenantId, commentId, editKey, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;GetCommentText200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetCommentText200Response> getCommentTextWithHttpInfo(String tenantId, String commentId, String editKey, String sso) throws ApiException {
+    private ApiResponse<GetCommentText200Response> getCommentTextWithHttpInfo(String tenantId, String commentId, String editKey, String sso) throws ApiException {
         okhttp3.Call localVarCall = getCommentTextValidateBeforeCall(tenantId, commentId, editKey, sso, null);
         Type localVarReturnType = new TypeToken<GetCommentText200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param editKey  (optional)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCommentTextAsync(String tenantId, String commentId, String editKey, String sso, final ApiCallback<GetCommentText200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentTextAsync(String tenantId, String commentId, String editKey, String sso, final ApiCallback<GetCommentText200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentTextValidateBeforeCall(tenantId, commentId, editKey, sso, _callback);
         Type localVarReturnType = new TypeToken<GetCommentText200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetCommentTextRequest {
+        private final String tenantId;
+        private final String commentId;
+        private String editKey;
+        private String sso;
+
+        private APIgetCommentTextRequest(String tenantId, String commentId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+        }
+
+        /**
+         * Set editKey
+         * @param editKey  (optional)
+         * @return APIgetCommentTextRequest
+         */
+        public APIgetCommentTextRequest editKey(String editKey) {
+            this.editKey = editKey;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetCommentTextRequest
+         */
+        public APIgetCommentTextRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for getCommentText
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCommentTextCall(tenantId, commentId, editKey, sso, _callback);
+        }
+
+        /**
+         * Execute getCommentText request
+         * @return GetCommentText200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetCommentText200Response execute() throws ApiException {
+            ApiResponse<GetCommentText200Response> localVarResp = getCommentTextWithHttpInfo(tenantId, commentId, editKey, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCommentText request with HTTP info returned
+         * @return ApiResponse&lt;GetCommentText200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetCommentText200Response> executeWithHttpInfo() throws ApiException {
+            return getCommentTextWithHttpInfo(tenantId, commentId, editKey, sso);
+        }
+
+        /**
+         * Execute getCommentText request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetCommentText200Response> _callback) throws ApiException {
+            return getCommentTextAsync(tenantId, commentId, editKey, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for getCommentVoteUserNames
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param direction Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetCommentTextRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -1260,7 +1506,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommentVoteUserNamesCall(String tenantId, String commentId, Double direction, String sso, final ApiCallback _callback) throws ApiException {
+    public APIgetCommentTextRequest getCommentText(String tenantId, String commentId) {
+        return new APIgetCommentTextRequest(tenantId, commentId);
+    }
+    private okhttp3.Call getCommentVoteUserNamesCall(String tenantId, String commentId, Double direction, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1335,104 +1584,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param direction Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. (required)
-     * @param sso  (optional)
-     * @return GetCommentVoteUserNames200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetCommentVoteUserNames200Response getCommentVoteUserNames(String tenantId, String commentId, Double direction, String sso) throws ApiException {
-        ApiResponse<GetCommentVoteUserNames200Response> localVarResp = getCommentVoteUserNamesWithHttpInfo(tenantId, commentId, direction, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param direction Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;GetCommentVoteUserNames200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetCommentVoteUserNames200Response> getCommentVoteUserNamesWithHttpInfo(String tenantId, String commentId, Double direction, String sso) throws ApiException {
+    private ApiResponse<GetCommentVoteUserNames200Response> getCommentVoteUserNamesWithHttpInfo(String tenantId, String commentId, Double direction, String sso) throws ApiException {
         okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, direction, sso, null);
         Type localVarReturnType = new TypeToken<GetCommentVoteUserNames200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param direction Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCommentVoteUserNamesAsync(String tenantId, String commentId, Double direction, String sso, final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentVoteUserNamesAsync(String tenantId, String commentId, Double direction, String sso, final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, direction, sso, _callback);
         Type localVarReturnType = new TypeToken<GetCommentVoteUserNames200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetCommentVoteUserNamesRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final Double direction;
+        private String sso;
+
+        private APIgetCommentVoteUserNamesRequest(String tenantId, String commentId, Double direction) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.direction = direction;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetCommentVoteUserNamesRequest
+         */
+        public APIgetCommentVoteUserNamesRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for getCommentVoteUserNames
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCommentVoteUserNamesCall(tenantId, commentId, direction, sso, _callback);
+        }
+
+        /**
+         * Execute getCommentVoteUserNames request
+         * @return GetCommentVoteUserNames200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetCommentVoteUserNames200Response execute() throws ApiException {
+            ApiResponse<GetCommentVoteUserNames200Response> localVarResp = getCommentVoteUserNamesWithHttpInfo(tenantId, commentId, direction, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCommentVoteUserNames request with HTTP info returned
+         * @return ApiResponse&lt;GetCommentVoteUserNames200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetCommentVoteUserNames200Response> executeWithHttpInfo() throws ApiException {
+            return getCommentVoteUserNamesWithHttpInfo(tenantId, commentId, direction, sso);
+        }
+
+        /**
+         * Execute getCommentVoteUserNames request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
+            return getCommentVoteUserNamesAsync(tenantId, commentId, direction, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for getComments
+     * 
+     * 
      * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param commentId  (required)
+     * @param direction Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. (required)
+     * @return APIgetCommentVoteUserNamesRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -1440,7 +1699,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCommentsCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Double direction) {
+        return new APIgetCommentVoteUserNamesRequest(tenantId, commentId, direction);
+    }
+    private okhttp3.Call getCommentsCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1601,146 +1863,364 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     *  req tenantId urlId
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @return GetComments200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetComments200Response getComments(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
-        ApiResponse<GetComments200Response> localVarResp = getCommentsWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     *  req tenantId urlId
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @return ApiResponse&lt;GetComments200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
+    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, null);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     *  req tenantId urlId
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param page  (optional)
-     * @param direction  (optional)
-     * @param sso  (optional)
-     * @param skip  (optional)
-     * @param skipChildren  (optional)
-     * @param limit  (optional)
-     * @param limitChildren  (optional)
-     * @param lastGenDate  (optional)
-     * @param fetchPageForCommentId  (optional)
-     * @param includeConfig  (optional)
-     * @param countAll  (optional)
-     * @param includei10n  (optional)
-     * @param locale  (optional)
-     * @param modules  (optional)
-     * @param isCrawler  (optional)
-     * @param includeNotificationCount  (optional)
-     * @param asTree  (optional)
-     * @param maxTreeDepth  (optional)
-     * @param useFullTranslationIds  (optional)
-     * @param parentId  (optional)
-     * @param searchText  (optional)
-     * @param hashTags  (optional)
-     * @param userId  (optional)
-     * @param customConfigStr  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCommentsAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentsAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetCommentsRequest {
+        private final String tenantId;
+        private final String urlId;
+        private Integer page;
+        private SortDirections direction;
+        private String sso;
+        private Integer skip;
+        private Integer skipChildren;
+        private Integer limit;
+        private Integer limitChildren;
+        private Long lastGenDate;
+        private String fetchPageForCommentId;
+        private BooleanQueryParam includeConfig;
+        private BooleanQueryParam countAll;
+        private BooleanQueryParam includei10n;
+        private String locale;
+        private String modules;
+        private BooleanQueryParam isCrawler;
+        private BooleanQueryParam includeNotificationCount;
+        private BooleanQueryParam asTree;
+        private Integer maxTreeDepth;
+        private BooleanQueryParam useFullTranslationIds;
+        private String parentId;
+        private String searchText;
+        private List<String> hashTags;
+        private String userId;
+        private String customConfigStr;
+
+        private APIgetCommentsRequest(String tenantId, String urlId) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+        }
+
+        /**
+         * Set page
+         * @param page  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest page(Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set direction
+         * @param direction  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest direction(SortDirections direction) {
+            this.direction = direction;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Set skip
+         * @param skip  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest skip(Integer skip) {
+            this.skip = skip;
+            return this;
+        }
+
+        /**
+         * Set skipChildren
+         * @param skipChildren  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest skipChildren(Integer skipChildren) {
+            this.skipChildren = skipChildren;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest limit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set limitChildren
+         * @param limitChildren  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest limitChildren(Integer limitChildren) {
+            this.limitChildren = limitChildren;
+            return this;
+        }
+
+        /**
+         * Set lastGenDate
+         * @param lastGenDate  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest lastGenDate(Long lastGenDate) {
+            this.lastGenDate = lastGenDate;
+            return this;
+        }
+
+        /**
+         * Set fetchPageForCommentId
+         * @param fetchPageForCommentId  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest fetchPageForCommentId(String fetchPageForCommentId) {
+            this.fetchPageForCommentId = fetchPageForCommentId;
+            return this;
+        }
+
+        /**
+         * Set includeConfig
+         * @param includeConfig  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest includeConfig(BooleanQueryParam includeConfig) {
+            this.includeConfig = includeConfig;
+            return this;
+        }
+
+        /**
+         * Set countAll
+         * @param countAll  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest countAll(BooleanQueryParam countAll) {
+            this.countAll = countAll;
+            return this;
+        }
+
+        /**
+         * Set includei10n
+         * @param includei10n  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest includei10n(BooleanQueryParam includei10n) {
+            this.includei10n = includei10n;
+            return this;
+        }
+
+        /**
+         * Set locale
+         * @param locale  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest locale(String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+        /**
+         * Set modules
+         * @param modules  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest modules(String modules) {
+            this.modules = modules;
+            return this;
+        }
+
+        /**
+         * Set isCrawler
+         * @param isCrawler  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest isCrawler(BooleanQueryParam isCrawler) {
+            this.isCrawler = isCrawler;
+            return this;
+        }
+
+        /**
+         * Set includeNotificationCount
+         * @param includeNotificationCount  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest includeNotificationCount(BooleanQueryParam includeNotificationCount) {
+            this.includeNotificationCount = includeNotificationCount;
+            return this;
+        }
+
+        /**
+         * Set asTree
+         * @param asTree  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest asTree(BooleanQueryParam asTree) {
+            this.asTree = asTree;
+            return this;
+        }
+
+        /**
+         * Set maxTreeDepth
+         * @param maxTreeDepth  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest maxTreeDepth(Integer maxTreeDepth) {
+            this.maxTreeDepth = maxTreeDepth;
+            return this;
+        }
+
+        /**
+         * Set useFullTranslationIds
+         * @param useFullTranslationIds  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest useFullTranslationIds(BooleanQueryParam useFullTranslationIds) {
+            this.useFullTranslationIds = useFullTranslationIds;
+            return this;
+        }
+
+        /**
+         * Set parentId
+         * @param parentId  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest parentId(String parentId) {
+            this.parentId = parentId;
+            return this;
+        }
+
+        /**
+         * Set searchText
+         * @param searchText  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest searchText(String searchText) {
+            this.searchText = searchText;
+            return this;
+        }
+
+        /**
+         * Set hashTags
+         * @param hashTags  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest hashTags(List<String> hashTags) {
+            this.hashTags = hashTags;
+            return this;
+        }
+
+        /**
+         * Set userId
+         * @param userId  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set customConfigStr
+         * @param customConfigStr  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest customConfigStr(String customConfigStr) {
+            this.customConfigStr = customConfigStr;
+            return this;
+        }
+
+        /**
+         * Build call for getComments
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCommentsCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+        }
+
+        /**
+         * Execute getComments request
+         * @return GetComments200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetComments200Response execute() throws ApiException {
+            ApiResponse<GetComments200Response> localVarResp = getCommentsWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getComments request with HTTP info returned
+         * @return ApiResponse&lt;GetComments200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetComments200Response> executeWithHttpInfo() throws ApiException {
+            return getCommentsWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+        }
+
+        /**
+         * Execute getComments request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetComments200Response> _callback) throws ApiException {
+            return getCommentsAsync(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+        }
+    }
+
     /**
-     * Build call for getUserNotificationCount
+     * 
+     *  req tenantId urlId
      * @param tenantId  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param urlId  (required)
+     * @return APIgetCommentsRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -1748,7 +2228,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserNotificationCountCall(String tenantId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIgetCommentsRequest getComments(String tenantId, String urlId) {
+        return new APIgetCommentsRequest(tenantId, urlId);
+    }
+    private okhttp3.Call getUserNotificationCountCall(String tenantId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1811,82 +2294,108 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param sso  (optional)
-     * @return GetUserNotificationCount200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetUserNotificationCount200Response getUserNotificationCount(String tenantId, String sso) throws ApiException {
-        ApiResponse<GetUserNotificationCount200Response> localVarResp = getUserNotificationCountWithHttpInfo(tenantId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;GetUserNotificationCount200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetUserNotificationCount200Response> getUserNotificationCountWithHttpInfo(String tenantId, String sso) throws ApiException {
+    private ApiResponse<GetUserNotificationCount200Response> getUserNotificationCountWithHttpInfo(String tenantId, String sso) throws ApiException {
         okhttp3.Call localVarCall = getUserNotificationCountValidateBeforeCall(tenantId, sso, null);
         Type localVarReturnType = new TypeToken<GetUserNotificationCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getUserNotificationCountAsync(String tenantId, String sso, final ApiCallback<GetUserNotificationCount200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationCountAsync(String tenantId, String sso, final ApiCallback<GetUserNotificationCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserNotificationCountValidateBeforeCall(tenantId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserNotificationCount200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetUserNotificationCountRequest {
+        private final String tenantId;
+        private String sso;
+
+        private APIgetUserNotificationCountRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetUserNotificationCountRequest
+         */
+        public APIgetUserNotificationCountRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for getUserNotificationCount
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserNotificationCountCall(tenantId, sso, _callback);
+        }
+
+        /**
+         * Execute getUserNotificationCount request
+         * @return GetUserNotificationCount200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetUserNotificationCount200Response execute() throws ApiException {
+            ApiResponse<GetUserNotificationCount200Response> localVarResp = getUserNotificationCountWithHttpInfo(tenantId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserNotificationCount request with HTTP info returned
+         * @return ApiResponse&lt;GetUserNotificationCount200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetUserNotificationCount200Response> executeWithHttpInfo() throws ApiException {
+            return getUserNotificationCountWithHttpInfo(tenantId, sso);
+        }
+
+        /**
+         * Execute getUserNotificationCount request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserNotificationCount200Response> _callback) throws ApiException {
+            return getUserNotificationCountAsync(tenantId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for getUserNotifications
+     * 
+     * 
      * @param tenantId  (required)
-     * @param pageSize Defaults to 20. (optional)
-     * @param afterId  (optional)
-     * @param includeContext  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param includeTranslations  (optional)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetUserNotificationCountRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -1894,7 +2403,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getUserNotificationsCall(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
+    public APIgetUserNotificationCountRequest getUserNotificationCount(String tenantId) {
+        return new APIgetUserNotificationCountRequest(tenantId);
+    }
+    private okhttp3.Call getUserNotificationsCall(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1989,100 +2501,196 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param pageSize Defaults to 20. (optional)
-     * @param afterId  (optional)
-     * @param includeContext  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param includeTranslations  (optional)
-     * @param sso  (optional)
-     * @return GetUserNotifications200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetUserNotifications200Response getUserNotifications(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso) throws ApiException {
-        ApiResponse<GetUserNotifications200Response> localVarResp = getUserNotificationsWithHttpInfo(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param pageSize Defaults to 20. (optional)
-     * @param afterId  (optional)
-     * @param includeContext  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param includeTranslations  (optional)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;GetUserNotifications200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetUserNotifications200Response> getUserNotificationsWithHttpInfo(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso) throws ApiException {
+    private ApiResponse<GetUserNotifications200Response> getUserNotificationsWithHttpInfo(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso) throws ApiException {
         okhttp3.Call localVarCall = getUserNotificationsValidateBeforeCall(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, null);
         Type localVarReturnType = new TypeToken<GetUserNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param pageSize Defaults to 20. (optional)
-     * @param afterId  (optional)
-     * @param includeContext  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param includeTranslations  (optional)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getUserNotificationsAsync(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso, final ApiCallback<GetUserNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationsAsync(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso, final ApiCallback<GetUserNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserNotificationsValidateBeforeCall(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserNotifications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetUserNotificationsRequest {
+        private final String tenantId;
+        private Double pageSize;
+        private String afterId;
+        private BooleanQueryParam includeContext;
+        private Double afterCreatedAt;
+        private BooleanQueryParam unreadOnly;
+        private BooleanQueryParam dmOnly;
+        private BooleanQueryParam noDm;
+        private BooleanQueryParam includeTranslations;
+        private String sso;
+
+        private APIgetUserNotificationsRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set pageSize
+         * @param pageSize Defaults to 20. (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest pageSize(Double pageSize) {
+            this.pageSize = pageSize;
+            return this;
+        }
+
+        /**
+         * Set afterId
+         * @param afterId  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest afterId(String afterId) {
+            this.afterId = afterId;
+            return this;
+        }
+
+        /**
+         * Set includeContext
+         * @param includeContext  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest includeContext(BooleanQueryParam includeContext) {
+            this.includeContext = includeContext;
+            return this;
+        }
+
+        /**
+         * Set afterCreatedAt
+         * @param afterCreatedAt  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest afterCreatedAt(Double afterCreatedAt) {
+            this.afterCreatedAt = afterCreatedAt;
+            return this;
+        }
+
+        /**
+         * Set unreadOnly
+         * @param unreadOnly  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest unreadOnly(BooleanQueryParam unreadOnly) {
+            this.unreadOnly = unreadOnly;
+            return this;
+        }
+
+        /**
+         * Set dmOnly
+         * @param dmOnly  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest dmOnly(BooleanQueryParam dmOnly) {
+            this.dmOnly = dmOnly;
+            return this;
+        }
+
+        /**
+         * Set noDm
+         * @param noDm  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest noDm(BooleanQueryParam noDm) {
+            this.noDm = noDm;
+            return this;
+        }
+
+        /**
+         * Set includeTranslations
+         * @param includeTranslations  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest includeTranslations(BooleanQueryParam includeTranslations) {
+            this.includeTranslations = includeTranslations;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetUserNotificationsRequest
+         */
+        public APIgetUserNotificationsRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for getUserNotifications
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserNotificationsCall(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, _callback);
+        }
+
+        /**
+         * Execute getUserNotifications request
+         * @return GetUserNotifications200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetUserNotifications200Response execute() throws ApiException {
+            ApiResponse<GetUserNotifications200Response> localVarResp = getUserNotificationsWithHttpInfo(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserNotifications request with HTTP info returned
+         * @return ApiResponse&lt;GetUserNotifications200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetUserNotifications200Response> executeWithHttpInfo() throws ApiException {
+            return getUserNotificationsWithHttpInfo(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso);
+        }
+
+        /**
+         * Execute getUserNotifications request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserNotifications200Response> _callback) throws ApiException {
+            return getUserNotificationsAsync(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for lockComment
+     * 
+     * 
      * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIgetUserNotificationsRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -2090,7 +2698,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call lockCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIgetUserNotificationsRequest getUserNotifications(String tenantId) {
+        return new APIgetUserNotificationsRequest(tenantId);
+    }
+    private okhttp3.Call lockCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2165,82 +2776,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return LockComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public LockComment200Response lockComment(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
-        ApiResponse<LockComment200Response> localVarResp = lockCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;LockComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<LockComment200Response> lockCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
+    private ApiResponse<LockComment200Response> lockCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
         okhttp3.Call localVarCall = lockCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<LockComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call lockCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<LockComment200Response> _callback) throws ApiException {
+    private okhttp3.Call lockCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<LockComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = lockCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<LockComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIlockCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String broadcastId;
+        private String sso;
+
+        private APIlockCommentRequest(String tenantId, String commentId, String broadcastId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.broadcastId = broadcastId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIlockCommentRequest
+         */
+        public APIlockCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for lockComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return lockCommentCall(tenantId, commentId, broadcastId, sso, _callback);
+        }
+
+        /**
+         * Execute lockComment request
+         * @return LockComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public LockComment200Response execute() throws ApiException {
+            ApiResponse<LockComment200Response> localVarResp = lockCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute lockComment request with HTTP info returned
+         * @return ApiResponse&lt;LockComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<LockComment200Response> executeWithHttpInfo() throws ApiException {
+            return lockCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+        }
+
+        /**
+         * Execute lockComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<LockComment200Response> _callback) throws ApiException {
+            return lockCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for pinComment
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIlockCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -2248,7 +2891,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call pinCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIlockCommentRequest lockComment(String tenantId, String commentId, String broadcastId) {
+        return new APIlockCommentRequest(tenantId, commentId, broadcastId);
+    }
+    private okhttp3.Call pinCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2323,80 +2969,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return PinComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public PinComment200Response pinComment(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
-        ApiResponse<PinComment200Response> localVarResp = pinCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;PinComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<PinComment200Response> pinCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
+    private ApiResponse<PinComment200Response> pinCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
         okhttp3.Call localVarCall = pinCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<PinComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call pinCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<PinComment200Response> _callback) throws ApiException {
+    private okhttp3.Call pinCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<PinComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = pinCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<PinComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIpinCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String broadcastId;
+        private String sso;
+
+        private APIpinCommentRequest(String tenantId, String commentId, String broadcastId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.broadcastId = broadcastId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIpinCommentRequest
+         */
+        public APIpinCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for pinComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return pinCommentCall(tenantId, commentId, broadcastId, sso, _callback);
+        }
+
+        /**
+         * Execute pinComment request
+         * @return PinComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public PinComment200Response execute() throws ApiException {
+            ApiResponse<PinComment200Response> localVarResp = pinCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute pinComment request with HTTP info returned
+         * @return ApiResponse&lt;PinComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PinComment200Response> executeWithHttpInfo() throws ApiException {
+            return pinCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+        }
+
+        /**
+         * Execute pinComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PinComment200Response> _callback) throws ApiException {
+            return pinCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for resetUserNotificationCount
+     * 
+     * 
      * @param tenantId  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param commentId  (required)
+     * @param broadcastId  (required)
+     * @return APIpinCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -2404,7 +3084,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resetUserNotificationCountCall(String tenantId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIpinCommentRequest pinComment(String tenantId, String commentId, String broadcastId) {
+        return new APIpinCommentRequest(tenantId, commentId, broadcastId);
+    }
+    private okhttp3.Call resetUserNotificationCountCall(String tenantId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2467,79 +3150,108 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param sso  (optional)
-     * @return ResetUserNotifications200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ResetUserNotifications200Response resetUserNotificationCount(String tenantId, String sso) throws ApiException {
-        ApiResponse<ResetUserNotifications200Response> localVarResp = resetUserNotificationCountWithHttpInfo(tenantId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;ResetUserNotifications200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ResetUserNotifications200Response> resetUserNotificationCountWithHttpInfo(String tenantId, String sso) throws ApiException {
+    private ApiResponse<ResetUserNotifications200Response> resetUserNotificationCountWithHttpInfo(String tenantId, String sso) throws ApiException {
         okhttp3.Call localVarCall = resetUserNotificationCountValidateBeforeCall(tenantId, sso, null);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call resetUserNotificationCountAsync(String tenantId, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationCountAsync(String tenantId, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resetUserNotificationCountValidateBeforeCall(tenantId, sso, _callback);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIresetUserNotificationCountRequest {
+        private final String tenantId;
+        private String sso;
+
+        private APIresetUserNotificationCountRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIresetUserNotificationCountRequest
+         */
+        public APIresetUserNotificationCountRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for resetUserNotificationCount
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return resetUserNotificationCountCall(tenantId, sso, _callback);
+        }
+
+        /**
+         * Execute resetUserNotificationCount request
+         * @return ResetUserNotifications200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ResetUserNotifications200Response execute() throws ApiException {
+            ApiResponse<ResetUserNotifications200Response> localVarResp = resetUserNotificationCountWithHttpInfo(tenantId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute resetUserNotificationCount request with HTTP info returned
+         * @return ApiResponse&lt;ResetUserNotifications200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<ResetUserNotifications200Response> executeWithHttpInfo() throws ApiException {
+            return resetUserNotificationCountWithHttpInfo(tenantId, sso);
+        }
+
+        /**
+         * Execute resetUserNotificationCount request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
+            return resetUserNotificationCountAsync(tenantId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for resetUserNotifications
+     * 
+     * 
      * @param tenantId  (required)
-     * @param afterId  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIresetUserNotificationCountRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -2547,7 +3259,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call resetUserNotificationsCall(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso, final ApiCallback _callback) throws ApiException {
+    public APIresetUserNotificationCountRequest resetUserNotificationCount(String tenantId) {
+        return new APIresetUserNotificationCountRequest(tenantId);
+    }
+    private okhttp3.Call resetUserNotificationsCall(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2630,93 +3345,163 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param afterId  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param sso  (optional)
-     * @return ResetUserNotifications200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ResetUserNotifications200Response resetUserNotifications(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso) throws ApiException {
-        ApiResponse<ResetUserNotifications200Response> localVarResp = resetUserNotificationsWithHttpInfo(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param afterId  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;ResetUserNotifications200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ResetUserNotifications200Response> resetUserNotificationsWithHttpInfo(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso) throws ApiException {
+    private ApiResponse<ResetUserNotifications200Response> resetUserNotificationsWithHttpInfo(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso) throws ApiException {
         okhttp3.Call localVarCall = resetUserNotificationsValidateBeforeCall(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, null);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param afterId  (optional)
-     * @param afterCreatedAt  (optional)
-     * @param unreadOnly  (optional)
-     * @param dmOnly  (optional)
-     * @param noDm  (optional)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call resetUserNotificationsAsync(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationsAsync(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resetUserNotificationsValidateBeforeCall(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, _callback);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIresetUserNotificationsRequest {
+        private final String tenantId;
+        private String afterId;
+        private Double afterCreatedAt;
+        private BooleanQueryParam unreadOnly;
+        private BooleanQueryParam dmOnly;
+        private BooleanQueryParam noDm;
+        private String sso;
+
+        private APIresetUserNotificationsRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set afterId
+         * @param afterId  (optional)
+         * @return APIresetUserNotificationsRequest
+         */
+        public APIresetUserNotificationsRequest afterId(String afterId) {
+            this.afterId = afterId;
+            return this;
+        }
+
+        /**
+         * Set afterCreatedAt
+         * @param afterCreatedAt  (optional)
+         * @return APIresetUserNotificationsRequest
+         */
+        public APIresetUserNotificationsRequest afterCreatedAt(Double afterCreatedAt) {
+            this.afterCreatedAt = afterCreatedAt;
+            return this;
+        }
+
+        /**
+         * Set unreadOnly
+         * @param unreadOnly  (optional)
+         * @return APIresetUserNotificationsRequest
+         */
+        public APIresetUserNotificationsRequest unreadOnly(BooleanQueryParam unreadOnly) {
+            this.unreadOnly = unreadOnly;
+            return this;
+        }
+
+        /**
+         * Set dmOnly
+         * @param dmOnly  (optional)
+         * @return APIresetUserNotificationsRequest
+         */
+        public APIresetUserNotificationsRequest dmOnly(BooleanQueryParam dmOnly) {
+            this.dmOnly = dmOnly;
+            return this;
+        }
+
+        /**
+         * Set noDm
+         * @param noDm  (optional)
+         * @return APIresetUserNotificationsRequest
+         */
+        public APIresetUserNotificationsRequest noDm(BooleanQueryParam noDm) {
+            this.noDm = noDm;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIresetUserNotificationsRequest
+         */
+        public APIresetUserNotificationsRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for resetUserNotifications
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return resetUserNotificationsCall(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, _callback);
+        }
+
+        /**
+         * Execute resetUserNotifications request
+         * @return ResetUserNotifications200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ResetUserNotifications200Response execute() throws ApiException {
+            ApiResponse<ResetUserNotifications200Response> localVarResp = resetUserNotificationsWithHttpInfo(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute resetUserNotifications request with HTTP info returned
+         * @return ApiResponse&lt;ResetUserNotifications200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<ResetUserNotifications200Response> executeWithHttpInfo() throws ApiException {
+            return resetUserNotificationsWithHttpInfo(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso);
+        }
+
+        /**
+         * Execute resetUserNotifications request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
+            return resetUserNotificationsAsync(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for setCommentText
+     * 
+     * 
      * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (required)
-     * @param commentTextUpdateRequest  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIresetUserNotificationsRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -2724,7 +3509,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call setCommentTextCall(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso, final ApiCallback _callback) throws ApiException {
+    public APIresetUserNotificationsRequest resetUserNotifications(String tenantId) {
+        return new APIresetUserNotificationsRequest(tenantId);
+    }
+    private okhttp3.Call setCommentTextCall(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2814,88 +3602,120 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (required)
-     * @param commentTextUpdateRequest  (required)
-     * @param sso  (optional)
-     * @return SetCommentText200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public SetCommentText200Response setCommentText(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso) throws ApiException {
-        ApiResponse<SetCommentText200Response> localVarResp = setCommentTextWithHttpInfo(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (required)
-     * @param commentTextUpdateRequest  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;SetCommentText200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<SetCommentText200Response> setCommentTextWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso) throws ApiException {
+    private ApiResponse<SetCommentText200Response> setCommentTextWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso) throws ApiException {
         okhttp3.Call localVarCall = setCommentTextValidateBeforeCall(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, null);
         Type localVarReturnType = new TypeToken<SetCommentText200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param editKey  (required)
-     * @param commentTextUpdateRequest  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call setCommentTextAsync(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso, final ApiCallback<SetCommentText200Response> _callback) throws ApiException {
+    private okhttp3.Call setCommentTextAsync(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso, final ApiCallback<SetCommentText200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = setCommentTextValidateBeforeCall(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, _callback);
         Type localVarReturnType = new TypeToken<SetCommentText200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIsetCommentTextRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String broadcastId;
+        private final String editKey;
+        private final CommentTextUpdateRequest commentTextUpdateRequest;
+        private String sso;
+
+        private APIsetCommentTextRequest(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.broadcastId = broadcastId;
+            this.editKey = editKey;
+            this.commentTextUpdateRequest = commentTextUpdateRequest;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIsetCommentTextRequest
+         */
+        public APIsetCommentTextRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for setCommentText
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return setCommentTextCall(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, _callback);
+        }
+
+        /**
+         * Execute setCommentText request
+         * @return SetCommentText200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public SetCommentText200Response execute() throws ApiException {
+            ApiResponse<SetCommentText200Response> localVarResp = setCommentTextWithHttpInfo(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute setCommentText request with HTTP info returned
+         * @return ApiResponse&lt;SetCommentText200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<SetCommentText200Response> executeWithHttpInfo() throws ApiException {
+            return setCommentTextWithHttpInfo(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso);
+        }
+
+        /**
+         * Execute setCommentText request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SetCommentText200Response> _callback) throws ApiException {
+            return setCommentTextAsync(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for unBlockComment
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param broadcastId  (required)
+     * @param editKey  (required)
+     * @param commentTextUpdateRequest  (required)
+     * @return APIsetCommentTextRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -2903,7 +3723,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call unBlockCommentCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    public APIsetCommentTextRequest setCommentText(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest) {
+        return new APIsetCommentTextRequest(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest);
+    }
+    private okhttp3.Call unBlockCommentCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2978,82 +3801,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @return UnBlockComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public UnBlockComment200Response unBlockComment(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
-        ApiResponse<UnBlockComment200Response> localVarResp = unBlockCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;UnBlockComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UnBlockComment200Response> unBlockCommentWithHttpInfo(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
+    private ApiResponse<UnBlockComment200Response> unBlockCommentWithHttpInfo(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
         okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, null);
         Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call unBlockCommentAsync(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unBlockCommentAsync(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
         Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIunBlockCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final BlockFromCommentParams blockFromCommentParams;
+        private String sso;
+
+        private APIunBlockCommentRequest(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.blockFromCommentParams = blockFromCommentParams;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIunBlockCommentRequest
+         */
+        public APIunBlockCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for unBlockComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return unBlockCommentCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        }
+
+        /**
+         * Execute unBlockComment request
+         * @return UnBlockComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public UnBlockComment200Response execute() throws ApiException {
+            ApiResponse<UnBlockComment200Response> localVarResp = unBlockCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute unBlockComment request with HTTP info returned
+         * @return ApiResponse&lt;UnBlockComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<UnBlockComment200Response> executeWithHttpInfo() throws ApiException {
+            return unBlockCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+        }
+
+        /**
+         * Execute unBlockComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
+            return unBlockCommentAsync(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for unLockComment
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param blockFromCommentParams  (required)
+     * @return APIunBlockCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -3061,7 +3916,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call unLockCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIunBlockCommentRequest unBlockComment(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
+        return new APIunBlockCommentRequest(tenantId, commentId, blockFromCommentParams);
+    }
+    private okhttp3.Call unLockCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3136,82 +3994,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return LockComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public LockComment200Response unLockComment(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
-        ApiResponse<LockComment200Response> localVarResp = unLockCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;LockComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<LockComment200Response> unLockCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
+    private ApiResponse<LockComment200Response> unLockCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
         okhttp3.Call localVarCall = unLockCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<LockComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call unLockCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<LockComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unLockCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<LockComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unLockCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<LockComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIunLockCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String broadcastId;
+        private String sso;
+
+        private APIunLockCommentRequest(String tenantId, String commentId, String broadcastId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.broadcastId = broadcastId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIunLockCommentRequest
+         */
+        public APIunLockCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for unLockComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return unLockCommentCall(tenantId, commentId, broadcastId, sso, _callback);
+        }
+
+        /**
+         * Execute unLockComment request
+         * @return LockComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public LockComment200Response execute() throws ApiException {
+            ApiResponse<LockComment200Response> localVarResp = unLockCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute unLockComment request with HTTP info returned
+         * @return ApiResponse&lt;LockComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<LockComment200Response> executeWithHttpInfo() throws ApiException {
+            return unLockCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+        }
+
+        /**
+         * Execute unLockComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<LockComment200Response> _callback) throws ApiException {
+            return unLockCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for unPinComment
+     * 
+     * 
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @return APIunLockCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -3219,7 +4109,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call unPinCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIunLockCommentRequest unLockComment(String tenantId, String commentId, String broadcastId) {
+        return new APIunLockCommentRequest(tenantId, commentId, broadcastId);
+    }
+    private okhttp3.Call unPinCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3294,83 +4187,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return PinComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public PinComment200Response unPinComment(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
-        ApiResponse<PinComment200Response> localVarResp = unPinCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;PinComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<PinComment200Response> unPinCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
+    private ApiResponse<PinComment200Response> unPinCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String sso) throws ApiException {
         okhttp3.Call localVarCall = unPinCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<PinComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param broadcastId  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call unPinCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<PinComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unPinCommentAsync(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback<PinComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unPinCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<PinComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIunPinCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String broadcastId;
+        private String sso;
+
+        private APIunPinCommentRequest(String tenantId, String commentId, String broadcastId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.broadcastId = broadcastId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIunPinCommentRequest
+         */
+        public APIunPinCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for unPinComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return unPinCommentCall(tenantId, commentId, broadcastId, sso, _callback);
+        }
+
+        /**
+         * Execute unPinComment request
+         * @return PinComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public PinComment200Response execute() throws ApiException {
+            ApiResponse<PinComment200Response> localVarResp = unPinCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute unPinComment request with HTTP info returned
+         * @return ApiResponse&lt;PinComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PinComment200Response> executeWithHttpInfo() throws ApiException {
+            return unPinCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
+        }
+
+        /**
+         * Execute unPinComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PinComment200Response> _callback) throws ApiException {
+            return unPinCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for updateUserNotificationCommentSubscriptionStatus
+     * 
+     * 
      * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param optedInOrOut  (required)
      * @param commentId  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param broadcastId  (required)
+     * @return APIunPinCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -3378,7 +4302,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserNotificationCommentSubscriptionStatusCall(String tenantId, String notificationId, String optedInOrOut, String commentId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIunPinCommentRequest unPinComment(String tenantId, String commentId, String broadcastId) {
+        return new APIunPinCommentRequest(tenantId, commentId, broadcastId);
+    }
+    private okhttp3.Call updateUserNotificationCommentSubscriptionStatusCall(String tenantId, String notificationId, String optedInOrOut, String commentId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3462,87 +4389,117 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * Enable or disable notifications for a specific comment.
-     * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param optedInOrOut  (required)
-     * @param commentId  (required)
-     * @param sso  (optional)
-     * @return UpdateUserNotificationStatus200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public UpdateUserNotificationStatus200Response updateUserNotificationCommentSubscriptionStatus(String tenantId, String notificationId, String optedInOrOut, String commentId, String sso) throws ApiException {
-        ApiResponse<UpdateUserNotificationStatus200Response> localVarResp = updateUserNotificationCommentSubscriptionStatusWithHttpInfo(tenantId, notificationId, optedInOrOut, commentId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * Enable or disable notifications for a specific comment.
-     * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param optedInOrOut  (required)
-     * @param commentId  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;UpdateUserNotificationStatus200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UpdateUserNotificationStatus200Response> updateUserNotificationCommentSubscriptionStatusWithHttpInfo(String tenantId, String notificationId, String optedInOrOut, String commentId, String sso) throws ApiException {
+    private ApiResponse<UpdateUserNotificationStatus200Response> updateUserNotificationCommentSubscriptionStatusWithHttpInfo(String tenantId, String notificationId, String optedInOrOut, String commentId, String sso) throws ApiException {
         okhttp3.Call localVarCall = updateUserNotificationCommentSubscriptionStatusValidateBeforeCall(tenantId, notificationId, optedInOrOut, commentId, sso, null);
         Type localVarReturnType = new TypeToken<UpdateUserNotificationStatus200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * Enable or disable notifications for a specific comment.
-     * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param optedInOrOut  (required)
-     * @param commentId  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateUserNotificationCommentSubscriptionStatusAsync(String tenantId, String notificationId, String optedInOrOut, String commentId, String sso, final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
+    private okhttp3.Call updateUserNotificationCommentSubscriptionStatusAsync(String tenantId, String notificationId, String optedInOrOut, String commentId, String sso, final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateUserNotificationCommentSubscriptionStatusValidateBeforeCall(tenantId, notificationId, optedInOrOut, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<UpdateUserNotificationStatus200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIupdateUserNotificationCommentSubscriptionStatusRequest {
+        private final String tenantId;
+        private final String notificationId;
+        private final String optedInOrOut;
+        private final String commentId;
+        private String sso;
+
+        private APIupdateUserNotificationCommentSubscriptionStatusRequest(String tenantId, String notificationId, String optedInOrOut, String commentId) {
+            this.tenantId = tenantId;
+            this.notificationId = notificationId;
+            this.optedInOrOut = optedInOrOut;
+            this.commentId = commentId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIupdateUserNotificationCommentSubscriptionStatusRequest
+         */
+        public APIupdateUserNotificationCommentSubscriptionStatusRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for updateUserNotificationCommentSubscriptionStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateUserNotificationCommentSubscriptionStatusCall(tenantId, notificationId, optedInOrOut, commentId, sso, _callback);
+        }
+
+        /**
+         * Execute updateUserNotificationCommentSubscriptionStatus request
+         * @return UpdateUserNotificationStatus200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public UpdateUserNotificationStatus200Response execute() throws ApiException {
+            ApiResponse<UpdateUserNotificationStatus200Response> localVarResp = updateUserNotificationCommentSubscriptionStatusWithHttpInfo(tenantId, notificationId, optedInOrOut, commentId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateUserNotificationCommentSubscriptionStatus request with HTTP info returned
+         * @return ApiResponse&lt;UpdateUserNotificationStatus200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<UpdateUserNotificationStatus200Response> executeWithHttpInfo() throws ApiException {
+            return updateUserNotificationCommentSubscriptionStatusWithHttpInfo(tenantId, notificationId, optedInOrOut, commentId, sso);
+        }
+
+        /**
+         * Execute updateUserNotificationCommentSubscriptionStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
+            return updateUserNotificationCommentSubscriptionStatusAsync(tenantId, notificationId, optedInOrOut, commentId, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for updateUserNotificationPageSubscriptionStatus
+     * 
+     * Enable or disable notifications for a specific comment.
      * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param url  (required)
-     * @param pageTitle  (required)
-     * @param subscribedOrUnsubscribed  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param notificationId  (required)
+     * @param optedInOrOut  (required)
+     * @param commentId  (required)
+     * @return APIupdateUserNotificationCommentSubscriptionStatusRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -3550,7 +4507,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserNotificationPageSubscriptionStatusCall(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed, String sso, final ApiCallback _callback) throws ApiException {
+    public APIupdateUserNotificationCommentSubscriptionStatusRequest updateUserNotificationCommentSubscriptionStatus(String tenantId, String notificationId, String optedInOrOut, String commentId) {
+        return new APIupdateUserNotificationCommentSubscriptionStatusRequest(tenantId, notificationId, optedInOrOut, commentId);
+    }
+    private okhttp3.Call updateUserNotificationPageSubscriptionStatusCall(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3646,88 +4606,120 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param url  (required)
-     * @param pageTitle  (required)
-     * @param subscribedOrUnsubscribed  (required)
-     * @param sso  (optional)
-     * @return UpdateUserNotificationStatus200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public UpdateUserNotificationStatus200Response updateUserNotificationPageSubscriptionStatus(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed, String sso) throws ApiException {
-        ApiResponse<UpdateUserNotificationStatus200Response> localVarResp = updateUserNotificationPageSubscriptionStatusWithHttpInfo(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param url  (required)
-     * @param pageTitle  (required)
-     * @param subscribedOrUnsubscribed  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;UpdateUserNotificationStatus200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UpdateUserNotificationStatus200Response> updateUserNotificationPageSubscriptionStatusWithHttpInfo(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed, String sso) throws ApiException {
+    private ApiResponse<UpdateUserNotificationStatus200Response> updateUserNotificationPageSubscriptionStatusWithHttpInfo(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed, String sso) throws ApiException {
         okhttp3.Call localVarCall = updateUserNotificationPageSubscriptionStatusValidateBeforeCall(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso, null);
         Type localVarReturnType = new TypeToken<UpdateUserNotificationStatus200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
-     * @param tenantId  (required)
-     * @param urlId  (required)
-     * @param url  (required)
-     * @param pageTitle  (required)
-     * @param subscribedOrUnsubscribed  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateUserNotificationPageSubscriptionStatusAsync(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed, String sso, final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
+    private okhttp3.Call updateUserNotificationPageSubscriptionStatusAsync(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed, String sso, final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateUserNotificationPageSubscriptionStatusValidateBeforeCall(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso, _callback);
         Type localVarReturnType = new TypeToken<UpdateUserNotificationStatus200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIupdateUserNotificationPageSubscriptionStatusRequest {
+        private final String tenantId;
+        private final String urlId;
+        private final String url;
+        private final String pageTitle;
+        private final String subscribedOrUnsubscribed;
+        private String sso;
+
+        private APIupdateUserNotificationPageSubscriptionStatusRequest(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+            this.url = url;
+            this.pageTitle = pageTitle;
+            this.subscribedOrUnsubscribed = subscribedOrUnsubscribed;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIupdateUserNotificationPageSubscriptionStatusRequest
+         */
+        public APIupdateUserNotificationPageSubscriptionStatusRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for updateUserNotificationPageSubscriptionStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateUserNotificationPageSubscriptionStatusCall(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso, _callback);
+        }
+
+        /**
+         * Execute updateUserNotificationPageSubscriptionStatus request
+         * @return UpdateUserNotificationStatus200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public UpdateUserNotificationStatus200Response execute() throws ApiException {
+            ApiResponse<UpdateUserNotificationStatus200Response> localVarResp = updateUserNotificationPageSubscriptionStatusWithHttpInfo(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateUserNotificationPageSubscriptionStatus request with HTTP info returned
+         * @return ApiResponse&lt;UpdateUserNotificationStatus200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<UpdateUserNotificationStatus200Response> executeWithHttpInfo() throws ApiException {
+            return updateUserNotificationPageSubscriptionStatusWithHttpInfo(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso);
+        }
+
+        /**
+         * Execute updateUserNotificationPageSubscriptionStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
+            return updateUserNotificationPageSubscriptionStatusAsync(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for updateUserNotificationStatus
+     * 
+     * Enable or disable notifications for a page. When users are subscribed to a page, notifications are created for new root comments, and also
      * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param newStatus  (required)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param urlId  (required)
+     * @param url  (required)
+     * @param pageTitle  (required)
+     * @param subscribedOrUnsubscribed  (required)
+     * @return APIupdateUserNotificationPageSubscriptionStatusRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -3735,7 +4727,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateUserNotificationStatusCall(String tenantId, String notificationId, String newStatus, String sso, final ApiCallback _callback) throws ApiException {
+    public APIupdateUserNotificationPageSubscriptionStatusRequest updateUserNotificationPageSubscriptionStatus(String tenantId, String urlId, String url, String pageTitle, String subscribedOrUnsubscribed) {
+        return new APIupdateUserNotificationPageSubscriptionStatusRequest(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed);
+    }
+    private okhttp3.Call updateUserNotificationStatusCall(String tenantId, String notificationId, String newStatus, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3810,85 +4805,114 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param newStatus  (required)
-     * @param sso  (optional)
-     * @return UpdateUserNotificationStatus200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public UpdateUserNotificationStatus200Response updateUserNotificationStatus(String tenantId, String notificationId, String newStatus, String sso) throws ApiException {
-        ApiResponse<UpdateUserNotificationStatus200Response> localVarResp = updateUserNotificationStatusWithHttpInfo(tenantId, notificationId, newStatus, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param newStatus  (required)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;UpdateUserNotificationStatus200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<UpdateUserNotificationStatus200Response> updateUserNotificationStatusWithHttpInfo(String tenantId, String notificationId, String newStatus, String sso) throws ApiException {
+    private ApiResponse<UpdateUserNotificationStatus200Response> updateUserNotificationStatusWithHttpInfo(String tenantId, String notificationId, String newStatus, String sso) throws ApiException {
         okhttp3.Call localVarCall = updateUserNotificationStatusValidateBeforeCall(tenantId, notificationId, newStatus, sso, null);
         Type localVarReturnType = new TypeToken<UpdateUserNotificationStatus200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param tenantId  (required)
-     * @param notificationId  (required)
-     * @param newStatus  (required)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call updateUserNotificationStatusAsync(String tenantId, String notificationId, String newStatus, String sso, final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
+    private okhttp3.Call updateUserNotificationStatusAsync(String tenantId, String notificationId, String newStatus, String sso, final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateUserNotificationStatusValidateBeforeCall(tenantId, notificationId, newStatus, sso, _callback);
         Type localVarReturnType = new TypeToken<UpdateUserNotificationStatus200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIupdateUserNotificationStatusRequest {
+        private final String tenantId;
+        private final String notificationId;
+        private final String newStatus;
+        private String sso;
+
+        private APIupdateUserNotificationStatusRequest(String tenantId, String notificationId, String newStatus) {
+            this.tenantId = tenantId;
+            this.notificationId = notificationId;
+            this.newStatus = newStatus;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIupdateUserNotificationStatusRequest
+         */
+        public APIupdateUserNotificationStatusRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for updateUserNotificationStatus
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateUserNotificationStatusCall(tenantId, notificationId, newStatus, sso, _callback);
+        }
+
+        /**
+         * Execute updateUserNotificationStatus request
+         * @return UpdateUserNotificationStatus200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public UpdateUserNotificationStatus200Response execute() throws ApiException {
+            ApiResponse<UpdateUserNotificationStatus200Response> localVarResp = updateUserNotificationStatusWithHttpInfo(tenantId, notificationId, newStatus, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateUserNotificationStatus request with HTTP info returned
+         * @return ApiResponse&lt;UpdateUserNotificationStatus200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<UpdateUserNotificationStatus200Response> executeWithHttpInfo() throws ApiException {
+            return updateUserNotificationStatusWithHttpInfo(tenantId, notificationId, newStatus, sso);
+        }
+
+        /**
+         * Execute updateUserNotificationStatus request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UpdateUserNotificationStatus200Response> _callback) throws ApiException {
+            return updateUserNotificationStatusAsync(tenantId, notificationId, newStatus, sso, _callback);
+        }
+    }
+
     /**
-     * Build call for voteComment
+     * 
+     * 
      * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param voteBodyParams  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * @param notificationId  (required)
+     * @param newStatus  (required)
+     * @return APIupdateUserNotificationStatusRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -3896,7 +4920,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call voteCommentCall(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
+    public APIupdateUserNotificationStatusRequest updateUserNotificationStatus(String tenantId, String notificationId, String newStatus) {
+        return new APIupdateUserNotificationStatusRequest(tenantId, notificationId, newStatus);
+    }
+    private okhttp3.Call voteCommentCall(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3990,68 +5017,131 @@ public class PublicApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param voteBodyParams  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @return VoteComment200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public VoteComment200Response voteComment(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso) throws ApiException {
-        ApiResponse<VoteComment200Response> localVarResp = voteCommentWithHttpInfo(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param commentId  (required)
-     * @param urlId  (required)
-     * @param broadcastId  (required)
-     * @param voteBodyParams  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @return ApiResponse&lt;VoteComment200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<VoteComment200Response> voteCommentWithHttpInfo(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso) throws ApiException {
+    private ApiResponse<VoteComment200Response> voteCommentWithHttpInfo(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso) throws ApiException {
         okhttp3.Call localVarCall = voteCommentValidateBeforeCall(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso, null);
         Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call voteCommentAsync(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso, final ApiCallback<VoteComment200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = voteCommentValidateBeforeCall(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso, _callback);
+        Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIvoteCommentRequest {
+        private final String tenantId;
+        private final String commentId;
+        private final String urlId;
+        private final String broadcastId;
+        private final VoteBodyParams voteBodyParams;
+        private String sessionId;
+        private String sso;
+
+        private APIvoteCommentRequest(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.urlId = urlId;
+            this.broadcastId = broadcastId;
+            this.voteBodyParams = voteBodyParams;
+        }
+
+        /**
+         * Set sessionId
+         * @param sessionId  (optional)
+         * @return APIvoteCommentRequest
+         */
+        public APIvoteCommentRequest sessionId(String sessionId) {
+            this.sessionId = sessionId;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIvoteCommentRequest
+         */
+        public APIvoteCommentRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for voteComment
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return voteCommentCall(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso, _callback);
+        }
+
+        /**
+         * Execute voteComment request
+         * @return VoteComment200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public VoteComment200Response execute() throws ApiException {
+            ApiResponse<VoteComment200Response> localVarResp = voteCommentWithHttpInfo(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute voteComment request with HTTP info returned
+         * @return ApiResponse&lt;VoteComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<VoteComment200Response> executeWithHttpInfo() throws ApiException {
+            return voteCommentWithHttpInfo(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso);
+        }
+
+        /**
+         * Execute voteComment request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<VoteComment200Response> _callback) throws ApiException {
+            return voteCommentAsync(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso, _callback);
+        }
+    }
+
     /**
-     *  (asynchronously)
+     * 
      * 
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param urlId  (required)
      * @param broadcastId  (required)
      * @param voteBodyParams  (required)
-     * @param sessionId  (optional)
-     * @param sso  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIvoteCommentRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -4059,11 +5149,7 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call voteCommentAsync(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso, final ApiCallback<VoteComment200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = voteCommentValidateBeforeCall(tenantId, commentId, urlId, broadcastId, voteBodyParams, sessionId, sso, _callback);
-        Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIvoteCommentRequest voteComment(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams) {
+        return new APIvoteCommentRequest(tenantId, commentId, urlId, broadcastId, voteBodyParams);
     }
 }
