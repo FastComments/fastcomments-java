@@ -2469,8 +2469,6 @@ components:
           type: string
         websiteUrl:
           type: string
-      required:
-      - isAnonSession
       type: object
     Record_string.any_:
       additionalProperties: {}

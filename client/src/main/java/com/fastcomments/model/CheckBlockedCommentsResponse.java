@@ -63,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:15:59.035975264-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:25:44.514541438-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CheckBlockedCommentsResponse extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CheckBlockedCommentsResponse.class.getName());
 

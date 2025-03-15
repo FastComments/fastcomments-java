@@ -15,7 +15,7 @@
 |**email** | **String** |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**hasBlockedUsers** | **Boolean** |  |  [optional] |
-|**isAnonSession** | **Boolean** |  |  |
+|**isAnonSession** | **Boolean** |  |  [optional] |
 |**sessionId** | **String** |  |  [optional] |
 |**username** | **String** |  |  [optional] |
 |**websiteUrl** | **String** |  |  [optional] |

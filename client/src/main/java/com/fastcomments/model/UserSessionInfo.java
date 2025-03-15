@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * UserSessionInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:15:59.035975264-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:25:44.514541438-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class UserSessionInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -94,7 +94,7 @@ public class UserSessionInfo {
 
   public static final String SERIALIZED_NAME_IS_ANON_SESSION = "isAnonSession";
   @SerializedName(SERIALIZED_NAME_IS_ANON_SESSION)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Boolean isAnonSession;
 
   public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
@@ -275,7 +275,7 @@ public class UserSessionInfo {
   }
 
 
-  public UserSessionInfo isAnonSession(@javax.annotation.Nonnull Boolean isAnonSession) {
+  public UserSessionInfo isAnonSession(@javax.annotation.Nullable Boolean isAnonSession) {
     this.isAnonSession = isAnonSession;
     return this;
   }
@@ -284,12 +284,12 @@ public class UserSessionInfo {
    * Get isAnonSession
    * @return isAnonSession
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Boolean getIsAnonSession() {
     return isAnonSession;
   }
 
-  public void setIsAnonSession(@javax.annotation.Nonnull Boolean isAnonSession) {
+  public void setIsAnonSession(@javax.annotation.Nullable Boolean isAnonSession) {
     this.isAnonSession = isAnonSession;
   }
 
@@ -433,7 +433,6 @@ public class UserSessionInfo {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("isAnonSession");
   }
 
   /**
@@ -454,13 +453,6 @@ public class UserSessionInfo {
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UserSessionInfo.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserSessionInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UserSessionInfo.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

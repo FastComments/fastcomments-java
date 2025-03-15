@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * UserPresenceData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:15:59.035975264-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:25:44.514541438-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class UserPresenceData {
   public static final String SERIALIZED_NAME_URL_ID_W_S = "urlIdWS";
   @SerializedName(SERIALIZED_NAME_URL_ID_W_S)
