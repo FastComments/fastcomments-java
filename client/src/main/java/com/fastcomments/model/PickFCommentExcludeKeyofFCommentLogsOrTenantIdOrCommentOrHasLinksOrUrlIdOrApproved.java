@@ -17,7 +17,7 @@ import java.util.Objects;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta;
+import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,8 +55,8 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:44:18.870123162-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:51:57.638293329-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
@@ -71,11 +71,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
   @javax.annotation.Nullable
   private String pageTitle;
-
-  public static final String SERIALIZED_NAME_APPROVED = "approved";
-  @SerializedName(SERIALIZED_NAME_APPROVED)
-  @javax.annotation.Nonnull
-  private Boolean approved;
 
   public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
   @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
@@ -300,7 +295,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
-  private PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta;
+  private PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta meta;
 
   public static final String SERIALIZED_NAME_IP_HASH = "ipHash";
   @SerializedName(SERIALIZED_NAME_IP_HASH)
@@ -372,10 +367,10 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   @javax.annotation.Nullable
   private Double viewCount;
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId() {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved() {
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId id(@javax.annotation.Nonnull String id) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
@@ -394,7 +389,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId url(@javax.annotation.Nonnull String url) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved url(@javax.annotation.Nonnull String url) {
     this.url = url;
     return this;
   }
@@ -413,7 +408,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageTitle(@javax.annotation.Nullable String pageTitle) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved pageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
     return this;
   }
@@ -432,26 +427,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId approved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
-    return this;
-  }
-
-  /**
-   * Get approved
-   * @return approved
-   */
-  @javax.annotation.Nonnull
-  public Boolean getApproved() {
-    return approved;
-  }
-
-  public void setApproved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
-  }
-
-
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commentHTML(@javax.annotation.Nonnull String commentHTML) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved commentHTML(@javax.annotation.Nonnull String commentHTML) {
     this.commentHTML = commentHTML;
     return this;
   }
@@ -470,7 +446,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId urlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved urlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
     this.urlIdRaw = urlIdRaw;
     return this;
   }
@@ -489,7 +465,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId userId(@javax.annotation.Nullable String userId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved userId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
     return this;
   }
@@ -508,7 +484,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId anonUserId(@javax.annotation.Nullable String anonUserId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved anonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
     return this;
   }
@@ -527,7 +503,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterEmail(@javax.annotation.Nullable String commenterEmail) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved commenterEmail(@javax.annotation.Nullable String commenterEmail) {
     this.commenterEmail = commenterEmail;
     return this;
   }
@@ -546,7 +522,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterName(@javax.annotation.Nonnull String commenterName) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved commenterName(@javax.annotation.Nonnull String commenterName) {
     this.commenterName = commenterName;
     return this;
   }
@@ -565,7 +541,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId commenterLink(@javax.annotation.Nullable String commenterLink) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved commenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
     return this;
   }
@@ -584,7 +560,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId parentId(@javax.annotation.Nullable String parentId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved parentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
     return this;
   }
@@ -603,7 +579,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId date(@javax.annotation.Nonnull OffsetDateTime date) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
   }
@@ -622,7 +598,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateString(@javax.annotation.Nullable String localDateString) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved localDateString(@javax.annotation.Nullable String localDateString) {
     this.localDateString = localDateString;
     return this;
   }
@@ -641,7 +617,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId localDateHours(@javax.annotation.Nullable Integer localDateHours) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved localDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
     return this;
   }
@@ -660,7 +636,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votes(@javax.annotation.Nonnull Integer votes) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved votes(@javax.annotation.Nonnull Integer votes) {
     this.votes = votes;
     return this;
   }
@@ -679,7 +655,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesUp(@javax.annotation.Nonnull Integer votesUp) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved votesUp(@javax.annotation.Nonnull Integer votesUp) {
     this.votesUp = votesUp;
     return this;
   }
@@ -698,7 +674,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId votesDown(@javax.annotation.Nonnull Integer votesDown) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved votesDown(@javax.annotation.Nonnull Integer votesDown) {
     this.votesDown = votesDown;
     return this;
   }
@@ -717,7 +693,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId expireAt(@javax.annotation.Nullable OffsetDateTime expireAt) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved expireAt(@javax.annotation.Nullable OffsetDateTime expireAt) {
     this.expireAt = expireAt;
     return this;
   }
@@ -736,7 +712,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verified(@javax.annotation.Nonnull Boolean verified) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved verified(@javax.annotation.Nonnull Boolean verified) {
     this.verified = verified;
     return this;
   }
@@ -755,7 +731,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verifiedDate(@javax.annotation.Nullable OffsetDateTime verifiedDate) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved verifiedDate(@javax.annotation.Nullable OffsetDateTime verifiedDate) {
     this.verifiedDate = verifiedDate;
     return this;
   }
@@ -774,7 +750,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId verificationId(@javax.annotation.Nullable String verificationId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved verificationId(@javax.annotation.Nullable String verificationId) {
     this.verificationId = verificationId;
     return this;
   }
@@ -793,7 +769,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId notificationSentForParent(@javax.annotation.Nullable Boolean notificationSentForParent) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved notificationSentForParent(@javax.annotation.Nullable Boolean notificationSentForParent) {
     this.notificationSentForParent = notificationSentForParent;
     return this;
   }
@@ -812,7 +788,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId notificationSentForParentTenant(@javax.annotation.Nullable Boolean notificationSentForParentTenant) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved notificationSentForParentTenant(@javax.annotation.Nullable Boolean notificationSentForParentTenant) {
     this.notificationSentForParentTenant = notificationSentForParentTenant;
     return this;
   }
@@ -831,7 +807,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId reviewed(@javax.annotation.Nullable Boolean reviewed) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved reviewed(@javax.annotation.Nullable Boolean reviewed) {
     this.reviewed = reviewed;
     return this;
   }
@@ -850,7 +826,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId imported(@javax.annotation.Nullable Boolean imported) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved imported(@javax.annotation.Nullable Boolean imported) {
     this.imported = imported;
     return this;
   }
@@ -869,7 +845,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId externalId(@javax.annotation.Nullable String externalId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved externalId(@javax.annotation.Nullable String externalId) {
     this.externalId = externalId;
     return this;
   }
@@ -888,7 +864,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId externalParentId(@javax.annotation.Nullable String externalParentId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved externalParentId(@javax.annotation.Nullable String externalParentId) {
     this.externalParentId = externalParentId;
     return this;
   }
@@ -907,7 +883,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId avatarSrc(@javax.annotation.Nullable String avatarSrc) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved avatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
     return this;
   }
@@ -926,7 +902,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isSpam(@javax.annotation.Nullable Boolean isSpam) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isSpam(@javax.annotation.Nullable Boolean isSpam) {
     this.isSpam = isSpam;
     return this;
   }
@@ -945,7 +921,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId aiDeterminedSpam(@javax.annotation.Nullable Boolean aiDeterminedSpam) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved aiDeterminedSpam(@javax.annotation.Nullable Boolean aiDeterminedSpam) {
     this.aiDeterminedSpam = aiDeterminedSpam;
     return this;
   }
@@ -964,7 +940,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hasImages(@javax.annotation.Nullable Boolean hasImages) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved hasImages(@javax.annotation.Nullable Boolean hasImages) {
     this.hasImages = hasImages;
     return this;
   }
@@ -983,7 +959,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumber(@javax.annotation.Nullable Integer pageNumber) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved pageNumber(@javax.annotation.Nullable Integer pageNumber) {
     this.pageNumber = pageNumber;
     return this;
   }
@@ -1002,7 +978,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberOF(@javax.annotation.Nullable Integer pageNumberOF) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved pageNumberOF(@javax.annotation.Nullable Integer pageNumberOF) {
     this.pageNumberOF = pageNumberOF;
     return this;
   }
@@ -1021,7 +997,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pageNumberNF(@javax.annotation.Nullable Integer pageNumberNF) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved pageNumberNF(@javax.annotation.Nullable Integer pageNumberNF) {
     this.pageNumberNF = pageNumberNF;
     return this;
   }
@@ -1040,7 +1016,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hasCode(@javax.annotation.Nullable Boolean hasCode) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved hasCode(@javax.annotation.Nullable Boolean hasCode) {
     this.hasCode = hasCode;
     return this;
   }
@@ -1059,7 +1035,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId locale(@javax.annotation.Nonnull String locale) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved locale(@javax.annotation.Nonnull String locale) {
     this.locale = locale;
     return this;
   }
@@ -1078,7 +1054,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
   }
@@ -1097,7 +1073,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
     this.isDeletedUser = isDeletedUser;
     return this;
   }
@@ -1116,7 +1092,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isBannedUser(@javax.annotation.Nullable Boolean isBannedUser) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isBannedUser(@javax.annotation.Nullable Boolean isBannedUser) {
     this.isBannedUser = isBannedUser;
     return this;
   }
@@ -1135,7 +1111,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isByAdmin(@javax.annotation.Nullable Boolean isByAdmin) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isByAdmin(@javax.annotation.Nullable Boolean isByAdmin) {
     this.isByAdmin = isByAdmin;
     return this;
   }
@@ -1154,7 +1130,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isByModerator(@javax.annotation.Nullable Boolean isByModerator) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isByModerator(@javax.annotation.Nullable Boolean isByModerator) {
     this.isByModerator = isByModerator;
     return this;
   }
@@ -1173,7 +1149,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isPinned(@javax.annotation.Nullable Boolean isPinned) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isPinned(@javax.annotation.Nullable Boolean isPinned) {
     this.isPinned = isPinned;
     return this;
   }
@@ -1192,7 +1168,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId isLocked(@javax.annotation.Nullable Boolean isLocked) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved isLocked(@javax.annotation.Nullable Boolean isLocked) {
     this.isLocked = isLocked;
     return this;
   }
@@ -1211,7 +1187,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId flagCount(@javax.annotation.Nullable Integer flagCount) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved flagCount(@javax.annotation.Nullable Integer flagCount) {
     this.flagCount = flagCount;
     return this;
   }
@@ -1230,7 +1206,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId rating(@javax.annotation.Nullable Double rating) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved rating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
     return this;
   }
@@ -1249,7 +1225,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId displayLabel(@javax.annotation.Nullable String displayLabel) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved displayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
     return this;
   }
@@ -1268,7 +1244,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromProductId(@javax.annotation.Nullable Integer fromProductId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved fromProductId(@javax.annotation.Nullable Integer fromProductId) {
     this.fromProductId = fromProductId;
     return this;
   }
@@ -1287,7 +1263,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId meta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved meta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -1297,16 +1273,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * @return meta
    */
   @javax.annotation.Nullable
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta getMeta() {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
+  public void setMeta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta meta) {
     this.meta = meta;
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId ipHash(@javax.annotation.Nullable String ipHash) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved ipHash(@javax.annotation.Nullable String ipHash) {
     this.ipHash = ipHash;
     return this;
   }
@@ -1325,12 +1301,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId mentions(@javax.annotation.Nullable List<CommentUserMentionInfo> mentions) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved mentions(@javax.annotation.Nullable List<CommentUserMentionInfo> mentions) {
     this.mentions = mentions;
     return this;
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId addMentionsItem(CommentUserMentionInfo mentionsItem) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved addMentionsItem(CommentUserMentionInfo mentionsItem) {
     if (this.mentions == null) {
       this.mentions = new ArrayList<>();
     }
@@ -1352,12 +1328,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId hashTags(@javax.annotation.Nullable List<CommentUserHashTagInfo> hashTags) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved hashTags(@javax.annotation.Nullable List<CommentUserHashTagInfo> hashTags) {
     this.hashTags = hashTags;
     return this;
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId addHashTagsItem(CommentUserHashTagInfo hashTagsItem) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved addHashTagsItem(CommentUserHashTagInfo hashTagsItem) {
     if (this.hashTags == null) {
       this.hashTags = new ArrayList<>();
     }
@@ -1379,12 +1355,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId badges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved badges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
     this.badges = badges;
     return this;
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId addBadgesItem(CommentUserBadgeInfo badgesItem) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved addBadgesItem(CommentUserBadgeInfo badgesItem) {
     if (this.badges == null) {
       this.badges = new ArrayList<>();
     }
@@ -1406,7 +1382,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId domain(@javax.annotation.Nullable String domain) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved domain(@javax.annotation.Nullable String domain) {
     this.domain = domain;
     return this;
   }
@@ -1425,7 +1401,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId veteranBadgeProcessed(@javax.annotation.Nullable String veteranBadgeProcessed) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved veteranBadgeProcessed(@javax.annotation.Nullable String veteranBadgeProcessed) {
     this.veteranBadgeProcessed = veteranBadgeProcessed;
     return this;
   }
@@ -1444,12 +1420,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId moderationGroupIds(@javax.annotation.Nullable List<String> moderationGroupIds) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved moderationGroupIds(@javax.annotation.Nullable List<String> moderationGroupIds) {
     this.moderationGroupIds = moderationGroupIds;
     return this;
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId addModerationGroupIdsItem(String moderationGroupIdsItem) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved addModerationGroupIdsItem(String moderationGroupIdsItem) {
     if (this.moderationGroupIds == null) {
       this.moderationGroupIds = new ArrayList<>();
     }
@@ -1471,7 +1447,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId didProcessBadges(@javax.annotation.Nullable Boolean didProcessBadges) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved didProcessBadges(@javax.annotation.Nullable Boolean didProcessBadges) {
     this.didProcessBadges = didProcessBadges;
     return this;
   }
@@ -1490,7 +1466,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromOfflineRestore(@javax.annotation.Nullable Boolean fromOfflineRestore) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved fromOfflineRestore(@javax.annotation.Nullable Boolean fromOfflineRestore) {
     this.fromOfflineRestore = fromOfflineRestore;
     return this;
   }
@@ -1509,7 +1485,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayJobId(@javax.annotation.Nullable String autoplayJobId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved autoplayJobId(@javax.annotation.Nullable String autoplayJobId) {
     this.autoplayJobId = autoplayJobId;
     return this;
   }
@@ -1528,7 +1504,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId autoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved autoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
     return this;
   }
@@ -1547,12 +1523,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId feedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved feedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
     return this;
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId addFeedbackIdsItem(String feedbackIdsItem) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved addFeedbackIdsItem(String feedbackIdsItem) {
     if (this.feedbackIds == null) {
       this.feedbackIds = new ArrayList<>();
     }
@@ -1574,12 +1550,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId groupIds(@javax.annotation.Nullable List<String> groupIds) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved groupIds(@javax.annotation.Nullable List<String> groupIds) {
     this.groupIds = groupIds;
     return this;
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId addGroupIdsItem(String groupIdsItem) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved addGroupIdsItem(String groupIdsItem) {
     if (this.groupIds == null) {
       this.groupIds = new ArrayList<>();
     }
@@ -1601,7 +1577,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId viewCount(@javax.annotation.Nullable Double viewCount) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved viewCount(@javax.annotation.Nullable Double viewCount) {
     this.viewCount = viewCount;
     return this;
   }
@@ -1629,85 +1605,83 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId = (PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId) o;
-    return Objects.equals(this.id, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.id) &&
-        Objects.equals(this.url, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.url) &&
-        Objects.equals(this.pageTitle, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.pageTitle) &&
-        Objects.equals(this.approved, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.approved) &&
-        Objects.equals(this.commentHTML, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commentHTML) &&
-        Objects.equals(this.urlIdRaw, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.urlIdRaw) &&
-        Objects.equals(this.userId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.userId) &&
-        Objects.equals(this.anonUserId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.anonUserId) &&
-        Objects.equals(this.commenterEmail, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commenterEmail) &&
-        Objects.equals(this.commenterName, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commenterName) &&
-        Objects.equals(this.commenterLink, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.commenterLink) &&
-        Objects.equals(this.parentId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.parentId) &&
-        Objects.equals(this.date, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.date) &&
-        Objects.equals(this.localDateString, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.localDateString) &&
-        Objects.equals(this.localDateHours, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.localDateHours) &&
-        Objects.equals(this.votes, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.votes) &&
-        Objects.equals(this.votesUp, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.votesUp) &&
-        Objects.equals(this.votesDown, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.votesDown) &&
-        Objects.equals(this.expireAt, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.expireAt) &&
-        Objects.equals(this.verified, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.verified) &&
-        Objects.equals(this.verifiedDate, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.verifiedDate) &&
-        Objects.equals(this.verificationId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.verificationId) &&
-        Objects.equals(this.notificationSentForParent, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.notificationSentForParent) &&
-        Objects.equals(this.notificationSentForParentTenant, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.notificationSentForParentTenant) &&
-        Objects.equals(this.reviewed, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.reviewed) &&
-        Objects.equals(this.imported, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.imported) &&
-        Objects.equals(this.externalId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.externalId) &&
-        Objects.equals(this.externalParentId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.externalParentId) &&
-        Objects.equals(this.avatarSrc, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.avatarSrc) &&
-        Objects.equals(this.isSpam, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isSpam) &&
-        Objects.equals(this.aiDeterminedSpam, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.aiDeterminedSpam) &&
-        Objects.equals(this.hasImages, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.hasImages) &&
-        Objects.equals(this.pageNumber, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.pageNumber) &&
-        Objects.equals(this.pageNumberOF, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.pageNumberOF) &&
-        Objects.equals(this.pageNumberNF, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.pageNumberNF) &&
-        Objects.equals(this.hasCode, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.hasCode) &&
-        Objects.equals(this.locale, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.locale) &&
-        Objects.equals(this.isDeleted, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isDeleted) &&
-        Objects.equals(this.isDeletedUser, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isDeletedUser) &&
-        Objects.equals(this.isBannedUser, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isBannedUser) &&
-        Objects.equals(this.isByAdmin, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isByAdmin) &&
-        Objects.equals(this.isByModerator, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isByModerator) &&
-        Objects.equals(this.isPinned, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isPinned) &&
-        Objects.equals(this.isLocked, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.isLocked) &&
-        Objects.equals(this.flagCount, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.flagCount) &&
-        Objects.equals(this.rating, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.rating) &&
-        Objects.equals(this.displayLabel, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.displayLabel) &&
-        Objects.equals(this.fromProductId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.fromProductId) &&
-        Objects.equals(this.meta, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.meta) &&
-        Objects.equals(this.ipHash, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.ipHash) &&
-        Objects.equals(this.mentions, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.mentions) &&
-        Objects.equals(this.hashTags, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.hashTags) &&
-        Objects.equals(this.badges, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.badges) &&
-        Objects.equals(this.domain, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.domain) &&
-        Objects.equals(this.veteranBadgeProcessed, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.veteranBadgeProcessed) &&
-        Objects.equals(this.moderationGroupIds, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.moderationGroupIds) &&
-        Objects.equals(this.didProcessBadges, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.didProcessBadges) &&
-        Objects.equals(this.fromOfflineRestore, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.fromOfflineRestore) &&
-        Objects.equals(this.autoplayJobId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.autoplayJobId) &&
-        Objects.equals(this.autoplayDelayMS, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.autoplayDelayMS) &&
-        Objects.equals(this.feedbackIds, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.feedbackIds) &&
-        Objects.equals(this.groupIds, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.groupIds) &&
-        Objects.equals(this.viewCount, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.viewCount);
+    PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved = (PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved) o;
+    return Objects.equals(this.id, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.id) &&
+        Objects.equals(this.url, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.url) &&
+        Objects.equals(this.pageTitle, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.pageTitle) &&
+        Objects.equals(this.commentHTML, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.commentHTML) &&
+        Objects.equals(this.urlIdRaw, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.urlIdRaw) &&
+        Objects.equals(this.userId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.userId) &&
+        Objects.equals(this.anonUserId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.anonUserId) &&
+        Objects.equals(this.commenterEmail, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.commenterEmail) &&
+        Objects.equals(this.commenterName, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.commenterName) &&
+        Objects.equals(this.commenterLink, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.commenterLink) &&
+        Objects.equals(this.parentId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.parentId) &&
+        Objects.equals(this.date, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.date) &&
+        Objects.equals(this.localDateString, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.localDateString) &&
+        Objects.equals(this.localDateHours, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.localDateHours) &&
+        Objects.equals(this.votes, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.votes) &&
+        Objects.equals(this.votesUp, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.votesUp) &&
+        Objects.equals(this.votesDown, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.votesDown) &&
+        Objects.equals(this.expireAt, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.expireAt) &&
+        Objects.equals(this.verified, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.verified) &&
+        Objects.equals(this.verifiedDate, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.verifiedDate) &&
+        Objects.equals(this.verificationId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.verificationId) &&
+        Objects.equals(this.notificationSentForParent, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.notificationSentForParent) &&
+        Objects.equals(this.notificationSentForParentTenant, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.notificationSentForParentTenant) &&
+        Objects.equals(this.reviewed, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.reviewed) &&
+        Objects.equals(this.imported, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.imported) &&
+        Objects.equals(this.externalId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.externalId) &&
+        Objects.equals(this.externalParentId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.externalParentId) &&
+        Objects.equals(this.avatarSrc, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.avatarSrc) &&
+        Objects.equals(this.isSpam, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isSpam) &&
+        Objects.equals(this.aiDeterminedSpam, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.aiDeterminedSpam) &&
+        Objects.equals(this.hasImages, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.hasImages) &&
+        Objects.equals(this.pageNumber, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.pageNumber) &&
+        Objects.equals(this.pageNumberOF, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.pageNumberOF) &&
+        Objects.equals(this.pageNumberNF, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.pageNumberNF) &&
+        Objects.equals(this.hasCode, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.hasCode) &&
+        Objects.equals(this.locale, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.locale) &&
+        Objects.equals(this.isDeleted, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isDeleted) &&
+        Objects.equals(this.isDeletedUser, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isDeletedUser) &&
+        Objects.equals(this.isBannedUser, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isBannedUser) &&
+        Objects.equals(this.isByAdmin, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isByAdmin) &&
+        Objects.equals(this.isByModerator, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isByModerator) &&
+        Objects.equals(this.isPinned, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isPinned) &&
+        Objects.equals(this.isLocked, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.isLocked) &&
+        Objects.equals(this.flagCount, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.flagCount) &&
+        Objects.equals(this.rating, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.rating) &&
+        Objects.equals(this.displayLabel, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.displayLabel) &&
+        Objects.equals(this.fromProductId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.fromProductId) &&
+        Objects.equals(this.meta, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.meta) &&
+        Objects.equals(this.ipHash, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.ipHash) &&
+        Objects.equals(this.mentions, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.mentions) &&
+        Objects.equals(this.hashTags, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.hashTags) &&
+        Objects.equals(this.badges, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.badges) &&
+        Objects.equals(this.domain, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.domain) &&
+        Objects.equals(this.veteranBadgeProcessed, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.veteranBadgeProcessed) &&
+        Objects.equals(this.moderationGroupIds, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.moderationGroupIds) &&
+        Objects.equals(this.didProcessBadges, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.didProcessBadges) &&
+        Objects.equals(this.fromOfflineRestore, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.fromOfflineRestore) &&
+        Objects.equals(this.autoplayJobId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.autoplayJobId) &&
+        Objects.equals(this.autoplayDelayMS, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.autoplayDelayMS) &&
+        Objects.equals(this.feedbackIds, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.feedbackIds) &&
+        Objects.equals(this.groupIds, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.groupIds) &&
+        Objects.equals(this.viewCount, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.viewCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url, pageTitle, approved, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount);
+    return Objects.hash(id, url, pageTitle, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId {\n");
+    sb.append("class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
-    sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    urlIdRaw: ").append(toIndentedString(urlIdRaw)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -1792,7 +1766,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     openapiFields.add("_id");
     openapiFields.add("url");
     openapiFields.add("pageTitle");
-    openapiFields.add("approved");
     openapiFields.add("commentHTML");
     openapiFields.add("urlIdRaw");
     openapiFields.add("userId");
@@ -1857,7 +1830,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("_id");
     openapiRequiredFields.add("url");
-    openapiRequiredFields.add("approved");
     openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("date");
@@ -1872,25 +1844,25 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+   * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId is not found in the empty JSON string", PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.openapiRequiredFields.toString()));
+        if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved is not found in the empty JSON string", PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.openapiRequiredFields) {
+      for (String requiredField : PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -2022,22 +1994,22 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId' and its subtypes
+       if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.class));
+       final TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId>() {
+       return (TypeAdapter<T>) new TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved>() {
            @Override
-           public void write(JsonWriter out, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId value) throws IOException {
+           public void write(JsonWriter out, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId read(JsonReader in) throws IOException {
+           public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -2048,18 +2020,18 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
   /**
-   * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId given an JSON string
+   * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
-   * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+   * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved
+   * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved
    */
-  public static PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId.class);
+  public static PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved.class);
   }
 
   /**
-   * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId to an JSON string
+   * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved to an JSON string
    *
    * @return JSON string
    */

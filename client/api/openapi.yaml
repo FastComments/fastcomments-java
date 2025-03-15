@@ -2271,7 +2271,7 @@ components:
       - textColor
       - type
       type: object
-    Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__:
+    Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved__:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
         _id:
@@ -2280,8 +2280,6 @@ components:
           type: string
         pageTitle:
           type: string
-        approved:
-          type: boolean
         commentHTML:
           type: string
         urlIdRaw:
@@ -2384,7 +2382,7 @@ components:
           format: int32
           type: integer
         meta:
-          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta'
+          $ref: '#/components/schemas/Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId_or_approved___meta'
         ipHash:
           type: string
         mentions:
@@ -2429,7 +2427,6 @@ components:
           type: number
       required:
       - _id
-      - approved
       - commentHTML
       - commenterName
       - date
@@ -2440,10 +2437,10 @@ components:
       - votesDown
       - votesUp
       type: object
-    Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_:
-      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__'
+    Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved_:
+      $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved__'
     PublicCommentMongo:
-      $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_'
+      $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId-or-approved_'
     UserSessionInfo:
       additionalProperties: false
       properties:
@@ -3444,7 +3441,7 @@ components:
       - comment
       - status
       type: object
-    Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId___meta:
+    Pick_FComment_Exclude_keyofFComment_logs_or_tenantId_or_comment_or_hasLinks_or_urlId_or_approved___meta:
       additionalProperties: {}
       properties:
         wpUserId:

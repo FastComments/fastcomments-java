@@ -53,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * The aggregation request accepts a resource, optional grouping keys, an array of operations, and an optional sort
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:44:18.870123162-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:51:57.638293329-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class AggregationRequest {
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)

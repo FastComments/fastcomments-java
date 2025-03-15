@@ -46,10 +46,10 @@ import java.util.Set;
 import com.fastcomments.invoker.JSON;
 
 /**
- * PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
+ * PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:44:18.870123162-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:51:57.638293329-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta {
   public static final String SERIALIZED_NAME_WP_USER_ID = "wpUserId";
   @SerializedName(SERIALIZED_NAME_WP_USER_ID)
   @javax.annotation.Nullable
@@ -60,10 +60,10 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   @javax.annotation.Nullable
   private String wpPostId;
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta() {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta() {
   }
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta wpUserId(@javax.annotation.Nullable String wpUserId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta wpUserId(@javax.annotation.Nullable String wpUserId) {
     this.wpUserId = wpUserId;
     return this;
   }
@@ -82,7 +82,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
 
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta wpPostId(@javax.annotation.Nullable String wpPostId) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta wpPostId(@javax.annotation.Nullable String wpPostId) {
     this.wpPostId = wpPostId;
     return this;
   }
@@ -113,9 +113,9 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta instance itself
+   * @return the PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta instance itself
    */
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta putAdditionalProperty(String key, Object value) {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -154,10 +154,10 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta = (PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta) o;
-    return Objects.equals(this.wpUserId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.wpUserId) &&
-        Objects.equals(this.wpPostId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.wpPostId)&&
-        Objects.equals(this.additionalProperties, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.additionalProperties);
+    PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta = (PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta) o;
+    return Objects.equals(this.wpUserId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.wpUserId) &&
+        Objects.equals(this.wpPostId, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.wpPostId)&&
+        Objects.equals(this.additionalProperties, pickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.additionalProperties);
   }
 
   @Override
@@ -168,7 +168,7 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta {\n");
+    sb.append("class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta {\n");
     sb.append("    wpUserId: ").append(toIndentedString(wpUserId)).append("\n");
     sb.append("    wpPostId: ").append(toIndentedString(wpPostId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -205,12 +205,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
+   * @throws IOException if the JSON Element is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta is not found in the empty JSON string", PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.openapiRequiredFields.toString()));
+        if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta is not found in the empty JSON string", PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -226,16 +226,16 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta' and its subtypes
+       if (!PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.class));
+       final TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta>() {
+       return (TypeAdapter<T>) new TypeAdapter<PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta>() {
            @Override
-           public void write(JsonWriter out, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta value) throws IOException {
+           public void write(JsonWriter out, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -263,12 +263,12 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
            }
 
            @Override
-           public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta read(JsonReader in) throws IOException {
+           public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta instance = thisAdapter.fromJsonTree(jsonObj);
+             PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -295,18 +295,18 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
   }
 
   /**
-   * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta given an JSON string
+   * Create an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
-   * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta
+   * @return An instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta
+   * @throws IOException if the JSON string is invalid with respect to PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta
    */
-  public static PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta.class);
+  public static PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta.class);
   }
 
   /**
-   * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta to an JSON string
+   * Convert an instance of PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta to an JSON string
    *
    * @return JSON string
    */

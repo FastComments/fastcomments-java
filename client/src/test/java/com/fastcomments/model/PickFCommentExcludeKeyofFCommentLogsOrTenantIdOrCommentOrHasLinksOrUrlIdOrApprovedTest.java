@@ -16,7 +16,7 @@ package com.fastcomments.model;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta;
+import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -31,17 +31,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+ * Model tests for PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved
  */
-public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdTest {
-    private final PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId model = new PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId();
+public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedTest {
+    private final PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved model = new PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved();
 
     /**
-     * Model tests for PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+     * Model tests for PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved
      */
     @Test
-    public void testPickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId() {
-        // TODO: test PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId
+    public void testPickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved() {
+        // TODO: test PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApproved
     }
 
     /**
@@ -66,14 +66,6 @@ public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOr
     @Test
     public void pageTitleTest() {
         // TODO: test pageTitle
-    }
-
-    /**
-     * Test the property 'approved'
-     */
-    @Test
-    public void approvedTest() {
-        // TODO: test approved
     }
 
     /**

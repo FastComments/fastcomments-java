@@ -17,7 +17,7 @@ import java.util.Objects;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta;
+import com.fastcomments.model.PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * PublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:44:18.870123162-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:51:57.638293329-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PublicComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -71,11 +71,6 @@ public class PublicComment {
   @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
   @javax.annotation.Nullable
   private String pageTitle;
-
-  public static final String SERIALIZED_NAME_APPROVED = "approved";
-  @SerializedName(SERIALIZED_NAME_APPROVED)
-  @javax.annotation.Nonnull
-  private Boolean approved;
 
   public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
   @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
@@ -300,7 +295,7 @@ public class PublicComment {
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
-  private PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta;
+  private PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta meta;
 
   public static final String SERIALIZED_NAME_IP_HASH = "ipHash";
   @SerializedName(SERIALIZED_NAME_IP_HASH)
@@ -479,25 +474,6 @@ public class PublicComment {
 
   public void setPageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
-  }
-
-
-  public PublicComment approved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
-    return this;
-  }
-
-  /**
-   * Get approved
-   * @return approved
-   */
-  @javax.annotation.Nonnull
-  public Boolean getApproved() {
-    return approved;
-  }
-
-  public void setApproved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
   }
 
 
@@ -1337,7 +1313,7 @@ public class PublicComment {
   }
 
 
-  public PublicComment meta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
+  public PublicComment meta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -1347,11 +1323,11 @@ public class PublicComment {
    * @return meta
    */
   @javax.annotation.Nullable
-  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta getMeta() {
+  public PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdMeta meta) {
+  public void setMeta(@javax.annotation.Nullable PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlIdOrApprovedMeta meta) {
     this.meta = meta;
   }
 
@@ -1881,7 +1857,6 @@ public class PublicComment {
     return Objects.equals(this.id, publicComment.id) &&
         Objects.equals(this.url, publicComment.url) &&
         Objects.equals(this.pageTitle, publicComment.pageTitle) &&
-        Objects.equals(this.approved, publicComment.approved) &&
         Objects.equals(this.commentHTML, publicComment.commentHTML) &&
         Objects.equals(this.urlIdRaw, publicComment.urlIdRaw) &&
         Objects.equals(this.userId, publicComment.userId) &&
@@ -1955,7 +1930,7 @@ public class PublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url, pageTitle, approved, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
+    return Objects.hash(id, url, pageTitle, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
   }
 
   @Override
@@ -1965,7 +1940,6 @@ public class PublicComment {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
-    sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    urlIdRaw: ").append(toIndentedString(urlIdRaw)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -2060,7 +2034,6 @@ public class PublicComment {
     openapiFields.add("_id");
     openapiFields.add("url");
     openapiFields.add("pageTitle");
-    openapiFields.add("approved");
     openapiFields.add("commentHTML");
     openapiFields.add("urlIdRaw");
     openapiFields.add("userId");
@@ -2135,7 +2108,6 @@ public class PublicComment {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("_id");
     openapiRequiredFields.add("url");
-    openapiRequiredFields.add("approved");
     openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("date");
