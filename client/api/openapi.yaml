@@ -2203,6 +2203,12 @@ components:
           hasChildren:
             description: This is always set when asTree=true
             type: boolean
+          nestedChildrenCount:
+            description: "The total nested child count included in this response (may\
+              \ be more available w/ pagination) Only set with asTree=true, otherwise\
+              \ this will be null."
+            format: int32
+            type: integer
           childCount:
             description: "You must ask the API to count children (with asTree=true&countChildren=true),\
               \ otherwise this will be null. This will be the complete direct child\
@@ -2226,9 +2232,10 @@ components:
         - null
         hasChildren: true
         isVotedUp: true
+        nestedChildrenCount: 6
         isBlocked: true
         isVotedDown: true
-        childCount: 6
+        childCount: 1
         isUnread: true
         isFlagged: true
     CommentUserBadgeInfo:
@@ -2573,7 +2580,7 @@ components:
       example:
         reason: reason
         code: code
-        pageNumber: 5
+        pageNumber: 2
         isProd: true
         urlIdClean: urlIdClean
         hasMore: true
@@ -2663,7 +2670,7 @@ components:
           wrap: true
         hasBillingIssue: true
         isCrawler: true
-        lastGenDate: 1.4658129805029452
+        lastGenDate: 5.962133916683182
         comments:
         - myVoteId: myVoteId
           children:
@@ -2671,9 +2678,10 @@ components:
           - null
           hasChildren: true
           isVotedUp: true
+          nestedChildrenCount: 6
           isBlocked: true
           isVotedDown: true
-          childCount: 6
+          childCount: 1
           isUnread: true
           isFlagged: true
         - myVoteId: myVoteId
@@ -2682,19 +2690,20 @@ components:
           - null
           hasChildren: true
           isVotedUp: true
+          nestedChildrenCount: 6
           isBlocked: true
           isVotedDown: true
-          childCount: 6
+          childCount: 1
           isUnread: true
           isFlagged: true
         isCommentsHidden: true
-        notificationCount: 2
+        notificationCount: 7
         includesPastPages: true
         moduleData:
           key: ""
-        commentCount: 5.962133916683182
+        commentCount: 5.637376656633329
         isClosed: true
-        presencePollState: 7
+        presencePollState: 9
         userIdWS: userIdWS
         isSiteAdmin: true
         isWhiteLabeled: true
@@ -2738,9 +2747,10 @@ components:
           - null
           hasChildren: true
           isVotedUp: true
+          nestedChildrenCount: 6
           isBlocked: true
           isVotedDown: true
-          childCount: 6
+          childCount: 1
           isUnread: true
           isFlagged: true
         userIdWS: null

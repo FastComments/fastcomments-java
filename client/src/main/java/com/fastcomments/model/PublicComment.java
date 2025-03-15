@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * PublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:25:44.514541438-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:43:03.210315774-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PublicComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -396,6 +396,11 @@ public class PublicComment {
   @SerializedName(SERIALIZED_NAME_HAS_CHILDREN)
   @javax.annotation.Nullable
   private Boolean hasChildren;
+
+  public static final String SERIALIZED_NAME_NESTED_CHILDREN_COUNT = "nestedChildrenCount";
+  @SerializedName(SERIALIZED_NAME_NESTED_CHILDREN_COUNT)
+  @javax.annotation.Nullable
+  private Integer nestedChildrenCount;
 
   public static final String SERIALIZED_NAME_CHILD_COUNT = "childCount";
   @SerializedName(SERIALIZED_NAME_CHILD_COUNT)
@@ -1760,6 +1765,25 @@ public class PublicComment {
   }
 
 
+  public PublicComment nestedChildrenCount(@javax.annotation.Nullable Integer nestedChildrenCount) {
+    this.nestedChildrenCount = nestedChildrenCount;
+    return this;
+  }
+
+  /**
+   * The total nested child count included in this response (may be more available w/ pagination) Only set with asTree&#x3D;true, otherwise this will be null.
+   * @return nestedChildrenCount
+   */
+  @javax.annotation.Nullable
+  public Integer getNestedChildrenCount() {
+    return nestedChildrenCount;
+  }
+
+  public void setNestedChildrenCount(@javax.annotation.Nullable Integer nestedChildrenCount) {
+    this.nestedChildrenCount = nestedChildrenCount;
+  }
+
+
   public PublicComment childCount(@javax.annotation.Nullable Integer childCount) {
     this.childCount = childCount;
     return this;
@@ -1922,6 +1946,7 @@ public class PublicComment {
         Objects.equals(this.isVotedDown, publicComment.isVotedDown) &&
         Objects.equals(this.isVotedUp, publicComment.isVotedUp) &&
         Objects.equals(this.hasChildren, publicComment.hasChildren) &&
+        Objects.equals(this.nestedChildrenCount, publicComment.nestedChildrenCount) &&
         Objects.equals(this.childCount, publicComment.childCount) &&
         Objects.equals(this.children, publicComment.children) &&
         Objects.equals(this.isFlagged, publicComment.isFlagged) &&
@@ -1930,7 +1955,7 @@ public class PublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url, pageTitle, approved, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, childCount, children, isFlagged, isBlocked);
+    return Objects.hash(id, url, pageTitle, approved, commentHTML, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasCode, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, groupIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
   }
 
   @Override
@@ -2005,6 +2030,7 @@ public class PublicComment {
     sb.append("    isVotedDown: ").append(toIndentedString(isVotedDown)).append("\n");
     sb.append("    isVotedUp: ").append(toIndentedString(isVotedUp)).append("\n");
     sb.append("    hasChildren: ").append(toIndentedString(hasChildren)).append("\n");
+    sb.append("    nestedChildrenCount: ").append(toIndentedString(nestedChildrenCount)).append("\n");
     sb.append("    childCount: ").append(toIndentedString(childCount)).append("\n");
     sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("    isFlagged: ").append(toIndentedString(isFlagged)).append("\n");
@@ -2099,6 +2125,7 @@ public class PublicComment {
     openapiFields.add("isVotedDown");
     openapiFields.add("isVotedUp");
     openapiFields.add("hasChildren");
+    openapiFields.add("nestedChildrenCount");
     openapiFields.add("childCount");
     openapiFields.add("children");
     openapiFields.add("isFlagged");

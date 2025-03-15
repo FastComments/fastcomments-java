@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T19:25:44.514541438-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T08:43:03.210315774-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentExcludeKeyofFCommentLogsOrTenantIdOrCommentOrHasLinksOrUrlId {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)

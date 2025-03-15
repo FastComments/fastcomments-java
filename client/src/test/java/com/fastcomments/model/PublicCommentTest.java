@@ -589,6 +589,14 @@ public class PublicCommentTest {
     }
 
     /**
+     * Test the property 'nestedChildrenCount'
+     */
+    @Test
+    public void nestedChildrenCountTest() {
+        // TODO: test nestedChildrenCount
+    }
+
+    /**
      * Test the property 'childCount'
      */
     @Test
