@@ -17,8 +17,6 @@ docs/AggregationRequestSort.md
 docs/AggregationResponse.md
 docs/AggregationResponseStats.md
 docs/AggregationValue.md
-docs/AnonUserDetails.md
-docs/AuthenticatedUserDetails.md
 docs/BlockFromComment200Response.md
 docs/BlockFromCommentParams.md
 docs/BlockSuccess.md
@@ -148,8 +146,6 @@ src/main/java/com/fastcomments/model/AggregationRequestSort.java
 src/main/java/com/fastcomments/model/AggregationResponse.java
 src/main/java/com/fastcomments/model/AggregationResponseStats.java
 src/main/java/com/fastcomments/model/AggregationValue.java
-src/main/java/com/fastcomments/model/AnonUserDetails.java
-src/main/java/com/fastcomments/model/AuthenticatedUserDetails.java
 src/main/java/com/fastcomments/model/BlockFromComment200Response.java
 src/main/java/com/fastcomments/model/BlockFromCommentParams.java
 src/main/java/com/fastcomments/model/BlockSuccess.java
@@ -250,8 +246,6 @@ src/test/java/com/fastcomments/model/AggregationRequestTest.java
 src/test/java/com/fastcomments/model/AggregationResponseStatsTest.java
 src/test/java/com/fastcomments/model/AggregationResponseTest.java
 src/test/java/com/fastcomments/model/AggregationValueTest.java
-src/test/java/com/fastcomments/model/AnonUserDetailsTest.java
-src/test/java/com/fastcomments/model/AuthenticatedUserDetailsTest.java
 src/test/java/com/fastcomments/model/BlockFromComment200ResponseTest.java
 src/test/java/com/fastcomments/model/BlockFromCommentParamsTest.java
 src/test/java/com/fastcomments/model/BlockSuccessTest.java

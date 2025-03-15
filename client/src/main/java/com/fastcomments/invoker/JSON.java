@@ -103,8 +103,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.AggregationResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.AggregationResponseStats.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.AggregationValue.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.AnonUserDetails.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.AuthenticatedUserDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.BlockFromComment200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.BlockFromCommentParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.BlockSuccess.CustomTypeAdapterFactory());

@@ -13,8 +13,6 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.AnonUserDetails;
-import com.fastcomments.model.AuthenticatedUserDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,75 +40,11 @@ public class UserSessionInfoTest {
     }
 
     /**
-     * Test the property 'websiteUrl'
+     * Test the property 'id'
      */
     @Test
-    public void websiteUrlTest() {
-        // TODO: test websiteUrl
-    }
-
-    /**
-     * Test the property 'username'
-     */
-    @Test
-    public void usernameTest() {
-        // TODO: test username
-    }
-
-    /**
-     * Test the property 'sessionId'
-     */
-    @Test
-    public void sessionIdTest() {
-        // TODO: test sessionId
-    }
-
-    /**
-     * Test the property 'hasBlockedUsers'
-     */
-    @Test
-    public void hasBlockedUsersTest() {
-        // TODO: test hasBlockedUsers
-    }
-
-    /**
-     * Test the property 'groupIds'
-     */
-    @Test
-    public void groupIdsTest() {
-        // TODO: test groupIds
-    }
-
-    /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        // TODO: test email
-    }
-
-    /**
-     * Test the property 'displayName'
-     */
-    @Test
-    public void displayNameTest() {
-        // TODO: test displayName
-    }
-
-    /**
-     * Test the property 'displayLabel'
-     */
-    @Test
-    public void displayLabelTest() {
-        // TODO: test displayLabel
-    }
-
-    /**
-     * Test the property 'avatarSrc'
-     */
-    @Test
-    public void avatarSrcTest() {
-        // TODO: test avatarSrc
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
@@ -122,11 +56,51 @@ public class UserSessionInfoTest {
     }
 
     /**
-     * Test the property 'id'
+     * Test the property 'avatarSrc'
      */
     @Test
-    public void idTest() {
-        // TODO: test id
+    public void avatarSrcTest() {
+        // TODO: test avatarSrc
+    }
+
+    /**
+     * Test the property 'displayLabel'
+     */
+    @Test
+    public void displayLabelTest() {
+        // TODO: test displayLabel
+    }
+
+    /**
+     * Test the property 'displayName'
+     */
+    @Test
+    public void displayNameTest() {
+        // TODO: test displayName
+    }
+
+    /**
+     * Test the property 'email'
+     */
+    @Test
+    public void emailTest() {
+        // TODO: test email
+    }
+
+    /**
+     * Test the property 'groupIds'
+     */
+    @Test
+    public void groupIdsTest() {
+        // TODO: test groupIds
+    }
+
+    /**
+     * Test the property 'hasBlockedUsers'
+     */
+    @Test
+    public void hasBlockedUsersTest() {
+        // TODO: test hasBlockedUsers
     }
 
     /**
@@ -135,6 +109,30 @@ public class UserSessionInfoTest {
     @Test
     public void isAnonSessionTest() {
         // TODO: test isAnonSession
+    }
+
+    /**
+     * Test the property 'sessionId'
+     */
+    @Test
+    public void sessionIdTest() {
+        // TODO: test sessionId
+    }
+
+    /**
+     * Test the property 'username'
+     */
+    @Test
+    public void usernameTest() {
+        // TODO: test username
+    }
+
+    /**
+     * Test the property 'websiteUrl'
+     */
+    @Test
+    public void websiteUrlTest() {
+        // TODO: test websiteUrl
     }
 
 }

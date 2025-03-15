@@ -2422,65 +2422,41 @@ components:
       $ref: '#/components/schemas/Pick_FComment.Exclude_keyofFComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId__'
     PublicCommentMongo:
       $ref: '#/components/schemas/Omit_FComment.logs-or-tenantId-or-comment-or-hasLinks-or-urlId_'
-    AuthenticatedUserDetails:
+    UserSessionInfo:
+      additionalProperties: false
       properties:
-        websiteUrl:
+        id:
           type: string
-        username:
-          type: string
-        sessionId:
+        authorized:
+          type: boolean
+        avatarSrc:
           nullable: true
           type: string
-        hasBlockedUsers:
-          type: boolean
+        displayLabel:
+          type: string
+        displayName:
+          type: string
+        email:
+          nullable: true
+          type: string
         groupIds:
           items:
             type: string
           type: array
-        email:
-          nullable: true
-          type: string
-        displayName:
-          type: string
-        displayLabel:
-          type: string
-        avatarSrc:
-          nullable: true
-          type: string
-        authorized:
+        hasBlockedUsers:
           type: boolean
-        id:
-          type: string
-      type: object
-    AnonUserDetails:
-      properties:
-        username:
-          type: string
+        isAnonSession:
+          type: boolean
         sessionId:
           nullable: true
           type: string
-        isAnonSession:
-          type: boolean
-        hasBlockedUsers:
-          type: boolean
-        email:
-          nullable: true
+        username:
           type: string
-        displayName:
-          type: string
-        authorized:
-          type: boolean
-        id:
+        websiteUrl:
           type: string
       required:
-      - email
       - isAnonSession
-      - username
       type: object
-    UserSessionInfo:
-      anyOf:
-      - $ref: '#/components/schemas/AuthenticatedUserDetails'
-      - $ref: '#/components/schemas/AnonUserDetails'
     Record_string.any_:
       additionalProperties: {}
       description: Construct a type with a set of properties K of type T
