@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * HeaderState
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:09:23.339081741-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-16T11:11:50.799538535-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class HeaderState {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)

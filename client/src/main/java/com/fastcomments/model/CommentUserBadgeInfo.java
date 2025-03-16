@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentUserBadgeInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-15T09:09:23.339081741-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-16T11:11:50.799538535-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CommentUserBadgeInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -67,32 +67,32 @@ public class CommentUserBadgeInfo {
 
   public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
   @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String displayLabel;
 
   public static final String SERIALIZED_NAME_DISPLAY_SRC = "displaySrc";
   @SerializedName(SERIALIZED_NAME_DISPLAY_SRC)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String displaySrc;
 
   public static final String SERIALIZED_NAME_BACKGROUND_COLOR = "backgroundColor";
   @SerializedName(SERIALIZED_NAME_BACKGROUND_COLOR)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String backgroundColor;
 
   public static final String SERIALIZED_NAME_BORDER_COLOR = "borderColor";
   @SerializedName(SERIALIZED_NAME_BORDER_COLOR)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String borderColor;
 
   public static final String SERIALIZED_NAME_TEXT_COLOR = "textColor";
   @SerializedName(SERIALIZED_NAME_TEXT_COLOR)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String textColor;
 
   public static final String SERIALIZED_NAME_CSS_CLASS = "cssClass";
   @SerializedName(SERIALIZED_NAME_CSS_CLASS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String cssClass;
 
   public CommentUserBadgeInfo() {
@@ -155,7 +155,7 @@ public class CommentUserBadgeInfo {
   }
 
 
-  public CommentUserBadgeInfo displayLabel(@javax.annotation.Nonnull String displayLabel) {
+  public CommentUserBadgeInfo displayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
     return this;
   }
@@ -164,17 +164,17 @@ public class CommentUserBadgeInfo {
    * Get displayLabel
    * @return displayLabel
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getDisplayLabel() {
     return displayLabel;
   }
 
-  public void setDisplayLabel(@javax.annotation.Nonnull String displayLabel) {
+  public void setDisplayLabel(@javax.annotation.Nullable String displayLabel) {
     this.displayLabel = displayLabel;
   }
 
 
-  public CommentUserBadgeInfo displaySrc(@javax.annotation.Nonnull String displaySrc) {
+  public CommentUserBadgeInfo displaySrc(@javax.annotation.Nullable String displaySrc) {
     this.displaySrc = displaySrc;
     return this;
   }
@@ -183,17 +183,17 @@ public class CommentUserBadgeInfo {
    * Get displaySrc
    * @return displaySrc
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getDisplaySrc() {
     return displaySrc;
   }
 
-  public void setDisplaySrc(@javax.annotation.Nonnull String displaySrc) {
+  public void setDisplaySrc(@javax.annotation.Nullable String displaySrc) {
     this.displaySrc = displaySrc;
   }
 
 
-  public CommentUserBadgeInfo backgroundColor(@javax.annotation.Nonnull String backgroundColor) {
+  public CommentUserBadgeInfo backgroundColor(@javax.annotation.Nullable String backgroundColor) {
     this.backgroundColor = backgroundColor;
     return this;
   }
@@ -202,17 +202,17 @@ public class CommentUserBadgeInfo {
    * Get backgroundColor
    * @return backgroundColor
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getBackgroundColor() {
     return backgroundColor;
   }
 
-  public void setBackgroundColor(@javax.annotation.Nonnull String backgroundColor) {
+  public void setBackgroundColor(@javax.annotation.Nullable String backgroundColor) {
     this.backgroundColor = backgroundColor;
   }
 
 
-  public CommentUserBadgeInfo borderColor(@javax.annotation.Nonnull String borderColor) {
+  public CommentUserBadgeInfo borderColor(@javax.annotation.Nullable String borderColor) {
     this.borderColor = borderColor;
     return this;
   }
@@ -221,17 +221,17 @@ public class CommentUserBadgeInfo {
    * Get borderColor
    * @return borderColor
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getBorderColor() {
     return borderColor;
   }
 
-  public void setBorderColor(@javax.annotation.Nonnull String borderColor) {
+  public void setBorderColor(@javax.annotation.Nullable String borderColor) {
     this.borderColor = borderColor;
   }
 
 
-  public CommentUserBadgeInfo textColor(@javax.annotation.Nonnull String textColor) {
+  public CommentUserBadgeInfo textColor(@javax.annotation.Nullable String textColor) {
     this.textColor = textColor;
     return this;
   }
@@ -240,17 +240,17 @@ public class CommentUserBadgeInfo {
    * Get textColor
    * @return textColor
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getTextColor() {
     return textColor;
   }
 
-  public void setTextColor(@javax.annotation.Nonnull String textColor) {
+  public void setTextColor(@javax.annotation.Nullable String textColor) {
     this.textColor = textColor;
   }
 
 
-  public CommentUserBadgeInfo cssClass(@javax.annotation.Nonnull String cssClass) {
+  public CommentUserBadgeInfo cssClass(@javax.annotation.Nullable String cssClass) {
     this.cssClass = cssClass;
     return this;
   }
@@ -259,12 +259,12 @@ public class CommentUserBadgeInfo {
    * Get cssClass
    * @return cssClass
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getCssClass() {
     return cssClass;
   }
 
-  public void setCssClass(@javax.annotation.Nonnull String cssClass) {
+  public void setCssClass(@javax.annotation.Nullable String cssClass) {
     this.cssClass = cssClass;
   }
 
@@ -387,22 +387,22 @@ public class CommentUserBadgeInfo {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if (!jsonObj.get("displayLabel").isJsonPrimitive()) {
+      if ((jsonObj.get("displayLabel") != null && !jsonObj.get("displayLabel").isJsonNull()) && !jsonObj.get("displayLabel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `displayLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayLabel").toString()));
       }
-      if (!jsonObj.get("displaySrc").isJsonPrimitive()) {
+      if ((jsonObj.get("displaySrc") != null && !jsonObj.get("displaySrc").isJsonNull()) && !jsonObj.get("displaySrc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `displaySrc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displaySrc").toString()));
       }
-      if (!jsonObj.get("backgroundColor").isJsonPrimitive()) {
+      if ((jsonObj.get("backgroundColor") != null && !jsonObj.get("backgroundColor").isJsonNull()) && !jsonObj.get("backgroundColor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `backgroundColor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backgroundColor").toString()));
       }
-      if (!jsonObj.get("borderColor").isJsonPrimitive()) {
+      if ((jsonObj.get("borderColor") != null && !jsonObj.get("borderColor").isJsonNull()) && !jsonObj.get("borderColor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `borderColor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("borderColor").toString()));
       }
-      if (!jsonObj.get("textColor").isJsonPrimitive()) {
+      if ((jsonObj.get("textColor") != null && !jsonObj.get("textColor").isJsonNull()) && !jsonObj.get("textColor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `textColor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("textColor").toString()));
       }
-      if (!jsonObj.get("cssClass").isJsonPrimitive()) {
+      if ((jsonObj.get("cssClass") != null && !jsonObj.get("cssClass").isJsonNull()) && !jsonObj.get("cssClass").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cssClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cssClass").toString()));
       }
   }

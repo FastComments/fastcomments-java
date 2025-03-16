@@ -2305,16 +2305,22 @@ components:
         description:
           type: string
         displayLabel:
+          nullable: true
           type: string
         displaySrc:
+          nullable: true
           type: string
         backgroundColor:
+          nullable: true
           type: string
         borderColor:
+          nullable: true
           type: string
         textColor:
+          nullable: true
           type: string
         cssClass:
+          nullable: true
           type: string
       required:
       - backgroundColor
