@@ -10,12 +10,12 @@
 |**id** | **String** |  |  |
 |**type** | **Double** |  |  |
 |**description** | **String** |  |  |
-|**displayLabel** | **String** |  |  |
-|**displaySrc** | **String** |  |  |
-|**backgroundColor** | **String** |  |  |
-|**borderColor** | **String** |  |  |
-|**textColor** | **String** |  |  |
-|**cssClass** | **String** |  |  |
+|**displayLabel** | **String** |  |  [optional] |
+|**displaySrc** | **String** |  |  [optional] |
+|**backgroundColor** | **String** |  |  [optional] |
+|**borderColor** | **String** |  |  [optional] |
+|**textColor** | **String** |  |  [optional] |
+|**cssClass** | **String** |  |  [optional] |
 
 
 

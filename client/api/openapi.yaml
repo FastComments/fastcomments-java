@@ -2318,14 +2318,8 @@ components:
           nullable: true
           type: string
       required:
-      - backgroundColor
-      - borderColor
-      - cssClass
       - description
-      - displayLabel
-      - displaySrc
       - id
-      - textColor
       - type
       type: object
     Pick_FComment.PublicCommentFieldsKeys_:
