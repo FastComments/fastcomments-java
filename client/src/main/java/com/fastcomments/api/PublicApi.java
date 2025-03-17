@@ -29,7 +29,6 @@ import java.io.IOException;
 
 import com.fastcomments.model.BlockFromComment200Response;
 import com.fastcomments.model.BlockFromCommentParams;
-import com.fastcomments.model.BooleanQueryParam;
 import com.fastcomments.model.CheckedCommentsForBlocked200Response;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
@@ -1117,7 +1116,7 @@ public class PublicApi {
     public APIdeleteCommentVoteRequest deleteCommentVote(String tenantId, String commentId, String voteId, String urlId, String broadcastId) {
         return new APIdeleteCommentVoteRequest(tenantId, commentId, voteId, urlId, broadcastId);
     }
-    private okhttp3.Call flagCommentCall(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call flagCommentCall(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1175,7 +1174,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call flagCommentValidateBeforeCall(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call flagCommentValidateBeforeCall(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling flagComment(Async)");
@@ -1196,13 +1195,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso) throws ApiException {
+    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(String tenantId, String commentId, Boolean isFlagged, String sso) throws ApiException {
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, null);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call flagCommentAsync(String tenantId, String commentId, BooleanQueryParam isFlagged, String sso, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+    private okhttp3.Call flagCommentAsync(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, _callback);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
@@ -1213,10 +1212,10 @@ public class PublicApi {
     public class APIflagCommentRequest {
         private final String tenantId;
         private final String commentId;
-        private final BooleanQueryParam isFlagged;
+        private final Boolean isFlagged;
         private String sso;
 
-        private APIflagCommentRequest(String tenantId, String commentId, BooleanQueryParam isFlagged) {
+        private APIflagCommentRequest(String tenantId, String commentId, Boolean isFlagged) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.isFlagged = isFlagged;
@@ -1310,7 +1309,7 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIflagCommentRequest flagComment(String tenantId, String commentId, BooleanQueryParam isFlagged) {
+    public APIflagCommentRequest flagComment(String tenantId, String commentId, Boolean isFlagged) {
         return new APIflagCommentRequest(tenantId, commentId, isFlagged);
     }
     private okhttp3.Call getCommentTextCall(String tenantId, String commentId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
@@ -1702,7 +1701,7 @@ public class PublicApi {
     public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Double direction) {
         return new APIgetCommentVoteUserNamesRequest(tenantId, commentId, direction);
     }
-    private okhttp3.Call getCommentsCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, BooleanQueryParam countChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1852,7 +1851,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, BooleanQueryParam countChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getComments(Async)");
@@ -1868,13 +1867,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, BooleanQueryParam countChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
+    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, null);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentsAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, BooleanQueryParam countChildren, Long lastGenDate, String fetchPageForCommentId, BooleanQueryParam includeConfig, BooleanQueryParam countAll, BooleanQueryParam includei10n, String locale, String modules, BooleanQueryParam isCrawler, BooleanQueryParam includeNotificationCount, BooleanQueryParam asTree, Integer maxTreeDepth, BooleanQueryParam useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentsAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
@@ -1892,19 +1891,19 @@ public class PublicApi {
         private Integer skipChildren;
         private Integer limit;
         private Integer limitChildren;
-        private BooleanQueryParam countChildren;
+        private Boolean countChildren;
         private Long lastGenDate;
         private String fetchPageForCommentId;
-        private BooleanQueryParam includeConfig;
-        private BooleanQueryParam countAll;
-        private BooleanQueryParam includei10n;
+        private Boolean includeConfig;
+        private Boolean countAll;
+        private Boolean includei10n;
         private String locale;
         private String modules;
-        private BooleanQueryParam isCrawler;
-        private BooleanQueryParam includeNotificationCount;
-        private BooleanQueryParam asTree;
+        private Boolean isCrawler;
+        private Boolean includeNotificationCount;
+        private Boolean asTree;
         private Integer maxTreeDepth;
-        private BooleanQueryParam useFullTranslationIds;
+        private Boolean useFullTranslationIds;
         private String parentId;
         private String searchText;
         private List<String> hashTags;
@@ -1991,7 +1990,7 @@ public class PublicApi {
          * @param countChildren  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest countChildren(BooleanQueryParam countChildren) {
+        public APIgetCommentsRequest countChildren(Boolean countChildren) {
             this.countChildren = countChildren;
             return this;
         }
@@ -2021,7 +2020,7 @@ public class PublicApi {
          * @param includeConfig  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest includeConfig(BooleanQueryParam includeConfig) {
+        public APIgetCommentsRequest includeConfig(Boolean includeConfig) {
             this.includeConfig = includeConfig;
             return this;
         }
@@ -2031,7 +2030,7 @@ public class PublicApi {
          * @param countAll  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest countAll(BooleanQueryParam countAll) {
+        public APIgetCommentsRequest countAll(Boolean countAll) {
             this.countAll = countAll;
             return this;
         }
@@ -2041,7 +2040,7 @@ public class PublicApi {
          * @param includei10n  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest includei10n(BooleanQueryParam includei10n) {
+        public APIgetCommentsRequest includei10n(Boolean includei10n) {
             this.includei10n = includei10n;
             return this;
         }
@@ -2071,7 +2070,7 @@ public class PublicApi {
          * @param isCrawler  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest isCrawler(BooleanQueryParam isCrawler) {
+        public APIgetCommentsRequest isCrawler(Boolean isCrawler) {
             this.isCrawler = isCrawler;
             return this;
         }
@@ -2081,7 +2080,7 @@ public class PublicApi {
          * @param includeNotificationCount  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest includeNotificationCount(BooleanQueryParam includeNotificationCount) {
+        public APIgetCommentsRequest includeNotificationCount(Boolean includeNotificationCount) {
             this.includeNotificationCount = includeNotificationCount;
             return this;
         }
@@ -2091,7 +2090,7 @@ public class PublicApi {
          * @param asTree  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest asTree(BooleanQueryParam asTree) {
+        public APIgetCommentsRequest asTree(Boolean asTree) {
             this.asTree = asTree;
             return this;
         }
@@ -2111,7 +2110,7 @@ public class PublicApi {
          * @param useFullTranslationIds  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest useFullTranslationIds(BooleanQueryParam useFullTranslationIds) {
+        public APIgetCommentsRequest useFullTranslationIds(Boolean useFullTranslationIds) {
             this.useFullTranslationIds = useFullTranslationIds;
             return this;
         }
@@ -2421,7 +2420,7 @@ public class PublicApi {
     public APIgetUserNotificationCountRequest getUserNotificationCount(String tenantId) {
         return new APIgetUserNotificationCountRequest(tenantId);
     }
-    private okhttp3.Call getUserNotificationsCall(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationsCall(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2506,7 +2505,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserNotificationsValidateBeforeCall(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationsValidateBeforeCall(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserNotifications(Async)");
@@ -2517,13 +2516,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<GetUserNotifications200Response> getUserNotificationsWithHttpInfo(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso) throws ApiException {
+    private ApiResponse<GetUserNotifications200Response> getUserNotificationsWithHttpInfo(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso) throws ApiException {
         okhttp3.Call localVarCall = getUserNotificationsValidateBeforeCall(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, null);
         Type localVarReturnType = new TypeToken<GetUserNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserNotificationsAsync(String tenantId, Double pageSize, String afterId, BooleanQueryParam includeContext, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, BooleanQueryParam includeTranslations, String sso, final ApiCallback<GetUserNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationsAsync(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback<GetUserNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserNotificationsValidateBeforeCall(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserNotifications200Response>(){}.getType();
@@ -2535,12 +2534,12 @@ public class PublicApi {
         private final String tenantId;
         private Double pageSize;
         private String afterId;
-        private BooleanQueryParam includeContext;
+        private Boolean includeContext;
         private Double afterCreatedAt;
-        private BooleanQueryParam unreadOnly;
-        private BooleanQueryParam dmOnly;
-        private BooleanQueryParam noDm;
-        private BooleanQueryParam includeTranslations;
+        private Boolean unreadOnly;
+        private Boolean dmOnly;
+        private Boolean noDm;
+        private Boolean includeTranslations;
         private String sso;
 
         private APIgetUserNotificationsRequest(String tenantId) {
@@ -2572,7 +2571,7 @@ public class PublicApi {
          * @param includeContext  (optional)
          * @return APIgetUserNotificationsRequest
          */
-        public APIgetUserNotificationsRequest includeContext(BooleanQueryParam includeContext) {
+        public APIgetUserNotificationsRequest includeContext(Boolean includeContext) {
             this.includeContext = includeContext;
             return this;
         }
@@ -2592,7 +2591,7 @@ public class PublicApi {
          * @param unreadOnly  (optional)
          * @return APIgetUserNotificationsRequest
          */
-        public APIgetUserNotificationsRequest unreadOnly(BooleanQueryParam unreadOnly) {
+        public APIgetUserNotificationsRequest unreadOnly(Boolean unreadOnly) {
             this.unreadOnly = unreadOnly;
             return this;
         }
@@ -2602,7 +2601,7 @@ public class PublicApi {
          * @param dmOnly  (optional)
          * @return APIgetUserNotificationsRequest
          */
-        public APIgetUserNotificationsRequest dmOnly(BooleanQueryParam dmOnly) {
+        public APIgetUserNotificationsRequest dmOnly(Boolean dmOnly) {
             this.dmOnly = dmOnly;
             return this;
         }
@@ -2612,7 +2611,7 @@ public class PublicApi {
          * @param noDm  (optional)
          * @return APIgetUserNotificationsRequest
          */
-        public APIgetUserNotificationsRequest noDm(BooleanQueryParam noDm) {
+        public APIgetUserNotificationsRequest noDm(Boolean noDm) {
             this.noDm = noDm;
             return this;
         }
@@ -2622,7 +2621,7 @@ public class PublicApi {
          * @param includeTranslations  (optional)
          * @return APIgetUserNotificationsRequest
          */
-        public APIgetUserNotificationsRequest includeTranslations(BooleanQueryParam includeTranslations) {
+        public APIgetUserNotificationsRequest includeTranslations(Boolean includeTranslations) {
             this.includeTranslations = includeTranslations;
             return this;
         }
@@ -3277,7 +3276,7 @@ public class PublicApi {
     public APIresetUserNotificationCountRequest resetUserNotificationCount(String tenantId) {
         return new APIresetUserNotificationCountRequest(tenantId);
     }
-    private okhttp3.Call resetUserNotificationsCall(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationsCall(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3350,7 +3349,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call resetUserNotificationsValidateBeforeCall(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationsValidateBeforeCall(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling resetUserNotifications(Async)");
@@ -3361,13 +3360,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<ResetUserNotifications200Response> resetUserNotificationsWithHttpInfo(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso) throws ApiException {
+    private ApiResponse<ResetUserNotifications200Response> resetUserNotificationsWithHttpInfo(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso) throws ApiException {
         okhttp3.Call localVarCall = resetUserNotificationsValidateBeforeCall(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, null);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call resetUserNotificationsAsync(String tenantId, String afterId, Double afterCreatedAt, BooleanQueryParam unreadOnly, BooleanQueryParam dmOnly, BooleanQueryParam noDm, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationsAsync(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resetUserNotificationsValidateBeforeCall(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, _callback);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
@@ -3379,9 +3378,9 @@ public class PublicApi {
         private final String tenantId;
         private String afterId;
         private Double afterCreatedAt;
-        private BooleanQueryParam unreadOnly;
-        private BooleanQueryParam dmOnly;
-        private BooleanQueryParam noDm;
+        private Boolean unreadOnly;
+        private Boolean dmOnly;
+        private Boolean noDm;
         private String sso;
 
         private APIresetUserNotificationsRequest(String tenantId) {
@@ -3413,7 +3412,7 @@ public class PublicApi {
          * @param unreadOnly  (optional)
          * @return APIresetUserNotificationsRequest
          */
-        public APIresetUserNotificationsRequest unreadOnly(BooleanQueryParam unreadOnly) {
+        public APIresetUserNotificationsRequest unreadOnly(Boolean unreadOnly) {
             this.unreadOnly = unreadOnly;
             return this;
         }
@@ -3423,7 +3422,7 @@ public class PublicApi {
          * @param dmOnly  (optional)
          * @return APIresetUserNotificationsRequest
          */
-        public APIresetUserNotificationsRequest dmOnly(BooleanQueryParam dmOnly) {
+        public APIresetUserNotificationsRequest dmOnly(Boolean dmOnly) {
             this.dmOnly = dmOnly;
             return this;
         }
@@ -3433,7 +3432,7 @@ public class PublicApi {
          * @param noDm  (optional)
          * @return APIresetUserNotificationsRequest
          */
-        public APIresetUserNotificationsRequest noDm(BooleanQueryParam noDm) {
+        public APIresetUserNotificationsRequest noDm(Boolean noDm) {
             this.noDm = noDm;
             return this;
         }

@@ -16,7 +16,6 @@ package com.fastcomments.api;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.BlockFromComment200Response;
 import com.fastcomments.model.BlockFromCommentParams;
-import com.fastcomments.model.BooleanQueryParam;
 import com.fastcomments.model.CheckedCommentsForBlocked200Response;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
@@ -142,7 +141,7 @@ public class PublicApiTest {
     public void flagCommentTest() throws ApiException {
         String tenantId = null;
         String commentId = null;
-        BooleanQueryParam isFlagged = null;
+        Boolean isFlagged = null;
         String sso = null;
         FlagComment200Response response = api.flagComment(tenantId, commentId, isFlagged)
                 .sso(sso)
@@ -197,19 +196,19 @@ public class PublicApiTest {
         Integer skipChildren = null;
         Integer limit = null;
         Integer limitChildren = null;
-        BooleanQueryParam countChildren = null;
+        Boolean countChildren = null;
         Long lastGenDate = null;
         String fetchPageForCommentId = null;
-        BooleanQueryParam includeConfig = null;
-        BooleanQueryParam countAll = null;
-        BooleanQueryParam includei10n = null;
+        Boolean includeConfig = null;
+        Boolean countAll = null;
+        Boolean includei10n = null;
         String locale = null;
         String modules = null;
-        BooleanQueryParam isCrawler = null;
-        BooleanQueryParam includeNotificationCount = null;
-        BooleanQueryParam asTree = null;
+        Boolean isCrawler = null;
+        Boolean includeNotificationCount = null;
+        Boolean asTree = null;
         Integer maxTreeDepth = null;
-        BooleanQueryParam useFullTranslationIds = null;
+        Boolean useFullTranslationIds = null;
         String parentId = null;
         String searchText = null;
         List<String> hashTags = null;
@@ -266,12 +265,12 @@ public class PublicApiTest {
         String tenantId = null;
         Double pageSize = null;
         String afterId = null;
-        BooleanQueryParam includeContext = null;
+        Boolean includeContext = null;
         Double afterCreatedAt = null;
-        BooleanQueryParam unreadOnly = null;
-        BooleanQueryParam dmOnly = null;
-        BooleanQueryParam noDm = null;
-        BooleanQueryParam includeTranslations = null;
+        Boolean unreadOnly = null;
+        Boolean dmOnly = null;
+        Boolean noDm = null;
+        Boolean includeTranslations = null;
         String sso = null;
         GetUserNotifications200Response response = api.getUserNotifications(tenantId)
                 .pageSize(pageSize)
@@ -338,9 +337,9 @@ public class PublicApiTest {
         String tenantId = null;
         String afterId = null;
         Double afterCreatedAt = null;
-        BooleanQueryParam unreadOnly = null;
-        BooleanQueryParam dmOnly = null;
-        BooleanQueryParam noDm = null;
+        Boolean unreadOnly = null;
+        Boolean dmOnly = null;
+        Boolean noDm = null;
         String sso = null;
         ResetUserNotifications200Response response = api.resetUserNotifications(tenantId)
                 .afterId(afterId)

@@ -402,7 +402,7 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
-    BooleanQueryParam isFlagged = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean isFlagged = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
       FlagComment200Response result = apiInstance.flagComment(tenantId, commentId, isFlagged)
@@ -426,7 +426,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
-| **isFlagged** | [**BooleanQueryParam**](.md)|  | [enum: true, false] |
+| **isFlagged** | **Boolean**|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -616,19 +616,19 @@ public class Example {
     Integer skipChildren = 56; // Integer | 
     Integer limit = 56; // Integer | 
     Integer limitChildren = 56; // Integer | 
-    BooleanQueryParam countChildren = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean countChildren = true; // Boolean | 
     Long lastGenDate = 56L; // Long | 
     String fetchPageForCommentId = "fetchPageForCommentId_example"; // String | 
-    BooleanQueryParam includeConfig = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam countAll = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam includei10n = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean includeConfig = true; // Boolean | 
+    Boolean countAll = true; // Boolean | 
+    Boolean includei10n = true; // Boolean | 
     String locale = "locale_example"; // String | 
     String modules = "modules_example"; // String | 
-    BooleanQueryParam isCrawler = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam includeNotificationCount = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam asTree = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean isCrawler = true; // Boolean | 
+    Boolean includeNotificationCount = true; // Boolean | 
+    Boolean asTree = true; // Boolean | 
     Integer maxTreeDepth = 56; // Integer | 
-    BooleanQueryParam useFullTranslationIds = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean useFullTranslationIds = true; // Boolean | 
     String parentId = "parentId_example"; // String | 
     String searchText = "searchText_example"; // String | 
     List<String> hashTags = Arrays.asList(); // List<String> | 
@@ -687,19 +687,19 @@ public class Example {
 | **skipChildren** | **Integer**|  | [optional] |
 | **limit** | **Integer**|  | [optional] |
 | **limitChildren** | **Integer**|  | [optional] |
-| **countChildren** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
+| **countChildren** | **Boolean**|  | [optional] |
 | **lastGenDate** | **Long**|  | [optional] |
 | **fetchPageForCommentId** | **String**|  | [optional] |
-| **includeConfig** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **countAll** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **includei10n** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
+| **includeConfig** | **Boolean**|  | [optional] |
+| **countAll** | **Boolean**|  | [optional] |
+| **includei10n** | **Boolean**|  | [optional] |
 | **locale** | **String**|  | [optional] |
 | **modules** | **String**|  | [optional] |
-| **isCrawler** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **includeNotificationCount** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **asTree** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
+| **isCrawler** | **Boolean**|  | [optional] |
+| **includeNotificationCount** | **Boolean**|  | [optional] |
+| **asTree** | **Boolean**|  | [optional] |
 | **maxTreeDepth** | **Integer**|  | [optional] |
-| **useFullTranslationIds** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
+| **useFullTranslationIds** | **Boolean**|  | [optional] |
 | **parentId** | **String**|  | [optional] |
 | **searchText** | **String**|  | [optional] |
 | **hashTags** | [**List&lt;String&gt;**](String.md)|  | [optional] |
@@ -812,12 +812,12 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     Double pageSize = 3.4D; // Double | Defaults to 20.
     String afterId = "afterId_example"; // String | 
-    BooleanQueryParam includeContext = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean includeContext = true; // Boolean | 
     Double afterCreatedAt = 3.4D; // Double | 
-    BooleanQueryParam unreadOnly = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam dmOnly = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam noDm = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam includeTranslations = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean unreadOnly = true; // Boolean | 
+    Boolean dmOnly = true; // Boolean | 
+    Boolean noDm = true; // Boolean | 
+    Boolean includeTranslations = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
       GetUserNotifications200Response result = apiInstance.getUserNotifications(tenantId)
@@ -850,12 +850,12 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **pageSize** | **Double**| Defaults to 20. | [optional] |
 | **afterId** | **String**|  | [optional] |
-| **includeContext** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
+| **includeContext** | **Boolean**|  | [optional] |
 | **afterCreatedAt** | **Double**|  | [optional] |
-| **unreadOnly** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **dmOnly** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **noDm** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **includeTranslations** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
+| **unreadOnly** | **Boolean**|  | [optional] |
+| **dmOnly** | **Boolean**|  | [optional] |
+| **noDm** | **Boolean**|  | [optional] |
+| **includeTranslations** | **Boolean**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -1100,9 +1100,9 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String afterId = "afterId_example"; // String | 
     Double afterCreatedAt = 3.4D; // Double | 
-    BooleanQueryParam unreadOnly = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam dmOnly = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
-    BooleanQueryParam noDm = BooleanQueryParam.fromValue("true"); // BooleanQueryParam | 
+    Boolean unreadOnly = true; // Boolean | 
+    Boolean dmOnly = true; // Boolean | 
+    Boolean noDm = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
       ResetUserNotifications200Response result = apiInstance.resetUserNotifications(tenantId)
@@ -1132,9 +1132,9 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **afterId** | **String**|  | [optional] |
 | **afterCreatedAt** | **Double**|  | [optional] |
-| **unreadOnly** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **dmOnly** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
-| **noDm** | [**BooleanQueryParam**](.md)|  | [optional] [enum: true, false] |
+| **unreadOnly** | **Boolean**|  | [optional] |
+| **dmOnly** | **Boolean**|  | [optional] |
+| **noDm** | **Boolean**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type

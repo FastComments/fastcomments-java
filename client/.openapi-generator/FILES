@@ -20,7 +20,6 @@ docs/AggregationValue.md
 docs/BlockFromComment200Response.md
 docs/BlockFromCommentParams.md
 docs/BlockSuccess.md
-docs/BooleanQueryParam.md
 docs/ChangeCommentPinStatusResponse.md
 docs/ChangeCommentPinStatusResponseAnyOf.md
 docs/CheckBlockedCommentsResponse.md
@@ -148,7 +147,6 @@ src/main/java/com/fastcomments/model/AggregationValue.java
 src/main/java/com/fastcomments/model/BlockFromComment200Response.java
 src/main/java/com/fastcomments/model/BlockFromCommentParams.java
 src/main/java/com/fastcomments/model/BlockSuccess.java
-src/main/java/com/fastcomments/model/BooleanQueryParam.java
 src/main/java/com/fastcomments/model/ChangeCommentPinStatusResponse.java
 src/main/java/com/fastcomments/model/ChangeCommentPinStatusResponseAnyOf.java
 src/main/java/com/fastcomments/model/CheckBlockedCommentsResponse.java
@@ -247,7 +245,6 @@ src/test/java/com/fastcomments/model/AggregationValueTest.java
 src/test/java/com/fastcomments/model/BlockFromComment200ResponseTest.java
 src/test/java/com/fastcomments/model/BlockFromCommentParamsTest.java
 src/test/java/com/fastcomments/model/BlockSuccessTest.java
-src/test/java/com/fastcomments/model/BooleanQueryParamTest.java
 src/test/java/com/fastcomments/model/ChangeCommentPinStatusResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/ChangeCommentPinStatusResponseTest.java
 src/test/java/com/fastcomments/model/CheckBlockedCommentsResponseAnyOfTest.java

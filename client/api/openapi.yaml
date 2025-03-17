@@ -38,7 +38,7 @@ paths:
         name: includeContext
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -53,28 +53,28 @@ paths:
         name: unreadOnly
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: dmOnly
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: noDm
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: includeTranslations
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -126,21 +126,21 @@ paths:
         name: unreadOnly
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: dmOnly
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: noDm
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -410,7 +410,7 @@ paths:
         name: isFlagged
         required: true
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -615,7 +615,7 @@ paths:
         name: countChildren
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -637,21 +637,21 @@ paths:
         name: includeConfig
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: countAll
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: includei10n
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -672,21 +672,21 @@ paths:
         name: isCrawler
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: includeNotificationCount
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
         name: asTree
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -701,7 +701,7 @@ paths:
         name: useFullTranslationIds
         required: false
         schema:
-          $ref: '#/components/schemas/BooleanQueryParam'
+          type: boolean
         style: form
       - explode: true
         in: query
@@ -1972,11 +1972,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/GetMyNotificationsResponse_anyOf'
       - $ref: '#/components/schemas/APIError'
-    BooleanQueryParam:
-      enum:
-      - "true"
-      - "false"
-      type: string
     ResetUserNotificationsResponse:
       additionalProperties: false
       example:
