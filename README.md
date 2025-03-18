@@ -7,5 +7,5 @@ This library contains three modules. The generated API client, the core Java lib
 to make working with the API easier, and the `pubsub` module which is a library for subscribing to change feeds.
 
 - [API Client Library Docs](./client/README.md)
-- [Core Library Docs](./core/README.md)
+- [Core Library Docs, Including SSO Examples](./core/README.md)
 - [PubSub Library Docs](./pubsub/README.md)
