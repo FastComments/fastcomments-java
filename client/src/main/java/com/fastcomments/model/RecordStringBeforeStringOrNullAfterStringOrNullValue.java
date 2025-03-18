@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * RecordStringBeforeStringOrNullAfterStringOrNullValue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T06:50:23.573111922-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T14:09:07.359175134-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
   public static final String SERIALIZED_NAME_AFTER = "after";
   @SerializedName(SERIALIZED_NAME_AFTER)

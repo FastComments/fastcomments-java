@@ -40,6 +40,7 @@ docs/CustomConfigParameters.md
 docs/DefaultApi.md
 docs/DeleteComment200Response.md
 docs/DeleteCommentVote200Response.md
+docs/EventLogEntry.md
 docs/FlagComment200Response.md
 docs/GetCommentText200Response.md
 docs/GetCommentVoteUserNames200Response.md
@@ -47,6 +48,9 @@ docs/GetCommentVoteUserNamesSuccessResponse.md
 docs/GetComments200Response.md
 docs/GetCommentsResponsePublicComment.md
 docs/GetCommentsResponseWithPresencePublicComment.md
+docs/GetEventLog200Response.md
+docs/GetEventLogResponse.md
+docs/GetEventLogResponseAnyOf.md
 docs/GetMyNotificationsResponse.md
 docs/GetMyNotificationsResponseAnyOf.md
 docs/GetUserNotificationCount200Response.md
@@ -166,6 +170,7 @@ src/main/java/com/fastcomments/model/CreateComment200Response.java
 src/main/java/com/fastcomments/model/CustomConfigParameters.java
 src/main/java/com/fastcomments/model/DeleteComment200Response.java
 src/main/java/com/fastcomments/model/DeleteCommentVote200Response.java
+src/main/java/com/fastcomments/model/EventLogEntry.java
 src/main/java/com/fastcomments/model/FlagComment200Response.java
 src/main/java/com/fastcomments/model/GetCommentText200Response.java
 src/main/java/com/fastcomments/model/GetCommentVoteUserNames200Response.java
@@ -173,6 +178,9 @@ src/main/java/com/fastcomments/model/GetCommentVoteUserNamesSuccessResponse.java
 src/main/java/com/fastcomments/model/GetComments200Response.java
 src/main/java/com/fastcomments/model/GetCommentsResponsePublicComment.java
 src/main/java/com/fastcomments/model/GetCommentsResponseWithPresencePublicComment.java
+src/main/java/com/fastcomments/model/GetEventLog200Response.java
+src/main/java/com/fastcomments/model/GetEventLogResponse.java
+src/main/java/com/fastcomments/model/GetEventLogResponseAnyOf.java
 src/main/java/com/fastcomments/model/GetMyNotificationsResponse.java
 src/main/java/com/fastcomments/model/GetMyNotificationsResponseAnyOf.java
 src/main/java/com/fastcomments/model/GetUserNotificationCount200Response.java
@@ -264,6 +272,7 @@ src/test/java/com/fastcomments/model/CreateComment200ResponseTest.java
 src/test/java/com/fastcomments/model/CustomConfigParametersTest.java
 src/test/java/com/fastcomments/model/DeleteComment200ResponseTest.java
 src/test/java/com/fastcomments/model/DeleteCommentVote200ResponseTest.java
+src/test/java/com/fastcomments/model/EventLogEntryTest.java
 src/test/java/com/fastcomments/model/FlagComment200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentText200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentVoteUserNames200ResponseTest.java
@@ -271,6 +280,9 @@ src/test/java/com/fastcomments/model/GetCommentVoteUserNamesSuccessResponseTest.
 src/test/java/com/fastcomments/model/GetComments200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentsResponsePublicCommentTest.java
 src/test/java/com/fastcomments/model/GetCommentsResponseWithPresencePublicCommentTest.java
+src/test/java/com/fastcomments/model/GetEventLog200ResponseTest.java
+src/test/java/com/fastcomments/model/GetEventLogResponseAnyOfTest.java
+src/test/java/com/fastcomments/model/GetEventLogResponseTest.java
 src/test/java/com/fastcomments/model/GetMyNotificationsResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/GetMyNotificationsResponseTest.java
 src/test/java/com/fastcomments/model/GetUserNotificationCount200ResponseTest.java

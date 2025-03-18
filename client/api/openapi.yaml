@@ -431,6 +431,112 @@ paths:
       - Public
       x-accepts:
       - application/json
+  /event-log/{tenantId}:
+    get:
+      operationId: GetEventLog
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userIdWS
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: startTime
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: endTime
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEventLog_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /event-log/global/{tenantId}:
+    get:
+      operationId: GetGlobalEventLog
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userIdWS
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: startTime
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: endTime
+        required: true
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEventLog_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
   /comments/{tenantId}/{commentId}/text:
     get:
       operationId: GetCommentText
@@ -2079,6 +2185,41 @@ components:
       anyOf:
       - $ref: '#/components/schemas/APIEmptyResponse_anyOf'
       - $ref: '#/components/schemas/APIError'
+    EventLogEntry:
+      additionalProperties: false
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        data: data
+        broadcastId: broadcastId
+        tenantId: tenantId
+        _id: _id
+        urlId: urlId
+      properties:
+        _id:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        tenantId:
+          type: string
+        urlId:
+          type: string
+        broadcastId:
+          type: string
+        data:
+          type: string
+      required:
+      - _id
+      - broadcastId
+      - createdAt
+      - data
+      - tenantId
+      - urlId
+      type: object
+    GetEventLogResponse:
+      anyOf:
+      - $ref: '#/components/schemas/GetEventLogResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
     PublicAPIGetCommentTextResponse:
       anyOf:
       - $ref: '#/components/schemas/PublicAPIGetCommentTextResponse_anyOf'
@@ -3385,6 +3526,10 @@ components:
       anyOf:
       - $ref: '#/components/schemas/APIEmptyResponse'
       - $ref: '#/components/schemas/APIError'
+    GetEventLog_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetEventLogResponse'
+      - $ref: '#/components/schemas/APIError'
     GetCommentText_200_response:
       anyOf:
       - $ref: '#/components/schemas/APIError'
@@ -3509,6 +3654,33 @@ components:
         status:
           $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
       required:
+      - status
+      type: object
+    GetEventLogResponse_anyOf:
+      example:
+        events:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          data: data
+          broadcastId: broadcastId
+          tenantId: tenantId
+          _id: _id
+          urlId: urlId
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          data: data
+          broadcastId: broadcastId
+          tenantId: tenantId
+          _id: _id
+          urlId: urlId
+        status: success
+      properties:
+        events:
+          items:
+            $ref: '#/components/schemas/EventLogEntry'
+          type: array
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - events
       - status
       type: object
     PublicAPIGetCommentTextResponse_anyOf:

@@ -39,6 +39,7 @@ import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetComments200Response;
+import com.fastcomments.model.GetEventLog200Response;
 import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.LockComment200Response;
@@ -2244,6 +2245,416 @@ public class PublicApi {
      */
     public APIgetCommentsRequest getComments(String tenantId, String urlId) {
         return new APIgetCommentsRequest(tenantId, urlId);
+    }
+    private okhttp3.Call getEventLogCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/event-log/{tenantId}"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (userIdWS != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userIdWS", userIdWS));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endTime", endTime));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEventLogValidateBeforeCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getEventLog(Async)");
+        }
+
+        // verify the required parameter 'urlId' is set
+        if (urlId == null) {
+            throw new ApiException("Missing the required parameter 'urlId' when calling getEventLog(Async)");
+        }
+
+        // verify the required parameter 'userIdWS' is set
+        if (userIdWS == null) {
+            throw new ApiException("Missing the required parameter 'userIdWS' when calling getEventLog(Async)");
+        }
+
+        // verify the required parameter 'startTime' is set
+        if (startTime == null) {
+            throw new ApiException("Missing the required parameter 'startTime' when calling getEventLog(Async)");
+        }
+
+        // verify the required parameter 'endTime' is set
+        if (endTime == null) {
+            throw new ApiException("Missing the required parameter 'endTime' when calling getEventLog(Async)");
+        }
+
+        return getEventLogCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+
+    }
+
+
+    private ApiResponse<GetEventLog200Response> getEventLogWithHttpInfo(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) throws ApiException {
+        okhttp3.Call localVarCall = getEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, null);
+        Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getEventLogAsync(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+        Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetEventLogRequest {
+        private final String tenantId;
+        private final String urlId;
+        private final String userIdWS;
+        private final Double startTime;
+        private final Double endTime;
+
+        private APIgetEventLogRequest(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+            this.userIdWS = userIdWS;
+            this.startTime = startTime;
+            this.endTime = endTime;
+        }
+
+        /**
+         * Build call for getEventLog
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getEventLogCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+        }
+
+        /**
+         * Execute getEventLog request
+         * @return GetEventLog200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetEventLog200Response execute() throws ApiException {
+            ApiResponse<GetEventLog200Response> localVarResp = getEventLogWithHttpInfo(tenantId, urlId, userIdWS, startTime, endTime);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getEventLog request with HTTP info returned
+         * @return ApiResponse&lt;GetEventLog200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetEventLog200Response> executeWithHttpInfo() throws ApiException {
+            return getEventLogWithHttpInfo(tenantId, urlId, userIdWS, startTime, endTime);
+        }
+
+        /**
+         * Execute getEventLog request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
+            return getEventLogAsync(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param urlId  (required)
+     * @param userIdWS  (required)
+     * @param startTime  (required)
+     * @param endTime  (required)
+     * @return APIgetEventLogRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetEventLogRequest getEventLog(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+        return new APIgetEventLogRequest(tenantId, urlId, userIdWS, startTime, endTime);
+    }
+    private okhttp3.Call getGlobalEventLogCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/event-log/global/{tenantId}"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (userIdWS != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userIdWS", userIdWS));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endTime", endTime));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getGlobalEventLogValidateBeforeCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getGlobalEventLog(Async)");
+        }
+
+        // verify the required parameter 'urlId' is set
+        if (urlId == null) {
+            throw new ApiException("Missing the required parameter 'urlId' when calling getGlobalEventLog(Async)");
+        }
+
+        // verify the required parameter 'userIdWS' is set
+        if (userIdWS == null) {
+            throw new ApiException("Missing the required parameter 'userIdWS' when calling getGlobalEventLog(Async)");
+        }
+
+        // verify the required parameter 'startTime' is set
+        if (startTime == null) {
+            throw new ApiException("Missing the required parameter 'startTime' when calling getGlobalEventLog(Async)");
+        }
+
+        // verify the required parameter 'endTime' is set
+        if (endTime == null) {
+            throw new ApiException("Missing the required parameter 'endTime' when calling getGlobalEventLog(Async)");
+        }
+
+        return getGlobalEventLogCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+
+    }
+
+
+    private ApiResponse<GetEventLog200Response> getGlobalEventLogWithHttpInfo(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) throws ApiException {
+        okhttp3.Call localVarCall = getGlobalEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, null);
+        Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getGlobalEventLogAsync(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getGlobalEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+        Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetGlobalEventLogRequest {
+        private final String tenantId;
+        private final String urlId;
+        private final String userIdWS;
+        private final Double startTime;
+        private final Double endTime;
+
+        private APIgetGlobalEventLogRequest(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+            this.userIdWS = userIdWS;
+            this.startTime = startTime;
+            this.endTime = endTime;
+        }
+
+        /**
+         * Build call for getGlobalEventLog
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getGlobalEventLogCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+        }
+
+        /**
+         * Execute getGlobalEventLog request
+         * @return GetEventLog200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetEventLog200Response execute() throws ApiException {
+            ApiResponse<GetEventLog200Response> localVarResp = getGlobalEventLogWithHttpInfo(tenantId, urlId, userIdWS, startTime, endTime);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getGlobalEventLog request with HTTP info returned
+         * @return ApiResponse&lt;GetEventLog200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetEventLog200Response> executeWithHttpInfo() throws ApiException {
+            return getGlobalEventLogWithHttpInfo(tenantId, urlId, userIdWS, startTime, endTime);
+        }
+
+        /**
+         * Execute getGlobalEventLog request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
+            return getGlobalEventLogAsync(tenantId, urlId, userIdWS, startTime, endTime, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param urlId  (required)
+     * @param userIdWS  (required)
+     * @param startTime  (required)
+     * @param endTime  (required)
+     * @return APIgetGlobalEventLogRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetGlobalEventLogRequest getGlobalEventLog(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+        return new APIgetGlobalEventLogRequest(tenantId, urlId, userIdWS, startTime, endTime);
     }
     private okhttp3.Call getUserNotificationCountCall(String tenantId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

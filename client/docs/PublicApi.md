@@ -13,6 +13,8 @@ All URIs are relative to *http://localhost*
 | [**getCommentText**](PublicApi.md#getCommentText) | **GET** /comments/{tenantId}/{commentId}/text |  |
 | [**getCommentVoteUserNames**](PublicApi.md#getCommentVoteUserNames) | **GET** /comments/{tenantId}/{commentId}/votes |  |
 | [**getComments**](PublicApi.md#getComments) | **GET** /comments/{tenantId} |  |
+| [**getEventLog**](PublicApi.md#getEventLog) | **GET** /event-log/{tenantId} |  |
+| [**getGlobalEventLog**](PublicApi.md#getGlobalEventLog) | **GET** /event-log/global/{tenantId} |  |
 | [**getUserNotificationCount**](PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count |  |
 | [**getUserNotifications**](PublicApi.md#getUserNotifications) | **GET** /user-notifications |  |
 | [**lockComment**](PublicApi.md#lockComment) | **POST** /comments/{tenantId}/{commentId}/lock |  |
@@ -709,6 +711,144 @@ public class Example {
 ### Return type
 
 [**GetComments200Response**](GetComments200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getEventLog"></a>
+# **getEventLog**
+> GetEventLog200Response getEventLog(tenantId, urlId, userIdWS, startTime, endTime).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    String userIdWS = "userIdWS_example"; // String | 
+    Double startTime = 3.4D; // Double | 
+    Double endTime = 3.4D; // Double | 
+    try {
+      GetEventLog200Response result = apiInstance.getEventLog(tenantId, urlId, userIdWS, startTime, endTime)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getEventLog");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **userIdWS** | **String**|  | |
+| **startTime** | **Double**|  | |
+| **endTime** | **Double**|  | |
+
+### Return type
+
+[**GetEventLog200Response**](GetEventLog200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getGlobalEventLog"></a>
+# **getGlobalEventLog**
+> GetEventLog200Response getGlobalEventLog(tenantId, urlId, userIdWS, startTime, endTime).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    String userIdWS = "userIdWS_example"; // String | 
+    Double startTime = 3.4D; // Double | 
+    Double endTime = 3.4D; // Double | 
+    try {
+      GetEventLog200Response result = apiInstance.getGlobalEventLog(tenantId, urlId, userIdWS, startTime, endTime)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getGlobalEventLog");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **userIdWS** | **String**|  | |
+| **startTime** | **Double**|  | |
+| **endTime** | **Double**|  | |
+
+### Return type
+
+[**GetEventLog200Response**](GetEventLog200Response.md)
 
 ### Authorization
 

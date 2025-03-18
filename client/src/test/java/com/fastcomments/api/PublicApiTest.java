@@ -26,6 +26,7 @@ import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetComments200Response;
+import com.fastcomments.model.GetEventLog200Response;
 import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.LockComment200Response;
@@ -240,6 +241,36 @@ public class PublicApiTest {
                 .hashTags(hashTags)
                 .userId(userId)
                 .customConfigStr(customConfigStr)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getEventLogTest() throws ApiException {
+        String tenantId = null;
+        String urlId = null;
+        String userIdWS = null;
+        Double startTime = null;
+        Double endTime = null;
+        GetEventLog200Response response = api.getEventLog(tenantId, urlId, userIdWS, startTime, endTime)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getGlobalEventLogTest() throws ApiException {
+        String tenantId = null;
+        String urlId = null;
+        String userIdWS = null;
+        Double startTime = null;
+        Double endTime = null;
+        GetEventLog200Response response = api.getGlobalEventLog(tenantId, urlId, userIdWS, startTime, endTime)
                 .execute();
         // TODO: test validations
     }
