@@ -2455,7 +2455,7 @@ components:
         urlIdClean:
           type: string
         lastGenDate:
-          format: int32
+          format: int64
           nullable: true
           type: integer
         includesPastPages:
@@ -3116,6 +3116,8 @@ components:
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
+    CommentPositions:
+      $ref: '#/components/schemas/Record_string._before-string-or-null--after-string-or-null__'
     ChangeCommentPinStatusResponse:
       anyOf:
       - $ref: '#/components/schemas/ChangeCommentPinStatusResponse_anyOf'

@@ -14,7 +14,7 @@
 |**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
 |**urlIdClean** | **String** |  |  [optional] |
-|**lastGenDate** | **Integer** |  |  [optional] |
+|**lastGenDate** | **Long** |  |  [optional] |
 |**includesPastPages** | **Boolean** |  |  [optional] |
 |**isDemo** | **Boolean** |  |  [optional] |
 |**commentCount** | **Integer** |  |  [optional] |

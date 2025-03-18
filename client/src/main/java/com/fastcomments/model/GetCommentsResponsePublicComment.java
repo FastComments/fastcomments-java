@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponsePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-17T12:21:48.501877016-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T06:50:23.573111922-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentsResponsePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
@@ -95,7 +95,7 @@ public class GetCommentsResponsePublicComment {
   public static final String SERIALIZED_NAME_LAST_GEN_DATE = "lastGenDate";
   @SerializedName(SERIALIZED_NAME_LAST_GEN_DATE)
   @javax.annotation.Nullable
-  private Integer lastGenDate;
+  private Long lastGenDate;
 
   public static final String SERIALIZED_NAME_INCLUDES_PAST_PAGES = "includesPastPages";
   @SerializedName(SERIALIZED_NAME_INCLUDES_PAST_PAGES)
@@ -321,7 +321,7 @@ public class GetCommentsResponsePublicComment {
   }
 
 
-  public GetCommentsResponsePublicComment lastGenDate(@javax.annotation.Nullable Integer lastGenDate) {
+  public GetCommentsResponsePublicComment lastGenDate(@javax.annotation.Nullable Long lastGenDate) {
     this.lastGenDate = lastGenDate;
     return this;
   }
@@ -331,11 +331,11 @@ public class GetCommentsResponsePublicComment {
    * @return lastGenDate
    */
   @javax.annotation.Nullable
-  public Integer getLastGenDate() {
+  public Long getLastGenDate() {
     return lastGenDate;
   }
 
-  public void setLastGenDate(@javax.annotation.Nullable Integer lastGenDate) {
+  public void setLastGenDate(@javax.annotation.Nullable Long lastGenDate) {
     this.lastGenDate = lastGenDate;
   }
 
