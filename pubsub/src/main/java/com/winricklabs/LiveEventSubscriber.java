@@ -1,6 +1,7 @@
 package com.winricklabs;
 
 import com.fastcomments.api.PublicApi;
+import com.fastcomments.core.CommentWidgetConfig;
 import com.fastcomments.invoker.ApiCallback;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.*;
@@ -14,18 +15,19 @@ import java.util.function.Consumer;
 /**
  * Main class for subscribing to FastComments live changes
  */
-public class SubscribeToChanges {
+public class LiveEventSubscriber {
 
-    private static final String WS_HOST = "wss://ws.fastcomments.com"; // TODO eu?
     private static final long SUBSCRIBE_TO_CHANGES_DEBOUNCE = 300; // milliseconds
     private static final long WEBSOCKET_PING_INTERVAL = 60000; // 60 seconds
     private static final long POLLING_INTERVAL = 2000; // 2 seconds
     private static final long RECONNECT_INTERVAL_BASE = 4000; // 4 seconds
 
     private static final Gson gson = new Gson();
-    private static final OkHttpClient client = new OkHttpClient();
+    private final OkHttpClient client = new OkHttpClient();
 
-    private static final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
+    private final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
+    private ConnectionStatusChangeCallback onConnectionStatusChange;
+    private long lastEventTime;
 
     /**
      * Interface for a callback that checks if comments can be seen before handling a live event.
@@ -38,14 +40,7 @@ public class SubscribeToChanges {
      * Interface for a callback that is invoked when a new live event is found.
      */
     public interface HandleLiveEventCallback {
-        boolean handle(LiveEvent eventData);
-    }
-
-    /**
-     * Interface for a callback that is invoked when a complete re-render needs to happen.
-     */
-    public interface DoRerenderCallback {
-        void rerender();
+        void handle(LiveEvent eventData);
     }
 
     /**
@@ -55,33 +50,8 @@ public class SubscribeToChanges {
         void onChange(boolean isConnected, Long lastLiveEventTime);
     }
 
-    /**
-     * Interface for extensions that can hook into the LiveCommentingSystem
-     */
-    public interface Extension {
-        default void onLiveConnectionStatusUpdate(boolean isConnected) {
-            // Default empty implementation
-        }
-    }
-
-    /**
-     * Static utility method to debounce operations
-     */
-    private static void debounce(String key, Runnable runnable, long delay) {
-        Timer timer = debouncers.get(key);
-        if (timer != null) {
-            timer.cancel();
-        }
-
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                runnable.run();
-                debouncers.remove(key);
-            }
-        }, delay);
-        debouncers.put(key, timer);
+    private void setOnConnectionStatusChange(ConnectionStatusChangeCallback onConnectionStatusChange) {
+        this.onConnectionStatusChange = onConnectionStatusChange;
     }
 
     /**
@@ -98,13 +68,10 @@ public class SubscribeToChanges {
     /**
      * Process events with optional visibility check
      */
-    private static void processEvents(
+    private void processEvents(
             List<LiveEvent> events,
-            Map<String, Object> config,
             CanSeeCommentsCallback canSeeCommentsCallback,
-            HandleLiveEventCallback handleLiveEvent,
-            DoRerenderCallback doRerender,
-            long[] lastEventTimeRef
+            HandleLiveEventCallback handleLiveEvent
     ) {
         if (events.isEmpty()) {
             return;
@@ -112,31 +79,22 @@ public class SubscribeToChanges {
 
         // Helper to handle events after visibility check
         Consumer<Map<String, String>> handleEvents = (Map<String, String> blockedCommentIdMap) -> {
-            boolean needsReRender = false;
-
             for (LiveEvent eventData : events) {
                 try {
                     // Update the last live event time
                     long eventTimestamp = eventData.getTimestamp();
-                    lastEventTimeRef[0] = Math.max(lastEventTimeRef[0], eventTimestamp + 1);
+                    lastEventTime = Math.max(lastEventTime, eventTimestamp + 1);
 
                     // Extract comment ID for blocking check
                     String commentId = extractCommentIdFromEvent(eventData);
 
                     // Process event if not blocked
-                    if ((blockedCommentIdMap == null || !blockedCommentIdMap.containsKey(commentId))
-                            && handleLiveEvent.handle(eventData)) {
-                        needsReRender = true;
+                    if (blockedCommentIdMap == null || !blockedCommentIdMap.containsKey(commentId)) {
+                        handleLiveEvent.handle(eventData);
                     }
                 } catch (Exception e) {
                     System.err.println("FastComments: Error processing event: " + e.getMessage());
                 }
-            }
-
-            // Trigger re-render if needed
-            if (needsReRender && doRerender != null) {
-                debounce("rerender" + config.get("instanceId"),
-                        doRerender::rerender, SUBSCRIBE_TO_CHANGES_DEBOUNCE);
             }
         };
 
@@ -168,39 +126,27 @@ public class SubscribeToChanges {
     /**
      * WebSocket listener for FastComments events
      */
-    private static class FastCommentsWebSocketListener extends WebSocketListener {
-        private final List<Extension> extensions;
+    private class FastCommentsWebSocketListener extends WebSocketListener {
         private final HandleLiveEventCallback handleLiveEvent;
-        private final DoRerenderCallback doRerender;
-        private final ConnectionStatusChangeCallback onConnectionStatusChange;
         private final CanSeeCommentsCallback canSeeCommentsCallback;
-        private final long[] lastEventTimeRef;
         private final boolean[] isIntentionallyClosed;
-        private final Map<String, Object> config;
+        private final CommentWidgetConfig config;
         private final Timer pingTimer = new Timer();
         private final String tenantId;
         private final String urlId;
         private final String userIdWS;
 
         public FastCommentsWebSocketListener(
-                List<Extension> extensions,
                 HandleLiveEventCallback handleLiveEvent,
-                DoRerenderCallback doRerender,
-                ConnectionStatusChangeCallback onConnectionStatusChange,
                 CanSeeCommentsCallback canSeeCommentsCallback,
-                long[] lastEventTimeRef,
                 boolean[] isIntentionallyClosed,
-                Map<String, Object> config,
+                CommentWidgetConfig config,
                 String tenantId,
                 String urlId,
                 String userIdWS
         ) {
-            this.extensions = extensions;
             this.handleLiveEvent = handleLiveEvent;
-            this.doRerender = doRerender;
-            this.onConnectionStatusChange = onConnectionStatusChange;
             this.canSeeCommentsCallback = canSeeCommentsCallback;
-            this.lastEventTimeRef = lastEventTimeRef;
             this.isIntentionallyClosed = isIntentionallyClosed;
             this.config = config;
             this.tenantId = tenantId;
@@ -228,19 +174,14 @@ public class SubscribeToChanges {
             }, WEBSOCKET_PING_INTERVAL, WEBSOCKET_PING_INTERVAL);
 
             // Fetch missed events if we have a last event time
-            if (lastEventTimeRef[0] > 0) {
-                fetchEventLog(tenantId, urlId, userIdWS, lastEventTimeRef[0], new Date().getTime(),
-                        events -> processEvents(events, config, canSeeCommentsCallback, handleLiveEvent, doRerender, lastEventTimeRef));
-            }
-
-            // Notify extensions about connection
-            for (Extension extension : extensions) {
-                extension.onLiveConnectionStatusUpdate(true);
+            if (lastEventTime > 0) {
+                fetchEventLog(tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
+                        events -> processEvents(events, canSeeCommentsCallback, handleLiveEvent));
             }
 
             // Call connection status change callback
             if (onConnectionStatusChange != null) {
-                onConnectionStatusChange.onChange(true, lastEventTimeRef[0]);
+                onConnectionStatusChange.onChange(true, lastEventTime);
             }
         }
 
@@ -256,14 +197,14 @@ public class SubscribeToChanges {
 
                 // Update last event time
                 long eventTimestamp = eventDataParsed.getTimestamp();
-                lastEventTimeRef[0] = Math.max(lastEventTimeRef[0], eventTimestamp);
+                lastEventTime = Math.max(lastEventTime, eventTimestamp);
 
                 // Create a list with a single event
                 List<LiveEvent> singleEventList = new ArrayList<>();
                 singleEventList.add(eventDataParsed);
 
                 // Process the event
-                processEvents(singleEventList, config, canSeeCommentsCallback, handleLiveEvent, doRerender, lastEventTimeRef);
+                processEvents(singleEventList, canSeeCommentsCallback, handleLiveEvent);
             } catch (Exception e) {
                 System.err.println("FastComments: Error processing WebSocket message: " + e.getMessage());
             }
@@ -274,9 +215,9 @@ public class SubscribeToChanges {
             System.err.println("FastComments: WebSocket error: " + t.getMessage());
 
             // Fetch missed events if we have a last event time
-            if (lastEventTimeRef[0] > 0) {
-                fetchEventLog(tenantId, urlId, userIdWS, lastEventTimeRef[0], new Date().getTime(),
-                        events -> processEvents(events, config, canSeeCommentsCallback, handleLiveEvent, doRerender, lastEventTimeRef));
+            if (lastEventTime > 0) {
+                fetchEventLog(tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
+                        events -> processEvents(events, canSeeCommentsCallback, handleLiveEvent));
             }
         }
 
@@ -296,19 +237,14 @@ public class SubscribeToChanges {
             pingTimer.cancel();
 
             // Initialize last event time if not set
-            if (lastEventTimeRef[0] <= 0) {
-                lastEventTimeRef[0] = new Date().getTime();
-            }
-
-            // Notify extensions about disconnection
-            for (Extension extension : extensions) {
-                extension.onLiveConnectionStatusUpdate(false);
+            if (lastEventTime <= 0) {
+                lastEventTime = new Date().getTime();
             }
 
             // Call connection status change callback
             if (!isIntentionallyClosed[0]) {
                 if (onConnectionStatusChange != null) {
-                    onConnectionStatusChange.onChange(false, lastEventTimeRef[0]);
+                    onConnectionStatusChange.onChange(false, lastEventTime);
                 }
 
                 // Schedule reconnection with jitter
@@ -320,18 +256,14 @@ public class SubscribeToChanges {
                     public void run() {
                         if (!isIntentionallyClosed[0]) {
                             // Reconnect using the subscribeToChanges method to handle the full setup
-                            SubscribeToChanges.subscribeToChanges(
+                            subscribeToChanges(
                                     config,
-                                    extensions,
                                     tenantId,
                                     urlId,
                                     urlId, // We'll use urlId for urlIdWS too since it's already normalized
                                     userIdWS,
                                     canSeeCommentsCallback,
-                                    handleLiveEvent,
-                                    doRerender,
-                                    onConnectionStatusChange,
-                                    lastEventTimeRef[0]
+                                    handleLiveEvent
                             );
                         }
                     }
@@ -432,118 +364,70 @@ public class SubscribeToChanges {
     /**
      * Subscribe to changes from FastComments.
      *
-     * @param config                   The FastCommentsUI Config object
-     * @param extensions               List of extensions that can hook into the system
+     * @param config                   The Config object
      * @param tenantIdWS               The tenant id sanitized for websocket server
      * @param urlId                    The url id that events are tied to
      * @param urlIdWS                  The url id sanitized for websocket server
      * @param userIdWS                 The user's "presence id"
      * @param canSeeCommentsCallback   A callback invoked to check if comments can be seen
      * @param handleLiveEvent          A callback invoked when a new live event is found
-     * @param doRerender               A callback invoked when a complete re-render needs to happen
-     * @param onConnectionStatusChange A callback invoked when connection status changes
-     * @param lastLiveEventTime        The timestamp of the last live event processed
      * @return A SubscribeToChangesResult that can be used to close the connection
      */
-    public static SubscribeToChangesResult subscribeToChanges(
-            Map<String, Object> config,
-            List<Extension> extensions,
+    public SubscribeToChangesResult subscribeToChanges(
+            CommentWidgetConfig config,
             String tenantIdWS,
             String urlId,
             String urlIdWS,
             String userIdWS,
             CanSeeCommentsCallback canSeeCommentsCallback,
-            HandleLiveEventCallback handleLiveEvent,
-            DoRerenderCallback doRerender,
-            ConnectionStatusChangeCallback onConnectionStatusChange,
-            Long lastLiveEventTime
+            HandleLiveEventCallback handleLiveEvent
     ) {
         try {
             // Check if live commenting is disabled in config
-            if (Boolean.TRUE.equals(config.get("disableLiveCommenting"))) {
+            if (Boolean.TRUE.equals(config.disableLiveCommenting)) {
                 return null;
             }
 
             final boolean[] isIntentionallyClosed = {false};
-            final long[] lastEventTimeRef = {lastLiveEventTime != null ? lastLiveEventTime : new Date().getTime()};
+            lastEventTime = lastEventTime != 0 ? lastEventTime : new Date().getTime();
 
             // Check if we should use polling instead of WebSocket
-            if (Boolean.TRUE.equals(config.get("usePolling"))) {
-                // Initialize event time if not provided
-                if (lastEventTimeRef[0] <= 0) {
-                    lastEventTimeRef[0] = new Date().getTime();
-                }
 
-                // Schedule polling with a timer
-                final Timer pollingTimer = new Timer();
+            // Use WebSocket for live updates
+            try {
+                // Build the WebSocket URL with query parameters
+                final String WS_HOST = Objects.equals(config.region, "eu") ? "wss://ws-eu.fastcomments.com" : "wss://ws.fastcomments.com";
+                String wsUrl = WS_HOST + "/sub" + "?urlId=" + urlIdWS +
+                        "&userIdWS=" + userIdWS +
+                        "&tenantIdWS=" + tenantIdWS;
 
-                class PollingTask extends TimerTask {
-                    @Override
-                    public void run() {
-                        if (!isIntentionallyClosed[0]) {
-                            long currentTime = new Date().getTime();
-                            fetchEventLog(tenantIdWS, urlId, userIdWS, lastEventTimeRef[0], currentTime,
-                                    events -> {
-                                        processEvents(events, config, canSeeCommentsCallback, handleLiveEvent, doRerender, lastEventTimeRef);
+                // Create WebSocket listener
+                FastCommentsWebSocketListener listener = new FastCommentsWebSocketListener(
+                        handleLiveEvent,
+                        canSeeCommentsCallback,
+                        isIntentionallyClosed,
+                        config,
+                        tenantIdWS,
+                        urlId,
+                        userIdWS
+                );
 
-                                        // Schedule next poll if not closed
-                                        if (!isIntentionallyClosed[0]) {
-                                            pollingTimer.schedule(new PollingTask(), POLLING_INTERVAL);
-                                        }
-                                    });
-                        }
-                    }
-                }
+                // Create request for WebSocket connection
+                Request request = new Request.Builder()
+                        .url(wsUrl)
+                        .build();
 
-                // Start polling immediately
-                pollingTimer.schedule(new PollingTask(), 0);
+                // Connect to WebSocket
+                final WebSocket webSocket = client.newWebSocket(request, listener);
 
-                // Return the result with close handler
+                // Return result with close handler
                 return new SubscribeToChangesResult(() -> {
                     isIntentionallyClosed[0] = true;
-                    pollingTimer.cancel();
+                    webSocket.close(1000, "Closed by user");
                 });
-            } else {
-                // Use WebSocket for live updates
-                try {
-                    // Build the WebSocket URL with query parameters
-                    StringBuilder wsUrl = new StringBuilder(WS_HOST + "/sub");
-                    wsUrl.append("?urlId=").append(urlIdWS)
-                            .append("&userIdWS=").append(userIdWS)
-                            .append("&tenantIdWS=").append(tenantIdWS);
-
-                    // Create WebSocket listener
-                    FastCommentsWebSocketListener listener = new FastCommentsWebSocketListener(
-                            extensions,
-                            handleLiveEvent,
-                            doRerender,
-                            onConnectionStatusChange,
-                            canSeeCommentsCallback,
-                            lastEventTimeRef,
-                            isIntentionallyClosed,
-                            config,
-                            tenantIdWS,
-                            urlId,
-                            userIdWS
-                    );
-
-                    // Create request for WebSocket connection
-                    Request request = new Request.Builder()
-                            .url(wsUrl.toString())
-                            .build();
-
-                    // Connect to WebSocket
-                    final WebSocket webSocket = client.newWebSocket(request, listener);
-
-                    // Return result with close handler
-                    return new SubscribeToChangesResult(() -> {
-                        isIntentionallyClosed[0] = true;
-                        webSocket.close(1000, "Closed by user");
-                    });
-                } catch (Exception e) {
-                    System.err.println("FastComments: Error setting up WebSocket: " + e.getMessage());
-                    return null;
-                }
+            } catch (Exception e) {
+                System.err.println("FastComments: Error setting up WebSocket: " + e.getMessage());
+                return null;
             }
         } catch (Exception e) {
             System.err.println("FastComments: Error in subscribeToChanges: " + e.getMessage());
