@@ -54,7 +54,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetMyNotificationsResponseAnyOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-19T12:19:32.030658181-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-19T13:05:16.739095503-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetMyNotificationsResponseAnyOf {
   public static final String SERIALIZED_NAME_TRANSLATIONS = "translations";
   @SerializedName(SERIALIZED_NAME_TRANSLATIONS)
