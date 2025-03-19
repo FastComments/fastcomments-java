@@ -56,6 +56,14 @@ public class LiveEventTest {
     }
 
     /**
+     * Test the property 'timestamp'
+     */
+    @Test
+    public void timestampTest() {
+        // TODO: test timestamp
+    }
+
+    /**
      * Test the property 'broadcastId'
      */
     @Test

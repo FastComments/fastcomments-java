@@ -2561,6 +2561,9 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/LiveEventType'
+        timestamp:
+          format: int64
+          type: integer
         broadcastId:
           type: string
         userId:
@@ -2598,6 +2601,7 @@ components:
           properties: {}
           type: object
       required:
+      - timestamp
       - type
       type: object
     PublicAPIGetCommentTextResponse:
