@@ -80,8 +80,9 @@ public class LiveEventSubscriber {
             for (LiveEvent eventData : events) {
                 try {
                     // Update the last live event time
-                    long eventTimestamp = eventData.getTimestamp();
-                    lastEventTime = Math.max(lastEventTime, eventTimestamp + 1);
+                    if (eventData.getTimestamp() != null) {
+                        lastEventTime = Math.max(lastEventTime, eventData.getTimestamp());
+                    }
 
                     // Extract comment ID for blocking check
                     String commentId = extractCommentIdFromEvent(eventData);
@@ -194,17 +195,22 @@ public class LiveEventSubscriber {
                 LiveEvent eventDataParsed = gson.fromJson(text, LiveEvent.class);
 
                 // Update last event time
-                long eventTimestamp = eventDataParsed.getTimestamp();
-                lastEventTime = Math.max(lastEventTime, eventTimestamp);
+                if (eventDataParsed.getTimestamp() != null) {
+                    lastEventTime = Math.max(lastEventTime, eventDataParsed.getTimestamp());
+                } else {
+                    // otherwise getTs() might not be null, but those are for presence updates only, and those are not stored in the log so we don't
+                    // want to track them
+                }
 
                 // Create a list with a single event
-                List<LiveEvent> singleEventList = new ArrayList<>();
+                List<LiveEvent> singleEventList = new ArrayList<>(1);
                 singleEventList.add(eventDataParsed);
 
                 // Process the event
                 processEvents(singleEventList, canSeeCommentsCallback, handleLiveEvent);
             } catch (Exception e) {
                 System.err.println("FastComments: Error processing WebSocket message: " + e.getMessage());
+                e.printStackTrace();
             }
         }
 
@@ -362,13 +368,13 @@ public class LiveEventSubscriber {
     /**
      * Subscribe to changes from FastComments.
      *
-     * @param config                   The Config object
-     * @param tenantIdWS               The tenant id sanitized for websocket server
-     * @param urlId                    The url id that events are tied to
-     * @param urlIdWS                  The url id sanitized for websocket server
-     * @param userIdWS                 The user's "presence id"
-     * @param canSeeCommentsCallback   A callback invoked to check if comments can be seen
-     * @param handleLiveEvent          A callback invoked when a new live event is found
+     * @param config                 The Config object
+     * @param tenantIdWS             The tenant id sanitized for websocket server
+     * @param urlId                  The url id that events are tied to
+     * @param urlIdWS                The url id sanitized for websocket server
+     * @param userIdWS               The user's "presence id"
+     * @param canSeeCommentsCallback A callback invoked to check if comments can be seen
+     * @param handleLiveEvent        A callback invoked when a new live event is found
      * @return A SubscribeToChangesResult that can be used to close the connection
      */
     public SubscribeToChangesResult subscribeToChanges(
