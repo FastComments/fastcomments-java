@@ -13,8 +13,8 @@
 |**urlIdRaw** | **String** |  |  |
 |**commentId** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
-|**direction** | **Double** |  |  |
-|**createdAt** | **Double** |  |  |
+|**direction** | **Integer** |  |  |
+|**createdAt** | **Long** |  |  |
 |**verificationId** | **String** |  |  |
 
 

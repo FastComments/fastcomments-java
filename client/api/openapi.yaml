@@ -2355,11 +2355,11 @@ components:
           nullable: true
           type: string
         direction:
-          format: double
-          type: number
+          format: int32
+          type: integer
         createdAt:
-          format: double
-          type: number
+          format: int64
+          type: integer
         verificationId:
           nullable: true
           type: string
@@ -2519,6 +2519,9 @@ components:
         timestamp:
           format: int64
           type: integer
+        ts:
+          format: int64
+          type: integer
         broadcastId:
           type: string
         userId:
@@ -2556,7 +2559,6 @@ components:
           properties: {}
           type: object
       required:
-      - timestamp
       - type
       type: object
     PublicAPIGetCommentTextResponse:

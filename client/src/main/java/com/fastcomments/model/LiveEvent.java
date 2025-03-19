@@ -58,7 +58,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * LiveEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T22:45:03.166288097-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-19T12:19:32.030658181-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class LiveEvent {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -67,8 +67,13 @@ public class LiveEvent {
 
   public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
   @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Long timestamp;
+
+  public static final String SERIALIZED_NAME_TS = "ts";
+  @SerializedName(SERIALIZED_NAME_TS)
+  @javax.annotation.Nullable
+  private Long ts;
 
   public static final String SERIALIZED_NAME_BROADCAST_ID = "broadcastId";
   @SerializedName(SERIALIZED_NAME_BROADCAST_ID)
@@ -152,7 +157,7 @@ public class LiveEvent {
   }
 
 
-  public LiveEvent timestamp(@javax.annotation.Nonnull Long timestamp) {
+  public LiveEvent timestamp(@javax.annotation.Nullable Long timestamp) {
     this.timestamp = timestamp;
     return this;
   }
@@ -161,13 +166,32 @@ public class LiveEvent {
    * Get timestamp
    * @return timestamp
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Long getTimestamp() {
     return timestamp;
   }
 
-  public void setTimestamp(@javax.annotation.Nonnull Long timestamp) {
+  public void setTimestamp(@javax.annotation.Nullable Long timestamp) {
     this.timestamp = timestamp;
+  }
+
+
+  public LiveEvent ts(@javax.annotation.Nullable Long ts) {
+    this.ts = ts;
+    return this;
+  }
+
+  /**
+   * Get ts
+   * @return ts
+   */
+  @javax.annotation.Nullable
+  public Long getTs() {
+    return ts;
+  }
+
+  public void setTs(@javax.annotation.Nullable Long ts) {
+    this.ts = ts;
   }
 
 
@@ -443,6 +467,7 @@ public class LiveEvent {
     LiveEvent liveEvent = (LiveEvent) o;
     return Objects.equals(this.type, liveEvent.type) &&
         Objects.equals(this.timestamp, liveEvent.timestamp) &&
+        Objects.equals(this.ts, liveEvent.ts) &&
         Objects.equals(this.broadcastId, liveEvent.broadcastId) &&
         Objects.equals(this.userId, liveEvent.userId) &&
         Objects.equals(this.badges, liveEvent.badges) &&
@@ -459,7 +484,7 @@ public class LiveEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, timestamp, broadcastId, userId, badges, notification, vote, comment, extraInfo, config, isClosed, uj, ul, changes);
+    return Objects.hash(type, timestamp, ts, broadcastId, userId, badges, notification, vote, comment, extraInfo, config, isClosed, uj, ul, changes);
   }
 
   @Override
@@ -468,6 +493,7 @@ public class LiveEvent {
     sb.append("class LiveEvent {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+    sb.append("    ts: ").append(toIndentedString(ts)).append("\n");
     sb.append("    broadcastId: ").append(toIndentedString(broadcastId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    badges: ").append(toIndentedString(badges)).append("\n");
@@ -504,6 +530,7 @@ public class LiveEvent {
     openapiFields = new HashSet<String>();
     openapiFields.add("type");
     openapiFields.add("timestamp");
+    openapiFields.add("ts");
     openapiFields.add("broadcastId");
     openapiFields.add("userId");
     openapiFields.add("badges");
@@ -520,7 +547,6 @@ public class LiveEvent {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("type");
-    openapiRequiredFields.add("timestamp");
   }
 
   /**

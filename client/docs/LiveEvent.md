@@ -8,7 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | **LiveEventType** |  |  |
-|**timestamp** | **Long** |  |  |
+|**timestamp** | **Long** |  |  [optional] |
+|**ts** | **Long** |  |  [optional] |
 |**broadcastId** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**badges** | [**List&lt;CommentUserBadgeInfo&gt;**](CommentUserBadgeInfo.md) |  |  [optional] |

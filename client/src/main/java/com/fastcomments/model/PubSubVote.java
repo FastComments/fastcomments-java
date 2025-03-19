@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * PubSubVote
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T22:45:03.166288097-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-19T12:19:32.030658181-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PubSubVote {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -83,12 +83,12 @@ public class PubSubVote {
   public static final String SERIALIZED_NAME_DIRECTION = "direction";
   @SerializedName(SERIALIZED_NAME_DIRECTION)
   @javax.annotation.Nonnull
-  private Double direction;
+  private Integer direction;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
-  private Double createdAt;
+  private Long createdAt;
 
   public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
   @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
@@ -212,7 +212,7 @@ public class PubSubVote {
   }
 
 
-  public PubSubVote direction(@javax.annotation.Nonnull Double direction) {
+  public PubSubVote direction(@javax.annotation.Nonnull Integer direction) {
     this.direction = direction;
     return this;
   }
@@ -222,16 +222,16 @@ public class PubSubVote {
    * @return direction
    */
   @javax.annotation.Nonnull
-  public Double getDirection() {
+  public Integer getDirection() {
     return direction;
   }
 
-  public void setDirection(@javax.annotation.Nonnull Double direction) {
+  public void setDirection(@javax.annotation.Nonnull Integer direction) {
     this.direction = direction;
   }
 
 
-  public PubSubVote createdAt(@javax.annotation.Nonnull Double createdAt) {
+  public PubSubVote createdAt(@javax.annotation.Nonnull Long createdAt) {
     this.createdAt = createdAt;
     return this;
   }
@@ -241,11 +241,11 @@ public class PubSubVote {
    * @return createdAt
    */
   @javax.annotation.Nonnull
-  public Double getCreatedAt() {
+  public Long getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(@javax.annotation.Nonnull Double createdAt) {
+  public void setCreatedAt(@javax.annotation.Nonnull Long createdAt) {
     this.createdAt = createdAt;
   }
 

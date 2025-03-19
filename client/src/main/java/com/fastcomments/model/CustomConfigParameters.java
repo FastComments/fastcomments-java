@@ -65,7 +65,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CustomConfigParameters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T22:45:03.166288097-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-19T12:19:32.030658181-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CustomConfigParameters {
   public static final String SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES = "absoluteAndRelativeDates";
   @SerializedName(SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES)

@@ -64,6 +64,14 @@ public class LiveEventTest {
     }
 
     /**
+     * Test the property 'ts'
+     */
+    @Test
+    public void tsTest() {
+        // TODO: test ts
+    }
+
+    /**
      * Test the property 'broadcastId'
      */
     @Test
