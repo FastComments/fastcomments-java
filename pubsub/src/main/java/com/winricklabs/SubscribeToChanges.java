@@ -1,33 +1,22 @@
 package com.winricklabs;
 
+import com.fastcomments.api.PublicApi;
+import com.fastcomments.invoker.ApiCallback;
+import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.*;
 import com.google.gson.Gson;
-import com.fastcomments.api.PublicApi;
-import com.fastcomments.invoker.ApiException;
+import okhttp3.*;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.WebSocket;
-import okhttp3.WebSocketListener;
-
-import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.BiConsumer;
 import java.util.function.Consumer;
-import java.util.function.Function;
-
-import com.fastcomments.invoker.ApiCallback;
-
-// SubscribeToChangesResult class moved to its own file
 
 /**
  * Main class for subscribing to FastComments live changes
  */
 public class SubscribeToChanges {
 
-    private static final String WS_HOST = "wss://live.fastcomments.com";
+    private static final String WS_HOST = "wss://ws.fastcomments.com"; // TODO eu?
     private static final long SUBSCRIBE_TO_CHANGES_DEBOUNCE = 300; // milliseconds
     private static final long WEBSOCKET_PING_INTERVAL = 60000; // 60 seconds
     private static final long POLLING_INTERVAL = 2000; // 2 seconds
