@@ -2338,86 +2338,41 @@ components:
       - urlId
       - viewed
       type: object
-    Pick_Vote.Exclude_keyofVote.verificationId__:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    PubSubVote:
+      additionalProperties: false
       properties:
         _id:
           type: string
-        urlId:
-          type: string
-        createdAt:
-          format: double
-          type: number
         tenantId:
+          type: string
+        urlId:
           type: string
         urlIdRaw:
           type: string
         commentId:
           type: string
         userId:
+          nullable: true
           type: string
         direction:
           format: double
           type: number
-        wasBroadcast:
-          type: boolean
-      required:
-      - _id
-      - commentId
-      - createdAt
-      - direction
-      - tenantId
-      - urlId
-      - urlIdRaw
-      - userId
-      - wasBroadcast
-      type: object
-    Omit_Vote.verificationId_:
-      $ref: '#/components/schemas/Pick_Vote.Exclude_keyofVote.verificationId__'
-    PubSubAuthedVote:
-      $ref: '#/components/schemas/Omit_Vote.verificationId_'
-    Pick_AnonymousVote.Exclude_keyofAnonymousVote.verificationId__:
-      description: "From T, pick a set of properties whose keys are in the union K"
-      properties:
-        _id:
-          type: string
-        urlId:
-          type: string
         createdAt:
           format: double
           type: number
-        tenantId:
-          type: string
-        urlIdRaw:
-          type: string
-        commentId:
-          type: string
-        direction:
-          format: double
-          type: number
-        wasBroadcast:
-          type: boolean
-        commenterName:
+        verificationId:
+          nullable: true
           type: string
       required:
       - _id
       - commentId
-      - commenterName
       - createdAt
       - direction
       - tenantId
       - urlId
       - urlIdRaw
-      - wasBroadcast
+      - verificationId
       type: object
-    Omit_AnonymousVote.verificationId_:
-      $ref: '#/components/schemas/Pick_AnonymousVote.Exclude_keyofAnonymousVote.verificationId__'
-    PubSubAnonVote:
-      $ref: '#/components/schemas/Omit_AnonymousVote.verificationId_'
-    PubSubVote:
-      anyOf:
-      - $ref: '#/components/schemas/PubSubAuthedVote'
-      - $ref: '#/components/schemas/PubSubAnonVote'
     Pick_Omit_FComment.date_.PublicCommentPubSubFieldsKeys_:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
@@ -2429,14 +2384,14 @@ components:
           type: string
         pageTitle:
           type: string
+        date: {}
         tenantId:
           type: string
         userId:
           type: string
-        commenterName:
-          type: string
-        date: {}
         anonUserId:
+          type: string
+        commenterName:
           type: string
         commenterLink:
           type: string
@@ -2809,14 +2764,14 @@ components:
       properties:
         _id:
           type: string
-        userId:
-          type: string
-        commenterName:
-          type: string
         date:
           format: date-time
           type: string
+        userId:
+          type: string
         anonUserId:
+          type: string
+        commenterName:
           type: string
         commenterLink:
           type: string

@@ -14,8 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId;
-import com.fastcomments.model.PickVoteExcludeKeyofVoteVerificationId;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,244 +22,434 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
-
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T18:29:38.833167458-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class PubSubVote extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(PubSubVote.class.getName());
+/**
+ * PubSubVote
+ */
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T22:45:03.166288097-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class PubSubVote {
+  public static final String SERIALIZED_NAME_ID = "_id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private String id;
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!PubSubVote.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'PubSubVote' and its subtypes
-            }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<PickVoteExcludeKeyofVoteVerificationId> adapterPickVoteExcludeKeyofVoteVerificationId = gson.getDelegateAdapter(this, TypeToken.get(PickVoteExcludeKeyofVoteVerificationId.class));
-            final TypeAdapter<PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId> adapterPickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId = gson.getDelegateAdapter(this, TypeToken.get(PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId.class));
+  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
+  @SerializedName(SERIALIZED_NAME_TENANT_ID)
+  @javax.annotation.Nonnull
+  private String tenantId;
 
-            return (TypeAdapter<T>) new TypeAdapter<PubSubVote>() {
-                @Override
-                public void write(JsonWriter out, PubSubVote value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+  public static final String SERIALIZED_NAME_URL_ID = "urlId";
+  @SerializedName(SERIALIZED_NAME_URL_ID)
+  @javax.annotation.Nonnull
+  private String urlId;
 
-                    // check if the actual instance is of the type `PickVoteExcludeKeyofVoteVerificationId`
-                    if (value.getActualInstance() instanceof PickVoteExcludeKeyofVoteVerificationId) {
-                        JsonElement element = adapterPickVoteExcludeKeyofVoteVerificationId.toJsonTree((PickVoteExcludeKeyofVoteVerificationId)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId`
-                    if (value.getActualInstance() instanceof PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId) {
-                        JsonElement element = adapterPickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId.toJsonTree((PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId, PickVoteExcludeKeyofVoteVerificationId");
-                }
+  public static final String SERIALIZED_NAME_URL_ID_RAW = "urlIdRaw";
+  @SerializedName(SERIALIZED_NAME_URL_ID_RAW)
+  @javax.annotation.Nonnull
+  private String urlIdRaw;
 
-                @Override
-                public PubSubVote read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
+  public static final String SERIALIZED_NAME_COMMENT_ID = "commentId";
+  @SerializedName(SERIALIZED_NAME_COMMENT_ID)
+  @javax.annotation.Nonnull
+  private String commentId;
 
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
+  public static final String SERIALIZED_NAME_USER_ID = "userId";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nullable
+  private String userId;
 
-                    // deserialize PickVoteExcludeKeyofVoteVerificationId
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PickVoteExcludeKeyofVoteVerificationId.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPickVoteExcludeKeyofVoteVerificationId;
-                        PubSubVote ret = new PubSubVote();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PickVoteExcludeKeyofVoteVerificationId failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PickVoteExcludeKeyofVoteVerificationId'", e);
-                    }
-                    // deserialize PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId;
-                        PubSubVote ret = new PubSubVote();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId'", e);
-                    }
+  public static final String SERIALIZED_NAME_DIRECTION = "direction";
+  @SerializedName(SERIALIZED_NAME_DIRECTION)
+  @javax.annotation.Nonnull
+  private Double direction;
 
-                    throw new IOException(String.format("Failed deserialization for PubSubVote: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  @javax.annotation.Nonnull
+  private Double createdAt;
+
+  public static final String SERIALIZED_NAME_VERIFICATION_ID = "verificationId";
+  @SerializedName(SERIALIZED_NAME_VERIFICATION_ID)
+  @javax.annotation.Nullable
+  private String verificationId;
+
+  public PubSubVote() {
+  }
+
+  public PubSubVote id(@javax.annotation.Nonnull String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public String getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull String id) {
+    this.id = id;
+  }
+
+
+  public PubSubVote tenantId(@javax.annotation.Nonnull String tenantId) {
+    this.tenantId = tenantId;
+    return this;
+  }
+
+  /**
+   * Get tenantId
+   * @return tenantId
+   */
+  @javax.annotation.Nonnull
+  public String getTenantId() {
+    return tenantId;
+  }
+
+  public void setTenantId(@javax.annotation.Nonnull String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+
+  public PubSubVote urlId(@javax.annotation.Nonnull String urlId) {
+    this.urlId = urlId;
+    return this;
+  }
+
+  /**
+   * Get urlId
+   * @return urlId
+   */
+  @javax.annotation.Nonnull
+  public String getUrlId() {
+    return urlId;
+  }
+
+  public void setUrlId(@javax.annotation.Nonnull String urlId) {
+    this.urlId = urlId;
+  }
+
+
+  public PubSubVote urlIdRaw(@javax.annotation.Nonnull String urlIdRaw) {
+    this.urlIdRaw = urlIdRaw;
+    return this;
+  }
+
+  /**
+   * Get urlIdRaw
+   * @return urlIdRaw
+   */
+  @javax.annotation.Nonnull
+  public String getUrlIdRaw() {
+    return urlIdRaw;
+  }
+
+  public void setUrlIdRaw(@javax.annotation.Nonnull String urlIdRaw) {
+    this.urlIdRaw = urlIdRaw;
+  }
+
+
+  public PubSubVote commentId(@javax.annotation.Nonnull String commentId) {
+    this.commentId = commentId;
+    return this;
+  }
+
+  /**
+   * Get commentId
+   * @return commentId
+   */
+  @javax.annotation.Nonnull
+  public String getCommentId() {
+    return commentId;
+  }
+
+  public void setCommentId(@javax.annotation.Nonnull String commentId) {
+    this.commentId = commentId;
+  }
+
+
+  public PubSubVote userId(@javax.annotation.Nullable String userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * Get userId
+   * @return userId
+   */
+  @javax.annotation.Nullable
+  public String getUserId() {
+    return userId;
+  }
+
+  public void setUserId(@javax.annotation.Nullable String userId) {
+    this.userId = userId;
+  }
+
+
+  public PubSubVote direction(@javax.annotation.Nonnull Double direction) {
+    this.direction = direction;
+    return this;
+  }
+
+  /**
+   * Get direction
+   * @return direction
+   */
+  @javax.annotation.Nonnull
+  public Double getDirection() {
+    return direction;
+  }
+
+  public void setDirection(@javax.annotation.Nonnull Double direction) {
+    this.direction = direction;
+  }
+
+
+  public PubSubVote createdAt(@javax.annotation.Nonnull Double createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Get createdAt
+   * @return createdAt
+   */
+  @javax.annotation.Nonnull
+  public Double getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(@javax.annotation.Nonnull Double createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public PubSubVote verificationId(@javax.annotation.Nullable String verificationId) {
+    this.verificationId = verificationId;
+    return this;
+  }
+
+  /**
+   * Get verificationId
+   * @return verificationId
+   */
+  @javax.annotation.Nullable
+  public String getVerificationId() {
+    return verificationId;
+  }
+
+  public void setVerificationId(@javax.annotation.Nullable String verificationId) {
+    this.verificationId = verificationId;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PubSubVote pubSubVote = (PubSubVote) o;
+    return Objects.equals(this.id, pubSubVote.id) &&
+        Objects.equals(this.tenantId, pubSubVote.tenantId) &&
+        Objects.equals(this.urlId, pubSubVote.urlId) &&
+        Objects.equals(this.urlIdRaw, pubSubVote.urlIdRaw) &&
+        Objects.equals(this.commentId, pubSubVote.commentId) &&
+        Objects.equals(this.userId, pubSubVote.userId) &&
+        Objects.equals(this.direction, pubSubVote.direction) &&
+        Objects.equals(this.createdAt, pubSubVote.createdAt) &&
+        Objects.equals(this.verificationId, pubSubVote.verificationId);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, tenantId, urlId, urlIdRaw, commentId, userId, direction, createdAt, verificationId);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PubSubVote {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
+    sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
+    sb.append("    urlIdRaw: ").append(toIndentedString(urlIdRaw)).append("\n");
+    sb.append("    commentId: ").append(toIndentedString(commentId)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("_id");
+    openapiFields.add("tenantId");
+    openapiFields.add("urlId");
+    openapiFields.add("urlIdRaw");
+    openapiFields.add("commentId");
+    openapiFields.add("userId");
+    openapiFields.add("direction");
+    openapiFields.add("createdAt");
+    openapiFields.add("verificationId");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("_id");
+    openapiRequiredFields.add("tenantId");
+    openapiRequiredFields.add("urlId");
+    openapiRequiredFields.add("urlIdRaw");
+    openapiRequiredFields.add("commentId");
+    openapiRequiredFields.add("direction");
+    openapiRequiredFields.add("createdAt");
+    openapiRequiredFields.add("verificationId");
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PubSubVote
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PubSubVote.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PubSubVote is not found in the empty JSON string", PubSubVote.openapiRequiredFields.toString()));
         }
-    }
+      }
 
-    // store a list of schema names defined in anyOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
-
-    public PubSubVote() {
-        super("anyOf", Boolean.FALSE);
-    }
-
-    public PubSubVote(Object o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("PickVoteExcludeKeyofVoteVerificationId", PickVoteExcludeKeyofVoteVerificationId.class);
-        schemas.put("PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId", PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId.class);
-    }
-
-    @Override
-    public Map<String, Class<?>> getSchemas() {
-        return PubSubVote.schemas;
-    }
-
-    /**
-     * Set the instance that matches the anyOf child schema, check
-     * the instance parameter is valid against the anyOf child schemas:
-     * PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId, PickVoteExcludeKeyofVoteVerificationId
-     *
-     * It could be an instance of the 'anyOf' schemas.
-     */
-    @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof PickVoteExcludeKeyofVoteVerificationId) {
-            super.setActualInstance(instance);
-            return;
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!PubSubVote.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PubSubVote` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
+      }
 
-        if (instance instanceof PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId) {
-            super.setActualInstance(instance);
-            return;
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : PubSubVote.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
+      }
+      if (!jsonObj.get("tenantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+      }
+      if (!jsonObj.get("urlId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
+      }
+      if (!jsonObj.get("urlIdRaw").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlIdRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdRaw").toString()));
+      }
+      if (!jsonObj.get("commentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentId").toString()));
+      }
+      if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
+      }
+      if ((jsonObj.get("verificationId") != null && !jsonObj.get("verificationId").isJsonNull()) && !jsonObj.get("verificationId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verificationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationId").toString()));
+      }
+  }
 
-        throw new RuntimeException("Invalid instance type. Must be PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId, PickVoteExcludeKeyofVoteVerificationId");
-    }
-
-    /**
-     * Get the actual instance, which can be the following:
-     * PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId, PickVoteExcludeKeyofVoteVerificationId
-     *
-     * @return The actual instance (PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId, PickVoteExcludeKeyofVoteVerificationId)
-     */
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!PubSubVote.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PubSubVote' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<PubSubVote> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PubSubVote.class));
 
-    /**
-     * Get the actual instance of `PickVoteExcludeKeyofVoteVerificationId`. If the actual instance is not `PickVoteExcludeKeyofVoteVerificationId`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `PickVoteExcludeKeyofVoteVerificationId`
-     * @throws ClassCastException if the instance is not `PickVoteExcludeKeyofVoteVerificationId`
-     */
-    public PickVoteExcludeKeyofVoteVerificationId getPickVoteExcludeKeyofVoteVerificationId() throws ClassCastException {
-        return (PickVoteExcludeKeyofVoteVerificationId)super.getActualInstance();
-    }
+       return (TypeAdapter<T>) new TypeAdapter<PubSubVote>() {
+           @Override
+           public void write(JsonWriter out, PubSubVote value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
 
-    /**
-     * Get the actual instance of `PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId`. If the actual instance is not `PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId`
-     * @throws ClassCastException if the instance is not `PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId`
-     */
-    public PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId getPickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId() throws ClassCastException {
-        return (PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId)super.getActualInstance();
-    }
+           @Override
+           public PubSubVote read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to PubSubVote
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate anyOf schemas one by one
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with PickVoteExcludeKeyofVoteVerificationId
-        try {
-            PickVoteExcludeKeyofVoteVerificationId.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for PickVoteExcludeKeyofVoteVerificationId failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId
-        try {
-            PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format("The JSON string is invalid for PubSubVote with anyOf schemas: PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId, PickVoteExcludeKeyofVoteVerificationId. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+       }.nullSafe();
     }
+  }
 
-    /**
-     * Create an instance of PubSubVote given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of PubSubVote
-     * @throws IOException if the JSON string is invalid with respect to PubSubVote
-     */
-    public static PubSubVote fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, PubSubVote.class);
-    }
+  /**
+   * Create an instance of PubSubVote given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PubSubVote
+   * @throws IOException if the JSON string is invalid with respect to PubSubVote
+   */
+  public static PubSubVote fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PubSubVote.class);
+  }
 
-    /**
-     * Convert an instance of PubSubVote to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
-    }
+  /**
+   * Convert an instance of PubSubVote to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

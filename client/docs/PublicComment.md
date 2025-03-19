@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**userId** | **String** |  |  [optional] |
-|**commenterName** | **String** |  |  |
 |**date** | **OffsetDateTime** |  |  |
+|**userId** | **String** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
+|**commenterName** | **String** |  |  |
 |**commenterLink** | **String** |  |  [optional] |
 |**commentHTML** | **String** |  |  |
 |**parentId** | **String** |  |  [optional] |

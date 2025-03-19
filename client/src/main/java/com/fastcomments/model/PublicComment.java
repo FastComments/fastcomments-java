@@ -52,32 +52,32 @@ import com.fastcomments.invoker.JSON;
 /**
  * PublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T18:29:38.833167458-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T22:45:03.166288097-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PublicComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private String id;
 
-  public static final String SERIALIZED_NAME_USER_ID = "userId";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  @javax.annotation.Nullable
-  private String userId;
-
-  public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
-  @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
-  @javax.annotation.Nonnull
-  private String commenterName;
-
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   @javax.annotation.Nonnull
   private OffsetDateTime date;
 
+  public static final String SERIALIZED_NAME_USER_ID = "userId";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  @javax.annotation.Nullable
+  private String userId;
+
   public static final String SERIALIZED_NAME_ANON_USER_ID = "anonUserId";
   @SerializedName(SERIALIZED_NAME_ANON_USER_ID)
   @javax.annotation.Nullable
   private String anonUserId;
+
+  public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
+  @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
+  @javax.annotation.Nonnull
+  private String commenterName;
 
   public static final String SERIALIZED_NAME_COMMENTER_LINK = "commenterLink";
   @SerializedName(SERIALIZED_NAME_COMMENTER_LINK)
@@ -256,44 +256,6 @@ public class PublicComment {
   }
 
 
-  public PublicComment userId(@javax.annotation.Nullable String userId) {
-    this.userId = userId;
-    return this;
-  }
-
-  /**
-   * Get userId
-   * @return userId
-   */
-  @javax.annotation.Nullable
-  public String getUserId() {
-    return userId;
-  }
-
-  public void setUserId(@javax.annotation.Nullable String userId) {
-    this.userId = userId;
-  }
-
-
-  public PublicComment commenterName(@javax.annotation.Nonnull String commenterName) {
-    this.commenterName = commenterName;
-    return this;
-  }
-
-  /**
-   * Get commenterName
-   * @return commenterName
-   */
-  @javax.annotation.Nonnull
-  public String getCommenterName() {
-    return commenterName;
-  }
-
-  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
-    this.commenterName = commenterName;
-  }
-
-
   public PublicComment date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
@@ -313,6 +275,25 @@ public class PublicComment {
   }
 
 
+  public PublicComment userId(@javax.annotation.Nullable String userId) {
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * Get userId
+   * @return userId
+   */
+  @javax.annotation.Nullable
+  public String getUserId() {
+    return userId;
+  }
+
+  public void setUserId(@javax.annotation.Nullable String userId) {
+    this.userId = userId;
+  }
+
+
   public PublicComment anonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
     return this;
@@ -329,6 +310,25 @@ public class PublicComment {
 
   public void setAnonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
+  }
+
+
+  public PublicComment commenterName(@javax.annotation.Nonnull String commenterName) {
+    this.commenterName = commenterName;
+    return this;
+  }
+
+  /**
+   * Get commenterName
+   * @return commenterName
+   */
+  @javax.annotation.Nonnull
+  public String getCommenterName() {
+    return commenterName;
+  }
+
+  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
+    this.commenterName = commenterName;
   }
 
 
@@ -956,10 +956,10 @@ public class PublicComment {
     }
     PublicComment publicComment = (PublicComment) o;
     return Objects.equals(this.id, publicComment.id) &&
-        Objects.equals(this.userId, publicComment.userId) &&
-        Objects.equals(this.commenterName, publicComment.commenterName) &&
         Objects.equals(this.date, publicComment.date) &&
+        Objects.equals(this.userId, publicComment.userId) &&
         Objects.equals(this.anonUserId, publicComment.anonUserId) &&
+        Objects.equals(this.commenterName, publicComment.commenterName) &&
         Objects.equals(this.commenterLink, publicComment.commenterLink) &&
         Objects.equals(this.commentHTML, publicComment.commentHTML) &&
         Objects.equals(this.parentId, publicComment.parentId) &&
@@ -995,7 +995,7 @@ public class PublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, commenterName, date, anonUserId, commenterLink, commentHTML, parentId, votes, votesUp, votesDown, verified, avatarSrc, isSpam, hasImages, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, rating, displayLabel, badges, feedbackIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
+    return Objects.hash(id, date, userId, anonUserId, commenterName, commenterLink, commentHTML, parentId, votes, votesUp, votesDown, verified, avatarSrc, isSpam, hasImages, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, rating, displayLabel, badges, feedbackIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
   }
 
   @Override
@@ -1003,10 +1003,10 @@ public class PublicComment {
     StringBuilder sb = new StringBuilder();
     sb.append("class PublicComment {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
+    sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
     sb.append("    commenterLink: ").append(toIndentedString(commenterLink)).append("\n");
     sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
@@ -1061,10 +1061,10 @@ public class PublicComment {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("_id");
-    openapiFields.add("userId");
-    openapiFields.add("commenterName");
     openapiFields.add("date");
+    openapiFields.add("userId");
     openapiFields.add("anonUserId");
+    openapiFields.add("commenterName");
     openapiFields.add("commenterLink");
     openapiFields.add("commentHTML");
     openapiFields.add("parentId");
@@ -1100,8 +1100,8 @@ public class PublicComment {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("_id");
-    openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("date");
+    openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("verified");
   }
@@ -1140,11 +1140,11 @@ public class PublicComment {
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
-      if (!jsonObj.get("commenterName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
-      }
       if ((jsonObj.get("anonUserId") != null && !jsonObj.get("anonUserId").isJsonNull()) && !jsonObj.get("anonUserId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `anonUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("anonUserId").toString()));
+      }
+      if (!jsonObj.get("commenterName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
       }
       if ((jsonObj.get("commenterLink") != null && !jsonObj.get("commenterLink").isJsonNull()) && !jsonObj.get("commenterLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `commenterLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterLink").toString()));

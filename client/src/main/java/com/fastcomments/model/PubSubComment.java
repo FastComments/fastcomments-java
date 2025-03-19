@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * PubSubComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T18:29:38.833167458-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T22:45:03.166288097-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PubSubComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -74,6 +74,11 @@ public class PubSubComment {
   @javax.annotation.Nullable
   private String pageTitle;
 
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nonnull
+  private String date;
+
   public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   @javax.annotation.Nonnull
@@ -84,20 +89,15 @@ public class PubSubComment {
   @javax.annotation.Nullable
   private String userId;
 
-  public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
-  @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
-  @javax.annotation.Nonnull
-  private String commenterName;
-
-  public static final String SERIALIZED_NAME_DATE = "date";
-  @SerializedName(SERIALIZED_NAME_DATE)
-  @javax.annotation.Nonnull
-  private String date;
-
   public static final String SERIALIZED_NAME_ANON_USER_ID = "anonUserId";
   @SerializedName(SERIALIZED_NAME_ANON_USER_ID)
   @javax.annotation.Nullable
   private String anonUserId;
+
+  public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
+  @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
+  @javax.annotation.Nonnull
+  private String commenterName;
 
   public static final String SERIALIZED_NAME_COMMENTER_LINK = "commenterLink";
   @SerializedName(SERIALIZED_NAME_COMMENTER_LINK)
@@ -348,6 +348,25 @@ public class PubSubComment {
   }
 
 
+  public PubSubComment date(@javax.annotation.Nonnull String date) {
+    this.date = date;
+    return this;
+  }
+
+  /**
+   * Get date
+   * @return date
+   */
+  @javax.annotation.Nonnull
+  public String getDate() {
+    return date;
+  }
+
+  public void setDate(@javax.annotation.Nonnull String date) {
+    this.date = date;
+  }
+
+
   public PubSubComment tenantId(@javax.annotation.Nonnull String tenantId) {
     this.tenantId = tenantId;
     return this;
@@ -386,44 +405,6 @@ public class PubSubComment {
   }
 
 
-  public PubSubComment commenterName(@javax.annotation.Nonnull String commenterName) {
-    this.commenterName = commenterName;
-    return this;
-  }
-
-  /**
-   * Get commenterName
-   * @return commenterName
-   */
-  @javax.annotation.Nonnull
-  public String getCommenterName() {
-    return commenterName;
-  }
-
-  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
-    this.commenterName = commenterName;
-  }
-
-
-  public PubSubComment date(@javax.annotation.Nonnull String date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-   */
-  @javax.annotation.Nonnull
-  public String getDate() {
-    return date;
-  }
-
-  public void setDate(@javax.annotation.Nonnull String date) {
-    this.date = date;
-  }
-
-
   public PubSubComment anonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
     return this;
@@ -440,6 +421,25 @@ public class PubSubComment {
 
   public void setAnonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
+  }
+
+
+  public PubSubComment commenterName(@javax.annotation.Nonnull String commenterName) {
+    this.commenterName = commenterName;
+    return this;
+  }
+
+  /**
+   * Get commenterName
+   * @return commenterName
+   */
+  @javax.annotation.Nonnull
+  public String getCommenterName() {
+    return commenterName;
+  }
+
+  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
+    this.commenterName = commenterName;
   }
 
 
@@ -1127,11 +1127,11 @@ public class PubSubComment {
         Objects.equals(this.urlId, pubSubComment.urlId) &&
         Objects.equals(this.url, pubSubComment.url) &&
         Objects.equals(this.pageTitle, pubSubComment.pageTitle) &&
+        Objects.equals(this.date, pubSubComment.date) &&
         Objects.equals(this.tenantId, pubSubComment.tenantId) &&
         Objects.equals(this.userId, pubSubComment.userId) &&
-        Objects.equals(this.commenterName, pubSubComment.commenterName) &&
-        Objects.equals(this.date, pubSubComment.date) &&
         Objects.equals(this.anonUserId, pubSubComment.anonUserId) &&
+        Objects.equals(this.commenterName, pubSubComment.commenterName) &&
         Objects.equals(this.commenterLink, pubSubComment.commenterLink) &&
         Objects.equals(this.comment, pubSubComment.comment) &&
         Objects.equals(this.commentHTML, pubSubComment.commentHTML) &&
@@ -1170,7 +1170,7 @@ public class PubSubComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, urlId, url, pageTitle, tenantId, userId, commenterName, date, anonUserId, commenterLink, comment, commentHTML, parentId, votes, votesUp, votesDown, expireAt, verified, reviewed, avatarSrc, isSpam, hasImages, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, badges, domain, feedbackIds, groupIds, viewCount, isLive, hidden);
+    return Objects.hash(id, urlId, url, pageTitle, date, tenantId, userId, anonUserId, commenterName, commenterLink, comment, commentHTML, parentId, votes, votesUp, votesDown, expireAt, verified, reviewed, avatarSrc, isSpam, hasImages, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, badges, domain, feedbackIds, groupIds, viewCount, isLive, hidden);
   }
 
   @Override
@@ -1181,11 +1181,11 @@ public class PubSubComment {
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
+    sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
     sb.append("    commenterLink: ").append(toIndentedString(commenterLink)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
@@ -1246,11 +1246,11 @@ public class PubSubComment {
     openapiFields.add("urlId");
     openapiFields.add("url");
     openapiFields.add("pageTitle");
+    openapiFields.add("date");
     openapiFields.add("tenantId");
     openapiFields.add("userId");
-    openapiFields.add("commenterName");
-    openapiFields.add("date");
     openapiFields.add("anonUserId");
+    openapiFields.add("commenterName");
     openapiFields.add("commenterLink");
     openapiFields.add("comment");
     openapiFields.add("commentHTML");
@@ -1291,9 +1291,9 @@ public class PubSubComment {
     openapiRequiredFields.add("_id");
     openapiRequiredFields.add("urlId");
     openapiRequiredFields.add("url");
+    openapiRequiredFields.add("date");
     openapiRequiredFields.add("tenantId");
     openapiRequiredFields.add("commenterName");
-    openapiRequiredFields.add("date");
     openapiRequiredFields.add("comment");
     openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("verified");
@@ -1341,20 +1341,20 @@ public class PubSubComment {
       if ((jsonObj.get("pageTitle") != null && !jsonObj.get("pageTitle").isJsonNull()) && !jsonObj.get("pageTitle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pageTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageTitle").toString()));
       }
+      if (!jsonObj.get("date").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("date").toString()));
+      }
       if (!jsonObj.get("tenantId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
-      if (!jsonObj.get("commenterName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
-      }
-      if (!jsonObj.get("date").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("date").toString()));
-      }
       if ((jsonObj.get("anonUserId") != null && !jsonObj.get("anonUserId").isJsonNull()) && !jsonObj.get("anonUserId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `anonUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("anonUserId").toString()));
+      }
+      if (!jsonObj.get("commenterName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
       }
       if ((jsonObj.get("commenterLink") != null && !jsonObj.get("commenterLink").isJsonNull()) && !jsonObj.get("commenterLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `commenterLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterLink").toString()));

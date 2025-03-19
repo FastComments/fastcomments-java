@@ -13,8 +13,6 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.PickAnonymousVoteExcludeKeyofAnonymousVoteVerificationId;
-import com.fastcomments.model.PickVoteExcludeKeyofVoteVerificationId;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,27 +46,19 @@ public class PubSubVoteTest {
     }
 
     /**
-     * Test the property 'urlId'
-     */
-    @Test
-    public void urlIdTest() {
-        // TODO: test urlId
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
      * Test the property 'tenantId'
      */
     @Test
     public void tenantIdTest() {
         // TODO: test tenantId
+    }
+
+    /**
+     * Test the property 'urlId'
+     */
+    @Test
+    public void urlIdTest() {
+        // TODO: test urlId
     }
 
     /**
@@ -104,19 +94,19 @@ public class PubSubVoteTest {
     }
 
     /**
-     * Test the property 'wasBroadcast'
+     * Test the property 'createdAt'
      */
     @Test
-    public void wasBroadcastTest() {
-        // TODO: test wasBroadcast
+    public void createdAtTest() {
+        // TODO: test createdAt
     }
 
     /**
-     * Test the property 'commenterName'
+     * Test the property 'verificationId'
      */
     @Test
-    public void commenterNameTest() {
-        // TODO: test commenterName
+    public void verificationIdTest() {
+        // TODO: test verificationId
     }
 
 }

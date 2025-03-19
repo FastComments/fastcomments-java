@@ -8,15 +8,14 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**urlId** | **String** |  |  |
-|**createdAt** | **Double** |  |  |
 |**tenantId** | **String** |  |  |
+|**urlId** | **String** |  |  |
 |**urlIdRaw** | **String** |  |  |
 |**commentId** | **String** |  |  |
-|**userId** | **String** |  |  |
+|**userId** | **String** |  |  [optional] |
 |**direction** | **Double** |  |  |
-|**wasBroadcast** | **Boolean** |  |  |
-|**commenterName** | **String** |  |  |
+|**createdAt** | **Double** |  |  |
+|**verificationId** | **String** |  |  |
 
 
 

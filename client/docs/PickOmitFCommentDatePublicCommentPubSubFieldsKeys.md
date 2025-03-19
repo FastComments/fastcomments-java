@@ -12,11 +12,11 @@ From T, pick a set of properties whose keys are in the union K
 |**urlId** | **String** |  |  |
 |**url** | **String** |  |  |
 |**pageTitle** | **String** |  |  [optional] |
+|**date** | **Object** |  |  |
 |**tenantId** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
-|**commenterName** | **String** |  |  |
-|**date** | **Object** |  |  |
 |**anonUserId** | **String** |  |  [optional] |
+|**commenterName** | **String** |  |  |
 |**commenterLink** | **String** |  |  [optional] |
 |**comment** | **String** |  |  |
 |**commentHTML** | **String** |  |  |

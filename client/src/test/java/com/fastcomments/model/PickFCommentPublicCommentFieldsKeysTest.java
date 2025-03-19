@@ -50,22 +50,6 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
-     * Test the property 'userId'
-     */
-    @Test
-    public void userIdTest() {
-        // TODO: test userId
-    }
-
-    /**
-     * Test the property 'commenterName'
-     */
-    @Test
-    public void commenterNameTest() {
-        // TODO: test commenterName
-    }
-
-    /**
      * Test the property 'date'
      */
     @Test
@@ -74,11 +58,27 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
+     * Test the property 'userId'
+     */
+    @Test
+    public void userIdTest() {
+        // TODO: test userId
+    }
+
+    /**
      * Test the property 'anonUserId'
      */
     @Test
     public void anonUserIdTest() {
         // TODO: test anonUserId
+    }
+
+    /**
+     * Test the property 'commenterName'
+     */
+    @Test
+    public void commenterNameTest() {
+        // TODO: test commenterName
     }
 
     /**

@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T18:29:38.833167458-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T22:45:03.166288097-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -74,6 +74,11 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
   @javax.annotation.Nullable
   private String pageTitle;
 
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nullable
+  private Object date = null;
+
   public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   @javax.annotation.Nonnull
@@ -84,20 +89,15 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
   @javax.annotation.Nullable
   private String userId;
 
-  public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
-  @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
-  @javax.annotation.Nonnull
-  private String commenterName;
-
-  public static final String SERIALIZED_NAME_DATE = "date";
-  @SerializedName(SERIALIZED_NAME_DATE)
-  @javax.annotation.Nullable
-  private Object date = null;
-
   public static final String SERIALIZED_NAME_ANON_USER_ID = "anonUserId";
   @SerializedName(SERIALIZED_NAME_ANON_USER_ID)
   @javax.annotation.Nullable
   private String anonUserId;
+
+  public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
+  @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
+  @javax.annotation.Nonnull
+  private String commenterName;
 
   public static final String SERIALIZED_NAME_COMMENTER_LINK = "commenterLink";
   @SerializedName(SERIALIZED_NAME_COMMENTER_LINK)
@@ -338,6 +338,25 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
   }
 
 
+  public PickOmitFCommentDatePublicCommentPubSubFieldsKeys date(@javax.annotation.Nullable Object date) {
+    this.date = date;
+    return this;
+  }
+
+  /**
+   * Get date
+   * @return date
+   */
+  @javax.annotation.Nullable
+  public Object getDate() {
+    return date;
+  }
+
+  public void setDate(@javax.annotation.Nullable Object date) {
+    this.date = date;
+  }
+
+
   public PickOmitFCommentDatePublicCommentPubSubFieldsKeys tenantId(@javax.annotation.Nonnull String tenantId) {
     this.tenantId = tenantId;
     return this;
@@ -376,44 +395,6 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
   }
 
 
-  public PickOmitFCommentDatePublicCommentPubSubFieldsKeys commenterName(@javax.annotation.Nonnull String commenterName) {
-    this.commenterName = commenterName;
-    return this;
-  }
-
-  /**
-   * Get commenterName
-   * @return commenterName
-   */
-  @javax.annotation.Nonnull
-  public String getCommenterName() {
-    return commenterName;
-  }
-
-  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
-    this.commenterName = commenterName;
-  }
-
-
-  public PickOmitFCommentDatePublicCommentPubSubFieldsKeys date(@javax.annotation.Nullable Object date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-   */
-  @javax.annotation.Nullable
-  public Object getDate() {
-    return date;
-  }
-
-  public void setDate(@javax.annotation.Nullable Object date) {
-    this.date = date;
-  }
-
-
   public PickOmitFCommentDatePublicCommentPubSubFieldsKeys anonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
     return this;
@@ -430,6 +411,25 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
 
   public void setAnonUserId(@javax.annotation.Nullable String anonUserId) {
     this.anonUserId = anonUserId;
+  }
+
+
+  public PickOmitFCommentDatePublicCommentPubSubFieldsKeys commenterName(@javax.annotation.Nonnull String commenterName) {
+    this.commenterName = commenterName;
+    return this;
+  }
+
+  /**
+   * Get commenterName
+   * @return commenterName
+   */
+  @javax.annotation.Nonnull
+  public String getCommenterName() {
+    return commenterName;
+  }
+
+  public void setCommenterName(@javax.annotation.Nonnull String commenterName) {
+    this.commenterName = commenterName;
   }
 
 
@@ -1079,11 +1079,11 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
         Objects.equals(this.urlId, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.urlId) &&
         Objects.equals(this.url, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.url) &&
         Objects.equals(this.pageTitle, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.pageTitle) &&
+        Objects.equals(this.date, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.date) &&
         Objects.equals(this.tenantId, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.tenantId) &&
         Objects.equals(this.userId, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.userId) &&
-        Objects.equals(this.commenterName, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.commenterName) &&
-        Objects.equals(this.date, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.date) &&
         Objects.equals(this.anonUserId, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.anonUserId) &&
+        Objects.equals(this.commenterName, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.commenterName) &&
         Objects.equals(this.commenterLink, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.commenterLink) &&
         Objects.equals(this.comment, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.comment) &&
         Objects.equals(this.commentHTML, pickOmitFCommentDatePublicCommentPubSubFieldsKeys.commentHTML) &&
@@ -1120,7 +1120,7 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, urlId, url, pageTitle, tenantId, userId, commenterName, date, anonUserId, commenterLink, comment, commentHTML, parentId, votes, votesUp, votesDown, expireAt, verified, reviewed, avatarSrc, isSpam, hasImages, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, badges, domain, feedbackIds, groupIds, viewCount);
+    return Objects.hash(id, urlId, url, pageTitle, date, tenantId, userId, anonUserId, commenterName, commenterLink, comment, commentHTML, parentId, votes, votesUp, votesDown, expireAt, verified, reviewed, avatarSrc, isSpam, hasImages, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, badges, domain, feedbackIds, groupIds, viewCount);
   }
 
   @Override
@@ -1131,11 +1131,11 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-    sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
+    sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
     sb.append("    commenterLink: ").append(toIndentedString(commenterLink)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
@@ -1194,11 +1194,11 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
     openapiFields.add("urlId");
     openapiFields.add("url");
     openapiFields.add("pageTitle");
+    openapiFields.add("date");
     openapiFields.add("tenantId");
     openapiFields.add("userId");
-    openapiFields.add("commenterName");
-    openapiFields.add("date");
     openapiFields.add("anonUserId");
+    openapiFields.add("commenterName");
     openapiFields.add("commenterLink");
     openapiFields.add("comment");
     openapiFields.add("commentHTML");
@@ -1237,9 +1237,9 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
     openapiRequiredFields.add("_id");
     openapiRequiredFields.add("urlId");
     openapiRequiredFields.add("url");
+    openapiRequiredFields.add("date");
     openapiRequiredFields.add("tenantId");
     openapiRequiredFields.add("commenterName");
-    openapiRequiredFields.add("date");
     openapiRequiredFields.add("comment");
     openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("verified");
@@ -1293,11 +1293,11 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
-      if (!jsonObj.get("commenterName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
-      }
       if ((jsonObj.get("anonUserId") != null && !jsonObj.get("anonUserId").isJsonNull()) && !jsonObj.get("anonUserId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `anonUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("anonUserId").toString()));
+      }
+      if (!jsonObj.get("commenterName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
       }
       if ((jsonObj.get("commenterLink") != null && !jsonObj.get("commenterLink").isJsonNull()) && !jsonObj.get("commenterLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `commenterLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterLink").toString()));

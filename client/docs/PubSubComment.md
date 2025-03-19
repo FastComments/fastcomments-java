@@ -11,11 +11,11 @@
 |**urlId** | **String** |  |  |
 |**url** | **String** |  |  |
 |**pageTitle** | **String** |  |  [optional] |
+|**date** | **String** |  |  |
 |**tenantId** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
-|**commenterName** | **String** |  |  |
-|**date** | **String** |  |  |
 |**anonUserId** | **String** |  |  [optional] |
+|**commenterName** | **String** |  |  |
 |**commenterLink** | **String** |  |  [optional] |
 |**comment** | **String** |  |  |
 |**commentHTML** | **String** |  |  |
