@@ -17,9 +17,7 @@ import java.util.function.Consumer;
  */
 public class LiveEventSubscriber {
 
-    private static final long SUBSCRIBE_TO_CHANGES_DEBOUNCE = 300; // milliseconds
     private static final long WEBSOCKET_PING_INTERVAL = 60000; // 60 seconds
-    private static final long POLLING_INTERVAL = 2000; // 2 seconds
     private static final long RECONNECT_INTERVAL_BASE = 4000; // 4 seconds
 
     private static final Gson gson = new Gson();
