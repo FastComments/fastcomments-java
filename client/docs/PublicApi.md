@@ -732,6 +732,8 @@ No authorization required
 
 
 
+ req tenantId urlId userIdWS
+
 ### Example
 ```java
 // Import classes:
@@ -750,8 +752,8 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     String userIdWS = "userIdWS_example"; // String | 
-    Double startTime = 3.4D; // Double | 
-    Double endTime = 3.4D; // Double | 
+    Long startTime = 56L; // Long | 
+    Long endTime = 56L; // Long | 
     try {
       GetEventLog200Response result = apiInstance.getEventLog(tenantId, urlId, userIdWS, startTime, endTime)
             .execute();
@@ -774,8 +776,8 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
 | **userIdWS** | **String**|  | |
-| **startTime** | **Double**|  | |
-| **endTime** | **Double**|  | |
+| **startTime** | **Long**|  | |
+| **endTime** | **Long**|  | |
 
 ### Return type
 
@@ -801,6 +803,8 @@ No authorization required
 
 
 
+ req tenantId urlId userIdWS
+
 ### Example
 ```java
 // Import classes:
@@ -819,8 +823,8 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     String userIdWS = "userIdWS_example"; // String | 
-    Double startTime = 3.4D; // Double | 
-    Double endTime = 3.4D; // Double | 
+    Long startTime = 56L; // Long | 
+    Long endTime = 56L; // Long | 
     try {
       GetEventLog200Response result = apiInstance.getGlobalEventLog(tenantId, urlId, userIdWS, startTime, endTime)
             .execute();
@@ -843,8 +847,8 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
 | **userIdWS** | **String**|  | |
-| **startTime** | **Double**|  | |
-| **endTime** | **Double**|  | |
+| **startTime** | **Long**|  | |
+| **endTime** | **Long**|  | |
 
 ### Return type
 

@@ -9,31 +9,31 @@ From T, pick a set of properties whose keys are in the union K
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**commentHTML** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
 |**commenterName** | **String** |  |  |
-|**commenterLink** | **String** |  |  [optional] |
-|**parentId** | **String** |  |  [optional] |
 |**date** | **OffsetDateTime** |  |  |
+|**anonUserId** | **String** |  |  [optional] |
+|**commenterLink** | **String** |  |  [optional] |
+|**commentHTML** | **String** |  |  |
+|**parentId** | **String** |  |  [optional] |
 |**votes** | **Integer** |  |  [optional] |
 |**votesUp** | **Integer** |  |  [optional] |
 |**votesDown** | **Integer** |  |  [optional] |
 |**verified** | **Boolean** |  |  |
 |**avatarSrc** | **String** |  |  [optional] |
+|**isSpam** | **Boolean** |  |  [optional] |
 |**hasImages** | **Boolean** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  [optional] |
+|**isDeletedUser** | **Boolean** |  |  [optional] |
 |**isByAdmin** | **Boolean** |  |  [optional] |
 |**isByModerator** | **Boolean** |  |  [optional] |
 |**isPinned** | **Boolean** |  |  [optional] |
 |**isLocked** | **Boolean** |  |  [optional] |
-|**displayLabel** | **String** |  |  [optional] |
 |**rating** | **Double** |  |  [optional] |
+|**displayLabel** | **String** |  |  [optional] |
 |**badges** | [**List&lt;CommentUserBadgeInfo&gt;**](CommentUserBadgeInfo.md) |  |  [optional] |
-|**viewCount** | **Double** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
-|**isDeletedUser** | **Boolean** |  |  [optional] |
-|**isSpam** | **Boolean** |  |  [optional] |
-|**anonUserId** | **String** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
+|**viewCount** | **Double** |  |  [optional] |
 
 
 

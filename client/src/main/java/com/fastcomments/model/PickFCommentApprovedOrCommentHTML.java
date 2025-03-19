@@ -48,39 +48,20 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T14:09:07.359175134-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T18:22:15.331392007-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentApprovedOrCommentHTML {
-  public static final String SERIALIZED_NAME_APPROVED = "approved";
-  @SerializedName(SERIALIZED_NAME_APPROVED)
-  @javax.annotation.Nonnull
-  private Boolean approved;
-
   public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
   @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
   @javax.annotation.Nonnull
   private String commentHTML;
 
+  public static final String SERIALIZED_NAME_APPROVED = "approved";
+  @SerializedName(SERIALIZED_NAME_APPROVED)
+  @javax.annotation.Nonnull
+  private Boolean approved;
+
   public PickFCommentApprovedOrCommentHTML() {
   }
-
-  public PickFCommentApprovedOrCommentHTML approved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
-    return this;
-  }
-
-  /**
-   * Get approved
-   * @return approved
-   */
-  @javax.annotation.Nonnull
-  public Boolean getApproved() {
-    return approved;
-  }
-
-  public void setApproved(@javax.annotation.Nonnull Boolean approved) {
-    this.approved = approved;
-  }
-
 
   public PickFCommentApprovedOrCommentHTML commentHTML(@javax.annotation.Nonnull String commentHTML) {
     this.commentHTML = commentHTML;
@@ -101,6 +82,25 @@ public class PickFCommentApprovedOrCommentHTML {
   }
 
 
+  public PickFCommentApprovedOrCommentHTML approved(@javax.annotation.Nonnull Boolean approved) {
+    this.approved = approved;
+    return this;
+  }
+
+  /**
+   * Get approved
+   * @return approved
+   */
+  @javax.annotation.Nonnull
+  public Boolean getApproved() {
+    return approved;
+  }
+
+  public void setApproved(@javax.annotation.Nonnull Boolean approved) {
+    this.approved = approved;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -111,21 +111,21 @@ public class PickFCommentApprovedOrCommentHTML {
       return false;
     }
     PickFCommentApprovedOrCommentHTML pickFCommentApprovedOrCommentHTML = (PickFCommentApprovedOrCommentHTML) o;
-    return Objects.equals(this.approved, pickFCommentApprovedOrCommentHTML.approved) &&
-        Objects.equals(this.commentHTML, pickFCommentApprovedOrCommentHTML.commentHTML);
+    return Objects.equals(this.commentHTML, pickFCommentApprovedOrCommentHTML.commentHTML) &&
+        Objects.equals(this.approved, pickFCommentApprovedOrCommentHTML.approved);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(approved, commentHTML);
+    return Objects.hash(commentHTML, approved);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PickFCommentApprovedOrCommentHTML {\n");
-    sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
+    sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -148,13 +148,13 @@ public class PickFCommentApprovedOrCommentHTML {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("approved");
     openapiFields.add("commentHTML");
+    openapiFields.add("approved");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("approved");
     openapiRequiredFields.add("commentHTML");
+    openapiRequiredFields.add("approved");
   }
 
   /**

@@ -433,6 +433,12 @@ paths:
       - application/json
   /event-log/{tenantId}:
     get:
+      description: |2-
+
+        req
+        tenantId
+        urlId
+        userIdWS
       operationId: GetEventLog
       parameters:
       - explode: false
@@ -461,16 +467,16 @@ paths:
         name: startTime
         required: true
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       - explode: true
         in: query
         name: endTime
         required: true
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       responses:
         "200":
@@ -486,6 +492,12 @@ paths:
       - application/json
   /event-log/global/{tenantId}:
     get:
+      description: |2-
+
+        req
+        tenantId
+        urlId
+        userIdWS
       operationId: GetGlobalEventLog
       parameters:
       - explode: false
@@ -514,16 +526,16 @@ paths:
         name: startTime
         required: true
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       - explode: true
         in: query
         name: endTime
         required: true
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       responses:
         "200":
@@ -856,26 +868,6 @@ paths:
       security: []
       tags:
       - Public
-      x-accepts:
-      - application/json
-    options:
-      operationId: CommentsOptions
-      parameters:
-      - explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: string
-          description: Ok
-      security: []
       x-accepts:
       - application/json
     post:
@@ -2220,6 +2212,394 @@ components:
       anyOf:
       - $ref: '#/components/schemas/GetEventLogResponse_anyOf'
       - $ref: '#/components/schemas/APIError'
+    LiveEventType:
+      enum:
+      - update-badges
+      - notification
+      - p-u
+      - new-vote
+      - deleted-vote
+      - new-comment
+      - updated-comment
+      - deleted-comment
+      - cvc
+      - new-config
+      - thread-state-change
+      type: string
+    CommentUserBadgeInfo:
+      additionalProperties: false
+      example:
+        displayLabel: displayLabel
+        backgroundColor: backgroundColor
+        borderColor: borderColor
+        cssClass: cssClass
+        description: description
+        id: id
+        type: 9.301444243932576
+        textColor: textColor
+        displaySrc: displaySrc
+      properties:
+        id:
+          type: string
+        type:
+          format: double
+          type: number
+        description:
+          type: string
+        displayLabel:
+          nullable: true
+          type: string
+        displaySrc:
+          nullable: true
+          type: string
+        backgroundColor:
+          nullable: true
+          type: string
+        borderColor:
+          nullable: true
+          type: string
+        textColor:
+          nullable: true
+          type: string
+        cssClass:
+          nullable: true
+          type: string
+      required:
+      - description
+      - id
+      - type
+      type: object
+    TenantId:
+      type: string
+    UserNotification:
+      additionalProperties: false
+      properties:
+        _id:
+          type: string
+        tenantId:
+          type: string
+        userId:
+          nullable: true
+          type: string
+        anonUserId:
+          nullable: true
+          type: string
+        urlId:
+          type: string
+        url:
+          type: string
+        pageTitle:
+          nullable: true
+          type: string
+        relatedObjectType:
+          format: double
+          type: number
+        relatedObjectId:
+          type: string
+        viewed:
+          type: boolean
+        isUnreadMessage:
+          type: boolean
+        sent:
+          type: boolean
+        createdAt:
+          format: date-time
+          type: string
+        type:
+          $ref: '#/components/schemas/NotificationType'
+        fromCommentId:
+          nullable: true
+          type: string
+        fromVoteId:
+          nullable: true
+          type: string
+        fromUserName:
+          nullable: true
+          type: string
+        fromUserId:
+          nullable: true
+          type: string
+        fromUserAvatarSrc:
+          nullable: true
+          type: string
+        optedOut:
+          type: boolean
+      required:
+      - _id
+      - createdAt
+      - isUnreadMessage
+      - optedOut
+      - relatedObjectId
+      - relatedObjectType
+      - sent
+      - tenantId
+      - type
+      - url
+      - urlId
+      - viewed
+      type: object
+    Pick_Vote.Exclude_keyofVote.verificationId__:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        _id:
+          type: string
+        urlId:
+          type: string
+        createdAt:
+          format: double
+          type: number
+        tenantId:
+          type: string
+        urlIdRaw:
+          type: string
+        commentId:
+          type: string
+        userId:
+          type: string
+        direction:
+          format: double
+          type: number
+        wasBroadcast:
+          type: boolean
+      required:
+      - _id
+      - commentId
+      - createdAt
+      - direction
+      - tenantId
+      - urlId
+      - urlIdRaw
+      - userId
+      - wasBroadcast
+      type: object
+    Omit_Vote.verificationId_:
+      $ref: '#/components/schemas/Pick_Vote.Exclude_keyofVote.verificationId__'
+    PubSubAuthedVote:
+      $ref: '#/components/schemas/Omit_Vote.verificationId_'
+    Pick_AnonymousVote.Exclude_keyofAnonymousVote.verificationId__:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        _id:
+          type: string
+        urlId:
+          type: string
+        createdAt:
+          format: double
+          type: number
+        tenantId:
+          type: string
+        urlIdRaw:
+          type: string
+        commentId:
+          type: string
+        direction:
+          format: double
+          type: number
+        wasBroadcast:
+          type: boolean
+        commenterName:
+          type: string
+      required:
+      - _id
+      - commentId
+      - commenterName
+      - createdAt
+      - direction
+      - tenantId
+      - urlId
+      - urlIdRaw
+      - wasBroadcast
+      type: object
+    Omit_AnonymousVote.verificationId_:
+      $ref: '#/components/schemas/Pick_AnonymousVote.Exclude_keyofAnonymousVote.verificationId__'
+    PubSubAnonVote:
+      $ref: '#/components/schemas/Omit_AnonymousVote.verificationId_'
+    PubSubVote:
+      anyOf:
+      - $ref: '#/components/schemas/PubSubAuthedVote'
+      - $ref: '#/components/schemas/PubSubAnonVote'
+    Pick_Omit_FComment.date_.PublicCommentPubSubFieldsKeys_:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        _id:
+          type: string
+        urlId:
+          type: string
+        url:
+          type: string
+        pageTitle:
+          type: string
+        tenantId:
+          type: string
+        userId:
+          type: string
+        commenterName:
+          type: string
+        date: {}
+        anonUserId:
+          type: string
+        commenterLink:
+          type: string
+        comment:
+          type: string
+        commentHTML:
+          type: string
+        parentId:
+          type: string
+        votes:
+          format: int32
+          type: integer
+        votesUp:
+          format: int32
+          type: integer
+        votesDown:
+          format: int32
+          type: integer
+        expireAt:
+          format: date-time
+          type: string
+        verified:
+          type: boolean
+        reviewed:
+          type: boolean
+        avatarSrc:
+          type: string
+        isSpam:
+          type: boolean
+        hasImages:
+          type: boolean
+        hasLinks:
+          type: boolean
+        hasCode:
+          type: boolean
+        approved:
+          type: boolean
+        locale:
+          type: string
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isBannedUser:
+          type: boolean
+        isByAdmin:
+          type: boolean
+        isByModerator:
+          type: boolean
+        isPinned:
+          type: boolean
+        isLocked:
+          type: boolean
+        flagCount:
+          format: int32
+          type: integer
+        rating:
+          format: double
+          type: number
+        displayLabel:
+          type: string
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          type: array
+        domain:
+          type: string
+        feedbackIds:
+          items:
+            type: string
+          type: array
+        groupIds:
+          items:
+            type: string
+          type: array
+        viewCount:
+          format: double
+          type: number
+      required:
+      - _id
+      - approved
+      - comment
+      - commentHTML
+      - commenterName
+      - date
+      - locale
+      - tenantId
+      - url
+      - urlId
+      - verified
+      type: object
+    PubSubComment:
+      allOf:
+      - $ref: '#/components/schemas/Pick_Omit_FComment.date_.PublicCommentPubSubFieldsKeys_'
+      - properties:
+          isLive:
+            type: boolean
+          hidden:
+            type: boolean
+          date:
+            type: string
+        required:
+        - date
+        type: object
+    Record_string._before-string-or-null--after-string-or-null__:
+      additionalProperties:
+        $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    CommentPositions:
+      $ref: '#/components/schemas/Record_string._before-string-or-null--after-string-or-null__'
+    Record_string.number_:
+      additionalProperties:
+        format: double
+        type: number
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    LiveEvent:
+      additionalProperties: false
+      properties:
+        type:
+          $ref: '#/components/schemas/LiveEventType'
+        broadcastId:
+          type: string
+        userId:
+          type: string
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          type: array
+        notification:
+          $ref: '#/components/schemas/UserNotification'
+        vote:
+          $ref: '#/components/schemas/PubSubVote'
+        comment:
+          $ref: '#/components/schemas/PubSubComment'
+        extraInfo:
+          $ref: '#/components/schemas/LiveEvent_extraInfo'
+        config:
+          additionalProperties: false
+          type: object
+        isClosed:
+          type: boolean
+        uj:
+          items:
+            type: string
+          type: array
+        ul:
+          items:
+            type: string
+          type: array
+        changes:
+          additionalProperties:
+            format: double
+            type: number
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - type
+      type: object
     PublicAPIGetCommentTextResponse:
       anyOf:
       - $ref: '#/components/schemas/PublicAPIGetCommentTextResponse_anyOf'
@@ -2227,10 +2607,10 @@ components:
     Pick_FComment.approved-or-commentHTML_:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
-        approved:
-          type: boolean
         commentHTML:
           type: string
+        approved:
+          type: boolean
       required:
       - approved
       - commentHTML
@@ -2420,66 +2800,25 @@ components:
         _id: _id
         isSpam: true
         isByAdmin: true
-    CommentUserBadgeInfo:
-      additionalProperties: false
-      example:
-        displayLabel: displayLabel
-        backgroundColor: backgroundColor
-        borderColor: borderColor
-        cssClass: cssClass
-        description: description
-        id: id
-        type: 9.301444243932576
-        textColor: textColor
-        displaySrc: displaySrc
-      properties:
-        id:
-          type: string
-        type:
-          format: double
-          type: number
-        description:
-          type: string
-        displayLabel:
-          nullable: true
-          type: string
-        displaySrc:
-          nullable: true
-          type: string
-        backgroundColor:
-          nullable: true
-          type: string
-        borderColor:
-          nullable: true
-          type: string
-        textColor:
-          nullable: true
-          type: string
-        cssClass:
-          nullable: true
-          type: string
-      required:
-      - description
-      - id
-      - type
-      type: object
     Pick_FComment.PublicCommentFieldsKeys_:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
         _id:
           type: string
-        commentHTML:
-          type: string
         userId:
           type: string
         commenterName:
           type: string
-        commenterLink:
-          type: string
-        parentId:
-          type: string
         date:
           format: date-time
+          type: string
+        anonUserId:
+          type: string
+        commenterLink:
+          type: string
+        commentHTML:
+          type: string
+        parentId:
           type: string
         votes:
           format: int32
@@ -2494,7 +2833,13 @@ components:
           type: boolean
         avatarSrc:
           type: string
+        isSpam:
+          type: boolean
         hasImages:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isDeletedUser:
           type: boolean
         isByAdmin:
           type: boolean
@@ -2504,30 +2849,22 @@ components:
           type: boolean
         isLocked:
           type: boolean
-        displayLabel:
-          type: string
         rating:
           format: double
           type: number
+        displayLabel:
+          type: string
         badges:
           items:
             $ref: '#/components/schemas/CommentUserBadgeInfo'
           type: array
-        viewCount:
-          format: double
-          type: number
-        isDeleted:
-          type: boolean
-        isDeletedUser:
-          type: boolean
-        isSpam:
-          type: boolean
-        anonUserId:
-          type: string
         feedbackIds:
           items:
             type: string
           type: array
+        viewCount:
+          format: double
+          type: number
       required:
       - _id
       - commentHTML
@@ -3130,11 +3467,11 @@ components:
         commenterName: commenterName
         userId: userId
       properties:
-        commentHTML:
-          type: string
         userId:
           type: string
         commenterName:
+          type: string
+        commentHTML:
           type: string
         isDeleted:
           type: boolean
@@ -3251,14 +3588,6 @@ components:
       - status
       - voteUserNames
       type: object
-    Record_string._before-string-or-null--after-string-or-null__:
-      additionalProperties:
-        $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
-      description: Construct a type with a set of properties K of type T
-      properties: {}
-      type: object
-    CommentPositions:
-      $ref: '#/components/schemas/Record_string._before-string-or-null--after-string-or-null__'
     ChangeCommentPinStatusResponse:
       anyOf:
       - $ref: '#/components/schemas/ChangeCommentPinStatusResponse_anyOf'
@@ -3323,13 +3652,6 @@ components:
       - success
       - failed
       type: string
-    Record_string.number_:
-      additionalProperties:
-        format: double
-        type: number
-      description: Construct a type with a set of properties K of type T
-      properties: {}
-      type: object
     DistinctAccumulator:
       $ref: '#/components/schemas/Record_string.number_'
     GroupValues:
@@ -3683,6 +4005,28 @@ components:
       - events
       - status
       type: object
+    Record_string__before_string_or_null__after_string_or_null___value:
+      example:
+        before: before
+        after: after
+      properties:
+        after:
+          type: string
+        before:
+          type: string
+      required:
+      - after
+      - before
+      type: object
+    LiveEvent_extraInfo:
+      properties:
+        commentPositions:
+          additionalProperties:
+            $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      type: object
     PublicAPIGetCommentTextResponse_anyOf:
       properties:
         status:
@@ -3760,19 +4104,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
       - $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
-    Record_string__before_string_or_null__after_string_or_null___value:
-      example:
-        before: before
-        after: after
-      properties:
-        after:
-          type: string
-        before:
-          type: string
-      required:
-      - after
-      - before
-      type: object
     ChangeCommentPinStatusResponse_anyOf:
       example:
         commentPositions:

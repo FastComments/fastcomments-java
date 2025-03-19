@@ -246,6 +246,8 @@ public class PublicApiTest {
     }
 
     /**
+     *  req tenantId urlId userIdWS
+     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -253,14 +255,16 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String userIdWS = null;
-        Double startTime = null;
-        Double endTime = null;
+        Long startTime = null;
+        Long endTime = null;
         GetEventLog200Response response = api.getEventLog(tenantId, urlId, userIdWS, startTime, endTime)
                 .execute();
         // TODO: test validations
     }
 
     /**
+     *  req tenantId urlId userIdWS
+     *
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -268,8 +272,8 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String userIdWS = null;
-        Double startTime = null;
-        Double endTime = null;
+        Long startTime = null;
+        Long endTime = null;
         GetEventLog200Response response = api.getGlobalEventLog(tenantId, urlId, userIdWS, startTime, endTime)
                 .execute();
         // TODO: test validations

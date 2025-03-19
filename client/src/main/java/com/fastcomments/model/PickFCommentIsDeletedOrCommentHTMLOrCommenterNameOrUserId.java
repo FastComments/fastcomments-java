@@ -48,13 +48,8 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T14:09:07.359175134-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T18:22:15.331392007-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
-  public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
-  @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
-  @javax.annotation.Nonnull
-  private String commentHTML;
-
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
   @javax.annotation.Nullable
@@ -65,6 +60,11 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
   @javax.annotation.Nonnull
   private String commenterName;
 
+  public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
+  @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
+  @javax.annotation.Nonnull
+  private String commentHTML;
+
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
   @javax.annotation.Nullable
@@ -72,25 +72,6 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
 
   public PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId() {
   }
-
-  public PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId commentHTML(@javax.annotation.Nonnull String commentHTML) {
-    this.commentHTML = commentHTML;
-    return this;
-  }
-
-  /**
-   * Get commentHTML
-   * @return commentHTML
-   */
-  @javax.annotation.Nonnull
-  public String getCommentHTML() {
-    return commentHTML;
-  }
-
-  public void setCommentHTML(@javax.annotation.Nonnull String commentHTML) {
-    this.commentHTML = commentHTML;
-  }
-
 
   public PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId userId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
@@ -130,6 +111,25 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
   }
 
 
+  public PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId commentHTML(@javax.annotation.Nonnull String commentHTML) {
+    this.commentHTML = commentHTML;
+    return this;
+  }
+
+  /**
+   * Get commentHTML
+   * @return commentHTML
+   */
+  @javax.annotation.Nonnull
+  public String getCommentHTML() {
+    return commentHTML;
+  }
+
+  public void setCommentHTML(@javax.annotation.Nonnull String commentHTML) {
+    this.commentHTML = commentHTML;
+  }
+
+
   public PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
@@ -159,24 +159,24 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
       return false;
     }
     PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId pickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId = (PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId) o;
-    return Objects.equals(this.commentHTML, pickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.commentHTML) &&
-        Objects.equals(this.userId, pickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.userId) &&
+    return Objects.equals(this.userId, pickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.userId) &&
         Objects.equals(this.commenterName, pickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.commenterName) &&
+        Objects.equals(this.commentHTML, pickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.commentHTML) &&
         Objects.equals(this.isDeleted, pickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.isDeleted);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commentHTML, userId, commenterName, isDeleted);
+    return Objects.hash(userId, commenterName, commentHTML, isDeleted);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {\n");
-    sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
+    sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -200,15 +200,15 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("commentHTML");
     openapiFields.add("userId");
     openapiFields.add("commenterName");
+    openapiFields.add("commentHTML");
     openapiFields.add("isDeleted");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("commenterName");
+    openapiRequiredFields.add("commentHTML");
   }
 
   /**
@@ -239,14 +239,14 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("commentHTML").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentHTML").toString()));
-      }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       if (!jsonObj.get("commenterName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
+      }
+      if (!jsonObj.get("commentHTML").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentHTML").toString()));
       }
   }
 

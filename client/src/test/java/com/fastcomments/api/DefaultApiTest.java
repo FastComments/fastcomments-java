@@ -50,15 +50,4 @@ public class DefaultApiTest {
         // TODO: test validations
     }
 
-    /**
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void commentsOptionsTest() throws ApiException {
-        String tenantId = null;
-        String response = api.commentsOptions(tenantId)
-                .execute();
-        // TODO: test validations
-    }
-
 }

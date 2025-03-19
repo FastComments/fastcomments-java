@@ -5,7 +5,6 @@ All URIs are relative to *http://localhost*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**aggregate**](DefaultApi.md#aggregate) | **POST** /api/v1/aggregate |  |
-| [**commentsOptions**](DefaultApi.md#commentsOptions) | **OPTIONS** /comments/{tenantId} |  |
 
 
 <a id="aggregate"></a>
@@ -72,67 +71,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Ok |  -  |
-
-<a id="commentsOptions"></a>
-# **commentsOptions**
-> String commentsOptions(tenantId).execute();
-
-
-
-### Example
-```java
-// Import classes:
-import com.fastcomments.invoker.ApiClient;
-import com.fastcomments.invoker.ApiException;
-import com.fastcomments.invoker.Configuration;
-import com.fastcomments.invoker.models.*;
-import com.fastcomments.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | 
-    try {
-      String result = apiInstance.commentsOptions(tenantId)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#commentsOptions");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**|  | |
-
-### Return type
-
-**String**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

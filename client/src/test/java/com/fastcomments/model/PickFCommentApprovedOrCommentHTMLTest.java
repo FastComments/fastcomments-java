@@ -38,19 +38,19 @@ public class PickFCommentApprovedOrCommentHTMLTest {
     }
 
     /**
-     * Test the property 'approved'
-     */
-    @Test
-    public void approvedTest() {
-        // TODO: test approved
-    }
-
-    /**
      * Test the property 'commentHTML'
      */
     @Test
     public void commentHTMLTest() {
         // TODO: test commentHTML
+    }
+
+    /**
+     * Test the property 'approved'
+     */
+    @Test
+    public void approvedTest() {
+        // TODO: test approved
     }
 
 }

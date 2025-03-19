@@ -50,14 +50,6 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
-     * Test the property 'commentHTML'
-     */
-    @Test
-    public void commentHTMLTest() {
-        // TODO: test commentHTML
-    }
-
-    /**
      * Test the property 'userId'
      */
     @Test
@@ -74,6 +66,22 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
+     * Test the property 'date'
+     */
+    @Test
+    public void dateTest() {
+        // TODO: test date
+    }
+
+    /**
+     * Test the property 'anonUserId'
+     */
+    @Test
+    public void anonUserIdTest() {
+        // TODO: test anonUserId
+    }
+
+    /**
      * Test the property 'commenterLink'
      */
     @Test
@@ -82,19 +90,19 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
+     * Test the property 'commentHTML'
+     */
+    @Test
+    public void commentHTMLTest() {
+        // TODO: test commentHTML
+    }
+
+    /**
      * Test the property 'parentId'
      */
     @Test
     public void parentIdTest() {
         // TODO: test parentId
-    }
-
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        // TODO: test date
     }
 
     /**
@@ -138,11 +146,35 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
+     * Test the property 'isSpam'
+     */
+    @Test
+    public void isSpamTest() {
+        // TODO: test isSpam
+    }
+
+    /**
      * Test the property 'hasImages'
      */
     @Test
     public void hasImagesTest() {
         // TODO: test hasImages
+    }
+
+    /**
+     * Test the property 'isDeleted'
+     */
+    @Test
+    public void isDeletedTest() {
+        // TODO: test isDeleted
+    }
+
+    /**
+     * Test the property 'isDeletedUser'
+     */
+    @Test
+    public void isDeletedUserTest() {
+        // TODO: test isDeletedUser
     }
 
     /**
@@ -178,19 +210,19 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
-     * Test the property 'displayLabel'
-     */
-    @Test
-    public void displayLabelTest() {
-        // TODO: test displayLabel
-    }
-
-    /**
      * Test the property 'rating'
      */
     @Test
     public void ratingTest() {
         // TODO: test rating
+    }
+
+    /**
+     * Test the property 'displayLabel'
+     */
+    @Test
+    public void displayLabelTest() {
+        // TODO: test displayLabel
     }
 
     /**
@@ -202,51 +234,19 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
-     * Test the property 'viewCount'
-     */
-    @Test
-    public void viewCountTest() {
-        // TODO: test viewCount
-    }
-
-    /**
-     * Test the property 'isDeleted'
-     */
-    @Test
-    public void isDeletedTest() {
-        // TODO: test isDeleted
-    }
-
-    /**
-     * Test the property 'isDeletedUser'
-     */
-    @Test
-    public void isDeletedUserTest() {
-        // TODO: test isDeletedUser
-    }
-
-    /**
-     * Test the property 'isSpam'
-     */
-    @Test
-    public void isSpamTest() {
-        // TODO: test isSpam
-    }
-
-    /**
-     * Test the property 'anonUserId'
-     */
-    @Test
-    public void anonUserIdTest() {
-        // TODO: test anonUserId
-    }
-
-    /**
      * Test the property 'feedbackIds'
      */
     @Test
     public void feedbackIdsTest() {
         // TODO: test feedbackIds
+    }
+
+    /**
+     * Test the property 'viewCount'
+     */
+    @Test
+    public void viewCountTest() {
+        // TODO: test viewCount
     }
 
 }

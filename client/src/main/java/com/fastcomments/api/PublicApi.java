@@ -2246,7 +2246,7 @@ public class PublicApi {
     public APIgetCommentsRequest getComments(String tenantId, String urlId) {
         return new APIgetCommentsRequest(tenantId, urlId);
     }
-    private okhttp3.Call getEventLogCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEventLogCall(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2308,7 +2308,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEventLogValidateBeforeCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEventLogValidateBeforeCall(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getEventLog(Async)");
@@ -2339,13 +2339,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<GetEventLog200Response> getEventLogWithHttpInfo(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) throws ApiException {
+    private ApiResponse<GetEventLog200Response> getEventLogWithHttpInfo(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) throws ApiException {
         okhttp3.Call localVarCall = getEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, null);
         Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEventLogAsync(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
+    private okhttp3.Call getEventLogAsync(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
         Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
@@ -2357,10 +2357,10 @@ public class PublicApi {
         private final String tenantId;
         private final String urlId;
         private final String userIdWS;
-        private final Double startTime;
-        private final Double endTime;
+        private final Long startTime;
+        private final Long endTime;
 
-        private APIgetEventLogRequest(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+        private APIgetEventLogRequest(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) {
             this.tenantId = tenantId;
             this.urlId = urlId;
             this.userIdWS = userIdWS;
@@ -2434,7 +2434,7 @@ public class PublicApi {
 
     /**
      * 
-     * 
+     *  req tenantId urlId userIdWS
      * @param tenantId  (required)
      * @param urlId  (required)
      * @param userIdWS  (required)
@@ -2448,10 +2448,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetEventLogRequest getEventLog(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+    public APIgetEventLogRequest getEventLog(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) {
         return new APIgetEventLogRequest(tenantId, urlId, userIdWS, startTime, endTime);
     }
-    private okhttp3.Call getGlobalEventLogCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getGlobalEventLogCall(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2513,7 +2513,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getGlobalEventLogValidateBeforeCall(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getGlobalEventLogValidateBeforeCall(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getGlobalEventLog(Async)");
@@ -2544,13 +2544,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<GetEventLog200Response> getGlobalEventLogWithHttpInfo(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) throws ApiException {
+    private ApiResponse<GetEventLog200Response> getGlobalEventLogWithHttpInfo(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) throws ApiException {
         okhttp3.Call localVarCall = getGlobalEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, null);
         Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getGlobalEventLogAsync(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime, final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
+    private okhttp3.Call getGlobalEventLogAsync(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback<GetEventLog200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getGlobalEventLogValidateBeforeCall(tenantId, urlId, userIdWS, startTime, endTime, _callback);
         Type localVarReturnType = new TypeToken<GetEventLog200Response>(){}.getType();
@@ -2562,10 +2562,10 @@ public class PublicApi {
         private final String tenantId;
         private final String urlId;
         private final String userIdWS;
-        private final Double startTime;
-        private final Double endTime;
+        private final Long startTime;
+        private final Long endTime;
 
-        private APIgetGlobalEventLogRequest(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+        private APIgetGlobalEventLogRequest(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) {
             this.tenantId = tenantId;
             this.urlId = urlId;
             this.userIdWS = userIdWS;
@@ -2639,7 +2639,7 @@ public class PublicApi {
 
     /**
      * 
-     * 
+     *  req tenantId urlId userIdWS
      * @param tenantId  (required)
      * @param urlId  (required)
      * @param userIdWS  (required)
@@ -2653,7 +2653,7 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetGlobalEventLogRequest getGlobalEventLog(String tenantId, String urlId, String userIdWS, Double startTime, Double endTime) {
+    public APIgetGlobalEventLogRequest getGlobalEventLog(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) {
         return new APIgetGlobalEventLogRequest(tenantId, urlId, userIdWS, startTime, endTime);
     }
     private okhttp3.Call getUserNotificationCountCall(String tenantId, String sso, final ApiCallback _callback) throws ApiException {

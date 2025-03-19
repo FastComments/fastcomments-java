@@ -38,14 +38,6 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserIdTest {
     }
 
     /**
-     * Test the property 'commentHTML'
-     */
-    @Test
-    public void commentHTMLTest() {
-        // TODO: test commentHTML
-    }
-
-    /**
      * Test the property 'userId'
      */
     @Test
@@ -59,6 +51,14 @@ public class PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserIdTest {
     @Test
     public void commenterNameTest() {
         // TODO: test commenterName
+    }
+
+    /**
+     * Test the property 'commentHTML'
+     */
+    @Test
+    public void commentHTMLTest() {
+        // TODO: test commentHTML
     }
 
     /**

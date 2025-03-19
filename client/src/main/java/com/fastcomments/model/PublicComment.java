@@ -52,17 +52,12 @@ import com.fastcomments.invoker.JSON;
 /**
  * PublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T14:09:07.359175134-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T18:22:15.331392007-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PublicComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private String id;
-
-  public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
-  @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
-  @javax.annotation.Nonnull
-  private String commentHTML;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -74,20 +69,30 @@ public class PublicComment {
   @javax.annotation.Nonnull
   private String commenterName;
 
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nonnull
+  private OffsetDateTime date;
+
+  public static final String SERIALIZED_NAME_ANON_USER_ID = "anonUserId";
+  @SerializedName(SERIALIZED_NAME_ANON_USER_ID)
+  @javax.annotation.Nullable
+  private String anonUserId;
+
   public static final String SERIALIZED_NAME_COMMENTER_LINK = "commenterLink";
   @SerializedName(SERIALIZED_NAME_COMMENTER_LINK)
   @javax.annotation.Nullable
   private String commenterLink;
 
+  public static final String SERIALIZED_NAME_COMMENT_H_T_M_L = "commentHTML";
+  @SerializedName(SERIALIZED_NAME_COMMENT_H_T_M_L)
+  @javax.annotation.Nonnull
+  private String commentHTML;
+
   public static final String SERIALIZED_NAME_PARENT_ID = "parentId";
   @SerializedName(SERIALIZED_NAME_PARENT_ID)
   @javax.annotation.Nullable
   private String parentId;
-
-  public static final String SERIALIZED_NAME_DATE = "date";
-  @SerializedName(SERIALIZED_NAME_DATE)
-  @javax.annotation.Nonnull
-  private OffsetDateTime date;
 
   public static final String SERIALIZED_NAME_VOTES = "votes";
   @SerializedName(SERIALIZED_NAME_VOTES)
@@ -114,10 +119,25 @@ public class PublicComment {
   @javax.annotation.Nullable
   private String avatarSrc;
 
+  public static final String SERIALIZED_NAME_IS_SPAM = "isSpam";
+  @SerializedName(SERIALIZED_NAME_IS_SPAM)
+  @javax.annotation.Nullable
+  private Boolean isSpam;
+
   public static final String SERIALIZED_NAME_HAS_IMAGES = "hasImages";
   @SerializedName(SERIALIZED_NAME_HAS_IMAGES)
   @javax.annotation.Nullable
   private Boolean hasImages;
+
+  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED)
+  @javax.annotation.Nullable
+  private Boolean isDeleted;
+
+  public static final String SERIALIZED_NAME_IS_DELETED_USER = "isDeletedUser";
+  @SerializedName(SERIALIZED_NAME_IS_DELETED_USER)
+  @javax.annotation.Nullable
+  private Boolean isDeletedUser;
 
   public static final String SERIALIZED_NAME_IS_BY_ADMIN = "isByAdmin";
   @SerializedName(SERIALIZED_NAME_IS_BY_ADMIN)
@@ -139,50 +159,30 @@ public class PublicComment {
   @javax.annotation.Nullable
   private Boolean isLocked;
 
-  public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
-  @javax.annotation.Nullable
-  private String displayLabel;
-
   public static final String SERIALIZED_NAME_RATING = "rating";
   @SerializedName(SERIALIZED_NAME_RATING)
   @javax.annotation.Nullable
   private Double rating;
+
+  public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
+  @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
+  @javax.annotation.Nullable
+  private String displayLabel;
 
   public static final String SERIALIZED_NAME_BADGES = "badges";
   @SerializedName(SERIALIZED_NAME_BADGES)
   @javax.annotation.Nullable
   private List<CommentUserBadgeInfo> badges = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_VIEW_COUNT = "viewCount";
-  @SerializedName(SERIALIZED_NAME_VIEW_COUNT)
-  @javax.annotation.Nullable
-  private Double viewCount;
-
-  public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED)
-  @javax.annotation.Nullable
-  private Boolean isDeleted;
-
-  public static final String SERIALIZED_NAME_IS_DELETED_USER = "isDeletedUser";
-  @SerializedName(SERIALIZED_NAME_IS_DELETED_USER)
-  @javax.annotation.Nullable
-  private Boolean isDeletedUser;
-
-  public static final String SERIALIZED_NAME_IS_SPAM = "isSpam";
-  @SerializedName(SERIALIZED_NAME_IS_SPAM)
-  @javax.annotation.Nullable
-  private Boolean isSpam;
-
-  public static final String SERIALIZED_NAME_ANON_USER_ID = "anonUserId";
-  @SerializedName(SERIALIZED_NAME_ANON_USER_ID)
-  @javax.annotation.Nullable
-  private String anonUserId;
-
   public static final String SERIALIZED_NAME_FEEDBACK_IDS = "feedbackIds";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
   @javax.annotation.Nullable
   private List<String> feedbackIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_VIEW_COUNT = "viewCount";
+  @SerializedName(SERIALIZED_NAME_VIEW_COUNT)
+  @javax.annotation.Nullable
+  private Double viewCount;
 
   public static final String SERIALIZED_NAME_IS_UNREAD = "isUnread";
   @SerializedName(SERIALIZED_NAME_IS_UNREAD)
@@ -256,25 +256,6 @@ public class PublicComment {
   }
 
 
-  public PublicComment commentHTML(@javax.annotation.Nonnull String commentHTML) {
-    this.commentHTML = commentHTML;
-    return this;
-  }
-
-  /**
-   * Get commentHTML
-   * @return commentHTML
-   */
-  @javax.annotation.Nonnull
-  public String getCommentHTML() {
-    return commentHTML;
-  }
-
-  public void setCommentHTML(@javax.annotation.Nonnull String commentHTML) {
-    this.commentHTML = commentHTML;
-  }
-
-
   public PublicComment userId(@javax.annotation.Nullable String userId) {
     this.userId = userId;
     return this;
@@ -313,6 +294,44 @@ public class PublicComment {
   }
 
 
+  public PublicComment date(@javax.annotation.Nonnull OffsetDateTime date) {
+    this.date = date;
+    return this;
+  }
+
+  /**
+   * Get date
+   * @return date
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getDate() {
+    return date;
+  }
+
+  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
+    this.date = date;
+  }
+
+
+  public PublicComment anonUserId(@javax.annotation.Nullable String anonUserId) {
+    this.anonUserId = anonUserId;
+    return this;
+  }
+
+  /**
+   * Get anonUserId
+   * @return anonUserId
+   */
+  @javax.annotation.Nullable
+  public String getAnonUserId() {
+    return anonUserId;
+  }
+
+  public void setAnonUserId(@javax.annotation.Nullable String anonUserId) {
+    this.anonUserId = anonUserId;
+  }
+
+
   public PublicComment commenterLink(@javax.annotation.Nullable String commenterLink) {
     this.commenterLink = commenterLink;
     return this;
@@ -332,6 +351,25 @@ public class PublicComment {
   }
 
 
+  public PublicComment commentHTML(@javax.annotation.Nonnull String commentHTML) {
+    this.commentHTML = commentHTML;
+    return this;
+  }
+
+  /**
+   * Get commentHTML
+   * @return commentHTML
+   */
+  @javax.annotation.Nonnull
+  public String getCommentHTML() {
+    return commentHTML;
+  }
+
+  public void setCommentHTML(@javax.annotation.Nonnull String commentHTML) {
+    this.commentHTML = commentHTML;
+  }
+
+
   public PublicComment parentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
     return this;
@@ -348,25 +386,6 @@ public class PublicComment {
 
   public void setParentId(@javax.annotation.Nullable String parentId) {
     this.parentId = parentId;
-  }
-
-
-  public PublicComment date(@javax.annotation.Nonnull OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getDate() {
-    return date;
-  }
-
-  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
-    this.date = date;
   }
 
 
@@ -465,6 +484,25 @@ public class PublicComment {
   }
 
 
+  public PublicComment isSpam(@javax.annotation.Nullable Boolean isSpam) {
+    this.isSpam = isSpam;
+    return this;
+  }
+
+  /**
+   * Get isSpam
+   * @return isSpam
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsSpam() {
+    return isSpam;
+  }
+
+  public void setIsSpam(@javax.annotation.Nullable Boolean isSpam) {
+    this.isSpam = isSpam;
+  }
+
+
   public PublicComment hasImages(@javax.annotation.Nullable Boolean hasImages) {
     this.hasImages = hasImages;
     return this;
@@ -481,6 +519,44 @@ public class PublicComment {
 
   public void setHasImages(@javax.annotation.Nullable Boolean hasImages) {
     this.hasImages = hasImages;
+  }
+
+
+  public PublicComment isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+    return this;
+  }
+
+  /**
+   * Get isDeleted
+   * @return isDeleted
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsDeleted() {
+    return isDeleted;
+  }
+
+  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    this.isDeleted = isDeleted;
+  }
+
+
+  public PublicComment isDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
+    this.isDeletedUser = isDeletedUser;
+    return this;
+  }
+
+  /**
+   * Get isDeletedUser
+   * @return isDeletedUser
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsDeletedUser() {
+    return isDeletedUser;
+  }
+
+  public void setIsDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
+    this.isDeletedUser = isDeletedUser;
   }
 
 
@@ -560,25 +636,6 @@ public class PublicComment {
   }
 
 
-  public PublicComment displayLabel(@javax.annotation.Nullable String displayLabel) {
-    this.displayLabel = displayLabel;
-    return this;
-  }
-
-  /**
-   * Get displayLabel
-   * @return displayLabel
-   */
-  @javax.annotation.Nullable
-  public String getDisplayLabel() {
-    return displayLabel;
-  }
-
-  public void setDisplayLabel(@javax.annotation.Nullable String displayLabel) {
-    this.displayLabel = displayLabel;
-  }
-
-
   public PublicComment rating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
     return this;
@@ -595,6 +652,25 @@ public class PublicComment {
 
   public void setRating(@javax.annotation.Nullable Double rating) {
     this.rating = rating;
+  }
+
+
+  public PublicComment displayLabel(@javax.annotation.Nullable String displayLabel) {
+    this.displayLabel = displayLabel;
+    return this;
+  }
+
+  /**
+   * Get displayLabel
+   * @return displayLabel
+   */
+  @javax.annotation.Nullable
+  public String getDisplayLabel() {
+    return displayLabel;
+  }
+
+  public void setDisplayLabel(@javax.annotation.Nullable String displayLabel) {
+    this.displayLabel = displayLabel;
   }
 
 
@@ -625,101 +701,6 @@ public class PublicComment {
   }
 
 
-  public PublicComment viewCount(@javax.annotation.Nullable Double viewCount) {
-    this.viewCount = viewCount;
-    return this;
-  }
-
-  /**
-   * Get viewCount
-   * @return viewCount
-   */
-  @javax.annotation.Nullable
-  public Double getViewCount() {
-    return viewCount;
-  }
-
-  public void setViewCount(@javax.annotation.Nullable Double viewCount) {
-    this.viewCount = viewCount;
-  }
-
-
-  public PublicComment isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-    return this;
-  }
-
-  /**
-   * Get isDeleted
-   * @return isDeleted
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsDeleted() {
-    return isDeleted;
-  }
-
-  public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
-
-
-  public PublicComment isDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
-    this.isDeletedUser = isDeletedUser;
-    return this;
-  }
-
-  /**
-   * Get isDeletedUser
-   * @return isDeletedUser
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsDeletedUser() {
-    return isDeletedUser;
-  }
-
-  public void setIsDeletedUser(@javax.annotation.Nullable Boolean isDeletedUser) {
-    this.isDeletedUser = isDeletedUser;
-  }
-
-
-  public PublicComment isSpam(@javax.annotation.Nullable Boolean isSpam) {
-    this.isSpam = isSpam;
-    return this;
-  }
-
-  /**
-   * Get isSpam
-   * @return isSpam
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsSpam() {
-    return isSpam;
-  }
-
-  public void setIsSpam(@javax.annotation.Nullable Boolean isSpam) {
-    this.isSpam = isSpam;
-  }
-
-
-  public PublicComment anonUserId(@javax.annotation.Nullable String anonUserId) {
-    this.anonUserId = anonUserId;
-    return this;
-  }
-
-  /**
-   * Get anonUserId
-   * @return anonUserId
-   */
-  @javax.annotation.Nullable
-  public String getAnonUserId() {
-    return anonUserId;
-  }
-
-  public void setAnonUserId(@javax.annotation.Nullable String anonUserId) {
-    this.anonUserId = anonUserId;
-  }
-
-
   public PublicComment feedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
     return this;
@@ -744,6 +725,25 @@ public class PublicComment {
 
   public void setFeedbackIds(@javax.annotation.Nullable List<String> feedbackIds) {
     this.feedbackIds = feedbackIds;
+  }
+
+
+  public PublicComment viewCount(@javax.annotation.Nullable Double viewCount) {
+    this.viewCount = viewCount;
+    return this;
+  }
+
+  /**
+   * Get viewCount
+   * @return viewCount
+   */
+  @javax.annotation.Nullable
+  public Double getViewCount() {
+    return viewCount;
+  }
+
+  public void setViewCount(@javax.annotation.Nullable Double viewCount) {
+    this.viewCount = viewCount;
   }
 
 
@@ -956,31 +956,31 @@ public class PublicComment {
     }
     PublicComment publicComment = (PublicComment) o;
     return Objects.equals(this.id, publicComment.id) &&
-        Objects.equals(this.commentHTML, publicComment.commentHTML) &&
         Objects.equals(this.userId, publicComment.userId) &&
         Objects.equals(this.commenterName, publicComment.commenterName) &&
-        Objects.equals(this.commenterLink, publicComment.commenterLink) &&
-        Objects.equals(this.parentId, publicComment.parentId) &&
         Objects.equals(this.date, publicComment.date) &&
+        Objects.equals(this.anonUserId, publicComment.anonUserId) &&
+        Objects.equals(this.commenterLink, publicComment.commenterLink) &&
+        Objects.equals(this.commentHTML, publicComment.commentHTML) &&
+        Objects.equals(this.parentId, publicComment.parentId) &&
         Objects.equals(this.votes, publicComment.votes) &&
         Objects.equals(this.votesUp, publicComment.votesUp) &&
         Objects.equals(this.votesDown, publicComment.votesDown) &&
         Objects.equals(this.verified, publicComment.verified) &&
         Objects.equals(this.avatarSrc, publicComment.avatarSrc) &&
+        Objects.equals(this.isSpam, publicComment.isSpam) &&
         Objects.equals(this.hasImages, publicComment.hasImages) &&
+        Objects.equals(this.isDeleted, publicComment.isDeleted) &&
+        Objects.equals(this.isDeletedUser, publicComment.isDeletedUser) &&
         Objects.equals(this.isByAdmin, publicComment.isByAdmin) &&
         Objects.equals(this.isByModerator, publicComment.isByModerator) &&
         Objects.equals(this.isPinned, publicComment.isPinned) &&
         Objects.equals(this.isLocked, publicComment.isLocked) &&
-        Objects.equals(this.displayLabel, publicComment.displayLabel) &&
         Objects.equals(this.rating, publicComment.rating) &&
+        Objects.equals(this.displayLabel, publicComment.displayLabel) &&
         Objects.equals(this.badges, publicComment.badges) &&
-        Objects.equals(this.viewCount, publicComment.viewCount) &&
-        Objects.equals(this.isDeleted, publicComment.isDeleted) &&
-        Objects.equals(this.isDeletedUser, publicComment.isDeletedUser) &&
-        Objects.equals(this.isSpam, publicComment.isSpam) &&
-        Objects.equals(this.anonUserId, publicComment.anonUserId) &&
         Objects.equals(this.feedbackIds, publicComment.feedbackIds) &&
+        Objects.equals(this.viewCount, publicComment.viewCount) &&
         Objects.equals(this.isUnread, publicComment.isUnread) &&
         Objects.equals(this.myVoteId, publicComment.myVoteId) &&
         Objects.equals(this.isVotedDown, publicComment.isVotedDown) &&
@@ -995,7 +995,7 @@ public class PublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, commentHTML, userId, commenterName, commenterLink, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
+    return Objects.hash(id, userId, commenterName, date, anonUserId, commenterLink, commentHTML, parentId, votes, votesUp, votesDown, verified, avatarSrc, isSpam, hasImages, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, rating, displayLabel, badges, feedbackIds, viewCount, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked);
   }
 
   @Override
@@ -1003,31 +1003,31 @@ public class PublicComment {
     StringBuilder sb = new StringBuilder();
     sb.append("class PublicComment {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
-    sb.append("    commenterLink: ").append(toIndentedString(commenterLink)).append("\n");
-    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
+    sb.append("    commenterLink: ").append(toIndentedString(commenterLink)).append("\n");
+    sb.append("    commentHTML: ").append(toIndentedString(commentHTML)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    votes: ").append(toIndentedString(votes)).append("\n");
     sb.append("    votesUp: ").append(toIndentedString(votesUp)).append("\n");
     sb.append("    votesDown: ").append(toIndentedString(votesDown)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");
     sb.append("    avatarSrc: ").append(toIndentedString(avatarSrc)).append("\n");
+    sb.append("    isSpam: ").append(toIndentedString(isSpam)).append("\n");
     sb.append("    hasImages: ").append(toIndentedString(hasImages)).append("\n");
+    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
+    sb.append("    isDeletedUser: ").append(toIndentedString(isDeletedUser)).append("\n");
     sb.append("    isByAdmin: ").append(toIndentedString(isByAdmin)).append("\n");
     sb.append("    isByModerator: ").append(toIndentedString(isByModerator)).append("\n");
     sb.append("    isPinned: ").append(toIndentedString(isPinned)).append("\n");
     sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
-    sb.append("    displayLabel: ").append(toIndentedString(displayLabel)).append("\n");
     sb.append("    rating: ").append(toIndentedString(rating)).append("\n");
+    sb.append("    displayLabel: ").append(toIndentedString(displayLabel)).append("\n");
     sb.append("    badges: ").append(toIndentedString(badges)).append("\n");
-    sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
-    sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
-    sb.append("    isDeletedUser: ").append(toIndentedString(isDeletedUser)).append("\n");
-    sb.append("    isSpam: ").append(toIndentedString(isSpam)).append("\n");
-    sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
+    sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
     sb.append("    isUnread: ").append(toIndentedString(isUnread)).append("\n");
     sb.append("    myVoteId: ").append(toIndentedString(myVoteId)).append("\n");
     sb.append("    isVotedDown: ").append(toIndentedString(isVotedDown)).append("\n");
@@ -1061,31 +1061,31 @@ public class PublicComment {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("_id");
-    openapiFields.add("commentHTML");
     openapiFields.add("userId");
     openapiFields.add("commenterName");
-    openapiFields.add("commenterLink");
-    openapiFields.add("parentId");
     openapiFields.add("date");
+    openapiFields.add("anonUserId");
+    openapiFields.add("commenterLink");
+    openapiFields.add("commentHTML");
+    openapiFields.add("parentId");
     openapiFields.add("votes");
     openapiFields.add("votesUp");
     openapiFields.add("votesDown");
     openapiFields.add("verified");
     openapiFields.add("avatarSrc");
+    openapiFields.add("isSpam");
     openapiFields.add("hasImages");
+    openapiFields.add("isDeleted");
+    openapiFields.add("isDeletedUser");
     openapiFields.add("isByAdmin");
     openapiFields.add("isByModerator");
     openapiFields.add("isPinned");
     openapiFields.add("isLocked");
-    openapiFields.add("displayLabel");
     openapiFields.add("rating");
+    openapiFields.add("displayLabel");
     openapiFields.add("badges");
-    openapiFields.add("viewCount");
-    openapiFields.add("isDeleted");
-    openapiFields.add("isDeletedUser");
-    openapiFields.add("isSpam");
-    openapiFields.add("anonUserId");
     openapiFields.add("feedbackIds");
+    openapiFields.add("viewCount");
     openapiFields.add("isUnread");
     openapiFields.add("myVoteId");
     openapiFields.add("isVotedDown");
@@ -1100,9 +1100,9 @@ public class PublicComment {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("_id");
-    openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("date");
+    openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("verified");
   }
 
@@ -1137,17 +1137,20 @@ public class PublicComment {
       if (!jsonObj.get("_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
-      if (!jsonObj.get("commentHTML").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentHTML").toString()));
-      }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       if (!jsonObj.get("commenterName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
       }
+      if ((jsonObj.get("anonUserId") != null && !jsonObj.get("anonUserId").isJsonNull()) && !jsonObj.get("anonUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `anonUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("anonUserId").toString()));
+      }
       if ((jsonObj.get("commenterLink") != null && !jsonObj.get("commenterLink").isJsonNull()) && !jsonObj.get("commenterLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `commenterLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterLink").toString()));
+      }
+      if (!jsonObj.get("commentHTML").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentHTML").toString()));
       }
       if ((jsonObj.get("parentId") != null && !jsonObj.get("parentId").isJsonNull()) && !jsonObj.get("parentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parentId").toString()));
@@ -1171,9 +1174,6 @@ public class PublicComment {
             CommentUserBadgeInfo.validateJsonElement(jsonArraybadges.get(i));
           };
         }
-      }
-      if ((jsonObj.get("anonUserId") != null && !jsonObj.get("anonUserId").isJsonNull()) && !jsonObj.get("anonUserId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `anonUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("anonUserId").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
