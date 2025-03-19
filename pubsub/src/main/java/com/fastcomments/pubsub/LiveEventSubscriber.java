@@ -1,4 +1,4 @@
-package com.winricklabs;
+package com.fastcomments.pubsub;
 
 import com.fastcomments.api.PublicApi;
 import com.fastcomments.core.CommentWidgetConfig;
