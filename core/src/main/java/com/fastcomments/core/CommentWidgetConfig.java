@@ -409,106 +409,106 @@ public class CommentWidgetConfig {
     }
 
     public void mergeWith(CustomConfigParameters parameters) {
-        if (parameters.getDefaultAvatarSrc() != null) {
+        if (parameters.getDefaultAvatarSrc() != null && defaultAvatarSrc == null) {
             defaultAvatarSrc = parameters.getDefaultAvatarSrc();
         }
-        if (parameters.getHasDarkBackground() != null) {
+        if (parameters.getHasDarkBackground() != null && hasDarkBackground == null) {
             hasDarkBackground = parameters.getHasDarkBackground();
         }
-        if (parameters.getCommentCountFormat() != null) {
+        if (parameters.getCommentCountFormat() != null && commentCountFormat == null) {
             commentCountFormat = parameters.getCommentCountFormat();
         }
-        if (parameters.getHideAvatars() != null) {
+        if (parameters.getHideAvatars() != null && hideAvatars == null) {
             hideAvatars = parameters.getHideAvatars();
         }
-        if (parameters.getReadonly() != null) {
+        if (parameters.getReadonly() != null && readonly == null) {
             readonly = parameters.getReadonly();
         }
-        if (parameters.getInputAfterComments() != null) {
+        if (parameters.getInputAfterComments() != null && inputAfterComments == null) {
             inputAfterComments = parameters.getInputAfterComments();
         }
-        if (parameters.getMaxCommentCharacterLength() != null) {
+        if (parameters.getMaxCommentCharacterLength() != null && maxCommentCharacterLength == null) {
             maxCommentCharacterLength = parameters.getMaxCommentCharacterLength().intValue();
         }
-        if (parameters.getAbsoluteDates() != null) {
+        if (parameters.getAbsoluteDates() != null && absoluteDates == null) {
             absoluteDates = parameters.getAbsoluteDates();
         }
-        if (parameters.getAbsoluteAndRelativeDates() != null) {
+        if (parameters.getAbsoluteAndRelativeDates() != null && absoluteAndRelativeDates == null) {
             absoluteAndRelativeDates = parameters.getAbsoluteAndRelativeDates();
         }
-        if (parameters.getCustomCSS() != null) {
+        if (parameters.getCustomCSS() != null && customCSS == null) {
             customCSS = parameters.getCustomCSS();
         }
-        if (parameters.getUseShowCommentsToggle() != null) {
+        if (parameters.getUseShowCommentsToggle() != null && useShowCommentsToggle == null) {
             useShowCommentsToggle = parameters.getUseShowCommentsToggle();
         }
-        if (parameters.getAllowAnon() != null) {
+        if (parameters.getAllowAnon() != null && allowAnon == null) {
             allowAnon = parameters.getAllowAnon();
         }
-        if (parameters.getAllowAnonVotes() != null) {
+        if (parameters.getAllowAnonVotes() != null && allowAnonVotes == null) {
             allowAnonVotes = parameters.getAllowAnonVotes();
         }
-        if (parameters.getDisableBlocking() != null) {
+        if (parameters.getDisableBlocking() != null && disableBlocking == null) {
             disableBlocking = parameters.getDisableBlocking();
         }
-        if (parameters.getDisableEmailInputs() != null) {
+        if (parameters.getDisableEmailInputs() != null && disableEmailInputs == null) {
             disableEmailInputs = parameters.getDisableEmailInputs();
         }
-        if (parameters.getDisableUnverifiedLabel() != null) {
+        if (parameters.getDisableUnverifiedLabel() != null && disableUnverifiedLabel == null) {
             disableUnverifiedLabel = parameters.getDisableUnverifiedLabel();
         }
-        if (parameters.getDefaultUsername() != null) {
+        if (parameters.getDefaultUsername() != null && defaultUsername == null) {
             defaultUsername = parameters.getDefaultUsername();
         }
-        if (parameters.getNoImageUploads() != null) {
+        if (parameters.getNoImageUploads() != null && noImageUploads == null) {
             noImageUploads = parameters.getNoImageUploads();
         }
-        if (parameters.getDisableToolbar() != null) {
+        if (parameters.getDisableToolbar() != null && disableToolbar == null) {
             disableToolbar = parameters.getDisableToolbar();
         }
-        if (parameters.getLocale() != null) {
+        if (parameters.getLocale() != null && locale == null) {
             locale = parameters.getLocale();
         }
-        if (parameters.getShowLiveRightAway() != null) {
+        if (parameters.getShowLiveRightAway() != null && showLiveRightAway == null) {
             showLiveRightAway = parameters.getShowLiveRightAway();
         }
-        if (parameters.getEnableCommenterLinks() != null) {
+        if (parameters.getEnableCommenterLinks() != null && enableCommenterLinks == null) {
             enableCommenterLinks = parameters.getEnableCommenterLinks();
         }
-        if (parameters.getEnableViewCounts() != null) {
+        if (parameters.getEnableViewCounts() != null && enableViewCounts == null) {
             enableViewCounts = parameters.getEnableViewCounts();
         }
-        if (parameters.getDefaultSortDirection() != null) {
+        if (parameters.getDefaultSortDirection() != null && defaultSortDirection == null) {
             defaultSortDirection = parameters.getDefaultSortDirection();
         }
-        if (parameters.getUseSingleLineCommentInput() != null) {
+        if (parameters.getUseSingleLineCommentInput() != null && useSingleLineCommentInput == null) {
             useSingleLineCommentInput = parameters.getUseSingleLineCommentInput();
         }
-        if (parameters.getGifRating() != null) {
+        if (parameters.getGifRating() != null && gifRating == null) {
             gifRating = parameters.getGifRating();
         }
-        if (parameters.getCollapseReplies() != null) {
+        if (parameters.getCollapseReplies() != null && collapseReplies == null) {
             collapseReplies = parameters.getCollapseReplies();
         }
-        if (parameters.getDisableLiveCommenting() != null) {
+        if (parameters.getDisableLiveCommenting() != null && disableLiveCommenting == null) {
             disableLiveCommenting = parameters.getDisableLiveCommenting();
         }
-        if (parameters.getDisableSuccessMessage() != null) {
+        if (parameters.getDisableSuccessMessage() != null && disableSuccessMessage == null) {
             disableSuccessMessage = parameters.getDisableSuccessMessage();
         }
-        if (parameters.getDisableNotificationBell() != null) {
+        if (parameters.getDisableNotificationBell() != null && disableNotificationBell == null) {
             disableNotificationBell = parameters.getDisableNotificationBell();
         }
-        if (parameters.getDisableProfiles() != null) {
+        if (parameters.getDisableProfiles() != null && disableProfiles == null) {
             disableProfiles = parameters.getDisableProfiles();
         }
-        if (parameters.getDisableVoting() != null) {
+        if (parameters.getDisableVoting() != null && disableVoting == null) {
             disableVoting = parameters.getDisableVoting();
         }
-        if (parameters.getTranslations() != null) {
+        if (parameters.getTranslations() != null && translations == null) {
             translations = parameters.getTranslations();
         }
-        if (parameters.getVoteStyle() != null) {
+        if (parameters.getVoteStyle() != null && voteStyle == null) {
             switch (parameters.getVoteStyle()) {
                 case NUMBER_0:
                     voteStyle = VoteStyle.UpDown;
@@ -518,13 +518,13 @@ public class CommentWidgetConfig {
                     break;
             }
         }
-        if (parameters.getNoCustomConfig() != null) {
+        if (parameters.getNoCustomConfig() != null && noCustomConfig == null) {
             noCustomConfig = parameters.getNoCustomConfig();
         }
-        if (parameters.getEnableVoteList() != null) {
+        if (parameters.getEnableVoteList() != null && enableVoteList == null) {
             enableVoteList = parameters.getEnableVoteList();
         }
-        if (parameters.getEnableSearch() != null) {
+        if (parameters.getEnableSearch() != null && enableSearch == null) {
             enableSearch = parameters.getEnableSearch();
         }
     }
