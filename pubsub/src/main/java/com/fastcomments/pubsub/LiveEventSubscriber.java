@@ -48,7 +48,7 @@ public class LiveEventSubscriber {
         void onChange(boolean isConnected, Long lastLiveEventTime);
     }
 
-    private void setOnConnectionStatusChange(ConnectionStatusChangeCallback onConnectionStatusChange) {
+    public void setOnConnectionStatusChange(ConnectionStatusChangeCallback onConnectionStatusChange) {
         this.onConnectionStatusChange = onConnectionStatusChange;
     }
 
