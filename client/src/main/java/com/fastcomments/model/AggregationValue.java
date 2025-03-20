@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * AggregationValue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-19T13:05:16.739095503-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T08:57:28.309985161-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class AggregationValue {
   public static final String SERIALIZED_NAME_GROUPS = "groups";
   @SerializedName(SERIALIZED_NAME_GROUPS)

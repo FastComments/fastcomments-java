@@ -41,7 +41,6 @@ docs/DefaultApi.md
 docs/DeleteComment200Response.md
 docs/DeleteCommentVote200Response.md
 docs/EventLogEntry.md
-docs/FlagComment200Response.md
 docs/GetCommentText200Response.md
 docs/GetCommentVoteUserNames200Response.md
 docs/GetCommentVoteUserNamesSuccessResponse.md
@@ -56,6 +55,9 @@ docs/GetMyNotificationsResponseAnyOf.md
 docs/GetUserNotificationCount200Response.md
 docs/GetUserNotificationCountResponse.md
 docs/GetUserNotifications200Response.md
+docs/GetUserPresenceStatuses200Response.md
+docs/GetUserPresenceStatusesResponse.md
+docs/GetUserPresenceStatusesResponseAnyOf.md
 docs/GifRating.md
 docs/HeaderState.md
 docs/IgnoredResponse.md
@@ -105,6 +107,7 @@ docs/UpdateUserNotificationStatus200Response.md
 docs/UserNotification.md
 docs/UserNotificationWriteResponse.md
 docs/UserPresenceData.md
+docs/UserPresenceHeartbeat200Response.md
 docs/UserSessionInfo.md
 docs/VoteBodyParams.md
 docs/VoteComment200Response.md
@@ -178,7 +181,6 @@ src/main/java/com/fastcomments/model/CustomConfigParameters.java
 src/main/java/com/fastcomments/model/DeleteComment200Response.java
 src/main/java/com/fastcomments/model/DeleteCommentVote200Response.java
 src/main/java/com/fastcomments/model/EventLogEntry.java
-src/main/java/com/fastcomments/model/FlagComment200Response.java
 src/main/java/com/fastcomments/model/GetCommentText200Response.java
 src/main/java/com/fastcomments/model/GetCommentVoteUserNames200Response.java
 src/main/java/com/fastcomments/model/GetCommentVoteUserNamesSuccessResponse.java
@@ -193,6 +195,9 @@ src/main/java/com/fastcomments/model/GetMyNotificationsResponseAnyOf.java
 src/main/java/com/fastcomments/model/GetUserNotificationCount200Response.java
 src/main/java/com/fastcomments/model/GetUserNotificationCountResponse.java
 src/main/java/com/fastcomments/model/GetUserNotifications200Response.java
+src/main/java/com/fastcomments/model/GetUserPresenceStatuses200Response.java
+src/main/java/com/fastcomments/model/GetUserPresenceStatusesResponse.java
+src/main/java/com/fastcomments/model/GetUserPresenceStatusesResponseAnyOf.java
 src/main/java/com/fastcomments/model/GifRating.java
 src/main/java/com/fastcomments/model/HeaderState.java
 src/main/java/com/fastcomments/model/IgnoredResponse.java
@@ -241,6 +246,7 @@ src/main/java/com/fastcomments/model/UpdateUserNotificationStatus200Response.jav
 src/main/java/com/fastcomments/model/UserNotification.java
 src/main/java/com/fastcomments/model/UserNotificationWriteResponse.java
 src/main/java/com/fastcomments/model/UserPresenceData.java
+src/main/java/com/fastcomments/model/UserPresenceHeartbeat200Response.java
 src/main/java/com/fastcomments/model/UserSessionInfo.java
 src/main/java/com/fastcomments/model/VoteBodyParams.java
 src/main/java/com/fastcomments/model/VoteComment200Response.java
@@ -287,7 +293,6 @@ src/test/java/com/fastcomments/model/CustomConfigParametersTest.java
 src/test/java/com/fastcomments/model/DeleteComment200ResponseTest.java
 src/test/java/com/fastcomments/model/DeleteCommentVote200ResponseTest.java
 src/test/java/com/fastcomments/model/EventLogEntryTest.java
-src/test/java/com/fastcomments/model/FlagComment200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentText200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentVoteUserNames200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentVoteUserNamesSuccessResponseTest.java
@@ -302,6 +307,9 @@ src/test/java/com/fastcomments/model/GetMyNotificationsResponseTest.java
 src/test/java/com/fastcomments/model/GetUserNotificationCount200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserNotificationCountResponseTest.java
 src/test/java/com/fastcomments/model/GetUserNotifications200ResponseTest.java
+src/test/java/com/fastcomments/model/GetUserPresenceStatuses200ResponseTest.java
+src/test/java/com/fastcomments/model/GetUserPresenceStatusesResponseAnyOfTest.java
+src/test/java/com/fastcomments/model/GetUserPresenceStatusesResponseTest.java
 src/test/java/com/fastcomments/model/GifRatingTest.java
 src/test/java/com/fastcomments/model/HeaderStateTest.java
 src/test/java/com/fastcomments/model/IgnoredResponseTest.java
@@ -350,6 +358,7 @@ src/test/java/com/fastcomments/model/UpdateUserNotificationStatus200ResponseTest
 src/test/java/com/fastcomments/model/UserNotificationTest.java
 src/test/java/com/fastcomments/model/UserNotificationWriteResponseTest.java
 src/test/java/com/fastcomments/model/UserPresenceDataTest.java
+src/test/java/com/fastcomments/model/UserPresenceHeartbeat200ResponseTest.java
 src/test/java/com/fastcomments/model/UserSessionInfoTest.java
 src/test/java/com/fastcomments/model/VoteBodyParamsTest.java
 src/test/java/com/fastcomments/model/VoteComment200ResponseTest.java

@@ -14,6 +14,7 @@
 package com.fastcomments.api;
 
 import com.fastcomments.invoker.ApiException;
+import com.fastcomments.model.APIError;
 import com.fastcomments.model.BlockFromComment200Response;
 import com.fastcomments.model.BlockFromCommentParams;
 import com.fastcomments.model.CheckedCommentsForBlocked200Response;
@@ -22,13 +23,13 @@ import com.fastcomments.model.CommentTextUpdateRequest;
 import com.fastcomments.model.CreateComment200Response;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
-import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetComments200Response;
 import com.fastcomments.model.GetEventLog200Response;
 import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
+import com.fastcomments.model.GetUserPresenceStatuses200Response;
 import com.fastcomments.model.LockComment200Response;
 import com.fastcomments.model.PinComment200Response;
 import com.fastcomments.model.ResetUserNotifications200Response;
@@ -36,6 +37,7 @@ import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockComment200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
+import com.fastcomments.model.UserPresenceHeartbeat200Response;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteComment200Response;
 import org.junit.jupiter.api.Disabled;
@@ -144,7 +146,7 @@ public class PublicApiTest {
         String commentId = null;
         Boolean isFlagged = null;
         String sso = null;
-        FlagComment200Response response = api.flagComment(tenantId, commentId, isFlagged)
+        UserPresenceHeartbeat200Response response = api.flagComment(tenantId, commentId, isFlagged)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -325,6 +327,19 @@ public class PublicApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void getUserPresenceStatusesTest() throws ApiException {
+        String tenantId = null;
+        String urlIdWS = null;
+        String userIds = null;
+        GetUserPresenceStatuses200Response response = api.getUserPresenceStatuses(tenantId, urlIdWS, userIds)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void lockCommentTest() throws ApiException {
         String tenantId = null;
         String commentId = null;
@@ -497,6 +512,18 @@ public class PublicApiTest {
         String sso = null;
         UpdateUserNotificationStatus200Response response = api.updateUserNotificationStatus(tenantId, notificationId, newStatus)
                 .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void userPresenceHeartbeatTest() throws ApiException {
+        String tenantId = null;
+        String userIdWS = null;
+        UserPresenceHeartbeat200Response response = api.userPresenceHeartbeat(tenantId, userIdWS)
                 .execute();
         // TODO: test validations
     }

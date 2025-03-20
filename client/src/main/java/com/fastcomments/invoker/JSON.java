@@ -121,7 +121,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.DeleteComment200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.DeleteCommentVote200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.EventLogEntry.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FlagComment200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetCommentText200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetCommentVoteUserNames200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetCommentVoteUserNamesSuccessResponse.CustomTypeAdapterFactory());
@@ -136,6 +135,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserNotificationCount200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserNotificationCountResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserNotifications200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserPresenceStatuses200Response.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserPresenceStatusesResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserPresenceStatusesResponseAnyOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.HeaderState.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.IgnoredResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.LiveEvent.CustomTypeAdapterFactory());
@@ -174,6 +176,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.UserNotification.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.UserNotificationWriteResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.UserPresenceData.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.UserPresenceHeartbeat200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.UserSessionInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VoteBodyParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VoteComment200Response.CustomTypeAdapterFactory());

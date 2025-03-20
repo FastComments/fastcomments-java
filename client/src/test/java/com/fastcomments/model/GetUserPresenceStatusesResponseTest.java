@@ -13,9 +13,9 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIEmptyResponse;
 import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
+import com.fastcomments.model.GetUserPresenceStatusesResponseAnyOf;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -24,21 +24,23 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for FlagComment200Response
+ * Model tests for GetUserPresenceStatusesResponse
  */
-public class FlagComment200ResponseTest {
-    private final FlagComment200Response model = new FlagComment200Response();
+public class GetUserPresenceStatusesResponseTest {
+    private final GetUserPresenceStatusesResponse model = new GetUserPresenceStatusesResponse();
 
     /**
-     * Model tests for FlagComment200Response
+     * Model tests for GetUserPresenceStatusesResponse
      */
     @Test
-    public void testFlagComment200Response() {
-        // TODO: test FlagComment200Response
+    public void testGetUserPresenceStatusesResponse() {
+        // TODO: test GetUserPresenceStatusesResponse
     }
 
     /**
@@ -47,6 +49,14 @@ public class FlagComment200ResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'userIdsOnline'
+     */
+    @Test
+    public void userIdsOnlineTest() {
+        // TODO: test userIdsOnline
     }
 
     /**

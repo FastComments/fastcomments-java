@@ -6,6 +6,85 @@ info:
 servers:
 - url: /
 paths:
+  /user-presence-status:
+    get:
+      operationId: GetUserPresenceStatuses
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: urlIdWS
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userIds
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserPresenceStatuses_200_response'
+          description: Ok
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Validation Failed
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+  /user-presence-heartbeat:
+    put:
+      operationId: UserPresenceHeartbeat
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userIdWS
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPresenceHeartbeat_200_response'
+          description: Ok
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIError'
+          description: Validation Failed
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
   /user-notifications:
     get:
       operationId: GetUserNotifications
@@ -424,7 +503,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagComment_200_response'
+                $ref: '#/components/schemas/UserPresenceHeartbeat_200_response'
           description: Ok
       security: []
       tags:
@@ -1501,103 +1580,16 @@ components:
   requestBodies: {}
   responses: {}
   schemas:
+    Record_string.boolean_:
+      additionalProperties:
+        type: boolean
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
     ImportedAPIStatus.SUCCESS:
       enum:
       - success
       type: string
-    NotificationType:
-      enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      type: number
-    ? Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_
-    : description: "From T, pick a set of properties whose keys are in the union K"
-      properties:
-        _id:
-          type: string
-        urlId:
-          type: string
-        url:
-          type: string
-        pageTitle:
-          type: string
-        relatedObjectType:
-          format: double
-          type: number
-        relatedObjectId:
-          type: string
-        viewed:
-          type: boolean
-        sent:
-          type: boolean
-        createdAt:
-          format: date-time
-          type: string
-        type:
-          $ref: '#/components/schemas/NotificationType'
-        fromCommentId:
-          type: string
-        fromUserName:
-          type: string
-        fromUserId:
-          type: string
-        fromUserAvatarSrc:
-          type: string
-        optedOut:
-          type: boolean
-      required:
-      - _id
-      - createdAt
-      - fromUserId
-      - fromUserName
-      - optedOut
-      - relatedObjectId
-      - relatedObjectType
-      - sent
-      - type
-      - url
-      - urlId
-      - viewed
-      type: object
-    RenderableUserNotification:
-      allOf:
-      - $ref: '#/components/schemas/Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_'
-      - properties:
-          conversationId:
-            type: string
-          contextHTML:
-            type: string
-        type: object
-      example:
-        fromUserAvatarSrc: fromUserAvatarSrc
-        contextHTML: contextHTML
-        relatedObjectId: relatedObjectId
-        fromCommentId: fromCommentId
-        pageTitle: pageTitle
-        fromUserId: fromUserId
-        conversationId: conversationId
-        urlId: urlId
-        type: 6.027456183070403
-        sent: true
-        url: url
-        fromUserName: fromUserName
-        optedOut: true
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        viewed: true
-        _id: _id
-        relatedObjectType: 0.8008281904610115
-    Record_string.string_:
-      additionalProperties:
-        type: string
-      description: Construct a type with a set of properties K of type T
-      properties: {}
-      type: object
     ImportedAPIStatus.FAILED:
       enum:
       - failed
@@ -1660,6 +1652,12 @@ components:
           type: string
       required:
       - actions
+      type: object
+    Record_string.string_:
+      additionalProperties:
+        type: string
+      description: Construct a type with a set of properties K of type T
+      properties: {}
       type: object
     VoteStyle:
       enum:
@@ -2066,6 +2064,101 @@ components:
       - reason
       - status
       type: object
+    GetUserPresenceStatusesResponse:
+      anyOf:
+      - $ref: '#/components/schemas/GetUserPresenceStatusesResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    APIEmptyResponse:
+      anyOf:
+      - $ref: '#/components/schemas/APIEmptyResponse_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    NotificationType:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      type: number
+    ? Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_
+    : description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        _id:
+          type: string
+        urlId:
+          type: string
+        url:
+          type: string
+        pageTitle:
+          type: string
+        relatedObjectType:
+          format: double
+          type: number
+        relatedObjectId:
+          type: string
+        viewed:
+          type: boolean
+        sent:
+          type: boolean
+        createdAt:
+          format: date-time
+          type: string
+        type:
+          $ref: '#/components/schemas/NotificationType'
+        fromCommentId:
+          type: string
+        fromUserName:
+          type: string
+        fromUserId:
+          type: string
+        fromUserAvatarSrc:
+          type: string
+        optedOut:
+          type: boolean
+      required:
+      - _id
+      - createdAt
+      - fromUserId
+      - fromUserName
+      - optedOut
+      - relatedObjectId
+      - relatedObjectType
+      - sent
+      - type
+      - url
+      - urlId
+      - viewed
+      type: object
+    RenderableUserNotification:
+      allOf:
+      - $ref: '#/components/schemas/Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_'
+      - properties:
+          conversationId:
+            type: string
+          contextHTML:
+            type: string
+        type: object
+      example:
+        fromUserAvatarSrc: fromUserAvatarSrc
+        contextHTML: contextHTML
+        relatedObjectId: relatedObjectId
+        fromCommentId: fromCommentId
+        pageTitle: pageTitle
+        fromUserId: fromUserId
+        conversationId: conversationId
+        urlId: urlId
+        type: 6.027456183070403
+        sent: true
+        url: url
+        fromUserName: fromUserName
+        optedOut: true
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        viewed: true
+        _id: _id
+        relatedObjectType: 0.8008281904610115
     GetMyNotificationsResponse:
       anyOf:
       - $ref: '#/components/schemas/GetMyNotificationsResponse_anyOf'
@@ -2173,10 +2266,6 @@ components:
       - note
       - status
       type: object
-    APIEmptyResponse:
-      anyOf:
-      - $ref: '#/components/schemas/APIEmptyResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
     EventLogEntry:
       additionalProperties: false
       example:
@@ -3444,12 +3533,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/PublicAPIDeleteCommentResponse_anyOf'
       - $ref: '#/components/schemas/APIError'
-    Record_string.boolean_:
-      additionalProperties:
-        type: boolean
-      description: Construct a type with a set of properties K of type T
-      properties: {}
-      type: object
     CheckBlockedCommentsResponse:
       anyOf:
       - $ref: '#/components/schemas/CheckBlockedCommentsResponse_anyOf'
@@ -3788,6 +3871,14 @@ components:
       - operations
       - resourceName
       type: object
+    GetUserPresenceStatuses_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetUserPresenceStatusesResponse'
+      - $ref: '#/components/schemas/APIError'
+    UserPresenceHeartbeat_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIEmptyResponse'
+      - $ref: '#/components/schemas/APIError'
     GetUserNotifications_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetMyNotificationsResponse'
@@ -3804,10 +3895,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/UserNotificationWriteResponse'
       - $ref: '#/components/schemas/IgnoredResponse'
-      - $ref: '#/components/schemas/APIError'
-    FlagComment_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/APIEmptyResponse'
       - $ref: '#/components/schemas/APIError'
     GetEventLog_200_response:
       anyOf:
@@ -3865,6 +3952,33 @@ components:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
       - $ref: '#/components/schemas/APIError'
+    GetUserPresenceStatusesResponse_anyOf:
+      example:
+        userIdsOnline:
+          key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        userIdsOnline:
+          additionalProperties:
+            type: boolean
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - status
+      - userIdsOnline
+      type: object
+    APIEmptyResponse_anyOf:
+      example:
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - status
+      type: object
     GetMyNotificationsResponse_anyOf:
       example:
         isSubscribed: true
@@ -3928,15 +4042,6 @@ components:
       - hasMore
       - isSubscribed
       - notifications
-      - status
-      type: object
-    APIEmptyResponse_anyOf:
-      example:
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
       - status
       type: object
     GetEventLogResponse_anyOf:

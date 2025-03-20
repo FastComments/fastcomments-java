@@ -61,24 +61,24 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-19T13:05:16.739095503-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class FlagComment200Response extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(FlagComment200Response.class.getName());
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T08:57:28.309985161-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class UserPresenceHeartbeat200Response extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(UserPresenceHeartbeat200Response.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!FlagComment200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'FlagComment200Response' and its subtypes
+            if (!UserPresenceHeartbeat200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'UserPresenceHeartbeat200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<APIEmptyResponse> adapterAPIEmptyResponse = gson.getDelegateAdapter(this, TypeToken.get(APIEmptyResponse.class));
             final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<FlagComment200Response>() {
+            return (TypeAdapter<T>) new TypeAdapter<UserPresenceHeartbeat200Response>() {
                 @Override
-                public void write(JsonWriter out, FlagComment200Response value) throws IOException {
+                public void write(JsonWriter out, UserPresenceHeartbeat200Response value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
                         return;
@@ -100,7 +100,7 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
                 }
 
                 @Override
-                public FlagComment200Response read(JsonReader in) throws IOException {
+                public UserPresenceHeartbeat200Response read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
@@ -112,7 +112,7 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
                         // validate the JSON object to see if any exception is thrown
                         APIEmptyResponse.validateJsonElement(jsonElement);
                         actualAdapter = adapterAPIEmptyResponse;
-                        FlagComment200Response ret = new FlagComment200Response();
+                        UserPresenceHeartbeat200Response ret = new UserPresenceHeartbeat200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
@@ -125,7 +125,7 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
                         // validate the JSON object to see if any exception is thrown
                         APIError.validateJsonElement(jsonElement);
                         actualAdapter = adapterAPIError;
-                        FlagComment200Response ret = new FlagComment200Response();
+                        UserPresenceHeartbeat200Response ret = new UserPresenceHeartbeat200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
@@ -134,7 +134,7 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
                         log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
                     }
 
-                    throw new IOException(String.format("Failed deserialization for FlagComment200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format("Failed deserialization for UserPresenceHeartbeat200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -143,11 +143,11 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
     // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public FlagComment200Response() {
+    public UserPresenceHeartbeat200Response() {
         super("anyOf", Boolean.FALSE);
     }
 
-    public FlagComment200Response(Object o) {
+    public UserPresenceHeartbeat200Response(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
@@ -159,7 +159,7 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return FlagComment200Response.schemas;
+        return UserPresenceHeartbeat200Response.schemas;
     }
 
     /**
@@ -222,7 +222,7 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to FlagComment200Response
+     * @throws IOException if the JSON Element is invalid with respect to UserPresenceHeartbeat200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
@@ -243,22 +243,22 @@ public class FlagComment200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for FlagComment200Response with anyOf schemas: APIEmptyResponse, APIError. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for UserPresenceHeartbeat200Response with anyOf schemas: APIEmptyResponse, APIError. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
-     * Create an instance of FlagComment200Response given an JSON string
+     * Create an instance of UserPresenceHeartbeat200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of FlagComment200Response
-     * @throws IOException if the JSON string is invalid with respect to FlagComment200Response
+     * @return An instance of UserPresenceHeartbeat200Response
+     * @throws IOException if the JSON string is invalid with respect to UserPresenceHeartbeat200Response
      */
-    public static FlagComment200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, FlagComment200Response.class);
+    public static UserPresenceHeartbeat200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, UserPresenceHeartbeat200Response.class);
     }
 
     /**
-     * Convert an instance of FlagComment200Response to an JSON string
+     * Convert an instance of UserPresenceHeartbeat200Response to an JSON string
      *
      * @return JSON string
      */
