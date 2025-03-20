@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T08:57:28.309985161-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T09:43:57.934745832-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CommentData {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)

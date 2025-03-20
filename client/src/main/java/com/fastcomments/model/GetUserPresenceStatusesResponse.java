@@ -14,10 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
-import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.GetUserPresenceStatusesResponseAnyOf;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.ImportedAPIStatusSUCCESS;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -28,244 +25,228 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T08:57:28.309985161-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class GetUserPresenceStatusesResponse extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(GetUserPresenceStatusesResponse.class.getName());
+/**
+ * GetUserPresenceStatusesResponse
+ */
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T09:43:57.934745832-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class GetUserPresenceStatusesResponse {
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private ImportedAPIStatusSUCCESS status;
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetUserPresenceStatusesResponse.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetUserPresenceStatusesResponse' and its subtypes
-            }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetUserPresenceStatusesResponseAnyOf> adapterGetUserPresenceStatusesResponseAnyOf = gson.getDelegateAdapter(this, TypeToken.get(GetUserPresenceStatusesResponseAnyOf.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
+  public static final String SERIALIZED_NAME_USER_IDS_ONLINE = "userIdsOnline";
+  @SerializedName(SERIALIZED_NAME_USER_IDS_ONLINE)
+  @javax.annotation.Nonnull
+  private Map<String, Boolean> userIdsOnline = new HashMap<>();
 
-            return (TypeAdapter<T>) new TypeAdapter<GetUserPresenceStatusesResponse>() {
-                @Override
-                public void write(JsonWriter out, GetUserPresenceStatusesResponse value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+  public GetUserPresenceStatusesResponse() {
+  }
 
-                    // check if the actual instance is of the type `GetUserPresenceStatusesResponseAnyOf`
-                    if (value.getActualInstance() instanceof GetUserPresenceStatusesResponseAnyOf) {
-                        JsonElement element = adapterGetUserPresenceStatusesResponseAnyOf.toJsonTree((GetUserPresenceStatusesResponseAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, GetUserPresenceStatusesResponseAnyOf");
-                }
+  public GetUserPresenceStatusesResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+    this.status = status;
+    return this;
+  }
 
-                @Override
-                public GetUserPresenceStatusesResponse read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public ImportedAPIStatusSUCCESS getStatus() {
+    return status;
+  }
 
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
+  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+    this.status = status;
+  }
 
-                    // deserialize GetUserPresenceStatusesResponseAnyOf
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        GetUserPresenceStatusesResponseAnyOf.validateJsonElement(jsonElement);
-                        actualAdapter = adapterGetUserPresenceStatusesResponseAnyOf;
-                        GetUserPresenceStatusesResponse ret = new GetUserPresenceStatusesResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GetUserPresenceStatusesResponseAnyOf failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'GetUserPresenceStatusesResponseAnyOf'", e);
-                    }
-                    // deserialize APIError
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
-                        GetUserPresenceStatusesResponse ret = new GetUserPresenceStatusesResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
-                    }
 
-                    throw new IOException(String.format("Failed deserialization for GetUserPresenceStatusesResponse: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
+  public GetUserPresenceStatusesResponse userIdsOnline(@javax.annotation.Nonnull Map<String, Boolean> userIdsOnline) {
+    this.userIdsOnline = userIdsOnline;
+    return this;
+  }
+
+  public GetUserPresenceStatusesResponse putUserIdsOnlineItem(String key, Boolean userIdsOnlineItem) {
+    if (this.userIdsOnline == null) {
+      this.userIdsOnline = new HashMap<>();
+    }
+    this.userIdsOnline.put(key, userIdsOnlineItem);
+    return this;
+  }
+
+  /**
+   * Construct a type with a set of properties K of type T
+   * @return userIdsOnline
+   */
+  @javax.annotation.Nonnull
+  public Map<String, Boolean> getUserIdsOnline() {
+    return userIdsOnline;
+  }
+
+  public void setUserIdsOnline(@javax.annotation.Nonnull Map<String, Boolean> userIdsOnline) {
+    this.userIdsOnline = userIdsOnline;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    GetUserPresenceStatusesResponse getUserPresenceStatusesResponse = (GetUserPresenceStatusesResponse) o;
+    return Objects.equals(this.status, getUserPresenceStatusesResponse.status) &&
+        Objects.equals(this.userIdsOnline, getUserPresenceStatusesResponse.userIdsOnline);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(status, userIdsOnline);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class GetUserPresenceStatusesResponse {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    userIdsOnline: ").append(toIndentedString(userIdsOnline)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("status");
+    openapiFields.add("userIdsOnline");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("userIdsOnline");
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to GetUserPresenceStatusesResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!GetUserPresenceStatusesResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GetUserPresenceStatusesResponse is not found in the empty JSON string", GetUserPresenceStatusesResponse.openapiRequiredFields.toString()));
         }
-    }
+      }
 
-    // store a list of schema names defined in anyOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
-
-    public GetUserPresenceStatusesResponse() {
-        super("anyOf", Boolean.FALSE);
-    }
-
-    public GetUserPresenceStatusesResponse(Object o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("GetUserPresenceStatusesResponseAnyOf", GetUserPresenceStatusesResponseAnyOf.class);
-        schemas.put("APIError", APIError.class);
-    }
-
-    @Override
-    public Map<String, Class<?>> getSchemas() {
-        return GetUserPresenceStatusesResponse.schemas;
-    }
-
-    /**
-     * Set the instance that matches the anyOf child schema, check
-     * the instance parameter is valid against the anyOf child schemas:
-     * APIError, GetUserPresenceStatusesResponseAnyOf
-     *
-     * It could be an instance of the 'anyOf' schemas.
-     */
-    @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof GetUserPresenceStatusesResponseAnyOf) {
-            super.setActualInstance(instance);
-            return;
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!GetUserPresenceStatusesResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetUserPresenceStatusesResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
+      }
 
-        if (instance instanceof APIError) {
-            super.setActualInstance(instance);
-            return;
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : GetUserPresenceStatusesResponse.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `status`
+      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+  }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, GetUserPresenceStatusesResponseAnyOf");
-    }
-
-    /**
-     * Get the actual instance, which can be the following:
-     * APIError, GetUserPresenceStatusesResponseAnyOf
-     *
-     * @return The actual instance (APIError, GetUserPresenceStatusesResponseAnyOf)
-     */
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!GetUserPresenceStatusesResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GetUserPresenceStatusesResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<GetUserPresenceStatusesResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GetUserPresenceStatusesResponse.class));
 
-    /**
-     * Get the actual instance of `GetUserPresenceStatusesResponseAnyOf`. If the actual instance is not `GetUserPresenceStatusesResponseAnyOf`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `GetUserPresenceStatusesResponseAnyOf`
-     * @throws ClassCastException if the instance is not `GetUserPresenceStatusesResponseAnyOf`
-     */
-    public GetUserPresenceStatusesResponseAnyOf getGetUserPresenceStatusesResponseAnyOf() throws ClassCastException {
-        return (GetUserPresenceStatusesResponseAnyOf)super.getActualInstance();
-    }
+       return (TypeAdapter<T>) new TypeAdapter<GetUserPresenceStatusesResponse>() {
+           @Override
+           public void write(JsonWriter out, GetUserPresenceStatusesResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
 
-    /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
-     */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
-    }
+           @Override
+           public GetUserPresenceStatusesResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetUserPresenceStatusesResponse
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate anyOf schemas one by one
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with GetUserPresenceStatusesResponseAnyOf
-        try {
-            GetUserPresenceStatusesResponseAnyOf.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for GetUserPresenceStatusesResponseAnyOf failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with APIError
-        try {
-            APIError.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format("The JSON string is invalid for GetUserPresenceStatusesResponse with anyOf schemas: APIError, GetUserPresenceStatusesResponseAnyOf. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+       }.nullSafe();
     }
+  }
 
-    /**
-     * Create an instance of GetUserPresenceStatusesResponse given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of GetUserPresenceStatusesResponse
-     * @throws IOException if the JSON string is invalid with respect to GetUserPresenceStatusesResponse
-     */
-    public static GetUserPresenceStatusesResponse fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetUserPresenceStatusesResponse.class);
-    }
+  /**
+   * Create an instance of GetUserPresenceStatusesResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of GetUserPresenceStatusesResponse
+   * @throws IOException if the JSON string is invalid with respect to GetUserPresenceStatusesResponse
+   */
+  public static GetUserPresenceStatusesResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GetUserPresenceStatusesResponse.class);
+  }
 
-    /**
-     * Convert an instance of GetUserPresenceStatusesResponse to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
-    }
+  /**
+   * Convert an instance of GetUserPresenceStatusesResponse to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

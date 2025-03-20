@@ -1590,6 +1590,24 @@ components:
       enum:
       - success
       type: string
+    GetUserPresenceStatusesResponse:
+      example:
+        userIdsOnline:
+          key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        userIdsOnline:
+          additionalProperties:
+            type: boolean
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - status
+      - userIdsOnline
+      type: object
     ImportedAPIStatus.FAILED:
       enum:
       - failed
@@ -2064,10 +2082,6 @@ components:
       - reason
       - status
       type: object
-    GetUserPresenceStatusesResponse:
-      anyOf:
-      - $ref: '#/components/schemas/GetUserPresenceStatusesResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
     APIEmptyResponse:
       anyOf:
       - $ref: '#/components/schemas/APIEmptyResponse_anyOf'
@@ -3952,24 +3966,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
       - $ref: '#/components/schemas/APIError'
-    GetUserPresenceStatusesResponse_anyOf:
-      example:
-        userIdsOnline:
-          key: true
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-        userIdsOnline:
-          additionalProperties:
-            type: boolean
-          description: Construct a type with a set of properties K of type T
-          properties: {}
-          type: object
-      required:
-      - status
-      - userIdsOnline
-      type: object
     APIEmptyResponse_anyOf:
       example:
         status: success

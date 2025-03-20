@@ -57,7 +57,6 @@ docs/GetUserNotificationCountResponse.md
 docs/GetUserNotifications200Response.md
 docs/GetUserPresenceStatuses200Response.md
 docs/GetUserPresenceStatusesResponse.md
-docs/GetUserPresenceStatusesResponseAnyOf.md
 docs/GifRating.md
 docs/HeaderState.md
 docs/IgnoredResponse.md
@@ -197,7 +196,6 @@ src/main/java/com/fastcomments/model/GetUserNotificationCountResponse.java
 src/main/java/com/fastcomments/model/GetUserNotifications200Response.java
 src/main/java/com/fastcomments/model/GetUserPresenceStatuses200Response.java
 src/main/java/com/fastcomments/model/GetUserPresenceStatusesResponse.java
-src/main/java/com/fastcomments/model/GetUserPresenceStatusesResponseAnyOf.java
 src/main/java/com/fastcomments/model/GifRating.java
 src/main/java/com/fastcomments/model/HeaderState.java
 src/main/java/com/fastcomments/model/IgnoredResponse.java
@@ -308,7 +306,6 @@ src/test/java/com/fastcomments/model/GetUserNotificationCount200ResponseTest.jav
 src/test/java/com/fastcomments/model/GetUserNotificationCountResponseTest.java
 src/test/java/com/fastcomments/model/GetUserNotifications200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserPresenceStatuses200ResponseTest.java
-src/test/java/com/fastcomments/model/GetUserPresenceStatusesResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/GetUserPresenceStatusesResponseTest.java
 src/test/java/com/fastcomments/model/GifRatingTest.java
 src/test/java/com/fastcomments/model/HeaderStateTest.java
