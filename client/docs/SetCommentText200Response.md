@@ -7,8 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**statusCode** | **Double** |  |  [optional] |
+|**comment** | [**PickFCommentApprovedOrCommentHTML**](PickFCommentApprovedOrCommentHTML.md) |  |  |
 |**status** | **ImportedAPIStatusFAILED** |  |  |
+|**statusCode** | **Double** |  |  [optional] |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |
@@ -16,7 +17,6 @@
 |**maxCharacterLength** | **Double** |  |  [optional] |
 |**translatedError** | **String** |  |  [optional] |
 |**customConfig** | [**CustomConfigParameters**](CustomConfigParameters.md) |  |  [optional] |
-|**comment** | [**PickFCommentApprovedOrCommentHTML**](PickFCommentApprovedOrCommentHTML.md) |  |  |
 
 
 

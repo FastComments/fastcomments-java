@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**statusCode** | **Double** |  |  [optional] |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **ImportedAPIStatusSUCCESS** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

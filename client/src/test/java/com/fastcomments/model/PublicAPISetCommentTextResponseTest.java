@@ -13,11 +13,8 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIError;
-import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.ImportedAPIStatusSUCCESS;
 import com.fastcomments.model.PickFCommentApprovedOrCommentHTML;
-import com.fastcomments.model.PublicAPISetCommentTextResponseAnyOf;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -56,70 +53,6 @@ public class PublicAPISetCommentTextResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
-    }
-
-    /**
-     * Test the property 'reason'
-     */
-    @Test
-    public void reasonTest() {
-        // TODO: test reason
-    }
-
-    /**
-     * Test the property 'code'
-     */
-    @Test
-    public void codeTest() {
-        // TODO: test code
-    }
-
-    /**
-     * Test the property 'secondaryCode'
-     */
-    @Test
-    public void secondaryCodeTest() {
-        // TODO: test secondaryCode
-    }
-
-    /**
-     * Test the property 'bannedUntil'
-     */
-    @Test
-    public void bannedUntilTest() {
-        // TODO: test bannedUntil
-    }
-
-    /**
-     * Test the property 'maxCharacterLength'
-     */
-    @Test
-    public void maxCharacterLengthTest() {
-        // TODO: test maxCharacterLength
-    }
-
-    /**
-     * Test the property 'translatedError'
-     */
-    @Test
-    public void translatedErrorTest() {
-        // TODO: test translatedError
-    }
-
-    /**
-     * Test the property 'customConfig'
-     */
-    @Test
-    public void customConfigTest() {
-        // TODO: test customConfig
     }
 
 }

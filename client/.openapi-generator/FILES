@@ -6,7 +6,6 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/APIEmptyResponse.md
-docs/APIEmptyResponseAnyOf.md
 docs/APIError.md
 docs/APIStatus.md
 docs/AggregationItem.md
@@ -21,9 +20,7 @@ docs/BlockFromComment200Response.md
 docs/BlockFromCommentParams.md
 docs/BlockSuccess.md
 docs/ChangeCommentPinStatusResponse.md
-docs/ChangeCommentPinStatusResponseAnyOf.md
 docs/CheckBlockedCommentsResponse.md
-docs/CheckBlockedCommentsResponseAnyOf.md
 docs/CheckedCommentsForBlocked200Response.md
 docs/CommentData.md
 docs/CommentHTMLRenderingMode.md
@@ -41,6 +38,7 @@ docs/DefaultApi.md
 docs/DeleteComment200Response.md
 docs/DeleteCommentVote200Response.md
 docs/EventLogEntry.md
+docs/FlagComment200Response.md
 docs/GetCommentText200Response.md
 docs/GetCommentVoteUserNames200Response.md
 docs/GetCommentVoteUserNamesSuccessResponse.md
@@ -49,9 +47,7 @@ docs/GetCommentsResponsePublicComment.md
 docs/GetCommentsResponseWithPresencePublicComment.md
 docs/GetEventLog200Response.md
 docs/GetEventLogResponse.md
-docs/GetEventLogResponseAnyOf.md
 docs/GetMyNotificationsResponse.md
-docs/GetMyNotificationsResponseAnyOf.md
 docs/GetUserNotificationCount200Response.md
 docs/GetUserNotificationCountResponse.md
 docs/GetUserNotifications200Response.md
@@ -77,11 +73,8 @@ docs/PinComment200Response.md
 docs/PubSubComment.md
 docs/PubSubVote.md
 docs/PublicAPIDeleteCommentResponse.md
-docs/PublicAPIDeleteCommentResponseAnyOf.md
 docs/PublicAPIGetCommentTextResponse.md
-docs/PublicAPIGetCommentTextResponseAnyOf.md
 docs/PublicAPISetCommentTextResponse.md
-docs/PublicAPISetCommentTextResponseAnyOf.md
 docs/PublicApi.md
 docs/PublicComment.md
 docs/QueryPredicate.md
@@ -106,7 +99,6 @@ docs/UpdateUserNotificationStatus200Response.md
 docs/UserNotification.md
 docs/UserNotificationWriteResponse.md
 docs/UserPresenceData.md
-docs/UserPresenceHeartbeat200Response.md
 docs/UserSessionInfo.md
 docs/VoteBodyParams.md
 docs/VoteComment200Response.md
@@ -145,7 +137,6 @@ src/main/java/com/fastcomments/invoker/auth/Authentication.java
 src/main/java/com/fastcomments/invoker/auth/HttpBasicAuth.java
 src/main/java/com/fastcomments/invoker/auth/HttpBearerAuth.java
 src/main/java/com/fastcomments/model/APIEmptyResponse.java
-src/main/java/com/fastcomments/model/APIEmptyResponseAnyOf.java
 src/main/java/com/fastcomments/model/APIError.java
 src/main/java/com/fastcomments/model/APIStatus.java
 src/main/java/com/fastcomments/model/AbstractOpenApiSchema.java
@@ -161,9 +152,7 @@ src/main/java/com/fastcomments/model/BlockFromComment200Response.java
 src/main/java/com/fastcomments/model/BlockFromCommentParams.java
 src/main/java/com/fastcomments/model/BlockSuccess.java
 src/main/java/com/fastcomments/model/ChangeCommentPinStatusResponse.java
-src/main/java/com/fastcomments/model/ChangeCommentPinStatusResponseAnyOf.java
 src/main/java/com/fastcomments/model/CheckBlockedCommentsResponse.java
-src/main/java/com/fastcomments/model/CheckBlockedCommentsResponseAnyOf.java
 src/main/java/com/fastcomments/model/CheckedCommentsForBlocked200Response.java
 src/main/java/com/fastcomments/model/CommentData.java
 src/main/java/com/fastcomments/model/CommentHTMLRenderingMode.java
@@ -180,6 +169,7 @@ src/main/java/com/fastcomments/model/CustomConfigParameters.java
 src/main/java/com/fastcomments/model/DeleteComment200Response.java
 src/main/java/com/fastcomments/model/DeleteCommentVote200Response.java
 src/main/java/com/fastcomments/model/EventLogEntry.java
+src/main/java/com/fastcomments/model/FlagComment200Response.java
 src/main/java/com/fastcomments/model/GetCommentText200Response.java
 src/main/java/com/fastcomments/model/GetCommentVoteUserNames200Response.java
 src/main/java/com/fastcomments/model/GetCommentVoteUserNamesSuccessResponse.java
@@ -188,9 +178,7 @@ src/main/java/com/fastcomments/model/GetCommentsResponsePublicComment.java
 src/main/java/com/fastcomments/model/GetCommentsResponseWithPresencePublicComment.java
 src/main/java/com/fastcomments/model/GetEventLog200Response.java
 src/main/java/com/fastcomments/model/GetEventLogResponse.java
-src/main/java/com/fastcomments/model/GetEventLogResponseAnyOf.java
 src/main/java/com/fastcomments/model/GetMyNotificationsResponse.java
-src/main/java/com/fastcomments/model/GetMyNotificationsResponseAnyOf.java
 src/main/java/com/fastcomments/model/GetUserNotificationCount200Response.java
 src/main/java/com/fastcomments/model/GetUserNotificationCountResponse.java
 src/main/java/com/fastcomments/model/GetUserNotifications200Response.java
@@ -216,11 +204,8 @@ src/main/java/com/fastcomments/model/PinComment200Response.java
 src/main/java/com/fastcomments/model/PubSubComment.java
 src/main/java/com/fastcomments/model/PubSubVote.java
 src/main/java/com/fastcomments/model/PublicAPIDeleteCommentResponse.java
-src/main/java/com/fastcomments/model/PublicAPIDeleteCommentResponseAnyOf.java
 src/main/java/com/fastcomments/model/PublicAPIGetCommentTextResponse.java
-src/main/java/com/fastcomments/model/PublicAPIGetCommentTextResponseAnyOf.java
 src/main/java/com/fastcomments/model/PublicAPISetCommentTextResponse.java
-src/main/java/com/fastcomments/model/PublicAPISetCommentTextResponseAnyOf.java
 src/main/java/com/fastcomments/model/PublicComment.java
 src/main/java/com/fastcomments/model/QueryPredicate.java
 src/main/java/com/fastcomments/model/QueryPredicateValue.java
@@ -244,7 +229,6 @@ src/main/java/com/fastcomments/model/UpdateUserNotificationStatus200Response.jav
 src/main/java/com/fastcomments/model/UserNotification.java
 src/main/java/com/fastcomments/model/UserNotificationWriteResponse.java
 src/main/java/com/fastcomments/model/UserPresenceData.java
-src/main/java/com/fastcomments/model/UserPresenceHeartbeat200Response.java
 src/main/java/com/fastcomments/model/UserSessionInfo.java
 src/main/java/com/fastcomments/model/VoteBodyParams.java
 src/main/java/com/fastcomments/model/VoteComment200Response.java
@@ -256,7 +240,6 @@ src/main/java/com/fastcomments/model/VoteResponseUser.java
 src/main/java/com/fastcomments/model/VoteStyle.java
 src/test/java/com/fastcomments/api/DefaultApiTest.java
 src/test/java/com/fastcomments/api/PublicApiTest.java
-src/test/java/com/fastcomments/model/APIEmptyResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/APIEmptyResponseTest.java
 src/test/java/com/fastcomments/model/APIErrorTest.java
 src/test/java/com/fastcomments/model/APIStatusTest.java
@@ -271,9 +254,7 @@ src/test/java/com/fastcomments/model/AggregationValueTest.java
 src/test/java/com/fastcomments/model/BlockFromComment200ResponseTest.java
 src/test/java/com/fastcomments/model/BlockFromCommentParamsTest.java
 src/test/java/com/fastcomments/model/BlockSuccessTest.java
-src/test/java/com/fastcomments/model/ChangeCommentPinStatusResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/ChangeCommentPinStatusResponseTest.java
-src/test/java/com/fastcomments/model/CheckBlockedCommentsResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/CheckBlockedCommentsResponseTest.java
 src/test/java/com/fastcomments/model/CheckedCommentsForBlocked200ResponseTest.java
 src/test/java/com/fastcomments/model/CommentDataTest.java
@@ -291,6 +272,7 @@ src/test/java/com/fastcomments/model/CustomConfigParametersTest.java
 src/test/java/com/fastcomments/model/DeleteComment200ResponseTest.java
 src/test/java/com/fastcomments/model/DeleteCommentVote200ResponseTest.java
 src/test/java/com/fastcomments/model/EventLogEntryTest.java
+src/test/java/com/fastcomments/model/FlagComment200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentText200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentVoteUserNames200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentVoteUserNamesSuccessResponseTest.java
@@ -298,9 +280,7 @@ src/test/java/com/fastcomments/model/GetComments200ResponseTest.java
 src/test/java/com/fastcomments/model/GetCommentsResponsePublicCommentTest.java
 src/test/java/com/fastcomments/model/GetCommentsResponseWithPresencePublicCommentTest.java
 src/test/java/com/fastcomments/model/GetEventLog200ResponseTest.java
-src/test/java/com/fastcomments/model/GetEventLogResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/GetEventLogResponseTest.java
-src/test/java/com/fastcomments/model/GetMyNotificationsResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/GetMyNotificationsResponseTest.java
 src/test/java/com/fastcomments/model/GetUserNotificationCount200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserNotificationCountResponseTest.java
@@ -326,11 +306,8 @@ src/test/java/com/fastcomments/model/PickUserNotificationIdOrUrlIdOrUrlOrPageTit
 src/test/java/com/fastcomments/model/PinComment200ResponseTest.java
 src/test/java/com/fastcomments/model/PubSubCommentTest.java
 src/test/java/com/fastcomments/model/PubSubVoteTest.java
-src/test/java/com/fastcomments/model/PublicAPIDeleteCommentResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/PublicAPIDeleteCommentResponseTest.java
-src/test/java/com/fastcomments/model/PublicAPIGetCommentTextResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/PublicAPIGetCommentTextResponseTest.java
-src/test/java/com/fastcomments/model/PublicAPISetCommentTextResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/PublicAPISetCommentTextResponseTest.java
 src/test/java/com/fastcomments/model/PublicCommentTest.java
 src/test/java/com/fastcomments/model/QueryPredicateTest.java
@@ -355,7 +332,6 @@ src/test/java/com/fastcomments/model/UpdateUserNotificationStatus200ResponseTest
 src/test/java/com/fastcomments/model/UserNotificationTest.java
 src/test/java/com/fastcomments/model/UserNotificationWriteResponseTest.java
 src/test/java/com/fastcomments/model/UserPresenceDataTest.java
-src/test/java/com/fastcomments/model/UserPresenceHeartbeat200ResponseTest.java
 src/test/java/com/fastcomments/model/UserSessionInfoTest.java
 src/test/java/com/fastcomments/model/VoteBodyParamsTest.java
 src/test/java/com/fastcomments/model/VoteComment200ResponseTest.java

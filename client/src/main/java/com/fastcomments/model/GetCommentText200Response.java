@@ -61,7 +61,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T09:43:57.934745832-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentText200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GetCommentText200Response.class.getName());
 
@@ -73,8 +73,8 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'GetCommentText200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
             final TypeAdapter<PublicAPIGetCommentTextResponse> adapterPublicAPIGetCommentTextResponse = gson.getDelegateAdapter(this, TypeToken.get(PublicAPIGetCommentTextResponse.class));
+            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
             return (TypeAdapter<T>) new TypeAdapter<GetCommentText200Response>() {
                 @Override
@@ -84,15 +84,15 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
                     // check if the actual instance is of the type `PublicAPIGetCommentTextResponse`
                     if (value.getActualInstance() instanceof PublicAPIGetCommentTextResponse) {
                         JsonElement element = adapterPublicAPIGetCommentTextResponse.toJsonTree((PublicAPIGetCommentTextResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `APIError`
+                    if (value.getActualInstance() instanceof APIError) {
+                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -107,19 +107,6 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize APIError
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
-                        GetCommentText200Response ret = new GetCommentText200Response();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
-                    }
                     // deserialize PublicAPIGetCommentTextResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -132,6 +119,19 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for PublicAPIGetCommentTextResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'PublicAPIGetCommentTextResponse'", e);
+                    }
+                    // deserialize APIError
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        APIError.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPIError;
+                        GetCommentText200Response ret = new GetCommentText200Response();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for GetCommentText200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -153,8 +153,8 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("APIError", APIError.class);
         schemas.put("PublicAPIGetCommentTextResponse", PublicAPIGetCommentTextResponse.class);
+        schemas.put("APIError", APIError.class);
     }
 
     @Override
@@ -171,12 +171,12 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof APIError) {
+        if (instance instanceof PublicAPIGetCommentTextResponse) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof PublicAPIGetCommentTextResponse) {
+        if (instance instanceof APIError) {
             super.setActualInstance(instance);
             return;
         }
@@ -197,17 +197,6 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
-     */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
-    }
-
-    /**
      * Get the actual instance of `PublicAPIGetCommentTextResponse`. If the actual instance is not `PublicAPIGetCommentTextResponse`,
      * the ClassCastException will be thrown.
      *
@@ -219,6 +208,17 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `APIError`
+     * @throws ClassCastException if the instance is not `APIError`
+     */
+    public APIError getAPIError() throws ClassCastException {
+        return (APIError)super.getActualInstance();
+    }
+
+    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -227,20 +227,20 @@ public class GetCommentText200Response extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with APIError
-        try {
-            APIError.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with PublicAPIGetCommentTextResponse
         try {
             PublicAPIGetCommentTextResponse.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
             errorMessages.add(String.format("Deserialization for PublicAPIGetCommentTextResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with APIError
+        try {
+            APIError.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         throw new IOException(String.format("The JSON string is invalid for GetCommentText200Response with anyOf schemas: APIError, PublicAPIGetCommentTextResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));

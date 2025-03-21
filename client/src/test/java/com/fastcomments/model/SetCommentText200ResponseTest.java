@@ -43,11 +43,11 @@ public class SetCommentText200ResponseTest {
     }
 
     /**
-     * Test the property 'statusCode'
+     * Test the property 'comment'
      */
     @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
+    public void commentTest() {
+        // TODO: test comment
     }
 
     /**
@@ -56,6 +56,14 @@ public class SetCommentText200ResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'statusCode'
+     */
+    @Test
+    public void statusCodeTest() {
+        // TODO: test statusCode
     }
 
     /**
@@ -112,14 +120,6 @@ public class SetCommentText200ResponseTest {
     @Test
     public void customConfigTest() {
         // TODO: test customConfig
-    }
-
-    /**
-     * Test the property 'comment'
-     */
-    @Test
-    public void commentTest() {
-        // TODO: test comment
     }
 
 }

@@ -28,17 +28,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for UserPresenceHeartbeat200Response
+ * Model tests for FlagComment200Response
  */
-public class UserPresenceHeartbeat200ResponseTest {
-    private final UserPresenceHeartbeat200Response model = new UserPresenceHeartbeat200Response();
+public class FlagComment200ResponseTest {
+    private final FlagComment200Response model = new FlagComment200Response();
 
     /**
-     * Model tests for UserPresenceHeartbeat200Response
+     * Model tests for FlagComment200Response
      */
     @Test
-    public void testUserPresenceHeartbeat200Response() {
-        // TODO: test UserPresenceHeartbeat200Response
+    public void testFlagComment200Response() {
+        // TODO: test FlagComment200Response
     }
 
     /**

@@ -7,17 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **ImportedAPIStatusSUCCESS** |  |  |
 |**commentText** | **String** |  |  |
 |**sanitizedCommentText** | **String** |  |  |
-|**statusCode** | **Double** |  |  [optional] |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
-|**secondaryCode** | **String** |  |  [optional] |
-|**bannedUntil** | **Double** |  |  [optional] |
-|**maxCharacterLength** | **Double** |  |  [optional] |
-|**translatedError** | **String** |  |  [optional] |
-|**customConfig** | [**CustomConfigParameters**](CustomConfigParameters.md) |  |  [optional] |
 
 
 

@@ -20,7 +20,6 @@
 |**commentCount** | **Integer** |  |  [optional] |
 |**isSiteAdmin** | **Boolean** |  |  [optional] |
 |**hasBillingIssue** | **Boolean** |  |  [optional] |
-|**isCommentsHidden** | **Boolean** |  |  [optional] |
 |**moduleData** | **Map&lt;String, Object&gt;** | Construct a type with a set of properties K of type T |  [optional] |
 |**pageNumber** | **Integer** |  |  |
 |**isWhiteLabeled** | **Boolean** |  |  [optional] |

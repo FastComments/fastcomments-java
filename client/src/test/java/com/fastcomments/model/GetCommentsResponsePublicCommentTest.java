@@ -149,14 +149,6 @@ public class GetCommentsResponsePublicCommentTest {
     }
 
     /**
-     * Test the property 'isCommentsHidden'
-     */
-    @Test
-    public void isCommentsHiddenTest() {
-        // TODO: test isCommentsHidden
-    }
-
-    /**
      * Test the property 'moduleData'
      */
     @Test

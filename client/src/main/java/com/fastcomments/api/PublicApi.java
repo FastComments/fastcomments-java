@@ -36,6 +36,7 @@ import com.fastcomments.model.CommentTextUpdateRequest;
 import com.fastcomments.model.CreateComment200Response;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
+import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetComments200Response;
@@ -50,7 +51,6 @@ import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockComment200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
-import com.fastcomments.model.UserPresenceHeartbeat200Response;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteComment200Response;
 
@@ -1198,16 +1198,16 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<UserPresenceHeartbeat200Response> flagCommentWithHttpInfo(String tenantId, String commentId, Boolean isFlagged, String sso) throws ApiException {
+    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(String tenantId, String commentId, Boolean isFlagged, String sso) throws ApiException {
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, null);
-        Type localVarReturnType = new TypeToken<UserPresenceHeartbeat200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call flagCommentAsync(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback<UserPresenceHeartbeat200Response> _callback) throws ApiException {
+    private okhttp3.Call flagCommentAsync(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, _callback);
-        Type localVarReturnType = new TypeToken<UserPresenceHeartbeat200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1252,7 +1252,7 @@ public class PublicApi {
 
         /**
          * Execute flagComment request
-         * @return UserPresenceHeartbeat200Response
+         * @return FlagComment200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -1261,14 +1261,14 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public UserPresenceHeartbeat200Response execute() throws ApiException {
-            ApiResponse<UserPresenceHeartbeat200Response> localVarResp = flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
+        public FlagComment200Response execute() throws ApiException {
+            ApiResponse<FlagComment200Response> localVarResp = flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
             return localVarResp.getData();
         }
 
         /**
          * Execute flagComment request with HTTP info returned
-         * @return ApiResponse&lt;UserPresenceHeartbeat200Response&gt;
+         * @return ApiResponse&lt;FlagComment200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -1277,7 +1277,7 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<UserPresenceHeartbeat200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<FlagComment200Response> executeWithHttpInfo() throws ApiException {
             return flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
         }
 
@@ -1293,7 +1293,7 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<UserPresenceHeartbeat200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<FlagComment200Response> _callback) throws ApiException {
             return flagCommentAsync(tenantId, commentId, isFlagged, sso, _callback);
         }
     }
@@ -5538,183 +5538,6 @@ public class PublicApi {
      */
     public APIupdateUserNotificationStatusRequest updateUserNotificationStatus(String tenantId, String notificationId, String newStatus) {
         return new APIupdateUserNotificationStatusRequest(tenantId, notificationId, newStatus);
-    }
-    private okhttp3.Call userPresenceHeartbeatCall(String tenantId, String userIdWS, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/user-presence-heartbeat";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (tenantId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
-        }
-
-        if (userIdWS != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userIdWS", userIdWS));
-        }
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call userPresenceHeartbeatValidateBeforeCall(String tenantId, String userIdWS, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'tenantId' is set
-        if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling userPresenceHeartbeat(Async)");
-        }
-
-        // verify the required parameter 'userIdWS' is set
-        if (userIdWS == null) {
-            throw new ApiException("Missing the required parameter 'userIdWS' when calling userPresenceHeartbeat(Async)");
-        }
-
-        return userPresenceHeartbeatCall(tenantId, userIdWS, _callback);
-
-    }
-
-
-    private ApiResponse<UserPresenceHeartbeat200Response> userPresenceHeartbeatWithHttpInfo(String tenantId, String userIdWS) throws ApiException {
-        okhttp3.Call localVarCall = userPresenceHeartbeatValidateBeforeCall(tenantId, userIdWS, null);
-        Type localVarReturnType = new TypeToken<UserPresenceHeartbeat200Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    private okhttp3.Call userPresenceHeartbeatAsync(String tenantId, String userIdWS, final ApiCallback<UserPresenceHeartbeat200Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = userPresenceHeartbeatValidateBeforeCall(tenantId, userIdWS, _callback);
-        Type localVarReturnType = new TypeToken<UserPresenceHeartbeat200Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    public class APIuserPresenceHeartbeatRequest {
-        private final String tenantId;
-        private final String userIdWS;
-
-        private APIuserPresenceHeartbeatRequest(String tenantId, String userIdWS) {
-            this.tenantId = tenantId;
-            this.userIdWS = userIdWS;
-        }
-
-        /**
-         * Build call for userPresenceHeartbeat
-         * @param _callback ApiCallback API callback
-         * @return Call to execute
-         * @throws ApiException If fail to serialize the request body object
-         * @http.response.details
-         <table border="1">
-       <caption>Response Details</caption>
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-            <tr><td> 422 </td><td> Validation Failed </td><td>  -  </td></tr>
-         </table>
-         */
-        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return userPresenceHeartbeatCall(tenantId, userIdWS, _callback);
-        }
-
-        /**
-         * Execute userPresenceHeartbeat request
-         * @return UserPresenceHeartbeat200Response
-         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-         * @http.response.details
-         <table border="1">
-       <caption>Response Details</caption>
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-            <tr><td> 422 </td><td> Validation Failed </td><td>  -  </td></tr>
-         </table>
-         */
-        public UserPresenceHeartbeat200Response execute() throws ApiException {
-            ApiResponse<UserPresenceHeartbeat200Response> localVarResp = userPresenceHeartbeatWithHttpInfo(tenantId, userIdWS);
-            return localVarResp.getData();
-        }
-
-        /**
-         * Execute userPresenceHeartbeat request with HTTP info returned
-         * @return ApiResponse&lt;UserPresenceHeartbeat200Response&gt;
-         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-         * @http.response.details
-         <table border="1">
-       <caption>Response Details</caption>
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-            <tr><td> 422 </td><td> Validation Failed </td><td>  -  </td></tr>
-         </table>
-         */
-        public ApiResponse<UserPresenceHeartbeat200Response> executeWithHttpInfo() throws ApiException {
-            return userPresenceHeartbeatWithHttpInfo(tenantId, userIdWS);
-        }
-
-        /**
-         * Execute userPresenceHeartbeat request (asynchronously)
-         * @param _callback The callback to be executed when the API call finishes
-         * @return The request call
-         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-         * @http.response.details
-         <table border="1">
-       <caption>Response Details</caption>
-            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-            <tr><td> 422 </td><td> Validation Failed </td><td>  -  </td></tr>
-         </table>
-         */
-        public okhttp3.Call executeAsync(final ApiCallback<UserPresenceHeartbeat200Response> _callback) throws ApiException {
-            return userPresenceHeartbeatAsync(tenantId, userIdWS, _callback);
-        }
-    }
-
-    /**
-     * 
-     * 
-     * @param tenantId  (required)
-     * @param userIdWS  (required)
-     * @return APIuserPresenceHeartbeatRequest
-     * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
-        <tr><td> 422 </td><td> Validation Failed </td><td>  -  </td></tr>
-     </table>
-     */
-    public APIuserPresenceHeartbeatRequest userPresenceHeartbeat(String tenantId, String userIdWS) {
-        return new APIuserPresenceHeartbeatRequest(tenantId, userIdWS);
     }
     private okhttp3.Call voteCommentCall(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

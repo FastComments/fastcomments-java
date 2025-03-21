@@ -42,19 +42,35 @@ public class GetCommentText200ResponseTest {
     }
 
     /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
-    }
-
-    /**
      * Test the property 'status'
      */
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'commentText'
+     */
+    @Test
+    public void commentTextTest() {
+        // TODO: test commentText
+    }
+
+    /**
+     * Test the property 'sanitizedCommentText'
+     */
+    @Test
+    public void sanitizedCommentTextTest() {
+        // TODO: test sanitizedCommentText
+    }
+
+    /**
+     * Test the property 'statusCode'
+     */
+    @Test
+    public void statusCodeTest() {
+        // TODO: test statusCode
     }
 
     /**
@@ -111,22 +127,6 @@ public class GetCommentText200ResponseTest {
     @Test
     public void customConfigTest() {
         // TODO: test customConfig
-    }
-
-    /**
-     * Test the property 'commentText'
-     */
-    @Test
-    public void commentTextTest() {
-        // TODO: test commentText
-    }
-
-    /**
-     * Test the property 'sanitizedCommentText'
-     */
-    @Test
-    public void sanitizedCommentTextTest() {
-        // TODO: test sanitizedCommentText
     }
 
 }

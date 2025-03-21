@@ -23,6 +23,7 @@ import com.fastcomments.model.CommentTextUpdateRequest;
 import com.fastcomments.model.CreateComment200Response;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
+import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetComments200Response;
@@ -37,7 +38,6 @@ import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockComment200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
-import com.fastcomments.model.UserPresenceHeartbeat200Response;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteComment200Response;
 import org.junit.jupiter.api.Disabled;
@@ -146,7 +146,7 @@ public class PublicApiTest {
         String commentId = null;
         Boolean isFlagged = null;
         String sso = null;
-        UserPresenceHeartbeat200Response response = api.flagComment(tenantId, commentId, isFlagged)
+        FlagComment200Response response = api.flagComment(tenantId, commentId, isFlagged)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -512,18 +512,6 @@ public class PublicApiTest {
         String sso = null;
         UpdateUserNotificationStatus200Response response = api.updateUserNotificationStatus(tenantId, notificationId, newStatus)
                 .sso(sso)
-                .execute();
-        // TODO: test validations
-    }
-
-    /**
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void userPresenceHeartbeatTest() throws ApiException {
-        String tenantId = null;
-        String userIdWS = null;
-        UserPresenceHeartbeat200Response response = api.userPresenceHeartbeat(tenantId, userIdWS)
                 .execute();
         // TODO: test validations
     }

@@ -29,7 +29,6 @@ All URIs are relative to *http://localhost*
 | [**updateUserNotificationCommentSubscriptionStatus**](PublicApi.md#updateUserNotificationCommentSubscriptionStatus) | **POST** /user-notifications/{notificationId}/mark-opted/{optedInOrOut} |  |
 | [**updateUserNotificationPageSubscriptionStatus**](PublicApi.md#updateUserNotificationPageSubscriptionStatus) | **POST** /user-notifications/set-subscription-state/{subscribedOrUnsubscribed} |  |
 | [**updateUserNotificationStatus**](PublicApi.md#updateUserNotificationStatus) | **POST** /user-notifications/{notificationId}/mark/{newStatus} |  |
-| [**userPresenceHeartbeat**](PublicApi.md#userPresenceHeartbeat) | **PUT** /user-presence-heartbeat |  |
 | [**voteComment**](PublicApi.md#voteComment) | **POST** /comments/{tenantId}/{commentId}/vote |  |
 
 
@@ -385,7 +384,7 @@ No authorization required
 
 <a id="flagComment"></a>
 # **flagComment**
-> UserPresenceHeartbeat200Response flagComment(tenantId, commentId, isFlagged).sso(sso).execute();
+> FlagComment200Response flagComment(tenantId, commentId, isFlagged).sso(sso).execute();
 
 
 
@@ -409,7 +408,7 @@ public class Example {
     Boolean isFlagged = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      UserPresenceHeartbeat200Response result = apiInstance.flagComment(tenantId, commentId, isFlagged)
+      FlagComment200Response result = apiInstance.flagComment(tenantId, commentId, isFlagged)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -435,7 +434,7 @@ public class Example {
 
 ### Return type
 
-[**UserPresenceHeartbeat200Response**](UserPresenceHeartbeat200Response.md)
+[**FlagComment200Response**](FlagComment200Response.md)
 
 ### Authorization
 
@@ -1856,70 +1855,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-
-<a id="userPresenceHeartbeat"></a>
-# **userPresenceHeartbeat**
-> UserPresenceHeartbeat200Response userPresenceHeartbeat(tenantId, userIdWS).execute();
-
-
-
-### Example
-```java
-// Import classes:
-import com.fastcomments.invoker.ApiClient;
-import com.fastcomments.invoker.ApiException;
-import com.fastcomments.invoker.Configuration;
-import com.fastcomments.invoker.models.*;
-import com.fastcomments.api.PublicApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
-
-    PublicApi apiInstance = new PublicApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | 
-    String userIdWS = "userIdWS_example"; // String | 
-    try {
-      UserPresenceHeartbeat200Response result = apiInstance.userPresenceHeartbeat(tenantId, userIdWS)
-            .execute();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling PublicApi#userPresenceHeartbeat");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**|  | |
-| **userIdWS** | **String**|  | |
-
-### Return type
-
-[**UserPresenceHeartbeat200Response**](UserPresenceHeartbeat200Response.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **422** | Validation Failed |  -  |
 
 <a id="voteComment"></a>
 # **voteComment**

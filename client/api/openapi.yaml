@@ -49,42 +49,6 @@ paths:
       - Public
       x-accepts:
       - application/json
-  /user-presence-heartbeat:
-    put:
-      operationId: UserPresenceHeartbeat
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: userIdWS
-        required: true
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserPresenceHeartbeat_200_response'
-          description: Ok
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/APIError'
-          description: Validation Failed
-      security: []
-      tags:
-      - Public
-      x-accepts:
-      - application/json
   /user-notifications:
     get:
       operationId: GetUserNotifications
@@ -503,7 +467,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserPresenceHeartbeat_200_response'
+                $ref: '#/components/schemas/FlagComment_200_response'
           description: Ok
       security: []
       tags:
@@ -2082,10 +2046,6 @@ components:
       - reason
       - status
       type: object
-    APIEmptyResponse:
-      anyOf:
-      - $ref: '#/components/schemas/APIEmptyResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
     NotificationType:
       enum:
       - 0
@@ -2174,9 +2134,70 @@ components:
         _id: _id
         relatedObjectType: 0.8008281904610115
     GetMyNotificationsResponse:
-      anyOf:
-      - $ref: '#/components/schemas/GetMyNotificationsResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      example:
+        isSubscribed: true
+        translations:
+          key: translations
+        hasMore: true
+        notifications:
+        - fromUserAvatarSrc: fromUserAvatarSrc
+          contextHTML: contextHTML
+          relatedObjectId: relatedObjectId
+          fromCommentId: fromCommentId
+          pageTitle: pageTitle
+          fromUserId: fromUserId
+          conversationId: conversationId
+          urlId: urlId
+          type: 6.027456183070403
+          sent: true
+          url: url
+          fromUserName: fromUserName
+          optedOut: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          viewed: true
+          _id: _id
+          relatedObjectType: 0.8008281904610115
+        - fromUserAvatarSrc: fromUserAvatarSrc
+          contextHTML: contextHTML
+          relatedObjectId: relatedObjectId
+          fromCommentId: fromCommentId
+          pageTitle: pageTitle
+          fromUserId: fromUserId
+          conversationId: conversationId
+          urlId: urlId
+          type: 6.027456183070403
+          sent: true
+          url: url
+          fromUserName: fromUserName
+          optedOut: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          viewed: true
+          _id: _id
+          relatedObjectType: 0.8008281904610115
+        status: success
+      properties:
+        translations:
+          additionalProperties:
+            type: string
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        isSubscribed:
+          type: boolean
+        hasMore:
+          type: boolean
+        notifications:
+          items:
+            $ref: '#/components/schemas/RenderableUserNotification'
+          type: array
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - hasMore
+      - isSubscribed
+      - notifications
+      - status
+      type: object
     ResetUserNotificationsResponse:
       additionalProperties: false
       example:
@@ -2280,6 +2301,15 @@ components:
       - note
       - status
       type: object
+    APIEmptyResponse:
+      example:
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - status
+      type: object
     EventLogEntry:
       additionalProperties: false
       example:
@@ -2312,9 +2342,32 @@ components:
       - urlId
       type: object
     GetEventLogResponse:
-      anyOf:
-      - $ref: '#/components/schemas/GetEventLogResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      example:
+        events:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          data: data
+          broadcastId: broadcastId
+          tenantId: tenantId
+          _id: _id
+          urlId: urlId
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          data: data
+          broadcastId: broadcastId
+          tenantId: tenantId
+          _id: _id
+          urlId: urlId
+        status: success
+      properties:
+        events:
+          items:
+            $ref: '#/components/schemas/EventLogEntry'
+          type: array
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - events
+      - status
+      type: object
     LiveEventType:
       enum:
       - update-badges
@@ -2665,11 +2718,27 @@ components:
       - type
       type: object
     PublicAPIGetCommentTextResponse:
-      anyOf:
-      - $ref: '#/components/schemas/PublicAPIGetCommentTextResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      example:
+        sanitizedCommentText: sanitizedCommentText
+        commentText: commentText
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        commentText:
+          type: string
+        sanitizedCommentText:
+          type: string
+      required:
+      - commentText
+      - sanitizedCommentText
+      - status
+      type: object
     Pick_FComment.approved-or-commentHTML_:
       description: "From T, pick a set of properties whose keys are in the union K"
+      example:
+        commentHTML: commentHTML
+        approved: true
       properties:
         commentHTML:
           type: string
@@ -2680,9 +2749,20 @@ components:
       - commentHTML
       type: object
     PublicAPISetCommentTextResponse:
-      anyOf:
-      - $ref: '#/components/schemas/PublicAPISetCommentTextResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      example:
+        comment:
+          commentHTML: commentHTML
+          approved: true
+        status: success
+      properties:
+        comment:
+          $ref: '#/components/schemas/Pick_FComment.approved-or-commentHTML_'
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - comment
+      - status
+      type: object
     CommentUserMentionInfo:
       additionalProperties: false
       example:
@@ -3013,9 +3093,6 @@ components:
         hasBillingIssue:
           nullable: false
           type: boolean
-        isCommentsHidden:
-          nullable: false
-          type: boolean
         moduleData:
           additionalProperties: {}
           description: Construct a type with a set of properties K of type T
@@ -3280,7 +3357,6 @@ components:
           _id: _id
           isSpam: true
           isByAdmin: true
-        isCommentsHidden: true
         notificationCount: 1
         includesPastPages: true
         moduleData:
@@ -3544,13 +3620,43 @@ components:
       - commenterName
       type: object
     PublicAPIDeleteCommentResponse:
-      anyOf:
-      - $ref: '#/components/schemas/PublicAPIDeleteCommentResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      example:
+        comment:
+          commentHTML: commentHTML
+          isDeleted: true
+          commenterName: commenterName
+          userId: userId
+        hardRemoved: true
+        status: success
+      properties:
+        comment:
+          $ref: '#/components/schemas/Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_'
+        hardRemoved:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - hardRemoved
+      - status
+      type: object
     CheckBlockedCommentsResponse:
-      anyOf:
-      - $ref: '#/components/schemas/CheckBlockedCommentsResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      example:
+        commentStatuses:
+          key: true
+        status: success
+      properties:
+        commentStatuses:
+          additionalProperties:
+            type: boolean
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - commentStatuses
+      - status
+      type: object
     VoteResponseUser:
       additionalProperties: false
       example:
@@ -3647,9 +3753,25 @@ components:
       - voteUserNames
       type: object
     ChangeCommentPinStatusResponse:
-      anyOf:
-      - $ref: '#/components/schemas/ChangeCommentPinStatusResponse_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      example:
+        commentPositions:
+          key:
+            before: before
+            after: after
+        status: success
+      properties:
+        commentPositions:
+          additionalProperties:
+            $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+      required:
+      - commentPositions
+      - status
+      type: object
     BlockSuccess:
       additionalProperties: false
       example:
@@ -3889,10 +4011,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/GetUserPresenceStatusesResponse'
       - $ref: '#/components/schemas/APIError'
-    UserPresenceHeartbeat_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/APIEmptyResponse'
-      - $ref: '#/components/schemas/APIError'
     GetUserNotifications_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetMyNotificationsResponse'
@@ -3910,18 +4028,22 @@ components:
       - $ref: '#/components/schemas/UserNotificationWriteResponse'
       - $ref: '#/components/schemas/IgnoredResponse'
       - $ref: '#/components/schemas/APIError'
+    FlagComment_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIEmptyResponse'
+      - $ref: '#/components/schemas/APIError'
     GetEventLog_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetEventLogResponse'
       - $ref: '#/components/schemas/APIError'
     GetCommentText_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIError'
       - $ref: '#/components/schemas/PublicAPIGetCommentTextResponse'
+      - $ref: '#/components/schemas/APIError'
     SetCommentText_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIError'
       - $ref: '#/components/schemas/PublicAPISetCommentTextResponse'
+      - $ref: '#/components/schemas/APIError'
     GetComments_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetCommentsResponseWithPresence_PublicComment_'
@@ -3966,107 +4088,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
       - $ref: '#/components/schemas/APIError'
-    APIEmptyResponse_anyOf:
-      example:
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - status
-      type: object
-    GetMyNotificationsResponse_anyOf:
-      example:
-        isSubscribed: true
-        translations:
-          key: translations
-        hasMore: true
-        notifications:
-        - fromUserAvatarSrc: fromUserAvatarSrc
-          contextHTML: contextHTML
-          relatedObjectId: relatedObjectId
-          fromCommentId: fromCommentId
-          pageTitle: pageTitle
-          fromUserId: fromUserId
-          conversationId: conversationId
-          urlId: urlId
-          type: 6.027456183070403
-          sent: true
-          url: url
-          fromUserName: fromUserName
-          optedOut: true
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          viewed: true
-          _id: _id
-          relatedObjectType: 0.8008281904610115
-        - fromUserAvatarSrc: fromUserAvatarSrc
-          contextHTML: contextHTML
-          relatedObjectId: relatedObjectId
-          fromCommentId: fromCommentId
-          pageTitle: pageTitle
-          fromUserId: fromUserId
-          conversationId: conversationId
-          urlId: urlId
-          type: 6.027456183070403
-          sent: true
-          url: url
-          fromUserName: fromUserName
-          optedOut: true
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          viewed: true
-          _id: _id
-          relatedObjectType: 0.8008281904610115
-        status: success
-      properties:
-        translations:
-          additionalProperties:
-            type: string
-          description: Construct a type with a set of properties K of type T
-          properties: {}
-          type: object
-        isSubscribed:
-          type: boolean
-        hasMore:
-          type: boolean
-        notifications:
-          items:
-            $ref: '#/components/schemas/RenderableUserNotification'
-          type: array
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - hasMore
-      - isSubscribed
-      - notifications
-      - status
-      type: object
-    GetEventLogResponse_anyOf:
-      example:
-        events:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          data: data
-          broadcastId: broadcastId
-          tenantId: tenantId
-          _id: _id
-          urlId: urlId
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          data: data
-          broadcastId: broadcastId
-          tenantId: tenantId
-          _id: _id
-          urlId: urlId
-        status: success
-      properties:
-        events:
-          items:
-            $ref: '#/components/schemas/EventLogEntry'
-          type: array
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - events
-      - status
-      type: object
     Record_string__before_string_or_null__after_string_or_null___value:
       example:
         before: before
@@ -4089,72 +4110,11 @@ components:
           properties: {}
           type: object
       type: object
-    PublicAPIGetCommentTextResponse_anyOf:
-      properties:
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-        commentText:
-          type: string
-        sanitizedCommentText:
-          type: string
-      required:
-      - commentText
-      - sanitizedCommentText
-      - status
-      type: object
-    PublicAPISetCommentTextResponse_anyOf:
-      properties:
-        comment:
-          $ref: '#/components/schemas/Pick_FComment.approved-or-commentHTML_'
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - comment
-      - status
-      type: object
     Record_string_string_or_number__value:
       anyOf:
       - type: string
       - format: double
         type: number
-    PublicAPIDeleteCommentResponse_anyOf:
-      example:
-        comment:
-          commentHTML: commentHTML
-          isDeleted: true
-          commenterName: commenterName
-          userId: userId
-        hardRemoved: true
-        status: success
-      properties:
-        comment:
-          $ref: '#/components/schemas/Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_'
-        hardRemoved:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - hardRemoved
-      - status
-      type: object
-    CheckBlockedCommentsResponse_anyOf:
-      example:
-        commentStatuses:
-          key: true
-        status: success
-      properties:
-        commentStatuses:
-          additionalProperties:
-            type: boolean
-          description: Construct a type with a set of properties K of type T
-          properties: {}
-          type: object
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - commentStatuses
-      - status
-      type: object
     VoteResponse_status:
       anyOf:
       - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
@@ -4166,26 +4126,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
       - $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
-    ChangeCommentPinStatusResponse_anyOf:
-      example:
-        commentPositions:
-          key:
-            before: before
-            after: after
-        status: success
-      properties:
-        commentPositions:
-          additionalProperties:
-            $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
-          description: Construct a type with a set of properties K of type T
-          properties: {}
-          type: object
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - commentPositions
-      - status
-      type: object
     AggregationResponse_stats:
       example:
         scanned: 6.027456183070403

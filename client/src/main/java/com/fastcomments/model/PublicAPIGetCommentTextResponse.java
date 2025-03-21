@@ -14,10 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
-import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.PublicAPIGetCommentTextResponseAnyOf;
+import com.fastcomments.model.ImportedAPIStatusSUCCESS;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,244 +23,254 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
-
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T09:43:57.934745832-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class PublicAPIGetCommentTextResponse extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(PublicAPIGetCommentTextResponse.class.getName());
+/**
+ * PublicAPIGetCommentTextResponse
+ */
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class PublicAPIGetCommentTextResponse {
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private ImportedAPIStatusSUCCESS status;
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!PublicAPIGetCommentTextResponse.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'PublicAPIGetCommentTextResponse' and its subtypes
-            }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<PublicAPIGetCommentTextResponseAnyOf> adapterPublicAPIGetCommentTextResponseAnyOf = gson.getDelegateAdapter(this, TypeToken.get(PublicAPIGetCommentTextResponseAnyOf.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
+  public static final String SERIALIZED_NAME_COMMENT_TEXT = "commentText";
+  @SerializedName(SERIALIZED_NAME_COMMENT_TEXT)
+  @javax.annotation.Nonnull
+  private String commentText;
 
-            return (TypeAdapter<T>) new TypeAdapter<PublicAPIGetCommentTextResponse>() {
-                @Override
-                public void write(JsonWriter out, PublicAPIGetCommentTextResponse value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+  public static final String SERIALIZED_NAME_SANITIZED_COMMENT_TEXT = "sanitizedCommentText";
+  @SerializedName(SERIALIZED_NAME_SANITIZED_COMMENT_TEXT)
+  @javax.annotation.Nonnull
+  private String sanitizedCommentText;
 
-                    // check if the actual instance is of the type `PublicAPIGetCommentTextResponseAnyOf`
-                    if (value.getActualInstance() instanceof PublicAPIGetCommentTextResponseAnyOf) {
-                        JsonElement element = adapterPublicAPIGetCommentTextResponseAnyOf.toJsonTree((PublicAPIGetCommentTextResponseAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, PublicAPIGetCommentTextResponseAnyOf");
-                }
+  public PublicAPIGetCommentTextResponse() {
+  }
 
-                @Override
-                public PublicAPIGetCommentTextResponse read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
+  public PublicAPIGetCommentTextResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+    this.status = status;
+    return this;
+  }
 
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public ImportedAPIStatusSUCCESS getStatus() {
+    return status;
+  }
 
-                    // deserialize PublicAPIGetCommentTextResponseAnyOf
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        PublicAPIGetCommentTextResponseAnyOf.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPublicAPIGetCommentTextResponseAnyOf;
-                        PublicAPIGetCommentTextResponse ret = new PublicAPIGetCommentTextResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PublicAPIGetCommentTextResponseAnyOf failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PublicAPIGetCommentTextResponseAnyOf'", e);
-                    }
-                    // deserialize APIError
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
-                        PublicAPIGetCommentTextResponse ret = new PublicAPIGetCommentTextResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
-                    }
+  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+    this.status = status;
+  }
 
-                    throw new IOException(String.format("Failed deserialization for PublicAPIGetCommentTextResponse: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
+
+  public PublicAPIGetCommentTextResponse commentText(@javax.annotation.Nonnull String commentText) {
+    this.commentText = commentText;
+    return this;
+  }
+
+  /**
+   * Get commentText
+   * @return commentText
+   */
+  @javax.annotation.Nonnull
+  public String getCommentText() {
+    return commentText;
+  }
+
+  public void setCommentText(@javax.annotation.Nonnull String commentText) {
+    this.commentText = commentText;
+  }
+
+
+  public PublicAPIGetCommentTextResponse sanitizedCommentText(@javax.annotation.Nonnull String sanitizedCommentText) {
+    this.sanitizedCommentText = sanitizedCommentText;
+    return this;
+  }
+
+  /**
+   * Get sanitizedCommentText
+   * @return sanitizedCommentText
+   */
+  @javax.annotation.Nonnull
+  public String getSanitizedCommentText() {
+    return sanitizedCommentText;
+  }
+
+  public void setSanitizedCommentText(@javax.annotation.Nonnull String sanitizedCommentText) {
+    this.sanitizedCommentText = sanitizedCommentText;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PublicAPIGetCommentTextResponse publicAPIGetCommentTextResponse = (PublicAPIGetCommentTextResponse) o;
+    return Objects.equals(this.status, publicAPIGetCommentTextResponse.status) &&
+        Objects.equals(this.commentText, publicAPIGetCommentTextResponse.commentText) &&
+        Objects.equals(this.sanitizedCommentText, publicAPIGetCommentTextResponse.sanitizedCommentText);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(status, commentText, sanitizedCommentText);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PublicAPIGetCommentTextResponse {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    commentText: ").append(toIndentedString(commentText)).append("\n");
+    sb.append("    sanitizedCommentText: ").append(toIndentedString(sanitizedCommentText)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("status");
+    openapiFields.add("commentText");
+    openapiFields.add("sanitizedCommentText");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("commentText");
+    openapiRequiredFields.add("sanitizedCommentText");
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to PublicAPIGetCommentTextResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!PublicAPIGetCommentTextResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PublicAPIGetCommentTextResponse is not found in the empty JSON string", PublicAPIGetCommentTextResponse.openapiRequiredFields.toString()));
         }
-    }
+      }
 
-    // store a list of schema names defined in anyOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
-
-    public PublicAPIGetCommentTextResponse() {
-        super("anyOf", Boolean.FALSE);
-    }
-
-    public PublicAPIGetCommentTextResponse(Object o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("PublicAPIGetCommentTextResponseAnyOf", PublicAPIGetCommentTextResponseAnyOf.class);
-        schemas.put("APIError", APIError.class);
-    }
-
-    @Override
-    public Map<String, Class<?>> getSchemas() {
-        return PublicAPIGetCommentTextResponse.schemas;
-    }
-
-    /**
-     * Set the instance that matches the anyOf child schema, check
-     * the instance parameter is valid against the anyOf child schemas:
-     * APIError, PublicAPIGetCommentTextResponseAnyOf
-     *
-     * It could be an instance of the 'anyOf' schemas.
-     */
-    @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof PublicAPIGetCommentTextResponseAnyOf) {
-            super.setActualInstance(instance);
-            return;
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!PublicAPIGetCommentTextResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicAPIGetCommentTextResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
+      }
 
-        if (instance instanceof APIError) {
-            super.setActualInstance(instance);
-            return;
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : PublicAPIGetCommentTextResponse.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `status`
+      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      if (!jsonObj.get("commentText").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commentText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentText").toString()));
+      }
+      if (!jsonObj.get("sanitizedCommentText").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sanitizedCommentText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sanitizedCommentText").toString()));
+      }
+  }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, PublicAPIGetCommentTextResponseAnyOf");
-    }
-
-    /**
-     * Get the actual instance, which can be the following:
-     * APIError, PublicAPIGetCommentTextResponseAnyOf
-     *
-     * @return The actual instance (APIError, PublicAPIGetCommentTextResponseAnyOf)
-     */
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!PublicAPIGetCommentTextResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PublicAPIGetCommentTextResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<PublicAPIGetCommentTextResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PublicAPIGetCommentTextResponse.class));
 
-    /**
-     * Get the actual instance of `PublicAPIGetCommentTextResponseAnyOf`. If the actual instance is not `PublicAPIGetCommentTextResponseAnyOf`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `PublicAPIGetCommentTextResponseAnyOf`
-     * @throws ClassCastException if the instance is not `PublicAPIGetCommentTextResponseAnyOf`
-     */
-    public PublicAPIGetCommentTextResponseAnyOf getPublicAPIGetCommentTextResponseAnyOf() throws ClassCastException {
-        return (PublicAPIGetCommentTextResponseAnyOf)super.getActualInstance();
-    }
+       return (TypeAdapter<T>) new TypeAdapter<PublicAPIGetCommentTextResponse>() {
+           @Override
+           public void write(JsonWriter out, PublicAPIGetCommentTextResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
 
-    /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
-     */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
-    }
+           @Override
+           public PublicAPIGetCommentTextResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to PublicAPIGetCommentTextResponse
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate anyOf schemas one by one
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with PublicAPIGetCommentTextResponseAnyOf
-        try {
-            PublicAPIGetCommentTextResponseAnyOf.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for PublicAPIGetCommentTextResponseAnyOf failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with APIError
-        try {
-            APIError.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format("The JSON string is invalid for PublicAPIGetCommentTextResponse with anyOf schemas: APIError, PublicAPIGetCommentTextResponseAnyOf. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+       }.nullSafe();
     }
+  }
 
-    /**
-     * Create an instance of PublicAPIGetCommentTextResponse given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of PublicAPIGetCommentTextResponse
-     * @throws IOException if the JSON string is invalid with respect to PublicAPIGetCommentTextResponse
-     */
-    public static PublicAPIGetCommentTextResponse fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, PublicAPIGetCommentTextResponse.class);
-    }
+  /**
+   * Create an instance of PublicAPIGetCommentTextResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of PublicAPIGetCommentTextResponse
+   * @throws IOException if the JSON string is invalid with respect to PublicAPIGetCommentTextResponse
+   */
+  public static PublicAPIGetCommentTextResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PublicAPIGetCommentTextResponse.class);
+  }
 
-    /**
-     * Convert an instance of PublicAPIGetCommentTextResponse to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
-    }
+  /**
+   * Convert an instance of PublicAPIGetCommentTextResponse to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

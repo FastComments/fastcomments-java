@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponsePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-20T09:43:57.934745832-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentsResponsePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
@@ -121,11 +121,6 @@ public class GetCommentsResponsePublicComment {
   @SerializedName(SERIALIZED_NAME_HAS_BILLING_ISSUE)
   @javax.annotation.Nullable
   private Boolean hasBillingIssue;
-
-  public static final String SERIALIZED_NAME_IS_COMMENTS_HIDDEN = "isCommentsHidden";
-  @SerializedName(SERIALIZED_NAME_IS_COMMENTS_HIDDEN)
-  @javax.annotation.Nullable
-  private Boolean isCommentsHidden;
 
   public static final String SERIALIZED_NAME_MODULE_DATA = "moduleData";
   @SerializedName(SERIALIZED_NAME_MODULE_DATA)
@@ -435,25 +430,6 @@ public class GetCommentsResponsePublicComment {
   }
 
 
-  public GetCommentsResponsePublicComment isCommentsHidden(@javax.annotation.Nullable Boolean isCommentsHidden) {
-    this.isCommentsHidden = isCommentsHidden;
-    return this;
-  }
-
-  /**
-   * Get isCommentsHidden
-   * @return isCommentsHidden
-   */
-  @javax.annotation.Nullable
-  public Boolean getIsCommentsHidden() {
-    return isCommentsHidden;
-  }
-
-  public void setIsCommentsHidden(@javax.annotation.Nullable Boolean isCommentsHidden) {
-    this.isCommentsHidden = isCommentsHidden;
-  }
-
-
   public GetCommentsResponsePublicComment moduleData(@javax.annotation.Nullable Map<String, Object> moduleData) {
     this.moduleData = moduleData;
     return this;
@@ -675,7 +651,6 @@ public class GetCommentsResponsePublicComment {
         Objects.equals(this.commentCount, getCommentsResponsePublicComment.commentCount) &&
         Objects.equals(this.isSiteAdmin, getCommentsResponsePublicComment.isSiteAdmin) &&
         Objects.equals(this.hasBillingIssue, getCommentsResponsePublicComment.hasBillingIssue) &&
-        Objects.equals(this.isCommentsHidden, getCommentsResponsePublicComment.isCommentsHidden) &&
         Objects.equals(this.moduleData, getCommentsResponsePublicComment.moduleData) &&
         Objects.equals(this.pageNumber, getCommentsResponsePublicComment.pageNumber) &&
         Objects.equals(this.isWhiteLabeled, getCommentsResponsePublicComment.isWhiteLabeled) &&
@@ -690,7 +665,7 @@ public class GetCommentsResponsePublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCode, status, code, reason, comments, user, urlIdClean, lastGenDate, includesPastPages, isDemo, commentCount, isSiteAdmin, hasBillingIssue, isCommentsHidden, moduleData, pageNumber, isWhiteLabeled, isProd, isCrawler, notificationCount, hasMore, isClosed, presencePollState, customConfig);
+    return Objects.hash(statusCode, status, code, reason, comments, user, urlIdClean, lastGenDate, includesPastPages, isDemo, commentCount, isSiteAdmin, hasBillingIssue, moduleData, pageNumber, isWhiteLabeled, isProd, isCrawler, notificationCount, hasMore, isClosed, presencePollState, customConfig);
   }
 
   @Override
@@ -710,7 +685,6 @@ public class GetCommentsResponsePublicComment {
     sb.append("    commentCount: ").append(toIndentedString(commentCount)).append("\n");
     sb.append("    isSiteAdmin: ").append(toIndentedString(isSiteAdmin)).append("\n");
     sb.append("    hasBillingIssue: ").append(toIndentedString(hasBillingIssue)).append("\n");
-    sb.append("    isCommentsHidden: ").append(toIndentedString(isCommentsHidden)).append("\n");
     sb.append("    moduleData: ").append(toIndentedString(moduleData)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    isWhiteLabeled: ").append(toIndentedString(isWhiteLabeled)).append("\n");
@@ -756,7 +730,6 @@ public class GetCommentsResponsePublicComment {
     openapiFields.add("commentCount");
     openapiFields.add("isSiteAdmin");
     openapiFields.add("hasBillingIssue");
-    openapiFields.add("isCommentsHidden");
     openapiFields.add("moduleData");
     openapiFields.add("pageNumber");
     openapiFields.add("isWhiteLabeled");
