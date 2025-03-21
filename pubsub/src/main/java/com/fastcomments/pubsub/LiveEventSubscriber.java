@@ -308,9 +308,9 @@ public class LiveEventSubscriber {
                             return;
                         }
 
-                        if (response.getActualInstance() instanceof GetEventLogResponseAnyOf) {
-                            GetEventLogResponseAnyOf eventLogResponse =
-                                    ((GetEventLogResponseAnyOf) response.getActualInstance());
+                        if (response.getActualInstance() instanceof GetEventLogResponse) {
+                            GetEventLogResponse eventLogResponse =
+                                    ((GetEventLogResponse) response.getActualInstance());
 
                             List<EventLogEntry> events = eventLogResponse.getEvents();
 
