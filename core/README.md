@@ -62,55 +62,32 @@ The core package provides SSO (Single Sign-On) support through the following cla
 - `SecureSSOUserData`: User data for secure SSO
 - `SimpleSSOUserData`: Simplified user data for basic SSO
 
-#### Example Secure SSO usage:
+#### Example Secure SSO Usage Server-Side:
 
 ```java
-// Create user data for SSO (server side DO NOT DO ON THE CLIENT/MOBILE)
+// ---- BEGIN SERVER SIDE
 SecureSSOUserData userData = new SecureSSOUserData();
 userData.id = "user-123";
 userData.email = "user@example.com";
 userData.username = "ExampleUser";
 userData.avatar = "https://example.com/avatar.jpg";
 
-// Create SSO payload
-long timestamp = System.currentTimeMillis();
-SecureSSOPayload payload = new SecureSSOPayload();
-payload.userDataJSONBase64 = toJSONBase64(userData);
-payload.verificationHash = generateHash(userData, "your-api-key", timestamp);
-payload.timestamp = timestamp;
-
 // Create SSO configuration
-FastCommentsSSO sso = new FastCommentsSSO(payload);
-
-// Add to widget config
-config.sso = sso;
+FastCommentsSSO sso = FastCommentsSSO.createSecure(myApiKey, userData);
+String ssoString = sso.prepareToSend(); // send to client
+// ---- END SERVER SIDE
 ```
 
-#### Example Secure SSO usage:
+#### Usage With API, or Client SDK:
 
 ```java
-// Create user data for SSO (server side DO NOT DO ON THE CLIENT/MOBILE)
-SecureSSOUserData userData = new SecureSSOUserData();
-userData.id = "user-123";
-userData.email = "user@example.com";
-userData.username = "ExampleUser";
-userData.avatar = "https://example.com/avatar.jpg";
-
-// Create SSO payload
-long timestamp = System.currentTimeMillis();
-SecureSSOPayload payload = new SecureSSOPayload();
-payload.userDataJSONBase64 = toJSONBase64(userData);
-payload.verificationHash = generateHash(userData, "your-api-key", timestamp);
-payload.timestamp = timestamp;
-
-// Create SSO configuration
-FastCommentsSSO sso = new FastCommentsSSO(payload);
+// ... create user data for SSO (server side!)
 
 // then call the comments api with it
-publicApi.getComments(config.tenantId, config.urlId).sso(sso.createToken())
+publicApi.getComments(config.tenantId, config.urlId).sso(ssoString)
 
 // ... or add to the widget config for the Android SDK
-config.sso = sso;
+config.sso = ssoString;
 ```
 
 #### Example Simple SSO usage:
@@ -126,7 +103,7 @@ FastCommentsSSO sso = new FastCommentsSSO(userData);
 publicApi.getComments(config.tenantId, config.urlId).sso(sso.createToken())
 
 // ... or add to the widget config for the Android SDK
-config.sso = sso;
+config.sso = sso.createToken();
 ```
 
 ### Callbacks

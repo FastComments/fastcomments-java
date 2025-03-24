@@ -173,7 +173,7 @@ public class CommentWidgetConfig {
     /**
      * SSO Configuration.
      */
-    public FastCommentsSSO sso;
+    public String sso;
 
     // Callbacks
     /**
@@ -402,10 +402,7 @@ public class CommentWidgetConfig {
     }
 
     public String getSSOToken() {
-        if (sso != null) {
-            return sso.prepareToSend();
-        }
-        return null;
+        return sso;
     }
 
     public void mergeWith(CustomConfigParameters parameters) {
