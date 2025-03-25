@@ -7,10 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatusFAILED** |  |  |
 |**commentText** | **String** |  |  |
 |**sanitizedCommentText** | **String** |  |  |
-|**statusCode** | **Double** |  |  [optional] |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

@@ -13,8 +13,8 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.GetDomainConfigs200ResponseAnyOf;
+import com.fastcomments.model.GetDomainConfigs200ResponseAnyOf1;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,25 +26,25 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for APIError
+ * Model tests for GetDomainConfigs200Response
  */
-public class APIErrorTest {
-    private final APIError model = new APIError();
+public class GetDomainConfigs200ResponseTest {
+    private final GetDomainConfigs200Response model = new GetDomainConfigs200Response();
 
     /**
-     * Model tests for APIError
+     * Model tests for GetDomainConfigs200Response
      */
     @Test
-    public void testAPIError() {
-        // TODO: test APIError
+    public void testGetDomainConfigs200Response() {
+        // TODO: test GetDomainConfigs200Response
     }
 
     /**
-     * Test the property 'statusCode'
+     * Test the property 'configurations'
      */
     @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
+    public void configurationsTest() {
+        // TODO: test configurations
     }
 
     /**
@@ -69,46 +69,6 @@ public class APIErrorTest {
     @Test
     public void codeTest() {
         // TODO: test code
-    }
-
-    /**
-     * Test the property 'secondaryCode'
-     */
-    @Test
-    public void secondaryCodeTest() {
-        // TODO: test secondaryCode
-    }
-
-    /**
-     * Test the property 'bannedUntil'
-     */
-    @Test
-    public void bannedUntilTest() {
-        // TODO: test bannedUntil
-    }
-
-    /**
-     * Test the property 'maxCharacterLength'
-     */
-    @Test
-    public void maxCharacterLengthTest() {
-        // TODO: test maxCharacterLength
-    }
-
-    /**
-     * Test the property 'translatedError'
-     */
-    @Test
-    public void translatedErrorTest() {
-        // TODO: test translatedError
-    }
-
-    /**
-     * Test the property 'customConfig'
-     */
-    @Test
-    public void customConfigTest() {
-        // TODO: test customConfig
     }
 
 }

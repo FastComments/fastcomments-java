@@ -50,40 +50,40 @@ import com.fastcomments.invoker.JSON;
 /**
  * BlockFromCommentParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:58:52.285256603-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class BlockFromCommentParams {
-  public static final String SERIALIZED_NAME_COMMENT_IDS = "commentIds";
-  @SerializedName(SERIALIZED_NAME_COMMENT_IDS)
+  public static final String SERIALIZED_NAME_COMMENT_IDS_TO_CHECK = "commentIdsToCheck";
+  @SerializedName(SERIALIZED_NAME_COMMENT_IDS_TO_CHECK)
   @javax.annotation.Nullable
-  private List<String> commentIds;
+  private List<String> commentIdsToCheck = new ArrayList<>();
 
   public BlockFromCommentParams() {
   }
 
-  public BlockFromCommentParams commentIds(@javax.annotation.Nullable List<String> commentIds) {
-    this.commentIds = commentIds;
+  public BlockFromCommentParams commentIdsToCheck(@javax.annotation.Nullable List<String> commentIdsToCheck) {
+    this.commentIdsToCheck = commentIdsToCheck;
     return this;
   }
 
-  public BlockFromCommentParams addCommentIdsItem(String commentIdsItem) {
-    if (this.commentIds == null) {
-      this.commentIds = new ArrayList<>();
+  public BlockFromCommentParams addCommentIdsToCheckItem(String commentIdsToCheckItem) {
+    if (this.commentIdsToCheck == null) {
+      this.commentIdsToCheck = new ArrayList<>();
     }
-    this.commentIds.add(commentIdsItem);
+    this.commentIdsToCheck.add(commentIdsToCheckItem);
     return this;
   }
 
   /**
-   * A list of comment ids to check if are blocked after performing the update.
-   * @return commentIds
+   * Get commentIdsToCheck
+   * @return commentIdsToCheck
    */
   @javax.annotation.Nullable
-  public List<String> getCommentIds() {
-    return commentIds;
+  public List<String> getCommentIdsToCheck() {
+    return commentIdsToCheck;
   }
 
-  public void setCommentIds(@javax.annotation.Nullable List<String> commentIds) {
-    this.commentIds = commentIds;
+  public void setCommentIdsToCheck(@javax.annotation.Nullable List<String> commentIdsToCheck) {
+    this.commentIdsToCheck = commentIdsToCheck;
   }
 
 
@@ -97,19 +97,19 @@ public class BlockFromCommentParams {
       return false;
     }
     BlockFromCommentParams blockFromCommentParams = (BlockFromCommentParams) o;
-    return Objects.equals(this.commentIds, blockFromCommentParams.commentIds);
+    return Objects.equals(this.commentIdsToCheck, blockFromCommentParams.commentIdsToCheck);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commentIds);
+    return Objects.hash(commentIdsToCheck);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BlockFromCommentParams {\n");
-    sb.append("    commentIds: ").append(toIndentedString(commentIds)).append("\n");
+    sb.append("    commentIdsToCheck: ").append(toIndentedString(commentIdsToCheck)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -132,11 +132,10 @@ public class BlockFromCommentParams {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("commentIds");
+    openapiFields.add("commentIdsToCheck");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("commentIds");
   }
 
   /**
@@ -159,19 +158,10 @@ public class BlockFromCommentParams {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BlockFromCommentParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BlockFromCommentParams.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the required json array is present
-      if (jsonObj.get("commentIds") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("commentIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commentIds` to be an array in the JSON string but got `%s`", jsonObj.get("commentIds").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("commentIdsToCheck") != null && !jsonObj.get("commentIdsToCheck").isJsonNull() && !jsonObj.get("commentIdsToCheck").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `commentIdsToCheck` to be an array in the JSON string but got `%s`", jsonObj.get("commentIdsToCheck").toString()));
       }
   }
 

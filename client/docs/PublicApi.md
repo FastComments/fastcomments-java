@@ -6,13 +6,13 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**blockFromComment**](PublicApi.md#blockFromComment) | **POST** /block-from-comment/{commentId} |  |
 | [**checkedCommentsForBlocked**](PublicApi.md#checkedCommentsForBlocked) | **GET** /check-blocked-comments |  |
-| [**createComment**](PublicApi.md#createComment) | **POST** /comments/{tenantId} |  |
-| [**deleteComment**](PublicApi.md#deleteComment) | **DELETE** /comments/{tenantId}/{commentId} |  |
+| [**createCommentPublic**](PublicApi.md#createCommentPublic) | **POST** /comments/{tenantId} |  |
+| [**deleteCommentPublic**](PublicApi.md#deleteCommentPublic) | **DELETE** /comments/{tenantId}/{commentId} |  |
 | [**deleteCommentVote**](PublicApi.md#deleteCommentVote) | **DELETE** /comments/{tenantId}/{commentId}/vote/{voteId} |  |
-| [**flagComment**](PublicApi.md#flagComment) | **POST** /flag-comment/{commentId} |  |
+| [**flagCommentPublic**](PublicApi.md#flagCommentPublic) | **POST** /flag-comment/{commentId} |  |
 | [**getCommentText**](PublicApi.md#getCommentText) | **GET** /comments/{tenantId}/{commentId}/text |  |
 | [**getCommentVoteUserNames**](PublicApi.md#getCommentVoteUserNames) | **GET** /comments/{tenantId}/{commentId}/votes |  |
-| [**getComments**](PublicApi.md#getComments) | **GET** /comments/{tenantId} |  |
+| [**getCommentsPublic**](PublicApi.md#getCommentsPublic) | **GET** /comments/{tenantId} |  |
 | [**getEventLog**](PublicApi.md#getEventLog) | **GET** /event-log/{tenantId} |  |
 | [**getGlobalEventLog**](PublicApi.md#getGlobalEventLog) | **GET** /event-log/global/{tenantId} |  |
 | [**getUserNotificationCount**](PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count |  |
@@ -34,7 +34,7 @@ All URIs are relative to *http://localhost*
 
 <a id="blockFromComment"></a>
 # **blockFromComment**
-> BlockFromComment200Response blockFromComment(tenantId, commentId, blockFromCommentParams).sso(sso).execute();
+> BlockFromComment200Response blockFromComment(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -55,10 +55,10 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
-    BlockFromCommentParams blockFromCommentParams = new BlockFromCommentParams(); // BlockFromCommentParams | 
+    PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      BlockFromComment200Response result = apiInstance.blockFromComment(tenantId, commentId, blockFromCommentParams)
+      BlockFromComment200Response result = apiInstance.blockFromComment(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -79,7 +79,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
-| **blockFromCommentParams** | [**BlockFromCommentParams**](BlockFromCommentParams.md)|  | |
+| **publicBlockFromCommentParams** | [**PublicBlockFromCommentParams**](PublicBlockFromCommentParams.md)|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -166,9 +166,9 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
-<a id="createComment"></a>
-# **createComment**
-> CreateComment200Response createComment(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
+<a id="createCommentPublic"></a>
+# **createCommentPublic**
+> CreateCommentPublic200Response createCommentPublic(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
 
 
 
@@ -194,13 +194,13 @@ public class Example {
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      CreateComment200Response result = apiInstance.createComment(tenantId, urlId, broadcastId, commentData)
+      CreateCommentPublic200Response result = apiInstance.createCommentPublic(tenantId, urlId, broadcastId, commentData)
             .sessionId(sessionId)
             .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PublicApi#createComment");
+      System.err.println("Exception when calling PublicApi#createCommentPublic");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -223,7 +223,7 @@ public class Example {
 
 ### Return type
 
-[**CreateComment200Response**](CreateComment200Response.md)
+[**CreateCommentPublic200Response**](CreateCommentPublic200Response.md)
 
 ### Authorization
 
@@ -239,9 +239,9 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
-<a id="deleteComment"></a>
-# **deleteComment**
-> DeleteComment200Response deleteComment(tenantId, commentId, broadcastId).editKey(editKey).execute();
+<a id="deleteCommentPublic"></a>
+# **deleteCommentPublic**
+> DeleteCommentPublic200Response deleteCommentPublic(tenantId, commentId, broadcastId).editKey(editKey).execute();
 
 
 
@@ -265,12 +265,12 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String editKey = "editKey_example"; // String | 
     try {
-      DeleteComment200Response result = apiInstance.deleteComment(tenantId, commentId, broadcastId)
+      DeleteCommentPublic200Response result = apiInstance.deleteCommentPublic(tenantId, commentId, broadcastId)
             .editKey(editKey)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PublicApi#deleteComment");
+      System.err.println("Exception when calling PublicApi#deleteCommentPublic");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -291,7 +291,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteComment200Response**](DeleteComment200Response.md)
+[**DeleteCommentPublic200Response**](DeleteCommentPublic200Response.md)
 
 ### Authorization
 
@@ -382,9 +382,9 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
-<a id="flagComment"></a>
-# **flagComment**
-> FlagComment200Response flagComment(tenantId, commentId, isFlagged).sso(sso).execute();
+<a id="flagCommentPublic"></a>
+# **flagCommentPublic**
+> FlagCommentPublic200Response flagCommentPublic(tenantId, commentId, isFlagged).sso(sso).execute();
 
 
 
@@ -408,12 +408,12 @@ public class Example {
     Boolean isFlagged = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      FlagComment200Response result = apiInstance.flagComment(tenantId, commentId, isFlagged)
+      FlagCommentPublic200Response result = apiInstance.flagCommentPublic(tenantId, commentId, isFlagged)
             .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PublicApi#flagComment");
+      System.err.println("Exception when calling PublicApi#flagCommentPublic");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -434,7 +434,7 @@ public class Example {
 
 ### Return type
 
-[**FlagComment200Response**](FlagComment200Response.md)
+[**FlagCommentPublic200Response**](FlagCommentPublic200Response.md)
 
 ### Authorization
 
@@ -587,9 +587,9 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
-<a id="getComments"></a>
-# **getComments**
-> GetComments200Response getComments(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).lastGenDate(lastGenDate).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).execute();
+<a id="getCommentsPublic"></a>
+# **getCommentsPublic**
+> GetCommentsPublic200Response getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).lastGenDate(lastGenDate).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).execute();
 
 
 
@@ -638,7 +638,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String customConfigStr = "customConfigStr_example"; // String | 
     try {
-      GetComments200Response result = apiInstance.getComments(tenantId, urlId)
+      GetCommentsPublic200Response result = apiInstance.getCommentsPublic(tenantId, urlId)
             .page(page)
             .direction(direction)
             .sso(sso)
@@ -667,7 +667,7 @@ public class Example {
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PublicApi#getComments");
+      System.err.println("Exception when calling PublicApi#getCommentsPublic");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -711,7 +711,7 @@ public class Example {
 
 ### Return type
 
-[**GetComments200Response**](GetComments200Response.md)
+[**GetCommentsPublic200Response**](GetCommentsPublic200Response.md)
 
 ### Authorization
 
@@ -1440,7 +1440,7 @@ No authorization required
 
 <a id="unBlockComment"></a>
 # **unBlockComment**
-> UnBlockComment200Response unBlockComment(tenantId, commentId, blockFromCommentParams).sso(sso).execute();
+> UnBlockComment200Response unBlockComment(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -1461,10 +1461,10 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
-    BlockFromCommentParams blockFromCommentParams = new BlockFromCommentParams(); // BlockFromCommentParams | 
+    PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      UnBlockComment200Response result = apiInstance.unBlockComment(tenantId, commentId, blockFromCommentParams)
+      UnBlockComment200Response result = apiInstance.unBlockComment(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1485,7 +1485,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
-| **blockFromCommentParams** | [**BlockFromCommentParams**](BlockFromCommentParams.md)|  | |
+| **publicBlockFromCommentParams** | [**PublicBlockFromCommentParams**](PublicBlockFromCommentParams.md)|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type

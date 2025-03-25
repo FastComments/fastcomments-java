@@ -14,8 +14,33 @@
 package com.fastcomments.api;
 
 import com.fastcomments.invoker.ApiException;
+import com.fastcomments.model.AddDomainConfig200Response;
+import com.fastcomments.model.AddDomainConfigParams;
 import com.fastcomments.model.AggregationRequest;
 import com.fastcomments.model.AggregationResponse;
+import com.fastcomments.model.BlockFromComment200Response;
+import com.fastcomments.model.BlockFromCommentParams;
+import com.fastcomments.model.CreateCommentParams;
+import com.fastcomments.model.CreateFeedPost200Response;
+import com.fastcomments.model.DeleteComment200Response;
+import com.fastcomments.model.DeleteDomainConfig200Response;
+import com.fastcomments.model.FeedPost;
+import com.fastcomments.model.FlagComment200Response;
+import com.fastcomments.model.FlagCommentPublic200Response;
+import com.fastcomments.model.GetAuditLogs200Response;
+import com.fastcomments.model.GetComment200Response;
+import com.fastcomments.model.GetComments200Response;
+import com.fastcomments.model.GetDomainConfig200Response;
+import com.fastcomments.model.GetDomainConfigs200Response;
+import com.fastcomments.model.GetFeedPosts200Response;
+import com.fastcomments.model.PatchDomainConfigParams;
+import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
+import com.fastcomments.model.SORTDIR;
+import com.fastcomments.model.SaveComment200Response;
+import com.fastcomments.model.SortDirections;
+import com.fastcomments.model.UnBlockComment200Response;
+import com.fastcomments.model.UnBlockFromCommentParams;
+import com.fastcomments.model.UpdateDomainConfigParams;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -33,6 +58,18 @@ public class DefaultApiTest {
     private final DefaultApi api = new DefaultApi();
 
     /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void addDomainConfigTest() throws ApiException {
+        String tenantId = null;
+        AddDomainConfigParams addDomainConfigParams = null;
+        AddDomainConfig200Response response = api.addDomainConfig(tenantId, addDomainConfigParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * Aggregates documents by grouping them (if groupBy is provided) and applying multiple operations. Different operations (e.g. sum, countDistinct, avg, etc.) are supported.
      *
      * @throws ApiException if the Api call fails
@@ -46,6 +83,302 @@ public class DefaultApiTest {
         AggregationResponse response = api.aggregate(tenantId, aggregationRequest)
                 .parentTenantId(parentTenantId)
                 .includeStats(includeStats)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void blockUserFromCommentTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        BlockFromCommentParams blockFromCommentParams = null;
+        String userId = null;
+        String anonUserId = null;
+        BlockFromComment200Response response = api.blockUserFromComment(tenantId, id, blockFromCommentParams)
+                .userId(userId)
+                .anonUserId(anonUserId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createFeedPostTest() throws ApiException {
+        String tenantId = null;
+        FeedPost feedPost = null;
+        CreateFeedPost200Response response = api.createFeedPost(tenantId, feedPost)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteCommentTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        String contextUserId = null;
+        Boolean isLive = null;
+        DeleteComment200Response response = api.deleteComment(tenantId, id)
+                .contextUserId(contextUserId)
+                .isLive(isLive)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteDomainConfigTest() throws ApiException {
+        String tenantId = null;
+        String domain = null;
+        DeleteDomainConfig200Response response = api.deleteDomainConfig(tenantId, domain)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void flagCommentTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        String userId = null;
+        String anonUserId = null;
+        FlagComment200Response response = api.flagComment(tenantId, id)
+                .userId(userId)
+                .anonUserId(anonUserId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getAuditLogsTest() throws ApiException {
+        String tenantId = null;
+        Double limit = null;
+        Double skip = null;
+        SORTDIR order = null;
+        Double after = null;
+        Double before = null;
+        GetAuditLogs200Response response = api.getAuditLogs(tenantId)
+                .limit(limit)
+                .skip(skip)
+                .order(order)
+                .after(after)
+                .before(before)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getCommentTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        GetComment200Response response = api.getComment(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getCommentsTest() throws ApiException {
+        String tenantId = null;
+        Double page = null;
+        Double limit = null;
+        Double skip = null;
+        Boolean asTree = null;
+        Double skipChildren = null;
+        Double limitChildren = null;
+        Double maxTreeDepth = null;
+        String urlId = null;
+        String userId = null;
+        String anonUserId = null;
+        String contextUserId = null;
+        String hashTag = null;
+        String parentId = null;
+        SortDirections direction = null;
+        GetComments200Response response = api.getComments(tenantId)
+                .page(page)
+                .limit(limit)
+                .skip(skip)
+                .asTree(asTree)
+                .skipChildren(skipChildren)
+                .limitChildren(limitChildren)
+                .maxTreeDepth(maxTreeDepth)
+                .urlId(urlId)
+                .userId(userId)
+                .anonUserId(anonUserId)
+                .contextUserId(contextUserId)
+                .hashTag(hashTag)
+                .parentId(parentId)
+                .direction(direction)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getDomainConfigTest() throws ApiException {
+        String tenantId = null;
+        String domain = null;
+        GetDomainConfig200Response response = api.getDomainConfig(tenantId, domain)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getDomainConfigsTest() throws ApiException {
+        String tenantId = null;
+        GetDomainConfigs200Response response = api.getDomainConfigs(tenantId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getFeedPostsTest() throws ApiException {
+        String tenantId = null;
+        Double afterId = null;
+        Double limit = null;
+        List<String> tags = null;
+        GetFeedPosts200Response response = api.getFeedPosts(tenantId)
+                .afterId(afterId)
+                .limit(limit)
+                .tags(tags)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void patchDomainConfigTest() throws ApiException {
+        String tenantId = null;
+        String domainToUpdate = null;
+        PatchDomainConfigParams patchDomainConfigParams = null;
+        GetDomainConfig200Response response = api.patchDomainConfig(tenantId, domainToUpdate, patchDomainConfigParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void putDomainConfigTest() throws ApiException {
+        String tenantId = null;
+        String domainToUpdate = null;
+        UpdateDomainConfigParams updateDomainConfigParams = null;
+        GetDomainConfig200Response response = api.putDomainConfig(tenantId, domainToUpdate, updateDomainConfigParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void saveCommentTest() throws ApiException {
+        String tenantId = null;
+        CreateCommentParams createCommentParams = null;
+        Boolean isLive = null;
+        Boolean doSpamCheck = null;
+        Boolean sendEmails = null;
+        Boolean populateNotifications = null;
+        SaveComment200Response response = api.saveComment(tenantId, createCommentParams)
+                .isLive(isLive)
+                .doSpamCheck(doSpamCheck)
+                .sendEmails(sendEmails)
+                .populateNotifications(populateNotifications)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void unBlockUserFromCommentTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        UnBlockFromCommentParams unBlockFromCommentParams = null;
+        String userId = null;
+        String anonUserId = null;
+        UnBlockComment200Response response = api.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
+                .userId(userId)
+                .anonUserId(anonUserId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void unFlagCommentTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        String userId = null;
+        String anonUserId = null;
+        FlagComment200Response response = api.unFlagComment(tenantId, id)
+                .userId(userId)
+                .anonUserId(anonUserId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateCommentTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        PickAPICommentUpdatableCommentFields body = null;
+        String contextUserId = null;
+        Boolean doSpamCheck = null;
+        Boolean isLive = null;
+        FlagCommentPublic200Response response = api.updateComment(tenantId, id, body)
+                .contextUserId(contextUserId)
+                .doSpamCheck(doSpamCheck)
+                .isLive(isLive)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateFeedPostTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        FeedPost feedPost = null;
+        FlagCommentPublic200Response response = api.updateFeedPost(tenantId, id, feedPost)
                 .execute();
         // TODO: test validations
     }

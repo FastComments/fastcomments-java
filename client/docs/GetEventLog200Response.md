@@ -8,8 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**events** | [**List&lt;EventLogEntry&gt;**](EventLogEntry.md) |  |  |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
-|**statusCode** | **Double** |  |  [optional] |
+|**status** | **APIStatusFAILED** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

@@ -8,8 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**comment** | [**PickFCommentApprovedOrCommentHTML**](PickFCommentApprovedOrCommentHTML.md) |  |  |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
-|**statusCode** | **Double** |  |  [optional] |
+|**status** | **APIStatusFAILED** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

@@ -7,9 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatusFAILED** |  |  |
 |**commentStatuses** | **Map&lt;String, Boolean&gt;** | Construct a type with a set of properties K of type T |  |
-|**statusCode** | **Double** |  |  [optional] |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

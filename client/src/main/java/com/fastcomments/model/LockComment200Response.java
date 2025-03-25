@@ -15,9 +15,9 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.APIEmptyResponse;
-import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,7 +61,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:58:52.285256603-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class LockComment200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(LockComment200Response.class.getName());
 
@@ -73,7 +73,7 @@ public class LockComment200Response extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'LockComment200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
+            final TypeAdapter<PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode> adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode = gson.getDelegateAdapter(this, TypeToken.get(PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class));
             final TypeAdapter<APIEmptyResponse> adapterAPIEmptyResponse = gson.getDelegateAdapter(this, TypeToken.get(APIEmptyResponse.class));
 
             return (TypeAdapter<T>) new TypeAdapter<LockComment200Response>() {
@@ -84,9 +84,9 @@ public class LockComment200Response extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
+                    // check if the actual instance is of the type `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+                    if (value.getActualInstance() instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
+                        JsonElement element = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.toJsonTree((PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -96,7 +96,7 @@ public class LockComment200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIEmptyResponse, APIError");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIEmptyResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
                 }
 
                 @Override
@@ -107,18 +107,18 @@ public class LockComment200Response extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize APIError
+                    // deserialize PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
+                        PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
                         LockComment200Response ret = new LockComment200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
+                        errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode'", e);
                     }
                     // deserialize APIEmptyResponse
                     try {
@@ -153,7 +153,7 @@ public class LockComment200Response extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("APIError", APIError.class);
+        schemas.put("PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode", PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class);
         schemas.put("APIEmptyResponse", APIEmptyResponse.class);
     }
 
@@ -165,13 +165,13 @@ public class LockComment200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIEmptyResponse, APIError
+     * APIEmptyResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof APIError) {
+        if (instance instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
             super.setActualInstance(instance);
             return;
         }
@@ -181,14 +181,14 @@ public class LockComment200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIEmptyResponse, APIError");
+        throw new RuntimeException("Invalid instance type. Must be APIEmptyResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIEmptyResponse, APIError
+     * APIEmptyResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
      *
-     * @return The actual instance (APIEmptyResponse, APIError)
+     * @return The actual instance (APIEmptyResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -197,14 +197,14 @@ public class LockComment200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
+     * Get the actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`. If the actual instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
+     * @return The actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+     * @throws ClassCastException if the instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
      */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
+    public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode getPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode() throws ClassCastException {
+        return (PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)super.getActualInstance();
     }
 
     /**
@@ -227,12 +227,12 @@ public class LockComment200Response extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with APIError
+        // validate the json string with PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
         try {
-            APIError.validateJsonElement(jsonElement);
+            PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with APIEmptyResponse
@@ -243,7 +243,7 @@ public class LockComment200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for APIEmptyResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for LockComment200Response with anyOf schemas: APIEmptyResponse, APIError. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for LockComment200Response with anyOf schemas: APIEmptyResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

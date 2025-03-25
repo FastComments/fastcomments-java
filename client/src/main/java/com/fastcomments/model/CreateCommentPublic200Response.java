@@ -14,9 +14,9 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.fastcomments.model.PublicComment;
 import com.fastcomments.model.SaveCommentsResponseWithPresence;
 import com.fastcomments.model.UserSessionInfo;
@@ -65,24 +65,24 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class CreateComment200Response extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(CreateComment200Response.class.getName());
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:58:52.285256603-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class CreateCommentPublic200Response extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(CreateCommentPublic200Response.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateComment200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateComment200Response' and its subtypes
+            if (!CreateCommentPublic200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateCommentPublic200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<SaveCommentsResponseWithPresence> adapterSaveCommentsResponseWithPresence = gson.getDelegateAdapter(this, TypeToken.get(SaveCommentsResponseWithPresence.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
+            final TypeAdapter<PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode> adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode = gson.getDelegateAdapter(this, TypeToken.get(PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class));
 
-            return (TypeAdapter<T>) new TypeAdapter<CreateComment200Response>() {
+            return (TypeAdapter<T>) new TypeAdapter<CreateCommentPublic200Response>() {
                 @Override
-                public void write(JsonWriter out, CreateComment200Response value) throws IOException {
+                public void write(JsonWriter out, CreateCommentPublic200Response value) throws IOException {
                     if (value == null || value.getActualInstance() == null) {
                         elementAdapter.write(out, null);
                         return;
@@ -94,17 +94,17 @@ public class CreateComment200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
+                    // check if the actual instance is of the type `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+                    if (value.getActualInstance() instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
+                        JsonElement element = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.toJsonTree((PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, SaveCommentsResponseWithPresence");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode, SaveCommentsResponseWithPresence");
                 }
 
                 @Override
-                public CreateComment200Response read(JsonReader in) throws IOException {
+                public CreateCommentPublic200Response read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
 
@@ -116,7 +116,7 @@ public class CreateComment200Response extends AbstractOpenApiSchema {
                         // validate the JSON object to see if any exception is thrown
                         SaveCommentsResponseWithPresence.validateJsonElement(jsonElement);
                         actualAdapter = adapterSaveCommentsResponseWithPresence;
-                        CreateComment200Response ret = new CreateComment200Response();
+                        CreateCommentPublic200Response ret = new CreateCommentPublic200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
@@ -124,21 +124,21 @@ public class CreateComment200Response extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'SaveCommentsResponseWithPresence'", e);
                     }
-                    // deserialize APIError
+                    // deserialize PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
-                        CreateComment200Response ret = new CreateComment200Response();
+                        PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
+                        CreateCommentPublic200Response ret = new CreateCommentPublic200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
+                        errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode'", e);
                     }
 
-                    throw new IOException(String.format("Failed deserialization for CreateComment200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format("Failed deserialization for CreateCommentPublic200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -147,29 +147,29 @@ public class CreateComment200Response extends AbstractOpenApiSchema {
     // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public CreateComment200Response() {
+    public CreateCommentPublic200Response() {
         super("anyOf", Boolean.FALSE);
     }
 
-    public CreateComment200Response(Object o) {
+    public CreateCommentPublic200Response(Object o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
         schemas.put("SaveCommentsResponseWithPresence", SaveCommentsResponseWithPresence.class);
-        schemas.put("APIError", APIError.class);
+        schemas.put("PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode", PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class);
     }
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return CreateComment200Response.schemas;
+        return CreateCommentPublic200Response.schemas;
     }
 
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, SaveCommentsResponseWithPresence
+     * PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode, SaveCommentsResponseWithPresence
      *
      * It could be an instance of the 'anyOf' schemas.
      */
@@ -180,19 +180,19 @@ public class CreateComment200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof APIError) {
+        if (instance instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, SaveCommentsResponseWithPresence");
+        throw new RuntimeException("Invalid instance type. Must be PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode, SaveCommentsResponseWithPresence");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, SaveCommentsResponseWithPresence
+     * PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode, SaveCommentsResponseWithPresence
      *
-     * @return The actual instance (APIError, SaveCommentsResponseWithPresence)
+     * @return The actual instance (PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode, SaveCommentsResponseWithPresence)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -212,21 +212,21 @@ public class CreateComment200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
+     * Get the actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`. If the actual instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
+     * @return The actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+     * @throws ClassCastException if the instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
      */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
+    public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode getPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode() throws ClassCastException {
+        return (PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)super.getActualInstance();
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateComment200Response
+     * @throws IOException if the JSON Element is invalid with respect to CreateCommentPublic200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
@@ -239,30 +239,30 @@ public class CreateComment200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for SaveCommentsResponseWithPresence failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with APIError
+        // validate the json string with PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
         try {
-            APIError.validateJsonElement(jsonElement);
+            PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for CreateComment200Response with anyOf schemas: APIError, SaveCommentsResponseWithPresence. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for CreateCommentPublic200Response with anyOf schemas: PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode, SaveCommentsResponseWithPresence. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
-     * Create an instance of CreateComment200Response given an JSON string
+     * Create an instance of CreateCommentPublic200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateComment200Response
-     * @throws IOException if the JSON string is invalid with respect to CreateComment200Response
+     * @return An instance of CreateCommentPublic200Response
+     * @throws IOException if the JSON string is invalid with respect to CreateCommentPublic200Response
      */
-    public static CreateComment200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateComment200Response.class);
+    public static CreateCommentPublic200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateCommentPublic200Response.class);
     }
 
     /**
-     * Convert an instance of CreateComment200Response to an JSON string
+     * Convert an instance of CreateCommentPublic200Response to an JSON string
      *
      * @return JSON string
      */

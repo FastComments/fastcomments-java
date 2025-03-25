@@ -14,11 +14,11 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId;
-import com.fastcomments.model.PublicAPIDeleteCommentResponse;
+import com.fastcomments.model.DeleteCommentAction;
+import com.fastcomments.model.DeleteCommentResult;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -62,7 +62,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:58:52.285256603-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class DeleteComment200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(DeleteComment200Response.class.getName());
 
@@ -74,8 +74,8 @@ public class DeleteComment200Response extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'DeleteComment200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<PublicAPIDeleteCommentResponse> adapterPublicAPIDeleteCommentResponse = gson.getDelegateAdapter(this, TypeToken.get(PublicAPIDeleteCommentResponse.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
+            final TypeAdapter<DeleteCommentResult> adapterDeleteCommentResult = gson.getDelegateAdapter(this, TypeToken.get(DeleteCommentResult.class));
+            final TypeAdapter<PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode> adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode = gson.getDelegateAdapter(this, TypeToken.get(PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class));
 
             return (TypeAdapter<T>) new TypeAdapter<DeleteComment200Response>() {
                 @Override
@@ -85,19 +85,19 @@ public class DeleteComment200Response extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `PublicAPIDeleteCommentResponse`
-                    if (value.getActualInstance() instanceof PublicAPIDeleteCommentResponse) {
-                        JsonElement element = adapterPublicAPIDeleteCommentResponse.toJsonTree((PublicAPIDeleteCommentResponse)value.getActualInstance());
+                    // check if the actual instance is of the type `DeleteCommentResult`
+                    if (value.getActualInstance() instanceof DeleteCommentResult) {
+                        JsonElement element = adapterDeleteCommentResult.toJsonTree((DeleteCommentResult)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
+                    // check if the actual instance is of the type `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+                    if (value.getActualInstance() instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
+                        JsonElement element = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.toJsonTree((PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, PublicAPIDeleteCommentResponse");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: DeleteCommentResult, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
                 }
 
                 @Override
@@ -108,31 +108,31 @@ public class DeleteComment200Response extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize PublicAPIDeleteCommentResponse
+                    // deserialize DeleteCommentResult
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        PublicAPIDeleteCommentResponse.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPublicAPIDeleteCommentResponse;
+                        DeleteCommentResult.validateJsonElement(jsonElement);
+                        actualAdapter = adapterDeleteCommentResult;
                         DeleteComment200Response ret = new DeleteComment200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PublicAPIDeleteCommentResponse failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PublicAPIDeleteCommentResponse'", e);
+                        errorMessages.add(String.format("Deserialization for DeleteCommentResult failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'DeleteCommentResult'", e);
                     }
-                    // deserialize APIError
+                    // deserialize PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
+                        PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
                         DeleteComment200Response ret = new DeleteComment200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
+                        errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for DeleteComment200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -154,8 +154,8 @@ public class DeleteComment200Response extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("PublicAPIDeleteCommentResponse", PublicAPIDeleteCommentResponse.class);
-        schemas.put("APIError", APIError.class);
+        schemas.put("DeleteCommentResult", DeleteCommentResult.class);
+        schemas.put("PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode", PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class);
     }
 
     @Override
@@ -166,30 +166,30 @@ public class DeleteComment200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, PublicAPIDeleteCommentResponse
+     * DeleteCommentResult, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof PublicAPIDeleteCommentResponse) {
+        if (instance instanceof DeleteCommentResult) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof APIError) {
+        if (instance instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, PublicAPIDeleteCommentResponse");
+        throw new RuntimeException("Invalid instance type. Must be DeleteCommentResult, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, PublicAPIDeleteCommentResponse
+     * DeleteCommentResult, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
      *
-     * @return The actual instance (APIError, PublicAPIDeleteCommentResponse)
+     * @return The actual instance (DeleteCommentResult, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -198,25 +198,25 @@ public class DeleteComment200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `PublicAPIDeleteCommentResponse`. If the actual instance is not `PublicAPIDeleteCommentResponse`,
+     * Get the actual instance of `DeleteCommentResult`. If the actual instance is not `DeleteCommentResult`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `PublicAPIDeleteCommentResponse`
-     * @throws ClassCastException if the instance is not `PublicAPIDeleteCommentResponse`
+     * @return The actual instance of `DeleteCommentResult`
+     * @throws ClassCastException if the instance is not `DeleteCommentResult`
      */
-    public PublicAPIDeleteCommentResponse getPublicAPIDeleteCommentResponse() throws ClassCastException {
-        return (PublicAPIDeleteCommentResponse)super.getActualInstance();
+    public DeleteCommentResult getDeleteCommentResult() throws ClassCastException {
+        return (DeleteCommentResult)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
+     * Get the actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`. If the actual instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
+     * @return The actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+     * @throws ClassCastException if the instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
      */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
+    public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode getPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode() throws ClassCastException {
+        return (PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)super.getActualInstance();
     }
 
     /**
@@ -228,23 +228,23 @@ public class DeleteComment200Response extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with PublicAPIDeleteCommentResponse
+        // validate the json string with DeleteCommentResult
         try {
-            PublicAPIDeleteCommentResponse.validateJsonElement(jsonElement);
+            DeleteCommentResult.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for PublicAPIDeleteCommentResponse failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for DeleteCommentResult failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with APIError
+        // validate the json string with PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
         try {
-            APIError.validateJsonElement(jsonElement);
+            PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for DeleteComment200Response with anyOf schemas: APIError, PublicAPIDeleteCommentResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for DeleteComment200Response with anyOf schemas: DeleteCommentResult, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

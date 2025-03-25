@@ -14,9 +14,9 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.APIEmptyResponse;
-import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,14 +39,6 @@ public class LockComment200ResponseTest {
     @Test
     public void testLockComment200Response() {
         // TODO: test LockComment200Response
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
     }
 
     /**
@@ -111,6 +103,14 @@ public class LockComment200ResponseTest {
     @Test
     public void customConfigTest() {
         // TODO: test customConfig
+    }
+
+    /**
+     * Test the property 'statusCode'
+     */
+    @Test
+    public void statusCodeTest() {
+        // TODO: test statusCode
     }
 
 }

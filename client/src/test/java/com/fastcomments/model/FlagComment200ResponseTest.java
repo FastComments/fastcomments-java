@@ -13,10 +13,10 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIEmptyResponse;
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.FlagCommentResponse;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -42,6 +42,14 @@ public class FlagComment200ResponseTest {
     }
 
     /**
+     * Test the property 'statusCode'
+     */
+    @Test
+    public void statusCodeTest() {
+        // TODO: test statusCode
+    }
+
+    /**
      * Test the property 'status'
      */
     @Test
@@ -50,11 +58,11 @@ public class FlagComment200ResponseTest {
     }
 
     /**
-     * Test the property 'statusCode'
+     * Test the property 'code'
      */
     @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
+    public void codeTest() {
+        // TODO: test code
     }
 
     /**
@@ -66,11 +74,11 @@ public class FlagComment200ResponseTest {
     }
 
     /**
-     * Test the property 'code'
+     * Test the property 'wasUnapproved'
      */
     @Test
-    public void codeTest() {
-        // TODO: test code
+    public void wasUnapprovedTest() {
+        // TODO: test wasUnapproved
     }
 
     /**

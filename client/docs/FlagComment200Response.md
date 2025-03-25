@@ -7,10 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
 |**statusCode** | **Double** |  |  [optional] |
-|**reason** | **String** |  |  |
+|**status** | **APIStatusFAILED** |  |  |
 |**code** | **String** |  |  |
+|**reason** | **String** |  |  |
+|**wasUnapproved** | **Boolean** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Double** |  |  [optional] |
 |**maxCharacterLength** | **Double** |  |  [optional] |

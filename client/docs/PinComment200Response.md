@@ -8,8 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**commentPositions** | [**Map&lt;String, RecordStringBeforeStringOrNullAfterStringOrNullValue&gt;**](RecordStringBeforeStringOrNullAfterStringOrNullValue.md) | Construct a type with a set of properties K of type T |  |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
-|**statusCode** | **Double** |  |  [optional] |
+|**status** | **APIStatusFAILED** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

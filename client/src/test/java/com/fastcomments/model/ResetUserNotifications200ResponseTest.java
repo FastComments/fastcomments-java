@@ -13,9 +13,9 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.fastcomments.model.ResetUserNotificationsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -55,14 +55,6 @@ public class ResetUserNotifications200ResponseTest {
     @Test
     public void codeTest() {
         // TODO: test code
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
     }
 
     /**

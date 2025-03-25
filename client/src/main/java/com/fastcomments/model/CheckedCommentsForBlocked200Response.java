@@ -14,10 +14,10 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CheckBlockedCommentsResponse;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -63,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-21T00:29:23.180320485-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:58:52.285256603-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(CheckedCommentsForBlocked200Response.class.getName());
 
@@ -76,7 +76,7 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<CheckBlockedCommentsResponse> adapterCheckBlockedCommentsResponse = gson.getDelegateAdapter(this, TypeToken.get(CheckBlockedCommentsResponse.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
+            final TypeAdapter<PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode> adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode = gson.getDelegateAdapter(this, TypeToken.get(PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CheckedCommentsForBlocked200Response>() {
                 @Override
@@ -92,13 +92,13 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
+                    // check if the actual instance is of the type `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+                    if (value.getActualInstance() instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
+                        JsonElement element = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.toJsonTree((PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, CheckBlockedCommentsResponse");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: CheckBlockedCommentsResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
                 }
 
                 @Override
@@ -122,18 +122,18 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
                         errorMessages.add(String.format("Deserialization for CheckBlockedCommentsResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'CheckBlockedCommentsResponse'", e);
                     }
-                    // deserialize APIError
+                    // deserialize PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
+                        PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
                         CheckedCommentsForBlocked200Response ret = new CheckedCommentsForBlocked200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
+                        errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for CheckedCommentsForBlocked200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -156,7 +156,7 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
 
     static {
         schemas.put("CheckBlockedCommentsResponse", CheckBlockedCommentsResponse.class);
-        schemas.put("APIError", APIError.class);
+        schemas.put("PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode", PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class);
     }
 
     @Override
@@ -167,7 +167,7 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, CheckBlockedCommentsResponse
+     * CheckBlockedCommentsResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
      *
      * It could be an instance of the 'anyOf' schemas.
      */
@@ -178,19 +178,19 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
             return;
         }
 
-        if (instance instanceof APIError) {
+        if (instance instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, CheckBlockedCommentsResponse");
+        throw new RuntimeException("Invalid instance type. Must be CheckBlockedCommentsResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, CheckBlockedCommentsResponse
+     * CheckBlockedCommentsResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
      *
-     * @return The actual instance (APIError, CheckBlockedCommentsResponse)
+     * @return The actual instance (CheckBlockedCommentsResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -210,14 +210,14 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
     }
 
     /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
+     * Get the actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`. If the actual instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
+     * @return The actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+     * @throws ClassCastException if the instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
      */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
+    public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode getPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode() throws ClassCastException {
+        return (PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)super.getActualInstance();
     }
 
     /**
@@ -237,15 +237,15 @@ public class CheckedCommentsForBlocked200Response extends AbstractOpenApiSchema 
             errorMessages.add(String.format("Deserialization for CheckBlockedCommentsResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with APIError
+        // validate the json string with PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
         try {
-            APIError.validateJsonElement(jsonElement);
+            PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for CheckedCommentsForBlocked200Response with anyOf schemas: APIError, CheckBlockedCommentsResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for CheckedCommentsForBlocked200Response with anyOf schemas: CheckBlockedCommentsResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

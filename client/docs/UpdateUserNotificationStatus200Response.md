@@ -7,11 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatusFAILED** |  |  |
 |**matchedCount** | **Double** |  |  |
 |**modifiedCount** | **Double** |  |  |
 |**note** | [**NoteEnum**](#NoteEnum) |  |  |
-|**statusCode** | **Double** |  |  [optional] |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

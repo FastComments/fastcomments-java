@@ -7,10 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**comment** | [**PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId**](PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.md) |  |  [optional] |
-|**hardRemoved** | **Boolean** |  |  |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
-|**statusCode** | **Double** |  |  [optional] |
+|**action** | **DeleteCommentAction** |  |  |
+|**status** | **APIStatusFAILED** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

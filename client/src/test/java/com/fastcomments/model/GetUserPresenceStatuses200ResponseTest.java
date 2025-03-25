@@ -13,10 +13,10 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GetUserPresenceStatusesResponse;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,14 +57,6 @@ public class GetUserPresenceStatuses200ResponseTest {
     @Test
     public void userIdsOnlineTest() {
         // TODO: test userIdsOnline
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
     }
 
     /**

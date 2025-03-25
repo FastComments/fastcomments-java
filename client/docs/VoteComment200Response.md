@@ -7,12 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatusFAILED** |  |  |
 |**voteId** | **String** |  |  [optional] |
 |**isVerified** | **Boolean** |  |  [optional] |
 |**user** | [**VoteResponseUser**](VoteResponseUser.md) |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
-|**statusCode** | **Double** |  |  [optional] |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

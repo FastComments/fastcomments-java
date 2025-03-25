@@ -13,11 +13,11 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId;
-import com.fastcomments.model.PublicAPIDeleteCommentResponse;
+import com.fastcomments.model.DeleteCommentAction;
+import com.fastcomments.model.DeleteCommentResult;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,19 +43,11 @@ public class DeleteComment200ResponseTest {
     }
 
     /**
-     * Test the property 'comment'
+     * Test the property 'action'
      */
     @Test
-    public void commentTest() {
-        // TODO: test comment
-    }
-
-    /**
-     * Test the property 'hardRemoved'
-     */
-    @Test
-    public void hardRemovedTest() {
-        // TODO: test hardRemoved
+    public void actionTest() {
+        // TODO: test action
     }
 
     /**
@@ -64,14 +56,6 @@ public class DeleteComment200ResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
     }
 
     /**

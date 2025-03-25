@@ -27,25 +27,25 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.fastcomments.model.APIError;
 import com.fastcomments.model.BlockFromComment200Response;
-import com.fastcomments.model.BlockFromCommentParams;
 import com.fastcomments.model.CheckedCommentsForBlocked200Response;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
-import com.fastcomments.model.CreateComment200Response;
-import com.fastcomments.model.DeleteComment200Response;
+import com.fastcomments.model.CreateCommentPublic200Response;
+import com.fastcomments.model.DeleteCommentPublic200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
-import com.fastcomments.model.FlagComment200Response;
+import com.fastcomments.model.FlagCommentPublic200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
-import com.fastcomments.model.GetComments200Response;
+import com.fastcomments.model.GetCommentsPublic200Response;
 import com.fastcomments.model.GetEventLog200Response;
 import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.GetUserPresenceStatuses200Response;
 import com.fastcomments.model.LockComment200Response;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.fastcomments.model.PinComment200Response;
+import com.fastcomments.model.PublicBlockFromCommentParams;
 import com.fastcomments.model.ResetUserNotifications200Response;
 import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SortDirections;
@@ -97,7 +97,7 @@ public class PublicApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call blockFromCommentCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -111,7 +111,7 @@ public class PublicApi {
             basePath = null;
         }
 
-        Object localVarPostBody = blockFromCommentParams;
+        Object localVarPostBody = publicBlockFromCommentParams;
 
         // create path and map variables
         String localVarPath = "/block-from-comment/{commentId}"
@@ -152,7 +152,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call blockFromCommentValidateBeforeCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentValidateBeforeCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling blockFromComment(Async)");
@@ -163,25 +163,25 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'commentId' when calling blockFromComment(Async)");
         }
 
-        // verify the required parameter 'blockFromCommentParams' is set
-        if (blockFromCommentParams == null) {
-            throw new ApiException("Missing the required parameter 'blockFromCommentParams' when calling blockFromComment(Async)");
+        // verify the required parameter 'publicBlockFromCommentParams' is set
+        if (publicBlockFromCommentParams == null) {
+            throw new ApiException("Missing the required parameter 'publicBlockFromCommentParams' when calling blockFromComment(Async)");
         }
 
-        return blockFromCommentCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        return blockFromCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
 
     }
 
 
-    private ApiResponse<BlockFromComment200Response> blockFromCommentWithHttpInfo(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
-        okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, null);
+    private ApiResponse<BlockFromComment200Response> blockFromCommentWithHttpInfo(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso) throws ApiException {
+        okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, null);
         Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call blockFromCommentAsync(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentAsync(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -190,13 +190,13 @@ public class PublicApi {
     public class APIblockFromCommentRequest {
         private final String tenantId;
         private final String commentId;
-        private final BlockFromCommentParams blockFromCommentParams;
+        private final PublicBlockFromCommentParams publicBlockFromCommentParams;
         private String sso;
 
-        private APIblockFromCommentRequest(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
+        private APIblockFromCommentRequest(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
             this.tenantId = tenantId;
             this.commentId = commentId;
-            this.blockFromCommentParams = blockFromCommentParams;
+            this.publicBlockFromCommentParams = publicBlockFromCommentParams;
         }
 
         /**
@@ -222,7 +222,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return blockFromCommentCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+            return blockFromCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
 
         /**
@@ -237,7 +237,7 @@ public class PublicApi {
          </table>
          */
         public BlockFromComment200Response execute() throws ApiException {
-            ApiResponse<BlockFromComment200Response> localVarResp = blockFromCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+            ApiResponse<BlockFromComment200Response> localVarResp = blockFromCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
             return localVarResp.getData();
         }
 
@@ -253,7 +253,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<BlockFromComment200Response> executeWithHttpInfo() throws ApiException {
-            return blockFromCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+            return blockFromCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
         }
 
         /**
@@ -269,7 +269,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
-            return blockFromCommentAsync(tenantId, commentId, blockFromCommentParams, sso, _callback);
+            return blockFromCommentAsync(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
     }
 
@@ -278,7 +278,7 @@ public class PublicApi {
      * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
+     * @param publicBlockFromCommentParams  (required)
      * @return APIblockFromCommentRequest
      * @http.response.details
      <table border="1">
@@ -287,8 +287,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIblockFromCommentRequest blockFromComment(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
-        return new APIblockFromCommentRequest(tenantId, commentId, blockFromCommentParams);
+    public APIblockFromCommentRequest blockFromComment(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
+        return new APIblockFromCommentRequest(tenantId, commentId, publicBlockFromCommentParams);
     }
     private okhttp3.Call checkedCommentsForBlockedCall(String tenantId, String commentIds, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -477,7 +477,7 @@ public class PublicApi {
     public APIcheckedCommentsForBlockedRequest checkedCommentsForBlocked(String tenantId, String commentIds) {
         return new APIcheckedCommentsForBlockedRequest(tenantId, commentIds);
     }
-    private okhttp3.Call createCommentCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCommentPublicCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -540,47 +540,47 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCommentValidateBeforeCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCommentPublicValidateBeforeCall(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling createComment(Async)");
+            throw new ApiException("Missing the required parameter 'tenantId' when calling createCommentPublic(Async)");
         }
 
         // verify the required parameter 'urlId' is set
         if (urlId == null) {
-            throw new ApiException("Missing the required parameter 'urlId' when calling createComment(Async)");
+            throw new ApiException("Missing the required parameter 'urlId' when calling createCommentPublic(Async)");
         }
 
         // verify the required parameter 'broadcastId' is set
         if (broadcastId == null) {
-            throw new ApiException("Missing the required parameter 'broadcastId' when calling createComment(Async)");
+            throw new ApiException("Missing the required parameter 'broadcastId' when calling createCommentPublic(Async)");
         }
 
         // verify the required parameter 'commentData' is set
         if (commentData == null) {
-            throw new ApiException("Missing the required parameter 'commentData' when calling createComment(Async)");
+            throw new ApiException("Missing the required parameter 'commentData' when calling createCommentPublic(Async)");
         }
 
-        return createCommentCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+        return createCommentPublicCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
 
     }
 
 
-    private ApiResponse<CreateComment200Response> createCommentWithHttpInfo(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso) throws ApiException {
-        okhttp3.Call localVarCall = createCommentValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, null);
-        Type localVarReturnType = new TypeToken<CreateComment200Response>(){}.getType();
+    private ApiResponse<CreateCommentPublic200Response> createCommentPublicWithHttpInfo(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso) throws ApiException {
+        okhttp3.Call localVarCall = createCommentPublicValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, null);
+        Type localVarReturnType = new TypeToken<CreateCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createCommentAsync(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback<CreateComment200Response> _callback) throws ApiException {
+    private okhttp3.Call createCommentPublicAsync(String tenantId, String urlId, String broadcastId, CommentData commentData, String sessionId, String sso, final ApiCallback<CreateCommentPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCommentValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
-        Type localVarReturnType = new TypeToken<CreateComment200Response>(){}.getType();
+        okhttp3.Call localVarCall = createCommentPublicValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+        Type localVarReturnType = new TypeToken<CreateCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIcreateCommentRequest {
+    public class APIcreateCommentPublicRequest {
         private final String tenantId;
         private final String urlId;
         private final String broadcastId;
@@ -588,7 +588,7 @@ public class PublicApi {
         private String sessionId;
         private String sso;
 
-        private APIcreateCommentRequest(String tenantId, String urlId, String broadcastId, CommentData commentData) {
+        private APIcreateCommentPublicRequest(String tenantId, String urlId, String broadcastId, CommentData commentData) {
             this.tenantId = tenantId;
             this.urlId = urlId;
             this.broadcastId = broadcastId;
@@ -598,9 +598,9 @@ public class PublicApi {
         /**
          * Set sessionId
          * @param sessionId  (optional)
-         * @return APIcreateCommentRequest
+         * @return APIcreateCommentPublicRequest
          */
-        public APIcreateCommentRequest sessionId(String sessionId) {
+        public APIcreateCommentPublicRequest sessionId(String sessionId) {
             this.sessionId = sessionId;
             return this;
         }
@@ -608,15 +608,15 @@ public class PublicApi {
         /**
          * Set sso
          * @param sso  (optional)
-         * @return APIcreateCommentRequest
+         * @return APIcreateCommentPublicRequest
          */
-        public APIcreateCommentRequest sso(String sso) {
+        public APIcreateCommentPublicRequest sso(String sso) {
             this.sso = sso;
             return this;
         }
 
         /**
-         * Build call for createComment
+         * Build call for createCommentPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -628,12 +628,12 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createCommentCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+            return createCommentPublicCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
         }
 
         /**
-         * Execute createComment request
-         * @return CreateComment200Response
+         * Execute createCommentPublic request
+         * @return CreateCommentPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -642,14 +642,14 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public CreateComment200Response execute() throws ApiException {
-            ApiResponse<CreateComment200Response> localVarResp = createCommentWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+        public CreateCommentPublic200Response execute() throws ApiException {
+            ApiResponse<CreateCommentPublic200Response> localVarResp = createCommentPublicWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
             return localVarResp.getData();
         }
 
         /**
-         * Execute createComment request with HTTP info returned
-         * @return ApiResponse&lt;CreateComment200Response&gt;
+         * Execute createCommentPublic request with HTTP info returned
+         * @return ApiResponse&lt;CreateCommentPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -658,12 +658,12 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateComment200Response> executeWithHttpInfo() throws ApiException {
-            return createCommentWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+        public ApiResponse<CreateCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+            return createCommentPublicWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
         }
 
         /**
-         * Execute createComment request (asynchronously)
+         * Execute createCommentPublic request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -674,8 +674,8 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateComment200Response> _callback) throws ApiException {
-            return createCommentAsync(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<CreateCommentPublic200Response> _callback) throws ApiException {
+            return createCommentPublicAsync(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
         }
     }
 
@@ -686,7 +686,7 @@ public class PublicApi {
      * @param urlId  (required)
      * @param broadcastId  (required)
      * @param commentData  (required)
-     * @return APIcreateCommentRequest
+     * @return APIcreateCommentPublicRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -694,10 +694,10 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateCommentRequest createComment(String tenantId, String urlId, String broadcastId, CommentData commentData) {
-        return new APIcreateCommentRequest(tenantId, urlId, broadcastId, commentData);
+    public APIcreateCommentPublicRequest createCommentPublic(String tenantId, String urlId, String broadcastId, CommentData commentData) {
+        return new APIcreateCommentPublicRequest(tenantId, urlId, broadcastId, commentData);
     }
-    private okhttp3.Call deleteCommentCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCommentPublicCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -752,48 +752,48 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCommentValidateBeforeCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCommentPublicValidateBeforeCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteComment(Async)");
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteCommentPublic(Async)");
         }
 
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
-            throw new ApiException("Missing the required parameter 'commentId' when calling deleteComment(Async)");
+            throw new ApiException("Missing the required parameter 'commentId' when calling deleteCommentPublic(Async)");
         }
 
         // verify the required parameter 'broadcastId' is set
         if (broadcastId == null) {
-            throw new ApiException("Missing the required parameter 'broadcastId' when calling deleteComment(Async)");
+            throw new ApiException("Missing the required parameter 'broadcastId' when calling deleteCommentPublic(Async)");
         }
 
-        return deleteCommentCall(tenantId, commentId, broadcastId, editKey, _callback);
+        return deleteCommentPublicCall(tenantId, commentId, broadcastId, editKey, _callback);
 
     }
 
 
-    private ApiResponse<DeleteComment200Response> deleteCommentWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey) throws ApiException {
-        okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, commentId, broadcastId, editKey, null);
-        Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
+    private ApiResponse<DeleteCommentPublic200Response> deleteCommentPublicWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey) throws ApiException {
+        okhttp3.Call localVarCall = deleteCommentPublicValidateBeforeCall(tenantId, commentId, broadcastId, editKey, null);
+        Type localVarReturnType = new TypeToken<DeleteCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCommentAsync(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteCommentPublicAsync(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback<DeleteCommentPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, commentId, broadcastId, editKey, _callback);
-        Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
+        okhttp3.Call localVarCall = deleteCommentPublicValidateBeforeCall(tenantId, commentId, broadcastId, editKey, _callback);
+        Type localVarReturnType = new TypeToken<DeleteCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIdeleteCommentRequest {
+    public class APIdeleteCommentPublicRequest {
         private final String tenantId;
         private final String commentId;
         private final String broadcastId;
         private String editKey;
 
-        private APIdeleteCommentRequest(String tenantId, String commentId, String broadcastId) {
+        private APIdeleteCommentPublicRequest(String tenantId, String commentId, String broadcastId) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.broadcastId = broadcastId;
@@ -802,15 +802,15 @@ public class PublicApi {
         /**
          * Set editKey
          * @param editKey  (optional)
-         * @return APIdeleteCommentRequest
+         * @return APIdeleteCommentPublicRequest
          */
-        public APIdeleteCommentRequest editKey(String editKey) {
+        public APIdeleteCommentPublicRequest editKey(String editKey) {
             this.editKey = editKey;
             return this;
         }
 
         /**
-         * Build call for deleteComment
+         * Build call for deleteCommentPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -822,12 +822,12 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCommentCall(tenantId, commentId, broadcastId, editKey, _callback);
+            return deleteCommentPublicCall(tenantId, commentId, broadcastId, editKey, _callback);
         }
 
         /**
-         * Execute deleteComment request
-         * @return DeleteComment200Response
+         * Execute deleteCommentPublic request
+         * @return DeleteCommentPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -836,14 +836,14 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public DeleteComment200Response execute() throws ApiException {
-            ApiResponse<DeleteComment200Response> localVarResp = deleteCommentWithHttpInfo(tenantId, commentId, broadcastId, editKey);
+        public DeleteCommentPublic200Response execute() throws ApiException {
+            ApiResponse<DeleteCommentPublic200Response> localVarResp = deleteCommentPublicWithHttpInfo(tenantId, commentId, broadcastId, editKey);
             return localVarResp.getData();
         }
 
         /**
-         * Execute deleteComment request with HTTP info returned
-         * @return ApiResponse&lt;DeleteComment200Response&gt;
+         * Execute deleteCommentPublic request with HTTP info returned
+         * @return ApiResponse&lt;DeleteCommentPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -852,12 +852,12 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<DeleteComment200Response> executeWithHttpInfo() throws ApiException {
-            return deleteCommentWithHttpInfo(tenantId, commentId, broadcastId, editKey);
+        public ApiResponse<DeleteCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+            return deleteCommentPublicWithHttpInfo(tenantId, commentId, broadcastId, editKey);
         }
 
         /**
-         * Execute deleteComment request (asynchronously)
+         * Execute deleteCommentPublic request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -868,8 +868,8 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
-            return deleteCommentAsync(tenantId, commentId, broadcastId, editKey, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCommentPublic200Response> _callback) throws ApiException {
+            return deleteCommentPublicAsync(tenantId, commentId, broadcastId, editKey, _callback);
         }
     }
 
@@ -879,7 +879,7 @@ public class PublicApi {
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param broadcastId  (required)
-     * @return APIdeleteCommentRequest
+     * @return APIdeleteCommentPublicRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -887,8 +887,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCommentRequest deleteComment(String tenantId, String commentId, String broadcastId) {
-        return new APIdeleteCommentRequest(tenantId, commentId, broadcastId);
+    public APIdeleteCommentPublicRequest deleteCommentPublic(String tenantId, String commentId, String broadcastId) {
+        return new APIdeleteCommentPublicRequest(tenantId, commentId, broadcastId);
     }
     private okhttp3.Call deleteCommentVoteCall(String tenantId, String commentId, String voteId, String urlId, String broadcastId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1119,7 +1119,7 @@ public class PublicApi {
     public APIdeleteCommentVoteRequest deleteCommentVote(String tenantId, String commentId, String voteId, String urlId, String broadcastId) {
         return new APIdeleteCommentVoteRequest(tenantId, commentId, voteId, urlId, broadcastId);
     }
-    private okhttp3.Call flagCommentCall(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call flagCommentPublicCall(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1177,48 +1177,48 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call flagCommentValidateBeforeCall(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call flagCommentPublicValidateBeforeCall(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling flagComment(Async)");
+            throw new ApiException("Missing the required parameter 'tenantId' when calling flagCommentPublic(Async)");
         }
 
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
-            throw new ApiException("Missing the required parameter 'commentId' when calling flagComment(Async)");
+            throw new ApiException("Missing the required parameter 'commentId' when calling flagCommentPublic(Async)");
         }
 
         // verify the required parameter 'isFlagged' is set
         if (isFlagged == null) {
-            throw new ApiException("Missing the required parameter 'isFlagged' when calling flagComment(Async)");
+            throw new ApiException("Missing the required parameter 'isFlagged' when calling flagCommentPublic(Async)");
         }
 
-        return flagCommentCall(tenantId, commentId, isFlagged, sso, _callback);
+        return flagCommentPublicCall(tenantId, commentId, isFlagged, sso, _callback);
 
     }
 
 
-    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(String tenantId, String commentId, Boolean isFlagged, String sso) throws ApiException {
-        okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, null);
-        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
+    private ApiResponse<FlagCommentPublic200Response> flagCommentPublicWithHttpInfo(String tenantId, String commentId, Boolean isFlagged, String sso) throws ApiException {
+        okhttp3.Call localVarCall = flagCommentPublicValidateBeforeCall(tenantId, commentId, isFlagged, sso, null);
+        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call flagCommentAsync(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+    private okhttp3.Call flagCommentPublicAsync(String tenantId, String commentId, Boolean isFlagged, String sso, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, commentId, isFlagged, sso, _callback);
-        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
+        okhttp3.Call localVarCall = flagCommentPublicValidateBeforeCall(tenantId, commentId, isFlagged, sso, _callback);
+        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIflagCommentRequest {
+    public class APIflagCommentPublicRequest {
         private final String tenantId;
         private final String commentId;
         private final Boolean isFlagged;
         private String sso;
 
-        private APIflagCommentRequest(String tenantId, String commentId, Boolean isFlagged) {
+        private APIflagCommentPublicRequest(String tenantId, String commentId, Boolean isFlagged) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.isFlagged = isFlagged;
@@ -1227,15 +1227,15 @@ public class PublicApi {
         /**
          * Set sso
          * @param sso  (optional)
-         * @return APIflagCommentRequest
+         * @return APIflagCommentPublicRequest
          */
-        public APIflagCommentRequest sso(String sso) {
+        public APIflagCommentPublicRequest sso(String sso) {
             this.sso = sso;
             return this;
         }
 
         /**
-         * Build call for flagComment
+         * Build call for flagCommentPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -1247,12 +1247,12 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return flagCommentCall(tenantId, commentId, isFlagged, sso, _callback);
+            return flagCommentPublicCall(tenantId, commentId, isFlagged, sso, _callback);
         }
 
         /**
-         * Execute flagComment request
-         * @return FlagComment200Response
+         * Execute flagCommentPublic request
+         * @return FlagCommentPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -1261,14 +1261,14 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public FlagComment200Response execute() throws ApiException {
-            ApiResponse<FlagComment200Response> localVarResp = flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
+        public FlagCommentPublic200Response execute() throws ApiException {
+            ApiResponse<FlagCommentPublic200Response> localVarResp = flagCommentPublicWithHttpInfo(tenantId, commentId, isFlagged, sso);
             return localVarResp.getData();
         }
 
         /**
-         * Execute flagComment request with HTTP info returned
-         * @return ApiResponse&lt;FlagComment200Response&gt;
+         * Execute flagCommentPublic request with HTTP info returned
+         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -1277,12 +1277,12 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagComment200Response> executeWithHttpInfo() throws ApiException {
-            return flagCommentWithHttpInfo(tenantId, commentId, isFlagged, sso);
+        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+            return flagCommentPublicWithHttpInfo(tenantId, commentId, isFlagged, sso);
         }
 
         /**
-         * Execute flagComment request (asynchronously)
+         * Execute flagCommentPublic request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1293,8 +1293,8 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagComment200Response> _callback) throws ApiException {
-            return flagCommentAsync(tenantId, commentId, isFlagged, sso, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+            return flagCommentPublicAsync(tenantId, commentId, isFlagged, sso, _callback);
         }
     }
 
@@ -1304,7 +1304,7 @@ public class PublicApi {
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param isFlagged  (required)
-     * @return APIflagCommentRequest
+     * @return APIflagCommentPublicRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -1312,8 +1312,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIflagCommentRequest flagComment(String tenantId, String commentId, Boolean isFlagged) {
-        return new APIflagCommentRequest(tenantId, commentId, isFlagged);
+    public APIflagCommentPublicRequest flagCommentPublic(String tenantId, String commentId, Boolean isFlagged) {
+        return new APIflagCommentPublicRequest(tenantId, commentId, isFlagged);
     }
     private okhttp3.Call getCommentTextCall(String tenantId, String commentId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1704,7 +1704,7 @@ public class PublicApi {
     public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Double direction) {
         return new APIgetCommentVoteUserNamesRequest(tenantId, commentId, direction);
     }
-    private okhttp3.Call getCommentsCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1854,37 +1854,37 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicValidateBeforeCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling getComments(Async)");
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getCommentsPublic(Async)");
         }
 
         // verify the required parameter 'urlId' is set
         if (urlId == null) {
-            throw new ApiException("Missing the required parameter 'urlId' when calling getComments(Async)");
+            throw new ApiException("Missing the required parameter 'urlId' when calling getCommentsPublic(Async)");
         }
 
-        return getCommentsCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+        return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
 
     }
 
 
-    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
-        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, null);
-        Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
+    private ApiResponse<GetCommentsPublic200Response> getCommentsPublicWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
+        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, null);
+        Type localVarReturnType = new TypeToken<GetCommentsPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentsAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetComments200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetCommentsPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
-        Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
+        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+        Type localVarReturnType = new TypeToken<GetCommentsPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIgetCommentsRequest {
+    public class APIgetCommentsPublicRequest {
         private final String tenantId;
         private final String urlId;
         private Integer page;
@@ -1913,7 +1913,7 @@ public class PublicApi {
         private String userId;
         private String customConfigStr;
 
-        private APIgetCommentsRequest(String tenantId, String urlId) {
+        private APIgetCommentsPublicRequest(String tenantId, String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
         }
@@ -1921,9 +1921,9 @@ public class PublicApi {
         /**
          * Set page
          * @param page  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest page(Integer page) {
+        public APIgetCommentsPublicRequest page(Integer page) {
             this.page = page;
             return this;
         }
@@ -1931,9 +1931,9 @@ public class PublicApi {
         /**
          * Set direction
          * @param direction  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest direction(SortDirections direction) {
+        public APIgetCommentsPublicRequest direction(SortDirections direction) {
             this.direction = direction;
             return this;
         }
@@ -1941,9 +1941,9 @@ public class PublicApi {
         /**
          * Set sso
          * @param sso  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest sso(String sso) {
+        public APIgetCommentsPublicRequest sso(String sso) {
             this.sso = sso;
             return this;
         }
@@ -1951,9 +1951,9 @@ public class PublicApi {
         /**
          * Set skip
          * @param skip  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest skip(Integer skip) {
+        public APIgetCommentsPublicRequest skip(Integer skip) {
             this.skip = skip;
             return this;
         }
@@ -1961,9 +1961,9 @@ public class PublicApi {
         /**
          * Set skipChildren
          * @param skipChildren  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest skipChildren(Integer skipChildren) {
+        public APIgetCommentsPublicRequest skipChildren(Integer skipChildren) {
             this.skipChildren = skipChildren;
             return this;
         }
@@ -1971,9 +1971,9 @@ public class PublicApi {
         /**
          * Set limit
          * @param limit  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest limit(Integer limit) {
+        public APIgetCommentsPublicRequest limit(Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -1981,9 +1981,9 @@ public class PublicApi {
         /**
          * Set limitChildren
          * @param limitChildren  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest limitChildren(Integer limitChildren) {
+        public APIgetCommentsPublicRequest limitChildren(Integer limitChildren) {
             this.limitChildren = limitChildren;
             return this;
         }
@@ -1991,9 +1991,9 @@ public class PublicApi {
         /**
          * Set countChildren
          * @param countChildren  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest countChildren(Boolean countChildren) {
+        public APIgetCommentsPublicRequest countChildren(Boolean countChildren) {
             this.countChildren = countChildren;
             return this;
         }
@@ -2001,9 +2001,9 @@ public class PublicApi {
         /**
          * Set lastGenDate
          * @param lastGenDate  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest lastGenDate(Long lastGenDate) {
+        public APIgetCommentsPublicRequest lastGenDate(Long lastGenDate) {
             this.lastGenDate = lastGenDate;
             return this;
         }
@@ -2011,9 +2011,9 @@ public class PublicApi {
         /**
          * Set fetchPageForCommentId
          * @param fetchPageForCommentId  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest fetchPageForCommentId(String fetchPageForCommentId) {
+        public APIgetCommentsPublicRequest fetchPageForCommentId(String fetchPageForCommentId) {
             this.fetchPageForCommentId = fetchPageForCommentId;
             return this;
         }
@@ -2021,9 +2021,9 @@ public class PublicApi {
         /**
          * Set includeConfig
          * @param includeConfig  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest includeConfig(Boolean includeConfig) {
+        public APIgetCommentsPublicRequest includeConfig(Boolean includeConfig) {
             this.includeConfig = includeConfig;
             return this;
         }
@@ -2031,9 +2031,9 @@ public class PublicApi {
         /**
          * Set countAll
          * @param countAll  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest countAll(Boolean countAll) {
+        public APIgetCommentsPublicRequest countAll(Boolean countAll) {
             this.countAll = countAll;
             return this;
         }
@@ -2041,9 +2041,9 @@ public class PublicApi {
         /**
          * Set includei10n
          * @param includei10n  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest includei10n(Boolean includei10n) {
+        public APIgetCommentsPublicRequest includei10n(Boolean includei10n) {
             this.includei10n = includei10n;
             return this;
         }
@@ -2051,9 +2051,9 @@ public class PublicApi {
         /**
          * Set locale
          * @param locale  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest locale(String locale) {
+        public APIgetCommentsPublicRequest locale(String locale) {
             this.locale = locale;
             return this;
         }
@@ -2061,9 +2061,9 @@ public class PublicApi {
         /**
          * Set modules
          * @param modules  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest modules(String modules) {
+        public APIgetCommentsPublicRequest modules(String modules) {
             this.modules = modules;
             return this;
         }
@@ -2071,9 +2071,9 @@ public class PublicApi {
         /**
          * Set isCrawler
          * @param isCrawler  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest isCrawler(Boolean isCrawler) {
+        public APIgetCommentsPublicRequest isCrawler(Boolean isCrawler) {
             this.isCrawler = isCrawler;
             return this;
         }
@@ -2081,9 +2081,9 @@ public class PublicApi {
         /**
          * Set includeNotificationCount
          * @param includeNotificationCount  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest includeNotificationCount(Boolean includeNotificationCount) {
+        public APIgetCommentsPublicRequest includeNotificationCount(Boolean includeNotificationCount) {
             this.includeNotificationCount = includeNotificationCount;
             return this;
         }
@@ -2091,9 +2091,9 @@ public class PublicApi {
         /**
          * Set asTree
          * @param asTree  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest asTree(Boolean asTree) {
+        public APIgetCommentsPublicRequest asTree(Boolean asTree) {
             this.asTree = asTree;
             return this;
         }
@@ -2101,9 +2101,9 @@ public class PublicApi {
         /**
          * Set maxTreeDepth
          * @param maxTreeDepth  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest maxTreeDepth(Integer maxTreeDepth) {
+        public APIgetCommentsPublicRequest maxTreeDepth(Integer maxTreeDepth) {
             this.maxTreeDepth = maxTreeDepth;
             return this;
         }
@@ -2111,9 +2111,9 @@ public class PublicApi {
         /**
          * Set useFullTranslationIds
          * @param useFullTranslationIds  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest useFullTranslationIds(Boolean useFullTranslationIds) {
+        public APIgetCommentsPublicRequest useFullTranslationIds(Boolean useFullTranslationIds) {
             this.useFullTranslationIds = useFullTranslationIds;
             return this;
         }
@@ -2121,9 +2121,9 @@ public class PublicApi {
         /**
          * Set parentId
          * @param parentId  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest parentId(String parentId) {
+        public APIgetCommentsPublicRequest parentId(String parentId) {
             this.parentId = parentId;
             return this;
         }
@@ -2131,9 +2131,9 @@ public class PublicApi {
         /**
          * Set searchText
          * @param searchText  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest searchText(String searchText) {
+        public APIgetCommentsPublicRequest searchText(String searchText) {
             this.searchText = searchText;
             return this;
         }
@@ -2141,9 +2141,9 @@ public class PublicApi {
         /**
          * Set hashTags
          * @param hashTags  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest hashTags(List<String> hashTags) {
+        public APIgetCommentsPublicRequest hashTags(List<String> hashTags) {
             this.hashTags = hashTags;
             return this;
         }
@@ -2151,9 +2151,9 @@ public class PublicApi {
         /**
          * Set userId
          * @param userId  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest userId(String userId) {
+        public APIgetCommentsPublicRequest userId(String userId) {
             this.userId = userId;
             return this;
         }
@@ -2161,15 +2161,15 @@ public class PublicApi {
         /**
          * Set customConfigStr
          * @param customConfigStr  (optional)
-         * @return APIgetCommentsRequest
+         * @return APIgetCommentsPublicRequest
          */
-        public APIgetCommentsRequest customConfigStr(String customConfigStr) {
+        public APIgetCommentsPublicRequest customConfigStr(String customConfigStr) {
             this.customConfigStr = customConfigStr;
             return this;
         }
 
         /**
-         * Build call for getComments
+         * Build call for getCommentsPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -2181,12 +2181,12 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCommentsCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+            return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
         }
 
         /**
-         * Execute getComments request
-         * @return GetComments200Response
+         * Execute getCommentsPublic request
+         * @return GetCommentsPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -2195,14 +2195,14 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public GetComments200Response execute() throws ApiException {
-            ApiResponse<GetComments200Response> localVarResp = getCommentsWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+        public GetCommentsPublic200Response execute() throws ApiException {
+            ApiResponse<GetCommentsPublic200Response> localVarResp = getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
             return localVarResp.getData();
         }
 
         /**
-         * Execute getComments request with HTTP info returned
-         * @return ApiResponse&lt;GetComments200Response&gt;
+         * Execute getCommentsPublic request with HTTP info returned
+         * @return ApiResponse&lt;GetCommentsPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -2211,12 +2211,12 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetComments200Response> executeWithHttpInfo() throws ApiException {
-            return getCommentsWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+        public ApiResponse<GetCommentsPublic200Response> executeWithHttpInfo() throws ApiException {
+            return getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
         }
 
         /**
-         * Execute getComments request (asynchronously)
+         * Execute getCommentsPublic request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2227,8 +2227,8 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetComments200Response> _callback) throws ApiException {
-            return getCommentsAsync(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<GetCommentsPublic200Response> _callback) throws ApiException {
+            return getCommentsPublicAsync(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
         }
     }
 
@@ -2237,7 +2237,7 @@ public class PublicApi {
      *  req tenantId urlId
      * @param tenantId  (required)
      * @param urlId  (required)
-     * @return APIgetCommentsRequest
+     * @return APIgetCommentsPublicRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -2245,8 +2245,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCommentsRequest getComments(String tenantId, String urlId) {
-        return new APIgetCommentsRequest(tenantId, urlId);
+    public APIgetCommentsPublicRequest getCommentsPublic(String tenantId, String urlId) {
+        return new APIgetCommentsPublicRequest(tenantId, urlId);
     }
     private okhttp3.Call getEventLogCall(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -4342,7 +4342,7 @@ public class PublicApi {
     public APIsetCommentTextRequest setCommentText(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest) {
         return new APIsetCommentTextRequest(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest);
     }
-    private okhttp3.Call unBlockCommentCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unBlockCommentCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4356,7 +4356,7 @@ public class PublicApi {
             basePath = null;
         }
 
-        Object localVarPostBody = blockFromCommentParams;
+        Object localVarPostBody = publicBlockFromCommentParams;
 
         // create path and map variables
         String localVarPath = "/block-from-comment/{commentId}"
@@ -4397,7 +4397,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call unBlockCommentValidateBeforeCall(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unBlockCommentValidateBeforeCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling unBlockComment(Async)");
@@ -4408,25 +4408,25 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'commentId' when calling unBlockComment(Async)");
         }
 
-        // verify the required parameter 'blockFromCommentParams' is set
-        if (blockFromCommentParams == null) {
-            throw new ApiException("Missing the required parameter 'blockFromCommentParams' when calling unBlockComment(Async)");
+        // verify the required parameter 'publicBlockFromCommentParams' is set
+        if (publicBlockFromCommentParams == null) {
+            throw new ApiException("Missing the required parameter 'publicBlockFromCommentParams' when calling unBlockComment(Async)");
         }
 
-        return unBlockCommentCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        return unBlockCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
 
     }
 
 
-    private ApiResponse<UnBlockComment200Response> unBlockCommentWithHttpInfo(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso) throws ApiException {
-        okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, null);
+    private ApiResponse<UnBlockComment200Response> unBlockCommentWithHttpInfo(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso) throws ApiException {
+        okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, null);
         Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call unBlockCommentAsync(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams, String sso, final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unBlockCommentAsync(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+        okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4435,13 +4435,13 @@ public class PublicApi {
     public class APIunBlockCommentRequest {
         private final String tenantId;
         private final String commentId;
-        private final BlockFromCommentParams blockFromCommentParams;
+        private final PublicBlockFromCommentParams publicBlockFromCommentParams;
         private String sso;
 
-        private APIunBlockCommentRequest(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
+        private APIunBlockCommentRequest(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
             this.tenantId = tenantId;
             this.commentId = commentId;
-            this.blockFromCommentParams = blockFromCommentParams;
+            this.publicBlockFromCommentParams = publicBlockFromCommentParams;
         }
 
         /**
@@ -4467,7 +4467,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return unBlockCommentCall(tenantId, commentId, blockFromCommentParams, sso, _callback);
+            return unBlockCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
 
         /**
@@ -4482,7 +4482,7 @@ public class PublicApi {
          </table>
          */
         public UnBlockComment200Response execute() throws ApiException {
-            ApiResponse<UnBlockComment200Response> localVarResp = unBlockCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+            ApiResponse<UnBlockComment200Response> localVarResp = unBlockCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
             return localVarResp.getData();
         }
 
@@ -4498,7 +4498,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<UnBlockComment200Response> executeWithHttpInfo() throws ApiException {
-            return unBlockCommentWithHttpInfo(tenantId, commentId, blockFromCommentParams, sso);
+            return unBlockCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
         }
 
         /**
@@ -4514,7 +4514,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
-            return unBlockCommentAsync(tenantId, commentId, blockFromCommentParams, sso, _callback);
+            return unBlockCommentAsync(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
     }
 
@@ -4523,7 +4523,7 @@ public class PublicApi {
      * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param blockFromCommentParams  (required)
+     * @param publicBlockFromCommentParams  (required)
      * @return APIunBlockCommentRequest
      * @http.response.details
      <table border="1">
@@ -4532,8 +4532,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIunBlockCommentRequest unBlockComment(String tenantId, String commentId, BlockFromCommentParams blockFromCommentParams) {
-        return new APIunBlockCommentRequest(tenantId, commentId, blockFromCommentParams);
+    public APIunBlockCommentRequest unBlockComment(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
+        return new APIunBlockCommentRequest(tenantId, commentId, publicBlockFromCommentParams);
     }
     private okhttp3.Call unLockCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

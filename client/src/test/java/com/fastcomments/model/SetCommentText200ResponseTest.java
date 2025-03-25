@@ -13,9 +13,9 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.fastcomments.model.PickFCommentApprovedOrCommentHTML;
 import com.fastcomments.model.PublicAPISetCommentTextResponse;
 import com.google.gson.TypeAdapter;
@@ -56,14 +56,6 @@ public class SetCommentText200ResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
     }
 
     /**

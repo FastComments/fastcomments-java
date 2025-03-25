@@ -40,11 +40,11 @@ public class BlockFromCommentParamsTest {
     }
 
     /**
-     * Test the property 'commentIds'
+     * Test the property 'commentIdsToCheck'
      */
     @Test
-    public void commentIdsTest() {
-        // TODO: test commentIds
+    public void commentIdsToCheckTest() {
+        // TODO: test commentIdsToCheck
     }
 
 }
