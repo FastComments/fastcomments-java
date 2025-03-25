@@ -3709,6 +3709,7 @@ components:
       - $ref: '#/components/schemas/Pick_FComment.PublicCommentFieldsKeys_'
       example:
         date: 2000-01-23T04:56:07.000+00:00
+        editKey: editKey
         votesDown: 2
         hasChildren: true
         commenterName: commenterName
@@ -3727,6 +3728,7 @@ components:
         viewCount: 3.616076749251911
         votesUp: 5
         displayLabel: displayLabel
+        requiresVerification: true
         isPinned: true
         isVotedUp: true
         verified: true
@@ -3831,6 +3833,10 @@ components:
         viewCount:
           format: double
           type: number
+        requiresVerification:
+          type: boolean
+        editKey:
+          type: string
       required:
       - _id
       - commentHTML
@@ -4064,6 +4070,7 @@ components:
         lastGenDate: 2
         comments:
         - date: 2000-01-23T04:56:07.000+00:00
+          editKey: editKey
           votesDown: 2
           hasChildren: true
           commenterName: commenterName
@@ -4082,6 +4089,7 @@ components:
           viewCount: 3.616076749251911
           votesUp: 5
           displayLabel: displayLabel
+          requiresVerification: true
           isPinned: true
           isVotedUp: true
           verified: true
@@ -4122,6 +4130,7 @@ components:
           isSpam: true
           isByAdmin: true
         - date: 2000-01-23T04:56:07.000+00:00
+          editKey: editKey
           votesDown: 2
           hasChildren: true
           commenterName: commenterName
@@ -4140,6 +4149,7 @@ components:
           viewCount: 3.616076749251911
           votesUp: 5
           displayLabel: displayLabel
+          requiresVerification: true
           isPinned: true
           isVotedUp: true
           verified: true
@@ -4224,6 +4234,7 @@ components:
       example:
         comment:
           date: 2000-01-23T04:56:07.000+00:00
+          editKey: editKey
           votesDown: 2
           hasChildren: true
           commenterName: commenterName
@@ -4242,6 +4253,7 @@ components:
           viewCount: 3.616076749251911
           votesUp: 5
           displayLabel: displayLabel
+          requiresVerification: true
           isPinned: true
           isVotedUp: true
           verified: true
@@ -5487,6 +5499,7 @@ components:
       additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
+        editKey: editKey
         pageNumber: 5
         pageTitle: pageTitle
         rating: 3.616076749251911
@@ -5564,6 +5577,7 @@ components:
         viewCount: 7.386281948385884
         votesUp: 1
         displayLabel: displayLabel
+        requiresVerification: true
         isPinned: true
         verified: true
         anonUserId: anonUserId
@@ -5801,6 +5815,10 @@ components:
           format: double
           nullable: true
           type: number
+        requiresVerification:
+          type: boolean
+        editKey:
+          type: string
       required:
       - _id
       - approved
@@ -5819,6 +5837,7 @@ components:
       example:
         comment:
           date: 2000-01-23T04:56:07.000+00:00
+          editKey: editKey
           pageNumber: 5
           pageTitle: pageTitle
           rating: 3.616076749251911
@@ -5896,6 +5915,7 @@ components:
           viewCount: 7.386281948385884
           votesUp: 1
           displayLabel: displayLabel
+          requiresVerification: true
           isPinned: true
           verified: true
           anonUserId: anonUserId

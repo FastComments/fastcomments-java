@@ -75,6 +75,8 @@
 |**logs** | **List&lt;List&lt;Object&gt;&gt;** |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**viewCount** | **Double** |  |  [optional] |
+|**requiresVerification** | **Boolean** |  |  [optional] |
+|**editKey** | **String** |  |  [optional] |
 
 
 

@@ -33,6 +33,8 @@
 |**badges** | [**List&lt;CommentUserBadgeInfo&gt;**](CommentUserBadgeInfo.md) |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**viewCount** | **Double** |  |  [optional] |
+|**requiresVerification** | **Boolean** |  |  [optional] |
+|**editKey** | **String** |  |  [optional] |
 |**isUnread** | **Boolean** |  |  [optional] |
 |**myVoteId** | **String** |  |  [optional] |
 |**isVotedDown** | **Boolean** |  |  [optional] |

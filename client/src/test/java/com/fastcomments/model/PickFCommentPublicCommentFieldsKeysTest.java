@@ -249,4 +249,20 @@ public class PickFCommentPublicCommentFieldsKeysTest {
         // TODO: test viewCount
     }
 
+    /**
+     * Test the property 'requiresVerification'
+     */
+    @Test
+    public void requiresVerificationTest() {
+        // TODO: test requiresVerification
+    }
+
+    /**
+     * Test the property 'editKey'
+     */
+    @Test
+    public void editKeyTest() {
+        // TODO: test editKey
+    }
+
 }

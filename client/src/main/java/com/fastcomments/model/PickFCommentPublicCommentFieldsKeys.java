@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * From T, pick a set of properties whose keys are in the union K
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-25T10:12:49.770182242-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-25T16:43:49.680707237-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class PickFCommentPublicCommentFieldsKeys {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -183,6 +183,16 @@ public class PickFCommentPublicCommentFieldsKeys {
   @SerializedName(SERIALIZED_NAME_VIEW_COUNT)
   @javax.annotation.Nullable
   private Double viewCount;
+
+  public static final String SERIALIZED_NAME_REQUIRES_VERIFICATION = "requiresVerification";
+  @SerializedName(SERIALIZED_NAME_REQUIRES_VERIFICATION)
+  @javax.annotation.Nullable
+  private Boolean requiresVerification;
+
+  public static final String SERIALIZED_NAME_EDIT_KEY = "editKey";
+  @SerializedName(SERIALIZED_NAME_EDIT_KEY)
+  @javax.annotation.Nullable
+  private String editKey;
 
   public PickFCommentPublicCommentFieldsKeys() {
   }
@@ -697,6 +707,44 @@ public class PickFCommentPublicCommentFieldsKeys {
   }
 
 
+  public PickFCommentPublicCommentFieldsKeys requiresVerification(@javax.annotation.Nullable Boolean requiresVerification) {
+    this.requiresVerification = requiresVerification;
+    return this;
+  }
+
+  /**
+   * Get requiresVerification
+   * @return requiresVerification
+   */
+  @javax.annotation.Nullable
+  public Boolean getRequiresVerification() {
+    return requiresVerification;
+  }
+
+  public void setRequiresVerification(@javax.annotation.Nullable Boolean requiresVerification) {
+    this.requiresVerification = requiresVerification;
+  }
+
+
+  public PickFCommentPublicCommentFieldsKeys editKey(@javax.annotation.Nullable String editKey) {
+    this.editKey = editKey;
+    return this;
+  }
+
+  /**
+   * Get editKey
+   * @return editKey
+   */
+  @javax.annotation.Nullable
+  public String getEditKey() {
+    return editKey;
+  }
+
+  public void setEditKey(@javax.annotation.Nullable String editKey) {
+    this.editKey = editKey;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -732,12 +780,14 @@ public class PickFCommentPublicCommentFieldsKeys {
         Objects.equals(this.displayLabel, pickFCommentPublicCommentFieldsKeys.displayLabel) &&
         Objects.equals(this.badges, pickFCommentPublicCommentFieldsKeys.badges) &&
         Objects.equals(this.feedbackIds, pickFCommentPublicCommentFieldsKeys.feedbackIds) &&
-        Objects.equals(this.viewCount, pickFCommentPublicCommentFieldsKeys.viewCount);
+        Objects.equals(this.viewCount, pickFCommentPublicCommentFieldsKeys.viewCount) &&
+        Objects.equals(this.requiresVerification, pickFCommentPublicCommentFieldsKeys.requiresVerification) &&
+        Objects.equals(this.editKey, pickFCommentPublicCommentFieldsKeys.editKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, date, userId, anonUserId, commenterName, commenterLink, commentHTML, parentId, votes, votesUp, votesDown, verified, avatarSrc, isSpam, hasImages, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, rating, displayLabel, badges, feedbackIds, viewCount);
+    return Objects.hash(id, date, userId, anonUserId, commenterName, commenterLink, commentHTML, parentId, votes, votesUp, votesDown, verified, avatarSrc, isSpam, hasImages, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, rating, displayLabel, badges, feedbackIds, viewCount, requiresVerification, editKey);
   }
 
   @Override
@@ -770,6 +820,8 @@ public class PickFCommentPublicCommentFieldsKeys {
     sb.append("    badges: ").append(toIndentedString(badges)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
     sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
+    sb.append("    requiresVerification: ").append(toIndentedString(requiresVerification)).append("\n");
+    sb.append("    editKey: ").append(toIndentedString(editKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -818,6 +870,8 @@ public class PickFCommentPublicCommentFieldsKeys {
     openapiFields.add("badges");
     openapiFields.add("feedbackIds");
     openapiFields.add("viewCount");
+    openapiFields.add("requiresVerification");
+    openapiFields.add("editKey");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -900,6 +954,9 @@ public class PickFCommentPublicCommentFieldsKeys {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      if ((jsonObj.get("editKey") != null && !jsonObj.get("editKey").isJsonNull()) && !jsonObj.get("editKey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `editKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editKey").toString()));
       }
   }
 

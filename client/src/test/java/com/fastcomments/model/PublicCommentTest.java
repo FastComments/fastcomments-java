@@ -250,6 +250,22 @@ public class PublicCommentTest {
     }
 
     /**
+     * Test the property 'requiresVerification'
+     */
+    @Test
+    public void requiresVerificationTest() {
+        // TODO: test requiresVerification
+    }
+
+    /**
+     * Test the property 'editKey'
+     */
+    @Test
+    public void editKeyTest() {
+        // TODO: test editKey
+    }
+
+    /**
      * Test the property 'isUnread'
      */
     @Test

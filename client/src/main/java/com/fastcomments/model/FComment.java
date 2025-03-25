@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * FComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-25T10:12:49.770182242-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-25T16:43:49.680707237-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class FComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -396,6 +396,16 @@ public class FComment {
   @SerializedName(SERIALIZED_NAME_VIEW_COUNT)
   @javax.annotation.Nullable
   private Double viewCount;
+
+  public static final String SERIALIZED_NAME_REQUIRES_VERIFICATION = "requiresVerification";
+  @SerializedName(SERIALIZED_NAME_REQUIRES_VERIFICATION)
+  @javax.annotation.Nullable
+  private Boolean requiresVerification;
+
+  public static final String SERIALIZED_NAME_EDIT_KEY = "editKey";
+  @SerializedName(SERIALIZED_NAME_EDIT_KEY)
+  @javax.annotation.Nullable
+  private String editKey;
 
   public FComment() {
   }
@@ -1748,6 +1758,44 @@ public class FComment {
   }
 
 
+  public FComment requiresVerification(@javax.annotation.Nullable Boolean requiresVerification) {
+    this.requiresVerification = requiresVerification;
+    return this;
+  }
+
+  /**
+   * Get requiresVerification
+   * @return requiresVerification
+   */
+  @javax.annotation.Nullable
+  public Boolean getRequiresVerification() {
+    return requiresVerification;
+  }
+
+  public void setRequiresVerification(@javax.annotation.Nullable Boolean requiresVerification) {
+    this.requiresVerification = requiresVerification;
+  }
+
+
+  public FComment editKey(@javax.annotation.Nullable String editKey) {
+    this.editKey = editKey;
+    return this;
+  }
+
+  /**
+   * Get editKey
+   * @return editKey
+   */
+  @javax.annotation.Nullable
+  public String getEditKey() {
+    return editKey;
+  }
+
+  public void setEditKey(@javax.annotation.Nullable String editKey) {
+    this.editKey = editKey;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1825,12 +1873,14 @@ public class FComment {
         Objects.equals(this.feedbackIds, fcomment.feedbackIds) &&
         Objects.equals(this.logs, fcomment.logs) &&
         Objects.equals(this.groupIds, fcomment.groupIds) &&
-        Objects.equals(this.viewCount, fcomment.viewCount);
+        Objects.equals(this.viewCount, fcomment.viewCount) &&
+        Objects.equals(this.requiresVerification, fcomment.requiresVerification) &&
+        Objects.equals(this.editKey, fcomment.editKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount);
+    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey);
   }
 
   @Override
@@ -1905,6 +1955,8 @@ public class FComment {
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
+    sb.append("    requiresVerification: ").append(toIndentedString(requiresVerification)).append("\n");
+    sb.append("    editKey: ").append(toIndentedString(editKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1995,6 +2047,8 @@ public class FComment {
     openapiFields.add("logs");
     openapiFields.add("groupIds");
     openapiFields.add("viewCount");
+    openapiFields.add("requiresVerification");
+    openapiFields.add("editKey");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2171,6 +2225,9 @@ public class FComment {
       // ensure the optional json data is an array if present
       if (jsonObj.get("groupIds") != null && !jsonObj.get("groupIds").isJsonNull() && !jsonObj.get("groupIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `groupIds` to be an array in the JSON string but got `%s`", jsonObj.get("groupIds").toString()));
+      }
+      if ((jsonObj.get("editKey") != null && !jsonObj.get("editKey").isJsonNull()) && !jsonObj.get("editKey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `editKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editKey").toString()));
       }
   }
 
