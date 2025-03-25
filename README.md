@@ -10,6 +10,11 @@ to make working with the API easier, and the `pubsub` module which is a library 
 - [Core Library Docs, Including SSO Examples](./core/README.md)
 - [PubSub Library Docs](./pubsub/README.md)
 
+### Public vs Secured APIs
+
+For the API client, there are two classes, `DefaultApi` and `PublicApi`. The `DefaultApi` contains methods that take your API key, and `PublicApi` contains api calls
+that can be made directly from a browser/mobile device/etc.
+
 ## Notes
 
 ### Broadcast Ids
