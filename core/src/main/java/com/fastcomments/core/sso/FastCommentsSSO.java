@@ -3,6 +3,7 @@ package com.fastcomments.core.sso;
 import com.google.gson.Gson;
 import org.apache.commons.codec.binary.Base64;
 
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.function.Consumer;
@@ -43,7 +44,7 @@ public class FastCommentsSSO {
 
     public static FastCommentsSSO createSecure(String apiKey, SecureSSOUserData secureSSOUserData) throws NoSuchAlgorithmException, InvalidKeyException {
         final long timestamp = System.currentTimeMillis();
-        final String userDataString = Base64.encodeBase64String(gson.toJson(secureSSOUserData).getBytes());
+        final String userDataString = Base64.encodeBase64String(gson.toJson(secureSSOUserData).getBytes(StandardCharsets.UTF_8));
         final String hash = SecureSSOPayload.createVerificationHash(apiKey, timestamp, userDataString);
         return new FastCommentsSSO(new SecureSSOPayload(userDataString, hash, timestamp));
     }

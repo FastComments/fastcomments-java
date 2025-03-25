@@ -5,6 +5,7 @@ import org.apache.commons.codec.binary.Base64;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -27,7 +28,7 @@ public class SecureSSOPayload {
      * <p>Example Usage:
      * <pre>{@code
      * final long timestamp = System.currentTimeMillis();
-     * final String userDataString = Base64.encodeBase64String(gson.toJson(secureSSOUserData).getBytes());
+     * final String userDataString = Base64.encodeBase64String(gson.toJson(secureSSOUserData).getBytes(StandardCharsets.UTF_8));
      * final String hash = SecureSSOPayload.createVerificationHash(apiKey, timestamp, userDataString);
      * final String ssoQueryParam = new FastCommentsSSO(new SecureSSOPayload(userDataString, hash, timestamp)).prepareToSend();
      * }</pre>
@@ -40,18 +41,17 @@ public class SecureSSOPayload {
 
     public static String createVerificationHash(String apiKey, long timestamp, String userDataJSONBase64) throws NoSuchAlgorithmException, InvalidKeyException {
         final Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
-        SecretKeySpec secret_key = new SecretKeySpec(apiKey.getBytes(), "HmacSHA256");
+        SecretKeySpec secret_key = new SecretKeySpec(apiKey.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
         sha256_HMAC.init(secret_key);
-        return getBytesAsHex(sha256_HMAC.doFinal((timestamp + userDataJSONBase64).getBytes()));
+        return getBytesAsHex(sha256_HMAC.doFinal((timestamp + userDataJSONBase64).getBytes(StandardCharsets.UTF_8)));
     }
 
     private static String getBytesAsHex(byte[] bytes) {
-        StringBuilder hexString = new StringBuilder(String.format("%032x", new BigInteger(1, bytes)));
-        // Ensure the string is exactly 64 characters long, padding with leading zeros if necessary
-        while (hexString.length() < 64) {
-            hexString.insert(0, "0");
+        StringBuilder hex = new StringBuilder();
+        for (byte b : bytes) {
+            hex.append(String.format("%02x", b));
         }
-        return hexString.toString();
+        return hex.toString();
     }
 
 }

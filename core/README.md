@@ -66,11 +66,7 @@ The core package provides SSO (Single Sign-On) support through the following cla
 
 ```java
 // ---- BEGIN SERVER SIDE
-SecureSSOUserData userData = new SecureSSOUserData();
-userData.id = "user-123";
-userData.email = "user@example.com";
-userData.username = "ExampleUser";
-userData.avatar = "https://example.com/avatar.jpg";
+SecureSSOUserData userData = new SecureSSOUserData("user-123", "user@example.com", "Example User", "https://example.com/avatar.jpg");
 
 // Create SSO configuration
 FastCommentsSSO sso = FastCommentsSSO.createSecure(myApiKey, userData);
