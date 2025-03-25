@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIStatusFAILED;
 import com.fastcomments.model.CustomConfigParameters;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,14 +48,14 @@ import java.util.Set;
 import com.fastcomments.invoker.JSON;
 
 /**
- * From T, pick a set of properties whose keys are in the union K
+ * APIError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:58:52.285256603-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
-public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-25T09:21:20.273818640-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+public class APIError {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private APIStatusFAILED status;
+  private ImportedAPIStatusFAILED status;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -92,10 +92,10 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   @javax.annotation.Nullable
   private CustomConfigParameters customConfig;
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode() {
+  public APIError() {
   }
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode status(@javax.annotation.Nonnull APIStatusFAILED status) {
+  public APIError status(@javax.annotation.Nonnull ImportedAPIStatusFAILED status) {
     this.status = status;
     return this;
   }
@@ -105,16 +105,16 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
    * @return status
    */
   @javax.annotation.Nonnull
-  public APIStatusFAILED getStatus() {
+  public ImportedAPIStatusFAILED getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull APIStatusFAILED status) {
+  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusFAILED status) {
     this.status = status;
   }
 
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode reason(@javax.annotation.Nonnull String reason) {
+  public APIError reason(@javax.annotation.Nonnull String reason) {
     this.reason = reason;
     return this;
   }
@@ -133,7 +133,7 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   }
 
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode code(@javax.annotation.Nonnull String code) {
+  public APIError code(@javax.annotation.Nonnull String code) {
     this.code = code;
     return this;
   }
@@ -152,7 +152,7 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   }
 
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode secondaryCode(@javax.annotation.Nullable String secondaryCode) {
+  public APIError secondaryCode(@javax.annotation.Nullable String secondaryCode) {
     this.secondaryCode = secondaryCode;
     return this;
   }
@@ -171,7 +171,7 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   }
 
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode bannedUntil(@javax.annotation.Nullable Double bannedUntil) {
+  public APIError bannedUntil(@javax.annotation.Nullable Double bannedUntil) {
     this.bannedUntil = bannedUntil;
     return this;
   }
@@ -190,7 +190,7 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   }
 
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode maxCharacterLength(@javax.annotation.Nullable Double maxCharacterLength) {
+  public APIError maxCharacterLength(@javax.annotation.Nullable Double maxCharacterLength) {
     this.maxCharacterLength = maxCharacterLength;
     return this;
   }
@@ -209,7 +209,7 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   }
 
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode translatedError(@javax.annotation.Nullable String translatedError) {
+  public APIError translatedError(@javax.annotation.Nullable String translatedError) {
     this.translatedError = translatedError;
     return this;
   }
@@ -228,7 +228,7 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   }
 
 
-  public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode customConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
+  public APIError customConfig(@javax.annotation.Nullable CustomConfigParameters customConfig) {
     this.customConfig = customConfig;
     return this;
   }
@@ -256,15 +256,15 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode = (PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) o;
-    return Objects.equals(this.status, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.status) &&
-        Objects.equals(this.reason, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.reason) &&
-        Objects.equals(this.code, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.code) &&
-        Objects.equals(this.secondaryCode, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.secondaryCode) &&
-        Objects.equals(this.bannedUntil, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.bannedUntil) &&
-        Objects.equals(this.maxCharacterLength, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.maxCharacterLength) &&
-        Objects.equals(this.translatedError, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.translatedError) &&
-        Objects.equals(this.customConfig, pickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.customConfig);
+    APIError apIError = (APIError) o;
+    return Objects.equals(this.status, apIError.status) &&
+        Objects.equals(this.reason, apIError.reason) &&
+        Objects.equals(this.code, apIError.code) &&
+        Objects.equals(this.secondaryCode, apIError.secondaryCode) &&
+        Objects.equals(this.bannedUntil, apIError.bannedUntil) &&
+        Objects.equals(this.maxCharacterLength, apIError.maxCharacterLength) &&
+        Objects.equals(this.translatedError, apIError.translatedError) &&
+        Objects.equals(this.customConfig, apIError.customConfig);
   }
 
   @Override
@@ -275,7 +275,7 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {\n");
+    sb.append("class APIError {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
@@ -326,32 +326,32 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+   * @throws IOException if the JSON Element is invalid with respect to APIError
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode is not found in the empty JSON string", PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.openapiRequiredFields.toString()));
+        if (!APIError.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in APIError is not found in the empty JSON string", APIError.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!APIError.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `APIError` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.openapiRequiredFields) {
+      for (String requiredField : APIError.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
-      APIStatusFAILED.validateJsonElement(jsonObj.get("status"));
+      ImportedAPIStatusFAILED.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
@@ -374,22 +374,22 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode' and its subtypes
+       if (!APIError.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'APIError' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class));
+       final TypeAdapter<APIError> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode>() {
+       return (TypeAdapter<T>) new TypeAdapter<APIError>() {
            @Override
-           public void write(JsonWriter out, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode value) throws IOException {
+           public void write(JsonWriter out, APIError value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode read(JsonReader in) throws IOException {
+           public APIError read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -400,18 +400,18 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode {
   }
 
   /**
-   * Create an instance of PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode given an JSON string
+   * Create an instance of APIError given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
-   * @throws IOException if the JSON string is invalid with respect to PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+   * @return An instance of APIError
+   * @throws IOException if the JSON string is invalid with respect to APIError
    */
-  public static PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class);
+  public static APIError fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, APIError.class);
   }
 
   /**
-   * Convert an instance of PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode to an JSON string
+   * Convert an instance of APIError to an JSON string
    *
    * @return JSON string
    */

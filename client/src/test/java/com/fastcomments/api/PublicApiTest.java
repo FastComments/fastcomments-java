@@ -14,7 +14,8 @@
 package com.fastcomments.api;
 
 import com.fastcomments.invoker.ApiException;
-import com.fastcomments.model.BlockFromComment200Response;
+import com.fastcomments.model.APIError;
+import com.fastcomments.model.BlockFromCommentPublic200Response;
 import com.fastcomments.model.CheckedCommentsForBlocked200Response;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
@@ -30,13 +31,12 @@ import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.GetUserPresenceStatuses200Response;
 import com.fastcomments.model.LockComment200Response;
-import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.fastcomments.model.PinComment200Response;
 import com.fastcomments.model.PublicBlockFromCommentParams;
 import com.fastcomments.model.ResetUserNotifications200Response;
 import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SortDirections;
-import com.fastcomments.model.UnBlockComment200Response;
+import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteComment200Response;
@@ -60,12 +60,12 @@ public class PublicApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void blockFromCommentTest() throws ApiException {
+    public void blockFromCommentPublicTest() throws ApiException {
         String tenantId = null;
         String commentId = null;
         PublicBlockFromCommentParams publicBlockFromCommentParams = null;
         String sso = null;
-        BlockFromComment200Response response = api.blockFromComment(tenantId, commentId, publicBlockFromCommentParams)
+        BlockFromCommentPublic200Response response = api.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -423,12 +423,12 @@ public class PublicApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void unBlockCommentTest() throws ApiException {
+    public void unBlockCommentPublicTest() throws ApiException {
         String tenantId = null;
         String commentId = null;
         PublicBlockFromCommentParams publicBlockFromCommentParams = null;
         String sso = null;
-        UnBlockComment200Response response = api.unBlockComment(tenantId, commentId, publicBlockFromCommentParams)
+        UnBlockCommentPublic200Response response = api.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
                 .sso(sso)
                 .execute();
         // TODO: test validations

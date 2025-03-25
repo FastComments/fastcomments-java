@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **APIStatusFAILED** |  |  |
+|**status** | **ImportedAPIStatusFAILED** |  |  |
 |**wasPendingVote** | **Boolean** |  |  [optional] |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |

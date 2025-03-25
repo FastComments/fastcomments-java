@@ -13,10 +13,10 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIStatusFAILED;
+import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.FComment;
-import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.fastcomments.model.SaveCommentResponse;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;

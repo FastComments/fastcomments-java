@@ -13,9 +13,9 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIStatusFAILED;
+import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.fastcomments.model.VoteResponse;
 import com.fastcomments.model.VoteResponseUser;
 import com.google.gson.TypeAdapter;

@@ -31,8 +31,8 @@ import com.fastcomments.model.AddDomainConfig200Response;
 import com.fastcomments.model.AddDomainConfigParams;
 import com.fastcomments.model.AggregationRequest;
 import com.fastcomments.model.AggregationResponse;
-import com.fastcomments.model.BlockFromComment200Response;
 import com.fastcomments.model.BlockFromCommentParams;
+import com.fastcomments.model.BlockFromCommentPublic200Response;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
 import com.fastcomments.model.DeleteComment200Response;
@@ -51,7 +51,7 @@ import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
 import com.fastcomments.model.SORTDIR;
 import com.fastcomments.model.SaveComment200Response;
 import com.fastcomments.model.SortDirections;
-import com.fastcomments.model.UnBlockComment200Response;
+import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
 import com.fastcomments.model.UpdateDomainConfigParams;
 
@@ -546,16 +546,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<BlockFromComment200Response> blockUserFromCommentWithHttpInfo(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<BlockFromCommentPublic200Response> blockUserFromCommentWithHttpInfo(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = blockUserFromCommentValidateBeforeCall(tenantId, id, blockFromCommentParams, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call blockUserFromCommentAsync(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId, final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
+    private okhttp3.Call blockUserFromCommentAsync(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId, final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = blockUserFromCommentValidateBeforeCall(tenantId, id, blockFromCommentParams, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -611,7 +611,7 @@ public class DefaultApi {
 
         /**
          * Execute blockUserFromComment request
-         * @return BlockFromComment200Response
+         * @return BlockFromCommentPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -620,14 +620,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public BlockFromComment200Response execute() throws ApiException {
-            ApiResponse<BlockFromComment200Response> localVarResp = blockUserFromCommentWithHttpInfo(tenantId, id, blockFromCommentParams, userId, anonUserId);
+        public BlockFromCommentPublic200Response execute() throws ApiException {
+            ApiResponse<BlockFromCommentPublic200Response> localVarResp = blockUserFromCommentWithHttpInfo(tenantId, id, blockFromCommentParams, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute blockUserFromComment request with HTTP info returned
-         * @return ApiResponse&lt;BlockFromComment200Response&gt;
+         * @return ApiResponse&lt;BlockFromCommentPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -636,7 +636,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<BlockFromComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<BlockFromCommentPublic200Response> executeWithHttpInfo() throws ApiException {
             return blockUserFromCommentWithHttpInfo(tenantId, id, blockFromCommentParams, userId, anonUserId);
         }
 
@@ -652,7 +652,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
             return blockUserFromCommentAsync(tenantId, id, blockFromCommentParams, userId, anonUserId, _callback);
         }
     }
@@ -3383,16 +3383,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UnBlockComment200Response> unBlockUserFromCommentWithHttpInfo(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<UnBlockCommentPublic200Response> unBlockUserFromCommentWithHttpInfo(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = unBlockUserFromCommentValidateBeforeCall(tenantId, id, unBlockFromCommentParams, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call unBlockUserFromCommentAsync(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId, final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unBlockUserFromCommentAsync(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId, final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unBlockUserFromCommentValidateBeforeCall(tenantId, id, unBlockFromCommentParams, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3448,7 +3448,7 @@ public class DefaultApi {
 
         /**
          * Execute unBlockUserFromComment request
-         * @return UnBlockComment200Response
+         * @return UnBlockCommentPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -3457,14 +3457,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public UnBlockComment200Response execute() throws ApiException {
-            ApiResponse<UnBlockComment200Response> localVarResp = unBlockUserFromCommentWithHttpInfo(tenantId, id, unBlockFromCommentParams, userId, anonUserId);
+        public UnBlockCommentPublic200Response execute() throws ApiException {
+            ApiResponse<UnBlockCommentPublic200Response> localVarResp = unBlockUserFromCommentWithHttpInfo(tenantId, id, unBlockFromCommentParams, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute unBlockUserFromComment request with HTTP info returned
-         * @return ApiResponse&lt;UnBlockComment200Response&gt;
+         * @return ApiResponse&lt;UnBlockCommentPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -3473,7 +3473,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<UnBlockComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<UnBlockCommentPublic200Response> executeWithHttpInfo() throws ApiException {
             return unBlockUserFromCommentWithHttpInfo(tenantId, id, unBlockFromCommentParams, userId, anonUserId);
         }
 
@@ -3489,7 +3489,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
             return unBlockUserFromCommentAsync(tenantId, id, unBlockFromCommentParams, userId, anonUserId, _callback);
         }
     }

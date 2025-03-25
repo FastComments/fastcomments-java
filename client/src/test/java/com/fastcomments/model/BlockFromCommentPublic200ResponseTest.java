@@ -13,8 +13,10 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIStatusFAILED;
+import com.fastcomments.model.APIError;
+import com.fastcomments.model.BlockSuccess;
 import com.fastcomments.model.CustomConfigParameters;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,21 +24,23 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+ * Model tests for BlockFromCommentPublic200Response
  */
-public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCodeTest {
-    private final PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode model = new PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode();
+public class BlockFromCommentPublic200ResponseTest {
+    private final BlockFromCommentPublic200Response model = new BlockFromCommentPublic200Response();
 
     /**
-     * Model tests for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+     * Model tests for BlockFromCommentPublic200Response
      */
     @Test
-    public void testPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode() {
-        // TODO: test PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+    public void testBlockFromCommentPublic200Response() {
+        // TODO: test BlockFromCommentPublic200Response
     }
 
     /**
@@ -45,6 +49,14 @@ public class PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCodeTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'commentStatuses'
+     */
+    @Test
+    public void commentStatusesTest() {
+        // TODO: test commentStatuses
     }
 
     /**

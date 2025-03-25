@@ -18,8 +18,8 @@ import com.fastcomments.model.AddDomainConfig200Response;
 import com.fastcomments.model.AddDomainConfigParams;
 import com.fastcomments.model.AggregationRequest;
 import com.fastcomments.model.AggregationResponse;
-import com.fastcomments.model.BlockFromComment200Response;
 import com.fastcomments.model.BlockFromCommentParams;
+import com.fastcomments.model.BlockFromCommentPublic200Response;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
 import com.fastcomments.model.DeleteComment200Response;
@@ -38,7 +38,7 @@ import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
 import com.fastcomments.model.SORTDIR;
 import com.fastcomments.model.SaveComment200Response;
 import com.fastcomments.model.SortDirections;
-import com.fastcomments.model.UnBlockComment200Response;
+import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
 import com.fastcomments.model.UpdateDomainConfigParams;
 import org.junit.jupiter.api.Disabled;
@@ -97,7 +97,7 @@ public class DefaultApiTest {
         BlockFromCommentParams blockFromCommentParams = null;
         String userId = null;
         String anonUserId = null;
-        BlockFromComment200Response response = api.blockUserFromComment(tenantId, id, blockFromCommentParams)
+        BlockFromCommentPublic200Response response = api.blockUserFromComment(tenantId, id, blockFromCommentParams)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -328,7 +328,7 @@ public class DefaultApiTest {
         UnBlockFromCommentParams unBlockFromCommentParams = null;
         String userId = null;
         String anonUserId = null;
-        UnBlockComment200Response response = api.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
+        UnBlockCommentPublic200Response response = api.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();

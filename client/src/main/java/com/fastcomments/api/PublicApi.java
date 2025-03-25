@@ -27,7 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.fastcomments.model.BlockFromComment200Response;
+import com.fastcomments.model.APIError;
+import com.fastcomments.model.BlockFromCommentPublic200Response;
 import com.fastcomments.model.CheckedCommentsForBlocked200Response;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
@@ -43,13 +44,12 @@ import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.GetUserPresenceStatuses200Response;
 import com.fastcomments.model.LockComment200Response;
-import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
 import com.fastcomments.model.PinComment200Response;
 import com.fastcomments.model.PublicBlockFromCommentParams;
 import com.fastcomments.model.ResetUserNotifications200Response;
 import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SortDirections;
-import com.fastcomments.model.UnBlockComment200Response;
+import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteComment200Response;
@@ -97,7 +97,7 @@ public class PublicApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call blockFromCommentCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentPublicCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -152,48 +152,48 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call blockFromCommentValidateBeforeCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentPublicValidateBeforeCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling blockFromComment(Async)");
+            throw new ApiException("Missing the required parameter 'tenantId' when calling blockFromCommentPublic(Async)");
         }
 
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
-            throw new ApiException("Missing the required parameter 'commentId' when calling blockFromComment(Async)");
+            throw new ApiException("Missing the required parameter 'commentId' when calling blockFromCommentPublic(Async)");
         }
 
         // verify the required parameter 'publicBlockFromCommentParams' is set
         if (publicBlockFromCommentParams == null) {
-            throw new ApiException("Missing the required parameter 'publicBlockFromCommentParams' when calling blockFromComment(Async)");
+            throw new ApiException("Missing the required parameter 'publicBlockFromCommentParams' when calling blockFromCommentPublic(Async)");
         }
 
-        return blockFromCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+        return blockFromCommentPublicCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
 
     }
 
 
-    private ApiResponse<BlockFromComment200Response> blockFromCommentWithHttpInfo(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso) throws ApiException {
-        okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, null);
-        Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
+    private ApiResponse<BlockFromCommentPublic200Response> blockFromCommentPublicWithHttpInfo(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso) throws ApiException {
+        okhttp3.Call localVarCall = blockFromCommentPublicValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, null);
+        Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call blockFromCommentAsync(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
+    private okhttp3.Call blockFromCommentPublicAsync(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = blockFromCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
-        Type localVarReturnType = new TypeToken<BlockFromComment200Response>(){}.getType();
+        okhttp3.Call localVarCall = blockFromCommentPublicValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+        Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIblockFromCommentRequest {
+    public class APIblockFromCommentPublicRequest {
         private final String tenantId;
         private final String commentId;
         private final PublicBlockFromCommentParams publicBlockFromCommentParams;
         private String sso;
 
-        private APIblockFromCommentRequest(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
+        private APIblockFromCommentPublicRequest(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.publicBlockFromCommentParams = publicBlockFromCommentParams;
@@ -202,15 +202,15 @@ public class PublicApi {
         /**
          * Set sso
          * @param sso  (optional)
-         * @return APIblockFromCommentRequest
+         * @return APIblockFromCommentPublicRequest
          */
-        public APIblockFromCommentRequest sso(String sso) {
+        public APIblockFromCommentPublicRequest sso(String sso) {
             this.sso = sso;
             return this;
         }
 
         /**
-         * Build call for blockFromComment
+         * Build call for blockFromCommentPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -222,12 +222,12 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return blockFromCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+            return blockFromCommentPublicCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
 
         /**
-         * Execute blockFromComment request
-         * @return BlockFromComment200Response
+         * Execute blockFromCommentPublic request
+         * @return BlockFromCommentPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -236,14 +236,14 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public BlockFromComment200Response execute() throws ApiException {
-            ApiResponse<BlockFromComment200Response> localVarResp = blockFromCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
+        public BlockFromCommentPublic200Response execute() throws ApiException {
+            ApiResponse<BlockFromCommentPublic200Response> localVarResp = blockFromCommentPublicWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
             return localVarResp.getData();
         }
 
         /**
-         * Execute blockFromComment request with HTTP info returned
-         * @return ApiResponse&lt;BlockFromComment200Response&gt;
+         * Execute blockFromCommentPublic request with HTTP info returned
+         * @return ApiResponse&lt;BlockFromCommentPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -252,12 +252,12 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<BlockFromComment200Response> executeWithHttpInfo() throws ApiException {
-            return blockFromCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
+        public ApiResponse<BlockFromCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+            return blockFromCommentPublicWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
         }
 
         /**
-         * Execute blockFromComment request (asynchronously)
+         * Execute blockFromCommentPublic request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -268,8 +268,8 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<BlockFromComment200Response> _callback) throws ApiException {
-            return blockFromCommentAsync(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
+            return blockFromCommentPublicAsync(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
     }
 
@@ -279,7 +279,7 @@ public class PublicApi {
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param publicBlockFromCommentParams  (required)
-     * @return APIblockFromCommentRequest
+     * @return APIblockFromCommentPublicRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -287,8 +287,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIblockFromCommentRequest blockFromComment(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
-        return new APIblockFromCommentRequest(tenantId, commentId, publicBlockFromCommentParams);
+    public APIblockFromCommentPublicRequest blockFromCommentPublic(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
+        return new APIblockFromCommentPublicRequest(tenantId, commentId, publicBlockFromCommentParams);
     }
     private okhttp3.Call checkedCommentsForBlockedCall(String tenantId, String commentIds, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -4342,7 +4342,7 @@ public class PublicApi {
     public APIsetCommentTextRequest setCommentText(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest) {
         return new APIsetCommentTextRequest(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest);
     }
-    private okhttp3.Call unBlockCommentCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unBlockCommentPublicCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4397,48 +4397,48 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call unBlockCommentValidateBeforeCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unBlockCommentPublicValidateBeforeCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
-            throw new ApiException("Missing the required parameter 'tenantId' when calling unBlockComment(Async)");
+            throw new ApiException("Missing the required parameter 'tenantId' when calling unBlockCommentPublic(Async)");
         }
 
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
-            throw new ApiException("Missing the required parameter 'commentId' when calling unBlockComment(Async)");
+            throw new ApiException("Missing the required parameter 'commentId' when calling unBlockCommentPublic(Async)");
         }
 
         // verify the required parameter 'publicBlockFromCommentParams' is set
         if (publicBlockFromCommentParams == null) {
-            throw new ApiException("Missing the required parameter 'publicBlockFromCommentParams' when calling unBlockComment(Async)");
+            throw new ApiException("Missing the required parameter 'publicBlockFromCommentParams' when calling unBlockCommentPublic(Async)");
         }
 
-        return unBlockCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+        return unBlockCommentPublicCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
 
     }
 
 
-    private ApiResponse<UnBlockComment200Response> unBlockCommentWithHttpInfo(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso) throws ApiException {
-        okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, null);
-        Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
+    private ApiResponse<UnBlockCommentPublic200Response> unBlockCommentPublicWithHttpInfo(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso) throws ApiException {
+        okhttp3.Call localVarCall = unBlockCommentPublicValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, null);
+        Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call unBlockCommentAsync(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unBlockCommentPublicAsync(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = unBlockCommentValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
-        Type localVarReturnType = new TypeToken<UnBlockComment200Response>(){}.getType();
+        okhttp3.Call localVarCall = unBlockCommentPublicValidateBeforeCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+        Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
-    public class APIunBlockCommentRequest {
+    public class APIunBlockCommentPublicRequest {
         private final String tenantId;
         private final String commentId;
         private final PublicBlockFromCommentParams publicBlockFromCommentParams;
         private String sso;
 
-        private APIunBlockCommentRequest(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
+        private APIunBlockCommentPublicRequest(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.publicBlockFromCommentParams = publicBlockFromCommentParams;
@@ -4447,15 +4447,15 @@ public class PublicApi {
         /**
          * Set sso
          * @param sso  (optional)
-         * @return APIunBlockCommentRequest
+         * @return APIunBlockCommentPublicRequest
          */
-        public APIunBlockCommentRequest sso(String sso) {
+        public APIunBlockCommentPublicRequest sso(String sso) {
             this.sso = sso;
             return this;
         }
 
         /**
-         * Build call for unBlockComment
+         * Build call for unBlockCommentPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
          * @throws ApiException If fail to serialize the request body object
@@ -4467,12 +4467,12 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return unBlockCommentCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+            return unBlockCommentPublicCall(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
 
         /**
-         * Execute unBlockComment request
-         * @return UnBlockComment200Response
+         * Execute unBlockCommentPublic request
+         * @return UnBlockCommentPublic200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -4481,14 +4481,14 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public UnBlockComment200Response execute() throws ApiException {
-            ApiResponse<UnBlockComment200Response> localVarResp = unBlockCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
+        public UnBlockCommentPublic200Response execute() throws ApiException {
+            ApiResponse<UnBlockCommentPublic200Response> localVarResp = unBlockCommentPublicWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
             return localVarResp.getData();
         }
 
         /**
-         * Execute unBlockComment request with HTTP info returned
-         * @return ApiResponse&lt;UnBlockComment200Response&gt;
+         * Execute unBlockCommentPublic request with HTTP info returned
+         * @return ApiResponse&lt;UnBlockCommentPublic200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -4497,12 +4497,12 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<UnBlockComment200Response> executeWithHttpInfo() throws ApiException {
-            return unBlockCommentWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
+        public ApiResponse<UnBlockCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+            return unBlockCommentPublicWithHttpInfo(tenantId, commentId, publicBlockFromCommentParams, sso);
         }
 
         /**
-         * Execute unBlockComment request (asynchronously)
+         * Execute unBlockCommentPublic request (asynchronously)
          * @param _callback The callback to be executed when the API call finishes
          * @return The request call
          * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4513,8 +4513,8 @@ public class PublicApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<UnBlockComment200Response> _callback) throws ApiException {
-            return unBlockCommentAsync(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
+            return unBlockCommentPublicAsync(tenantId, commentId, publicBlockFromCommentParams, sso, _callback);
         }
     }
 
@@ -4524,7 +4524,7 @@ public class PublicApi {
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param publicBlockFromCommentParams  (required)
-     * @return APIunBlockCommentRequest
+     * @return APIunBlockCommentPublicRequest
      * @http.response.details
      <table border="1">
        <caption>Response Details</caption>
@@ -4532,8 +4532,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIunBlockCommentRequest unBlockComment(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
-        return new APIunBlockCommentRequest(tenantId, commentId, publicBlockFromCommentParams);
+    public APIunBlockCommentPublicRequest unBlockCommentPublic(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams) {
+        return new APIunBlockCommentPublicRequest(tenantId, commentId, publicBlockFromCommentParams);
     }
     private okhttp3.Call unLockCommentCall(String tenantId, String commentId, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

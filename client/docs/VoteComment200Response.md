@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **APIStatusFAILED** |  |  |
+|**status** | **ImportedAPIStatusFAILED** |  |  |
 |**voteId** | **String** |  |  [optional] |
 |**isVerified** | **Boolean** |  |  [optional] |
 |**user** | [**VoteResponseUser**](VoteResponseUser.md) |  |  [optional] |

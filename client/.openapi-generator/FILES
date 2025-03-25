@@ -6,12 +6,10 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/APIEmptyResponse.md
-docs/APIEmptyResponseAnyOf.md
-docs/APIErrorInternal.md
+docs/APIError.md
 docs/APIGetCommentResponse.md
 docs/APIGetCommentsResponse.md
 docs/APIStatus.md
-docs/APIStatusFAILED.md
 docs/AddDomainConfig200Response.md
 docs/AddDomainConfig200ResponseAnyOf.md
 docs/AddDomainConfigParams.md
@@ -23,8 +21,8 @@ docs/AggregationRequestSort.md
 docs/AggregationResponse.md
 docs/AggregationResponseStats.md
 docs/AggregationValue.md
-docs/BlockFromComment200Response.md
 docs/BlockFromCommentParams.md
+docs/BlockFromCommentPublic200Response.md
 docs/BlockSuccess.md
 docs/ChangeCommentPinStatusResponse.md
 docs/CheckBlockedCommentsResponse.md
@@ -98,7 +96,6 @@ docs/NotificationAndCount.md
 docs/NotificationType.md
 docs/PatchDomainConfigParams.md
 docs/PickAPICommentUpdatableCommentFields.md
-docs/PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.md
 docs/PickFCommentAPICommentFieldsKeys.md
 docs/PickFCommentAPICommentFieldsKeysMeta.md
 docs/PickFCommentApprovedOrCommentHTML.md
@@ -135,7 +132,7 @@ docs/SaveCommentsResponseWithPresence.md
 docs/SetCommentText200Response.md
 docs/SortDirections.md
 docs/SpamRule.md
-docs/UnBlockComment200Response.md
+docs/UnBlockCommentPublic200Response.md
 docs/UnBlockFromCommentParams.md
 docs/UnblockSuccess.md
 docs/UpdateDomainConfigParams.md
@@ -181,12 +178,10 @@ src/main/java/com/fastcomments/invoker/auth/Authentication.java
 src/main/java/com/fastcomments/invoker/auth/HttpBasicAuth.java
 src/main/java/com/fastcomments/invoker/auth/HttpBearerAuth.java
 src/main/java/com/fastcomments/model/APIEmptyResponse.java
-src/main/java/com/fastcomments/model/APIEmptyResponseAnyOf.java
-src/main/java/com/fastcomments/model/APIErrorInternal.java
+src/main/java/com/fastcomments/model/APIError.java
 src/main/java/com/fastcomments/model/APIGetCommentResponse.java
 src/main/java/com/fastcomments/model/APIGetCommentsResponse.java
 src/main/java/com/fastcomments/model/APIStatus.java
-src/main/java/com/fastcomments/model/APIStatusFAILED.java
 src/main/java/com/fastcomments/model/AbstractOpenApiSchema.java
 src/main/java/com/fastcomments/model/AddDomainConfig200Response.java
 src/main/java/com/fastcomments/model/AddDomainConfig200ResponseAnyOf.java
@@ -199,8 +194,8 @@ src/main/java/com/fastcomments/model/AggregationRequestSort.java
 src/main/java/com/fastcomments/model/AggregationResponse.java
 src/main/java/com/fastcomments/model/AggregationResponseStats.java
 src/main/java/com/fastcomments/model/AggregationValue.java
-src/main/java/com/fastcomments/model/BlockFromComment200Response.java
 src/main/java/com/fastcomments/model/BlockFromCommentParams.java
+src/main/java/com/fastcomments/model/BlockFromCommentPublic200Response.java
 src/main/java/com/fastcomments/model/BlockSuccess.java
 src/main/java/com/fastcomments/model/ChangeCommentPinStatusResponse.java
 src/main/java/com/fastcomments/model/CheckBlockedCommentsResponse.java
@@ -273,7 +268,6 @@ src/main/java/com/fastcomments/model/NotificationAndCount.java
 src/main/java/com/fastcomments/model/NotificationType.java
 src/main/java/com/fastcomments/model/PatchDomainConfigParams.java
 src/main/java/com/fastcomments/model/PickAPICommentUpdatableCommentFields.java
-src/main/java/com/fastcomments/model/PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.java
 src/main/java/com/fastcomments/model/PickFCommentAPICommentFieldsKeys.java
 src/main/java/com/fastcomments/model/PickFCommentAPICommentFieldsKeysMeta.java
 src/main/java/com/fastcomments/model/PickFCommentApprovedOrCommentHTML.java
@@ -309,7 +303,7 @@ src/main/java/com/fastcomments/model/SaveCommentsResponseWithPresence.java
 src/main/java/com/fastcomments/model/SetCommentText200Response.java
 src/main/java/com/fastcomments/model/SortDirections.java
 src/main/java/com/fastcomments/model/SpamRule.java
-src/main/java/com/fastcomments/model/UnBlockComment200Response.java
+src/main/java/com/fastcomments/model/UnBlockCommentPublic200Response.java
 src/main/java/com/fastcomments/model/UnBlockFromCommentParams.java
 src/main/java/com/fastcomments/model/UnblockSuccess.java
 src/main/java/com/fastcomments/model/UpdateDomainConfigParams.java
@@ -328,12 +322,10 @@ src/main/java/com/fastcomments/model/VoteResponseUser.java
 src/main/java/com/fastcomments/model/VoteStyle.java
 src/test/java/com/fastcomments/api/DefaultApiTest.java
 src/test/java/com/fastcomments/api/PublicApiTest.java
-src/test/java/com/fastcomments/model/APIEmptyResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/APIEmptyResponseTest.java
-src/test/java/com/fastcomments/model/APIErrorInternalTest.java
+src/test/java/com/fastcomments/model/APIErrorTest.java
 src/test/java/com/fastcomments/model/APIGetCommentResponseTest.java
 src/test/java/com/fastcomments/model/APIGetCommentsResponseTest.java
-src/test/java/com/fastcomments/model/APIStatusFAILEDTest.java
 src/test/java/com/fastcomments/model/APIStatusTest.java
 src/test/java/com/fastcomments/model/AddDomainConfig200ResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/AddDomainConfig200ResponseTest.java
@@ -346,8 +338,8 @@ src/test/java/com/fastcomments/model/AggregationRequestTest.java
 src/test/java/com/fastcomments/model/AggregationResponseStatsTest.java
 src/test/java/com/fastcomments/model/AggregationResponseTest.java
 src/test/java/com/fastcomments/model/AggregationValueTest.java
-src/test/java/com/fastcomments/model/BlockFromComment200ResponseTest.java
 src/test/java/com/fastcomments/model/BlockFromCommentParamsTest.java
+src/test/java/com/fastcomments/model/BlockFromCommentPublic200ResponseTest.java
 src/test/java/com/fastcomments/model/BlockSuccessTest.java
 src/test/java/com/fastcomments/model/ChangeCommentPinStatusResponseTest.java
 src/test/java/com/fastcomments/model/CheckBlockedCommentsResponseTest.java
@@ -420,7 +412,6 @@ src/test/java/com/fastcomments/model/NotificationAndCountTest.java
 src/test/java/com/fastcomments/model/NotificationTypeTest.java
 src/test/java/com/fastcomments/model/PatchDomainConfigParamsTest.java
 src/test/java/com/fastcomments/model/PickAPICommentUpdatableCommentFieldsTest.java
-src/test/java/com/fastcomments/model/PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCodeTest.java
 src/test/java/com/fastcomments/model/PickFCommentAPICommentFieldsKeysMetaTest.java
 src/test/java/com/fastcomments/model/PickFCommentAPICommentFieldsKeysTest.java
 src/test/java/com/fastcomments/model/PickFCommentApprovedOrCommentHTMLTest.java
@@ -456,7 +447,7 @@ src/test/java/com/fastcomments/model/SaveCommentsResponseWithPresenceTest.java
 src/test/java/com/fastcomments/model/SetCommentText200ResponseTest.java
 src/test/java/com/fastcomments/model/SortDirectionsTest.java
 src/test/java/com/fastcomments/model/SpamRuleTest.java
-src/test/java/com/fastcomments/model/UnBlockComment200ResponseTest.java
+src/test/java/com/fastcomments/model/UnBlockCommentPublic200ResponseTest.java
 src/test/java/com/fastcomments/model/UnBlockFromCommentParamsTest.java
 src/test/java/com/fastcomments/model/UnblockSuccessTest.java
 src/test/java/com/fastcomments/model/UpdateDomainConfigParamsTest.java

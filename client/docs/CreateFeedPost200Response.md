@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **APIStatusFAILED** |  |  |
+|**status** | **ImportedAPIStatusFAILED** |  |  |
 |**feedPost** | [**FeedPost**](FeedPost.md) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |

@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**statusCode** | **Integer** |  |  [optional] |
-|**status** | **APIStatusFAILED** |  |  |
+|**status** | **ImportedAPIStatusFAILED** |  |  |
 |**code** | **String** |  |  |
 |**reason** | **String** |  |  |
 |**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  |

@@ -1407,7 +1407,7 @@ paths:
       - application/json
   /block-from-comment/{commentId}:
     delete:
-      operationId: UnBlockComment
+      operationId: UnBlockCommentPublic
       parameters:
       - explode: true
         in: query
@@ -1441,7 +1441,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnBlockComment_200_response'
+                $ref: '#/components/schemas/UnBlockCommentPublic_200_response'
           description: Ok
       security: []
       tags:
@@ -1450,7 +1450,7 @@ paths:
       x-accepts:
       - application/json
     post:
-      operationId: BlockFromComment
+      operationId: BlockFromCommentPublic
       parameters:
       - explode: true
         in: query
@@ -1484,7 +1484,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockFromComment_200_response'
+                $ref: '#/components/schemas/BlockFromCommentPublic_200_response'
           description: Ok
       security: []
       tags:
@@ -2203,7 +2203,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockFromComment_200_response'
+                $ref: '#/components/schemas/BlockFromCommentPublic_200_response'
           description: Ok
       security: []
       x-content-type: application/json
@@ -2252,7 +2252,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnBlockComment_200_response'
+                $ref: '#/components/schemas/UnBlockCommentPublic_200_response'
           description: Ok
       security: []
       x-content-type: application/json
@@ -2398,7 +2398,7 @@ components:
       - status
       - userIdsOnline
       type: object
-    APIStatus.FAILED:
+    ImportedAPIStatus.FAILED:
       enum:
       - failed
       type: string
@@ -2752,8 +2752,8 @@ components:
         wrap:
           type: boolean
       type: object
-    Pick_APIErrorInternal.Exclude_keyofAPIErrorInternal.statusCode__:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    APIError:
+      additionalProperties: false
       example:
         reason: reason
         code: code
@@ -2846,7 +2846,7 @@ components:
         status: failed
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus.FAILED'
+          $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
         reason:
           type: string
         code:
@@ -2868,10 +2868,6 @@ components:
       - reason
       - status
       type: object
-    Omit_APIErrorInternal.statusCode_:
-      $ref: '#/components/schemas/Pick_APIErrorInternal.Exclude_keyofAPIErrorInternal.statusCode__'
-    APIError:
-      $ref: '#/components/schemas/Omit_APIErrorInternal.statusCode_'
     NotificationType:
       enum:
       - 0
@@ -3127,43 +3123,15 @@ components:
       - note
       - status
       type: object
-    ImportedAPIStatus.FAILED:
-      enum:
-      - failed
-      type: string
-    APIErrorInternal:
-      additionalProperties: false
+    APIEmptyResponse:
+      example:
+        status: success
       properties:
-        statusCode:
-          format: double
-          type: number
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
-        reason:
-          type: string
-        code:
-          type: string
-        secondaryCode:
-          type: string
-        bannedUntil:
-          format: double
-          type: number
-        maxCharacterLength:
-          format: double
-          type: number
-        translatedError:
-          type: string
-        customConfig:
-          $ref: '#/components/schemas/CustomConfigParameters'
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
       required:
-      - code
-      - reason
       - status
       type: object
-    APIEmptyResponse:
-      anyOf:
-      - $ref: '#/components/schemas/APIEmptyResponse_anyOf'
-      - $ref: '#/components/schemas/APIErrorInternal'
     EventLogEntry:
       additionalProperties: false
       example:
@@ -6520,11 +6488,11 @@ components:
       anyOf:
       - $ref: '#/components/schemas/APIError'
       - $ref: '#/components/schemas/APIEmptyResponse'
-    BlockFromComment_200_response:
+    BlockFromCommentPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/BlockSuccess'
       - $ref: '#/components/schemas/APIError'
-    UnBlockComment_200_response:
+    UnBlockCommentPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
       - $ref: '#/components/schemas/APIError'
@@ -6618,15 +6586,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/GetAuditLogsResponse'
       - $ref: '#/components/schemas/APIError'
-    APIEmptyResponse_anyOf:
-      example:
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      required:
-      - status
-      type: object
     Record_string__before_string_or_null__after_string_or_null___value:
       example:
         before: before

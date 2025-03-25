@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **ImportedAPIStatusSUCCESS** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |
@@ -15,7 +15,6 @@
 |**maxCharacterLength** | **Double** |  |  [optional] |
 |**translatedError** | **String** |  |  [optional] |
 |**customConfig** | [**CustomConfigParameters**](CustomConfigParameters.md) |  |  [optional] |
-|**statusCode** | **Double** |  |  [optional] |
 
 
 

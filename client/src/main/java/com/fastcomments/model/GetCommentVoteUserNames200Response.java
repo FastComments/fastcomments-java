@@ -14,10 +14,10 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIStatusFAILED;
+import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GetCommentVoteUserNamesSuccessResponse;
-import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -63,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-24T23:58:52.285256603-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-25T09:21:20.273818640-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GetCommentVoteUserNames200Response.class.getName());
 
@@ -76,7 +76,7 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<GetCommentVoteUserNamesSuccessResponse> adapterGetCommentVoteUserNamesSuccessResponse = gson.getDelegateAdapter(this, TypeToken.get(GetCommentVoteUserNamesSuccessResponse.class));
-            final TypeAdapter<PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode> adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode = gson.getDelegateAdapter(this, TypeToken.get(PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class));
+            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
             return (TypeAdapter<T>) new TypeAdapter<GetCommentVoteUserNames200Response>() {
                 @Override
@@ -92,13 +92,13 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
-                    if (value.getActualInstance() instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
-                        JsonElement element = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.toJsonTree((PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)value.getActualInstance());
+                    // check if the actual instance is of the type `APIError`
+                    if (value.getActualInstance() instanceof APIError) {
+                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: GetCommentVoteUserNamesSuccessResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, GetCommentVoteUserNamesSuccessResponse");
                 }
 
                 @Override
@@ -122,18 +122,18 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for GetCommentVoteUserNamesSuccessResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'GetCommentVoteUserNamesSuccessResponse'", e);
                     }
-                    // deserialize PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+                    // deserialize APIError
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
-                        actualAdapter = adapterPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
+                        APIError.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPIError;
                         GetCommentVoteUserNames200Response ret = new GetCommentVoteUserNames200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode'", e);
+                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
                     }
 
                     throw new IOException(String.format("Failed deserialization for GetCommentVoteUserNames200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
@@ -156,7 +156,7 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
 
     static {
         schemas.put("GetCommentVoteUserNamesSuccessResponse", GetCommentVoteUserNamesSuccessResponse.class);
-        schemas.put("PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode", PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.class);
+        schemas.put("APIError", APIError.class);
     }
 
     @Override
@@ -167,7 +167,7 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * GetCommentVoteUserNamesSuccessResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+     * APIError, GetCommentVoteUserNamesSuccessResponse
      *
      * It could be an instance of the 'anyOf' schemas.
      */
@@ -178,19 +178,19 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode) {
+        if (instance instanceof APIError) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be GetCommentVoteUserNamesSuccessResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode");
+        throw new RuntimeException("Invalid instance type. Must be APIError, GetCommentVoteUserNamesSuccessResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * GetCommentVoteUserNamesSuccessResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+     * APIError, GetCommentVoteUserNamesSuccessResponse
      *
-     * @return The actual instance (GetCommentVoteUserNamesSuccessResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)
+     * @return The actual instance (APIError, GetCommentVoteUserNamesSuccessResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -210,14 +210,14 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`. If the actual instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`,
+     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
-     * @throws ClassCastException if the instance is not `PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode`
+     * @return The actual instance of `APIError`
+     * @throws ClassCastException if the instance is not `APIError`
      */
-    public PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode getPickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode() throws ClassCastException {
-        return (PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode)super.getActualInstance();
+    public APIError getAPIError() throws ClassCastException {
+        return (APIError)super.getActualInstance();
     }
 
     /**
@@ -237,15 +237,15 @@ public class GetCommentVoteUserNames200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for GetCommentVoteUserNamesSuccessResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode
+        // validate the json string with APIError
         try {
-            PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode.validateJsonElement(jsonElement);
+            APIError.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for GetCommentVoteUserNames200Response with anyOf schemas: GetCommentVoteUserNamesSuccessResponse, PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for GetCommentVoteUserNames200Response with anyOf schemas: APIError, GetCommentVoteUserNamesSuccessResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

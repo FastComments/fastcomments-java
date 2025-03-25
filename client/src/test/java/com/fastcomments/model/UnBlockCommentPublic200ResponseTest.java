@@ -13,8 +13,10 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.UnblockSuccess;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,29 +24,23 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for APIErrorInternal
+ * Model tests for UnBlockCommentPublic200Response
  */
-public class APIErrorInternalTest {
-    private final APIErrorInternal model = new APIErrorInternal();
+public class UnBlockCommentPublic200ResponseTest {
+    private final UnBlockCommentPublic200Response model = new UnBlockCommentPublic200Response();
 
     /**
-     * Model tests for APIErrorInternal
+     * Model tests for UnBlockCommentPublic200Response
      */
     @Test
-    public void testAPIErrorInternal() {
-        // TODO: test APIErrorInternal
-    }
-
-    /**
-     * Test the property 'statusCode'
-     */
-    @Test
-    public void statusCodeTest() {
-        // TODO: test statusCode
+    public void testUnBlockCommentPublic200Response() {
+        // TODO: test UnBlockCommentPublic200Response
     }
 
     /**
@@ -53,6 +49,14 @@ public class APIErrorInternalTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'commentStatuses'
+     */
+    @Test
+    public void commentStatusesTest() {
+        // TODO: test commentStatuses
     }
 
     /**

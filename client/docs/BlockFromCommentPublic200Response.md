@@ -1,6 +1,6 @@
 
 
-# GetFeedPosts200Response
+# BlockFromCommentPublic200Response
 
 
 ## Properties
@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **ImportedAPIStatusFAILED** |  |  |
-|**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  |
+|**commentStatuses** | **Map&lt;String, Boolean&gt;** | Construct a type with a set of properties K of type T |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

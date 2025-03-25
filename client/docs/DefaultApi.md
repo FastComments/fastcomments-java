@@ -162,7 +162,7 @@ No authorization required
 
 <a id="blockUserFromComment"></a>
 # **blockUserFromComment**
-> BlockFromComment200Response blockUserFromComment(tenantId, id, blockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
+> BlockFromCommentPublic200Response blockUserFromComment(tenantId, id, blockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -187,7 +187,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      BlockFromComment200Response result = apiInstance.blockUserFromComment(tenantId, id, blockFromCommentParams)
+      BlockFromCommentPublic200Response result = apiInstance.blockUserFromComment(tenantId, id, blockFromCommentParams)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -215,7 +215,7 @@ public class Example {
 
 ### Return type
 
-[**BlockFromComment200Response**](BlockFromComment200Response.md)
+[**BlockFromCommentPublic200Response**](BlockFromCommentPublic200Response.md)
 
 ### Authorization
 
@@ -1138,7 +1138,7 @@ No authorization required
 
 <a id="unBlockUserFromComment"></a>
 # **unBlockUserFromComment**
-> UnBlockComment200Response unBlockUserFromComment(tenantId, id, unBlockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
+> UnBlockCommentPublic200Response unBlockUserFromComment(tenantId, id, unBlockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -1163,7 +1163,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      UnBlockComment200Response result = apiInstance.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
+      UnBlockCommentPublic200Response result = apiInstance.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -1191,7 +1191,7 @@ public class Example {
 
 ### Return type
 
-[**UnBlockComment200Response**](UnBlockComment200Response.md)
+[**UnBlockCommentPublic200Response**](UnBlockCommentPublic200Response.md)
 
 ### Authorization
 

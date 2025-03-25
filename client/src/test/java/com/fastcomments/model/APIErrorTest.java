@@ -13,10 +13,8 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.APIStatusFAILED;
-import com.fastcomments.model.BlockSuccess;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.PickAPIErrorInternalExcludeKeyofAPIErrorInternalStatusCode;
+import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,23 +22,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for BlockFromComment200Response
+ * Model tests for APIError
  */
-public class BlockFromComment200ResponseTest {
-    private final BlockFromComment200Response model = new BlockFromComment200Response();
+public class APIErrorTest {
+    private final APIError model = new APIError();
 
     /**
-     * Model tests for BlockFromComment200Response
+     * Model tests for APIError
      */
     @Test
-    public void testBlockFromComment200Response() {
-        // TODO: test BlockFromComment200Response
+    public void testAPIError() {
+        // TODO: test APIError
     }
 
     /**
@@ -49,14 +45,6 @@ public class BlockFromComment200ResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
-    }
-
-    /**
-     * Test the property 'commentStatuses'
-     */
-    @Test
-    public void commentStatusesTest() {
-        // TODO: test commentStatuses
     }
 
     /**

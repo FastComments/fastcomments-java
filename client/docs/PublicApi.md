@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**blockFromComment**](PublicApi.md#blockFromComment) | **POST** /block-from-comment/{commentId} |  |
+| [**blockFromCommentPublic**](PublicApi.md#blockFromCommentPublic) | **POST** /block-from-comment/{commentId} |  |
 | [**checkedCommentsForBlocked**](PublicApi.md#checkedCommentsForBlocked) | **GET** /check-blocked-comments |  |
 | [**createCommentPublic**](PublicApi.md#createCommentPublic) | **POST** /comments/{tenantId} |  |
 | [**deleteCommentPublic**](PublicApi.md#deleteCommentPublic) | **DELETE** /comments/{tenantId}/{commentId} |  |
@@ -23,7 +23,7 @@ All URIs are relative to *http://localhost*
 | [**resetUserNotificationCount**](PublicApi.md#resetUserNotificationCount) | **POST** /user-notifications/reset-count |  |
 | [**resetUserNotifications**](PublicApi.md#resetUserNotifications) | **POST** /user-notifications/reset |  |
 | [**setCommentText**](PublicApi.md#setCommentText) | **POST** /comments/{tenantId}/{commentId}/update-text |  |
-| [**unBlockComment**](PublicApi.md#unBlockComment) | **DELETE** /block-from-comment/{commentId} |  |
+| [**unBlockCommentPublic**](PublicApi.md#unBlockCommentPublic) | **DELETE** /block-from-comment/{commentId} |  |
 | [**unLockComment**](PublicApi.md#unLockComment) | **POST** /comments/{tenantId}/{commentId}/unlock |  |
 | [**unPinComment**](PublicApi.md#unPinComment) | **POST** /comments/{tenantId}/{commentId}/unpin |  |
 | [**updateUserNotificationCommentSubscriptionStatus**](PublicApi.md#updateUserNotificationCommentSubscriptionStatus) | **POST** /user-notifications/{notificationId}/mark-opted/{optedInOrOut} |  |
@@ -32,9 +32,9 @@ All URIs are relative to *http://localhost*
 | [**voteComment**](PublicApi.md#voteComment) | **POST** /comments/{tenantId}/{commentId}/vote |  |
 
 
-<a id="blockFromComment"></a>
-# **blockFromComment**
-> BlockFromComment200Response blockFromComment(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
+<a id="blockFromCommentPublic"></a>
+# **blockFromCommentPublic**
+> BlockFromCommentPublic200Response blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -58,12 +58,12 @@ public class Example {
     PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      BlockFromComment200Response result = apiInstance.blockFromComment(tenantId, commentId, publicBlockFromCommentParams)
+      BlockFromCommentPublic200Response result = apiInstance.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PublicApi#blockFromComment");
+      System.err.println("Exception when calling PublicApi#blockFromCommentPublic");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -84,7 +84,7 @@ public class Example {
 
 ### Return type
 
-[**BlockFromComment200Response**](BlockFromComment200Response.md)
+[**BlockFromCommentPublic200Response**](BlockFromCommentPublic200Response.md)
 
 ### Authorization
 
@@ -1438,9 +1438,9 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
-<a id="unBlockComment"></a>
-# **unBlockComment**
-> UnBlockComment200Response unBlockComment(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
+<a id="unBlockCommentPublic"></a>
+# **unBlockCommentPublic**
+> UnBlockCommentPublic200Response unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -1464,12 +1464,12 @@ public class Example {
     PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      UnBlockComment200Response result = apiInstance.unBlockComment(tenantId, commentId, publicBlockFromCommentParams)
+      UnBlockCommentPublic200Response result = apiInstance.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling PublicApi#unBlockComment");
+      System.err.println("Exception when calling PublicApi#unBlockCommentPublic");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -1490,7 +1490,7 @@ public class Example {
 
 ### Return type
 
-[**UnBlockComment200Response**](UnBlockComment200Response.md)
+[**UnBlockCommentPublic200Response**](UnBlockCommentPublic200Response.md)
 
 ### Authorization
 
