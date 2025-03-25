@@ -410,10 +410,11 @@ public class PublicApiTest {
         String tenantId = null;
         String commentId = null;
         String broadcastId = null;
-        String editKey = null;
         CommentTextUpdateRequest commentTextUpdateRequest = null;
+        String editKey = null;
         String sso = null;
-        SetCommentText200Response response = api.setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest)
+        SetCommentText200Response response = api.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
+                .editKey(editKey)
                 .sso(sso)
                 .execute();
         // TODO: test validations

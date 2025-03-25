@@ -1368,7 +1368,7 @@ No authorization required
 
 <a id="setCommentText"></a>
 # **setCommentText**
-> SetCommentText200Response setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest).sso(sso).execute();
+> SetCommentText200Response setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest).editKey(editKey).sso(sso).execute();
 
 
 
@@ -1390,11 +1390,12 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String broadcastId = "broadcastId_example"; // String | 
-    String editKey = "editKey_example"; // String | 
     CommentTextUpdateRequest commentTextUpdateRequest = new CommentTextUpdateRequest(); // CommentTextUpdateRequest | 
+    String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetCommentText200Response result = apiInstance.setCommentText(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest)
+      SetCommentText200Response result = apiInstance.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
+            .editKey(editKey)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1416,8 +1417,8 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **broadcastId** | **String**|  | |
-| **editKey** | **String**|  | |
 | **commentTextUpdateRequest** | [**CommentTextUpdateRequest**](CommentTextUpdateRequest.md)|  | |
+| **editKey** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type

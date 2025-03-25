@@ -664,7 +664,7 @@ paths:
       - explode: true
         in: query
         name: editKey
-        required: true
+        required: false
         schema:
           type: string
         style: form

@@ -4128,7 +4128,7 @@ public class PublicApi {
     public APIresetUserNotificationsRequest resetUserNotifications(String tenantId) {
         return new APIresetUserNotificationsRequest(tenantId);
     }
-    private okhttp3.Call setCommentTextCall(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call setCommentTextCall(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4188,7 +4188,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call setCommentTextValidateBeforeCall(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call setCommentTextValidateBeforeCall(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling setCommentText(Async)");
@@ -4204,30 +4204,25 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'broadcastId' when calling setCommentText(Async)");
         }
 
-        // verify the required parameter 'editKey' is set
-        if (editKey == null) {
-            throw new ApiException("Missing the required parameter 'editKey' when calling setCommentText(Async)");
-        }
-
         // verify the required parameter 'commentTextUpdateRequest' is set
         if (commentTextUpdateRequest == null) {
             throw new ApiException("Missing the required parameter 'commentTextUpdateRequest' when calling setCommentText(Async)");
         }
 
-        return setCommentTextCall(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, _callback);
+        return setCommentTextCall(tenantId, commentId, broadcastId, commentTextUpdateRequest, editKey, sso, _callback);
 
     }
 
 
-    private ApiResponse<SetCommentText200Response> setCommentTextWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso) throws ApiException {
-        okhttp3.Call localVarCall = setCommentTextValidateBeforeCall(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, null);
+    private ApiResponse<SetCommentText200Response> setCommentTextWithHttpInfo(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest, String editKey, String sso) throws ApiException {
+        okhttp3.Call localVarCall = setCommentTextValidateBeforeCall(tenantId, commentId, broadcastId, commentTextUpdateRequest, editKey, sso, null);
         Type localVarReturnType = new TypeToken<SetCommentText200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call setCommentTextAsync(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest, String sso, final ApiCallback<SetCommentText200Response> _callback) throws ApiException {
+    private okhttp3.Call setCommentTextAsync(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest, String editKey, String sso, final ApiCallback<SetCommentText200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = setCommentTextValidateBeforeCall(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, _callback);
+        okhttp3.Call localVarCall = setCommentTextValidateBeforeCall(tenantId, commentId, broadcastId, commentTextUpdateRequest, editKey, sso, _callback);
         Type localVarReturnType = new TypeToken<SetCommentText200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4237,16 +4232,25 @@ public class PublicApi {
         private final String tenantId;
         private final String commentId;
         private final String broadcastId;
-        private final String editKey;
         private final CommentTextUpdateRequest commentTextUpdateRequest;
+        private String editKey;
         private String sso;
 
-        private APIsetCommentTextRequest(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest) {
+        private APIsetCommentTextRequest(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.broadcastId = broadcastId;
-            this.editKey = editKey;
             this.commentTextUpdateRequest = commentTextUpdateRequest;
+        }
+
+        /**
+         * Set editKey
+         * @param editKey  (optional)
+         * @return APIsetCommentTextRequest
+         */
+        public APIsetCommentTextRequest editKey(String editKey) {
+            this.editKey = editKey;
+            return this;
         }
 
         /**
@@ -4272,7 +4276,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return setCommentTextCall(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, _callback);
+            return setCommentTextCall(tenantId, commentId, broadcastId, commentTextUpdateRequest, editKey, sso, _callback);
         }
 
         /**
@@ -4287,7 +4291,7 @@ public class PublicApi {
          </table>
          */
         public SetCommentText200Response execute() throws ApiException {
-            ApiResponse<SetCommentText200Response> localVarResp = setCommentTextWithHttpInfo(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso);
+            ApiResponse<SetCommentText200Response> localVarResp = setCommentTextWithHttpInfo(tenantId, commentId, broadcastId, commentTextUpdateRequest, editKey, sso);
             return localVarResp.getData();
         }
 
@@ -4303,7 +4307,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<SetCommentText200Response> executeWithHttpInfo() throws ApiException {
-            return setCommentTextWithHttpInfo(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso);
+            return setCommentTextWithHttpInfo(tenantId, commentId, broadcastId, commentTextUpdateRequest, editKey, sso);
         }
 
         /**
@@ -4319,7 +4323,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<SetCommentText200Response> _callback) throws ApiException {
-            return setCommentTextAsync(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest, sso, _callback);
+            return setCommentTextAsync(tenantId, commentId, broadcastId, commentTextUpdateRequest, editKey, sso, _callback);
         }
     }
 
@@ -4329,7 +4333,6 @@ public class PublicApi {
      * @param tenantId  (required)
      * @param commentId  (required)
      * @param broadcastId  (required)
-     * @param editKey  (required)
      * @param commentTextUpdateRequest  (required)
      * @return APIsetCommentTextRequest
      * @http.response.details
@@ -4339,8 +4342,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIsetCommentTextRequest setCommentText(String tenantId, String commentId, String broadcastId, String editKey, CommentTextUpdateRequest commentTextUpdateRequest) {
-        return new APIsetCommentTextRequest(tenantId, commentId, broadcastId, editKey, commentTextUpdateRequest);
+    public APIsetCommentTextRequest setCommentText(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest) {
+        return new APIsetCommentTextRequest(tenantId, commentId, broadcastId, commentTextUpdateRequest);
     }
     private okhttp3.Call unBlockCommentPublicCall(String tenantId, String commentId, PublicBlockFromCommentParams publicBlockFromCommentParams, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
