@@ -1,4 +1,5 @@
 # DefaultApi
+FastComments PHP API Client - A SDK for interacting with the FastComments API
 
 All URIs are relative to *http://localhost*
 

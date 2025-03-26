@@ -8,5 +8,15 @@
   "invokerPackage": "com.fastcomments.invoker",
   "openApiNullable": false,
   "library": "okhttp-gson",
-  "serializationLibrary": "gson"
+  "serializationLibrary": "gson",
+  "description": "FastComments PHP API Client - A SDK for interacting with the FastComments API",
+  "artifactDescription": "FastComments PHP API Client - A SDK for interacting with the FastComments API",
+  "artifactUrl": "https://fastcomments.com",
+  "licenseName": "MIT",
+  "infoEmail": "support@fastcomments.com",
+  "developerName": "FastComments",
+  "developerEmail": "support@fastcomments.com",
+  "developerOrganization": "FastComments",
+  "developerOrganizationUrl": "https://fastcomments.com",
+  "authorizeHint": "The FastComments API uses two types of endpoints: DefaultApi which contains methods that require an API key for authentication, and PublicApi which can be accessed without authentication (often from browsers/client SDKs using SSO)."
 }

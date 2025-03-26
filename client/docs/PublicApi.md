@@ -1,4 +1,5 @@
 # PublicApi
+FastComments PHP API Client - A SDK for interacting with the FastComments API
 
 All URIs are relative to *http://localhost*
 
@@ -14,6 +15,7 @@ All URIs are relative to *http://localhost*
 | [**getCommentVoteUserNames**](PublicApi.md#getCommentVoteUserNames) | **GET** /comments/{tenantId}/{commentId}/votes |  |
 | [**getCommentsPublic**](PublicApi.md#getCommentsPublic) | **GET** /comments/{tenantId} |  |
 | [**getEventLog**](PublicApi.md#getEventLog) | **GET** /event-log/{tenantId} |  |
+| [**getFeedPostsPublic**](PublicApi.md#getFeedPostsPublic) | **GET** /feed-posts/{tenantId} |  |
 | [**getGlobalEventLog**](PublicApi.md#getGlobalEventLog) | **GET** /event-log/global/{tenantId} |  |
 | [**getUserNotificationCount**](PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count |  |
 | [**getUserNotifications**](PublicApi.md#getUserNotifications) | **GET** /user-notifications |  |
@@ -783,6 +785,78 @@ public class Example {
 ### Return type
 
 [**GetEventLog200Response**](GetEventLog200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getFeedPostsPublic"></a>
+# **getFeedPostsPublic**
+> GetFeedPosts200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).execute();
+
+
+
+ req tenantId urlId userIdWS
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    Double afterId = 3.4D; // Double | 
+    Double limit = 3.4D; // Double | 
+    List<String> tags = Arrays.asList(); // List<String> | 
+    try {
+      GetFeedPosts200Response result = apiInstance.getFeedPostsPublic(tenantId)
+            .afterId(afterId)
+            .limit(limit)
+            .tags(tags)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getFeedPostsPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **afterId** | **Double**|  | [optional] |
+| **limit** | **Double**|  | [optional] |
+| **tags** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+
+### Return type
+
+[**GetFeedPosts200Response**](GetFeedPosts200Response.md)
 
 ### Authorization
 

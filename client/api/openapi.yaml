@@ -474,6 +474,168 @@ paths:
       - Public
       x-accepts:
       - application/json
+  /api/v1/feed-posts:
+    get:
+      operationId: GetFeedPosts
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: afterId
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: tags
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeedPosts_200_response'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+    post:
+      operationId: CreateFeedPost
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedPost'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFeedPost_200_response'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/feed-posts/{id}:
+    patch:
+      operationId: UpdateFeedPost
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedPost'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /feed-posts/{tenantId}:
+    get:
+      description: |2-
+
+        req
+        tenantId
+        urlId
+        userIdWS
+      operationId: GetFeedPostsPublic
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: afterId
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: tags
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeedPosts_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
   /event-log/{tenantId}:
     get:
       description: |2-
@@ -1489,114 +1651,6 @@ paths:
       security: []
       tags:
       - Public
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /api/v1/feed-posts:
-    get:
-      operationId: GetFeedPosts
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: afterId
-        required: false
-        schema:
-          format: double
-          type: number
-        style: form
-      - explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          format: double
-          type: number
-        style: form
-      - explode: true
-        in: query
-        name: tags
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeedPosts_200_response'
-          description: Ok
-      security: []
-      x-accepts:
-      - application/json
-    post:
-      operationId: CreateFeedPost
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: form
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FeedPost'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateFeedPost_200_response'
-          description: Ok
-      security: []
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /api/v1/feed-posts/{id}:
-    patch:
-      operationId: UpdateFeedPost
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FeedPost'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
-          description: Ok
-      security: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -3132,6 +3186,245 @@ components:
       required:
       - status
       type: object
+    APIStatus:
+      enum:
+      - success
+      - failed
+      type: string
+    FeedPostMediaItemAsset:
+      additionalProperties: false
+      example:
+        src: src
+        w: 6.027456183070403
+        h: 1.4658129805029452
+      properties:
+        w:
+          format: double
+          type: number
+        h:
+          format: double
+          type: number
+        src:
+          type: string
+      required:
+      - h
+      - src
+      - w
+      type: object
+    FeedPostMediaItem:
+      additionalProperties: false
+      example:
+        sizes:
+          src: src
+          w: 6.027456183070403
+          h: 1.4658129805029452
+        link: link
+        title: title
+      properties:
+        title:
+          type: string
+        link:
+          type: string
+        sizes:
+          $ref: '#/components/schemas/FeedPostMediaItemAsset'
+      type: object
+    FeedPostLink:
+      additionalProperties: false
+      example:
+        link: link
+        title: title
+      properties:
+        title:
+          type: string
+        link:
+          type: string
+      type: object
+    FeedPost:
+      additionalProperties: false
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        fromUserId: fromUserId
+        meta:
+          key: meta
+        weight: 0.8008281904610115
+        links:
+        - link: link
+          title: title
+        - link: link
+          title: title
+        _id: _id
+        fromIpHash: fromIpHash
+        media:
+        - sizes:
+            src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          link: link
+          title: title
+        - sizes:
+            src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          link: link
+          title: title
+        contentHTML: contentHTML
+        tags:
+        - tags
+        - tags
+      properties:
+        _id:
+          type: string
+        fromUserId:
+          type: string
+        fromIpHash:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        weight:
+          format: double
+          type: number
+        meta:
+          additionalProperties:
+            type: string
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        contentHTML:
+          type: string
+        media:
+          items:
+            $ref: '#/components/schemas/FeedPostMediaItem'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/FeedPostLink'
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+      required:
+      - _id
+      - createdAt
+      type: object
+    GetFeedPostsResponse:
+      additionalProperties: false
+      example:
+        feedPosts:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          fromUserId: fromUserId
+          meta:
+            key: meta
+          weight: 0.8008281904610115
+          links:
+          - link: link
+            title: title
+          - link: link
+            title: title
+          _id: _id
+          fromIpHash: fromIpHash
+          media:
+          - sizes:
+              src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          - sizes:
+              src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          fromUserId: fromUserId
+          meta:
+            key: meta
+          weight: 0.8008281904610115
+          links:
+          - link: link
+            title: title
+          - link: link
+            title: title
+          _id: _id
+          fromIpHash: fromIpHash
+          media:
+          - sizes:
+              src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          - sizes:
+              src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        feedPosts:
+          items:
+            $ref: '#/components/schemas/FeedPost'
+          type: array
+      required:
+      - feedPosts
+      - status
+      type: object
+    CreateFeedPostsResponse:
+      additionalProperties: false
+      example:
+        feedPost:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          fromUserId: fromUserId
+          meta:
+            key: meta
+          weight: 0.8008281904610115
+          links:
+          - link: link
+            title: title
+          - link: link
+            title: title
+          _id: _id
+          fromIpHash: fromIpHash
+          media:
+          - sizes:
+              src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          - sizes:
+              src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        feedPost:
+          $ref: '#/components/schemas/FeedPost'
+      required:
+      - feedPost
+      - status
+      type: object
     EventLogEntry:
       additionalProperties: false
       example:
@@ -4659,245 +4952,6 @@ components:
           type: object
       required:
       - commentStatuses
-      - status
-      type: object
-    APIStatus:
-      enum:
-      - success
-      - failed
-      type: string
-    FeedPostMediaItemAsset:
-      additionalProperties: false
-      example:
-        src: src
-        w: 6.027456183070403
-        h: 1.4658129805029452
-      properties:
-        w:
-          format: double
-          type: number
-        h:
-          format: double
-          type: number
-        src:
-          type: string
-      required:
-      - h
-      - src
-      - w
-      type: object
-    FeedPostMediaItem:
-      additionalProperties: false
-      example:
-        sizes:
-          src: src
-          w: 6.027456183070403
-          h: 1.4658129805029452
-        link: link
-        title: title
-      properties:
-        title:
-          type: string
-        link:
-          type: string
-        sizes:
-          $ref: '#/components/schemas/FeedPostMediaItemAsset'
-      type: object
-    FeedPostLink:
-      additionalProperties: false
-      example:
-        link: link
-        title: title
-      properties:
-        title:
-          type: string
-        link:
-          type: string
-      type: object
-    FeedPost:
-      additionalProperties: false
-      example:
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        fromUserId: fromUserId
-        meta:
-          key: meta
-        weight: 0.8008281904610115
-        links:
-        - link: link
-          title: title
-        - link: link
-          title: title
-        _id: _id
-        fromIpHash: fromIpHash
-        media:
-        - sizes:
-            src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
-          link: link
-          title: title
-        - sizes:
-            src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
-          link: link
-          title: title
-        contentHTML: contentHTML
-        tags:
-        - tags
-        - tags
-      properties:
-        _id:
-          type: string
-        fromUserId:
-          type: string
-        fromIpHash:
-          type: string
-        tags:
-          items:
-            type: string
-          type: array
-        weight:
-          format: double
-          type: number
-        meta:
-          additionalProperties:
-            type: string
-          description: Construct a type with a set of properties K of type T
-          properties: {}
-          type: object
-        contentHTML:
-          type: string
-        media:
-          items:
-            $ref: '#/components/schemas/FeedPostMediaItem'
-          type: array
-        links:
-          items:
-            $ref: '#/components/schemas/FeedPostLink'
-          type: array
-        createdAt:
-          format: date-time
-          type: string
-      required:
-      - _id
-      - createdAt
-      type: object
-    GetFeedPostsResponse:
-      additionalProperties: false
-      example:
-        feedPosts:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          fromUserId: fromUserId
-          meta:
-            key: meta
-          weight: 0.8008281904610115
-          links:
-          - link: link
-            title: title
-          - link: link
-            title: title
-          _id: _id
-          fromIpHash: fromIpHash
-          media:
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          fromUserId: fromUserId
-          meta:
-            key: meta
-          weight: 0.8008281904610115
-          links:
-          - link: link
-            title: title
-          - link: link
-            title: title
-          _id: _id
-          fromIpHash: fromIpHash
-          media:
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-        feedPosts:
-          items:
-            $ref: '#/components/schemas/FeedPost'
-          type: array
-      required:
-      - feedPosts
-      - status
-      type: object
-    CreateFeedPostsResponse:
-      additionalProperties: false
-      example:
-        feedPost:
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          fromUserId: fromUserId
-          meta:
-            key: meta
-          weight: 0.8008281904610115
-          links:
-          - link: link
-            title: title
-          - link: link
-            title: title
-          _id: _id
-          fromIpHash: fromIpHash
-          media:
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-        feedPost:
-          $ref: '#/components/schemas/FeedPost'
-      required:
-      - feedPost
       - status
       type: object
     AddDomainConfigParams:
@@ -6460,6 +6514,14 @@ components:
       anyOf:
       - $ref: '#/components/schemas/APIEmptyResponse'
       - $ref: '#/components/schemas/APIError'
+    GetFeedPosts_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetFeedPostsResponse'
+      - $ref: '#/components/schemas/APIError'
+    CreateFeedPost_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/CreateFeedPostsResponse'
+      - $ref: '#/components/schemas/APIError'
     GetEventLog_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetEventLogResponse'
@@ -6515,14 +6577,6 @@ components:
     UnBlockCommentPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
-      - $ref: '#/components/schemas/APIError'
-    GetFeedPosts_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/GetFeedPostsResponse'
-      - $ref: '#/components/schemas/APIError'
-    CreateFeedPost_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/CreateFeedPostsResponse'
       - $ref: '#/components/schemas/APIError'
     GetDomainConfigs_200_response_anyOf:
       example:
