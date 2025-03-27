@@ -50,18 +50,47 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FeedPostLink {
+  public static final String SERIALIZED_NAME_TEXT = "text";
+  @SerializedName(SERIALIZED_NAME_TEXT)
+  @javax.annotation.Nullable
+  private String text;
+
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
   @javax.annotation.Nullable
   private String title;
 
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
-  private String link;
+  private String description;
+
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nullable
+  private String url;
 
   public FeedPostLink() {
   }
+
+  public FeedPostLink text(@javax.annotation.Nullable String text) {
+    this.text = text;
+    return this;
+  }
+
+  /**
+   * Get text
+   * @return text
+   */
+  @javax.annotation.Nullable
+  public String getText() {
+    return text;
+  }
+
+  public void setText(@javax.annotation.Nullable String text) {
+    this.text = text;
+  }
+
 
   public FeedPostLink title(@javax.annotation.Nullable String title) {
     this.title = title;
@@ -82,22 +111,41 @@ public class FeedPostLink {
   }
 
 
-  public FeedPostLink link(@javax.annotation.Nullable String link) {
-    this.link = link;
+  public FeedPostLink description(@javax.annotation.Nullable String description) {
+    this.description = description;
     return this;
   }
 
   /**
-   * Get link
-   * @return link
+   * Get description
+   * @return description
    */
   @javax.annotation.Nullable
-  public String getLink() {
-    return link;
+  public String getDescription() {
+    return description;
   }
 
-  public void setLink(@javax.annotation.Nullable String link) {
-    this.link = link;
+  public void setDescription(@javax.annotation.Nullable String description) {
+    this.description = description;
+  }
+
+
+  public FeedPostLink url(@javax.annotation.Nullable String url) {
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * Get url
+   * @return url
+   */
+  @javax.annotation.Nullable
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(@javax.annotation.Nullable String url) {
+    this.url = url;
   }
 
 
@@ -111,21 +159,25 @@ public class FeedPostLink {
       return false;
     }
     FeedPostLink feedPostLink = (FeedPostLink) o;
-    return Objects.equals(this.title, feedPostLink.title) &&
-        Objects.equals(this.link, feedPostLink.link);
+    return Objects.equals(this.text, feedPostLink.text) &&
+        Objects.equals(this.title, feedPostLink.title) &&
+        Objects.equals(this.description, feedPostLink.description) &&
+        Objects.equals(this.url, feedPostLink.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, link);
+    return Objects.hash(text, title, description, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FeedPostLink {\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -148,8 +200,10 @@ public class FeedPostLink {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("text");
     openapiFields.add("title");
-    openapiFields.add("link");
+    openapiFields.add("description");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -176,11 +230,17 @@ public class FeedPostLink {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull()) && !jsonObj.get("text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("text").toString()));
+      }
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) && !jsonObj.get("link").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
   }
 

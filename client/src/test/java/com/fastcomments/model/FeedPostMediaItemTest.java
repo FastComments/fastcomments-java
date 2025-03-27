@@ -49,11 +49,11 @@ public class FeedPostMediaItemTest {
     }
 
     /**
-     * Test the property 'link'
+     * Test the property 'linkUrl'
      */
     @Test
-    public void linkTest() {
-        // TODO: test link
+    public void linkUrlTest() {
+        // TODO: test linkUrl
     }
 
     /**

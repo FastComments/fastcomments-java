@@ -3243,12 +3243,12 @@ components:
         - src: src
           w: 6.027456183070403
           h: 1.4658129805029452
-        link: link
+        linkUrl: linkUrl
         title: title
       properties:
         title:
           type: string
-        link:
+        linkUrl:
           type: string
         sizes:
           items:
@@ -3260,12 +3260,18 @@ components:
     FeedPostLink:
       additionalProperties: false
       example:
-        link: link
+        description: description
+        text: text
         title: title
+        url: url
       properties:
+        text:
+          type: string
         title:
           type: string
-        link:
+        description:
+          type: string
+        url:
           type: string
       type: object
     Record_string.number_:
@@ -3289,7 +3295,7 @@ components:
           - src: src
             w: 6.027456183070403
             h: 1.4658129805029452
-          link: link
+          linkUrl: linkUrl
           title: title
         - sizes:
           - src: src
@@ -3298,7 +3304,7 @@ components:
           - src: src
             w: 6.027456183070403
             h: 1.4658129805029452
-          link: link
+          linkUrl: linkUrl
           title: title
         title: title
         contentHTML: contentHTML
@@ -3312,10 +3318,14 @@ components:
           key: meta
         tenantId: tenantId
         links:
-        - link: link
+        - description: description
+          text: text
           title: title
-        - link: link
+          url: url
+        - description: description
+          text: text
           title: title
+          url: url
         _id: _id
         fromIpHash: fromIpHash
         fromUserAvatar: fromUserAvatar
@@ -3387,7 +3397,7 @@ components:
             - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
-            link: link
+            linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
@@ -3396,7 +3406,7 @@ components:
             - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
-            link: link
+            linkUrl: linkUrl
             title: title
           title: title
           contentHTML: contentHTML
@@ -3410,10 +3420,14 @@ components:
             key: meta
           tenantId: tenantId
           links:
-          - link: link
+          - description: description
+            text: text
             title: title
-          - link: link
+            url: url
+          - description: description
+            text: text
             title: title
+            url: url
           _id: _id
           fromIpHash: fromIpHash
           fromUserAvatar: fromUserAvatar
@@ -3428,7 +3442,7 @@ components:
             - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
-            link: link
+            linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
@@ -3437,7 +3451,7 @@ components:
             - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
-            link: link
+            linkUrl: linkUrl
             title: title
           title: title
           contentHTML: contentHTML
@@ -3451,10 +3465,14 @@ components:
             key: meta
           tenantId: tenantId
           links:
-          - link: link
+          - description: description
+            text: text
             title: title
-          - link: link
+            url: url
+          - description: description
+            text: text
             title: title
+            url: url
           _id: _id
           fromIpHash: fromIpHash
           fromUserAvatar: fromUserAvatar
@@ -3485,7 +3503,7 @@ components:
             - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
-            link: link
+            linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
@@ -3494,7 +3512,7 @@ components:
             - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
-            link: link
+            linkUrl: linkUrl
             title: title
           title: title
           contentHTML: contentHTML
@@ -3508,10 +3526,14 @@ components:
             key: meta
           tenantId: tenantId
           links:
-          - link: link
+          - description: description
+            text: text
             title: title
-          - link: link
+            url: url
+          - description: description
+            text: text
             title: title
+            url: url
           _id: _id
           fromIpHash: fromIpHash
           fromUserAvatar: fromUserAvatar

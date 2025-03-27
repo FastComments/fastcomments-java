@@ -7,8 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**text** | **String** |  |  [optional] |
 |**title** | **String** |  |  [optional] |
-|**link** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**url** | **String** |  |  [optional] |
 
 
 

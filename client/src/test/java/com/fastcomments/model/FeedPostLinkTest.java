@@ -38,6 +38,14 @@ public class FeedPostLinkTest {
     }
 
     /**
+     * Test the property 'text'
+     */
+    @Test
+    public void textTest() {
+        // TODO: test text
+    }
+
+    /**
      * Test the property 'title'
      */
     @Test
@@ -46,11 +54,19 @@ public class FeedPostLinkTest {
     }
 
     /**
-     * Test the property 'link'
+     * Test the property 'description'
      */
     @Test
-    public void linkTest() {
-        // TODO: test link
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
     }
 
 }

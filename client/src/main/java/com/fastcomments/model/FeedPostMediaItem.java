@@ -58,10 +58,10 @@ public class FeedPostMediaItem {
   @javax.annotation.Nullable
   private String title;
 
-  public static final String SERIALIZED_NAME_LINK = "link";
-  @SerializedName(SERIALIZED_NAME_LINK)
+  public static final String SERIALIZED_NAME_LINK_URL = "linkUrl";
+  @SerializedName(SERIALIZED_NAME_LINK_URL)
   @javax.annotation.Nullable
-  private String link;
+  private String linkUrl;
 
   public static final String SERIALIZED_NAME_SIZES = "sizes";
   @SerializedName(SERIALIZED_NAME_SIZES)
@@ -90,22 +90,22 @@ public class FeedPostMediaItem {
   }
 
 
-  public FeedPostMediaItem link(@javax.annotation.Nullable String link) {
-    this.link = link;
+  public FeedPostMediaItem linkUrl(@javax.annotation.Nullable String linkUrl) {
+    this.linkUrl = linkUrl;
     return this;
   }
 
   /**
-   * Get link
-   * @return link
+   * Get linkUrl
+   * @return linkUrl
    */
   @javax.annotation.Nullable
-  public String getLink() {
-    return link;
+  public String getLinkUrl() {
+    return linkUrl;
   }
 
-  public void setLink(@javax.annotation.Nullable String link) {
-    this.link = link;
+  public void setLinkUrl(@javax.annotation.Nullable String linkUrl) {
+    this.linkUrl = linkUrl;
   }
 
 
@@ -147,13 +147,13 @@ public class FeedPostMediaItem {
     }
     FeedPostMediaItem feedPostMediaItem = (FeedPostMediaItem) o;
     return Objects.equals(this.title, feedPostMediaItem.title) &&
-        Objects.equals(this.link, feedPostMediaItem.link) &&
+        Objects.equals(this.linkUrl, feedPostMediaItem.linkUrl) &&
         Objects.equals(this.sizes, feedPostMediaItem.sizes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, link, sizes);
+    return Objects.hash(title, linkUrl, sizes);
   }
 
   @Override
@@ -161,7 +161,7 @@ public class FeedPostMediaItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class FeedPostMediaItem {\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    link: ").append(toIndentedString(link)).append("\n");
+    sb.append("    linkUrl: ").append(toIndentedString(linkUrl)).append("\n");
     sb.append("    sizes: ").append(toIndentedString(sizes)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -186,7 +186,7 @@ public class FeedPostMediaItem {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("title");
-    openapiFields.add("link");
+    openapiFields.add("linkUrl");
     openapiFields.add("sizes");
 
     // a set of required properties/fields (JSON key names)
@@ -225,8 +225,8 @@ public class FeedPostMediaItem {
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
-      if ((jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) && !jsonObj.get("link").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
+      if ((jsonObj.get("linkUrl") != null && !jsonObj.get("linkUrl").isJsonNull()) && !jsonObj.get("linkUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `linkUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkUrl").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("sizes").isJsonArray()) {

@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** |  |  [optional] |
-|**link** | **String** |  |  [optional] |
+|**linkUrl** | **String** |  |  [optional] |
 |**sizes** | [**List&lt;FeedPostMediaItemAsset&gt;**](FeedPostMediaItemAsset.md) |  |  |
 
 
