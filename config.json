@@ -9,6 +9,7 @@
   "openApiNullable": false,
   "library": "okhttp-gson",
   "serializationLibrary": "gson",
+  "disableStrictValidation": true,
   "description": "FastComments PHP API Client - A SDK for interacting with the FastComments API",
   "artifactDescription": "FastComments PHP API Client - A SDK for interacting with the FastComments API",
   "artifactUrl": "https://fastcomments.com",

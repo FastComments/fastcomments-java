@@ -266,15 +266,15 @@ public class PublicApiTest {
     }
 
     /**
-     *  req tenantId urlId userIdWS
+     *  req tenantId afterId
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getFeedPostsPublicTest() throws ApiException {
         String tenantId = null;
-        Double afterId = null;
-        Double limit = null;
+        String afterId = null;
+        Integer limit = null;
         List<String> tags = null;
         GetFeedPosts200Response response = api.getFeedPostsPublic(tenantId)
                 .afterId(afterId)

@@ -21,7 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * FeedPostMediaItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-26T13:48:29.746754041-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-26T16:54:18.418110633-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class FeedPostMediaItem {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -63,8 +65,8 @@ public class FeedPostMediaItem {
 
   public static final String SERIALIZED_NAME_SIZES = "sizes";
   @SerializedName(SERIALIZED_NAME_SIZES)
-  @javax.annotation.Nullable
-  private FeedPostMediaItemAsset sizes;
+  @javax.annotation.Nonnull
+  private List<FeedPostMediaItemAsset> sizes = new ArrayList<>();
 
   public FeedPostMediaItem() {
   }
@@ -107,8 +109,16 @@ public class FeedPostMediaItem {
   }
 
 
-  public FeedPostMediaItem sizes(@javax.annotation.Nullable FeedPostMediaItemAsset sizes) {
+  public FeedPostMediaItem sizes(@javax.annotation.Nonnull List<FeedPostMediaItemAsset> sizes) {
     this.sizes = sizes;
+    return this;
+  }
+
+  public FeedPostMediaItem addSizesItem(FeedPostMediaItemAsset sizesItem) {
+    if (this.sizes == null) {
+      this.sizes = new ArrayList<>();
+    }
+    this.sizes.add(sizesItem);
     return this;
   }
 
@@ -116,12 +126,12 @@ public class FeedPostMediaItem {
    * Get sizes
    * @return sizes
    */
-  @javax.annotation.Nullable
-  public FeedPostMediaItemAsset getSizes() {
+  @javax.annotation.Nonnull
+  public List<FeedPostMediaItemAsset> getSizes() {
     return sizes;
   }
 
-  public void setSizes(@javax.annotation.Nullable FeedPostMediaItemAsset sizes) {
+  public void setSizes(@javax.annotation.Nonnull List<FeedPostMediaItemAsset> sizes) {
     this.sizes = sizes;
   }
 
@@ -181,6 +191,7 @@ public class FeedPostMediaItem {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("sizes");
   }
 
   /**
@@ -203,6 +214,13 @@ public class FeedPostMediaItem {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FeedPostMediaItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : FeedPostMediaItem.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
@@ -210,10 +228,16 @@ public class FeedPostMediaItem {
       if ((jsonObj.get("link") != null && !jsonObj.get("link").isJsonNull()) && !jsonObj.get("link").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `link` to be a primitive type in the JSON string but got `%s`", jsonObj.get("link").toString()));
       }
-      // validate the optional field `sizes`
-      if (jsonObj.get("sizes") != null && !jsonObj.get("sizes").isJsonNull()) {
-        FeedPostMediaItemAsset.validateJsonElement(jsonObj.get("sizes"));
+      // ensure the json data is an array
+      if (!jsonObj.get("sizes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sizes` to be an array in the JSON string but got `%s`", jsonObj.get("sizes").toString()));
       }
+
+      JsonArray jsonArraysizes = jsonObj.getAsJsonArray("sizes");
+      // validate the required field `sizes` (array)
+      for (int i = 0; i < jsonArraysizes.size(); i++) {
+        FeedPostMediaItemAsset.validateJsonElement(jsonArraysizes.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

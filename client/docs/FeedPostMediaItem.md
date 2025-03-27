@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**title** | **String** |  |  [optional] |
 |**link** | **String** |  |  [optional] |
-|**sizes** | [**FeedPostMediaItemAsset**](FeedPostMediaItemAsset.md) |  |  [optional] |
+|**sizes** | [**List&lt;FeedPostMediaItemAsset&gt;**](FeedPostMediaItemAsset.md) |  |  |
 
 
 

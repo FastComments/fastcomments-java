@@ -2513,7 +2513,7 @@ public class DefaultApi {
     public APIgetDomainConfigsRequest getDomainConfigs(String tenantId) {
         return new APIgetDomainConfigsRequest(tenantId);
     }
-    private okhttp3.Call getFeedPostsCall(String tenantId, Double afterId, Double limit, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsCall(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2574,7 +2574,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedPostsValidateBeforeCall(String tenantId, Double afterId, Double limit, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFeedPosts(Async)");
@@ -2585,13 +2585,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetFeedPosts200Response> getFeedPostsWithHttpInfo(String tenantId, Double afterId, Double limit, List<String> tags) throws ApiException {
+    private ApiResponse<GetFeedPosts200Response> getFeedPostsWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags) throws ApiException {
         okhttp3.Call localVarCall = getFeedPostsValidateBeforeCall(tenantId, afterId, limit, tags, null);
         Type localVarReturnType = new TypeToken<GetFeedPosts200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getFeedPostsAsync(String tenantId, Double afterId, Double limit, List<String> tags, final ApiCallback<GetFeedPosts200Response> _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsAsync(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback<GetFeedPosts200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFeedPostsValidateBeforeCall(tenantId, afterId, limit, tags, _callback);
         Type localVarReturnType = new TypeToken<GetFeedPosts200Response>(){}.getType();
@@ -2601,8 +2601,8 @@ public class DefaultApi {
 
     public class APIgetFeedPostsRequest {
         private final String tenantId;
-        private Double afterId;
-        private Double limit;
+        private String afterId;
+        private Integer limit;
         private List<String> tags;
 
         private APIgetFeedPostsRequest(String tenantId) {
@@ -2614,7 +2614,7 @@ public class DefaultApi {
          * @param afterId  (optional)
          * @return APIgetFeedPostsRequest
          */
-        public APIgetFeedPostsRequest afterId(Double afterId) {
+        public APIgetFeedPostsRequest afterId(String afterId) {
             this.afterId = afterId;
             return this;
         }
@@ -2624,7 +2624,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetFeedPostsRequest
          */
-        public APIgetFeedPostsRequest limit(Double limit) {
+        public APIgetFeedPostsRequest limit(Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -2705,7 +2705,7 @@ public class DefaultApi {
 
     /**
      * 
-     * 
+     *  req tenantId afterId
      * @param tenantId  (required)
      * @return APIgetFeedPostsRequest
      * @http.response.details

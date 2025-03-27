@@ -476,6 +476,11 @@ paths:
       - application/json
   /api/v1/feed-posts:
     get:
+      description: |2-
+
+        req
+        tenantId
+        afterId
       operationId: GetFeedPosts
       parameters:
       - explode: true
@@ -490,16 +495,15 @@ paths:
         name: afterId
         required: false
         schema:
-          format: double
-          type: number
+          type: string
         style: form
       - explode: true
         in: query
         name: limit
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
@@ -588,8 +592,7 @@ paths:
 
         req
         tenantId
-        urlId
-        userIdWS
+        afterId
       operationId: GetFeedPostsPublic
       parameters:
       - explode: false
@@ -604,16 +607,15 @@ paths:
         name: afterId
         required: false
         schema:
-          format: double
-          type: number
+          type: string
         style: form
       - explode: true
         in: query
         name: limit
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
@@ -3215,7 +3217,10 @@ components:
       additionalProperties: false
       example:
         sizes:
-          src: src
+        - src: src
+          w: 6.027456183070403
+          h: 1.4658129805029452
+        - src: src
           w: 6.027456183070403
           h: 1.4658129805029452
         link: link
@@ -3226,7 +3231,11 @@ components:
         link:
           type: string
         sizes:
-          $ref: '#/components/schemas/FeedPostMediaItemAsset'
+          items:
+            $ref: '#/components/schemas/FeedPostMediaItemAsset'
+          type: array
+      required:
+      - sizes
       type: object
     FeedPostLink:
       additionalProperties: false
@@ -3239,14 +3248,49 @@ components:
         link:
           type: string
       type: object
+    Record_string.number_:
+      additionalProperties:
+        format: double
+        type: number
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
     FeedPost:
       additionalProperties: false
       example:
-        createdAt: 2000-01-23T04:56:07.000+00:00
+        fromUserDisplayName: fromUserDisplayName
         fromUserId: fromUserId
+        weight: 0.8008281904610115
+        media:
+        - sizes:
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          link: link
+          title: title
+        - sizes:
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          link: link
+          title: title
+        title: title
+        contentHTML: contentHTML
+        tags:
+        - tags
+        - tags
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        reacts:
+          key: 5.962133916683182
         meta:
           key: meta
-        weight: 0.8008281904610115
+        tenantId: tenantId
         links:
         - link: link
           title: title
@@ -3254,27 +3298,19 @@ components:
           title: title
         _id: _id
         fromIpHash: fromIpHash
-        media:
-        - sizes:
-            src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
-          link: link
-          title: title
-        - sizes:
-            src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
-          link: link
-          title: title
-        contentHTML: contentHTML
-        tags:
-        - tags
-        - tags
+        fromUserAvatar: fromUserAvatar
       properties:
         _id:
           type: string
+        tenantId:
+          type: string
+        title:
+          type: string
         fromUserId:
+          type: string
+        fromUserDisplayName:
+          type: string
+        fromUserAvatar:
           type: string
         fromIpHash:
           type: string
@@ -3304,19 +3340,55 @@ components:
         createdAt:
           format: date-time
           type: string
+        reacts:
+          additionalProperties:
+            format: double
+            type: number
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
       required:
       - _id
       - createdAt
+      - tenantId
       type: object
     GetFeedPostsResponse:
       additionalProperties: false
       example:
         feedPosts:
-        - createdAt: 2000-01-23T04:56:07.000+00:00
+        - fromUserDisplayName: fromUserDisplayName
           fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5.962133916683182
           meta:
             key: meta
-          weight: 0.8008281904610115
+          tenantId: tenantId
           links:
           - link: link
             title: title
@@ -3324,28 +3396,40 @@ components:
             title: title
           _id: _id
           fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        - fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
           media:
           - sizes:
-              src: src
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
             link: link
             title: title
           - sizes:
-              src: src
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
               w: 6.027456183070403
               h: 1.4658129805029452
             link: link
             title: title
+          title: title
           contentHTML: contentHTML
           tags:
           - tags
           - tags
-        - createdAt: 2000-01-23T04:56:07.000+00:00
-          fromUserId: fromUserId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5.962133916683182
           meta:
             key: meta
-          weight: 0.8008281904610115
+          tenantId: tenantId
           links:
           - link: link
             title: title
@@ -3353,23 +3437,7 @@ components:
             title: title
           _id: _id
           fromIpHash: fromIpHash
-          media:
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
+          fromUserAvatar: fromUserAvatar
         status: success
       properties:
         status:
@@ -3386,11 +3454,39 @@ components:
       additionalProperties: false
       example:
         feedPost:
-          createdAt: 2000-01-23T04:56:07.000+00:00
+          fromUserDisplayName: fromUserDisplayName
           fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            link: link
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5.962133916683182
           meta:
             key: meta
-          weight: 0.8008281904610115
+          tenantId: tenantId
           links:
           - link: link
             title: title
@@ -3398,23 +3494,7 @@ components:
             title: title
           _id: _id
           fromIpHash: fromIpHash
-          media:
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          - sizes:
-              src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
-            link: link
-            title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
+          fromUserAvatar: fromUserAvatar
         status: success
       properties:
         status:
@@ -3775,13 +3855,6 @@ components:
       type: object
     CommentPositions:
       $ref: '#/components/schemas/Record_string._before-string-or-null--after-string-or-null__'
-    Record_string.number_:
-      additionalProperties:
-        format: double
-        type: number
-      description: Construct a type with a set of properties K of type T
-      properties: {}
-      type: object
     LiveEvent:
       additionalProperties: false
       properties:

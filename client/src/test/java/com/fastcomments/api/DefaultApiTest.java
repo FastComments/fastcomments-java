@@ -256,13 +256,15 @@ public class DefaultApiTest {
     }
 
     /**
+     *  req tenantId afterId
+     *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getFeedPostsTest() throws ApiException {
         String tenantId = null;
-        Double afterId = null;
-        Double limit = null;
+        String afterId = null;
+        Integer limit = null;
         List<String> tags = null;
         GetFeedPosts200Response response = api.getFeedPosts(tenantId)
                 .afterId(afterId)

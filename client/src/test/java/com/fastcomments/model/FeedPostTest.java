@@ -53,11 +53,43 @@ public class FeedPostTest {
     }
 
     /**
+     * Test the property 'tenantId'
+     */
+    @Test
+    public void tenantIdTest() {
+        // TODO: test tenantId
+    }
+
+    /**
+     * Test the property 'title'
+     */
+    @Test
+    public void titleTest() {
+        // TODO: test title
+    }
+
+    /**
      * Test the property 'fromUserId'
      */
     @Test
     public void fromUserIdTest() {
         // TODO: test fromUserId
+    }
+
+    /**
+     * Test the property 'fromUserDisplayName'
+     */
+    @Test
+    public void fromUserDisplayNameTest() {
+        // TODO: test fromUserDisplayName
+    }
+
+    /**
+     * Test the property 'fromUserAvatar'
+     */
+    @Test
+    public void fromUserAvatarTest() {
+        // TODO: test fromUserAvatar
     }
 
     /**
@@ -122,6 +154,14 @@ public class FeedPostTest {
     @Test
     public void createdAtTest() {
         // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'reacts'
+     */
+    @Test
+    public void reactsTest() {
+        // TODO: test reacts
     }
 
 }

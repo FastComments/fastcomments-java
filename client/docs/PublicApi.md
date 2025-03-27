@@ -806,7 +806,7 @@ No authorization required
 
 
 
- req tenantId urlId userIdWS
+ req tenantId afterId
 
 ### Example
 ```java
@@ -824,8 +824,8 @@ public class Example {
 
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
-    Double afterId = 3.4D; // Double | 
-    Double limit = 3.4D; // Double | 
+    String afterId = "afterId_example"; // String | 
+    Integer limit = 56; // Integer | 
     List<String> tags = Arrays.asList(); // List<String> | 
     try {
       GetFeedPosts200Response result = apiInstance.getFeedPostsPublic(tenantId)
@@ -850,8 +850,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
-| **afterId** | **Double**|  | [optional] |
-| **limit** | **Double**|  | [optional] |
+| **afterId** | **String**|  | [optional] |
+| **limit** | **Integer**|  | [optional] |
 | **tags** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 
 ### Return type

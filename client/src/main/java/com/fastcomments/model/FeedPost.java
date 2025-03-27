@@ -55,17 +55,37 @@ import com.fastcomments.invoker.JSON;
 /**
  * FeedPost
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-26T13:48:29.746754041-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-26T16:54:18.418110633-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class FeedPost {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private String id;
 
+  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
+  @SerializedName(SERIALIZED_NAME_TENANT_ID)
+  @javax.annotation.Nonnull
+  private String tenantId;
+
+  public static final String SERIALIZED_NAME_TITLE = "title";
+  @SerializedName(SERIALIZED_NAME_TITLE)
+  @javax.annotation.Nullable
+  private String title;
+
   public static final String SERIALIZED_NAME_FROM_USER_ID = "fromUserId";
   @SerializedName(SERIALIZED_NAME_FROM_USER_ID)
   @javax.annotation.Nullable
   private String fromUserId;
+
+  public static final String SERIALIZED_NAME_FROM_USER_DISPLAY_NAME = "fromUserDisplayName";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_DISPLAY_NAME)
+  @javax.annotation.Nullable
+  private String fromUserDisplayName;
+
+  public static final String SERIALIZED_NAME_FROM_USER_AVATAR = "fromUserAvatar";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_AVATAR)
+  @javax.annotation.Nullable
+  private String fromUserAvatar;
 
   public static final String SERIALIZED_NAME_FROM_IP_HASH = "fromIpHash";
   @SerializedName(SERIALIZED_NAME_FROM_IP_HASH)
@@ -107,6 +127,11 @@ public class FeedPost {
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
 
+  public static final String SERIALIZED_NAME_REACTS = "reacts";
+  @SerializedName(SERIALIZED_NAME_REACTS)
+  @javax.annotation.Nullable
+  private Map<String, Double> reacts = new HashMap<>();
+
   public FeedPost() {
   }
 
@@ -129,6 +154,44 @@ public class FeedPost {
   }
 
 
+  public FeedPost tenantId(@javax.annotation.Nonnull String tenantId) {
+    this.tenantId = tenantId;
+    return this;
+  }
+
+  /**
+   * Get tenantId
+   * @return tenantId
+   */
+  @javax.annotation.Nonnull
+  public String getTenantId() {
+    return tenantId;
+  }
+
+  public void setTenantId(@javax.annotation.Nonnull String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+
+  public FeedPost title(@javax.annotation.Nullable String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Get title
+   * @return title
+   */
+  @javax.annotation.Nullable
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(@javax.annotation.Nullable String title) {
+    this.title = title;
+  }
+
+
   public FeedPost fromUserId(@javax.annotation.Nullable String fromUserId) {
     this.fromUserId = fromUserId;
     return this;
@@ -145,6 +208,44 @@ public class FeedPost {
 
   public void setFromUserId(@javax.annotation.Nullable String fromUserId) {
     this.fromUserId = fromUserId;
+  }
+
+
+  public FeedPost fromUserDisplayName(@javax.annotation.Nullable String fromUserDisplayName) {
+    this.fromUserDisplayName = fromUserDisplayName;
+    return this;
+  }
+
+  /**
+   * Get fromUserDisplayName
+   * @return fromUserDisplayName
+   */
+  @javax.annotation.Nullable
+  public String getFromUserDisplayName() {
+    return fromUserDisplayName;
+  }
+
+  public void setFromUserDisplayName(@javax.annotation.Nullable String fromUserDisplayName) {
+    this.fromUserDisplayName = fromUserDisplayName;
+  }
+
+
+  public FeedPost fromUserAvatar(@javax.annotation.Nullable String fromUserAvatar) {
+    this.fromUserAvatar = fromUserAvatar;
+    return this;
+  }
+
+  /**
+   * Get fromUserAvatar
+   * @return fromUserAvatar
+   */
+  @javax.annotation.Nullable
+  public String getFromUserAvatar() {
+    return fromUserAvatar;
+  }
+
+  public void setFromUserAvatar(@javax.annotation.Nullable String fromUserAvatar) {
+    this.fromUserAvatar = fromUserAvatar;
   }
 
 
@@ -332,6 +433,33 @@ public class FeedPost {
   }
 
 
+  public FeedPost reacts(@javax.annotation.Nullable Map<String, Double> reacts) {
+    this.reacts = reacts;
+    return this;
+  }
+
+  public FeedPost putReactsItem(String key, Double reactsItem) {
+    if (this.reacts == null) {
+      this.reacts = new HashMap<>();
+    }
+    this.reacts.put(key, reactsItem);
+    return this;
+  }
+
+  /**
+   * Construct a type with a set of properties K of type T
+   * @return reacts
+   */
+  @javax.annotation.Nullable
+  public Map<String, Double> getReacts() {
+    return reacts;
+  }
+
+  public void setReacts(@javax.annotation.Nullable Map<String, Double> reacts) {
+    this.reacts = reacts;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -343,7 +471,11 @@ public class FeedPost {
     }
     FeedPost feedPost = (FeedPost) o;
     return Objects.equals(this.id, feedPost.id) &&
+        Objects.equals(this.tenantId, feedPost.tenantId) &&
+        Objects.equals(this.title, feedPost.title) &&
         Objects.equals(this.fromUserId, feedPost.fromUserId) &&
+        Objects.equals(this.fromUserDisplayName, feedPost.fromUserDisplayName) &&
+        Objects.equals(this.fromUserAvatar, feedPost.fromUserAvatar) &&
         Objects.equals(this.fromIpHash, feedPost.fromIpHash) &&
         Objects.equals(this.tags, feedPost.tags) &&
         Objects.equals(this.weight, feedPost.weight) &&
@@ -351,12 +483,13 @@ public class FeedPost {
         Objects.equals(this.contentHTML, feedPost.contentHTML) &&
         Objects.equals(this.media, feedPost.media) &&
         Objects.equals(this.links, feedPost.links) &&
-        Objects.equals(this.createdAt, feedPost.createdAt);
+        Objects.equals(this.createdAt, feedPost.createdAt) &&
+        Objects.equals(this.reacts, feedPost.reacts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, fromUserId, fromIpHash, tags, weight, meta, contentHTML, media, links, createdAt);
+    return Objects.hash(id, tenantId, title, fromUserId, fromUserDisplayName, fromUserAvatar, fromIpHash, tags, weight, meta, contentHTML, media, links, createdAt, reacts);
   }
 
   @Override
@@ -364,7 +497,11 @@ public class FeedPost {
     StringBuilder sb = new StringBuilder();
     sb.append("class FeedPost {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    fromUserId: ").append(toIndentedString(fromUserId)).append("\n");
+    sb.append("    fromUserDisplayName: ").append(toIndentedString(fromUserDisplayName)).append("\n");
+    sb.append("    fromUserAvatar: ").append(toIndentedString(fromUserAvatar)).append("\n");
     sb.append("    fromIpHash: ").append(toIndentedString(fromIpHash)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
@@ -373,6 +510,7 @@ public class FeedPost {
     sb.append("    media: ").append(toIndentedString(media)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    reacts: ").append(toIndentedString(reacts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -396,7 +534,11 @@ public class FeedPost {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("_id");
+    openapiFields.add("tenantId");
+    openapiFields.add("title");
     openapiFields.add("fromUserId");
+    openapiFields.add("fromUserDisplayName");
+    openapiFields.add("fromUserAvatar");
     openapiFields.add("fromIpHash");
     openapiFields.add("tags");
     openapiFields.add("weight");
@@ -405,10 +547,12 @@ public class FeedPost {
     openapiFields.add("media");
     openapiFields.add("links");
     openapiFields.add("createdAt");
+    openapiFields.add("reacts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("_id");
+    openapiRequiredFields.add("tenantId");
     openapiRequiredFields.add("createdAt");
   }
 
@@ -443,8 +587,20 @@ public class FeedPost {
       if (!jsonObj.get("_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
+      if (!jsonObj.get("tenantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+      }
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
       if ((jsonObj.get("fromUserId") != null && !jsonObj.get("fromUserId").isJsonNull()) && !jsonObj.get("fromUserId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fromUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserId").toString()));
+      }
+      if ((jsonObj.get("fromUserDisplayName") != null && !jsonObj.get("fromUserDisplayName").isJsonNull()) && !jsonObj.get("fromUserDisplayName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserDisplayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserDisplayName").toString()));
+      }
+      if ((jsonObj.get("fromUserAvatar") != null && !jsonObj.get("fromUserAvatar").isJsonNull()) && !jsonObj.get("fromUserAvatar").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserAvatar` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserAvatar").toString()));
       }
       if ((jsonObj.get("fromIpHash") != null && !jsonObj.get("fromIpHash").isJsonNull()) && !jsonObj.get("fromIpHash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fromIpHash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromIpHash").toString()));
