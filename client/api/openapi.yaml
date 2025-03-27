@@ -2415,7 +2415,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/AggregationResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -6831,5 +6832,9 @@ components:
       - dir
       - field
       type: object
-  securitySchemes: {}
+  securitySchemes:
+    api_key:
+      in: header
+      name: x-api-key
+      type: apiKey
 
