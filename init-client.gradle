@@ -1,6 +1,15 @@
 allprojects {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+
+    // Use releaseVersion property if set, otherwise fallback to snapshot version
+    project.version = project.findProperty('releaseVersion') ?: '0.0.1-SNAPSHOT'
+
+    java {
+        withJavadocJar()
+        withSourcesJar()
+    }
 
     jar {
         manifest {
@@ -14,7 +23,60 @@ allprojects {
         publications {
             mavenJava(MavenPublication) {
                 from components.java
+
+                pom {
+                    name = 'FastComments Java Client'
+                    description = 'Official FastComments API Client for Java'
+                    url = 'https://github.com/FastComments/fastcomments-java'
+                    
+                    licenses {
+                        license {
+                            name = 'MIT'
+                            url = 'https://opensource.org/licenses/MIT'
+                        }
+                    }
+                    
+                    developers {
+                        developer {
+                            id = 'fastcomments'
+                            name = 'FastComments Team'
+                            email = 'support@fastcomments.com'
+                        }
+                    }
+                    
+                    scm {
+                        connection = 'scm:git:git://github.com/FastComments/fastcomments-java.git'
+                        developerConnection = 'scm:git:ssh://github.com/FastComments/fastcomments-java.git'
+                        url = 'https://github.com/FastComments/fastcomments-java'
+                    }
+                }
             }
+        }
+        
+        repositories {
+            maven {
+                name = "sonatype"
+                def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+                def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+                url = project.version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                
+                credentials {
+                    username = project.findProperty('ossrhUsername') ?: System.getenv('OSSRH_USERNAME')
+                    password = project.findProperty('ossrhPassword') ?: System.getenv('OSSRH_PASSWORD')
+                }
+            }
+        }
+    }
+
+    signing {
+        def signingKey = project.findProperty('signingKey') ?: System.getenv('SIGNING_KEY')
+        def signingPassword = project.findProperty('signingPassword') ?: System.getenv('SIGNING_PASSWORD')
+        
+        // Only sign if credentials are available (required for Maven Central, optional for local)
+        required = signingKey != null && signingPassword != null
+        if (required) {
+            useInMemoryPgpKeys(signingKey, signingPassword)
+            sign publishing.publications.mavenJava
         }
     }
 }

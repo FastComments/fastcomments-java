@@ -3,9 +3,10 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 
 group = 'com.fastcomments'
-version = '0.0.1'
+version = project.findProperty('releaseVersion') ?: '0.0.1-SNAPSHOT'
 
 buildscript {
     repositories {
@@ -35,11 +36,68 @@ jar {
     }
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+            
+            pom {
+                name = 'FastComments Java Core'
+                description = 'Official FastComments Core Library for Java'
+                url = 'https://github.com/FastComments/fastcomments-java'
+                
+                licenses {
+                    license {
+                        name = 'MIT'
+                    }
+                }
+                
+                developers {
+                    developer {
+                        id = 'fastcomments'
+                        name = 'FastComments Team'
+                        email = 'support@fastcomments.com'
+                    }
+                }
+                
+                scm {
+                    connection = 'scm:git:git://github.com/FastComments/fastcomments-java.git'
+                    developerConnection = 'scm:git:ssh://github.com/FastComments/fastcomments-java.git'
+                    url = 'https://github.com/FastComments/fastcomments-java'
+                }
+            }
         }
+    }
+    
+    repositories {
+        maven {
+            name = "sonatype"
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            
+            credentials {
+                username = findProperty('ossrhUsername') ?: System.getenv('OSSRH_USERNAME')
+                password = findProperty('ossrhPassword') ?: System.getenv('OSSRH_PASSWORD')
+            }
+        }
+    }
+}
+
+signing {
+    def signingKey = findProperty('signingKey') ?: System.getenv('SIGNING_KEY')
+    def signingPassword = findProperty('signingPassword') ?: System.getenv('SIGNING_PASSWORD')
+    
+    // Only sign if credentials are available (required for Maven Central, optional for local)
+    required = signingKey != null && signingPassword != null
+    if (required) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+        sign publishing.publications.mavenJava
     }
 }
 
@@ -104,15 +162,6 @@ if (hasProperty('target') && target == 'android') {
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-
-    publishing {
-        publications {
-            maven(MavenPublication) {
-                artifactId = 'core'
-                from components.java
-            }
-        }
-    }
 
     task execute(type: JavaExec) {
         main = System.getProperty('mainClass')

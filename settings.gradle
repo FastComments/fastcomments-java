@@ -1,3 +1,4 @@
 rootProject.name = 'fastcomments'
 include ':client'
 include ':core'
+include ':pubsub'
