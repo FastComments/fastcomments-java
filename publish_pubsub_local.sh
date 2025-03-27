@@ -1,4 +1,4 @@
 #!/bin/bash
 
 chmod +x ./pubsub/gradlew
-cd ./pubsub && ./gradlew --init-script ./../init-pubsub.gradle publishToMavenLocal && cd -
+cd ./pubsub && ./gradlew --init-script ./../init-pubsub.gradle publishMavenJavaPublicationToMavenLocal && cd -

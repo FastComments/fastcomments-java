@@ -1,4 +1,4 @@
 #!/bin/bash
 
 chmod +x ./core/gradlew
-cd ./core && ./gradlew --init-script ./../init-core.gradle publishToMavenLocal && cd -
+cd ./core && ./gradlew --init-script ./../init-core.gradle publishMavenJavaPublicationToMavenLocal && cd -

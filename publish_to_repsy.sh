@@ -14,16 +14,16 @@ echo "Publishing version $VERSION to Repsy.io"
 # Publish client
 echo "Publishing client module..."
 chmod +x ./client/gradlew
-cd ./client && ./gradlew --init-script ./../init-client.gradle publish -PreleaseVersion=$VERSION && cd -
+cd ./client && ./gradlew --init-script ./../init-client.gradle publishMavenJavaPublicationToRepsyRepository -PreleaseVersion=$VERSION && cd -
 
 # Publish core
 echo "Publishing core module..."
 chmod +x ./core/gradlew
-cd ./core && ./gradlew --init-script ./../init-core.gradle publish -PreleaseVersion=$VERSION && cd -
+cd ./core && ./gradlew --init-script ./../init-core.gradle publishMavenJavaPublicationToRepsyRepository -PreleaseVersion=$VERSION && cd -
 
 # Publish pubsub
 echo "Publishing pubsub module..."
 chmod +x ./pubsub/gradlew
-cd ./pubsub && ./gradlew --init-script ./../init-pubsub.gradle publish -PreleaseVersion=$VERSION && cd -
+cd ./pubsub && ./gradlew --init-script ./../init-pubsub.gradle publishMavenJavaPublicationToRepsyRepository -PreleaseVersion=$VERSION && cd -
 
 echo "All modules published successfully to Repsy.io"
