@@ -83,6 +83,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.model.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -90,6 +91,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
