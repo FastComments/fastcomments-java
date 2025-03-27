@@ -8,9 +8,15 @@ initscript {
 allprojects {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
+    
+    buildscript {
+        repositories {
+            mavenCentral()
+            gradlePluginPortal()
+        }
+    }
 
-
-    // Rest of your configuration…
+    // Use releaseVersion property if set, otherwise fallback to snapshot version
     project.version = project.findProperty('releaseVersion') ?: '0.0.1-SNAPSHOT'
 
     java {
@@ -21,7 +27,7 @@ allprojects {
     jar {
         manifest {
             attributes(
-                'Automatic-Module-Name': 'com.fastcomments.client'
+                'Automatic-Module-Name': 'com.fastcomments.core'
             )
         }
     }
@@ -32,17 +38,17 @@ allprojects {
                 from components.java
 
                 pom {
-                    name = 'FastComments Java Client'
-                    description = 'Official FastComments API Client for Java'
+                    name = 'FastComments Java Core'
+                    description = 'Official FastComments Core Library for Java'
                     url = 'https://github.com/FastComments/fastcomments-java'
-
+                    
                     licenses {
                         license {
                             name = 'MIT'
                             url = 'https://opensource.org/licenses/MIT'
                         }
                     }
-
+                    
                     developers {
                         developer {
                             id = 'fastcomments'
@@ -50,7 +56,7 @@ allprojects {
                             email = 'support@fastcomments.com'
                         }
                     }
-
+                    
                     scm {
                         connection = 'scm:git:git://github.com/FastComments/fastcomments-java.git'
                         developerConnection = 'scm:git:ssh://github.com/FastComments/fastcomments-java.git'
@@ -59,14 +65,14 @@ allprojects {
                 }
             }
         }
-
+        
         repositories {
             maven {
                 name = "repsy"
                 def releasesRepoUrl = "https://repo.repsy.io/mvn/winrid/fastcomments"
                 def snapshotsRepoUrl = "https://repo.repsy.io/mvn/winrid/fastcomments"
                 url = project.version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
+                
                 credentials {
                     username = project.findProperty('repsyUsername') ?: System.getenv('REPSY_USERNAME')
                     password = project.findProperty('repsyPassword') ?: System.getenv('REPSY_PASSWORD')
@@ -75,4 +81,5 @@ allprojects {
         }
     }
 
+    
 }

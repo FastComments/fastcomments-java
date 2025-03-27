@@ -21,5 +21,10 @@
   "developerOrganizationUrl": "https://fastcomments.com",
   "gitUserId": "fastcomments",
   "authorizeHint": "The FastComments API uses two types of endpoints: DefaultApi requires an API key for authentication, whereas PublicApi which can be accessed without an api key (often from browsers/client SDKs using SSO).",
-  "hideGenerationTimestamp": true
+  "hideGenerationTimestamp": true,
+  "additionalProperties": {
+    "mavenRepository": "https://repo.repsy.io/mvn/winrid/fastcomments",
+    "mavenRepositoryId": "repsy",
+    "mavenRepositoryName": "FastComments Maven Repository on Repsy"
+  }
 }

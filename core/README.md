@@ -15,6 +15,20 @@ The core package serves as the base for FastComments Java implementations, provi
 
 ### Maven
 
+Add the Repsy repository to your project's POM:
+
+```xml
+<repositories>
+    <repository>
+        <id>repsy</id>
+        <name>FastComments Maven Repository on Repsy</name>
+        <url>https://repo.repsy.io/mvn/winrid/fastcomments</url>
+    </repository>
+</repositories>
+```
+
+Then add the dependency:
+
 ```xml
 <dependency>
   <groupId>com.fastcomments</groupId>
@@ -24,6 +38,19 @@ The core package serves as the base for FastComments Java implementations, provi
 ```
 
 ### Gradle
+
+Add the Repsy repository to your build.gradle file:
+
+```groovy
+repositories {
+    mavenCentral()
+    maven {
+        url "https://repo.repsy.io/mvn/winrid/fastcomments"
+    }
+}
+```
+
+Then add the dependency:
 
 ```groovy
 implementation 'com.fastcomments:core:0.0.1'

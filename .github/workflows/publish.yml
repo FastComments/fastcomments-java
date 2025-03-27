@@ -17,12 +17,9 @@ jobs:
       - name: Extract version
         id: extract_version
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
-      - name: Build and publish Core, Client, and PubSub modules
+      - name: Build and publish all modules
         run: |
-          chmod +x ./gradlew
-          ./gradlew publishAllPublicationsToSonatypeRepository -PreleaseVersion=${{ env.VERSION }}
+          bash publish_to_repsy.sh ${{ env.VERSION }}
         env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+          REPSY_USERNAME: ${{ secrets.REPSY_USERNAME }}
+          REPSY_PASSWORD: ${{ secrets.REPSY_PASSWORD }}

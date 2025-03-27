@@ -1,9 +1,7 @@
 apply plugin: 'idea'
 apply plugin: 'eclipse'
-apply plugin: 'java'
 apply plugin: 'com.diffplug.spotless'
 apply plugin: 'maven-publish'
-apply plugin: 'signing'
 
 group = 'com.fastcomments'
 version = project.findProperty('releaseVersion') ?: '0.0.1-SNAPSHOT'
@@ -43,143 +41,18 @@ jar {
     }
 }
 
-java {
-    withJavadocJar()
-    withSourcesJar()
-}
+// No need to define publishing here; it's in the init script
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-            
-            pom {
-                name = 'FastComments PubSub'
-                description = 'Official FastComments PubSub Library for Java'
-                url = 'https://github.com/FastComments/fastcomments-java'
-                
-                licenses {
-                    license {
-                        name = 'MIT'
-                    }
-                }
-                
-                developers {
-                    developer {
-                        id = 'fastcomments'
-                        name = 'FastComments Team'
-                        email = 'support@fastcomments.com'
-                    }
-                }
-                
-                scm {
-                    connection = 'scm:git:git://github.com/FastComments/fastcomments-java.git'
-                    developerConnection = 'scm:git:ssh://github.com/FastComments/fastcomments-java.git'
-                    url = 'https://github.com/FastComments/fastcomments-java'
-                }
-            }
-        }
-    }
-    
-    repositories {
-        maven {
-            name = "sonatype"
-            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            
-            credentials {
-                username = findProperty('ossrhUsername') ?: System.getenv('OSSRH_USERNAME')
-                password = findProperty('ossrhPassword') ?: System.getenv('OSSRH_PASSWORD')
-            }
-        }
-    }
-}
 
-signing {
-    def signingKey = findProperty('signingKey') ?: System.getenv('SIGNING_KEY')
-    def signingPassword = findProperty('signingPassword') ?: System.getenv('SIGNING_PASSWORD')
-    
-    // Only sign if credentials are available (required for Maven Central, optional for local)
-    required = signingKey != null && signingPassword != null
-    if (required) {
-        useInMemoryPgpKeys(signingKey, signingPassword)
-        sign publishing.publications.mavenJava
-    }
-}
+// Only apply Java configuration
+apply plugin: 'java'
 
-if (hasProperty('target') && target == 'android') {
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
-    apply plugin: 'com.android.library'
-    apply plugin: 'com.github.dcendents.android-maven'
-
-    android {
-        compileSdkVersion 25
-        buildToolsVersion '25.0.2'
-        defaultConfig {
-            minSdkVersion 14
-            targetSdkVersion 25
-        }
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
-        // Rename the aar correctly
-        libraryVariants.all { variant ->
-            variant.outputs.each { output ->
-                def outputFile = output.outputFile
-                if (outputFile != null && outputFile.name.endsWith('.aar')) {
-                    def fileName = "${project.name}-${variant.baseName}-${version}.aar"
-                    output.outputFile = new File(outputFile.parent, fileName)
-                }
-            }
-        }
-    }
-
-    afterEvaluate {
-        android.libraryVariants.all { variant ->
-            def task = project.tasks.create "jar${variant.name.capitalize()}", Jar
-            task.description = "Create jar artifact for ${variant.name}"
-            task.dependsOn variant.javaCompile
-            task.from variant.javaCompile.destinationDirectory
-            task.destinationDirectory = project.file("${project.buildDir}/outputs/jar")
-            task.archiveFileName = "${project.name}-${variant.baseName}-${version}.jar"
-            artifacts.add('archives', task)
-        }
-    }
-
-    task sourcesJar(type: Jar) {
-        from android.sourceSets.main.java.srcDirs
-        archiveClassifier = 'sources'
-    }
-
-    task javadoc(type: Javadoc) {
-        source = android.sourceSets.main.java.srcDirs
-        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    }
-
-    task javadocJar(type: Jar, dependsOn: javadoc) {
-        archiveClassifier = 'javadoc'
-        from javadoc.destinationDir
-    }
-
-    artifacts {
-        archives javadocJar
-        archives sourcesJar
-    }
-
-} else {
-
-    apply plugin: 'java'
-    apply plugin: 'maven-publish'
-
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-
-    task execute(type: JavaExec) {
-        main = System.getProperty('mainClass')
-        classpath = sourceSets.main.runtimeClasspath
-    }
+task execute(type: JavaExec) {
+    main = System.getProperty('mainClass')
+    classpath = sourceSets.main.runtimeClasspath
 }
 
 dependencies {
