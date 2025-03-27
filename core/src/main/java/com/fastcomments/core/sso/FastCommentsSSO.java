@@ -68,11 +68,18 @@ public class FastCommentsSSO {
 
     }
 
+    public static class SimpleSSOWrapper {
+        public SimpleSSOUserData simpleSSOUser;
+        public SimpleSSOWrapper(SimpleSSOUserData simpleSSOUser) {
+            this.simpleSSOUser = simpleSSOUser;
+        }
+    }
+
     private String createToken() {
         if (secureSSOPayload != null) {
             return gson.toJson(secureSSOPayload);
         }
-        return gson.toJson(simpleSSOUserData);
+        return gson.toJson(new SimpleSSOWrapper(simpleSSOUserData));
     }
 
     public String prepareToSend() {
