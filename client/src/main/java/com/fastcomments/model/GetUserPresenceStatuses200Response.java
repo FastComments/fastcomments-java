@@ -63,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-26T16:54:18.418110633-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-26T17:06:48.661467821-07:00[America/Los_Angeles]", comments = "Generator version: 7.11.0")
 public class GetUserPresenceStatuses200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GetUserPresenceStatuses200Response.class.getName());
 
