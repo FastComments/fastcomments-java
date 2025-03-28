@@ -21,6 +21,14 @@ buildscript {
 repositories {
     mavenLocal()
     mavenCentral()
+    maven {
+        name = "repsy"
+        url = "https://repo.repsy.io/mvn/winrid/fastcomments"
+        credentials {
+            username = project.findProperty('repsyUsername') ?: System.getenv('REPSY_USERNAME')
+            password = project.findProperty('repsyPassword') ?: System.getenv('REPSY_PASSWORD')
+        }
+    }
 }
 sourceSets {
     main.java.srcDirs = ['src/main/java']
