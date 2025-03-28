@@ -61,8 +61,8 @@ dependencies {
     
     // Use Maven artifacts instead of project dependencies
     // This works better for local publishing when run from the pubsub directory
-    implementation 'com.fastcomments:client:0.0.1'
-    implementation 'com.fastcomments:core:0.0.1'
+    implementation 'com.fastcomments:client:0.0.2'
+    implementation 'com.fastcomments:core:0.0.2'
 }
 
 javadoc {

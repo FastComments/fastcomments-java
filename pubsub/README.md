@@ -32,7 +32,7 @@ Then add the dependency:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>pubsub</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
 </dependency>
 ```
 
@@ -52,7 +52,7 @@ repositories {
 Then add the dependency:
 
 ```groovy
-implementation 'com.fastcomments:pubsub:0.0.1'
+implementation 'com.fastcomments:pubsub:0.0.2'
 ```
 
 ## Key Components
