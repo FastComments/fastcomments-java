@@ -16,12 +16,18 @@ package com.fastcomments.api;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.AddDomainConfig200Response;
 import com.fastcomments.model.AddDomainConfigParams;
+import com.fastcomments.model.AggregateQuestionResults200Response;
+import com.fastcomments.model.AggregateTimeBucket;
 import com.fastcomments.model.AggregationRequest;
 import com.fastcomments.model.AggregationResponse;
 import com.fastcomments.model.BlockFromCommentParams;
 import com.fastcomments.model.BlockFromCommentPublic200Response;
+import com.fastcomments.model.BulkAggregateQuestionResults200Response;
+import com.fastcomments.model.BulkAggregateQuestionResultsRequest;
+import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
+import com.fastcomments.model.CreateFeedPostParams;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
 import com.fastcomments.model.FeedPost;
@@ -33,6 +39,7 @@ import com.fastcomments.model.GetComments200Response;
 import com.fastcomments.model.GetDomainConfig200Response;
 import com.fastcomments.model.GetDomainConfigs200Response;
 import com.fastcomments.model.GetFeedPosts200Response;
+import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
 import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
 import com.fastcomments.model.SORTDIR;
@@ -91,6 +98,29 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void aggregateQuestionResultsTest() throws ApiException {
+        String tenantId = null;
+        String questionId = null;
+        List<String> questionIds = null;
+        String urlId = null;
+        AggregateTimeBucket timeBucket = null;
+        OffsetDateTime startDate = null;
+        Boolean forceRecalculate = null;
+        AggregateQuestionResults200Response response = api.aggregateQuestionResults(tenantId)
+                .questionId(questionId)
+                .questionIds(questionIds)
+                .urlId(urlId)
+                .timeBucket(timeBucket)
+                .startDate(startDate)
+                .forceRecalculate(forceRecalculate)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void blockUserFromCommentTest() throws ApiException {
         String tenantId = null;
         String id = null;
@@ -108,10 +138,59 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void bulkAggregateQuestionResultsTest() throws ApiException {
+        String tenantId = null;
+        BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest = null;
+        Boolean forceRecalculate = null;
+        BulkAggregateQuestionResults200Response response = api.bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest)
+                .forceRecalculate(forceRecalculate)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void combineCommentsWithQuestionResultsTest() throws ApiException {
+        String tenantId = null;
+        String questionId = null;
+        List<String> questionIds = null;
+        String urlId = null;
+        OffsetDateTime startDate = null;
+        Boolean forceRecalculate = null;
+        Double minValue = null;
+        Double maxValue = null;
+        Double limit = null;
+        CombineCommentsWithQuestionResults200Response response = api.combineCommentsWithQuestionResults(tenantId)
+                .questionId(questionId)
+                .questionIds(questionIds)
+                .urlId(urlId)
+                .startDate(startDate)
+                .forceRecalculate(forceRecalculate)
+                .minValue(minValue)
+                .maxValue(maxValue)
+                .limit(limit)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void createFeedPostTest() throws ApiException {
         String tenantId = null;
-        FeedPost feedPost = null;
-        CreateFeedPost200Response response = api.createFeedPost(tenantId, feedPost)
+        CreateFeedPostParams createFeedPostParams = null;
+        String broadcastId = null;
+        Boolean isLive = null;
+        Boolean doSpamCheck = null;
+        Boolean skipDupCheck = null;
+        CreateFeedPost200Response response = api.createFeedPost(tenantId, createFeedPostParams)
+                .broadcastId(broadcastId)
+                .isLive(isLive)
+                .doSpamCheck(doSpamCheck)
+                .skipDupCheck(skipDupCheck)
                 .execute();
         // TODO: test validations
     }

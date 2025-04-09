@@ -1,0 +1,18 @@
+
+
+# QuestionResultAggregationOverall
+
+
+## Properties
+
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**dataByDateBucket** | [**Map&lt;String, QuestionDatum&gt;**](QuestionDatum.md) | Construct a type with a set of properties K of type T |  [optional] |
+|**dataByUrlId** | [**Map&lt;String, QuestionDatum&gt;**](QuestionDatum.md) | Construct a type with a set of properties K of type T |  [optional] |
+|**countsByValue** | **Map&lt;String, Double&gt;** | Construct a type with a set of properties K of type T |  [optional] |
+|**total** | **Double** |  |  |
+|**average** | **Double** |  |  [optional] |
+|**createdAt** | **OffsetDateTime** |  |  |
+
+
+

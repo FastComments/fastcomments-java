@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.2"
+     implementation "com.fastcomments:client:0.0.4"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.2.jar`
+* `target/client-0.0.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -125,7 +125,10 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**addDomainConfig**](docs/DefaultApi.md#addDomainConfig) | **POST** /api/v1/domain-configs | 
 *DefaultApi* | [**aggregate**](docs/DefaultApi.md#aggregate) | **POST** /api/v1/aggregate | 
+*DefaultApi* | [**aggregateQuestionResults**](docs/DefaultApi.md#aggregateQuestionResults) | **GET** /api/v1/question-results-aggregation | 
 *DefaultApi* | [**blockUserFromComment**](docs/DefaultApi.md#blockUserFromComment) | **POST** /api/v1/comments/{id}/block | 
+*DefaultApi* | [**bulkAggregateQuestionResults**](docs/DefaultApi.md#bulkAggregateQuestionResults) | **POST** /api/v1/question-results-aggregation/bulk | 
+*DefaultApi* | [**combineCommentsWithQuestionResults**](docs/DefaultApi.md#combineCommentsWithQuestionResults) | **GET** /api/v1/question-results-aggregation/combine/comments | 
 *DefaultApi* | [**createFeedPost**](docs/DefaultApi.md#createFeedPost) | **POST** /api/v1/feed-posts | 
 *DefaultApi* | [**deleteComment**](docs/DefaultApi.md#deleteComment) | **DELETE** /api/v1/comments/{id} | 
 *DefaultApi* | [**deleteDomainConfig**](docs/DefaultApi.md#deleteDomainConfig) | **DELETE** /api/v1/domain-configs/{domain} | 
@@ -143,9 +146,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**unFlagComment**](docs/DefaultApi.md#unFlagComment) | **POST** /api/v1/comments/{id}/un-flag | 
 *DefaultApi* | [**updateComment**](docs/DefaultApi.md#updateComment) | **PATCH** /api/v1/comments/{id} | 
 *DefaultApi* | [**updateFeedPost**](docs/DefaultApi.md#updateFeedPost) | **PATCH** /api/v1/feed-posts/{id} | 
+*HiddenApi* | [**uploadImageOptions**](docs/HiddenApi.md#uploadImageOptions) | **OPTIONS** /upload-image/{tenantId} | 
 *PublicApi* | [**blockFromCommentPublic**](docs/PublicApi.md#blockFromCommentPublic) | **POST** /block-from-comment/{commentId} | 
 *PublicApi* | [**checkedCommentsForBlocked**](docs/PublicApi.md#checkedCommentsForBlocked) | **GET** /check-blocked-comments | 
 *PublicApi* | [**createCommentPublic**](docs/PublicApi.md#createCommentPublic) | **POST** /comments/{tenantId} | 
+*PublicApi* | [**createFeedPostPublic**](docs/PublicApi.md#createFeedPostPublic) | **POST** /feed-posts/{tenantId} | 
 *PublicApi* | [**deleteCommentPublic**](docs/PublicApi.md#deleteCommentPublic) | **DELETE** /comments/{tenantId}/{commentId} | 
 *PublicApi* | [**deleteCommentVote**](docs/PublicApi.md#deleteCommentVote) | **DELETE** /comments/{tenantId}/{commentId}/vote/{voteId} | 
 *PublicApi* | [**flagCommentPublic**](docs/PublicApi.md#flagCommentPublic) | **POST** /flag-comment/{commentId} | 
@@ -158,8 +163,10 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**getUserNotificationCount**](docs/PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count | 
 *PublicApi* | [**getUserNotifications**](docs/PublicApi.md#getUserNotifications) | **GET** /user-notifications | 
 *PublicApi* | [**getUserPresenceStatuses**](docs/PublicApi.md#getUserPresenceStatuses) | **GET** /user-presence-status | 
+*PublicApi* | [**getUserReactsPublic**](docs/PublicApi.md#getUserReactsPublic) | **GET** /feed-posts/{tenantId}/user-reacts | 
 *PublicApi* | [**lockComment**](docs/PublicApi.md#lockComment) | **POST** /comments/{tenantId}/{commentId}/lock | 
 *PublicApi* | [**pinComment**](docs/PublicApi.md#pinComment) | **POST** /comments/{tenantId}/{commentId}/pin | 
+*PublicApi* | [**reactFeedPostPublic**](docs/PublicApi.md#reactFeedPostPublic) | **POST** /feed-posts/{tenantId}/react/{postId} | 
 *PublicApi* | [**resetUserNotificationCount**](docs/PublicApi.md#resetUserNotificationCount) | **POST** /user-notifications/reset-count | 
 *PublicApi* | [**resetUserNotifications**](docs/PublicApi.md#resetUserNotifications) | **POST** /user-notifications/reset | 
 *PublicApi* | [**setCommentText**](docs/PublicApi.md#setCommentText) | **POST** /comments/{tenantId}/{commentId}/update-text | 
@@ -169,6 +176,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**updateUserNotificationCommentSubscriptionStatus**](docs/PublicApi.md#updateUserNotificationCommentSubscriptionStatus) | **POST** /user-notifications/{notificationId}/mark-opted/{optedInOrOut} | 
 *PublicApi* | [**updateUserNotificationPageSubscriptionStatus**](docs/PublicApi.md#updateUserNotificationPageSubscriptionStatus) | **POST** /user-notifications/set-subscription-state/{subscribedOrUnsubscribed} | 
 *PublicApi* | [**updateUserNotificationStatus**](docs/PublicApi.md#updateUserNotificationStatus) | **POST** /user-notifications/{notificationId}/mark/{newStatus} | 
+*PublicApi* | [**uploadImage**](docs/PublicApi.md#uploadImage) | **POST** /upload-image/{tenantId} | 
 *PublicApi* | [**voteComment**](docs/PublicApi.md#voteComment) | **POST** /comments/{tenantId}/{commentId}/vote | 
 
 
@@ -182,6 +190,9 @@ Class | Method | HTTP request | Description
  - [AddDomainConfig200Response](docs/AddDomainConfig200Response.md)
  - [AddDomainConfig200ResponseAnyOf](docs/AddDomainConfig200ResponseAnyOf.md)
  - [AddDomainConfigParams](docs/AddDomainConfigParams.md)
+ - [AggregateQuestionResults200Response](docs/AggregateQuestionResults200Response.md)
+ - [AggregateQuestionResultsResponse](docs/AggregateQuestionResultsResponse.md)
+ - [AggregateTimeBucket](docs/AggregateTimeBucket.md)
  - [AggregationItem](docs/AggregationItem.md)
  - [AggregationOpType](docs/AggregationOpType.md)
  - [AggregationOperation](docs/AggregationOperation.md)
@@ -193,9 +204,15 @@ Class | Method | HTTP request | Description
  - [BlockFromCommentParams](docs/BlockFromCommentParams.md)
  - [BlockFromCommentPublic200Response](docs/BlockFromCommentPublic200Response.md)
  - [BlockSuccess](docs/BlockSuccess.md)
+ - [BulkAggregateQuestionItem](docs/BulkAggregateQuestionItem.md)
+ - [BulkAggregateQuestionResults200Response](docs/BulkAggregateQuestionResults200Response.md)
+ - [BulkAggregateQuestionResultsRequest](docs/BulkAggregateQuestionResultsRequest.md)
+ - [BulkAggregateQuestionResultsResponse](docs/BulkAggregateQuestionResultsResponse.md)
  - [ChangeCommentPinStatusResponse](docs/ChangeCommentPinStatusResponse.md)
  - [CheckBlockedCommentsResponse](docs/CheckBlockedCommentsResponse.md)
  - [CheckedCommentsForBlocked200Response](docs/CheckedCommentsForBlocked200Response.md)
+ - [CombineCommentsWithQuestionResults200Response](docs/CombineCommentsWithQuestionResults200Response.md)
+ - [CombineQuestionResultsWithCommentsResponse](docs/CombineQuestionResultsWithCommentsResponse.md)
  - [CommentData](docs/CommentData.md)
  - [CommentHTMLRenderingMode](docs/CommentHTMLRenderingMode.md)
  - [CommentQuestionResultsRenderingType](docs/CommentQuestionResultsRenderingType.md)
@@ -209,6 +226,9 @@ Class | Method | HTTP request | Description
  - [CreateCommentParams](docs/CreateCommentParams.md)
  - [CreateCommentPublic200Response](docs/CreateCommentPublic200Response.md)
  - [CreateFeedPost200Response](docs/CreateFeedPost200Response.md)
+ - [CreateFeedPostParams](docs/CreateFeedPostParams.md)
+ - [CreateFeedPostPublic200Response](docs/CreateFeedPostPublic200Response.md)
+ - [CreateFeedPostResponse](docs/CreateFeedPostResponse.md)
  - [CreateFeedPostsResponse](docs/CreateFeedPostsResponse.md)
  - [CustomConfigParameters](docs/CustomConfigParameters.md)
  - [DeleteComment200Response](docs/DeleteComment200Response.md)
@@ -217,6 +237,7 @@ Class | Method | HTTP request | Description
  - [DeleteCommentResult](docs/DeleteCommentResult.md)
  - [DeleteCommentVote200Response](docs/DeleteCommentVote200Response.md)
  - [DeleteDomainConfig200Response](docs/DeleteDomainConfig200Response.md)
+ - [EnhancedFeedPostsResponse](docs/EnhancedFeedPostsResponse.md)
  - [EventLogEntry](docs/EventLogEntry.md)
  - [FComment](docs/FComment.md)
  - [FCommentMeta](docs/FCommentMeta.md)
@@ -224,6 +245,8 @@ Class | Method | HTTP request | Description
  - [FeedPostLink](docs/FeedPostLink.md)
  - [FeedPostMediaItem](docs/FeedPostMediaItem.md)
  - [FeedPostMediaItemAsset](docs/FeedPostMediaItemAsset.md)
+ - [FindCommentsByRangeItem](docs/FindCommentsByRangeItem.md)
+ - [FindCommentsByRangeResponse](docs/FindCommentsByRangeResponse.md)
  - [FlagComment200Response](docs/FlagComment200Response.md)
  - [FlagCommentPublic200Response](docs/FlagCommentPublic200Response.md)
  - [FlagCommentResponse](docs/FlagCommentResponse.md)
@@ -244,6 +267,7 @@ Class | Method | HTTP request | Description
  - [GetEventLog200Response](docs/GetEventLog200Response.md)
  - [GetEventLogResponse](docs/GetEventLogResponse.md)
  - [GetFeedPosts200Response](docs/GetFeedPosts200Response.md)
+ - [GetFeedPostsPublic200Response](docs/GetFeedPostsPublic200Response.md)
  - [GetFeedPostsResponse](docs/GetFeedPostsResponse.md)
  - [GetMyNotificationsResponse](docs/GetMyNotificationsResponse.md)
  - [GetUserNotificationCount200Response](docs/GetUserNotificationCount200Response.md)
@@ -251,6 +275,7 @@ Class | Method | HTTP request | Description
  - [GetUserNotifications200Response](docs/GetUserNotifications200Response.md)
  - [GetUserPresenceStatuses200Response](docs/GetUserPresenceStatuses200Response.md)
  - [GetUserPresenceStatusesResponse](docs/GetUserPresenceStatusesResponse.md)
+ - [GetUserReactsPublic200Response](docs/GetUserReactsPublic200Response.md)
  - [GifRating](docs/GifRating.md)
  - [HeaderState](docs/HeaderState.md)
  - [IgnoredResponse](docs/IgnoredResponse.md)
@@ -260,6 +285,7 @@ Class | Method | HTTP request | Description
  - [LiveEventExtraInfo](docs/LiveEventExtraInfo.md)
  - [LiveEventType](docs/LiveEventType.md)
  - [LockComment200Response](docs/LockComment200Response.md)
+ - [MetaItem](docs/MetaItem.md)
  - [NotificationAndCount](docs/NotificationAndCount.md)
  - [NotificationType](docs/NotificationType.md)
  - [PatchDomainConfigParams](docs/PatchDomainConfigParams.md)
@@ -282,9 +308,15 @@ Class | Method | HTTP request | Description
  - [PublicComment](docs/PublicComment.md)
  - [QueryPredicate](docs/QueryPredicate.md)
  - [QueryPredicateValue](docs/QueryPredicateValue.md)
+ - [QuestionDatum](docs/QuestionDatum.md)
  - [QuestionRenderingType](docs/QuestionRenderingType.md)
+ - [QuestionResult](docs/QuestionResult.md)
+ - [QuestionResultAggregationOverall](docs/QuestionResultAggregationOverall.md)
  - [QuestionSubQuestionVisibility](docs/QuestionSubQuestionVisibility.md)
  - [QuestionWhenSave](docs/QuestionWhenSave.md)
+ - [ReactBodyParams](docs/ReactBodyParams.md)
+ - [ReactFeedPostPublic200Response](docs/ReactFeedPostPublic200Response.md)
+ - [ReactFeedPostResponse](docs/ReactFeedPostResponse.md)
  - [RecordStringBeforeStringOrNullAfterStringOrNullValue](docs/RecordStringBeforeStringOrNullAfterStringOrNullValue.md)
  - [RecordStringStringOrNumberValue](docs/RecordStringStringOrNumberValue.md)
  - [RenderableUserNotification](docs/RenderableUserNotification.md)
@@ -304,9 +336,11 @@ Class | Method | HTTP request | Description
  - [UnblockSuccess](docs/UnblockSuccess.md)
  - [UpdateDomainConfigParams](docs/UpdateDomainConfigParams.md)
  - [UpdateUserNotificationStatus200Response](docs/UpdateUserNotificationStatus200Response.md)
+ - [UploadImageResponse](docs/UploadImageResponse.md)
  - [UserNotification](docs/UserNotification.md)
  - [UserNotificationWriteResponse](docs/UserNotificationWriteResponse.md)
  - [UserPresenceData](docs/UserPresenceData.md)
+ - [UserReactsResponse](docs/UserReactsResponse.md)
  - [UserSessionInfo](docs/UserSessionInfo.md)
  - [VoteBodyParams](docs/VoteBodyParams.md)
  - [VoteComment200Response](docs/VoteComment200Response.md)

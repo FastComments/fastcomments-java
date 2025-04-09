@@ -27,5 +27,11 @@
 
 * `THREAD_STATE_CHANGE` (value: `"thread-state-change"`)
 
+* `FR` (value: `"fr"`)
+
+* `DFR` (value: `"dfr"`)
+
+* `NEW_FEED_POST` (value: `"new-feed-post"`)
+
 
 

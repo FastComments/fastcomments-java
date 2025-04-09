@@ -8,6 +8,7 @@ All URIs are relative to *http://localhost*
 | [**blockFromCommentPublic**](PublicApi.md#blockFromCommentPublic) | **POST** /block-from-comment/{commentId} |  |
 | [**checkedCommentsForBlocked**](PublicApi.md#checkedCommentsForBlocked) | **GET** /check-blocked-comments |  |
 | [**createCommentPublic**](PublicApi.md#createCommentPublic) | **POST** /comments/{tenantId} |  |
+| [**createFeedPostPublic**](PublicApi.md#createFeedPostPublic) | **POST** /feed-posts/{tenantId} |  |
 | [**deleteCommentPublic**](PublicApi.md#deleteCommentPublic) | **DELETE** /comments/{tenantId}/{commentId} |  |
 | [**deleteCommentVote**](PublicApi.md#deleteCommentVote) | **DELETE** /comments/{tenantId}/{commentId}/vote/{voteId} |  |
 | [**flagCommentPublic**](PublicApi.md#flagCommentPublic) | **POST** /flag-comment/{commentId} |  |
@@ -20,8 +21,10 @@ All URIs are relative to *http://localhost*
 | [**getUserNotificationCount**](PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count |  |
 | [**getUserNotifications**](PublicApi.md#getUserNotifications) | **GET** /user-notifications |  |
 | [**getUserPresenceStatuses**](PublicApi.md#getUserPresenceStatuses) | **GET** /user-presence-status |  |
+| [**getUserReactsPublic**](PublicApi.md#getUserReactsPublic) | **GET** /feed-posts/{tenantId}/user-reacts |  |
 | [**lockComment**](PublicApi.md#lockComment) | **POST** /comments/{tenantId}/{commentId}/lock |  |
 | [**pinComment**](PublicApi.md#pinComment) | **POST** /comments/{tenantId}/{commentId}/pin |  |
+| [**reactFeedPostPublic**](PublicApi.md#reactFeedPostPublic) | **POST** /feed-posts/{tenantId}/react/{postId} |  |
 | [**resetUserNotificationCount**](PublicApi.md#resetUserNotificationCount) | **POST** /user-notifications/reset-count |  |
 | [**resetUserNotifications**](PublicApi.md#resetUserNotifications) | **POST** /user-notifications/reset |  |
 | [**setCommentText**](PublicApi.md#setCommentText) | **POST** /comments/{tenantId}/{commentId}/update-text |  |
@@ -31,6 +34,7 @@ All URIs are relative to *http://localhost*
 | [**updateUserNotificationCommentSubscriptionStatus**](PublicApi.md#updateUserNotificationCommentSubscriptionStatus) | **POST** /user-notifications/{notificationId}/mark-opted/{optedInOrOut} |  |
 | [**updateUserNotificationPageSubscriptionStatus**](PublicApi.md#updateUserNotificationPageSubscriptionStatus) | **POST** /user-notifications/set-subscription-state/{subscribedOrUnsubscribed} |  |
 | [**updateUserNotificationStatus**](PublicApi.md#updateUserNotificationStatus) | **POST** /user-notifications/{notificationId}/mark/{newStatus} |  |
+| [**uploadImage**](PublicApi.md#uploadImage) | **POST** /upload-image/{tenantId} |  |
 | [**voteComment**](PublicApi.md#voteComment) | **POST** /comments/{tenantId}/{commentId}/vote |  |
 
 
@@ -226,6 +230,72 @@ public class Example {
 ### Return type
 
 [**CreateCommentPublic200Response**](CreateCommentPublic200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="createFeedPostPublic"></a>
+# **createFeedPostPublic**
+> CreateFeedPostPublic200Response createFeedPostPublic(tenantId, createFeedPostParams).broadcastId(broadcastId).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    CreateFeedPostParams createFeedPostParams = new CreateFeedPostParams(); // CreateFeedPostParams | 
+    String broadcastId = "broadcastId_example"; // String | 
+    try {
+      CreateFeedPostPublic200Response result = apiInstance.createFeedPostPublic(tenantId, createFeedPostParams)
+            .broadcastId(broadcastId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#createFeedPostPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **createFeedPostParams** | [**CreateFeedPostParams**](CreateFeedPostParams.md)|  | |
+| **broadcastId** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateFeedPostPublic200Response**](CreateFeedPostPublic200Response.md)
 
 ### Authorization
 
@@ -802,7 +872,7 @@ No authorization required
 
 <a id="getFeedPostsPublic"></a>
 # **getFeedPostsPublic**
-> GetFeedPosts200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).execute();
+> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).execute();
 
 
 
@@ -828,7 +898,7 @@ public class Example {
     Integer limit = 56; // Integer | 
     List<String> tags = Arrays.asList(); // List<String> | 
     try {
-      GetFeedPosts200Response result = apiInstance.getFeedPostsPublic(tenantId)
+      GetFeedPostsPublic200Response result = apiInstance.getFeedPostsPublic(tenantId)
             .afterId(afterId)
             .limit(limit)
             .tags(tags)
@@ -856,7 +926,7 @@ public class Example {
 
 ### Return type
 
-[**GetFeedPosts200Response**](GetFeedPosts200Response.md)
+[**GetFeedPostsPublic200Response**](GetFeedPostsPublic200Response.md)
 
 ### Authorization
 
@@ -1161,6 +1231,70 @@ No authorization required
 | **200** | Ok |  -  |
 | **422** | Validation Failed |  -  |
 
+<a id="getUserReactsPublic"></a>
+# **getUserReactsPublic**
+> GetUserReactsPublic200Response getUserReactsPublic(tenantId).postIds(postIds).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    List<String> postIds = Arrays.asList(); // List<String> | 
+    try {
+      GetUserReactsPublic200Response result = apiInstance.getUserReactsPublic(tenantId)
+            .postIds(postIds)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getUserReactsPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **postIds** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+
+### Return type
+
+[**GetUserReactsPublic200Response**](GetUserReactsPublic200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
 <a id="lockComment"></a>
 # **lockComment**
 > LockComment200Response lockComment(tenantId, commentId, broadcastId).sso(sso).execute();
@@ -1290,6 +1424,77 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="reactFeedPostPublic"></a>
+# **reactFeedPostPublic**
+> ReactFeedPostPublic200Response reactFeedPostPublic(tenantId, postId, reactBodyParams).isUndo(isUndo).broadcastId(broadcastId).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String postId = "postId_example"; // String | 
+    ReactBodyParams reactBodyParams = new ReactBodyParams(); // ReactBodyParams | 
+    Boolean isUndo = true; // Boolean | 
+    String broadcastId = "broadcastId_example"; // String | 
+    try {
+      ReactFeedPostPublic200Response result = apiInstance.reactFeedPostPublic(tenantId, postId, reactBodyParams)
+            .isUndo(isUndo)
+            .broadcastId(broadcastId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#reactFeedPostPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **postId** | **String**|  | |
+| **reactBodyParams** | [**ReactBodyParams**](ReactBodyParams.md)|  | |
+| **isUndo** | **Boolean**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
+
+### Return type
+
+[**ReactFeedPostPublic200Response**](ReactFeedPostPublic200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -1916,6 +2121,72 @@ public class Example {
 ### Return type
 
 [**UpdateUserNotificationStatus200Response**](UpdateUserNotificationStatus200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="uploadImage"></a>
+# **uploadImage**
+> UploadImageResponse uploadImage(tenantId).sizes(sizes).execute();
+
+
+
+Upload and resize an image
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String sizes = "sizes_example"; // String | Optional comma-separated list of sizes in format \"x,y\" (e.g. \"100,100,200,200,300,300\")
+    try {
+      UploadImageResponse result = apiInstance.uploadImage(tenantId)
+            .sizes(sizes)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#uploadImage");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**| Tenant ID | |
+| **sizes** | **String**| Optional comma-separated list of sizes in format \&quot;x,y\&quot; (e.g. \&quot;100,100,200,200,300,300\&quot;) | [optional] |
+
+### Return type
+
+[**UploadImageResponse**](UploadImageResponse.md)
 
 ### Authorization
 

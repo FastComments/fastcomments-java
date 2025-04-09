@@ -29,12 +29,18 @@ import java.io.IOException;
 
 import com.fastcomments.model.AddDomainConfig200Response;
 import com.fastcomments.model.AddDomainConfigParams;
+import com.fastcomments.model.AggregateQuestionResults200Response;
+import com.fastcomments.model.AggregateTimeBucket;
 import com.fastcomments.model.AggregationRequest;
 import com.fastcomments.model.AggregationResponse;
 import com.fastcomments.model.BlockFromCommentParams;
 import com.fastcomments.model.BlockFromCommentPublic200Response;
+import com.fastcomments.model.BulkAggregateQuestionResults200Response;
+import com.fastcomments.model.BulkAggregateQuestionResultsRequest;
+import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
+import com.fastcomments.model.CreateFeedPostParams;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
 import com.fastcomments.model.FeedPost;
@@ -46,6 +52,7 @@ import com.fastcomments.model.GetComments200Response;
 import com.fastcomments.model.GetDomainConfig200Response;
 import com.fastcomments.model.GetDomainConfigs200Response;
 import com.fastcomments.model.GetFeedPosts200Response;
+import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
 import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
 import com.fastcomments.model.SORTDIR;
@@ -466,6 +473,256 @@ public class DefaultApi {
     public APIaggregateRequest aggregate(String tenantId, AggregationRequest aggregationRequest) {
         return new APIaggregateRequest(tenantId, aggregationRequest);
     }
+    private okhttp3.Call aggregateQuestionResultsCall(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/question-results-aggregation";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (questionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("questionId", questionId));
+        }
+
+        if (questionIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "questionIds", questionIds));
+        }
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (timeBucket != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeBucket", timeBucket));
+        }
+
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startDate", startDate));
+        }
+
+        if (forceRecalculate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("forceRecalculate", forceRecalculate));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call aggregateQuestionResultsValidateBeforeCall(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling aggregateQuestionResults(Async)");
+        }
+
+        return aggregateQuestionResultsCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, _callback);
+
+    }
+
+
+    private ApiResponse<AggregateQuestionResults200Response> aggregateQuestionResultsWithHttpInfo(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate) throws ApiException {
+        okhttp3.Call localVarCall = aggregateQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, null);
+        Type localVarReturnType = new TypeToken<AggregateQuestionResults200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call aggregateQuestionResultsAsync(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate, final ApiCallback<AggregateQuestionResults200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = aggregateQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, _callback);
+        Type localVarReturnType = new TypeToken<AggregateQuestionResults200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIaggregateQuestionResultsRequest {
+        private final String tenantId;
+        private String questionId;
+        private List<String> questionIds;
+        private String urlId;
+        private AggregateTimeBucket timeBucket;
+        private OffsetDateTime startDate;
+        private Boolean forceRecalculate;
+
+        private APIaggregateQuestionResultsRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set questionId
+         * @param questionId  (optional)
+         * @return APIaggregateQuestionResultsRequest
+         */
+        public APIaggregateQuestionResultsRequest questionId(String questionId) {
+            this.questionId = questionId;
+            return this;
+        }
+
+        /**
+         * Set questionIds
+         * @param questionIds  (optional)
+         * @return APIaggregateQuestionResultsRequest
+         */
+        public APIaggregateQuestionResultsRequest questionIds(List<String> questionIds) {
+            this.questionIds = questionIds;
+            return this;
+        }
+
+        /**
+         * Set urlId
+         * @param urlId  (optional)
+         * @return APIaggregateQuestionResultsRequest
+         */
+        public APIaggregateQuestionResultsRequest urlId(String urlId) {
+            this.urlId = urlId;
+            return this;
+        }
+
+        /**
+         * Set timeBucket
+         * @param timeBucket  (optional)
+         * @return APIaggregateQuestionResultsRequest
+         */
+        public APIaggregateQuestionResultsRequest timeBucket(AggregateTimeBucket timeBucket) {
+            this.timeBucket = timeBucket;
+            return this;
+        }
+
+        /**
+         * Set startDate
+         * @param startDate  (optional)
+         * @return APIaggregateQuestionResultsRequest
+         */
+        public APIaggregateQuestionResultsRequest startDate(OffsetDateTime startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+        /**
+         * Set forceRecalculate
+         * @param forceRecalculate  (optional)
+         * @return APIaggregateQuestionResultsRequest
+         */
+        public APIaggregateQuestionResultsRequest forceRecalculate(Boolean forceRecalculate) {
+            this.forceRecalculate = forceRecalculate;
+            return this;
+        }
+
+        /**
+         * Build call for aggregateQuestionResults
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return aggregateQuestionResultsCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, _callback);
+        }
+
+        /**
+         * Execute aggregateQuestionResults request
+         * @return AggregateQuestionResults200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public AggregateQuestionResults200Response execute() throws ApiException {
+            ApiResponse<AggregateQuestionResults200Response> localVarResp = aggregateQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute aggregateQuestionResults request with HTTP info returned
+         * @return ApiResponse&lt;AggregateQuestionResults200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<AggregateQuestionResults200Response> executeWithHttpInfo() throws ApiException {
+            return aggregateQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate);
+        }
+
+        /**
+         * Execute aggregateQuestionResults request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AggregateQuestionResults200Response> _callback) throws ApiException {
+            return aggregateQuestionResultsAsync(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @return APIaggregateQuestionResultsRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIaggregateQuestionResultsRequest aggregateQuestionResults(String tenantId) {
+        return new APIaggregateQuestionResultsRequest(tenantId);
+    }
     private okhttp3.Call blockUserFromCommentCall(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -674,7 +931,7 @@ public class DefaultApi {
     public APIblockUserFromCommentRequest blockUserFromComment(String tenantId, String id, BlockFromCommentParams blockFromCommentParams) {
         return new APIblockUserFromCommentRequest(tenantId, id, blockFromCommentParams);
     }
-    private okhttp3.Call createFeedPostCall(String tenantId, FeedPost feedPost, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bulkAggregateQuestionResultsCall(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -688,10 +945,10 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = feedPost;
+        Object localVarPostBody = bulkAggregateQuestionResultsRequest;
 
         // create path and map variables
-        String localVarPath = "/api/v1/feed-posts";
+        String localVarPath = "/api/v1/question-results-aggregation/bulk";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -701,6 +958,10 @@ public class DefaultApi {
 
         if (tenantId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (forceRecalculate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("forceRecalculate", forceRecalculate));
         }
 
         final String[] localVarAccepts = {
@@ -724,31 +985,507 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFeedPostValidateBeforeCall(String tenantId, FeedPost feedPost, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bulkAggregateQuestionResultsValidateBeforeCall(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling bulkAggregateQuestionResults(Async)");
+        }
+
+        // verify the required parameter 'bulkAggregateQuestionResultsRequest' is set
+        if (bulkAggregateQuestionResultsRequest == null) {
+            throw new ApiException("Missing the required parameter 'bulkAggregateQuestionResultsRequest' when calling bulkAggregateQuestionResults(Async)");
+        }
+
+        return bulkAggregateQuestionResultsCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, _callback);
+
+    }
+
+
+    private ApiResponse<BulkAggregateQuestionResults200Response> bulkAggregateQuestionResultsWithHttpInfo(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate) throws ApiException {
+        okhttp3.Call localVarCall = bulkAggregateQuestionResultsValidateBeforeCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, null);
+        Type localVarReturnType = new TypeToken<BulkAggregateQuestionResults200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call bulkAggregateQuestionResultsAsync(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate, final ApiCallback<BulkAggregateQuestionResults200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = bulkAggregateQuestionResultsValidateBeforeCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, _callback);
+        Type localVarReturnType = new TypeToken<BulkAggregateQuestionResults200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIbulkAggregateQuestionResultsRequest {
+        private final String tenantId;
+        private final BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest;
+        private Boolean forceRecalculate;
+
+        private APIbulkAggregateQuestionResultsRequest(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest) {
+            this.tenantId = tenantId;
+            this.bulkAggregateQuestionResultsRequest = bulkAggregateQuestionResultsRequest;
+        }
+
+        /**
+         * Set forceRecalculate
+         * @param forceRecalculate  (optional)
+         * @return APIbulkAggregateQuestionResultsRequest
+         */
+        public APIbulkAggregateQuestionResultsRequest forceRecalculate(Boolean forceRecalculate) {
+            this.forceRecalculate = forceRecalculate;
+            return this;
+        }
+
+        /**
+         * Build call for bulkAggregateQuestionResults
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return bulkAggregateQuestionResultsCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, _callback);
+        }
+
+        /**
+         * Execute bulkAggregateQuestionResults request
+         * @return BulkAggregateQuestionResults200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public BulkAggregateQuestionResults200Response execute() throws ApiException {
+            ApiResponse<BulkAggregateQuestionResults200Response> localVarResp = bulkAggregateQuestionResultsWithHttpInfo(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute bulkAggregateQuestionResults request with HTTP info returned
+         * @return ApiResponse&lt;BulkAggregateQuestionResults200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<BulkAggregateQuestionResults200Response> executeWithHttpInfo() throws ApiException {
+            return bulkAggregateQuestionResultsWithHttpInfo(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate);
+        }
+
+        /**
+         * Execute bulkAggregateQuestionResults request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<BulkAggregateQuestionResults200Response> _callback) throws ApiException {
+            return bulkAggregateQuestionResultsAsync(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param bulkAggregateQuestionResultsRequest  (required)
+     * @return APIbulkAggregateQuestionResultsRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIbulkAggregateQuestionResultsRequest bulkAggregateQuestionResults(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest) {
+        return new APIbulkAggregateQuestionResultsRequest(tenantId, bulkAggregateQuestionResultsRequest);
+    }
+    private okhttp3.Call combineCommentsWithQuestionResultsCall(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/question-results-aggregation/combine/comments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (questionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("questionId", questionId));
+        }
+
+        if (questionIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "questionIds", questionIds));
+        }
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startDate", startDate));
+        }
+
+        if (forceRecalculate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("forceRecalculate", forceRecalculate));
+        }
+
+        if (minValue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("minValue", minValue));
+        }
+
+        if (maxValue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxValue", maxValue));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call combineCommentsWithQuestionResultsValidateBeforeCall(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling combineCommentsWithQuestionResults(Async)");
+        }
+
+        return combineCommentsWithQuestionResultsCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, _callback);
+
+    }
+
+
+    private ApiResponse<CombineCommentsWithQuestionResults200Response> combineCommentsWithQuestionResultsWithHttpInfo(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit) throws ApiException {
+        okhttp3.Call localVarCall = combineCommentsWithQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, null);
+        Type localVarReturnType = new TypeToken<CombineCommentsWithQuestionResults200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call combineCommentsWithQuestionResultsAsync(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit, final ApiCallback<CombineCommentsWithQuestionResults200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = combineCommentsWithQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, _callback);
+        Type localVarReturnType = new TypeToken<CombineCommentsWithQuestionResults200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcombineCommentsWithQuestionResultsRequest {
+        private final String tenantId;
+        private String questionId;
+        private List<String> questionIds;
+        private String urlId;
+        private OffsetDateTime startDate;
+        private Boolean forceRecalculate;
+        private Double minValue;
+        private Double maxValue;
+        private Double limit;
+
+        private APIcombineCommentsWithQuestionResultsRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set questionId
+         * @param questionId  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest questionId(String questionId) {
+            this.questionId = questionId;
+            return this;
+        }
+
+        /**
+         * Set questionIds
+         * @param questionIds  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest questionIds(List<String> questionIds) {
+            this.questionIds = questionIds;
+            return this;
+        }
+
+        /**
+         * Set urlId
+         * @param urlId  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest urlId(String urlId) {
+            this.urlId = urlId;
+            return this;
+        }
+
+        /**
+         * Set startDate
+         * @param startDate  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest startDate(OffsetDateTime startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+        /**
+         * Set forceRecalculate
+         * @param forceRecalculate  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest forceRecalculate(Boolean forceRecalculate) {
+            this.forceRecalculate = forceRecalculate;
+            return this;
+        }
+
+        /**
+         * Set minValue
+         * @param minValue  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest minValue(Double minValue) {
+            this.minValue = minValue;
+            return this;
+        }
+
+        /**
+         * Set maxValue
+         * @param maxValue  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest maxValue(Double maxValue) {
+            this.maxValue = maxValue;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIcombineCommentsWithQuestionResultsRequest
+         */
+        public APIcombineCommentsWithQuestionResultsRequest limit(Double limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Build call for combineCommentsWithQuestionResults
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return combineCommentsWithQuestionResultsCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, _callback);
+        }
+
+        /**
+         * Execute combineCommentsWithQuestionResults request
+         * @return CombineCommentsWithQuestionResults200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public CombineCommentsWithQuestionResults200Response execute() throws ApiException {
+            ApiResponse<CombineCommentsWithQuestionResults200Response> localVarResp = combineCommentsWithQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute combineCommentsWithQuestionResults request with HTTP info returned
+         * @return ApiResponse&lt;CombineCommentsWithQuestionResults200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CombineCommentsWithQuestionResults200Response> executeWithHttpInfo() throws ApiException {
+            return combineCommentsWithQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit);
+        }
+
+        /**
+         * Execute combineCommentsWithQuestionResults request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CombineCommentsWithQuestionResults200Response> _callback) throws ApiException {
+            return combineCommentsWithQuestionResultsAsync(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @return APIcombineCommentsWithQuestionResultsRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIcombineCommentsWithQuestionResultsRequest combineCommentsWithQuestionResults(String tenantId) {
+        return new APIcombineCommentsWithQuestionResultsRequest(tenantId);
+    }
+    private okhttp3.Call createFeedPostCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createFeedPostParams;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/feed-posts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
+
+        if (isLive != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isLive", isLive));
+        }
+
+        if (doSpamCheck != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("doSpamCheck", doSpamCheck));
+        }
+
+        if (skipDupCheck != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skipDupCheck", skipDupCheck));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createFeedPostValidateBeforeCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createFeedPost(Async)");
         }
 
-        // verify the required parameter 'feedPost' is set
-        if (feedPost == null) {
-            throw new ApiException("Missing the required parameter 'feedPost' when calling createFeedPost(Async)");
+        // verify the required parameter 'createFeedPostParams' is set
+        if (createFeedPostParams == null) {
+            throw new ApiException("Missing the required parameter 'createFeedPostParams' when calling createFeedPost(Async)");
         }
 
-        return createFeedPostCall(tenantId, feedPost, _callback);
+        return createFeedPostCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, _callback);
 
     }
 
 
-    private ApiResponse<CreateFeedPost200Response> createFeedPostWithHttpInfo(String tenantId, FeedPost feedPost) throws ApiException {
-        okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, feedPost, null);
+    private ApiResponse<CreateFeedPost200Response> createFeedPostWithHttpInfo(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck) throws ApiException {
+        okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, null);
         Type localVarReturnType = new TypeToken<CreateFeedPost200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createFeedPostAsync(String tenantId, FeedPost feedPost, final ApiCallback<CreateFeedPost200Response> _callback) throws ApiException {
+    private okhttp3.Call createFeedPostAsync(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck, final ApiCallback<CreateFeedPost200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, feedPost, _callback);
+        okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, _callback);
         Type localVarReturnType = new TypeToken<CreateFeedPost200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -756,11 +1493,55 @@ public class DefaultApi {
 
     public class APIcreateFeedPostRequest {
         private final String tenantId;
-        private final FeedPost feedPost;
+        private final CreateFeedPostParams createFeedPostParams;
+        private String broadcastId;
+        private Boolean isLive;
+        private Boolean doSpamCheck;
+        private Boolean skipDupCheck;
 
-        private APIcreateFeedPostRequest(String tenantId, FeedPost feedPost) {
+        private APIcreateFeedPostRequest(String tenantId, CreateFeedPostParams createFeedPostParams) {
             this.tenantId = tenantId;
-            this.feedPost = feedPost;
+            this.createFeedPostParams = createFeedPostParams;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIcreateFeedPostRequest
+         */
+        public APIcreateFeedPostRequest broadcastId(String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
+        }
+
+        /**
+         * Set isLive
+         * @param isLive  (optional)
+         * @return APIcreateFeedPostRequest
+         */
+        public APIcreateFeedPostRequest isLive(Boolean isLive) {
+            this.isLive = isLive;
+            return this;
+        }
+
+        /**
+         * Set doSpamCheck
+         * @param doSpamCheck  (optional)
+         * @return APIcreateFeedPostRequest
+         */
+        public APIcreateFeedPostRequest doSpamCheck(Boolean doSpamCheck) {
+            this.doSpamCheck = doSpamCheck;
+            return this;
+        }
+
+        /**
+         * Set skipDupCheck
+         * @param skipDupCheck  (optional)
+         * @return APIcreateFeedPostRequest
+         */
+        public APIcreateFeedPostRequest skipDupCheck(Boolean skipDupCheck) {
+            this.skipDupCheck = skipDupCheck;
+            return this;
         }
 
         /**
@@ -776,7 +1557,7 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createFeedPostCall(tenantId, feedPost, _callback);
+            return createFeedPostCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, _callback);
         }
 
         /**
@@ -791,7 +1572,7 @@ public class DefaultApi {
          </table>
          */
         public CreateFeedPost200Response execute() throws ApiException {
-            ApiResponse<CreateFeedPost200Response> localVarResp = createFeedPostWithHttpInfo(tenantId, feedPost);
+            ApiResponse<CreateFeedPost200Response> localVarResp = createFeedPostWithHttpInfo(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck);
             return localVarResp.getData();
         }
 
@@ -807,7 +1588,7 @@ public class DefaultApi {
          </table>
          */
         public ApiResponse<CreateFeedPost200Response> executeWithHttpInfo() throws ApiException {
-            return createFeedPostWithHttpInfo(tenantId, feedPost);
+            return createFeedPostWithHttpInfo(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck);
         }
 
         /**
@@ -823,7 +1604,7 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<CreateFeedPost200Response> _callback) throws ApiException {
-            return createFeedPostAsync(tenantId, feedPost, _callback);
+            return createFeedPostAsync(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, _callback);
         }
     }
 
@@ -831,7 +1612,7 @@ public class DefaultApi {
      * 
      * 
      * @param tenantId  (required)
-     * @param feedPost  (required)
+     * @param createFeedPostParams  (required)
      * @return APIcreateFeedPostRequest
      * @http.response.details
      <table border="1">
@@ -840,8 +1621,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateFeedPostRequest createFeedPost(String tenantId, FeedPost feedPost) {
-        return new APIcreateFeedPostRequest(tenantId, feedPost);
+    public APIcreateFeedPostRequest createFeedPost(String tenantId, CreateFeedPostParams createFeedPostParams) {
+        return new APIcreateFeedPostRequest(tenantId, createFeedPostParams);
     }
     private okhttp3.Call deleteCommentCall(String tenantId, String id, String contextUserId, Boolean isLive, final ApiCallback _callback) throws ApiException {
         String basePath = null;

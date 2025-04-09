@@ -7,7 +7,10 @@ All URIs are relative to *http://localhost*
 |------------- | ------------- | -------------|
 | [**addDomainConfig**](DefaultApi.md#addDomainConfig) | **POST** /api/v1/domain-configs |  |
 | [**aggregate**](DefaultApi.md#aggregate) | **POST** /api/v1/aggregate |  |
+| [**aggregateQuestionResults**](DefaultApi.md#aggregateQuestionResults) | **GET** /api/v1/question-results-aggregation |  |
 | [**blockUserFromComment**](DefaultApi.md#blockUserFromComment) | **POST** /api/v1/comments/{id}/block |  |
+| [**bulkAggregateQuestionResults**](DefaultApi.md#bulkAggregateQuestionResults) | **POST** /api/v1/question-results-aggregation/bulk |  |
+| [**combineCommentsWithQuestionResults**](DefaultApi.md#combineCommentsWithQuestionResults) | **GET** /api/v1/question-results-aggregation/combine/comments |  |
 | [**createFeedPost**](DefaultApi.md#createFeedPost) | **POST** /api/v1/feed-posts |  |
 | [**deleteComment**](DefaultApi.md#deleteComment) | **DELETE** /api/v1/comments/{id} |  |
 | [**deleteDomainConfig**](DefaultApi.md#deleteDomainConfig) | **DELETE** /api/v1/domain-configs/{domain} |  |
@@ -175,6 +178,92 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
+<a id="aggregateQuestionResults"></a>
+# **aggregateQuestionResults**
+> AggregateQuestionResults200Response aggregateQuestionResults(tenantId).questionId(questionId).questionIds(questionIds).urlId(urlId).timeBucket(timeBucket).startDate(startDate).forceRecalculate(forceRecalculate).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String questionId = "questionId_example"; // String | 
+    List<String> questionIds = Arrays.asList(); // List<String> | 
+    String urlId = "urlId_example"; // String | 
+    AggregateTimeBucket timeBucket = AggregateTimeBucket.fromValue("day"); // AggregateTimeBucket | 
+    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | 
+    Boolean forceRecalculate = true; // Boolean | 
+    try {
+      AggregateQuestionResults200Response result = apiInstance.aggregateQuestionResults(tenantId)
+            .questionId(questionId)
+            .questionIds(questionIds)
+            .urlId(urlId)
+            .timeBucket(timeBucket)
+            .startDate(startDate)
+            .forceRecalculate(forceRecalculate)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#aggregateQuestionResults");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **questionId** | **String**|  | [optional] |
+| **questionIds** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **urlId** | **String**|  | [optional] |
+| **timeBucket** | [**AggregateTimeBucket**](.md)|  | [optional] [enum: day, month, year] |
+| **startDate** | **OffsetDateTime**|  | [optional] |
+| **forceRecalculate** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**AggregateQuestionResults200Response**](AggregateQuestionResults200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
 <a id="blockUserFromComment"></a>
 # **blockUserFromComment**
 > BlockFromCommentPublic200Response blockUserFromComment(tenantId, id, blockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
@@ -253,9 +342,9 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
-<a id="createFeedPost"></a>
-# **createFeedPost**
-> CreateFeedPost200Response createFeedPost(tenantId, feedPost).execute();
+<a id="bulkAggregateQuestionResults"></a>
+# **bulkAggregateQuestionResults**
+> BulkAggregateQuestionResults200Response bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest).forceRecalculate(forceRecalculate).execute();
 
 
 
@@ -282,9 +371,182 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
-    FeedPost feedPost = new FeedPost(); // FeedPost | 
+    BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest = new BulkAggregateQuestionResultsRequest(); // BulkAggregateQuestionResultsRequest | 
+    Boolean forceRecalculate = true; // Boolean | 
     try {
-      CreateFeedPost200Response result = apiInstance.createFeedPost(tenantId, feedPost)
+      BulkAggregateQuestionResults200Response result = apiInstance.bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest)
+            .forceRecalculate(forceRecalculate)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#bulkAggregateQuestionResults");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **bulkAggregateQuestionResultsRequest** | [**BulkAggregateQuestionResultsRequest**](BulkAggregateQuestionResultsRequest.md)|  | |
+| **forceRecalculate** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**BulkAggregateQuestionResults200Response**](BulkAggregateQuestionResults200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="combineCommentsWithQuestionResults"></a>
+# **combineCommentsWithQuestionResults**
+> CombineCommentsWithQuestionResults200Response combineCommentsWithQuestionResults(tenantId).questionId(questionId).questionIds(questionIds).urlId(urlId).startDate(startDate).forceRecalculate(forceRecalculate).minValue(minValue).maxValue(maxValue).limit(limit).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String questionId = "questionId_example"; // String | 
+    List<String> questionIds = Arrays.asList(); // List<String> | 
+    String urlId = "urlId_example"; // String | 
+    OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | 
+    Boolean forceRecalculate = true; // Boolean | 
+    Double minValue = 3.4D; // Double | 
+    Double maxValue = 3.4D; // Double | 
+    Double limit = 3.4D; // Double | 
+    try {
+      CombineCommentsWithQuestionResults200Response result = apiInstance.combineCommentsWithQuestionResults(tenantId)
+            .questionId(questionId)
+            .questionIds(questionIds)
+            .urlId(urlId)
+            .startDate(startDate)
+            .forceRecalculate(forceRecalculate)
+            .minValue(minValue)
+            .maxValue(maxValue)
+            .limit(limit)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#combineCommentsWithQuestionResults");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **questionId** | **String**|  | [optional] |
+| **questionIds** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **urlId** | **String**|  | [optional] |
+| **startDate** | **OffsetDateTime**|  | [optional] |
+| **forceRecalculate** | **Boolean**|  | [optional] |
+| **minValue** | **Double**|  | [optional] |
+| **maxValue** | **Double**|  | [optional] |
+| **limit** | **Double**|  | [optional] |
+
+### Return type
+
+[**CombineCommentsWithQuestionResults200Response**](CombineCommentsWithQuestionResults200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="createFeedPost"></a>
+# **createFeedPost**
+> CreateFeedPost200Response createFeedPost(tenantId, createFeedPostParams).broadcastId(broadcastId).isLive(isLive).doSpamCheck(doSpamCheck).skipDupCheck(skipDupCheck).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    CreateFeedPostParams createFeedPostParams = new CreateFeedPostParams(); // CreateFeedPostParams | 
+    String broadcastId = "broadcastId_example"; // String | 
+    Boolean isLive = true; // Boolean | 
+    Boolean doSpamCheck = true; // Boolean | 
+    Boolean skipDupCheck = true; // Boolean | 
+    try {
+      CreateFeedPost200Response result = apiInstance.createFeedPost(tenantId, createFeedPostParams)
+            .broadcastId(broadcastId)
+            .isLive(isLive)
+            .doSpamCheck(doSpamCheck)
+            .skipDupCheck(skipDupCheck)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -303,7 +565,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
-| **feedPost** | [**FeedPost**](FeedPost.md)|  | |
+| **createFeedPostParams** | [**CreateFeedPostParams**](CreateFeedPostParams.md)|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **isLive** | **Boolean**|  | [optional] |
+| **doSpamCheck** | **Boolean**|  | [optional] |
+| **skipDupCheck** | **Boolean**|  | [optional] |
 
 ### Return type
 

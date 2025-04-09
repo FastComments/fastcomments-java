@@ -49,7 +49,13 @@ public enum LiveEventType {
   
   NEW_CONFIG("new-config"),
   
-  THREAD_STATE_CHANGE("thread-state-change");
+  THREAD_STATE_CHANGE("thread-state-change"),
+  
+  FR("fr"),
+  
+  DFR("dfr"),
+  
+  NEW_FEED_POST("new-feed-post");
 
   private String value;
 

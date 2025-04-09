@@ -20,6 +20,8 @@ import com.fastcomments.model.CheckedCommentsForBlocked200Response;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
 import com.fastcomments.model.CreateCommentPublic200Response;
+import com.fastcomments.model.CreateFeedPostParams;
+import com.fastcomments.model.CreateFeedPostPublic200Response;
 import com.fastcomments.model.DeleteCommentPublic200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
 import com.fastcomments.model.FlagCommentPublic200Response;
@@ -27,18 +29,22 @@ import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetCommentsPublic200Response;
 import com.fastcomments.model.GetEventLog200Response;
-import com.fastcomments.model.GetFeedPosts200Response;
+import com.fastcomments.model.GetFeedPostsPublic200Response;
 import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.GetUserPresenceStatuses200Response;
+import com.fastcomments.model.GetUserReactsPublic200Response;
 import com.fastcomments.model.LockComment200Response;
 import com.fastcomments.model.PinComment200Response;
 import com.fastcomments.model.PublicBlockFromCommentParams;
+import com.fastcomments.model.ReactBodyParams;
+import com.fastcomments.model.ReactFeedPostPublic200Response;
 import com.fastcomments.model.ResetUserNotifications200Response;
 import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
+import com.fastcomments.model.UploadImageResponse;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteComment200Response;
 import org.junit.jupiter.api.Disabled;
@@ -100,6 +106,20 @@ public class PublicApiTest {
         CreateCommentPublic200Response response = api.createCommentPublic(tenantId, urlId, broadcastId, commentData)
                 .sessionId(sessionId)
                 .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createFeedPostPublicTest() throws ApiException {
+        String tenantId = null;
+        CreateFeedPostParams createFeedPostParams = null;
+        String broadcastId = null;
+        CreateFeedPostPublic200Response response = api.createFeedPostPublic(tenantId, createFeedPostParams)
+                .broadcastId(broadcastId)
                 .execute();
         // TODO: test validations
     }
@@ -276,7 +296,7 @@ public class PublicApiTest {
         String afterId = null;
         Integer limit = null;
         List<String> tags = null;
-        GetFeedPosts200Response response = api.getFeedPostsPublic(tenantId)
+        GetFeedPostsPublic200Response response = api.getFeedPostsPublic(tenantId)
                 .afterId(afterId)
                 .limit(limit)
                 .tags(tags)
@@ -360,6 +380,19 @@ public class PublicApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void getUserReactsPublicTest() throws ApiException {
+        String tenantId = null;
+        List<String> postIds = null;
+        GetUserReactsPublic200Response response = api.getUserReactsPublic(tenantId)
+                .postIds(postIds)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void lockCommentTest() throws ApiException {
         String tenantId = null;
         String commentId = null;
@@ -382,6 +415,23 @@ public class PublicApiTest {
         String sso = null;
         PinComment200Response response = api.pinComment(tenantId, commentId, broadcastId)
                 .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void reactFeedPostPublicTest() throws ApiException {
+        String tenantId = null;
+        String postId = null;
+        ReactBodyParams reactBodyParams = null;
+        Boolean isUndo = null;
+        String broadcastId = null;
+        ReactFeedPostPublic200Response response = api.reactFeedPostPublic(tenantId, postId, reactBodyParams)
+                .isUndo(isUndo)
+                .broadcastId(broadcastId)
                 .execute();
         // TODO: test validations
     }
@@ -533,6 +583,21 @@ public class PublicApiTest {
         String sso = null;
         UpdateUserNotificationStatus200Response response = api.updateUserNotificationStatus(tenantId, notificationId, newStatus)
                 .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Upload and resize an image
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void uploadImageTest() throws ApiException {
+        String tenantId = null;
+        String sizes = null;
+        UploadImageResponse response = api.uploadImage(tenantId)
+                .sizes(sizes)
                 .execute();
         // TODO: test validations
     }

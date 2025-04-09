@@ -430,6 +430,62 @@ paths:
       - Public
       x-accepts:
       - application/json
+  /upload-image/{tenantId}:
+    options:
+      operationId: UploadImageOptions
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Ok
+      security: []
+      tags:
+      - Hidden
+      x-accepts:
+      - application/json
+    post:
+      description: Upload and resize an image
+      operationId: UploadImage
+      parameters:
+      - description: Tenant ID
+        explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Optional comma-separated list of sizes in format \"x,y\" (e.g.\
+          \ \"100,100,200,200,300,300\")"
+        explode: true
+        in: query
+        name: sizes
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadImageResponse'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
   /flag-comment/{commentId}:
     post:
       operationId: FlagCommentPublic
@@ -535,11 +591,39 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: isLive
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: doSpamCheck
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: skipDupCheck
+        required: false
+        schema:
+          type: boolean
+        style: form
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/FeedPost'
+              $ref: '#/components/schemas/CreateFeedPostParams'
         required: true
       responses:
         "200":
@@ -634,7 +718,126 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeedPosts_200_response'
+                $ref: '#/components/schemas/GetFeedPostsPublic_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+    post:
+      operationId: CreateFeedPostPublic
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFeedPostParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFeedPostPublic_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /feed-posts/{tenantId}/react/{postId}:
+    post:
+      operationId: ReactFeedPostPublic
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: isUndo
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReactBodyParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReactFeedPostPublic_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /feed-posts/{tenantId}/user-reacts:
+    get:
+      operationId: GetUserReactsPublic
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: postIds
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserReactsPublic_200_response'
           description: Ok
       security: []
       tags:
@@ -1657,6 +1860,193 @@ paths:
       tags:
       - Public
       x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/question-results-aggregation:
+    get:
+      operationId: AggregateQuestionResults
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: questionId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: questionIds
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: urlId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: timeBucket
+        required: false
+        schema:
+          $ref: '#/components/schemas/AggregateTimeBucket'
+        style: form
+      - explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: forceRecalculate
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AggregateQuestionResults_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/question-results-aggregation/bulk:
+    post:
+      operationId: BulkAggregateQuestionResults
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: forceRecalculate
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkAggregateQuestionResultsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkAggregateQuestionResults_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/question-results-aggregation/combine/comments:
+    get:
+      operationId: CombineCommentsWithQuestionResults
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: questionId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: questionIds
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: urlId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: startDate
+        required: false
+        schema:
+          format: date-time
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: forceRecalculate
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: minValue
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: maxValue
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CombineCommentsWithQuestionResults_200_response'
+          description: Ok
+      security:
+      - api_key: []
       x-accepts:
       - application/json
   /api/v1/domain-configs:
@@ -3199,6 +3589,37 @@ components:
       - note
       - status
       type: object
+    APIStatus:
+      enum:
+      - success
+      - failed
+      type: string
+    UploadImageResponse:
+      additionalProperties: false
+      example:
+        reason: reason
+        urls:
+        - urls
+        - urls
+        code: code
+        url: url
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        url:
+          type: string
+        urls:
+          items:
+            type: string
+          type: array
+        reason:
+          type: string
+        code:
+          type: string
+      required:
+      - status
+      type: object
     APIEmptyResponse:
       example:
         status: success
@@ -3208,11 +3629,6 @@ components:
       required:
       - status
       type: object
-    APIStatus:
-      enum:
-      - success
-      - failed
-      type: string
     FeedPostMediaItemAsset:
       additionalProperties: false
       example:
@@ -3339,8 +3755,10 @@ components:
         fromUserId:
           type: string
         fromUserDisplayName:
+          nullable: true
           type: string
         fromUserAvatar:
+          nullable: true
           type: string
         fromIpHash:
           type: string
@@ -3547,6 +3965,298 @@ components:
       - feedPost
       - status
       type: object
+    CreateFeedPostParams:
+      additionalProperties: false
+      example:
+        fromUserDisplayName: fromUserDisplayName
+        fromUserId: fromUserId
+        meta:
+          key: meta
+        links:
+        - description: description
+          text: text
+          title: title
+          url: url
+        - description: description
+          text: text
+          title: title
+          url: url
+        media:
+        - sizes:
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          linkUrl: linkUrl
+          title: title
+        - sizes:
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          - src: src
+            w: 6.027456183070403
+            h: 1.4658129805029452
+          linkUrl: linkUrl
+          title: title
+        title: title
+        contentHTML: contentHTML
+        tags:
+        - tags
+        - tags
+      properties:
+        title:
+          type: string
+        contentHTML:
+          type: string
+        media:
+          items:
+            $ref: '#/components/schemas/FeedPostMediaItem'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/FeedPostLink'
+          type: array
+        fromUserId:
+          type: string
+        fromUserDisplayName:
+          type: string
+        tags:
+          items:
+            type: string
+          type: array
+        meta:
+          additionalProperties:
+            type: string
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      type: object
+    EnhancedFeedPostsResponse:
+      additionalProperties: false
+      example:
+        feedPosts:
+        - fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5.962133916683182
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        - fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5.962133916683182
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        myReacts:
+          key:
+            key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        feedPosts:
+          items:
+            $ref: '#/components/schemas/FeedPost'
+          type: array
+        myReacts:
+          additionalProperties:
+            additionalProperties:
+              type: boolean
+            properties: {}
+            type: object
+          properties: {}
+          type: object
+      required:
+      - feedPosts
+      - status
+      type: object
+    ReactFeedPostResponse:
+      additionalProperties: false
+      example:
+        isUndo: true
+        reactType: reactType
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        reactType:
+          type: string
+        isUndo:
+          type: boolean
+      required:
+      - isUndo
+      - reactType
+      - status
+      type: object
+    ReactBodyParams:
+      additionalProperties: false
+      example:
+        reactType: reactType
+      properties:
+        reactType:
+          type: string
+      type: object
+    UserReactsResponse:
+      additionalProperties: false
+      example:
+        reacts:
+          key:
+            key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        reacts:
+          additionalProperties:
+            additionalProperties:
+              type: boolean
+            properties: {}
+            type: object
+          properties: {}
+          type: object
+      required:
+      - reacts
+      - status
+      type: object
+    CreateFeedPostResponse:
+      additionalProperties: false
+      example:
+        feedPost:
+          fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            - src: src
+              w: 6.027456183070403
+              h: 1.4658129805029452
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5.962133916683182
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        feedPost:
+          $ref: '#/components/schemas/FeedPost'
+      required:
+      - feedPost
+      - status
+      type: object
     EventLogEntry:
       additionalProperties: false
       example:
@@ -3618,6 +4328,9 @@ components:
       - cvc
       - new-config
       - thread-state-change
+      - fr
+      - dfr
+      - new-feed-post
       type: string
     CommentUserBadgeInfo:
       additionalProperties: false
@@ -5069,6 +5782,801 @@ components:
       - commentStatuses
       - status
       type: object
+    Record_number.number_:
+      additionalProperties:
+        format: double
+        type: number
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    QuestionDatum:
+      additionalProperties: false
+      example:
+        total: 6.027456183070403
+        v:
+          key: 0.8008281904610115
+      properties:
+        v:
+          additionalProperties:
+            format: double
+            type: number
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        total:
+          format: double
+          type: number
+      required:
+      - total
+      - v
+      type: object
+    Record_string.QuestionDatum_:
+      additionalProperties:
+        $ref: '#/components/schemas/QuestionDatum'
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    QuestionResultAggregationOverall:
+      additionalProperties: false
+      example:
+        average: 5.637376656633329
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        total: 5.962133916683182
+        countsByValue:
+          key: 1.4658129805029452
+        dataByDateBucket:
+          key:
+            total: 6.027456183070403
+            v:
+              key: 0.8008281904610115
+        dataByUrlId:
+          key:
+            total: 6.027456183070403
+            v:
+              key: 0.8008281904610115
+      properties:
+        dataByDateBucket:
+          additionalProperties:
+            $ref: '#/components/schemas/QuestionDatum'
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        dataByUrlId:
+          additionalProperties:
+            $ref: '#/components/schemas/QuestionDatum'
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        countsByValue:
+          additionalProperties:
+            format: double
+            type: number
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        total:
+          format: double
+          type: number
+        average:
+          format: double
+          type: number
+        createdAt:
+          format: date-time
+          type: string
+      required:
+      - createdAt
+      - total
+      type: object
+    AggregateQuestionResultsResponse:
+      additionalProperties: false
+      example:
+        data:
+          average: 5.637376656633329
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          total: 5.962133916683182
+          countsByValue:
+            key: 1.4658129805029452
+          dataByDateBucket:
+            key:
+              total: 6.027456183070403
+              v:
+                key: 0.8008281904610115
+          dataByUrlId:
+            key:
+              total: 6.027456183070403
+              v:
+                key: 0.8008281904610115
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        data:
+          $ref: '#/components/schemas/QuestionResultAggregationOverall'
+      required:
+      - data
+      - status
+      type: object
+    AggregateTimeBucket:
+      enum:
+      - day
+      - month
+      - year
+      type: string
+    Record_string.QuestionResultAggregationOverall_:
+      additionalProperties:
+        $ref: '#/components/schemas/QuestionResultAggregationOverall'
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    BulkAggregateQuestionResultsResponse:
+      additionalProperties: false
+      example:
+        data:
+          key:
+            average: 5.637376656633329
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            total: 5.962133916683182
+            countsByValue:
+              key: 1.4658129805029452
+            dataByDateBucket:
+              key:
+                total: 6.027456183070403
+                v:
+                  key: 0.8008281904610115
+            dataByUrlId:
+              key:
+                total: 6.027456183070403
+                v:
+                  key: 0.8008281904610115
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        data:
+          additionalProperties:
+            $ref: '#/components/schemas/QuestionResultAggregationOverall'
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - data
+      - status
+      type: object
+    BulkAggregateQuestionItem:
+      additionalProperties: false
+      example:
+        questionId: questionId
+        timeBucket: day
+        aggId: aggId
+        questionIds:
+        - questionIds
+        - questionIds
+        urlId: urlId
+        startDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        aggId:
+          type: string
+        questionId:
+          type: string
+        questionIds:
+          items:
+            type: string
+          type: array
+        urlId:
+          type: string
+        timeBucket:
+          $ref: '#/components/schemas/AggregateTimeBucket'
+        startDate:
+          format: date-time
+          type: string
+      required:
+      - aggId
+      type: object
+    BulkAggregateQuestionResultsRequest:
+      additionalProperties: false
+      example:
+        aggregations:
+        - questionId: questionId
+          timeBucket: day
+          aggId: aggId
+          questionIds:
+          - questionIds
+          - questionIds
+          urlId: urlId
+          startDate: 2000-01-23T04:56:07.000+00:00
+        - questionId: questionId
+          timeBucket: day
+          aggId: aggId
+          questionIds:
+          - questionIds
+          - questionIds
+          urlId: urlId
+          startDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        aggregations:
+          items:
+            $ref: '#/components/schemas/BulkAggregateQuestionItem'
+          type: array
+      required:
+      - aggregations
+      type: object
+    UserId:
+      type: string
+    FDomain:
+      type: string
+    CommentLog:
+      items: {}
+      type: array
+    FComment:
+      additionalProperties: false
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        editKey: editKey
+        pageNumber: 5
+        pageTitle: pageTitle
+        rating: 3.616076749251911
+        approved: true
+        hashTags:
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        - retain: true
+          id: id
+          tag: tag
+          url: url
+        localDateString: localDateString
+        notificationSentForParentTenant: true
+        verifiedDate: 2000-01-23T04:56:07.000+00:00
+        isLocked: true
+        groupIds:
+        - groupIds
+        - groupIds
+        aiDeterminedSpam: true
+        reviewed: true
+        logs:
+        - - ""
+          - ""
+        - - ""
+          - ""
+        fromProductId: 2
+        flagCount: 9
+        pageNumberNF: 7
+        hasCode: true
+        feedbackIds:
+        - feedbackIds
+        - feedbackIds
+        autoplayJobId: autoplayJobId
+        ipHash: ipHash
+        fromOfflineRestore: true
+        urlIdRaw: urlIdRaw
+        moderationGroupIds:
+        - moderationGroupIds
+        - moderationGroupIds
+        didProcessBadges: true
+        isDeletedUser: true
+        meta:
+          wpUserId: wpUserId
+          wpPostId: wpPostId
+        mentions:
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        domain: ""
+        avatarSrc: avatarSrc
+        _id: _id
+        isSpam: true
+        veteranBadgeProcessed: veteranBadgeProcessed
+        externalParentId: externalParentId
+        votesDown: 5
+        commenterName: commenterName
+        isByModerator: true
+        commenterLink: commenterLink
+        urlId: urlId
+        locale: locale
+        commentHTML: commentHTML
+        isDeleted: true
+        imported: true
+        pageNumberOF: 2
+        localDateHours: 0
+        viewCount: 7.386281948385884
+        votesUp: 1
+        displayLabel: displayLabel
+        requiresVerification: true
+        isPinned: true
+        verified: true
+        anonUserId: anonUserId
+        externalId: externalId
+        hasLinks: true
+        autoplayDelayMS: 4
+        expireAt: 2000-01-23T04:56:07.000+00:00
+        userId: ""
+        url: url
+        parentId: parentId
+        commenterEmail: commenterEmail
+        badges:
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 9.301444243932576
+          textColor: textColor
+          displaySrc: displaySrc
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 9.301444243932576
+          textColor: textColor
+          displaySrc: displaySrc
+        notificationSentForParent: true
+        tenantId: tenantId
+        hasImages: true
+        comment: comment
+        votes: 6
+        isBannedUser: true
+        verificationId: verificationId
+        isByAdmin: true
+      properties:
+        _id:
+          type: string
+        tenantId:
+          type: string
+        urlId:
+          type: string
+        urlIdRaw:
+          type: string
+        url:
+          type: string
+        pageTitle:
+          nullable: true
+          type: string
+        userId:
+          allOf:
+          - $ref: '#/components/schemas/UserId'
+          nullable: true
+        anonUserId:
+          nullable: true
+          type: string
+        commenterEmail:
+          nullable: true
+          type: string
+        commenterName:
+          type: string
+        commenterLink:
+          nullable: true
+          type: string
+        comment:
+          type: string
+        commentHTML:
+          type: string
+        parentId:
+          nullable: true
+          type: string
+        date:
+          format: date-time
+          nullable: true
+          type: string
+        localDateString:
+          nullable: true
+          type: string
+        localDateHours:
+          format: int32
+          nullable: true
+          type: integer
+        votes:
+          format: int32
+          nullable: true
+          type: integer
+        votesUp:
+          format: int32
+          nullable: true
+          type: integer
+        votesDown:
+          format: int32
+          nullable: true
+          type: integer
+        expireAt:
+          format: date-time
+          nullable: true
+          type: string
+        verified:
+          type: boolean
+        verifiedDate:
+          format: date-time
+          nullable: true
+          type: string
+        verificationId:
+          nullable: true
+          type: string
+        notificationSentForParent:
+          type: boolean
+        notificationSentForParentTenant:
+          type: boolean
+        reviewed:
+          type: boolean
+        imported:
+          type: boolean
+        externalId:
+          type: string
+        externalParentId:
+          nullable: true
+          type: string
+        avatarSrc:
+          nullable: true
+          type: string
+        isSpam:
+          type: boolean
+        aiDeterminedSpam:
+          type: boolean
+        hasImages:
+          type: boolean
+        pageNumber:
+          format: int32
+          nullable: true
+          type: integer
+        pageNumberOF:
+          format: int32
+          nullable: true
+          type: integer
+        pageNumberNF:
+          format: int32
+          nullable: true
+          type: integer
+        hasLinks:
+          type: boolean
+        hasCode:
+          type: boolean
+        approved:
+          type: boolean
+        locale:
+          nullable: true
+          type: string
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isBannedUser:
+          type: boolean
+        isByAdmin:
+          type: boolean
+        isByModerator:
+          type: boolean
+        isPinned:
+          nullable: true
+          type: boolean
+        isLocked:
+          nullable: true
+          type: boolean
+        flagCount:
+          format: int32
+          nullable: true
+          type: integer
+        rating:
+          format: double
+          nullable: true
+          type: number
+        displayLabel:
+          nullable: true
+          type: string
+        fromProductId:
+          format: int32
+          type: integer
+        meta:
+          $ref: '#/components/schemas/FComment_meta'
+        ipHash:
+          type: string
+        mentions:
+          items:
+            $ref: '#/components/schemas/CommentUserMentionInfo'
+          type: array
+        hashTags:
+          items:
+            $ref: '#/components/schemas/CommentUserHashTagInfo'
+          type: array
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          nullable: true
+          type: array
+        domain:
+          allOf:
+          - $ref: '#/components/schemas/FDomain'
+          nullable: true
+        veteranBadgeProcessed:
+          type: string
+        moderationGroupIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        didProcessBadges:
+          type: boolean
+        fromOfflineRestore:
+          type: boolean
+        autoplayJobId:
+          type: string
+        autoplayDelayMS:
+          format: int64
+          type: integer
+        feedbackIds:
+          items:
+            type: string
+          type: array
+        logs:
+          items:
+            $ref: '#/components/schemas/CommentLog'
+          nullable: true
+          type: array
+        groupIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        viewCount:
+          format: double
+          nullable: true
+          type: number
+        requiresVerification:
+          type: boolean
+        editKey:
+          type: string
+      required:
+      - _id
+      - approved
+      - comment
+      - commentHTML
+      - commenterName
+      - date
+      - locale
+      - tenantId
+      - url
+      - urlId
+      - verified
+      type: object
+    MetaItem:
+      additionalProperties: false
+      example:
+        values:
+        - values
+        - values
+        name: name
+      properties:
+        name:
+          type: string
+        values:
+          items:
+            type: string
+          type: array
+      required:
+      - name
+      - values
+      type: object
+    QuestionResult:
+      additionalProperties: false
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        questionId: questionId
+        meta:
+        - values:
+          - values
+          - values
+          name: name
+        - values:
+          - values
+          - values
+          name: name
+        tenantId: tenantId
+        anonUserId: anonUserId
+        commentId: commentId
+        _id: _id
+        urlId: urlId
+        ipHash: ipHash
+        userId: userId
+        value: 0.8008281904610115
+      properties:
+        _id:
+          type: string
+        tenantId:
+          type: string
+        urlId:
+          type: string
+        anonUserId:
+          type: string
+        userId:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        value:
+          format: double
+          type: number
+        commentId:
+          nullable: true
+          type: string
+        questionId:
+          type: string
+        meta:
+          items:
+            $ref: '#/components/schemas/MetaItem'
+          nullable: true
+          type: array
+        ipHash:
+          type: string
+      required:
+      - _id
+      - anonUserId
+      - createdAt
+      - ipHash
+      - questionId
+      - tenantId
+      - urlId
+      - userId
+      - value
+      type: object
+    FindCommentsByRangeItem:
+      additionalProperties: false
+      example:
+        result:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          questionId: questionId
+          meta:
+          - values:
+            - values
+            - values
+            name: name
+          - values:
+            - values
+            - values
+            name: name
+          tenantId: tenantId
+          anonUserId: anonUserId
+          commentId: commentId
+          _id: _id
+          urlId: urlId
+          ipHash: ipHash
+          userId: userId
+          value: 0.8008281904610115
+        comment: ""
+      properties:
+        comment:
+          allOf:
+          - $ref: '#/components/schemas/FComment'
+          nullable: true
+        result:
+          $ref: '#/components/schemas/QuestionResult'
+      required:
+      - comment
+      - result
+      type: object
+    FindCommentsByRangeResponse:
+      additionalProperties: false
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        results:
+        - result:
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            questionId: questionId
+            meta:
+            - values:
+              - values
+              - values
+              name: name
+            - values:
+              - values
+              - values
+              name: name
+            tenantId: tenantId
+            anonUserId: anonUserId
+            commentId: commentId
+            _id: _id
+            urlId: urlId
+            ipHash: ipHash
+            userId: userId
+            value: 0.8008281904610115
+          comment: ""
+        - result:
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            questionId: questionId
+            meta:
+            - values:
+              - values
+              - values
+              name: name
+            - values:
+              - values
+              - values
+              name: name
+            tenantId: tenantId
+            anonUserId: anonUserId
+            commentId: commentId
+            _id: _id
+            urlId: urlId
+            ipHash: ipHash
+            userId: userId
+            value: 0.8008281904610115
+          comment: ""
+      properties:
+        results:
+          items:
+            $ref: '#/components/schemas/FindCommentsByRangeItem'
+          type: array
+        createdAt:
+          format: date-time
+          type: string
+      required:
+      - createdAt
+      - results
+      type: object
+    CombineQuestionResultsWithCommentsResponse:
+      additionalProperties: false
+      example:
+        data:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          results:
+          - result:
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              questionId: questionId
+              meta:
+              - values:
+                - values
+                - values
+                name: name
+              - values:
+                - values
+                - values
+                name: name
+              tenantId: tenantId
+              anonUserId: anonUserId
+              commentId: commentId
+              _id: _id
+              urlId: urlId
+              ipHash: ipHash
+              userId: userId
+              value: 0.8008281904610115
+            comment: ""
+          - result:
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              questionId: questionId
+              meta:
+              - values:
+                - values
+                - values
+                name: name
+              - values:
+                - values
+                - values
+                name: name
+              tenantId: tenantId
+              anonUserId: anonUserId
+              commentId: commentId
+              _id: _id
+              urlId: urlId
+              ipHash: ipHash
+              userId: userId
+              value: 0.8008281904610115
+            comment: ""
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        data:
+          $ref: '#/components/schemas/FindCommentsByRangeResponse'
+      required:
+      - data
+      - status
+      type: object
     AddDomainConfigParams:
       additionalProperties: false
       example:
@@ -5656,350 +7164,6 @@ components:
       required:
       - action
       - status
-      type: object
-    UserId:
-      type: string
-    FDomain:
-      type: string
-    CommentLog:
-      items: {}
-      type: array
-    FComment:
-      additionalProperties: false
-      example:
-        date: 2000-01-23T04:56:07.000+00:00
-        editKey: editKey
-        pageNumber: 5
-        pageTitle: pageTitle
-        rating: 3.616076749251911
-        approved: true
-        hashTags:
-        - retain: true
-          id: id
-          tag: tag
-          url: url
-        - retain: true
-          id: id
-          tag: tag
-          url: url
-        localDateString: localDateString
-        notificationSentForParentTenant: true
-        verifiedDate: 2000-01-23T04:56:07.000+00:00
-        isLocked: true
-        groupIds:
-        - groupIds
-        - groupIds
-        aiDeterminedSpam: true
-        reviewed: true
-        logs:
-        - - ""
-          - ""
-        - - ""
-          - ""
-        fromProductId: 2
-        flagCount: 9
-        pageNumberNF: 7
-        hasCode: true
-        feedbackIds:
-        - feedbackIds
-        - feedbackIds
-        autoplayJobId: autoplayJobId
-        ipHash: ipHash
-        fromOfflineRestore: true
-        urlIdRaw: urlIdRaw
-        moderationGroupIds:
-        - moderationGroupIds
-        - moderationGroupIds
-        didProcessBadges: true
-        isDeletedUser: true
-        meta:
-          wpUserId: wpUserId
-          wpPostId: wpPostId
-        mentions:
-        - rawTag: rawTag
-          id: id
-          tag: tag
-          type: user
-          sent: true
-        - rawTag: rawTag
-          id: id
-          tag: tag
-          type: user
-          sent: true
-        domain: ""
-        avatarSrc: avatarSrc
-        _id: _id
-        isSpam: true
-        veteranBadgeProcessed: veteranBadgeProcessed
-        externalParentId: externalParentId
-        votesDown: 5
-        commenterName: commenterName
-        isByModerator: true
-        commenterLink: commenterLink
-        urlId: urlId
-        locale: locale
-        commentHTML: commentHTML
-        isDeleted: true
-        imported: true
-        pageNumberOF: 2
-        localDateHours: 0
-        viewCount: 7.386281948385884
-        votesUp: 1
-        displayLabel: displayLabel
-        requiresVerification: true
-        isPinned: true
-        verified: true
-        anonUserId: anonUserId
-        externalId: externalId
-        hasLinks: true
-        autoplayDelayMS: 4
-        expireAt: 2000-01-23T04:56:07.000+00:00
-        userId: ""
-        url: url
-        parentId: parentId
-        commenterEmail: commenterEmail
-        badges:
-        - displayLabel: displayLabel
-          backgroundColor: backgroundColor
-          borderColor: borderColor
-          cssClass: cssClass
-          description: description
-          id: id
-          type: 9.301444243932576
-          textColor: textColor
-          displaySrc: displaySrc
-        - displayLabel: displayLabel
-          backgroundColor: backgroundColor
-          borderColor: borderColor
-          cssClass: cssClass
-          description: description
-          id: id
-          type: 9.301444243932576
-          textColor: textColor
-          displaySrc: displaySrc
-        notificationSentForParent: true
-        tenantId: tenantId
-        hasImages: true
-        comment: comment
-        votes: 6
-        isBannedUser: true
-        verificationId: verificationId
-        isByAdmin: true
-      properties:
-        _id:
-          type: string
-        tenantId:
-          type: string
-        urlId:
-          type: string
-        urlIdRaw:
-          type: string
-        url:
-          type: string
-        pageTitle:
-          nullable: true
-          type: string
-        userId:
-          allOf:
-          - $ref: '#/components/schemas/UserId'
-          nullable: true
-        anonUserId:
-          nullable: true
-          type: string
-        commenterEmail:
-          nullable: true
-          type: string
-        commenterName:
-          type: string
-        commenterLink:
-          type: string
-        comment:
-          type: string
-        commentHTML:
-          type: string
-        parentId:
-          nullable: true
-          type: string
-        date:
-          format: date-time
-          nullable: true
-          type: string
-        localDateString:
-          nullable: true
-          type: string
-        localDateHours:
-          format: int32
-          nullable: true
-          type: integer
-        votes:
-          format: int32
-          nullable: true
-          type: integer
-        votesUp:
-          format: int32
-          nullable: true
-          type: integer
-        votesDown:
-          format: int32
-          nullable: true
-          type: integer
-        expireAt:
-          format: date-time
-          nullable: true
-          type: string
-        verified:
-          type: boolean
-        verifiedDate:
-          format: date-time
-          nullable: true
-          type: string
-        verificationId:
-          nullable: true
-          type: string
-        notificationSentForParent:
-          type: boolean
-        notificationSentForParentTenant:
-          type: boolean
-        reviewed:
-          type: boolean
-        imported:
-          type: boolean
-        externalId:
-          type: string
-        externalParentId:
-          nullable: true
-          type: string
-        avatarSrc:
-          nullable: true
-          type: string
-        isSpam:
-          type: boolean
-        aiDeterminedSpam:
-          type: boolean
-        hasImages:
-          type: boolean
-        pageNumber:
-          format: int32
-          nullable: true
-          type: integer
-        pageNumberOF:
-          format: int32
-          nullable: true
-          type: integer
-        pageNumberNF:
-          format: int32
-          nullable: true
-          type: integer
-        hasLinks:
-          type: boolean
-        hasCode:
-          type: boolean
-        approved:
-          type: boolean
-        locale:
-          nullable: true
-          type: string
-        isDeleted:
-          type: boolean
-        isDeletedUser:
-          type: boolean
-        isBannedUser:
-          type: boolean
-        isByAdmin:
-          type: boolean
-        isByModerator:
-          type: boolean
-        isPinned:
-          nullable: true
-          type: boolean
-        isLocked:
-          nullable: true
-          type: boolean
-        flagCount:
-          format: int32
-          nullable: true
-          type: integer
-        rating:
-          format: double
-          nullable: true
-          type: number
-        displayLabel:
-          nullable: true
-          type: string
-        fromProductId:
-          format: int32
-          type: integer
-        meta:
-          $ref: '#/components/schemas/FComment_meta'
-        ipHash:
-          type: string
-        mentions:
-          items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
-          type: array
-        hashTags:
-          items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
-          type: array
-        badges:
-          items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
-          nullable: true
-          type: array
-        domain:
-          allOf:
-          - $ref: '#/components/schemas/FDomain'
-          nullable: true
-        veteranBadgeProcessed:
-          type: string
-        moderationGroupIds:
-          items:
-            type: string
-          nullable: true
-          type: array
-        didProcessBadges:
-          type: boolean
-        fromOfflineRestore:
-          type: boolean
-        autoplayJobId:
-          type: string
-        autoplayDelayMS:
-          format: int64
-          type: integer
-        feedbackIds:
-          items:
-            type: string
-          type: array
-        logs:
-          items:
-            $ref: '#/components/schemas/CommentLog'
-          nullable: true
-          type: array
-        groupIds:
-          items:
-            type: string
-          nullable: true
-          type: array
-        viewCount:
-          format: double
-          nullable: true
-          type: number
-        requiresVerification:
-          type: boolean
-        editKey:
-          type: string
-      required:
-      - _id
-      - approved
-      - comment
-      - commentHTML
-      - commenterName
-      - date
-      - locale
-      - tenantId
-      - url
-      - urlId
-      - verified
       type: object
     SaveCommentResponse:
       additionalProperties: false
@@ -6637,6 +7801,22 @@ components:
       anyOf:
       - $ref: '#/components/schemas/CreateFeedPostsResponse'
       - $ref: '#/components/schemas/APIError'
+    GetFeedPostsPublic_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/EnhancedFeedPostsResponse'
+      - $ref: '#/components/schemas/APIError'
+    CreateFeedPostPublic_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/CreateFeedPostResponse'
+      - $ref: '#/components/schemas/APIError'
+    ReactFeedPostPublic_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/ReactFeedPostResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetUserReactsPublic_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/UserReactsResponse'
+      - $ref: '#/components/schemas/APIError'
     GetEventLog_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetEventLogResponse'
@@ -6692,6 +7872,18 @@ components:
     UnBlockCommentPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
+      - $ref: '#/components/schemas/APIError'
+    AggregateQuestionResults_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/AggregateQuestionResultsResponse'
+      - $ref: '#/components/schemas/APIError'
+    BulkAggregateQuestionResults_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/BulkAggregateQuestionResultsResponse'
+      - $ref: '#/components/schemas/APIError'
+    CombineCommentsWithQuestionResults_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/CombineQuestionResultsWithCommentsResponse'
       - $ref: '#/components/schemas/APIError'
     GetDomainConfigs_200_response_anyOf:
       example:
@@ -6813,23 +8005,23 @@ components:
       anyOf:
       - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
       - $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
-    Pick_FComment_APICommentFieldsKeys__meta:
-      additionalProperties: {}
-      example:
-        wpUserId: wpUserId
-        wpPostId: wpPostId
-      properties:
-        wpUserId:
-          type: string
-        wpPostId:
-          type: string
-      type: object
     FComment_meta:
       additionalProperties: {}
       example:
         wpUserId: wpUserId
         wpPostId: wpPostId
       nullable: true
+      properties:
+        wpUserId:
+          type: string
+        wpPostId:
+          type: string
+      type: object
+    Pick_FComment_APICommentFieldsKeys__meta:
+      additionalProperties: {}
+      example:
+        wpUserId: wpUserId
+        wpPostId: wpPostId
       properties:
         wpUserId:
           type: string
