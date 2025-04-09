@@ -52,10 +52,10 @@ import java.util.Set;
 import com.fastcomments.invoker.JSON;
 
 /**
- * EnhancedFeedPostsResponse
+ * PublicFeedPostsResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
-public class EnhancedFeedPostsResponse {
+public class PublicFeedPostsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
@@ -71,10 +71,10 @@ public class EnhancedFeedPostsResponse {
   @javax.annotation.Nullable
   private Map<String, Map<String, Boolean>> myReacts = new HashMap<>();
 
-  public EnhancedFeedPostsResponse() {
+  public PublicFeedPostsResponse() {
   }
 
-  public EnhancedFeedPostsResponse status(@javax.annotation.Nonnull APIStatus status) {
+  public PublicFeedPostsResponse status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -93,12 +93,12 @@ public class EnhancedFeedPostsResponse {
   }
 
 
-  public EnhancedFeedPostsResponse feedPosts(@javax.annotation.Nonnull List<FeedPost> feedPosts) {
+  public PublicFeedPostsResponse feedPosts(@javax.annotation.Nonnull List<FeedPost> feedPosts) {
     this.feedPosts = feedPosts;
     return this;
   }
 
-  public EnhancedFeedPostsResponse addFeedPostsItem(FeedPost feedPostsItem) {
+  public PublicFeedPostsResponse addFeedPostsItem(FeedPost feedPostsItem) {
     if (this.feedPosts == null) {
       this.feedPosts = new ArrayList<>();
     }
@@ -120,12 +120,12 @@ public class EnhancedFeedPostsResponse {
   }
 
 
-  public EnhancedFeedPostsResponse myReacts(@javax.annotation.Nullable Map<String, Map<String, Boolean>> myReacts) {
+  public PublicFeedPostsResponse myReacts(@javax.annotation.Nullable Map<String, Map<String, Boolean>> myReacts) {
     this.myReacts = myReacts;
     return this;
   }
 
-  public EnhancedFeedPostsResponse putMyReactsItem(String key, Map<String, Boolean> myReactsItem) {
+  public PublicFeedPostsResponse putMyReactsItem(String key, Map<String, Boolean> myReactsItem) {
     if (this.myReacts == null) {
       this.myReacts = new HashMap<>();
     }
@@ -156,10 +156,10 @@ public class EnhancedFeedPostsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    EnhancedFeedPostsResponse enhancedFeedPostsResponse = (EnhancedFeedPostsResponse) o;
-    return Objects.equals(this.status, enhancedFeedPostsResponse.status) &&
-        Objects.equals(this.feedPosts, enhancedFeedPostsResponse.feedPosts) &&
-        Objects.equals(this.myReacts, enhancedFeedPostsResponse.myReacts);
+    PublicFeedPostsResponse publicFeedPostsResponse = (PublicFeedPostsResponse) o;
+    return Objects.equals(this.status, publicFeedPostsResponse.status) &&
+        Objects.equals(this.feedPosts, publicFeedPostsResponse.feedPosts) &&
+        Objects.equals(this.myReacts, publicFeedPostsResponse.myReacts);
   }
 
   @Override
@@ -170,7 +170,7 @@ public class EnhancedFeedPostsResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EnhancedFeedPostsResponse {\n");
+    sb.append("class PublicFeedPostsResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    feedPosts: ").append(toIndentedString(feedPosts)).append("\n");
     sb.append("    myReacts: ").append(toIndentedString(myReacts)).append("\n");
@@ -210,25 +210,25 @@ public class EnhancedFeedPostsResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to EnhancedFeedPostsResponse
+   * @throws IOException if the JSON Element is invalid with respect to PublicFeedPostsResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!EnhancedFeedPostsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EnhancedFeedPostsResponse is not found in the empty JSON string", EnhancedFeedPostsResponse.openapiRequiredFields.toString()));
+        if (!PublicFeedPostsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PublicFeedPostsResponse is not found in the empty JSON string", PublicFeedPostsResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!EnhancedFeedPostsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EnhancedFeedPostsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!PublicFeedPostsResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicFeedPostsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : EnhancedFeedPostsResponse.openapiRequiredFields) {
+      for (String requiredField : PublicFeedPostsResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -252,22 +252,22 @@ public class EnhancedFeedPostsResponse {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!EnhancedFeedPostsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'EnhancedFeedPostsResponse' and its subtypes
+       if (!PublicFeedPostsResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PublicFeedPostsResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<EnhancedFeedPostsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(EnhancedFeedPostsResponse.class));
+       final TypeAdapter<PublicFeedPostsResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PublicFeedPostsResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<EnhancedFeedPostsResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<PublicFeedPostsResponse>() {
            @Override
-           public void write(JsonWriter out, EnhancedFeedPostsResponse value) throws IOException {
+           public void write(JsonWriter out, PublicFeedPostsResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public EnhancedFeedPostsResponse read(JsonReader in) throws IOException {
+           public PublicFeedPostsResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -278,18 +278,18 @@ public class EnhancedFeedPostsResponse {
   }
 
   /**
-   * Create an instance of EnhancedFeedPostsResponse given an JSON string
+   * Create an instance of PublicFeedPostsResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of EnhancedFeedPostsResponse
-   * @throws IOException if the JSON string is invalid with respect to EnhancedFeedPostsResponse
+   * @return An instance of PublicFeedPostsResponse
+   * @throws IOException if the JSON string is invalid with respect to PublicFeedPostsResponse
    */
-  public static EnhancedFeedPostsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, EnhancedFeedPostsResponse.class);
+  public static PublicFeedPostsResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PublicFeedPostsResponse.class);
   }
 
   /**
-   * Convert an instance of EnhancedFeedPostsResponse to an JSON string
+   * Convert an instance of PublicFeedPostsResponse to an JSON string
    *
    * @return JSON string
    */

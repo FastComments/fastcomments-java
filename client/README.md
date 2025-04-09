@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.5</version>
+  <version>0.0.6</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.5"
+     implementation "com.fastcomments:client:0.0.6"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.5.jar`
+* `target/client-0.0.6.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -237,7 +237,6 @@ Class | Method | HTTP request | Description
  - [DeleteCommentResult](docs/DeleteCommentResult.md)
  - [DeleteCommentVote200Response](docs/DeleteCommentVote200Response.md)
  - [DeleteDomainConfig200Response](docs/DeleteDomainConfig200Response.md)
- - [EnhancedFeedPostsResponse](docs/EnhancedFeedPostsResponse.md)
  - [EventLogEntry](docs/EventLogEntry.md)
  - [FComment](docs/FComment.md)
  - [FCommentMeta](docs/FCommentMeta.md)
@@ -306,6 +305,7 @@ Class | Method | HTTP request | Description
  - [PublicAPISetCommentTextResponse](docs/PublicAPISetCommentTextResponse.md)
  - [PublicBlockFromCommentParams](docs/PublicBlockFromCommentParams.md)
  - [PublicComment](docs/PublicComment.md)
+ - [PublicFeedPostsResponse](docs/PublicFeedPostsResponse.md)
  - [QueryPredicate](docs/QueryPredicate.md)
  - [QueryPredicateValue](docs/QueryPredicateValue.md)
  - [QuestionDatum](docs/QuestionDatum.md)

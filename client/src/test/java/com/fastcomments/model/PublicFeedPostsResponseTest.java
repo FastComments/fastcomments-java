@@ -30,17 +30,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for EnhancedFeedPostsResponse
+ * Model tests for PublicFeedPostsResponse
  */
-public class EnhancedFeedPostsResponseTest {
-    private final EnhancedFeedPostsResponse model = new EnhancedFeedPostsResponse();
+public class PublicFeedPostsResponseTest {
+    private final PublicFeedPostsResponse model = new PublicFeedPostsResponse();
 
     /**
-     * Model tests for EnhancedFeedPostsResponse
+     * Model tests for PublicFeedPostsResponse
      */
     @Test
-    public void testEnhancedFeedPostsResponse() {
-        // TODO: test EnhancedFeedPostsResponse
+    public void testPublicFeedPostsResponse() {
+        // TODO: test PublicFeedPostsResponse
     }
 
     /**

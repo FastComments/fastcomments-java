@@ -15,9 +15,9 @@ package com.fastcomments.model;
 
 import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.EnhancedFeedPostsResponse;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PublicFeedPostsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

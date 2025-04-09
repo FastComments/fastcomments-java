@@ -61,7 +61,6 @@ docs/DeleteCommentPublic200Response.md
 docs/DeleteCommentResult.md
 docs/DeleteCommentVote200Response.md
 docs/DeleteDomainConfig200Response.md
-docs/EnhancedFeedPostsResponse.md
 docs/EventLogEntry.md
 docs/FComment.md
 docs/FCommentMeta.md
@@ -132,6 +131,7 @@ docs/PublicAPISetCommentTextResponse.md
 docs/PublicApi.md
 docs/PublicBlockFromCommentParams.md
 docs/PublicComment.md
+docs/PublicFeedPostsResponse.md
 docs/QueryPredicate.md
 docs/QueryPredicateValue.md
 docs/QuestionDatum.md
@@ -261,7 +261,6 @@ src/main/java/com/fastcomments/model/DeleteCommentPublic200Response.java
 src/main/java/com/fastcomments/model/DeleteCommentResult.java
 src/main/java/com/fastcomments/model/DeleteCommentVote200Response.java
 src/main/java/com/fastcomments/model/DeleteDomainConfig200Response.java
-src/main/java/com/fastcomments/model/EnhancedFeedPostsResponse.java
 src/main/java/com/fastcomments/model/EventLogEntry.java
 src/main/java/com/fastcomments/model/FComment.java
 src/main/java/com/fastcomments/model/FCommentMeta.java
@@ -330,6 +329,7 @@ src/main/java/com/fastcomments/model/PublicAPIGetCommentTextResponse.java
 src/main/java/com/fastcomments/model/PublicAPISetCommentTextResponse.java
 src/main/java/com/fastcomments/model/PublicBlockFromCommentParams.java
 src/main/java/com/fastcomments/model/PublicComment.java
+src/main/java/com/fastcomments/model/PublicFeedPostsResponse.java
 src/main/java/com/fastcomments/model/QueryPredicate.java
 src/main/java/com/fastcomments/model/QueryPredicateValue.java
 src/main/java/com/fastcomments/model/QuestionDatum.java
@@ -432,7 +432,6 @@ src/test/java/com/fastcomments/model/DeleteCommentPublic200ResponseTest.java
 src/test/java/com/fastcomments/model/DeleteCommentResultTest.java
 src/test/java/com/fastcomments/model/DeleteCommentVote200ResponseTest.java
 src/test/java/com/fastcomments/model/DeleteDomainConfig200ResponseTest.java
-src/test/java/com/fastcomments/model/EnhancedFeedPostsResponseTest.java
 src/test/java/com/fastcomments/model/EventLogEntryTest.java
 src/test/java/com/fastcomments/model/FCommentMetaTest.java
 src/test/java/com/fastcomments/model/FCommentTest.java
@@ -501,6 +500,7 @@ src/test/java/com/fastcomments/model/PublicAPIGetCommentTextResponseTest.java
 src/test/java/com/fastcomments/model/PublicAPISetCommentTextResponseTest.java
 src/test/java/com/fastcomments/model/PublicBlockFromCommentParamsTest.java
 src/test/java/com/fastcomments/model/PublicCommentTest.java
+src/test/java/com/fastcomments/model/PublicFeedPostsResponseTest.java
 src/test/java/com/fastcomments/model/QueryPredicateTest.java
 src/test/java/com/fastcomments/model/QueryPredicateValueTest.java
 src/test/java/com/fastcomments/model/QuestionDatumTest.java

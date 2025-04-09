@@ -4061,7 +4061,7 @@ components:
           properties: {}
           type: object
       type: object
-    EnhancedFeedPostsResponse:
+    PublicFeedPostsResponse:
       additionalProperties: false
       example:
         feedPosts:
@@ -7831,7 +7831,7 @@ components:
       - $ref: '#/components/schemas/APIError'
     GetFeedPostsPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/EnhancedFeedPostsResponse'
+      - $ref: '#/components/schemas/PublicFeedPostsResponse'
       - $ref: '#/components/schemas/APIError'
     CreateFeedPostPublic_200_response:
       anyOf:

@@ -16,9 +16,9 @@ package com.fastcomments.model;
 import java.util.Objects;
 import com.fastcomments.model.APIError;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.EnhancedFeedPostsResponse;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
+import com.fastcomments.model.PublicFeedPostsResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -78,7 +78,7 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'GetFeedPostsPublic200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<EnhancedFeedPostsResponse> adapterEnhancedFeedPostsResponse = gson.getDelegateAdapter(this, TypeToken.get(EnhancedFeedPostsResponse.class));
+            final TypeAdapter<PublicFeedPostsResponse> adapterPublicFeedPostsResponse = gson.getDelegateAdapter(this, TypeToken.get(PublicFeedPostsResponse.class));
             final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
             return (TypeAdapter<T>) new TypeAdapter<GetFeedPostsPublic200Response>() {
@@ -89,9 +89,9 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `EnhancedFeedPostsResponse`
-                    if (value.getActualInstance() instanceof EnhancedFeedPostsResponse) {
-                        JsonElement element = adapterEnhancedFeedPostsResponse.toJsonTree((EnhancedFeedPostsResponse)value.getActualInstance());
+                    // check if the actual instance is of the type `PublicFeedPostsResponse`
+                    if (value.getActualInstance() instanceof PublicFeedPostsResponse) {
+                        JsonElement element = adapterPublicFeedPostsResponse.toJsonTree((PublicFeedPostsResponse)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -101,7 +101,7 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, EnhancedFeedPostsResponse");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, PublicFeedPostsResponse");
                 }
 
                 @Override
@@ -112,18 +112,18 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize EnhancedFeedPostsResponse
+                    // deserialize PublicFeedPostsResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        EnhancedFeedPostsResponse.validateJsonElement(jsonElement);
-                        actualAdapter = adapterEnhancedFeedPostsResponse;
+                        PublicFeedPostsResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterPublicFeedPostsResponse;
                         GetFeedPostsPublic200Response ret = new GetFeedPostsPublic200Response();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for EnhancedFeedPostsResponse failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'EnhancedFeedPostsResponse'", e);
+                        errorMessages.add(String.format("Deserialization for PublicFeedPostsResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'PublicFeedPostsResponse'", e);
                     }
                     // deserialize APIError
                     try {
@@ -158,7 +158,7 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("EnhancedFeedPostsResponse", EnhancedFeedPostsResponse.class);
+        schemas.put("PublicFeedPostsResponse", PublicFeedPostsResponse.class);
         schemas.put("APIError", APIError.class);
     }
 
@@ -170,13 +170,13 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, EnhancedFeedPostsResponse
+     * APIError, PublicFeedPostsResponse
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof EnhancedFeedPostsResponse) {
+        if (instance instanceof PublicFeedPostsResponse) {
             super.setActualInstance(instance);
             return;
         }
@@ -186,14 +186,14 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, EnhancedFeedPostsResponse");
+        throw new RuntimeException("Invalid instance type. Must be APIError, PublicFeedPostsResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, EnhancedFeedPostsResponse
+     * APIError, PublicFeedPostsResponse
      *
-     * @return The actual instance (APIError, EnhancedFeedPostsResponse)
+     * @return The actual instance (APIError, PublicFeedPostsResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -202,14 +202,14 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `EnhancedFeedPostsResponse`. If the actual instance is not `EnhancedFeedPostsResponse`,
+     * Get the actual instance of `PublicFeedPostsResponse`. If the actual instance is not `PublicFeedPostsResponse`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `EnhancedFeedPostsResponse`
-     * @throws ClassCastException if the instance is not `EnhancedFeedPostsResponse`
+     * @return The actual instance of `PublicFeedPostsResponse`
+     * @throws ClassCastException if the instance is not `PublicFeedPostsResponse`
      */
-    public EnhancedFeedPostsResponse getEnhancedFeedPostsResponse() throws ClassCastException {
-        return (EnhancedFeedPostsResponse)super.getActualInstance();
+    public PublicFeedPostsResponse getPublicFeedPostsResponse() throws ClassCastException {
+        return (PublicFeedPostsResponse)super.getActualInstance();
     }
 
     /**
@@ -232,12 +232,12 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with EnhancedFeedPostsResponse
+        // validate the json string with PublicFeedPostsResponse
         try {
-            EnhancedFeedPostsResponse.validateJsonElement(jsonElement);
+            PublicFeedPostsResponse.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for EnhancedFeedPostsResponse failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for PublicFeedPostsResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with APIError
@@ -248,7 +248,7 @@ public class GetFeedPostsPublic200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for GetFeedPostsPublic200Response with anyOf schemas: APIError, EnhancedFeedPostsResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for GetFeedPostsPublic200Response with anyOf schemas: APIError, PublicFeedPostsResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**
