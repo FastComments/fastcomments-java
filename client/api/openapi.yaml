@@ -713,6 +713,13 @@ paths:
             type: string
           type: array
         style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -738,6 +745,13 @@ paths:
       - explode: true
         in: query
         name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
         required: false
         schema:
           type: string
@@ -793,6 +807,13 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           application/json:
@@ -831,6 +852,13 @@ paths:
           items:
             type: string
           type: array
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
         style: form
       responses:
         "200":

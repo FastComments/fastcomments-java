@@ -704,7 +704,7 @@ public class PublicApi {
     public APIcreateCommentPublicRequest createCommentPublic(String tenantId, String urlId, String broadcastId, CommentData commentData) {
         return new APIcreateCommentPublicRequest(tenantId, urlId, broadcastId, commentData);
     }
-    private okhttp3.Call createFeedPostPublicCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFeedPostPublicCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -734,6 +734,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -755,7 +759,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFeedPostPublicValidateBeforeCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFeedPostPublicValidateBeforeCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createFeedPostPublic(Async)");
@@ -766,20 +770,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'createFeedPostParams' when calling createFeedPostPublic(Async)");
         }
 
-        return createFeedPostPublicCall(tenantId, createFeedPostParams, broadcastId, _callback);
+        return createFeedPostPublicCall(tenantId, createFeedPostParams, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<CreateFeedPostPublic200Response> createFeedPostPublicWithHttpInfo(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId) throws ApiException {
-        okhttp3.Call localVarCall = createFeedPostPublicValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, null);
+    private ApiResponse<CreateFeedPostPublic200Response> createFeedPostPublicWithHttpInfo(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, String sso) throws ApiException {
+        okhttp3.Call localVarCall = createFeedPostPublicValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<CreateFeedPostPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createFeedPostPublicAsync(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, final ApiCallback<CreateFeedPostPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call createFeedPostPublicAsync(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, String sso, final ApiCallback<CreateFeedPostPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createFeedPostPublicValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, _callback);
+        okhttp3.Call localVarCall = createFeedPostPublicValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<CreateFeedPostPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -789,6 +793,7 @@ public class PublicApi {
         private final String tenantId;
         private final CreateFeedPostParams createFeedPostParams;
         private String broadcastId;
+        private String sso;
 
         private APIcreateFeedPostPublicRequest(String tenantId, CreateFeedPostParams createFeedPostParams) {
             this.tenantId = tenantId;
@@ -806,6 +811,16 @@ public class PublicApi {
         }
 
         /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIcreateFeedPostPublicRequest
+         */
+        public APIcreateFeedPostPublicRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
          * Build call for createFeedPostPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -818,7 +833,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createFeedPostPublicCall(tenantId, createFeedPostParams, broadcastId, _callback);
+            return createFeedPostPublicCall(tenantId, createFeedPostParams, broadcastId, sso, _callback);
         }
 
         /**
@@ -833,7 +848,7 @@ public class PublicApi {
          </table>
          */
         public CreateFeedPostPublic200Response execute() throws ApiException {
-            ApiResponse<CreateFeedPostPublic200Response> localVarResp = createFeedPostPublicWithHttpInfo(tenantId, createFeedPostParams, broadcastId);
+            ApiResponse<CreateFeedPostPublic200Response> localVarResp = createFeedPostPublicWithHttpInfo(tenantId, createFeedPostParams, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -849,7 +864,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<CreateFeedPostPublic200Response> executeWithHttpInfo() throws ApiException {
-            return createFeedPostPublicWithHttpInfo(tenantId, createFeedPostParams, broadcastId);
+            return createFeedPostPublicWithHttpInfo(tenantId, createFeedPostParams, broadcastId, sso);
         }
 
         /**
@@ -865,7 +880,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<CreateFeedPostPublic200Response> _callback) throws ApiException {
-            return createFeedPostPublicAsync(tenantId, createFeedPostParams, broadcastId, _callback);
+            return createFeedPostPublicAsync(tenantId, createFeedPostParams, broadcastId, sso, _callback);
         }
     }
 
@@ -2641,7 +2656,7 @@ public class PublicApi {
     public APIgetEventLogRequest getEventLog(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) {
         return new APIgetEventLogRequest(tenantId, urlId, userIdWS, startTime, endTime);
     }
-    private okhttp3.Call getFeedPostsPublicCall(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2679,6 +2694,10 @@ public class PublicApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "tags", tags));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2699,26 +2718,26 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedPostsPublicValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFeedPostsPublic(Async)");
         }
 
-        return getFeedPostsPublicCall(tenantId, afterId, limit, tags, _callback);
+        return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetFeedPostsPublic200Response> getFeedPostsPublicWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags) throws ApiException {
-        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, null);
+    private ApiResponse<GetFeedPostsPublic200Response> getFeedPostsPublicWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags, String sso) throws ApiException {
+        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, null);
         Type localVarReturnType = new TypeToken<GetFeedPostsPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getFeedPostsPublicAsync(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicAsync(String tenantId, String afterId, Integer limit, List<String> tags, String sso, final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, _callback);
+        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, _callback);
         Type localVarReturnType = new TypeToken<GetFeedPostsPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2729,6 +2748,7 @@ public class PublicApi {
         private String afterId;
         private Integer limit;
         private List<String> tags;
+        private String sso;
 
         private APIgetFeedPostsPublicRequest(String tenantId) {
             this.tenantId = tenantId;
@@ -2765,6 +2785,16 @@ public class PublicApi {
         }
 
         /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetFeedPostsPublicRequest
+         */
+        public APIgetFeedPostsPublicRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
          * Build call for getFeedPostsPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -2777,7 +2807,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getFeedPostsPublicCall(tenantId, afterId, limit, tags, _callback);
+            return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, _callback);
         }
 
         /**
@@ -2792,7 +2822,7 @@ public class PublicApi {
          </table>
          */
         public GetFeedPostsPublic200Response execute() throws ApiException {
-            ApiResponse<GetFeedPostsPublic200Response> localVarResp = getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags);
+            ApiResponse<GetFeedPostsPublic200Response> localVarResp = getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso);
             return localVarResp.getData();
         }
 
@@ -2808,7 +2838,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetFeedPostsPublic200Response> executeWithHttpInfo() throws ApiException {
-            return getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags);
+            return getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso);
         }
 
         /**
@@ -2824,7 +2854,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
-            return getFeedPostsPublicAsync(tenantId, afterId, limit, tags, _callback);
+            return getFeedPostsPublicAsync(tenantId, afterId, limit, tags, sso, _callback);
         }
     }
 
@@ -3707,7 +3737,7 @@ public class PublicApi {
     public APIgetUserPresenceStatusesRequest getUserPresenceStatuses(String tenantId, String urlIdWS, String userIds) {
         return new APIgetUserPresenceStatusesRequest(tenantId, urlIdWS, userIds);
     }
-    private okhttp3.Call getUserReactsPublicCall(String tenantId, List<String> postIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserReactsPublicCall(String tenantId, List<String> postIds, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3737,6 +3767,10 @@ public class PublicApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "postIds", postIds));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3757,26 +3791,26 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserReactsPublicValidateBeforeCall(String tenantId, List<String> postIds, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserReactsPublicValidateBeforeCall(String tenantId, List<String> postIds, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserReactsPublic(Async)");
         }
 
-        return getUserReactsPublicCall(tenantId, postIds, _callback);
+        return getUserReactsPublicCall(tenantId, postIds, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetUserReactsPublic200Response> getUserReactsPublicWithHttpInfo(String tenantId, List<String> postIds) throws ApiException {
-        okhttp3.Call localVarCall = getUserReactsPublicValidateBeforeCall(tenantId, postIds, null);
+    private ApiResponse<GetUserReactsPublic200Response> getUserReactsPublicWithHttpInfo(String tenantId, List<String> postIds, String sso) throws ApiException {
+        okhttp3.Call localVarCall = getUserReactsPublicValidateBeforeCall(tenantId, postIds, sso, null);
         Type localVarReturnType = new TypeToken<GetUserReactsPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserReactsPublicAsync(String tenantId, List<String> postIds, final ApiCallback<GetUserReactsPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserReactsPublicAsync(String tenantId, List<String> postIds, String sso, final ApiCallback<GetUserReactsPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserReactsPublicValidateBeforeCall(tenantId, postIds, _callback);
+        okhttp3.Call localVarCall = getUserReactsPublicValidateBeforeCall(tenantId, postIds, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserReactsPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3785,6 +3819,7 @@ public class PublicApi {
     public class APIgetUserReactsPublicRequest {
         private final String tenantId;
         private List<String> postIds;
+        private String sso;
 
         private APIgetUserReactsPublicRequest(String tenantId) {
             this.tenantId = tenantId;
@@ -3801,6 +3836,16 @@ public class PublicApi {
         }
 
         /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetUserReactsPublicRequest
+         */
+        public APIgetUserReactsPublicRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
          * Build call for getUserReactsPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -3813,7 +3858,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getUserReactsPublicCall(tenantId, postIds, _callback);
+            return getUserReactsPublicCall(tenantId, postIds, sso, _callback);
         }
 
         /**
@@ -3828,7 +3873,7 @@ public class PublicApi {
          </table>
          */
         public GetUserReactsPublic200Response execute() throws ApiException {
-            ApiResponse<GetUserReactsPublic200Response> localVarResp = getUserReactsPublicWithHttpInfo(tenantId, postIds);
+            ApiResponse<GetUserReactsPublic200Response> localVarResp = getUserReactsPublicWithHttpInfo(tenantId, postIds, sso);
             return localVarResp.getData();
         }
 
@@ -3844,7 +3889,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetUserReactsPublic200Response> executeWithHttpInfo() throws ApiException {
-            return getUserReactsPublicWithHttpInfo(tenantId, postIds);
+            return getUserReactsPublicWithHttpInfo(tenantId, postIds, sso);
         }
 
         /**
@@ -3860,7 +3905,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetUserReactsPublic200Response> _callback) throws ApiException {
-            return getUserReactsPublicAsync(tenantId, postIds, _callback);
+            return getUserReactsPublicAsync(tenantId, postIds, sso, _callback);
         }
     }
 
@@ -4265,7 +4310,7 @@ public class PublicApi {
     public APIpinCommentRequest pinComment(String tenantId, String commentId, String broadcastId) {
         return new APIpinCommentRequest(tenantId, commentId, broadcastId);
     }
-    private okhttp3.Call reactFeedPostPublicCall(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call reactFeedPostPublicCall(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4300,6 +4345,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -4321,7 +4370,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call reactFeedPostPublicValidateBeforeCall(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call reactFeedPostPublicValidateBeforeCall(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling reactFeedPostPublic(Async)");
@@ -4337,20 +4386,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'reactBodyParams' when calling reactFeedPostPublic(Async)");
         }
 
-        return reactFeedPostPublicCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, _callback);
+        return reactFeedPostPublicCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<ReactFeedPostPublic200Response> reactFeedPostPublicWithHttpInfo(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId) throws ApiException {
-        okhttp3.Call localVarCall = reactFeedPostPublicValidateBeforeCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, null);
+    private ApiResponse<ReactFeedPostPublic200Response> reactFeedPostPublicWithHttpInfo(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId, String sso) throws ApiException {
+        okhttp3.Call localVarCall = reactFeedPostPublicValidateBeforeCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<ReactFeedPostPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call reactFeedPostPublicAsync(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId, final ApiCallback<ReactFeedPostPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call reactFeedPostPublicAsync(String tenantId, String postId, ReactBodyParams reactBodyParams, Boolean isUndo, String broadcastId, String sso, final ApiCallback<ReactFeedPostPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = reactFeedPostPublicValidateBeforeCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, _callback);
+        okhttp3.Call localVarCall = reactFeedPostPublicValidateBeforeCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<ReactFeedPostPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4362,6 +4411,7 @@ public class PublicApi {
         private final ReactBodyParams reactBodyParams;
         private Boolean isUndo;
         private String broadcastId;
+        private String sso;
 
         private APIreactFeedPostPublicRequest(String tenantId, String postId, ReactBodyParams reactBodyParams) {
             this.tenantId = tenantId;
@@ -4390,6 +4440,16 @@ public class PublicApi {
         }
 
         /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIreactFeedPostPublicRequest
+         */
+        public APIreactFeedPostPublicRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
          * Build call for reactFeedPostPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -4402,7 +4462,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return reactFeedPostPublicCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, _callback);
+            return reactFeedPostPublicCall(tenantId, postId, reactBodyParams, isUndo, broadcastId, sso, _callback);
         }
 
         /**
@@ -4417,7 +4477,7 @@ public class PublicApi {
          </table>
          */
         public ReactFeedPostPublic200Response execute() throws ApiException {
-            ApiResponse<ReactFeedPostPublic200Response> localVarResp = reactFeedPostPublicWithHttpInfo(tenantId, postId, reactBodyParams, isUndo, broadcastId);
+            ApiResponse<ReactFeedPostPublic200Response> localVarResp = reactFeedPostPublicWithHttpInfo(tenantId, postId, reactBodyParams, isUndo, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -4433,7 +4493,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<ReactFeedPostPublic200Response> executeWithHttpInfo() throws ApiException {
-            return reactFeedPostPublicWithHttpInfo(tenantId, postId, reactBodyParams, isUndo, broadcastId);
+            return reactFeedPostPublicWithHttpInfo(tenantId, postId, reactBodyParams, isUndo, broadcastId, sso);
         }
 
         /**
@@ -4449,7 +4509,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ReactFeedPostPublic200Response> _callback) throws ApiException {
-            return reactFeedPostPublicAsync(tenantId, postId, reactBodyParams, isUndo, broadcastId, _callback);
+            return reactFeedPostPublicAsync(tenantId, postId, reactBodyParams, isUndo, broadcastId, sso, _callback);
         }
     }
 

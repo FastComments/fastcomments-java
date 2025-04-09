@@ -1,5 +1,5 @@
 # PublicApi
-FastComments PHP API Client - A SDK for interacting with the FastComments API
+FastComments API Client - A SDK for interacting with the FastComments API
 
 All URIs are relative to *http://localhost*
 
@@ -247,7 +247,7 @@ No authorization required
 
 <a id="createFeedPostPublic"></a>
 # **createFeedPostPublic**
-> CreateFeedPostPublic200Response createFeedPostPublic(tenantId, createFeedPostParams).broadcastId(broadcastId).execute();
+> CreateFeedPostPublic200Response createFeedPostPublic(tenantId, createFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -269,9 +269,11 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateFeedPostParams createFeedPostParams = new CreateFeedPostParams(); // CreateFeedPostParams | 
     String broadcastId = "broadcastId_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       CreateFeedPostPublic200Response result = apiInstance.createFeedPostPublic(tenantId, createFeedPostParams)
             .broadcastId(broadcastId)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -292,6 +294,7 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **createFeedPostParams** | [**CreateFeedPostParams**](CreateFeedPostParams.md)|  | |
 | **broadcastId** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -872,7 +875,7 @@ No authorization required
 
 <a id="getFeedPostsPublic"></a>
 # **getFeedPostsPublic**
-> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).execute();
+> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).execute();
 
 
 
@@ -897,11 +900,13 @@ public class Example {
     String afterId = "afterId_example"; // String | 
     Integer limit = 56; // Integer | 
     List<String> tags = Arrays.asList(); // List<String> | 
+    String sso = "sso_example"; // String | 
     try {
       GetFeedPostsPublic200Response result = apiInstance.getFeedPostsPublic(tenantId)
             .afterId(afterId)
             .limit(limit)
             .tags(tags)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -923,6 +928,7 @@ public class Example {
 | **afterId** | **String**|  | [optional] |
 | **limit** | **Integer**|  | [optional] |
 | **tags** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -1233,7 +1239,7 @@ No authorization required
 
 <a id="getUserReactsPublic"></a>
 # **getUserReactsPublic**
-> GetUserReactsPublic200Response getUserReactsPublic(tenantId).postIds(postIds).execute();
+> GetUserReactsPublic200Response getUserReactsPublic(tenantId).postIds(postIds).sso(sso).execute();
 
 
 
@@ -1254,9 +1260,11 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     List<String> postIds = Arrays.asList(); // List<String> | 
+    String sso = "sso_example"; // String | 
     try {
       GetUserReactsPublic200Response result = apiInstance.getUserReactsPublic(tenantId)
             .postIds(postIds)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1276,6 +1284,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **postIds** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -1433,7 +1442,7 @@ No authorization required
 
 <a id="reactFeedPostPublic"></a>
 # **reactFeedPostPublic**
-> ReactFeedPostPublic200Response reactFeedPostPublic(tenantId, postId, reactBodyParams).isUndo(isUndo).broadcastId(broadcastId).execute();
+> ReactFeedPostPublic200Response reactFeedPostPublic(tenantId, postId, reactBodyParams).isUndo(isUndo).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -1457,10 +1466,12 @@ public class Example {
     ReactBodyParams reactBodyParams = new ReactBodyParams(); // ReactBodyParams | 
     Boolean isUndo = true; // Boolean | 
     String broadcastId = "broadcastId_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       ReactFeedPostPublic200Response result = apiInstance.reactFeedPostPublic(tenantId, postId, reactBodyParams)
             .isUndo(isUndo)
             .broadcastId(broadcastId)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1483,6 +1494,7 @@ public class Example {
 | **reactBodyParams** | [**ReactBodyParams**](ReactBodyParams.md)|  | |
 | **isUndo** | **Boolean**|  | [optional] |
 | **broadcastId** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 

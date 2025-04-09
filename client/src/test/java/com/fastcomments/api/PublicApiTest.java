@@ -118,8 +118,10 @@ public class PublicApiTest {
         String tenantId = null;
         CreateFeedPostParams createFeedPostParams = null;
         String broadcastId = null;
+        String sso = null;
         CreateFeedPostPublic200Response response = api.createFeedPostPublic(tenantId, createFeedPostParams)
                 .broadcastId(broadcastId)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -296,10 +298,12 @@ public class PublicApiTest {
         String afterId = null;
         Integer limit = null;
         List<String> tags = null;
+        String sso = null;
         GetFeedPostsPublic200Response response = api.getFeedPostsPublic(tenantId)
                 .afterId(afterId)
                 .limit(limit)
                 .tags(tags)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -383,8 +387,10 @@ public class PublicApiTest {
     public void getUserReactsPublicTest() throws ApiException {
         String tenantId = null;
         List<String> postIds = null;
+        String sso = null;
         GetUserReactsPublic200Response response = api.getUserReactsPublic(tenantId)
                 .postIds(postIds)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -429,9 +435,11 @@ public class PublicApiTest {
         ReactBodyParams reactBodyParams = null;
         Boolean isUndo = null;
         String broadcastId = null;
+        String sso = null;
         ReactFeedPostPublic200Response response = api.reactFeedPostPublic(tenantId, postId, reactBodyParams)
                 .isUndo(isUndo)
                 .broadcastId(broadcastId)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
