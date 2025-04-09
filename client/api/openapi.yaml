@@ -3652,15 +3652,15 @@ components:
       additionalProperties: false
       example:
         src: src
-        w: 0.8008281904610115
-        h: 6.027456183070403
+        w: 0
+        h: 6
       properties:
         w:
-          format: double
-          type: number
+          format: int32
+          type: integer
         h:
-          format: double
-          type: number
+          format: int32
+          type: integer
         src:
           type: string
       required:
@@ -3675,11 +3675,11 @@ components:
         code: code
         media:
         - src: src
-          w: 0.8008281904610115
-          h: 6.027456183070403
+          w: 0
+          h: 6
         - src: src
-          w: 0.8008281904610115
-          h: 6.027456183070403
+          w: 0
+          h: 6
         url: url
         status: success
       properties:
@@ -3716,15 +3716,15 @@ components:
       additionalProperties: false
       example:
         src: src
-        w: 6.027456183070403
-        h: 1.4658129805029452
+        w: 6
+        h: 1
       properties:
         w:
-          format: double
-          type: number
+          format: int32
+          type: integer
         h:
-          format: double
-          type: number
+          format: int32
+          type: integer
         src:
           type: string
       required:
@@ -3737,11 +3737,11 @@ components:
       example:
         sizes:
         - src: src
-          w: 6.027456183070403
-          h: 1.4658129805029452
+          w: 6
+          h: 1
         - src: src
-          w: 6.027456183070403
-          h: 1.4658129805029452
+          w: 6
+          h: 1
         linkUrl: linkUrl
         title: title
       properties:
@@ -3789,20 +3789,20 @@ components:
         media:
         - sizes:
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           linkUrl: linkUrl
           title: title
         - sizes:
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           linkUrl: linkUrl
           title: title
         title: title
@@ -3893,20 +3893,20 @@ components:
           media:
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           title: title
@@ -3938,20 +3938,20 @@ components:
           media:
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           title: title
@@ -3999,20 +3999,20 @@ components:
           media:
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           title: title
@@ -4067,20 +4067,20 @@ components:
         media:
         - sizes:
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           linkUrl: linkUrl
           title: title
         - sizes:
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           - src: src
-            w: 6.027456183070403
-            h: 1.4658129805029452
+            w: 6
+            h: 1
           linkUrl: linkUrl
           title: title
         title: title
@@ -4154,20 +4154,20 @@ components:
           media:
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           title: title
@@ -4199,20 +4199,20 @@ components:
           media:
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           title: title
@@ -4302,20 +4302,20 @@ components:
           media:
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           - sizes:
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             - src: src
-              w: 6.027456183070403
-              h: 1.4658129805029452
+              w: 6
+              h: 1
             linkUrl: linkUrl
             title: title
           title: title

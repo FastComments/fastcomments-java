@@ -53,12 +53,12 @@ public class FeedPostMediaItemAsset {
   public static final String SERIALIZED_NAME_W = "w";
   @SerializedName(SERIALIZED_NAME_W)
   @javax.annotation.Nonnull
-  private Double w;
+  private Integer w;
 
   public static final String SERIALIZED_NAME_H = "h";
   @SerializedName(SERIALIZED_NAME_H)
   @javax.annotation.Nonnull
-  private Double h;
+  private Integer h;
 
   public static final String SERIALIZED_NAME_SRC = "src";
   @SerializedName(SERIALIZED_NAME_SRC)
@@ -68,7 +68,7 @@ public class FeedPostMediaItemAsset {
   public FeedPostMediaItemAsset() {
   }
 
-  public FeedPostMediaItemAsset w(@javax.annotation.Nonnull Double w) {
+  public FeedPostMediaItemAsset w(@javax.annotation.Nonnull Integer w) {
     this.w = w;
     return this;
   }
@@ -78,16 +78,16 @@ public class FeedPostMediaItemAsset {
    * @return w
    */
   @javax.annotation.Nonnull
-  public Double getW() {
+  public Integer getW() {
     return w;
   }
 
-  public void setW(@javax.annotation.Nonnull Double w) {
+  public void setW(@javax.annotation.Nonnull Integer w) {
     this.w = w;
   }
 
 
-  public FeedPostMediaItemAsset h(@javax.annotation.Nonnull Double h) {
+  public FeedPostMediaItemAsset h(@javax.annotation.Nonnull Integer h) {
     this.h = h;
     return this;
   }
@@ -97,11 +97,11 @@ public class FeedPostMediaItemAsset {
    * @return h
    */
   @javax.annotation.Nonnull
-  public Double getH() {
+  public Integer getH() {
     return h;
   }
 
-  public void setH(@javax.annotation.Nonnull Double h) {
+  public void setH(@javax.annotation.Nonnull Integer h) {
     this.h = h;
   }
 
