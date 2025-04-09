@@ -19,6 +19,7 @@ import com.fastcomments.model.CommentQuestionsRequired;
 import com.fastcomments.model.CommentThreadDeletionMode;
 import com.fastcomments.model.CommenterNameFormats;
 import com.fastcomments.model.GifRating;
+import com.fastcomments.model.ImageContentProfanityLevel;
 import com.fastcomments.model.QuestionRenderingType;
 import com.fastcomments.model.QuestionSubQuestionVisibility;
 import com.fastcomments.model.QuestionWhenSave;
@@ -383,6 +384,14 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'imageContentProfanityLevel'
+     */
+    @Test
+    public void imageContentProfanityLevelTest() {
+        // TODO: test imageContentProfanityLevel
+    }
+
+    /**
      * Test the property 'inputAfterComments'
      */
     @Test
@@ -471,14 +480,6 @@ public class CustomConfigParametersTest {
     }
 
     /**
-     * Test the property 'ssoSecLvl'
-     */
-    @Test
-    public void ssoSecLvlTest() {
-        // TODO: test ssoSecLvl
-    }
-
-    /**
      * Test the property 'restrictedLinkDomains'
      */
     @Test
@@ -516,6 +517,14 @@ public class CustomConfigParametersTest {
     @Test
     public void spamRulesTest() {
         // TODO: test spamRules
+    }
+
+    /**
+     * Test the property 'ssoSecLvl'
+     */
+    @Test
+    public void ssoSecLvlTest() {
+        // TODO: test ssoSecLvl
     }
 
     /**

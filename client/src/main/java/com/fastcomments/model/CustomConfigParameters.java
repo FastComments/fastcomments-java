@@ -20,6 +20,7 @@ import com.fastcomments.model.CommentQuestionsRequired;
 import com.fastcomments.model.CommentThreadDeletionMode;
 import com.fastcomments.model.CommenterNameFormats;
 import com.fastcomments.model.GifRating;
+import com.fastcomments.model.ImageContentProfanityLevel;
 import com.fastcomments.model.QuestionRenderingType;
 import com.fastcomments.model.QuestionSubQuestionVisibility;
 import com.fastcomments.model.QuestionWhenSave;
@@ -272,6 +273,11 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private String hideCommentsUnderCountTextFormat;
 
+  public static final String SERIALIZED_NAME_IMAGE_CONTENT_PROFANITY_LEVEL = "imageContentProfanityLevel";
+  @SerializedName(SERIALIZED_NAME_IMAGE_CONTENT_PROFANITY_LEVEL)
+  @javax.annotation.Nullable
+  private ImageContentProfanityLevel imageContentProfanityLevel;
+
   public static final String SERIALIZED_NAME_INPUT_AFTER_COMMENTS = "inputAfterComments";
   @SerializedName(SERIALIZED_NAME_INPUT_AFTER_COMMENTS)
   @javax.annotation.Nullable
@@ -327,11 +333,6 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private Boolean requireSSO;
 
-  public static final String SERIALIZED_NAME_SSO_SEC_LVL = "ssoSecLvl";
-  @SerializedName(SERIALIZED_NAME_SSO_SEC_LVL)
-  @javax.annotation.Nullable
-  private SSOSecurityLevel ssoSecLvl;
-
   public static final String SERIALIZED_NAME_RESTRICTED_LINK_DOMAINS = "restrictedLinkDomains";
   @SerializedName(SERIALIZED_NAME_RESTRICTED_LINK_DOMAINS)
   @javax.annotation.Nullable
@@ -356,6 +357,11 @@ public class CustomConfigParameters {
   @SerializedName(SERIALIZED_NAME_SPAM_RULES)
   @javax.annotation.Nullable
   private List<SpamRule> spamRules = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SSO_SEC_LVL = "ssoSecLvl";
+  @SerializedName(SERIALIZED_NAME_SSO_SEC_LVL)
+  @javax.annotation.Nullable
+  private SSOSecurityLevel ssoSecLvl;
 
   public static final String SERIALIZED_NAME_TRANSLATIONS = "translations";
   @SerializedName(SERIALIZED_NAME_TRANSLATIONS)
@@ -1202,6 +1208,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters imageContentProfanityLevel(@javax.annotation.Nullable ImageContentProfanityLevel imageContentProfanityLevel) {
+    this.imageContentProfanityLevel = imageContentProfanityLevel;
+    return this;
+  }
+
+  /**
+   * Get imageContentProfanityLevel
+   * @return imageContentProfanityLevel
+   */
+  @javax.annotation.Nullable
+  public ImageContentProfanityLevel getImageContentProfanityLevel() {
+    return imageContentProfanityLevel;
+  }
+
+  public void setImageContentProfanityLevel(@javax.annotation.Nullable ImageContentProfanityLevel imageContentProfanityLevel) {
+    this.imageContentProfanityLevel = imageContentProfanityLevel;
+  }
+
+
   public CustomConfigParameters inputAfterComments(@javax.annotation.Nullable Boolean inputAfterComments) {
     this.inputAfterComments = inputAfterComments;
     return this;
@@ -1411,25 +1436,6 @@ public class CustomConfigParameters {
   }
 
 
-  public CustomConfigParameters ssoSecLvl(@javax.annotation.Nullable SSOSecurityLevel ssoSecLvl) {
-    this.ssoSecLvl = ssoSecLvl;
-    return this;
-  }
-
-  /**
-   * Get ssoSecLvl
-   * @return ssoSecLvl
-   */
-  @javax.annotation.Nullable
-  public SSOSecurityLevel getSsoSecLvl() {
-    return ssoSecLvl;
-  }
-
-  public void setSsoSecLvl(@javax.annotation.Nullable SSOSecurityLevel ssoSecLvl) {
-    this.ssoSecLvl = ssoSecLvl;
-  }
-
-
   public CustomConfigParameters restrictedLinkDomains(@javax.annotation.Nullable List<String> restrictedLinkDomains) {
     this.restrictedLinkDomains = restrictedLinkDomains;
     return this;
@@ -1538,6 +1544,25 @@ public class CustomConfigParameters {
 
   public void setSpamRules(@javax.annotation.Nullable List<SpamRule> spamRules) {
     this.spamRules = spamRules;
+  }
+
+
+  public CustomConfigParameters ssoSecLvl(@javax.annotation.Nullable SSOSecurityLevel ssoSecLvl) {
+    this.ssoSecLvl = ssoSecLvl;
+    return this;
+  }
+
+  /**
+   * Get ssoSecLvl
+   * @return ssoSecLvl
+   */
+  @javax.annotation.Nullable
+  public SSOSecurityLevel getSsoSecLvl() {
+    return ssoSecLvl;
+  }
+
+  public void setSsoSecLvl(@javax.annotation.Nullable SSOSecurityLevel ssoSecLvl) {
+    this.ssoSecLvl = ssoSecLvl;
   }
 
 
@@ -1809,6 +1834,7 @@ public class CustomConfigParameters {
         Objects.equals(this.headerHTML, customConfigParameters.headerHTML) &&
         Objects.equals(this.hideAvatars, customConfigParameters.hideAvatars) &&
         Objects.equals(this.hideCommentsUnderCountTextFormat, customConfigParameters.hideCommentsUnderCountTextFormat) &&
+        Objects.equals(this.imageContentProfanityLevel, customConfigParameters.imageContentProfanityLevel) &&
         Objects.equals(this.inputAfterComments, customConfigParameters.inputAfterComments) &&
         Objects.equals(this.limitCommentsByGroups, customConfigParameters.limitCommentsByGroups) &&
         Objects.equals(this.locale, customConfigParameters.locale) &&
@@ -1820,12 +1846,12 @@ public class CustomConfigParameters {
         Objects.equals(this.pageSize, customConfigParameters.pageSize) &&
         Objects.equals(this.readonly, customConfigParameters.readonly) &&
         Objects.equals(this.requireSSO, customConfigParameters.requireSSO) &&
-        Objects.equals(this.ssoSecLvl, customConfigParameters.ssoSecLvl) &&
         Objects.equals(this.restrictedLinkDomains, customConfigParameters.restrictedLinkDomains) &&
         Objects.equals(this.showCommentSaveSuccess, customConfigParameters.showCommentSaveSuccess) &&
         Objects.equals(this.showLiveRightAway, customConfigParameters.showLiveRightAway) &&
         Objects.equals(this.showQuestion, customConfigParameters.showQuestion) &&
         Objects.equals(this.spamRules, customConfigParameters.spamRules) &&
+        Objects.equals(this.ssoSecLvl, customConfigParameters.ssoSecLvl) &&
         Objects.equals(this.translations, customConfigParameters.translations) &&
         Objects.equals(this.useShowCommentsToggle, customConfigParameters.useShowCommentsToggle) &&
         Objects.equals(this.useSingleLineCommentInput, customConfigParameters.useSingleLineCommentInput) &&
@@ -1841,7 +1867,7 @@ public class CustomConfigParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, noImageUploads, noStyles, pageSize, readonly, requireSSO, ssoSecLvl, restrictedLinkDomains, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap);
+    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, noImageUploads, noStyles, pageSize, readonly, requireSSO, restrictedLinkDomains, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap);
   }
 
   @Override
@@ -1889,6 +1915,7 @@ public class CustomConfigParameters {
     sb.append("    headerHTML: ").append(toIndentedString(headerHTML)).append("\n");
     sb.append("    hideAvatars: ").append(toIndentedString(hideAvatars)).append("\n");
     sb.append("    hideCommentsUnderCountTextFormat: ").append(toIndentedString(hideCommentsUnderCountTextFormat)).append("\n");
+    sb.append("    imageContentProfanityLevel: ").append(toIndentedString(imageContentProfanityLevel)).append("\n");
     sb.append("    inputAfterComments: ").append(toIndentedString(inputAfterComments)).append("\n");
     sb.append("    limitCommentsByGroups: ").append(toIndentedString(limitCommentsByGroups)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
@@ -1900,12 +1927,12 @@ public class CustomConfigParameters {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    readonly: ").append(toIndentedString(readonly)).append("\n");
     sb.append("    requireSSO: ").append(toIndentedString(requireSSO)).append("\n");
-    sb.append("    ssoSecLvl: ").append(toIndentedString(ssoSecLvl)).append("\n");
     sb.append("    restrictedLinkDomains: ").append(toIndentedString(restrictedLinkDomains)).append("\n");
     sb.append("    showCommentSaveSuccess: ").append(toIndentedString(showCommentSaveSuccess)).append("\n");
     sb.append("    showLiveRightAway: ").append(toIndentedString(showLiveRightAway)).append("\n");
     sb.append("    showQuestion: ").append(toIndentedString(showQuestion)).append("\n");
     sb.append("    spamRules: ").append(toIndentedString(spamRules)).append("\n");
+    sb.append("    ssoSecLvl: ").append(toIndentedString(ssoSecLvl)).append("\n");
     sb.append("    translations: ").append(toIndentedString(translations)).append("\n");
     sb.append("    useShowCommentsToggle: ").append(toIndentedString(useShowCommentsToggle)).append("\n");
     sb.append("    useSingleLineCommentInput: ").append(toIndentedString(useSingleLineCommentInput)).append("\n");
@@ -1980,6 +2007,7 @@ public class CustomConfigParameters {
     openapiFields.add("headerHTML");
     openapiFields.add("hideAvatars");
     openapiFields.add("hideCommentsUnderCountTextFormat");
+    openapiFields.add("imageContentProfanityLevel");
     openapiFields.add("inputAfterComments");
     openapiFields.add("limitCommentsByGroups");
     openapiFields.add("locale");
@@ -1991,12 +2019,12 @@ public class CustomConfigParameters {
     openapiFields.add("pageSize");
     openapiFields.add("readonly");
     openapiFields.add("requireSSO");
-    openapiFields.add("ssoSecLvl");
     openapiFields.add("restrictedLinkDomains");
     openapiFields.add("showCommentSaveSuccess");
     openapiFields.add("showLiveRightAway");
     openapiFields.add("showQuestion");
     openapiFields.add("spamRules");
+    openapiFields.add("ssoSecLvl");
     openapiFields.add("translations");
     openapiFields.add("useShowCommentsToggle");
     openapiFields.add("useSingleLineCommentInput");
@@ -2076,12 +2104,12 @@ public class CustomConfigParameters {
       if ((jsonObj.get("hideCommentsUnderCountTextFormat") != null && !jsonObj.get("hideCommentsUnderCountTextFormat").isJsonNull()) && !jsonObj.get("hideCommentsUnderCountTextFormat").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hideCommentsUnderCountTextFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hideCommentsUnderCountTextFormat").toString()));
       }
+      // validate the optional field `imageContentProfanityLevel`
+      if (jsonObj.get("imageContentProfanityLevel") != null && !jsonObj.get("imageContentProfanityLevel").isJsonNull()) {
+        ImageContentProfanityLevel.validateJsonElement(jsonObj.get("imageContentProfanityLevel"));
+      }
       if ((jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) && !jsonObj.get("locale").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
-      }
-      // validate the optional field `ssoSecLvl`
-      if (jsonObj.get("ssoSecLvl") != null && !jsonObj.get("ssoSecLvl").isJsonNull()) {
-        SSOSecurityLevel.validateJsonElement(jsonObj.get("ssoSecLvl"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("restrictedLinkDomains") != null && !jsonObj.get("restrictedLinkDomains").isJsonNull() && !jsonObj.get("restrictedLinkDomains").isJsonArray()) {
@@ -2100,6 +2128,10 @@ public class CustomConfigParameters {
             SpamRule.validateJsonElement(jsonArrayspamRules.get(i));
           };
         }
+      }
+      // validate the optional field `ssoSecLvl`
+      if (jsonObj.get("ssoSecLvl") != null && !jsonObj.get("ssoSecLvl").isJsonNull()) {
+        SSOSecurityLevel.validateJsonElement(jsonObj.get("ssoSecLvl"));
       }
       // validate the optional field `voteStyle`
       if (jsonObj.get("voteStyle") != null && !jsonObj.get("voteStyle").isJsonNull()) {

@@ -66,6 +66,21 @@ public class PublicFeedPostsResponse {
   @javax.annotation.Nonnull
   private List<FeedPost> feedPosts = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_URL_ID_W_S = "urlIdWS";
+  @SerializedName(SERIALIZED_NAME_URL_ID_W_S)
+  @javax.annotation.Nullable
+  private String urlIdWS;
+
+  public static final String SERIALIZED_NAME_USER_ID_W_S = "userIdWS";
+  @SerializedName(SERIALIZED_NAME_USER_ID_W_S)
+  @javax.annotation.Nullable
+  private String userIdWS;
+
+  public static final String SERIALIZED_NAME_TENANT_ID_W_S = "tenantIdWS";
+  @SerializedName(SERIALIZED_NAME_TENANT_ID_W_S)
+  @javax.annotation.Nullable
+  private String tenantIdWS;
+
   public static final String SERIALIZED_NAME_MY_REACTS = "myReacts";
   @SerializedName(SERIALIZED_NAME_MY_REACTS)
   @javax.annotation.Nullable
@@ -120,6 +135,63 @@ public class PublicFeedPostsResponse {
   }
 
 
+  public PublicFeedPostsResponse urlIdWS(@javax.annotation.Nullable String urlIdWS) {
+    this.urlIdWS = urlIdWS;
+    return this;
+  }
+
+  /**
+   * Get urlIdWS
+   * @return urlIdWS
+   */
+  @javax.annotation.Nullable
+  public String getUrlIdWS() {
+    return urlIdWS;
+  }
+
+  public void setUrlIdWS(@javax.annotation.Nullable String urlIdWS) {
+    this.urlIdWS = urlIdWS;
+  }
+
+
+  public PublicFeedPostsResponse userIdWS(@javax.annotation.Nullable String userIdWS) {
+    this.userIdWS = userIdWS;
+    return this;
+  }
+
+  /**
+   * Get userIdWS
+   * @return userIdWS
+   */
+  @javax.annotation.Nullable
+  public String getUserIdWS() {
+    return userIdWS;
+  }
+
+  public void setUserIdWS(@javax.annotation.Nullable String userIdWS) {
+    this.userIdWS = userIdWS;
+  }
+
+
+  public PublicFeedPostsResponse tenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
+    this.tenantIdWS = tenantIdWS;
+    return this;
+  }
+
+  /**
+   * Get tenantIdWS
+   * @return tenantIdWS
+   */
+  @javax.annotation.Nullable
+  public String getTenantIdWS() {
+    return tenantIdWS;
+  }
+
+  public void setTenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
+    this.tenantIdWS = tenantIdWS;
+  }
+
+
   public PublicFeedPostsResponse myReacts(@javax.annotation.Nullable Map<String, Map<String, Boolean>> myReacts) {
     this.myReacts = myReacts;
     return this;
@@ -159,12 +231,15 @@ public class PublicFeedPostsResponse {
     PublicFeedPostsResponse publicFeedPostsResponse = (PublicFeedPostsResponse) o;
     return Objects.equals(this.status, publicFeedPostsResponse.status) &&
         Objects.equals(this.feedPosts, publicFeedPostsResponse.feedPosts) &&
+        Objects.equals(this.urlIdWS, publicFeedPostsResponse.urlIdWS) &&
+        Objects.equals(this.userIdWS, publicFeedPostsResponse.userIdWS) &&
+        Objects.equals(this.tenantIdWS, publicFeedPostsResponse.tenantIdWS) &&
         Objects.equals(this.myReacts, publicFeedPostsResponse.myReacts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, feedPosts, myReacts);
+    return Objects.hash(status, feedPosts, urlIdWS, userIdWS, tenantIdWS, myReacts);
   }
 
   @Override
@@ -173,6 +248,9 @@ public class PublicFeedPostsResponse {
     sb.append("class PublicFeedPostsResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    feedPosts: ").append(toIndentedString(feedPosts)).append("\n");
+    sb.append("    urlIdWS: ").append(toIndentedString(urlIdWS)).append("\n");
+    sb.append("    userIdWS: ").append(toIndentedString(userIdWS)).append("\n");
+    sb.append("    tenantIdWS: ").append(toIndentedString(tenantIdWS)).append("\n");
     sb.append("    myReacts: ").append(toIndentedString(myReacts)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -198,6 +276,9 @@ public class PublicFeedPostsResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("status");
     openapiFields.add("feedPosts");
+    openapiFields.add("urlIdWS");
+    openapiFields.add("userIdWS");
+    openapiFields.add("tenantIdWS");
     openapiFields.add("myReacts");
 
     // a set of required properties/fields (JSON key names)
@@ -246,6 +327,15 @@ public class PublicFeedPostsResponse {
       for (int i = 0; i < jsonArrayfeedPosts.size(); i++) {
         FeedPost.validateJsonElement(jsonArrayfeedPosts.get(i));
       };
+      if ((jsonObj.get("urlIdWS") != null && !jsonObj.get("urlIdWS").isJsonNull()) && !jsonObj.get("urlIdWS").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdWS").toString()));
+      }
+      if ((jsonObj.get("userIdWS") != null && !jsonObj.get("userIdWS").isJsonNull()) && !jsonObj.get("userIdWS").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
+      }
+      if ((jsonObj.get("tenantIdWS") != null && !jsonObj.get("tenantIdWS").isJsonNull()) && !jsonObj.get("tenantIdWS").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tenantIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantIdWS").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

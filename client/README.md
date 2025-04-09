@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.6</version>
+  <version>0.0.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.6"
+     implementation "com.fastcomments:client:0.0.7"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.6.jar`
+* `target/client-0.0.7.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -278,12 +278,14 @@ Class | Method | HTTP request | Description
  - [GifRating](docs/GifRating.md)
  - [HeaderState](docs/HeaderState.md)
  - [IgnoredResponse](docs/IgnoredResponse.md)
+ - [ImageContentProfanityLevel](docs/ImageContentProfanityLevel.md)
  - [ImportedAPIStatusFAILED](docs/ImportedAPIStatusFAILED.md)
  - [ImportedAPIStatusSUCCESS](docs/ImportedAPIStatusSUCCESS.md)
  - [LiveEvent](docs/LiveEvent.md)
  - [LiveEventExtraInfo](docs/LiveEventExtraInfo.md)
  - [LiveEventType](docs/LiveEventType.md)
  - [LockComment200Response](docs/LockComment200Response.md)
+ - [MediaAsset](docs/MediaAsset.md)
  - [MetaItem](docs/MetaItem.md)
  - [NotificationAndCount](docs/NotificationAndCount.md)
  - [NotificationType](docs/NotificationType.md)
@@ -329,6 +331,7 @@ Class | Method | HTTP request | Description
  - [SaveCommentResponseOptimized](docs/SaveCommentResponseOptimized.md)
  - [SaveCommentsResponseWithPresence](docs/SaveCommentsResponseWithPresence.md)
  - [SetCommentText200Response](docs/SetCommentText200Response.md)
+ - [SizePreset](docs/SizePreset.md)
  - [SortDirections](docs/SortDirections.md)
  - [SpamRule](docs/SpamRule.md)
  - [UnBlockCommentPublic200Response](docs/UnBlockCommentPublic200Response.md)

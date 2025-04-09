@@ -15,6 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.MediaAsset;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -63,10 +64,10 @@ public class UploadImageResponse {
   @javax.annotation.Nullable
   private String url;
 
-  public static final String SERIALIZED_NAME_URLS = "urls";
-  @SerializedName(SERIALIZED_NAME_URLS)
+  public static final String SERIALIZED_NAME_MEDIA = "media";
+  @SerializedName(SERIALIZED_NAME_MEDIA)
   @javax.annotation.Nullable
-  private List<String> urls = new ArrayList<>();
+  private List<MediaAsset> media = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -119,30 +120,30 @@ public class UploadImageResponse {
   }
 
 
-  public UploadImageResponse urls(@javax.annotation.Nullable List<String> urls) {
-    this.urls = urls;
+  public UploadImageResponse media(@javax.annotation.Nullable List<MediaAsset> media) {
+    this.media = media;
     return this;
   }
 
-  public UploadImageResponse addUrlsItem(String urlsItem) {
-    if (this.urls == null) {
-      this.urls = new ArrayList<>();
+  public UploadImageResponse addMediaItem(MediaAsset mediaItem) {
+    if (this.media == null) {
+      this.media = new ArrayList<>();
     }
-    this.urls.add(urlsItem);
+    this.media.add(mediaItem);
     return this;
   }
 
   /**
-   * Get urls
-   * @return urls
+   * Get media
+   * @return media
    */
   @javax.annotation.Nullable
-  public List<String> getUrls() {
-    return urls;
+  public List<MediaAsset> getMedia() {
+    return media;
   }
 
-  public void setUrls(@javax.annotation.Nullable List<String> urls) {
-    this.urls = urls;
+  public void setMedia(@javax.annotation.Nullable List<MediaAsset> media) {
+    this.media = media;
   }
 
 
@@ -196,14 +197,14 @@ public class UploadImageResponse {
     UploadImageResponse uploadImageResponse = (UploadImageResponse) o;
     return Objects.equals(this.status, uploadImageResponse.status) &&
         Objects.equals(this.url, uploadImageResponse.url) &&
-        Objects.equals(this.urls, uploadImageResponse.urls) &&
+        Objects.equals(this.media, uploadImageResponse.media) &&
         Objects.equals(this.reason, uploadImageResponse.reason) &&
         Objects.equals(this.code, uploadImageResponse.code);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, url, urls, reason, code);
+    return Objects.hash(status, url, media, reason, code);
   }
 
   @Override
@@ -212,7 +213,7 @@ public class UploadImageResponse {
     sb.append("class UploadImageResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    urls: ").append(toIndentedString(urls)).append("\n");
+    sb.append("    media: ").append(toIndentedString(media)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
@@ -239,7 +240,7 @@ public class UploadImageResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("status");
     openapiFields.add("url");
-    openapiFields.add("urls");
+    openapiFields.add("media");
     openapiFields.add("reason");
     openapiFields.add("code");
 
@@ -281,9 +282,19 @@ public class UploadImageResponse {
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("urls") != null && !jsonObj.get("urls").isJsonNull() && !jsonObj.get("urls").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urls` to be an array in the JSON string but got `%s`", jsonObj.get("urls").toString()));
+      if (jsonObj.get("media") != null && !jsonObj.get("media").isJsonNull()) {
+        JsonArray jsonArraymedia = jsonObj.getAsJsonArray("media");
+        if (jsonArraymedia != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("media").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `media` to be an array in the JSON string but got `%s`", jsonObj.get("media").toString()));
+          }
+
+          // validate the optional field `media` (array)
+          for (int i = 0; i < jsonArraymedia.size(); i++) {
+            MediaAsset.validateJsonElement(jsonArraymedia.get(i));
+          };
+        }
       }
       if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));

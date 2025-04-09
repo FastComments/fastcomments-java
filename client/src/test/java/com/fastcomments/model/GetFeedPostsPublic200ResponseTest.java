@@ -47,6 +47,14 @@ public class GetFeedPostsPublic200ResponseTest {
     }
 
     /**
+     * Test the property 'myReacts'
+     */
+    @Test
+    public void myReactsTest() {
+        // TODO: test myReacts
+    }
+
+    /**
      * Test the property 'status'
      */
     @Test
@@ -63,11 +71,27 @@ public class GetFeedPostsPublic200ResponseTest {
     }
 
     /**
-     * Test the property 'myReacts'
+     * Test the property 'urlIdWS'
      */
     @Test
-    public void myReactsTest() {
-        // TODO: test myReacts
+    public void urlIdWSTest() {
+        // TODO: test urlIdWS
+    }
+
+    /**
+     * Test the property 'userIdWS'
+     */
+    @Test
+    public void userIdWSTest() {
+        // TODO: test userIdWS
+    }
+
+    /**
+     * Test the property 'tenantIdWS'
+     */
+    @Test
+    public void tenantIdWSTest() {
+        // TODO: test tenantIdWS
     }
 
     /**

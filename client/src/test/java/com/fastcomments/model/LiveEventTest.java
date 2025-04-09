@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.CommentUserBadgeInfo;
+import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.LiveEventExtraInfo;
 import com.fastcomments.model.LiveEventType;
 import com.fastcomments.model.PubSubComment;
@@ -117,6 +118,14 @@ public class LiveEventTest {
     @Test
     public void commentTest() {
         // TODO: test comment
+    }
+
+    /**
+     * Test the property 'feedPost'
+     */
+    @Test
+    public void feedPostTest() {
+        // TODO: test feedPost
     }
 
     /**

@@ -875,7 +875,7 @@ No authorization required
 
 <a id="getFeedPostsPublic"></a>
 # **getFeedPostsPublic**
-> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).execute();
+> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).isCrawler(isCrawler).execute();
 
 
 
@@ -901,12 +901,14 @@ public class Example {
     Integer limit = 56; // Integer | 
     List<String> tags = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
+    Boolean isCrawler = true; // Boolean | 
     try {
       GetFeedPostsPublic200Response result = apiInstance.getFeedPostsPublic(tenantId)
             .afterId(afterId)
             .limit(limit)
             .tags(tags)
             .sso(sso)
+            .isCrawler(isCrawler)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -929,6 +931,7 @@ public class Example {
 | **limit** | **Integer**|  | [optional] |
 | **tags** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **sso** | **String**|  | [optional] |
+| **isCrawler** | **Boolean**|  | [optional] |
 
 ### Return type
 
@@ -2150,7 +2153,7 @@ No authorization required
 
 <a id="uploadImage"></a>
 # **uploadImage**
-> UploadImageResponse uploadImage(tenantId).sizes(sizes).execute();
+> UploadImageResponse uploadImage(tenantId).sizePreset(sizePreset).urlId(urlId).execute();
 
 
 
@@ -2172,10 +2175,12 @@ public class Example {
 
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | Tenant ID
-    String sizes = "sizes_example"; // String | Optional comma-separated list of sizes in format \"x,y\" (e.g. \"100,100,200,200,300,300\")
+    SizePreset sizePreset = SizePreset.fromValue("Default"); // SizePreset | Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)
+    String urlId = "urlId_example"; // String | Page id that upload is happening from, to configure
     try {
       UploadImageResponse result = apiInstance.uploadImage(tenantId)
-            .sizes(sizes)
+            .sizePreset(sizePreset)
+            .urlId(urlId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2194,7 +2199,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**| Tenant ID | |
-| **sizes** | **String**| Optional comma-separated list of sizes in format \&quot;x,y\&quot; (e.g. \&quot;100,100,200,200,300,300\&quot;) | [optional] |
+| **sizePreset** | [**SizePreset**](.md)| Size preset: \&quot;Default\&quot; (1000x1000px) or \&quot;CrossPlatform\&quot; (creates sizes for popular devices) | [optional] [enum: Default, CrossPlatform] |
+| **urlId** | **String**| Page id that upload is happening from, to configure | [optional] |
 
 ### Return type
 

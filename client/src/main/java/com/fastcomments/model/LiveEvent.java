@@ -15,6 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.CommentUserBadgeInfo;
+import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.LiveEventExtraInfo;
 import com.fastcomments.model.LiveEventType;
 import com.fastcomments.model.PubSubComment;
@@ -104,6 +105,11 @@ public class LiveEvent {
   @SerializedName(SERIALIZED_NAME_COMMENT)
   @javax.annotation.Nullable
   private PubSubComment comment;
+
+  public static final String SERIALIZED_NAME_FEED_POST = "feedPost";
+  @SerializedName(SERIALIZED_NAME_FEED_POST)
+  @javax.annotation.Nullable
+  private FeedPost feedPost;
 
   public static final String SERIALIZED_NAME_EXTRA_INFO = "extraInfo";
   @SerializedName(SERIALIZED_NAME_EXTRA_INFO)
@@ -317,6 +323,25 @@ public class LiveEvent {
   }
 
 
+  public LiveEvent feedPost(@javax.annotation.Nullable FeedPost feedPost) {
+    this.feedPost = feedPost;
+    return this;
+  }
+
+  /**
+   * Get feedPost
+   * @return feedPost
+   */
+  @javax.annotation.Nullable
+  public FeedPost getFeedPost() {
+    return feedPost;
+  }
+
+  public void setFeedPost(@javax.annotation.Nullable FeedPost feedPost) {
+    this.feedPost = feedPost;
+  }
+
+
   public LiveEvent extraInfo(@javax.annotation.Nullable LiveEventExtraInfo extraInfo) {
     this.extraInfo = extraInfo;
     return this;
@@ -474,6 +499,7 @@ public class LiveEvent {
         Objects.equals(this.notification, liveEvent.notification) &&
         Objects.equals(this.vote, liveEvent.vote) &&
         Objects.equals(this.comment, liveEvent.comment) &&
+        Objects.equals(this.feedPost, liveEvent.feedPost) &&
         Objects.equals(this.extraInfo, liveEvent.extraInfo) &&
         Objects.equals(this.config, liveEvent.config) &&
         Objects.equals(this.isClosed, liveEvent.isClosed) &&
@@ -484,7 +510,7 @@ public class LiveEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, timestamp, ts, broadcastId, userId, badges, notification, vote, comment, extraInfo, config, isClosed, uj, ul, changes);
+    return Objects.hash(type, timestamp, ts, broadcastId, userId, badges, notification, vote, comment, feedPost, extraInfo, config, isClosed, uj, ul, changes);
   }
 
   @Override
@@ -500,6 +526,7 @@ public class LiveEvent {
     sb.append("    notification: ").append(toIndentedString(notification)).append("\n");
     sb.append("    vote: ").append(toIndentedString(vote)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    feedPost: ").append(toIndentedString(feedPost)).append("\n");
     sb.append("    extraInfo: ").append(toIndentedString(extraInfo)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    isClosed: ").append(toIndentedString(isClosed)).append("\n");
@@ -537,6 +564,7 @@ public class LiveEvent {
     openapiFields.add("notification");
     openapiFields.add("vote");
     openapiFields.add("comment");
+    openapiFields.add("feedPost");
     openapiFields.add("extraInfo");
     openapiFields.add("config");
     openapiFields.add("isClosed");
@@ -610,6 +638,10 @@ public class LiveEvent {
       // validate the optional field `comment`
       if (jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) {
         PubSubComment.validateJsonElement(jsonObj.get("comment"));
+      }
+      // validate the optional field `feedPost`
+      if (jsonObj.get("feedPost") != null && !jsonObj.get("feedPost").isJsonNull()) {
+        FeedPost.validateJsonElement(jsonObj.get("feedPost"));
       }
       // validate the optional field `extraInfo`
       if (jsonObj.get("extraInfo") != null && !jsonObj.get("extraInfo").isJsonNull()) {

@@ -41,6 +41,7 @@ import com.fastcomments.model.ReactBodyParams;
 import com.fastcomments.model.ReactFeedPostPublic200Response;
 import com.fastcomments.model.ResetUserNotifications200Response;
 import com.fastcomments.model.SetCommentText200Response;
+import com.fastcomments.model.SizePreset;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
@@ -299,11 +300,13 @@ public class PublicApiTest {
         Integer limit = null;
         List<String> tags = null;
         String sso = null;
+        Boolean isCrawler = null;
         GetFeedPostsPublic200Response response = api.getFeedPostsPublic(tenantId)
                 .afterId(afterId)
                 .limit(limit)
                 .tags(tags)
                 .sso(sso)
+                .isCrawler(isCrawler)
                 .execute();
         // TODO: test validations
     }
@@ -603,9 +606,11 @@ public class PublicApiTest {
     @Test
     public void uploadImageTest() throws ApiException {
         String tenantId = null;
-        String sizes = null;
+        SizePreset sizePreset = null;
+        String urlId = null;
         UploadImageResponse response = api.uploadImage(tenantId)
-                .sizes(sizes)
+                .sizePreset(sizePreset)
+                .urlId(urlId)
                 .execute();
         // TODO: test validations
     }

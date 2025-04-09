@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
 |**url** | **String** |  |  [optional] |
-|**urls** | **List&lt;String&gt;** |  |  [optional] |
+|**media** | [**List&lt;MediaAsset&gt;**](MediaAsset.md) |  |  [optional] |
 |**reason** | **String** |  |  [optional] |
 |**code** | **String** |  |  [optional] |
 

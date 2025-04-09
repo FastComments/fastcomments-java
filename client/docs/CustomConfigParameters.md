@@ -48,6 +48,7 @@
 |**headerHTML** | **String** |  |  [optional] |
 |**hideAvatars** | **Boolean** |  |  [optional] |
 |**hideCommentsUnderCountTextFormat** | **String** |  |  [optional] |
+|**imageContentProfanityLevel** | **ImageContentProfanityLevel** |  |  [optional] |
 |**inputAfterComments** | **Boolean** |  |  [optional] |
 |**limitCommentsByGroups** | **Boolean** |  |  [optional] |
 |**locale** | **String** |  |  [optional] |
@@ -59,12 +60,12 @@
 |**pageSize** | **Double** |  |  [optional] |
 |**readonly** | **Boolean** |  |  [optional] |
 |**requireSSO** | **Boolean** |  |  [optional] |
-|**ssoSecLvl** | **SSOSecurityLevel** |  |  [optional] |
 |**restrictedLinkDomains** | **List&lt;String&gt;** |  |  [optional] |
 |**showCommentSaveSuccess** | **Boolean** |  |  [optional] |
 |**showLiveRightAway** | **Boolean** |  |  [optional] |
 |**showQuestion** | **Boolean** |  |  [optional] |
 |**spamRules** | [**List&lt;SpamRule&gt;**](SpamRule.md) |  |  [optional] |
+|**ssoSecLvl** | **SSOSecurityLevel** |  |  [optional] |
 |**translations** | **Map&lt;String, String&gt;** | Construct a type with a set of properties K of type T |  [optional] |
 |**useShowCommentsToggle** | **Boolean** |  |  [optional] |
 |**useSingleLineCommentInput** | **Boolean** |  |  [optional] |

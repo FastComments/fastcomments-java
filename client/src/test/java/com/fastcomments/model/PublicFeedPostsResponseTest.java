@@ -60,6 +60,30 @@ public class PublicFeedPostsResponseTest {
     }
 
     /**
+     * Test the property 'urlIdWS'
+     */
+    @Test
+    public void urlIdWSTest() {
+        // TODO: test urlIdWS
+    }
+
+    /**
+     * Test the property 'userIdWS'
+     */
+    @Test
+    public void userIdWSTest() {
+        // TODO: test userIdWS
+    }
+
+    /**
+     * Test the property 'tenantIdWS'
+     */
+    @Test
+    public void tenantIdWSTest() {
+        // TODO: test tenantIdWS
+    }
+
+    /**
      * Test the property 'myReacts'
      */
     @Test

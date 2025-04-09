@@ -16,6 +16,7 @@
 |**notification** | [**UserNotification**](UserNotification.md) |  |  [optional] |
 |**vote** | [**PubSubVote**](PubSubVote.md) |  |  [optional] |
 |**comment** | [**PubSubComment**](PubSubComment.md) |  |  [optional] |
+|**feedPost** | [**FeedPost**](FeedPost.md) |  |  [optional] |
 |**extraInfo** | [**LiveEventExtraInfo**](LiveEventExtraInfo.md) |  |  [optional] |
 |**config** | **Object** |  |  [optional] |
 |**isClosed** | **Boolean** |  |  [optional] |

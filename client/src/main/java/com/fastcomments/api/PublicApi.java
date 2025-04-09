@@ -54,6 +54,7 @@ import com.fastcomments.model.ReactBodyParams;
 import com.fastcomments.model.ReactFeedPostPublic200Response;
 import com.fastcomments.model.ResetUserNotifications200Response;
 import com.fastcomments.model.SetCommentText200Response;
+import com.fastcomments.model.SizePreset;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
@@ -2656,7 +2657,7 @@ public class PublicApi {
     public APIgetEventLogRequest getEventLog(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) {
         return new APIgetEventLogRequest(tenantId, urlId, userIdWS, startTime, endTime);
     }
-    private okhttp3.Call getFeedPostsPublicCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2698,6 +2699,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
         }
 
+        if (isCrawler != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isCrawler", isCrawler));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2718,26 +2723,26 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedPostsPublicValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFeedPostsPublic(Async)");
         }
 
-        return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, _callback);
+        return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
 
     }
 
 
-    private ApiResponse<GetFeedPostsPublic200Response> getFeedPostsPublicWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags, String sso) throws ApiException {
-        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, null);
+    private ApiResponse<GetFeedPostsPublic200Response> getFeedPostsPublicWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler) throws ApiException {
+        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, isCrawler, null);
         Type localVarReturnType = new TypeToken<GetFeedPostsPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getFeedPostsPublicAsync(String tenantId, String afterId, Integer limit, List<String> tags, String sso, final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicAsync(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, _callback);
+        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
         Type localVarReturnType = new TypeToken<GetFeedPostsPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2749,6 +2754,7 @@ public class PublicApi {
         private Integer limit;
         private List<String> tags;
         private String sso;
+        private Boolean isCrawler;
 
         private APIgetFeedPostsPublicRequest(String tenantId) {
             this.tenantId = tenantId;
@@ -2795,6 +2801,16 @@ public class PublicApi {
         }
 
         /**
+         * Set isCrawler
+         * @param isCrawler  (optional)
+         * @return APIgetFeedPostsPublicRequest
+         */
+        public APIgetFeedPostsPublicRequest isCrawler(Boolean isCrawler) {
+            this.isCrawler = isCrawler;
+            return this;
+        }
+
+        /**
          * Build call for getFeedPostsPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -2807,7 +2823,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, _callback);
+            return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
         }
 
         /**
@@ -2822,7 +2838,7 @@ public class PublicApi {
          </table>
          */
         public GetFeedPostsPublic200Response execute() throws ApiException {
-            ApiResponse<GetFeedPostsPublic200Response> localVarResp = getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso);
+            ApiResponse<GetFeedPostsPublic200Response> localVarResp = getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso, isCrawler);
             return localVarResp.getData();
         }
 
@@ -2838,7 +2854,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetFeedPostsPublic200Response> executeWithHttpInfo() throws ApiException {
-            return getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso);
+            return getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso, isCrawler);
         }
 
         /**
@@ -2854,7 +2870,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
-            return getFeedPostsPublicAsync(tenantId, afterId, limit, tags, sso, _callback);
+            return getFeedPostsPublicAsync(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
         }
     }
 
@@ -6369,7 +6385,7 @@ public class PublicApi {
     public APIupdateUserNotificationStatusRequest updateUserNotificationStatus(String tenantId, String notificationId, String newStatus) {
         return new APIupdateUserNotificationStatusRequest(tenantId, notificationId, newStatus);
     }
-    private okhttp3.Call uploadImageCall(String tenantId, String sizes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadImageCall(String tenantId, SizePreset sizePreset, String urlId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6395,8 +6411,12 @@ public class PublicApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (sizes != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sizes", sizes));
+        if (sizePreset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sizePreset", sizePreset));
+        }
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
         }
 
         final String[] localVarAccepts = {
@@ -6419,26 +6439,26 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadImageValidateBeforeCall(String tenantId, String sizes, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadImageValidateBeforeCall(String tenantId, SizePreset sizePreset, String urlId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling uploadImage(Async)");
         }
 
-        return uploadImageCall(tenantId, sizes, _callback);
+        return uploadImageCall(tenantId, sizePreset, urlId, _callback);
 
     }
 
 
-    private ApiResponse<UploadImageResponse> uploadImageWithHttpInfo(String tenantId, String sizes) throws ApiException {
-        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, sizes, null);
+    private ApiResponse<UploadImageResponse> uploadImageWithHttpInfo(String tenantId, SizePreset sizePreset, String urlId) throws ApiException {
+        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, sizePreset, urlId, null);
         Type localVarReturnType = new TypeToken<UploadImageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call uploadImageAsync(String tenantId, String sizes, final ApiCallback<UploadImageResponse> _callback) throws ApiException {
+    private okhttp3.Call uploadImageAsync(String tenantId, SizePreset sizePreset, String urlId, final ApiCallback<UploadImageResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, sizes, _callback);
+        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, sizePreset, urlId, _callback);
         Type localVarReturnType = new TypeToken<UploadImageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6446,19 +6466,30 @@ public class PublicApi {
 
     public class APIuploadImageRequest {
         private final String tenantId;
-        private String sizes;
+        private SizePreset sizePreset;
+        private String urlId;
 
         private APIuploadImageRequest(String tenantId) {
             this.tenantId = tenantId;
         }
 
         /**
-         * Set sizes
-         * @param sizes Optional comma-separated list of sizes in format \&quot;x,y\&quot; (e.g. \&quot;100,100,200,200,300,300\&quot;) (optional)
+         * Set sizePreset
+         * @param sizePreset Size preset: \&quot;Default\&quot; (1000x1000px) or \&quot;CrossPlatform\&quot; (creates sizes for popular devices) (optional)
          * @return APIuploadImageRequest
          */
-        public APIuploadImageRequest sizes(String sizes) {
-            this.sizes = sizes;
+        public APIuploadImageRequest sizePreset(SizePreset sizePreset) {
+            this.sizePreset = sizePreset;
+            return this;
+        }
+
+        /**
+         * Set urlId
+         * @param urlId Page id that upload is happening from, to configure (optional)
+         * @return APIuploadImageRequest
+         */
+        public APIuploadImageRequest urlId(String urlId) {
+            this.urlId = urlId;
             return this;
         }
 
@@ -6475,7 +6506,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return uploadImageCall(tenantId, sizes, _callback);
+            return uploadImageCall(tenantId, sizePreset, urlId, _callback);
         }
 
         /**
@@ -6490,7 +6521,7 @@ public class PublicApi {
          </table>
          */
         public UploadImageResponse execute() throws ApiException {
-            ApiResponse<UploadImageResponse> localVarResp = uploadImageWithHttpInfo(tenantId, sizes);
+            ApiResponse<UploadImageResponse> localVarResp = uploadImageWithHttpInfo(tenantId, sizePreset, urlId);
             return localVarResp.getData();
         }
 
@@ -6506,7 +6537,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<UploadImageResponse> executeWithHttpInfo() throws ApiException {
-            return uploadImageWithHttpInfo(tenantId, sizes);
+            return uploadImageWithHttpInfo(tenantId, sizePreset, urlId);
         }
 
         /**
@@ -6522,7 +6553,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<UploadImageResponse> _callback) throws ApiException {
-            return uploadImageAsync(tenantId, sizes, _callback);
+            return uploadImageAsync(tenantId, sizePreset, urlId, _callback);
         }
     }
 

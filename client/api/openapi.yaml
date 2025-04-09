@@ -465,11 +465,19 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Optional comma-separated list of sizes in format \"x,y\" (e.g.\
-          \ \"100,100,200,200,300,300\")"
+      - description: "Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\"\
+          \ (creates sizes for popular devices)"
         explode: true
         in: query
-        name: sizes
+        name: sizePreset
+        required: false
+        schema:
+          $ref: '#/components/schemas/SizePreset'
+        style: form
+      - description: "Page id that upload is happening from, to configure"
+        explode: true
+        in: query
+        name: urlId
         required: false
         schema:
           type: string
@@ -719,6 +727,13 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - explode: true
+        in: query
+        name: isCrawler
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -2929,11 +2944,13 @@ components:
       - pg-13
       - r
       type: string
-    SSOSecurityLevel:
+    ImageContentProfanityLevel:
       enum:
-      - 0
-      - 1
-      type: number
+      - "off"
+      - low
+      - medium
+      - high
+      type: string
     SpamRule:
       additionalProperties: false
       example:
@@ -2955,6 +2972,11 @@ components:
       required:
       - actions
       type: object
+    SSOSecurityLevel:
+      enum:
+      - 0
+      - 1
+      type: number
     Record_string.string_:
       additionalProperties:
         type: string
@@ -3053,6 +3075,7 @@ components:
         showCommentSaveSuccess: true
         disableCommenterCommentEdit: true
         enableCommenterLinks: true
+        imageContentProfanityLevel: "off"
         enableSpoilers: true
         disableUnverifiedLabel: true
         noStyles: true
@@ -3175,6 +3198,8 @@ components:
         hideCommentsUnderCountTextFormat:
           nullable: true
           type: string
+        imageContentProfanityLevel:
+          $ref: '#/components/schemas/ImageContentProfanityLevel'
         inputAfterComments:
           type: boolean
         limitCommentsByGroups:
@@ -3204,8 +3229,6 @@ components:
           type: boolean
         requireSSO:
           type: boolean
-        ssoSecLvl:
-          $ref: '#/components/schemas/SSOSecurityLevel'
         restrictedLinkDomains:
           items:
             type: string
@@ -3221,6 +3244,8 @@ components:
           items:
             $ref: '#/components/schemas/SpamRule'
           type: array
+        ssoSecLvl:
+          $ref: '#/components/schemas/SSOSecurityLevel'
         translations:
           allOf:
           - $ref: '#/components/schemas/Record_string.string_'
@@ -3311,6 +3336,7 @@ components:
           showCommentSaveSuccess: true
           disableCommenterCommentEdit: true
           enableCommenterLinks: true
+          imageContentProfanityLevel: "off"
           enableSpoilers: true
           disableUnverifiedLabel: true
           noStyles: true
@@ -3622,14 +3648,38 @@ components:
       - success
       - failed
       type: string
+    MediaAsset:
+      additionalProperties: false
+      example:
+        src: src
+        w: 0.8008281904610115
+        h: 6.027456183070403
+      properties:
+        w:
+          format: double
+          type: number
+        h:
+          format: double
+          type: number
+        src:
+          type: string
+      required:
+      - h
+      - src
+      - w
+      type: object
     UploadImageResponse:
       additionalProperties: false
       example:
         reason: reason
-        urls:
-        - urls
-        - urls
         code: code
+        media:
+        - src: src
+          w: 0.8008281904610115
+          h: 6.027456183070403
+        - src: src
+          w: 0.8008281904610115
+          h: 6.027456183070403
         url: url
         status: success
       properties:
@@ -3637,9 +3687,9 @@ components:
           $ref: '#/components/schemas/APIStatus'
         url:
           type: string
-        urls:
+        media:
           items:
-            type: string
+            $ref: '#/components/schemas/MediaAsset'
           type: array
         reason:
           type: string
@@ -3648,6 +3698,11 @@ components:
       required:
       - status
       type: object
+    SizePreset:
+      enum:
+      - Default
+      - CrossPlatform
+      type: string
     APIEmptyResponse:
       example:
         status: success
@@ -4061,9 +4116,37 @@ components:
           properties: {}
           type: object
       type: object
+    TenantIdWS:
+      type: string
+    UserIdWS:
+      type: string
+    UrlIdWS:
+      type: string
+    UserPresenceData:
+      properties:
+        urlIdWS:
+          type: string
+        userIdWS:
+          type: string
+        tenantIdWS:
+          type: string
+      type: object
     PublicFeedPostsResponse:
-      additionalProperties: false
+      allOf:
+      - properties:
+          myReacts:
+            additionalProperties:
+              additionalProperties:
+                type: boolean
+              properties: {}
+              type: object
+            properties: {}
+            type: object
+        type: object
+      - $ref: '#/components/schemas/GetFeedPostsResponse'
+      - $ref: '#/components/schemas/UserPresenceData'
       example:
+        urlIdWS: urlIdWS
         feedPosts:
         - fromUserDisplayName: fromUserDisplayName
           fromUserId: fromUserId
@@ -4155,29 +4238,12 @@ components:
           _id: _id
           fromIpHash: fromIpHash
           fromUserAvatar: fromUserAvatar
+        userIdWS: userIdWS
         myReacts:
           key:
             key: true
+        tenantIdWS: tenantIdWS
         status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-        feedPosts:
-          items:
-            $ref: '#/components/schemas/FeedPost'
-          type: array
-        myReacts:
-          additionalProperties:
-            additionalProperties:
-              type: boolean
-            properties: {}
-            type: object
-          properties: {}
-          type: object
-      required:
-      - feedPosts
-      - status
-      type: object
     ReactFeedPostResponse:
       additionalProperties: false
       example:
@@ -4663,6 +4729,8 @@ components:
           $ref: '#/components/schemas/PubSubVote'
         comment:
           $ref: '#/components/schemas/PubSubComment'
+        feedPost:
+          $ref: '#/components/schemas/FeedPost'
         extraInfo:
           $ref: '#/components/schemas/LiveEvent_extraInfo'
         config:
@@ -5104,21 +5172,6 @@ components:
       - status
       - user
       type: object
-    TenantIdWS:
-      type: string
-    UserIdWS:
-      type: string
-    UrlIdWS:
-      type: string
-    UserPresenceData:
-      properties:
-        urlIdWS:
-          type: string
-        userIdWS:
-          type: string
-        tenantIdWS:
-          type: string
-      type: object
     GetCommentsResponseWithPresence_PublicComment_:
       allOf:
       - $ref: '#/components/schemas/GetCommentsResponse_PublicComment_'
@@ -5191,6 +5244,7 @@ components:
           showCommentSaveSuccess: true
           disableCommenterCommentEdit: true
           enableCommenterLinks: true
+          imageContentProfanityLevel: "off"
           enableSpoilers: true
           disableUnverifiedLabel: true
           noStyles: true

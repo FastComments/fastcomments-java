@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.MediaAsset;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -57,11 +58,11 @@ public class UploadImageResponseTest {
     }
 
     /**
-     * Test the property 'urls'
+     * Test the property 'media'
      */
     @Test
-    public void urlsTest() {
-        // TODO: test urls
+    public void mediaTest() {
+        // TODO: test media
     }
 
     /**
