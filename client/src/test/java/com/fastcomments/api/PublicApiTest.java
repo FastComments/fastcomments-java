@@ -24,6 +24,7 @@ import com.fastcomments.model.CreateFeedPostParams;
 import com.fastcomments.model.CreateFeedPostPublic200Response;
 import com.fastcomments.model.DeleteCommentPublic200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
+import java.io.File;
 import com.fastcomments.model.FlagCommentPublic200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
@@ -606,9 +607,10 @@ public class PublicApiTest {
     @Test
     public void uploadImageTest() throws ApiException {
         String tenantId = null;
+        File _file = null;
         SizePreset sizePreset = null;
         String urlId = null;
-        UploadImageResponse response = api.uploadImage(tenantId)
+        UploadImageResponse response = api.uploadImage(tenantId, _file)
                 .sizePreset(sizePreset)
                 .urlId(urlId)
                 .execute();

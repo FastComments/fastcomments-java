@@ -37,6 +37,7 @@ import com.fastcomments.model.CreateFeedPostParams;
 import com.fastcomments.model.CreateFeedPostPublic200Response;
 import com.fastcomments.model.DeleteCommentPublic200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
+import java.io.File;
 import com.fastcomments.model.FlagCommentPublic200Response;
 import com.fastcomments.model.GetCommentText200Response;
 import com.fastcomments.model.GetCommentVoteUserNames200Response;
@@ -6385,7 +6386,7 @@ public class PublicApi {
     public APIupdateUserNotificationStatusRequest updateUserNotificationStatus(String tenantId, String notificationId, String newStatus) {
         return new APIupdateUserNotificationStatusRequest(tenantId, notificationId, newStatus);
     }
-    private okhttp3.Call uploadImageCall(String tenantId, SizePreset sizePreset, String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadImageCall(String tenantId, File _file, SizePreset sizePreset, String urlId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6411,6 +6412,10 @@ public class PublicApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (_file != null) {
+            localVarFormParams.put("file", _file);
+        }
+
         if (sizePreset != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sizePreset", sizePreset));
         }
@@ -6428,6 +6433,7 @@ public class PublicApi {
         }
 
         final String[] localVarContentTypes = {
+            "multipart/form-data"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6439,26 +6445,31 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadImageValidateBeforeCall(String tenantId, SizePreset sizePreset, String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadImageValidateBeforeCall(String tenantId, File _file, SizePreset sizePreset, String urlId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling uploadImage(Async)");
         }
 
-        return uploadImageCall(tenantId, sizePreset, urlId, _callback);
+        // verify the required parameter '_file' is set
+        if (_file == null) {
+            throw new ApiException("Missing the required parameter '_file' when calling uploadImage(Async)");
+        }
+
+        return uploadImageCall(tenantId, _file, sizePreset, urlId, _callback);
 
     }
 
 
-    private ApiResponse<UploadImageResponse> uploadImageWithHttpInfo(String tenantId, SizePreset sizePreset, String urlId) throws ApiException {
-        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, sizePreset, urlId, null);
+    private ApiResponse<UploadImageResponse> uploadImageWithHttpInfo(String tenantId, File _file, SizePreset sizePreset, String urlId) throws ApiException {
+        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, _file, sizePreset, urlId, null);
         Type localVarReturnType = new TypeToken<UploadImageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call uploadImageAsync(String tenantId, SizePreset sizePreset, String urlId, final ApiCallback<UploadImageResponse> _callback) throws ApiException {
+    private okhttp3.Call uploadImageAsync(String tenantId, File _file, SizePreset sizePreset, String urlId, final ApiCallback<UploadImageResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, sizePreset, urlId, _callback);
+        okhttp3.Call localVarCall = uploadImageValidateBeforeCall(tenantId, _file, sizePreset, urlId, _callback);
         Type localVarReturnType = new TypeToken<UploadImageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6466,11 +6477,13 @@ public class PublicApi {
 
     public class APIuploadImageRequest {
         private final String tenantId;
+        private final File _file;
         private SizePreset sizePreset;
         private String urlId;
 
-        private APIuploadImageRequest(String tenantId) {
+        private APIuploadImageRequest(String tenantId, File _file) {
             this.tenantId = tenantId;
+            this._file = _file;
         }
 
         /**
@@ -6506,7 +6519,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return uploadImageCall(tenantId, sizePreset, urlId, _callback);
+            return uploadImageCall(tenantId, _file, sizePreset, urlId, _callback);
         }
 
         /**
@@ -6521,7 +6534,7 @@ public class PublicApi {
          </table>
          */
         public UploadImageResponse execute() throws ApiException {
-            ApiResponse<UploadImageResponse> localVarResp = uploadImageWithHttpInfo(tenantId, sizePreset, urlId);
+            ApiResponse<UploadImageResponse> localVarResp = uploadImageWithHttpInfo(tenantId, _file, sizePreset, urlId);
             return localVarResp.getData();
         }
 
@@ -6537,7 +6550,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<UploadImageResponse> executeWithHttpInfo() throws ApiException {
-            return uploadImageWithHttpInfo(tenantId, sizePreset, urlId);
+            return uploadImageWithHttpInfo(tenantId, _file, sizePreset, urlId);
         }
 
         /**
@@ -6553,14 +6566,15 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<UploadImageResponse> _callback) throws ApiException {
-            return uploadImageAsync(tenantId, sizePreset, urlId, _callback);
+            return uploadImageAsync(tenantId, _file, sizePreset, urlId, _callback);
         }
     }
 
     /**
      * 
      * Upload and resize an image
-     * @param tenantId Tenant ID (required)
+     * @param tenantId  (required)
+     * @param _file  (required)
      * @return APIuploadImageRequest
      * @http.response.details
      <table border="1">
@@ -6569,8 +6583,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIuploadImageRequest uploadImage(String tenantId) {
-        return new APIuploadImageRequest(tenantId);
+    public APIuploadImageRequest uploadImage(String tenantId, File _file) {
+        return new APIuploadImageRequest(tenantId, _file);
     }
     private okhttp3.Call voteCommentCall(String tenantId, String commentId, String urlId, String broadcastId, VoteBodyParams voteBodyParams, String sessionId, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

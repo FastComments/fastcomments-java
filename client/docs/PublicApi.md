@@ -2153,7 +2153,7 @@ No authorization required
 
 <a id="uploadImage"></a>
 # **uploadImage**
-> UploadImageResponse uploadImage(tenantId).sizePreset(sizePreset).urlId(urlId).execute();
+> UploadImageResponse uploadImage(tenantId, _file).sizePreset(sizePreset).urlId(urlId).execute();
 
 
 
@@ -2174,11 +2174,12 @@ public class Example {
     defaultClient.setBasePath("http://localhost");
 
     PublicApi apiInstance = new PublicApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | Tenant ID
+    String tenantId = "tenantId_example"; // String | 
+    File _file = new File("/path/to/file"); // File | 
     SizePreset sizePreset = SizePreset.fromValue("Default"); // SizePreset | Size preset: \"Default\" (1000x1000px) or \"CrossPlatform\" (creates sizes for popular devices)
     String urlId = "urlId_example"; // String | Page id that upload is happening from, to configure
     try {
-      UploadImageResponse result = apiInstance.uploadImage(tenantId)
+      UploadImageResponse result = apiInstance.uploadImage(tenantId, _file)
             .sizePreset(sizePreset)
             .urlId(urlId)
             .execute();
@@ -2198,7 +2199,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| Tenant ID | |
+| **tenantId** | **String**|  | |
+| **_file** | **File**|  | |
 | **sizePreset** | [**SizePreset**](.md)| Size preset: \&quot;Default\&quot; (1000x1000px) or \&quot;CrossPlatform\&quot; (creates sizes for popular devices) | [optional] [enum: Default, CrossPlatform] |
 | **urlId** | **String**| Page id that upload is happening from, to configure | [optional] |
 
@@ -2212,7 +2214,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 ### HTTP response details

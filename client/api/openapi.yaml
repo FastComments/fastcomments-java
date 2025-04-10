@@ -457,8 +457,7 @@ paths:
       description: Upload and resize an image
       operationId: UploadImage
       parameters:
-      - description: Tenant ID
-        explode: false
+      - explode: false
         in: path
         name: tenantId
         required: true
@@ -482,6 +481,12 @@ paths:
         schema:
           type: string
         style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UploadImage_request'
+        required: true
       responses:
         "200":
           content:
@@ -492,6 +497,7 @@ paths:
       security: []
       tags:
       - Public
+      x-content-type: multipart/form-data
       x-accepts:
       - application/json
   /flag-comment/{commentId}:
@@ -7871,6 +7877,14 @@ components:
       - $ref: '#/components/schemas/UserNotificationWriteResponse'
       - $ref: '#/components/schemas/IgnoredResponse'
       - $ref: '#/components/schemas/APIError'
+    UploadImage_request:
+      properties:
+        file:
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
     FlagCommentPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/APIEmptyResponse'
