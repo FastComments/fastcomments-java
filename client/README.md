@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.12</version>
+  <version>0.0.13</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.12"
+     implementation "com.fastcomments:client:0.0.13"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.12.jar`
+* `target/client-0.0.13.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -293,6 +293,7 @@ Class | Method | HTTP request | Description
  - [GetFeedPostsResponse](docs/GetFeedPostsResponse.md)
  - [GetFeedPostsStats200Response](docs/GetFeedPostsStats200Response.md)
  - [GetMyNotificationsResponse](docs/GetMyNotificationsResponse.md)
+ - [GetPublicFeedPostsResponse](docs/GetPublicFeedPostsResponse.md)
  - [GetUserBadge200Response](docs/GetUserBadge200Response.md)
  - [GetUserBadgeProgressById200Response](docs/GetUserBadgeProgressById200Response.md)
  - [GetUserBadgeProgressList200Response](docs/GetUserBadgeProgressList200Response.md)
@@ -307,6 +308,7 @@ Class | Method | HTTP request | Description
  - [HeaderState](docs/HeaderState.md)
  - [IgnoredResponse](docs/IgnoredResponse.md)
  - [ImageContentProfanityLevel](docs/ImageContentProfanityLevel.md)
+ - [ImportedAPIStatus](docs/ImportedAPIStatus.md)
  - [ImportedAPIStatusFAILED](docs/ImportedAPIStatusFAILED.md)
  - [ImportedAPIStatusSUCCESS](docs/ImportedAPIStatusSUCCESS.md)
  - [LiveEvent](docs/LiveEvent.md)

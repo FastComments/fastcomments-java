@@ -106,6 +106,7 @@ docs/GetFeedPostsPublic200Response.md
 docs/GetFeedPostsResponse.md
 docs/GetFeedPostsStats200Response.md
 docs/GetMyNotificationsResponse.md
+docs/GetPublicFeedPostsResponse.md
 docs/GetUserBadge200Response.md
 docs/GetUserBadgeProgressById200Response.md
 docs/GetUserBadgeProgressList200Response.md
@@ -121,6 +122,7 @@ docs/HeaderState.md
 docs/HiddenApi.md
 docs/IgnoredResponse.md
 docs/ImageContentProfanityLevel.md
+docs/ImportedAPIStatus.md
 docs/ImportedAPIStatusFAILED.md
 docs/ImportedAPIStatusSUCCESS.md
 docs/LiveEvent.md
@@ -331,6 +333,7 @@ src/main/java/com/fastcomments/model/GetFeedPostsPublic200Response.java
 src/main/java/com/fastcomments/model/GetFeedPostsResponse.java
 src/main/java/com/fastcomments/model/GetFeedPostsStats200Response.java
 src/main/java/com/fastcomments/model/GetMyNotificationsResponse.java
+src/main/java/com/fastcomments/model/GetPublicFeedPostsResponse.java
 src/main/java/com/fastcomments/model/GetUserBadge200Response.java
 src/main/java/com/fastcomments/model/GetUserBadgeProgressById200Response.java
 src/main/java/com/fastcomments/model/GetUserBadgeProgressList200Response.java
@@ -345,6 +348,7 @@ src/main/java/com/fastcomments/model/GifRating.java
 src/main/java/com/fastcomments/model/HeaderState.java
 src/main/java/com/fastcomments/model/IgnoredResponse.java
 src/main/java/com/fastcomments/model/ImageContentProfanityLevel.java
+src/main/java/com/fastcomments/model/ImportedAPIStatus.java
 src/main/java/com/fastcomments/model/ImportedAPIStatusFAILED.java
 src/main/java/com/fastcomments/model/ImportedAPIStatusSUCCESS.java
 src/main/java/com/fastcomments/model/LiveEvent.java
@@ -527,6 +531,7 @@ src/test/java/com/fastcomments/model/GetFeedPostsPublic200ResponseTest.java
 src/test/java/com/fastcomments/model/GetFeedPostsResponseTest.java
 src/test/java/com/fastcomments/model/GetFeedPostsStats200ResponseTest.java
 src/test/java/com/fastcomments/model/GetMyNotificationsResponseTest.java
+src/test/java/com/fastcomments/model/GetPublicFeedPostsResponseTest.java
 src/test/java/com/fastcomments/model/GetUserBadge200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserBadgeProgressById200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserBadgeProgressList200ResponseTest.java
@@ -543,6 +548,7 @@ src/test/java/com/fastcomments/model/IgnoredResponseTest.java
 src/test/java/com/fastcomments/model/ImageContentProfanityLevelTest.java
 src/test/java/com/fastcomments/model/ImportedAPIStatusFAILEDTest.java
 src/test/java/com/fastcomments/model/ImportedAPIStatusSUCCESSTest.java
+src/test/java/com/fastcomments/model/ImportedAPIStatusTest.java
 src/test/java/com/fastcomments/model/LiveEventExtraInfoTest.java
 src/test/java/com/fastcomments/model/LiveEventTest.java
 src/test/java/com/fastcomments/model/LiveEventTypeTest.java

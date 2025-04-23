@@ -544,149 +544,6 @@ paths:
       - Public
       x-accepts:
       - application/json
-  /api/v1/feed-posts:
-    get:
-      description: |2-
-
-        req
-        tenantId
-        afterId
-      operationId: GetFeedPosts
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: afterId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          format: int32
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: tags
-        required: false
-        schema:
-          items:
-            type: string
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeedPosts_200_response'
-          description: Ok
-      security:
-      - api_key: []
-      x-accepts:
-      - application/json
-    post:
-      operationId: CreateFeedPost
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: isLive
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: doSpamCheck
-        required: false
-        schema:
-          type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: skipDupCheck
-        required: false
-        schema:
-          type: boolean
-        style: form
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateFeedPostParams'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateFeedPost_200_response'
-          description: Ok
-      security:
-      - api_key: []
-      x-content-type: application/json
-      x-accepts:
-      - application/json
-  /api/v1/feed-posts/{id}:
-    patch:
-      operationId: UpdateFeedPost
-      parameters:
-      - explode: true
-        in: query
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: form
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FeedPost'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
-          description: Ok
-      security:
-      - api_key: []
-      x-content-type: application/json
-      x-accepts:
-      - application/json
   /feed-posts/{tenantId}:
     get:
       description: |2-
@@ -2528,6 +2385,149 @@ paths:
       - api_key: []
       x-accepts:
       - application/json
+  /api/v1/feed-posts:
+    get:
+      description: |2-
+
+        req
+        tenantId
+        afterId
+      operationId: GetFeedPosts
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: afterId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: tags
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeedPosts_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    post:
+      operationId: CreateFeedPost
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: isLive
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: doSpamCheck
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: skipDupCheck
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFeedPostParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFeedPost_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/feed-posts/{id}:
+    patch:
+      operationId: UpdateFeedPost
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedPost'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /api/v1/domain-configs:
     get:
       operationId: GetDomainConfigs
@@ -4148,6 +4148,11 @@ components:
       required:
       - status
       type: object
+    ImportedAPIStatus:
+      enum:
+      - success
+      - failed
+      type: string
     FeedPostMediaItemAsset:
       additionalProperties: false
       example:
@@ -4321,115 +4326,237 @@ components:
       - createdAt
       - tenantId
       type: object
-    GetFeedPostsResponse:
+    UserSessionInfo:
       additionalProperties: false
-      example:
-        feedPosts:
-        - fromUserDisplayName: fromUserDisplayName
-          fromUserId: fromUserId
-          weight: 0.8008281904610115
-          media:
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-          commentCount: 5
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          reacts:
-            key: 5
-          meta:
-            key: meta
-          tenantId: tenantId
-          links:
-          - description: description
-            text: text
-            title: title
-            url: url
-          - description: description
-            text: text
-            title: title
-            url: url
-          _id: _id
-          fromIpHash: fromIpHash
-          fromUserAvatar: fromUserAvatar
-        - fromUserDisplayName: fromUserDisplayName
-          fromUserId: fromUserId
-          weight: 0.8008281904610115
-          media:
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-          commentCount: 5
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          reacts:
-            key: 5
-          meta:
-            key: meta
-          tenantId: tenantId
-          links:
-          - description: description
-            text: text
-            title: title
-            url: url
-          - description: description
-            text: text
-            title: title
-            url: url
-          _id: _id
-          fromIpHash: fromIpHash
-          fromUserAvatar: fromUserAvatar
-        status: success
+      properties:
+        id:
+          type: string
+        authorized:
+          type: boolean
+        avatarSrc:
+          nullable: true
+          type: string
+        displayLabel:
+          type: string
+        displayName:
+          type: string
+        email:
+          nullable: true
+          type: string
+        groupIds:
+          items:
+            type: string
+          type: array
+        hasBlockedUsers:
+          type: boolean
+        isAnonSession:
+          type: boolean
+        sessionId:
+          nullable: true
+          type: string
+        username:
+          type: string
+        websiteUrl:
+          type: string
+      type: object
+    GetPublicFeedPostsResponse:
+      additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: '#/components/schemas/ImportedAPIStatus'
         feedPosts:
           items:
             $ref: '#/components/schemas/FeedPost'
           type: array
+        user:
+          allOf:
+          - $ref: '#/components/schemas/UserSessionInfo'
+          nullable: true
       required:
       - feedPosts
       - status
+      - user
       type: object
-    CreateFeedPostsResponse:
+    TenantIdWS:
+      type: string
+    UserIdWS:
+      type: string
+    UrlIdWS:
+      type: string
+    UserPresenceData:
+      properties:
+        urlIdWS:
+          type: string
+        userIdWS:
+          type: string
+        tenantIdWS:
+          type: string
+      type: object
+    PublicFeedPostsResponse:
+      allOf:
+      - properties:
+          myReacts:
+            additionalProperties:
+              additionalProperties:
+                type: boolean
+              properties: {}
+              type: object
+            properties: {}
+            type: object
+        type: object
+      - $ref: '#/components/schemas/GetPublicFeedPostsResponse'
+      - $ref: '#/components/schemas/UserPresenceData'
+      example:
+        urlIdWS: urlIdWS
+        feedPosts:
+        - fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          commentCount: 5
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        - fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          commentCount: 5
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        userIdWS: userIdWS
+        myReacts:
+          key:
+            key: true
+        user: ""
+        tenantIdWS: tenantIdWS
+        status: success
+    ReactFeedPostResponse:
+      additionalProperties: false
+      example:
+        isUndo: true
+        reactType: reactType
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        reactType:
+          type: string
+        isUndo:
+          type: boolean
+      required:
+      - isUndo
+      - reactType
+      - status
+      type: object
+    ReactBodyParams:
+      additionalProperties: false
+      example:
+        reactType: reactType
+      properties:
+        reactType:
+          type: string
+      type: object
+    UserReactsResponse:
+      additionalProperties: false
+      example:
+        reacts:
+          key:
+            key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        reacts:
+          additionalProperties:
+            additionalProperties:
+              type: boolean
+            properties: {}
+            type: object
+          properties: {}
+          type: object
+      required:
+      - reacts
+      - status
+      type: object
+    CreateFeedPostResponse:
       additionalProperties: false
       example:
         feedPost:
@@ -4556,244 +4683,6 @@ components:
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
-      type: object
-    TenantIdWS:
-      type: string
-    UserIdWS:
-      type: string
-    UrlIdWS:
-      type: string
-    UserPresenceData:
-      properties:
-        urlIdWS:
-          type: string
-        userIdWS:
-          type: string
-        tenantIdWS:
-          type: string
-      type: object
-    PublicFeedPostsResponse:
-      allOf:
-      - properties:
-          myReacts:
-            additionalProperties:
-              additionalProperties:
-                type: boolean
-              properties: {}
-              type: object
-            properties: {}
-            type: object
-        type: object
-      - $ref: '#/components/schemas/GetFeedPostsResponse'
-      - $ref: '#/components/schemas/UserPresenceData'
-      example:
-        urlIdWS: urlIdWS
-        feedPosts:
-        - fromUserDisplayName: fromUserDisplayName
-          fromUserId: fromUserId
-          weight: 0.8008281904610115
-          media:
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-          commentCount: 5
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          reacts:
-            key: 5
-          meta:
-            key: meta
-          tenantId: tenantId
-          links:
-          - description: description
-            text: text
-            title: title
-            url: url
-          - description: description
-            text: text
-            title: title
-            url: url
-          _id: _id
-          fromIpHash: fromIpHash
-          fromUserAvatar: fromUserAvatar
-        - fromUserDisplayName: fromUserDisplayName
-          fromUserId: fromUserId
-          weight: 0.8008281904610115
-          media:
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-          commentCount: 5
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          reacts:
-            key: 5
-          meta:
-            key: meta
-          tenantId: tenantId
-          links:
-          - description: description
-            text: text
-            title: title
-            url: url
-          - description: description
-            text: text
-            title: title
-            url: url
-          _id: _id
-          fromIpHash: fromIpHash
-          fromUserAvatar: fromUserAvatar
-        userIdWS: userIdWS
-        myReacts:
-          key:
-            key: true
-        tenantIdWS: tenantIdWS
-        status: success
-    ReactFeedPostResponse:
-      additionalProperties: false
-      example:
-        isUndo: true
-        reactType: reactType
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-        reactType:
-          type: string
-        isUndo:
-          type: boolean
-      required:
-      - isUndo
-      - reactType
-      - status
-      type: object
-    ReactBodyParams:
-      additionalProperties: false
-      example:
-        reactType: reactType
-      properties:
-        reactType:
-          type: string
-      type: object
-    UserReactsResponse:
-      additionalProperties: false
-      example:
-        reacts:
-          key:
-            key: true
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-        reacts:
-          additionalProperties:
-            additionalProperties:
-              type: boolean
-            properties: {}
-            type: object
-          properties: {}
-          type: object
-      required:
-      - reacts
-      - status
-      type: object
-    CreateFeedPostResponse:
-      additionalProperties: false
-      example:
-        feedPost:
-          fromUserDisplayName: fromUserDisplayName
-          fromUserId: fromUserId
-          weight: 0.8008281904610115
-          media:
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          - sizes:
-            - src: src
-              w: 6
-              h: 1
-            - src: src
-              w: 6
-              h: 1
-            linkUrl: linkUrl
-            title: title
-          title: title
-          contentHTML: contentHTML
-          tags:
-          - tags
-          - tags
-          commentCount: 5
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          reacts:
-            key: 5
-          meta:
-            key: meta
-          tenantId: tenantId
-          links:
-          - description: description
-            text: text
-            title: title
-            url: url
-          - description: description
-            text: text
-            title: title
-            url: url
-          _id: _id
-          fromIpHash: fromIpHash
-          fromUserAvatar: fromUserAvatar
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-        feedPost:
-          $ref: '#/components/schemas/FeedPost'
-      required:
-      - feedPost
-      - status
       type: object
     UpdateFeedPostParams:
       additionalProperties: false
@@ -5605,39 +5494,6 @@ components:
       - commenterName
       - date
       - verified
-      type: object
-    UserSessionInfo:
-      additionalProperties: false
-      properties:
-        id:
-          type: string
-        authorized:
-          type: boolean
-        avatarSrc:
-          nullable: true
-          type: string
-        displayLabel:
-          type: string
-        displayName:
-          type: string
-        email:
-          nullable: true
-          type: string
-        groupIds:
-          items:
-            type: string
-          type: array
-        hasBlockedUsers:
-          type: boolean
-        isAnonSession:
-          type: boolean
-        sessionId:
-          nullable: true
-          type: string
-        username:
-          type: string
-        websiteUrl:
-          type: string
       type: object
     Record_string.any_:
       additionalProperties: {}
@@ -7546,6 +7402,174 @@ components:
       - data
       - status
       type: object
+    GetFeedPostsResponse:
+      additionalProperties: false
+      example:
+        feedPosts:
+        - fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          commentCount: 5
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        - fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          commentCount: 5
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        feedPosts:
+          items:
+            $ref: '#/components/schemas/FeedPost'
+          type: array
+      required:
+      - feedPosts
+      - status
+      type: object
+    CreateFeedPostsResponse:
+      additionalProperties: false
+      example:
+        feedPost:
+          fromUserDisplayName: fromUserDisplayName
+          fromUserId: fromUserId
+          weight: 0.8008281904610115
+          media:
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          - sizes:
+            - src: src
+              w: 6
+              h: 1
+            - src: src
+              w: 6
+              h: 1
+            linkUrl: linkUrl
+            title: title
+          title: title
+          contentHTML: contentHTML
+          tags:
+          - tags
+          - tags
+          commentCount: 5
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          reacts:
+            key: 5
+          meta:
+            key: meta
+          tenantId: tenantId
+          links:
+          - description: description
+            text: text
+            title: title
+            url: url
+          - description: description
+            text: text
+            title: title
+            url: url
+          _id: _id
+          fromIpHash: fromIpHash
+          fromUserAvatar: fromUserAvatar
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        feedPost:
+          $ref: '#/components/schemas/FeedPost'
+      required:
+      - feedPost
+      - status
+      type: object
     AddDomainConfigParams:
       additionalProperties: false
       example:
@@ -8770,14 +8794,6 @@ components:
       anyOf:
       - $ref: '#/components/schemas/APIEmptyResponse'
       - $ref: '#/components/schemas/APIError'
-    GetFeedPosts_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/GetFeedPostsResponse'
-      - $ref: '#/components/schemas/APIError'
-    CreateFeedPost_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/CreateFeedPostsResponse'
-      - $ref: '#/components/schemas/APIError'
     GetFeedPostsPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/PublicFeedPostsResponse'
@@ -8902,6 +8918,14 @@ components:
     CombineCommentsWithQuestionResults_200_response:
       anyOf:
       - $ref: '#/components/schemas/CombineQuestionResultsWithCommentsResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetFeedPosts_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetFeedPostsResponse'
+      - $ref: '#/components/schemas/APIError'
+    CreateFeedPost_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/CreateFeedPostsResponse'
       - $ref: '#/components/schemas/APIError'
     GetDomainConfigs_200_response_anyOf:
       example:

@@ -24,24 +24,22 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PublicFeedPostsResponse
+ * Model tests for GetPublicFeedPostsResponse
  */
-public class PublicFeedPostsResponseTest {
-    private final PublicFeedPostsResponse model = new PublicFeedPostsResponse();
+public class GetPublicFeedPostsResponseTest {
+    private final GetPublicFeedPostsResponse model = new GetPublicFeedPostsResponse();
 
     /**
-     * Model tests for PublicFeedPostsResponse
+     * Model tests for GetPublicFeedPostsResponse
      */
     @Test
-    public void testPublicFeedPostsResponse() {
-        // TODO: test PublicFeedPostsResponse
+    public void testGetPublicFeedPostsResponse() {
+        // TODO: test GetPublicFeedPostsResponse
     }
 
     /**
@@ -66,38 +64,6 @@ public class PublicFeedPostsResponseTest {
     @Test
     public void userTest() {
         // TODO: test user
-    }
-
-    /**
-     * Test the property 'urlIdWS'
-     */
-    @Test
-    public void urlIdWSTest() {
-        // TODO: test urlIdWS
-    }
-
-    /**
-     * Test the property 'userIdWS'
-     */
-    @Test
-    public void userIdWSTest() {
-        // TODO: test userIdWS
-    }
-
-    /**
-     * Test the property 'tenantIdWS'
-     */
-    @Test
-    public void tenantIdWSTest() {
-        // TODO: test tenantIdWS
-    }
-
-    /**
-     * Test the property 'myReacts'
-     */
-    @Test
-    public void myReactsTest() {
-        // TODO: test myReacts
     }
 
 }

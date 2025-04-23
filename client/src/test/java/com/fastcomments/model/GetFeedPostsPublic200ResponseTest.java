@@ -18,6 +18,7 @@ import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.fastcomments.model.PublicFeedPostsResponse;
+import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,6 +69,14 @@ public class GetFeedPostsPublic200ResponseTest {
     @Test
     public void feedPostsTest() {
         // TODO: test feedPosts
+    }
+
+    /**
+     * Test the property 'user'
+     */
+    @Test
+    public void userTest() {
+        // TODO: test user
     }
 
     /**

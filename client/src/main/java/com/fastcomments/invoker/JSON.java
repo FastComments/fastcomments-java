@@ -184,6 +184,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetFeedPostsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetFeedPostsStats200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetMyNotificationsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPublicFeedPostsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserBadge200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserBadgeProgressById200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserBadgeProgressList200Response.CustomTypeAdapterFactory());

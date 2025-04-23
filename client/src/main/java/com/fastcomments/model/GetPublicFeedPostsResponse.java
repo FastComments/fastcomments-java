@@ -25,9 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -53,10 +51,10 @@ import java.util.Set;
 import com.fastcomments.invoker.JSON;
 
 /**
- * PublicFeedPostsResponse
+ * GetPublicFeedPostsResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
-public class PublicFeedPostsResponse {
+public class GetPublicFeedPostsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
@@ -72,30 +70,10 @@ public class PublicFeedPostsResponse {
   @javax.annotation.Nullable
   private UserSessionInfo user;
 
-  public static final String SERIALIZED_NAME_URL_ID_W_S = "urlIdWS";
-  @SerializedName(SERIALIZED_NAME_URL_ID_W_S)
-  @javax.annotation.Nullable
-  private String urlIdWS;
-
-  public static final String SERIALIZED_NAME_USER_ID_W_S = "userIdWS";
-  @SerializedName(SERIALIZED_NAME_USER_ID_W_S)
-  @javax.annotation.Nullable
-  private String userIdWS;
-
-  public static final String SERIALIZED_NAME_TENANT_ID_W_S = "tenantIdWS";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID_W_S)
-  @javax.annotation.Nullable
-  private String tenantIdWS;
-
-  public static final String SERIALIZED_NAME_MY_REACTS = "myReacts";
-  @SerializedName(SERIALIZED_NAME_MY_REACTS)
-  @javax.annotation.Nullable
-  private Map<String, Map<String, Boolean>> myReacts = new HashMap<>();
-
-  public PublicFeedPostsResponse() {
+  public GetPublicFeedPostsResponse() {
   }
 
-  public PublicFeedPostsResponse status(@javax.annotation.Nonnull ImportedAPIStatus status) {
+  public GetPublicFeedPostsResponse status(@javax.annotation.Nonnull ImportedAPIStatus status) {
     this.status = status;
     return this;
   }
@@ -114,12 +92,12 @@ public class PublicFeedPostsResponse {
   }
 
 
-  public PublicFeedPostsResponse feedPosts(@javax.annotation.Nonnull List<FeedPost> feedPosts) {
+  public GetPublicFeedPostsResponse feedPosts(@javax.annotation.Nonnull List<FeedPost> feedPosts) {
     this.feedPosts = feedPosts;
     return this;
   }
 
-  public PublicFeedPostsResponse addFeedPostsItem(FeedPost feedPostsItem) {
+  public GetPublicFeedPostsResponse addFeedPostsItem(FeedPost feedPostsItem) {
     if (this.feedPosts == null) {
       this.feedPosts = new ArrayList<>();
     }
@@ -141,7 +119,7 @@ public class PublicFeedPostsResponse {
   }
 
 
-  public PublicFeedPostsResponse user(@javax.annotation.Nullable UserSessionInfo user) {
+  public GetPublicFeedPostsResponse user(@javax.annotation.Nullable UserSessionInfo user) {
     this.user = user;
     return this;
   }
@@ -160,90 +138,6 @@ public class PublicFeedPostsResponse {
   }
 
 
-  public PublicFeedPostsResponse urlIdWS(@javax.annotation.Nullable String urlIdWS) {
-    this.urlIdWS = urlIdWS;
-    return this;
-  }
-
-  /**
-   * Get urlIdWS
-   * @return urlIdWS
-   */
-  @javax.annotation.Nullable
-  public String getUrlIdWS() {
-    return urlIdWS;
-  }
-
-  public void setUrlIdWS(@javax.annotation.Nullable String urlIdWS) {
-    this.urlIdWS = urlIdWS;
-  }
-
-
-  public PublicFeedPostsResponse userIdWS(@javax.annotation.Nullable String userIdWS) {
-    this.userIdWS = userIdWS;
-    return this;
-  }
-
-  /**
-   * Get userIdWS
-   * @return userIdWS
-   */
-  @javax.annotation.Nullable
-  public String getUserIdWS() {
-    return userIdWS;
-  }
-
-  public void setUserIdWS(@javax.annotation.Nullable String userIdWS) {
-    this.userIdWS = userIdWS;
-  }
-
-
-  public PublicFeedPostsResponse tenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
-    this.tenantIdWS = tenantIdWS;
-    return this;
-  }
-
-  /**
-   * Get tenantIdWS
-   * @return tenantIdWS
-   */
-  @javax.annotation.Nullable
-  public String getTenantIdWS() {
-    return tenantIdWS;
-  }
-
-  public void setTenantIdWS(@javax.annotation.Nullable String tenantIdWS) {
-    this.tenantIdWS = tenantIdWS;
-  }
-
-
-  public PublicFeedPostsResponse myReacts(@javax.annotation.Nullable Map<String, Map<String, Boolean>> myReacts) {
-    this.myReacts = myReacts;
-    return this;
-  }
-
-  public PublicFeedPostsResponse putMyReactsItem(String key, Map<String, Boolean> myReactsItem) {
-    if (this.myReacts == null) {
-      this.myReacts = new HashMap<>();
-    }
-    this.myReacts.put(key, myReactsItem);
-    return this;
-  }
-
-  /**
-   * Get myReacts
-   * @return myReacts
-   */
-  @javax.annotation.Nullable
-  public Map<String, Map<String, Boolean>> getMyReacts() {
-    return myReacts;
-  }
-
-  public void setMyReacts(@javax.annotation.Nullable Map<String, Map<String, Boolean>> myReacts) {
-    this.myReacts = myReacts;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -253,32 +147,24 @@ public class PublicFeedPostsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PublicFeedPostsResponse publicFeedPostsResponse = (PublicFeedPostsResponse) o;
-    return Objects.equals(this.status, publicFeedPostsResponse.status) &&
-        Objects.equals(this.feedPosts, publicFeedPostsResponse.feedPosts) &&
-        Objects.equals(this.user, publicFeedPostsResponse.user) &&
-        Objects.equals(this.urlIdWS, publicFeedPostsResponse.urlIdWS) &&
-        Objects.equals(this.userIdWS, publicFeedPostsResponse.userIdWS) &&
-        Objects.equals(this.tenantIdWS, publicFeedPostsResponse.tenantIdWS) &&
-        Objects.equals(this.myReacts, publicFeedPostsResponse.myReacts);
+    GetPublicFeedPostsResponse getPublicFeedPostsResponse = (GetPublicFeedPostsResponse) o;
+    return Objects.equals(this.status, getPublicFeedPostsResponse.status) &&
+        Objects.equals(this.feedPosts, getPublicFeedPostsResponse.feedPosts) &&
+        Objects.equals(this.user, getPublicFeedPostsResponse.user);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, feedPosts, user, urlIdWS, userIdWS, tenantIdWS, myReacts);
+    return Objects.hash(status, feedPosts, user);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PublicFeedPostsResponse {\n");
+    sb.append("class GetPublicFeedPostsResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    feedPosts: ").append(toIndentedString(feedPosts)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    urlIdWS: ").append(toIndentedString(urlIdWS)).append("\n");
-    sb.append("    userIdWS: ").append(toIndentedString(userIdWS)).append("\n");
-    sb.append("    tenantIdWS: ").append(toIndentedString(tenantIdWS)).append("\n");
-    sb.append("    myReacts: ").append(toIndentedString(myReacts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -304,10 +190,6 @@ public class PublicFeedPostsResponse {
     openapiFields.add("status");
     openapiFields.add("feedPosts");
     openapiFields.add("user");
-    openapiFields.add("urlIdWS");
-    openapiFields.add("userIdWS");
-    openapiFields.add("tenantIdWS");
-    openapiFields.add("myReacts");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -320,25 +202,25 @@ public class PublicFeedPostsResponse {
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to PublicFeedPostsResponse
+   * @throws IOException if the JSON Element is invalid with respect to GetPublicFeedPostsResponse
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!PublicFeedPostsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PublicFeedPostsResponse is not found in the empty JSON string", PublicFeedPostsResponse.openapiRequiredFields.toString()));
+        if (!GetPublicFeedPostsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GetPublicFeedPostsResponse is not found in the empty JSON string", GetPublicFeedPostsResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!PublicFeedPostsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PublicFeedPostsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!GetPublicFeedPostsResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetPublicFeedPostsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : PublicFeedPostsResponse.openapiRequiredFields) {
+      for (String requiredField : GetPublicFeedPostsResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
@@ -358,37 +240,28 @@ public class PublicFeedPostsResponse {
       };
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
-      if ((jsonObj.get("urlIdWS") != null && !jsonObj.get("urlIdWS").isJsonNull()) && !jsonObj.get("urlIdWS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdWS").toString()));
-      }
-      if ((jsonObj.get("userIdWS") != null && !jsonObj.get("userIdWS").isJsonNull()) && !jsonObj.get("userIdWS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
-      }
-      if ((jsonObj.get("tenantIdWS") != null && !jsonObj.get("tenantIdWS").isJsonNull()) && !jsonObj.get("tenantIdWS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantIdWS").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PublicFeedPostsResponse.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PublicFeedPostsResponse' and its subtypes
+       if (!GetPublicFeedPostsResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'GetPublicFeedPostsResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PublicFeedPostsResponse> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PublicFeedPostsResponse.class));
+       final TypeAdapter<GetPublicFeedPostsResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(GetPublicFeedPostsResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PublicFeedPostsResponse>() {
+       return (TypeAdapter<T>) new TypeAdapter<GetPublicFeedPostsResponse>() {
            @Override
-           public void write(JsonWriter out, PublicFeedPostsResponse value) throws IOException {
+           public void write(JsonWriter out, GetPublicFeedPostsResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public PublicFeedPostsResponse read(JsonReader in) throws IOException {
+           public GetPublicFeedPostsResponse read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -399,18 +272,18 @@ public class PublicFeedPostsResponse {
   }
 
   /**
-   * Create an instance of PublicFeedPostsResponse given an JSON string
+   * Create an instance of GetPublicFeedPostsResponse given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of PublicFeedPostsResponse
-   * @throws IOException if the JSON string is invalid with respect to PublicFeedPostsResponse
+   * @return An instance of GetPublicFeedPostsResponse
+   * @throws IOException if the JSON string is invalid with respect to GetPublicFeedPostsResponse
    */
-  public static PublicFeedPostsResponse fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PublicFeedPostsResponse.class);
+  public static GetPublicFeedPostsResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, GetPublicFeedPostsResponse.class);
   }
 
   /**
-   * Convert an instance of PublicFeedPostsResponse to an JSON string
+   * Convert an instance of GetPublicFeedPostsResponse to an JSON string
    *
    * @return JSON string
    */
