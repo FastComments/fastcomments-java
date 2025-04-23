@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.13</version>
+  <version>0.0.14</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.13"
+     implementation "com.fastcomments:client:0.0.14"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.13.jar`
+* `target/client-0.0.14.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -308,7 +308,6 @@ Class | Method | HTTP request | Description
  - [HeaderState](docs/HeaderState.md)
  - [IgnoredResponse](docs/IgnoredResponse.md)
  - [ImageContentProfanityLevel](docs/ImageContentProfanityLevel.md)
- - [ImportedAPIStatus](docs/ImportedAPIStatus.md)
  - [ImportedAPIStatusFAILED](docs/ImportedAPIStatusFAILED.md)
  - [ImportedAPIStatusSUCCESS](docs/ImportedAPIStatusSUCCESS.md)
  - [LiveEvent](docs/LiveEvent.md)

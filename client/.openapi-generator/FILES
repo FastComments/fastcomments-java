@@ -122,7 +122,6 @@ docs/HeaderState.md
 docs/HiddenApi.md
 docs/IgnoredResponse.md
 docs/ImageContentProfanityLevel.md
-docs/ImportedAPIStatus.md
 docs/ImportedAPIStatusFAILED.md
 docs/ImportedAPIStatusSUCCESS.md
 docs/LiveEvent.md
@@ -348,7 +347,6 @@ src/main/java/com/fastcomments/model/GifRating.java
 src/main/java/com/fastcomments/model/HeaderState.java
 src/main/java/com/fastcomments/model/IgnoredResponse.java
 src/main/java/com/fastcomments/model/ImageContentProfanityLevel.java
-src/main/java/com/fastcomments/model/ImportedAPIStatus.java
 src/main/java/com/fastcomments/model/ImportedAPIStatusFAILED.java
 src/main/java/com/fastcomments/model/ImportedAPIStatusSUCCESS.java
 src/main/java/com/fastcomments/model/LiveEvent.java
@@ -548,7 +546,6 @@ src/test/java/com/fastcomments/model/IgnoredResponseTest.java
 src/test/java/com/fastcomments/model/ImageContentProfanityLevelTest.java
 src/test/java/com/fastcomments/model/ImportedAPIStatusFAILEDTest.java
 src/test/java/com/fastcomments/model/ImportedAPIStatusSUCCESSTest.java
-src/test/java/com/fastcomments/model/ImportedAPIStatusTest.java
 src/test/java/com/fastcomments/model/LiveEventExtraInfoTest.java
 src/test/java/com/fastcomments/model/LiveEventTest.java
 src/test/java/com/fastcomments/model/LiveEventTypeTest.java

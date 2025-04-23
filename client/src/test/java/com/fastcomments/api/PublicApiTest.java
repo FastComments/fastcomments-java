@@ -323,12 +323,14 @@ public class PublicApiTest {
         List<String> tags = null;
         String sso = null;
         Boolean isCrawler = null;
+        Boolean includeUserInfo = null;
         GetFeedPostsPublic200Response response = api.getFeedPostsPublic(tenantId)
                 .afterId(afterId)
                 .limit(limit)
                 .tags(tags)
                 .sso(sso)
                 .isCrawler(isCrawler)
+                .includeUserInfo(includeUserInfo)
                 .execute();
         // TODO: test validations
     }

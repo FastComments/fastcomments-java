@@ -598,6 +598,13 @@ paths:
         schema:
           type: boolean
         style: form
+      - explode: true
+        in: query
+        name: includeUserInfo
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -4148,11 +4155,6 @@ components:
       required:
       - status
       type: object
-    ImportedAPIStatus:
-      enum:
-      - success
-      - failed
-      type: string
     FeedPostMediaItemAsset:
       additionalProperties: false
       example:
@@ -4363,7 +4365,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus'
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
         feedPosts:
           items:
             $ref: '#/components/schemas/FeedPost'

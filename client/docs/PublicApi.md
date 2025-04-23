@@ -950,7 +950,7 @@ No authorization required
 
 <a id="getFeedPostsPublic"></a>
 # **getFeedPostsPublic**
-> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).isCrawler(isCrawler).execute();
+> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).isCrawler(isCrawler).includeUserInfo(includeUserInfo).execute();
 
 
 
@@ -977,6 +977,7 @@ public class Example {
     List<String> tags = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
     Boolean isCrawler = true; // Boolean | 
+    Boolean includeUserInfo = true; // Boolean | 
     try {
       GetFeedPostsPublic200Response result = apiInstance.getFeedPostsPublic(tenantId)
             .afterId(afterId)
@@ -984,6 +985,7 @@ public class Example {
             .tags(tags)
             .sso(sso)
             .isCrawler(isCrawler)
+            .includeUserInfo(includeUserInfo)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1007,6 +1009,7 @@ public class Example {
 | **tags** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **sso** | **String**|  | [optional] |
 | **isCrawler** | **Boolean**|  | [optional] |
+| **includeUserInfo** | **Boolean**|  | [optional] |
 
 ### Return type
 

@@ -2872,7 +2872,7 @@ public class PublicApi {
     public APIgetEventLogRequest getEventLog(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime) {
         return new APIgetEventLogRequest(tenantId, urlId, userIdWS, startTime, endTime);
     }
-    private okhttp3.Call getFeedPostsPublicCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, Boolean includeUserInfo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2918,6 +2918,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("isCrawler", isCrawler));
         }
 
+        if (includeUserInfo != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeUserInfo", includeUserInfo));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2938,26 +2942,26 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedPostsPublicValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, Boolean includeUserInfo, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFeedPostsPublic(Async)");
         }
 
-        return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
+        return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, isCrawler, includeUserInfo, _callback);
 
     }
 
 
-    private ApiResponse<GetFeedPostsPublic200Response> getFeedPostsPublicWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler) throws ApiException {
-        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, isCrawler, null);
+    private ApiResponse<GetFeedPostsPublic200Response> getFeedPostsPublicWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, Boolean includeUserInfo) throws ApiException {
+        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, isCrawler, includeUserInfo, null);
         Type localVarReturnType = new TypeToken<GetFeedPostsPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getFeedPostsPublicAsync(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsPublicAsync(String tenantId, String afterId, Integer limit, List<String> tags, String sso, Boolean isCrawler, Boolean includeUserInfo, final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
+        okhttp3.Call localVarCall = getFeedPostsPublicValidateBeforeCall(tenantId, afterId, limit, tags, sso, isCrawler, includeUserInfo, _callback);
         Type localVarReturnType = new TypeToken<GetFeedPostsPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2970,6 +2974,7 @@ public class PublicApi {
         private List<String> tags;
         private String sso;
         private Boolean isCrawler;
+        private Boolean includeUserInfo;
 
         private APIgetFeedPostsPublicRequest(String tenantId) {
             this.tenantId = tenantId;
@@ -3026,6 +3031,16 @@ public class PublicApi {
         }
 
         /**
+         * Set includeUserInfo
+         * @param includeUserInfo  (optional)
+         * @return APIgetFeedPostsPublicRequest
+         */
+        public APIgetFeedPostsPublicRequest includeUserInfo(Boolean includeUserInfo) {
+            this.includeUserInfo = includeUserInfo;
+            return this;
+        }
+
+        /**
          * Build call for getFeedPostsPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -3038,7 +3053,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
+            return getFeedPostsPublicCall(tenantId, afterId, limit, tags, sso, isCrawler, includeUserInfo, _callback);
         }
 
         /**
@@ -3053,7 +3068,7 @@ public class PublicApi {
          </table>
          */
         public GetFeedPostsPublic200Response execute() throws ApiException {
-            ApiResponse<GetFeedPostsPublic200Response> localVarResp = getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso, isCrawler);
+            ApiResponse<GetFeedPostsPublic200Response> localVarResp = getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso, isCrawler, includeUserInfo);
             return localVarResp.getData();
         }
 
@@ -3069,7 +3084,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetFeedPostsPublic200Response> executeWithHttpInfo() throws ApiException {
-            return getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso, isCrawler);
+            return getFeedPostsPublicWithHttpInfo(tenantId, afterId, limit, tags, sso, isCrawler, includeUserInfo);
         }
 
         /**
@@ -3085,7 +3100,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetFeedPostsPublic200Response> _callback) throws ApiException {
-            return getFeedPostsPublicAsync(tenantId, afterId, limit, tags, sso, isCrawler, _callback);
+            return getFeedPostsPublicAsync(tenantId, afterId, limit, tags, sso, isCrawler, includeUserInfo, _callback);
         }
     }
 
