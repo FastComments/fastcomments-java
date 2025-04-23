@@ -41,6 +41,8 @@ import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
 import com.fastcomments.model.CreateFeedPostParams;
+import com.fastcomments.model.CreateUserBadge200Response;
+import com.fastcomments.model.CreateUserBadgeParams;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
 import com.fastcomments.model.FeedPost;
@@ -52,6 +54,10 @@ import com.fastcomments.model.GetComments200Response;
 import com.fastcomments.model.GetDomainConfig200Response;
 import com.fastcomments.model.GetDomainConfigs200Response;
 import com.fastcomments.model.GetFeedPosts200Response;
+import com.fastcomments.model.GetUserBadge200Response;
+import com.fastcomments.model.GetUserBadgeProgressById200Response;
+import com.fastcomments.model.GetUserBadgeProgressList200Response;
+import com.fastcomments.model.GetUserBadges200Response;
 import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
 import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
@@ -61,6 +67,8 @@ import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
 import com.fastcomments.model.UpdateDomainConfigParams;
+import com.fastcomments.model.UpdateUserBadge200Response;
+import com.fastcomments.model.UpdateUserBadgeParams;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -1624,6 +1632,175 @@ public class DefaultApi {
     public APIcreateFeedPostRequest createFeedPost(String tenantId, CreateFeedPostParams createFeedPostParams) {
         return new APIcreateFeedPostRequest(tenantId, createFeedPostParams);
     }
+    private okhttp3.Call createUserBadgeCall(String tenantId, CreateUserBadgeParams createUserBadgeParams, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createUserBadgeParams;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badges";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createUserBadgeValidateBeforeCall(String tenantId, CreateUserBadgeParams createUserBadgeParams, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling createUserBadge(Async)");
+        }
+
+        // verify the required parameter 'createUserBadgeParams' is set
+        if (createUserBadgeParams == null) {
+            throw new ApiException("Missing the required parameter 'createUserBadgeParams' when calling createUserBadge(Async)");
+        }
+
+        return createUserBadgeCall(tenantId, createUserBadgeParams, _callback);
+
+    }
+
+
+    private ApiResponse<CreateUserBadge200Response> createUserBadgeWithHttpInfo(String tenantId, CreateUserBadgeParams createUserBadgeParams) throws ApiException {
+        okhttp3.Call localVarCall = createUserBadgeValidateBeforeCall(tenantId, createUserBadgeParams, null);
+        Type localVarReturnType = new TypeToken<CreateUserBadge200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call createUserBadgeAsync(String tenantId, CreateUserBadgeParams createUserBadgeParams, final ApiCallback<CreateUserBadge200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createUserBadgeValidateBeforeCall(tenantId, createUserBadgeParams, _callback);
+        Type localVarReturnType = new TypeToken<CreateUserBadge200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcreateUserBadgeRequest {
+        private final String tenantId;
+        private final CreateUserBadgeParams createUserBadgeParams;
+
+        private APIcreateUserBadgeRequest(String tenantId, CreateUserBadgeParams createUserBadgeParams) {
+            this.tenantId = tenantId;
+            this.createUserBadgeParams = createUserBadgeParams;
+        }
+
+        /**
+         * Build call for createUserBadge
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createUserBadgeCall(tenantId, createUserBadgeParams, _callback);
+        }
+
+        /**
+         * Execute createUserBadge request
+         * @return CreateUserBadge200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public CreateUserBadge200Response execute() throws ApiException {
+            ApiResponse<CreateUserBadge200Response> localVarResp = createUserBadgeWithHttpInfo(tenantId, createUserBadgeParams);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createUserBadge request with HTTP info returned
+         * @return ApiResponse&lt;CreateUserBadge200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CreateUserBadge200Response> executeWithHttpInfo() throws ApiException {
+            return createUserBadgeWithHttpInfo(tenantId, createUserBadgeParams);
+        }
+
+        /**
+         * Execute createUserBadge request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CreateUserBadge200Response> _callback) throws ApiException {
+            return createUserBadgeAsync(tenantId, createUserBadgeParams, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param createUserBadgeParams  (required)
+     * @return APIcreateUserBadgeRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIcreateUserBadgeRequest createUserBadge(String tenantId, CreateUserBadgeParams createUserBadgeParams) {
+        return new APIcreateUserBadgeRequest(tenantId, createUserBadgeParams);
+    }
     private okhttp3.Call deleteCommentCall(String tenantId, String id, String contextUserId, Boolean isLive, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1991,6 +2168,175 @@ public class DefaultApi {
      */
     public APIdeleteDomainConfigRequest deleteDomainConfig(String tenantId, String domain) {
         return new APIdeleteDomainConfigRequest(tenantId, domain);
+    }
+    private okhttp3.Call deleteUserBadgeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badges/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteUserBadgeValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteUserBadge(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteUserBadge(Async)");
+        }
+
+        return deleteUserBadgeCall(tenantId, id, _callback);
+
+    }
+
+
+    private ApiResponse<UpdateUserBadge200Response> deleteUserBadgeWithHttpInfo(String tenantId, String id) throws ApiException {
+        okhttp3.Call localVarCall = deleteUserBadgeValidateBeforeCall(tenantId, id, null);
+        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteUserBadgeAsync(String tenantId, String id, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteUserBadgeValidateBeforeCall(tenantId, id, _callback);
+        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteUserBadgeRequest {
+        private final String tenantId;
+        private final String id;
+
+        private APIdeleteUserBadgeRequest(String tenantId, String id) {
+            this.tenantId = tenantId;
+            this.id = id;
+        }
+
+        /**
+         * Build call for deleteUserBadge
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteUserBadgeCall(tenantId, id, _callback);
+        }
+
+        /**
+         * Execute deleteUserBadge request
+         * @return UpdateUserBadge200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public UpdateUserBadge200Response execute() throws ApiException {
+            ApiResponse<UpdateUserBadge200Response> localVarResp = deleteUserBadgeWithHttpInfo(tenantId, id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteUserBadge request with HTTP info returned
+         * @return ApiResponse&lt;UpdateUserBadge200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<UpdateUserBadge200Response> executeWithHttpInfo() throws ApiException {
+            return deleteUserBadgeWithHttpInfo(tenantId, id);
+        }
+
+        /**
+         * Execute deleteUserBadge request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+            return deleteUserBadgeAsync(tenantId, id, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @return APIdeleteUserBadgeRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteUserBadgeRequest deleteUserBadge(String tenantId, String id) {
+        return new APIdeleteUserBadgeRequest(tenantId, id);
     }
     private okhttp3.Call flagCommentCall(String tenantId, String id, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -3499,6 +3845,968 @@ public class DefaultApi {
     public APIgetFeedPostsRequest getFeedPosts(String tenantId) {
         return new APIgetFeedPostsRequest(tenantId);
     }
+    private okhttp3.Call getUserBadgeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badges/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUserBadgeValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadge(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getUserBadge(Async)");
+        }
+
+        return getUserBadgeCall(tenantId, id, _callback);
+
+    }
+
+
+    private ApiResponse<GetUserBadge200Response> getUserBadgeWithHttpInfo(String tenantId, String id) throws ApiException {
+        okhttp3.Call localVarCall = getUserBadgeValidateBeforeCall(tenantId, id, null);
+        Type localVarReturnType = new TypeToken<GetUserBadge200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getUserBadgeAsync(String tenantId, String id, final ApiCallback<GetUserBadge200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getUserBadgeValidateBeforeCall(tenantId, id, _callback);
+        Type localVarReturnType = new TypeToken<GetUserBadge200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetUserBadgeRequest {
+        private final String tenantId;
+        private final String id;
+
+        private APIgetUserBadgeRequest(String tenantId, String id) {
+            this.tenantId = tenantId;
+            this.id = id;
+        }
+
+        /**
+         * Build call for getUserBadge
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserBadgeCall(tenantId, id, _callback);
+        }
+
+        /**
+         * Execute getUserBadge request
+         * @return GetUserBadge200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetUserBadge200Response execute() throws ApiException {
+            ApiResponse<GetUserBadge200Response> localVarResp = getUserBadgeWithHttpInfo(tenantId, id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserBadge request with HTTP info returned
+         * @return ApiResponse&lt;GetUserBadge200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetUserBadge200Response> executeWithHttpInfo() throws ApiException {
+            return getUserBadgeWithHttpInfo(tenantId, id);
+        }
+
+        /**
+         * Execute getUserBadge request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadge200Response> _callback) throws ApiException {
+            return getUserBadgeAsync(tenantId, id, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @return APIgetUserBadgeRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetUserBadgeRequest getUserBadge(String tenantId, String id) {
+        return new APIgetUserBadgeRequest(tenantId, id);
+    }
+    private okhttp3.Call getUserBadgeProgressByIdCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badge-progress/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUserBadgeProgressByIdValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadgeProgressById(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getUserBadgeProgressById(Async)");
+        }
+
+        return getUserBadgeProgressByIdCall(tenantId, id, _callback);
+
+    }
+
+
+    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByIdWithHttpInfo(String tenantId, String id) throws ApiException {
+        okhttp3.Call localVarCall = getUserBadgeProgressByIdValidateBeforeCall(tenantId, id, null);
+        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getUserBadgeProgressByIdAsync(String tenantId, String id, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getUserBadgeProgressByIdValidateBeforeCall(tenantId, id, _callback);
+        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetUserBadgeProgressByIdRequest {
+        private final String tenantId;
+        private final String id;
+
+        private APIgetUserBadgeProgressByIdRequest(String tenantId, String id) {
+            this.tenantId = tenantId;
+            this.id = id;
+        }
+
+        /**
+         * Build call for getUserBadgeProgressById
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserBadgeProgressByIdCall(tenantId, id, _callback);
+        }
+
+        /**
+         * Execute getUserBadgeProgressById request
+         * @return GetUserBadgeProgressById200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetUserBadgeProgressById200Response execute() throws ApiException {
+            ApiResponse<GetUserBadgeProgressById200Response> localVarResp = getUserBadgeProgressByIdWithHttpInfo(tenantId, id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserBadgeProgressById request with HTTP info returned
+         * @return ApiResponse&lt;GetUserBadgeProgressById200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetUserBadgeProgressById200Response> executeWithHttpInfo() throws ApiException {
+            return getUserBadgeProgressByIdWithHttpInfo(tenantId, id);
+        }
+
+        /**
+         * Execute getUserBadgeProgressById request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+            return getUserBadgeProgressByIdAsync(tenantId, id, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @return APIgetUserBadgeProgressByIdRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetUserBadgeProgressByIdRequest getUserBadgeProgressById(String tenantId, String id) {
+        return new APIgetUserBadgeProgressByIdRequest(tenantId, id);
+    }
+    private okhttp3.Call getUserBadgeProgressByUserIdCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badge-progress/user/{userId}"
+            .replace("{" + "userId" + "}", localVarApiClient.escapeString(userId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUserBadgeProgressByUserIdValidateBeforeCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadgeProgressByUserId(Async)");
+        }
+
+        // verify the required parameter 'userId' is set
+        if (userId == null) {
+            throw new ApiException("Missing the required parameter 'userId' when calling getUserBadgeProgressByUserId(Async)");
+        }
+
+        return getUserBadgeProgressByUserIdCall(tenantId, userId, _callback);
+
+    }
+
+
+    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByUserIdWithHttpInfo(String tenantId, String userId) throws ApiException {
+        okhttp3.Call localVarCall = getUserBadgeProgressByUserIdValidateBeforeCall(tenantId, userId, null);
+        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getUserBadgeProgressByUserIdAsync(String tenantId, String userId, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getUserBadgeProgressByUserIdValidateBeforeCall(tenantId, userId, _callback);
+        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetUserBadgeProgressByUserIdRequest {
+        private final String tenantId;
+        private final String userId;
+
+        private APIgetUserBadgeProgressByUserIdRequest(String tenantId, String userId) {
+            this.tenantId = tenantId;
+            this.userId = userId;
+        }
+
+        /**
+         * Build call for getUserBadgeProgressByUserId
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserBadgeProgressByUserIdCall(tenantId, userId, _callback);
+        }
+
+        /**
+         * Execute getUserBadgeProgressByUserId request
+         * @return GetUserBadgeProgressById200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetUserBadgeProgressById200Response execute() throws ApiException {
+            ApiResponse<GetUserBadgeProgressById200Response> localVarResp = getUserBadgeProgressByUserIdWithHttpInfo(tenantId, userId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserBadgeProgressByUserId request with HTTP info returned
+         * @return ApiResponse&lt;GetUserBadgeProgressById200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetUserBadgeProgressById200Response> executeWithHttpInfo() throws ApiException {
+            return getUserBadgeProgressByUserIdWithHttpInfo(tenantId, userId);
+        }
+
+        /**
+         * Execute getUserBadgeProgressByUserId request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+            return getUserBadgeProgressByUserIdAsync(tenantId, userId, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param userId  (required)
+     * @return APIgetUserBadgeProgressByUserIdRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetUserBadgeProgressByUserIdRequest getUserBadgeProgressByUserId(String tenantId, String userId) {
+        return new APIgetUserBadgeProgressByUserIdRequest(tenantId, userId);
+    }
+    private okhttp3.Call getUserBadgeProgressListCall(String tenantId, String userId, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badge-progress";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUserBadgeProgressListValidateBeforeCall(String tenantId, String userId, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadgeProgressList(Async)");
+        }
+
+        return getUserBadgeProgressListCall(tenantId, userId, limit, skip, _callback);
+
+    }
+
+
+    private ApiResponse<GetUserBadgeProgressList200Response> getUserBadgeProgressListWithHttpInfo(String tenantId, String userId, Double limit, Double skip) throws ApiException {
+        okhttp3.Call localVarCall = getUserBadgeProgressListValidateBeforeCall(tenantId, userId, limit, skip, null);
+        Type localVarReturnType = new TypeToken<GetUserBadgeProgressList200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getUserBadgeProgressListAsync(String tenantId, String userId, Double limit, Double skip, final ApiCallback<GetUserBadgeProgressList200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getUserBadgeProgressListValidateBeforeCall(tenantId, userId, limit, skip, _callback);
+        Type localVarReturnType = new TypeToken<GetUserBadgeProgressList200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetUserBadgeProgressListRequest {
+        private final String tenantId;
+        private String userId;
+        private Double limit;
+        private Double skip;
+
+        private APIgetUserBadgeProgressListRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set userId
+         * @param userId  (optional)
+         * @return APIgetUserBadgeProgressListRequest
+         */
+        public APIgetUserBadgeProgressListRequest userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIgetUserBadgeProgressListRequest
+         */
+        public APIgetUserBadgeProgressListRequest limit(Double limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set skip
+         * @param skip  (optional)
+         * @return APIgetUserBadgeProgressListRequest
+         */
+        public APIgetUserBadgeProgressListRequest skip(Double skip) {
+            this.skip = skip;
+            return this;
+        }
+
+        /**
+         * Build call for getUserBadgeProgressList
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserBadgeProgressListCall(tenantId, userId, limit, skip, _callback);
+        }
+
+        /**
+         * Execute getUserBadgeProgressList request
+         * @return GetUserBadgeProgressList200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetUserBadgeProgressList200Response execute() throws ApiException {
+            ApiResponse<GetUserBadgeProgressList200Response> localVarResp = getUserBadgeProgressListWithHttpInfo(tenantId, userId, limit, skip);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserBadgeProgressList request with HTTP info returned
+         * @return ApiResponse&lt;GetUserBadgeProgressList200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetUserBadgeProgressList200Response> executeWithHttpInfo() throws ApiException {
+            return getUserBadgeProgressListWithHttpInfo(tenantId, userId, limit, skip);
+        }
+
+        /**
+         * Execute getUserBadgeProgressList request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadgeProgressList200Response> _callback) throws ApiException {
+            return getUserBadgeProgressListAsync(tenantId, userId, limit, skip, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @return APIgetUserBadgeProgressListRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetUserBadgeProgressListRequest getUserBadgeProgressList(String tenantId) {
+        return new APIgetUserBadgeProgressListRequest(tenantId);
+    }
+    private okhttp3.Call getUserBadgesCall(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badges";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
+        }
+
+        if (badgeId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("badgeId", badgeId));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        if (displayedOnComments != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("displayedOnComments", displayedOnComments));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getUserBadgesValidateBeforeCall(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadges(Async)");
+        }
+
+        return getUserBadgesCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, _callback);
+
+    }
+
+
+    private ApiResponse<GetUserBadges200Response> getUserBadgesWithHttpInfo(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip) throws ApiException {
+        okhttp3.Call localVarCall = getUserBadgesValidateBeforeCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, null);
+        Type localVarReturnType = new TypeToken<GetUserBadges200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getUserBadgesAsync(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip, final ApiCallback<GetUserBadges200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getUserBadgesValidateBeforeCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, _callback);
+        Type localVarReturnType = new TypeToken<GetUserBadges200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetUserBadgesRequest {
+        private final String tenantId;
+        private String userId;
+        private String badgeId;
+        private Double type;
+        private Boolean displayedOnComments;
+        private Double limit;
+        private Double skip;
+
+        private APIgetUserBadgesRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set userId
+         * @param userId  (optional)
+         * @return APIgetUserBadgesRequest
+         */
+        public APIgetUserBadgesRequest userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Set badgeId
+         * @param badgeId  (optional)
+         * @return APIgetUserBadgesRequest
+         */
+        public APIgetUserBadgesRequest badgeId(String badgeId) {
+            this.badgeId = badgeId;
+            return this;
+        }
+
+        /**
+         * Set type
+         * @param type  (optional)
+         * @return APIgetUserBadgesRequest
+         */
+        public APIgetUserBadgesRequest type(Double type) {
+            this.type = type;
+            return this;
+        }
+
+        /**
+         * Set displayedOnComments
+         * @param displayedOnComments  (optional)
+         * @return APIgetUserBadgesRequest
+         */
+        public APIgetUserBadgesRequest displayedOnComments(Boolean displayedOnComments) {
+            this.displayedOnComments = displayedOnComments;
+            return this;
+        }
+
+        /**
+         * Set limit
+         * @param limit  (optional)
+         * @return APIgetUserBadgesRequest
+         */
+        public APIgetUserBadgesRequest limit(Double limit) {
+            this.limit = limit;
+            return this;
+        }
+
+        /**
+         * Set skip
+         * @param skip  (optional)
+         * @return APIgetUserBadgesRequest
+         */
+        public APIgetUserBadgesRequest skip(Double skip) {
+            this.skip = skip;
+            return this;
+        }
+
+        /**
+         * Build call for getUserBadges
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getUserBadgesCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, _callback);
+        }
+
+        /**
+         * Execute getUserBadges request
+         * @return GetUserBadges200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetUserBadges200Response execute() throws ApiException {
+            ApiResponse<GetUserBadges200Response> localVarResp = getUserBadgesWithHttpInfo(tenantId, userId, badgeId, type, displayedOnComments, limit, skip);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getUserBadges request with HTTP info returned
+         * @return ApiResponse&lt;GetUserBadges200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetUserBadges200Response> executeWithHttpInfo() throws ApiException {
+            return getUserBadgesWithHttpInfo(tenantId, userId, badgeId, type, displayedOnComments, limit, skip);
+        }
+
+        /**
+         * Execute getUserBadges request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadges200Response> _callback) throws ApiException {
+            return getUserBadgesAsync(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @return APIgetUserBadgesRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetUserBadgesRequest getUserBadges(String tenantId) {
+        return new APIgetUserBadgesRequest(tenantId);
+    }
     private okhttp3.Call patchDomainConfigCall(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4891,5 +6199,183 @@ public class DefaultApi {
      */
     public APIupdateFeedPostRequest updateFeedPost(String tenantId, String id, FeedPost feedPost) {
         return new APIupdateFeedPostRequest(tenantId, id, feedPost);
+    }
+    private okhttp3.Call updateUserBadgeCall(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateUserBadgeParams;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/user-badges/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateUserBadgeValidateBeforeCall(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling updateUserBadge(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling updateUserBadge(Async)");
+        }
+
+        // verify the required parameter 'updateUserBadgeParams' is set
+        if (updateUserBadgeParams == null) {
+            throw new ApiException("Missing the required parameter 'updateUserBadgeParams' when calling updateUserBadge(Async)");
+        }
+
+        return updateUserBadgeCall(tenantId, id, updateUserBadgeParams, _callback);
+
+    }
+
+
+    private ApiResponse<UpdateUserBadge200Response> updateUserBadgeWithHttpInfo(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams) throws ApiException {
+        okhttp3.Call localVarCall = updateUserBadgeValidateBeforeCall(tenantId, id, updateUserBadgeParams, null);
+        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call updateUserBadgeAsync(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateUserBadgeValidateBeforeCall(tenantId, id, updateUserBadgeParams, _callback);
+        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIupdateUserBadgeRequest {
+        private final String tenantId;
+        private final String id;
+        private final UpdateUserBadgeParams updateUserBadgeParams;
+
+        private APIupdateUserBadgeRequest(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams) {
+            this.tenantId = tenantId;
+            this.id = id;
+            this.updateUserBadgeParams = updateUserBadgeParams;
+        }
+
+        /**
+         * Build call for updateUserBadge
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return updateUserBadgeCall(tenantId, id, updateUserBadgeParams, _callback);
+        }
+
+        /**
+         * Execute updateUserBadge request
+         * @return UpdateUserBadge200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public UpdateUserBadge200Response execute() throws ApiException {
+            ApiResponse<UpdateUserBadge200Response> localVarResp = updateUserBadgeWithHttpInfo(tenantId, id, updateUserBadgeParams);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute updateUserBadge request with HTTP info returned
+         * @return ApiResponse&lt;UpdateUserBadge200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<UpdateUserBadge200Response> executeWithHttpInfo() throws ApiException {
+            return updateUserBadgeWithHttpInfo(tenantId, id, updateUserBadgeParams);
+        }
+
+        /**
+         * Execute updateUserBadge request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+            return updateUserBadgeAsync(tenantId, id, updateUserBadgeParams, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @param updateUserBadgeParams  (required)
+     * @return APIupdateUserBadgeRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIupdateUserBadgeRequest updateUserBadge(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams) {
+        return new APIupdateUserBadgeRequest(tenantId, id, updateUserBadgeParams);
     }
 }

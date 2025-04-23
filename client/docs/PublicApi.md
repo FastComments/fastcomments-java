@@ -11,6 +11,7 @@ All URIs are relative to *http://localhost*
 | [**createFeedPostPublic**](PublicApi.md#createFeedPostPublic) | **POST** /feed-posts/{tenantId} |  |
 | [**deleteCommentPublic**](PublicApi.md#deleteCommentPublic) | **DELETE** /comments/{tenantId}/{commentId} |  |
 | [**deleteCommentVote**](PublicApi.md#deleteCommentVote) | **DELETE** /comments/{tenantId}/{commentId}/vote/{voteId} |  |
+| [**deleteFeedPostPublic**](PublicApi.md#deleteFeedPostPublic) | **DELETE** /feed-posts/{tenantId}/{postId} |  |
 | [**flagCommentPublic**](PublicApi.md#flagCommentPublic) | **POST** /flag-comment/{commentId} |  |
 | [**getCommentText**](PublicApi.md#getCommentText) | **GET** /comments/{tenantId}/{commentId}/text |  |
 | [**getCommentVoteUserNames**](PublicApi.md#getCommentVoteUserNames) | **GET** /comments/{tenantId}/{commentId}/votes |  |
@@ -31,6 +32,7 @@ All URIs are relative to *http://localhost*
 | [**unBlockCommentPublic**](PublicApi.md#unBlockCommentPublic) | **DELETE** /block-from-comment/{commentId} |  |
 | [**unLockComment**](PublicApi.md#unLockComment) | **POST** /comments/{tenantId}/{commentId}/unlock |  |
 | [**unPinComment**](PublicApi.md#unPinComment) | **POST** /comments/{tenantId}/{commentId}/unpin |  |
+| [**updateFeedPostPublic**](PublicApi.md#updateFeedPostPublic) | **PUT** /feed-posts/{tenantId}/{postId} |  |
 | [**updateUserNotificationCommentSubscriptionStatus**](PublicApi.md#updateUserNotificationCommentSubscriptionStatus) | **POST** /user-notifications/{notificationId}/mark-opted/{optedInOrOut} |  |
 | [**updateUserNotificationPageSubscriptionStatus**](PublicApi.md#updateUserNotificationPageSubscriptionStatus) | **POST** /user-notifications/set-subscription-state/{subscribedOrUnsubscribed} |  |
 | [**updateUserNotificationStatus**](PublicApi.md#updateUserNotificationStatus) | **POST** /user-notifications/{notificationId}/mark/{newStatus} |  |
@@ -442,6 +444,75 @@ public class Example {
 ### Return type
 
 [**DeleteCommentVote200Response**](DeleteCommentVote200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="deleteFeedPostPublic"></a>
+# **deleteFeedPostPublic**
+> DeleteFeedPostPublic200Response deleteFeedPostPublic(tenantId, postId).broadcastId(broadcastId).sso(sso).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String postId = "postId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String sso = "sso_example"; // String | 
+    try {
+      DeleteFeedPostPublic200Response result = apiInstance.deleteFeedPostPublic(tenantId, postId)
+            .broadcastId(broadcastId)
+            .sso(sso)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#deleteFeedPostPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **postId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
+
+### Return type
+
+[**DeleteFeedPostPublic200Response**](DeleteFeedPostPublic200Response.md)
 
 ### Authorization
 
@@ -1930,6 +2001,77 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="updateFeedPostPublic"></a>
+# **updateFeedPostPublic**
+> CreateFeedPostPublic200Response updateFeedPostPublic(tenantId, postId, updateFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String postId = "postId_example"; // String | 
+    UpdateFeedPostParams updateFeedPostParams = new UpdateFeedPostParams(); // UpdateFeedPostParams | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String sso = "sso_example"; // String | 
+    try {
+      CreateFeedPostPublic200Response result = apiInstance.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
+            .broadcastId(broadcastId)
+            .sso(sso)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#updateFeedPostPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **postId** | **String**|  | |
+| **updateFeedPostParams** | [**UpdateFeedPostParams**](UpdateFeedPostParams.md)|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateFeedPostPublic200Response**](CreateFeedPostPublic200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

@@ -130,7 +130,12 @@ public class FeedPost {
   public static final String SERIALIZED_NAME_REACTS = "reacts";
   @SerializedName(SERIALIZED_NAME_REACTS)
   @javax.annotation.Nullable
-  private Map<String, Double> reacts = new HashMap<>();
+  private Map<String, Integer> reacts = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_COMMENT_COUNT = "commentCount";
+  @SerializedName(SERIALIZED_NAME_COMMENT_COUNT)
+  @javax.annotation.Nullable
+  private Integer commentCount;
 
   public FeedPost() {
   }
@@ -433,12 +438,12 @@ public class FeedPost {
   }
 
 
-  public FeedPost reacts(@javax.annotation.Nullable Map<String, Double> reacts) {
+  public FeedPost reacts(@javax.annotation.Nullable Map<String, Integer> reacts) {
     this.reacts = reacts;
     return this;
   }
 
-  public FeedPost putReactsItem(String key, Double reactsItem) {
+  public FeedPost putReactsItem(String key, Integer reactsItem) {
     if (this.reacts == null) {
       this.reacts = new HashMap<>();
     }
@@ -447,16 +452,35 @@ public class FeedPost {
   }
 
   /**
-   * Construct a type with a set of properties K of type T
+   * Get reacts
    * @return reacts
    */
   @javax.annotation.Nullable
-  public Map<String, Double> getReacts() {
+  public Map<String, Integer> getReacts() {
     return reacts;
   }
 
-  public void setReacts(@javax.annotation.Nullable Map<String, Double> reacts) {
+  public void setReacts(@javax.annotation.Nullable Map<String, Integer> reacts) {
     this.reacts = reacts;
+  }
+
+
+  public FeedPost commentCount(@javax.annotation.Nullable Integer commentCount) {
+    this.commentCount = commentCount;
+    return this;
+  }
+
+  /**
+   * Get commentCount
+   * @return commentCount
+   */
+  @javax.annotation.Nullable
+  public Integer getCommentCount() {
+    return commentCount;
+  }
+
+  public void setCommentCount(@javax.annotation.Nullable Integer commentCount) {
+    this.commentCount = commentCount;
   }
 
 
@@ -484,12 +508,13 @@ public class FeedPost {
         Objects.equals(this.media, feedPost.media) &&
         Objects.equals(this.links, feedPost.links) &&
         Objects.equals(this.createdAt, feedPost.createdAt) &&
-        Objects.equals(this.reacts, feedPost.reacts);
+        Objects.equals(this.reacts, feedPost.reacts) &&
+        Objects.equals(this.commentCount, feedPost.commentCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, title, fromUserId, fromUserDisplayName, fromUserAvatar, fromIpHash, tags, weight, meta, contentHTML, media, links, createdAt, reacts);
+    return Objects.hash(id, tenantId, title, fromUserId, fromUserDisplayName, fromUserAvatar, fromIpHash, tags, weight, meta, contentHTML, media, links, createdAt, reacts, commentCount);
   }
 
   @Override
@@ -511,6 +536,7 @@ public class FeedPost {
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    reacts: ").append(toIndentedString(reacts)).append("\n");
+    sb.append("    commentCount: ").append(toIndentedString(commentCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -548,6 +574,7 @@ public class FeedPost {
     openapiFields.add("links");
     openapiFields.add("createdAt");
     openapiFields.add("reacts");
+    openapiFields.add("commentCount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

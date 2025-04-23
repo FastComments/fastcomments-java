@@ -164,4 +164,12 @@ public class FeedPostTest {
         // TODO: test reacts
     }
 
+    /**
+     * Test the property 'commentCount'
+     */
+    @Test
+    public void commentCountTest() {
+        // TODO: test commentCount
+    }
+
 }

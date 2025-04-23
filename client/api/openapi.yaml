@@ -893,6 +893,100 @@ paths:
       - Public
       x-accepts:
       - application/json
+  /feed-posts/{tenantId}/{postId}:
+    delete:
+      operationId: DeleteFeedPostPublic
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteFeedPostPublic_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
+    put:
+      operationId: UpdateFeedPostPublic
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFeedPostParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateFeedPostPublic_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /event-log/{tenantId}:
     get:
       description: |2-
@@ -1909,6 +2003,296 @@ paths:
       tags:
       - Public
       x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/user-badges/{id}:
+    delete:
+      operationId: DeleteUserBadge
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserBadge_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    get:
+      operationId: GetUserBadge
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserBadge_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    put:
+      operationId: UpdateUserBadge
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserBadgeParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserBadge_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/user-badges:
+    get:
+      operationId: GetUserBadges
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: badgeId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: displayedOnComments
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserBadges_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    post:
+      operationId: CreateUserBadge
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserBadgeParams'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserBadge_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/user-badge-progress/{id}:
+    get:
+      operationId: GetUserBadgeProgressById
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserBadgeProgressById_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/user-badge-progress:
+    get:
+      operationId: GetUserBadgeProgressList
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserBadgeProgressList_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/user-badge-progress/user/{userId}:
+    get:
+      operationId: GetUserBadgeProgressByUserId
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserBadgeProgressById_200_response'
+          description: Ok
+      security:
+      - api_key: []
       x-accepts:
       - application/json
   /api/v1/question-results-aggregation:
@@ -3779,11 +4163,10 @@ components:
         url:
           type: string
       type: object
-    Record_string.number_:
+    Int32Map:
       additionalProperties:
-        format: double
-        type: number
-      description: Construct a type with a set of properties K of type T
+        format: int32
+        type: integer
       properties: {}
       type: object
     FeedPost:
@@ -3816,9 +4199,10 @@ components:
         tags:
         - tags
         - tags
+        commentCount: 5
         createdAt: 2000-01-23T04:56:07.000+00:00
         reacts:
-          key: 5.962133916683182
+          key: 5
         meta:
           key: meta
         tenantId: tenantId
@@ -3879,11 +4263,13 @@ components:
           type: string
         reacts:
           additionalProperties:
-            format: double
-            type: number
-          description: Construct a type with a set of properties K of type T
+            format: int32
+            type: integer
           properties: {}
           type: object
+        commentCount:
+          format: int32
+          type: integer
       required:
       - _id
       - createdAt
@@ -3920,9 +4306,10 @@ components:
           tags:
           - tags
           - tags
+          commentCount: 5
           createdAt: 2000-01-23T04:56:07.000+00:00
           reacts:
-            key: 5.962133916683182
+            key: 5
           meta:
             key: meta
           tenantId: tenantId
@@ -3965,9 +4352,10 @@ components:
           tags:
           - tags
           - tags
+          commentCount: 5
           createdAt: 2000-01-23T04:56:07.000+00:00
           reacts:
-            key: 5.962133916683182
+            key: 5
           meta:
             key: meta
           tenantId: tenantId
@@ -4026,9 +4414,10 @@ components:
           tags:
           - tags
           - tags
+          commentCount: 5
           createdAt: 2000-01-23T04:56:07.000+00:00
           reacts:
-            key: 5.962133916683182
+            key: 5
           meta:
             key: meta
           tenantId: tenantId
@@ -4181,9 +4570,10 @@ components:
           tags:
           - tags
           - tags
+          commentCount: 5
           createdAt: 2000-01-23T04:56:07.000+00:00
           reacts:
-            key: 5.962133916683182
+            key: 5
           meta:
             key: meta
           tenantId: tenantId
@@ -4226,9 +4616,10 @@ components:
           tags:
           - tags
           - tags
+          commentCount: 5
           createdAt: 2000-01-23T04:56:07.000+00:00
           reacts:
-            key: 5.962133916683182
+            key: 5
           meta:
             key: meta
           tenantId: tenantId
@@ -4329,9 +4720,10 @@ components:
           tags:
           - tags
           - tags
+          commentCount: 5
           createdAt: 2000-01-23T04:56:07.000+00:00
           reacts:
-            key: 5.962133916683182
+            key: 5
           meta:
             key: meta
           tenantId: tenantId
@@ -4356,6 +4748,68 @@ components:
       required:
       - feedPost
       - status
+      type: object
+    UpdateFeedPostParams:
+      additionalProperties: false
+      example:
+        meta:
+          key: meta
+        links:
+        - description: description
+          text: text
+          title: title
+          url: url
+        - description: description
+          text: text
+          title: title
+          url: url
+        media:
+        - sizes:
+          - src: src
+            w: 6
+            h: 1
+          - src: src
+            w: 6
+            h: 1
+          linkUrl: linkUrl
+          title: title
+        - sizes:
+          - src: src
+            w: 6
+            h: 1
+          - src: src
+            w: 6
+            h: 1
+          linkUrl: linkUrl
+          title: title
+        title: title
+        contentHTML: contentHTML
+        tags:
+        - tags
+        - tags
+      properties:
+        title:
+          type: string
+        contentHTML:
+          type: string
+        media:
+          items:
+            $ref: '#/components/schemas/FeedPostMediaItem'
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/FeedPostLink'
+          type: array
+        tags:
+          items:
+            type: string
+          type: array
+        meta:
+          additionalProperties:
+            type: string
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
       type: object
     EventLogEntry:
       additionalProperties: false
@@ -4431,6 +4885,8 @@ components:
       - fr
       - dfr
       - new-feed-post
+      - updated-feed-post
+      - deleted-feed-post
       type: string
     CommentUserBadgeInfo:
       additionalProperties: false
@@ -4754,9 +5210,8 @@ components:
           type: array
         changes:
           additionalProperties:
-            format: double
-            type: number
-          description: Construct a type with a set of properties K of type T
+            format: int32
+            type: integer
           properties: {}
           type: object
       required:
@@ -5870,6 +6325,349 @@ components:
       - commentStatuses
       - status
       type: object
+    UserBadge:
+      additionalProperties: false
+      example:
+        displayLabel: displayLabel
+        backgroundColor: backgroundColor
+        borderColor: borderColor
+        badgeId: badgeId
+        description: description
+        threshold: 6.027456183070403
+        type: 0.8008281904610115
+        receivedAt: 2000-01-23T04:56:07.000+00:00
+        userId: userId
+        textColor: textColor
+        displayedOnComments: true
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        veteranUserThresholdMillis: 1.4658129805029452
+        cssClass: cssClass
+        _id: _id
+        fromTenantId: fromTenantId
+        displaySrc: displaySrc
+        order: 5.962133916683182
+      properties:
+        _id:
+          type: string
+        userId:
+          type: string
+        badgeId:
+          type: string
+        fromTenantId:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        type:
+          format: double
+          type: number
+        threshold:
+          format: double
+          type: number
+        description:
+          type: string
+        displayLabel:
+          type: string
+        displaySrc:
+          nullable: true
+          type: string
+        backgroundColor:
+          nullable: true
+          type: string
+        borderColor:
+          nullable: true
+          type: string
+        textColor:
+          nullable: true
+          type: string
+        cssClass:
+          nullable: true
+          type: string
+        veteranUserThresholdMillis:
+          format: double
+          type: number
+        displayedOnComments:
+          type: boolean
+        receivedAt:
+          format: date-time
+          type: string
+        order:
+          format: double
+          type: number
+      required:
+      - _id
+      - badgeId
+      - createdAt
+      - description
+      - displayLabel
+      - displayedOnComments
+      - fromTenantId
+      - receivedAt
+      - threshold
+      - type
+      - userId
+      - veteranUserThresholdMillis
+      type: object
+    APIGetUserBadgeResponse:
+      additionalProperties: false
+      example:
+        userBadge:
+          displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          badgeId: badgeId
+          description: description
+          threshold: 6.027456183070403
+          type: 0.8008281904610115
+          receivedAt: 2000-01-23T04:56:07.000+00:00
+          userId: userId
+          textColor: textColor
+          displayedOnComments: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          veteranUserThresholdMillis: 1.4658129805029452
+          cssClass: cssClass
+          _id: _id
+          fromTenantId: fromTenantId
+          displaySrc: displaySrc
+          order: 5.962133916683182
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        userBadge:
+          $ref: '#/components/schemas/UserBadge'
+      required:
+      - status
+      - userBadge
+      type: object
+    APIGetUserBadgesResponse:
+      additionalProperties: false
+      example:
+        userBadges:
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          badgeId: badgeId
+          description: description
+          threshold: 6.027456183070403
+          type: 0.8008281904610115
+          receivedAt: 2000-01-23T04:56:07.000+00:00
+          userId: userId
+          textColor: textColor
+          displayedOnComments: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          veteranUserThresholdMillis: 1.4658129805029452
+          cssClass: cssClass
+          _id: _id
+          fromTenantId: fromTenantId
+          displaySrc: displaySrc
+          order: 5.962133916683182
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          badgeId: badgeId
+          description: description
+          threshold: 6.027456183070403
+          type: 0.8008281904610115
+          receivedAt: 2000-01-23T04:56:07.000+00:00
+          userId: userId
+          textColor: textColor
+          displayedOnComments: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          veteranUserThresholdMillis: 1.4658129805029452
+          cssClass: cssClass
+          _id: _id
+          fromTenantId: fromTenantId
+          displaySrc: displaySrc
+          order: 5.962133916683182
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        userBadges:
+          items:
+            $ref: '#/components/schemas/UserBadge'
+          type: array
+      required:
+      - status
+      - userBadges
+      type: object
+    APICreateUserBadgeResponse:
+      additionalProperties: false
+      example:
+        userBadge:
+          displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          badgeId: badgeId
+          description: description
+          threshold: 6.027456183070403
+          type: 0.8008281904610115
+          receivedAt: 2000-01-23T04:56:07.000+00:00
+          userId: userId
+          textColor: textColor
+          displayedOnComments: true
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          veteranUserThresholdMillis: 1.4658129805029452
+          cssClass: cssClass
+          _id: _id
+          fromTenantId: fromTenantId
+          displaySrc: displaySrc
+          order: 5.962133916683182
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        userBadge:
+          $ref: '#/components/schemas/UserBadge'
+      required:
+      - status
+      - userBadge
+      type: object
+    CreateUserBadgeParams:
+      additionalProperties: false
+      example:
+        badgeId: badgeId
+        userId: userId
+        displayedOnComments: true
+      properties:
+        userId:
+          type: string
+        badgeId:
+          type: string
+        displayedOnComments:
+          type: boolean
+      required:
+      - badgeId
+      - userId
+      type: object
+    APIEmptySuccessResponse:
+      additionalProperties: false
+      example:
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+      required:
+      - status
+      type: object
+    UpdateUserBadgeParams:
+      additionalProperties: false
+      example:
+        displayedOnComments: true
+      properties:
+        displayedOnComments:
+          type: boolean
+      type: object
+    Record_string.number_:
+      additionalProperties:
+        format: double
+        type: number
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    UserBadgeProgress:
+      additionalProperties: false
+      example:
+        firstCommentDate: 2000-01-23T04:56:07.000+00:00
+        autoTrustFactor: 0.8008281904610115
+        tenantId: tenantId
+        progress:
+          key: 1.4658129805029452
+        _id: _id
+        firstCommentId: firstCommentId
+        manualTrustFactor: 6.027456183070403
+        userId: userId
+      properties:
+        _id:
+          type: string
+        tenantId:
+          type: string
+        userId:
+          type: string
+        firstCommentId:
+          type: string
+        firstCommentDate:
+          format: date-time
+          type: string
+        autoTrustFactor:
+          format: double
+          type: number
+        manualTrustFactor:
+          format: double
+          type: number
+        progress:
+          additionalProperties:
+            format: double
+            type: number
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - _id
+      - firstCommentDate
+      - firstCommentId
+      - progress
+      - tenantId
+      - userId
+      type: object
+    APIGetUserBadgeProgressResponse:
+      additionalProperties: false
+      example:
+        userBadgeProgress:
+          firstCommentDate: 2000-01-23T04:56:07.000+00:00
+          autoTrustFactor: 0.8008281904610115
+          tenantId: tenantId
+          progress:
+            key: 1.4658129805029452
+          _id: _id
+          firstCommentId: firstCommentId
+          manualTrustFactor: 6.027456183070403
+          userId: userId
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        userBadgeProgress:
+          $ref: '#/components/schemas/UserBadgeProgress'
+      required:
+      - status
+      - userBadgeProgress
+      type: object
+    APIGetUserBadgeProgressListResponse:
+      additionalProperties: false
+      example:
+        status: success
+        userBadgeProgresses:
+        - firstCommentDate: 2000-01-23T04:56:07.000+00:00
+          autoTrustFactor: 0.8008281904610115
+          tenantId: tenantId
+          progress:
+            key: 1.4658129805029452
+          _id: _id
+          firstCommentId: firstCommentId
+          manualTrustFactor: 6.027456183070403
+          userId: userId
+        - firstCommentDate: 2000-01-23T04:56:07.000+00:00
+          autoTrustFactor: 0.8008281904610115
+          tenantId: tenantId
+          progress:
+            key: 1.4658129805029452
+          _id: _id
+          firstCommentId: firstCommentId
+          manualTrustFactor: 6.027456183070403
+          userId: userId
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        userBadgeProgresses:
+          items:
+            $ref: '#/components/schemas/UserBadgeProgress'
+          type: array
+      required:
+      - status
+      - userBadgeProgresses
+      type: object
     Record_number.number_:
       additionalProperties:
         format: double
@@ -5911,7 +6709,7 @@ components:
         createdAt: 2000-01-23T04:56:07.000+00:00
         total: 5.962133916683182
         countsByValue:
-          key: 1.4658129805029452
+          key: 1
         dataByDateBucket:
           key:
             total: 6.027456183070403
@@ -5937,9 +6735,8 @@ components:
           type: object
         countsByValue:
           additionalProperties:
-            format: double
-            type: number
-          description: Construct a type with a set of properties K of type T
+            format: int32
+            type: integer
           properties: {}
           type: object
         total:
@@ -5963,7 +6760,7 @@ components:
           createdAt: 2000-01-23T04:56:07.000+00:00
           total: 5.962133916683182
           countsByValue:
-            key: 1.4658129805029452
+            key: 1
           dataByDateBucket:
             key:
               total: 6.027456183070403
@@ -6005,7 +6802,7 @@ components:
             createdAt: 2000-01-23T04:56:07.000+00:00
             total: 5.962133916683182
             countsByValue:
-              key: 1.4658129805029452
+              key: 1
             dataByDateBucket:
               key:
                 total: 6.027456183070403
@@ -7913,6 +8710,19 @@ components:
       anyOf:
       - $ref: '#/components/schemas/UserReactsResponse'
       - $ref: '#/components/schemas/APIError'
+    DeleteFeedPostPublic_200_response_anyOf:
+      example:
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+      required:
+      - status
+      type: object
+    DeleteFeedPostPublic_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/DeleteFeedPostPublic_200_response_anyOf'
+      - $ref: '#/components/schemas/APIError'
     GetEventLog_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetEventLogResponse'
@@ -7968,6 +8778,30 @@ components:
     UnBlockCommentPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
+      - $ref: '#/components/schemas/APIError'
+    GetUserBadge_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIGetUserBadgeResponse'
+      - $ref: '#/components/schemas/APIError'
+    UpdateUserBadge_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIEmptySuccessResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetUserBadges_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIGetUserBadgesResponse'
+      - $ref: '#/components/schemas/APIError'
+    CreateUserBadge_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APICreateUserBadgeResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetUserBadgeProgressById_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIGetUserBadgeProgressResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetUserBadgeProgressList_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/APIGetUserBadgeProgressListResponse'
       - $ref: '#/components/schemas/APIError'
     AggregateQuestionResults_200_response:
       anyOf:

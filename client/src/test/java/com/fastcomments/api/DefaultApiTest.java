@@ -28,6 +28,8 @@ import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
 import com.fastcomments.model.CreateFeedPostParams;
+import com.fastcomments.model.CreateUserBadge200Response;
+import com.fastcomments.model.CreateUserBadgeParams;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
 import com.fastcomments.model.FeedPost;
@@ -39,6 +41,10 @@ import com.fastcomments.model.GetComments200Response;
 import com.fastcomments.model.GetDomainConfig200Response;
 import com.fastcomments.model.GetDomainConfigs200Response;
 import com.fastcomments.model.GetFeedPosts200Response;
+import com.fastcomments.model.GetUserBadge200Response;
+import com.fastcomments.model.GetUserBadgeProgressById200Response;
+import com.fastcomments.model.GetUserBadgeProgressList200Response;
+import com.fastcomments.model.GetUserBadges200Response;
 import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
 import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
@@ -48,6 +54,8 @@ import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
 import com.fastcomments.model.UpdateDomainConfigParams;
+import com.fastcomments.model.UpdateUserBadge200Response;
+import com.fastcomments.model.UpdateUserBadgeParams;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -199,6 +207,18 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void createUserBadgeTest() throws ApiException {
+        String tenantId = null;
+        CreateUserBadgeParams createUserBadgeParams = null;
+        CreateUserBadge200Response response = api.createUserBadge(tenantId, createUserBadgeParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void deleteCommentTest() throws ApiException {
         String tenantId = null;
         String id = null;
@@ -219,6 +239,18 @@ public class DefaultApiTest {
         String tenantId = null;
         String domain = null;
         DeleteDomainConfig200Response response = api.deleteDomainConfig(tenantId, domain)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteUserBadgeTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        UpdateUserBadge200Response response = api.deleteUserBadge(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -357,6 +389,82 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void getUserBadgeTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        GetUserBadge200Response response = api.getUserBadge(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getUserBadgeProgressByIdTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        GetUserBadgeProgressById200Response response = api.getUserBadgeProgressById(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getUserBadgeProgressByUserIdTest() throws ApiException {
+        String tenantId = null;
+        String userId = null;
+        GetUserBadgeProgressById200Response response = api.getUserBadgeProgressByUserId(tenantId, userId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getUserBadgeProgressListTest() throws ApiException {
+        String tenantId = null;
+        String userId = null;
+        Double limit = null;
+        Double skip = null;
+        GetUserBadgeProgressList200Response response = api.getUserBadgeProgressList(tenantId)
+                .userId(userId)
+                .limit(limit)
+                .skip(skip)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getUserBadgesTest() throws ApiException {
+        String tenantId = null;
+        String userId = null;
+        String badgeId = null;
+        Double type = null;
+        Boolean displayedOnComments = null;
+        Double limit = null;
+        Double skip = null;
+        GetUserBadges200Response response = api.getUserBadges(tenantId)
+                .userId(userId)
+                .badgeId(badgeId)
+                .type(type)
+                .displayedOnComments(displayedOnComments)
+                .limit(limit)
+                .skip(skip)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void patchDomainConfigTest() throws ApiException {
         String tenantId = null;
         String domainToUpdate = null;
@@ -460,6 +568,19 @@ public class DefaultApiTest {
         String id = null;
         FeedPost feedPost = null;
         FlagCommentPublic200Response response = api.updateFeedPost(tenantId, id, feedPost)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateUserBadgeTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        UpdateUserBadgeParams updateUserBadgeParams = null;
+        UpdateUserBadge200Response response = api.updateUserBadge(tenantId, id, updateUserBadgeParams)
                 .execute();
         // TODO: test validations
     }

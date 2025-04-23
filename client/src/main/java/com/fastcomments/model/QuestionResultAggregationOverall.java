@@ -67,7 +67,7 @@ public class QuestionResultAggregationOverall {
   public static final String SERIALIZED_NAME_COUNTS_BY_VALUE = "countsByValue";
   @SerializedName(SERIALIZED_NAME_COUNTS_BY_VALUE)
   @javax.annotation.Nullable
-  private Map<String, Double> countsByValue = new HashMap<>();
+  private Map<String, Integer> countsByValue = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -141,12 +141,12 @@ public class QuestionResultAggregationOverall {
   }
 
 
-  public QuestionResultAggregationOverall countsByValue(@javax.annotation.Nullable Map<String, Double> countsByValue) {
+  public QuestionResultAggregationOverall countsByValue(@javax.annotation.Nullable Map<String, Integer> countsByValue) {
     this.countsByValue = countsByValue;
     return this;
   }
 
-  public QuestionResultAggregationOverall putCountsByValueItem(String key, Double countsByValueItem) {
+  public QuestionResultAggregationOverall putCountsByValueItem(String key, Integer countsByValueItem) {
     if (this.countsByValue == null) {
       this.countsByValue = new HashMap<>();
     }
@@ -155,15 +155,15 @@ public class QuestionResultAggregationOverall {
   }
 
   /**
-   * Construct a type with a set of properties K of type T
+   * Get countsByValue
    * @return countsByValue
    */
   @javax.annotation.Nullable
-  public Map<String, Double> getCountsByValue() {
+  public Map<String, Integer> getCountsByValue() {
     return countsByValue;
   }
 
-  public void setCountsByValue(@javax.annotation.Nullable Map<String, Double> countsByValue) {
+  public void setCountsByValue(@javax.annotation.Nullable Map<String, Integer> countsByValue) {
     this.countsByValue = countsByValue;
   }
 

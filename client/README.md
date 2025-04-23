@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.9</version>
+  <version>0.0.10</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.9"
+     implementation "com.fastcomments:client:0.0.10"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.9.jar`
+* `target/client-0.0.10.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -130,8 +130,10 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**bulkAggregateQuestionResults**](docs/DefaultApi.md#bulkAggregateQuestionResults) | **POST** /api/v1/question-results-aggregation/bulk | 
 *DefaultApi* | [**combineCommentsWithQuestionResults**](docs/DefaultApi.md#combineCommentsWithQuestionResults) | **GET** /api/v1/question-results-aggregation/combine/comments | 
 *DefaultApi* | [**createFeedPost**](docs/DefaultApi.md#createFeedPost) | **POST** /api/v1/feed-posts | 
+*DefaultApi* | [**createUserBadge**](docs/DefaultApi.md#createUserBadge) | **POST** /api/v1/user-badges | 
 *DefaultApi* | [**deleteComment**](docs/DefaultApi.md#deleteComment) | **DELETE** /api/v1/comments/{id} | 
 *DefaultApi* | [**deleteDomainConfig**](docs/DefaultApi.md#deleteDomainConfig) | **DELETE** /api/v1/domain-configs/{domain} | 
+*DefaultApi* | [**deleteUserBadge**](docs/DefaultApi.md#deleteUserBadge) | **DELETE** /api/v1/user-badges/{id} | 
 *DefaultApi* | [**flagComment**](docs/DefaultApi.md#flagComment) | **POST** /api/v1/comments/{id}/flag | 
 *DefaultApi* | [**getAuditLogs**](docs/DefaultApi.md#getAuditLogs) | **GET** /api/v1/audit-logs | 
 *DefaultApi* | [**getComment**](docs/DefaultApi.md#getComment) | **GET** /api/v1/comments/{id} | 
@@ -139,6 +141,11 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getDomainConfig**](docs/DefaultApi.md#getDomainConfig) | **GET** /api/v1/domain-configs/{domain} | 
 *DefaultApi* | [**getDomainConfigs**](docs/DefaultApi.md#getDomainConfigs) | **GET** /api/v1/domain-configs | 
 *DefaultApi* | [**getFeedPosts**](docs/DefaultApi.md#getFeedPosts) | **GET** /api/v1/feed-posts | 
+*DefaultApi* | [**getUserBadge**](docs/DefaultApi.md#getUserBadge) | **GET** /api/v1/user-badges/{id} | 
+*DefaultApi* | [**getUserBadgeProgressById**](docs/DefaultApi.md#getUserBadgeProgressById) | **GET** /api/v1/user-badge-progress/{id} | 
+*DefaultApi* | [**getUserBadgeProgressByUserId**](docs/DefaultApi.md#getUserBadgeProgressByUserId) | **GET** /api/v1/user-badge-progress/user/{userId} | 
+*DefaultApi* | [**getUserBadgeProgressList**](docs/DefaultApi.md#getUserBadgeProgressList) | **GET** /api/v1/user-badge-progress | 
+*DefaultApi* | [**getUserBadges**](docs/DefaultApi.md#getUserBadges) | **GET** /api/v1/user-badges | 
 *DefaultApi* | [**patchDomainConfig**](docs/DefaultApi.md#patchDomainConfig) | **PATCH** /api/v1/domain-configs/{domainToUpdate} | 
 *DefaultApi* | [**putDomainConfig**](docs/DefaultApi.md#putDomainConfig) | **PUT** /api/v1/domain-configs/{domainToUpdate} | 
 *DefaultApi* | [**saveComment**](docs/DefaultApi.md#saveComment) | **POST** /api/v1/comments | 
@@ -146,6 +153,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**unFlagComment**](docs/DefaultApi.md#unFlagComment) | **POST** /api/v1/comments/{id}/un-flag | 
 *DefaultApi* | [**updateComment**](docs/DefaultApi.md#updateComment) | **PATCH** /api/v1/comments/{id} | 
 *DefaultApi* | [**updateFeedPost**](docs/DefaultApi.md#updateFeedPost) | **PATCH** /api/v1/feed-posts/{id} | 
+*DefaultApi* | [**updateUserBadge**](docs/DefaultApi.md#updateUserBadge) | **PUT** /api/v1/user-badges/{id} | 
 *HiddenApi* | [**uploadImageOptions**](docs/HiddenApi.md#uploadImageOptions) | **OPTIONS** /upload-image/{tenantId} | 
 *PublicApi* | [**blockFromCommentPublic**](docs/PublicApi.md#blockFromCommentPublic) | **POST** /block-from-comment/{commentId} | 
 *PublicApi* | [**checkedCommentsForBlocked**](docs/PublicApi.md#checkedCommentsForBlocked) | **GET** /check-blocked-comments | 
@@ -153,6 +161,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**createFeedPostPublic**](docs/PublicApi.md#createFeedPostPublic) | **POST** /feed-posts/{tenantId} | 
 *PublicApi* | [**deleteCommentPublic**](docs/PublicApi.md#deleteCommentPublic) | **DELETE** /comments/{tenantId}/{commentId} | 
 *PublicApi* | [**deleteCommentVote**](docs/PublicApi.md#deleteCommentVote) | **DELETE** /comments/{tenantId}/{commentId}/vote/{voteId} | 
+*PublicApi* | [**deleteFeedPostPublic**](docs/PublicApi.md#deleteFeedPostPublic) | **DELETE** /feed-posts/{tenantId}/{postId} | 
 *PublicApi* | [**flagCommentPublic**](docs/PublicApi.md#flagCommentPublic) | **POST** /flag-comment/{commentId} | 
 *PublicApi* | [**getCommentText**](docs/PublicApi.md#getCommentText) | **GET** /comments/{tenantId}/{commentId}/text | 
 *PublicApi* | [**getCommentVoteUserNames**](docs/PublicApi.md#getCommentVoteUserNames) | **GET** /comments/{tenantId}/{commentId}/votes | 
@@ -173,6 +182,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**unBlockCommentPublic**](docs/PublicApi.md#unBlockCommentPublic) | **DELETE** /block-from-comment/{commentId} | 
 *PublicApi* | [**unLockComment**](docs/PublicApi.md#unLockComment) | **POST** /comments/{tenantId}/{commentId}/unlock | 
 *PublicApi* | [**unPinComment**](docs/PublicApi.md#unPinComment) | **POST** /comments/{tenantId}/{commentId}/unpin | 
+*PublicApi* | [**updateFeedPostPublic**](docs/PublicApi.md#updateFeedPostPublic) | **PUT** /feed-posts/{tenantId}/{postId} | 
 *PublicApi* | [**updateUserNotificationCommentSubscriptionStatus**](docs/PublicApi.md#updateUserNotificationCommentSubscriptionStatus) | **POST** /user-notifications/{notificationId}/mark-opted/{optedInOrOut} | 
 *PublicApi* | [**updateUserNotificationPageSubscriptionStatus**](docs/PublicApi.md#updateUserNotificationPageSubscriptionStatus) | **POST** /user-notifications/set-subscription-state/{subscribedOrUnsubscribed} | 
 *PublicApi* | [**updateUserNotificationStatus**](docs/PublicApi.md#updateUserNotificationStatus) | **POST** /user-notifications/{notificationId}/mark/{newStatus} | 
@@ -182,10 +192,16 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [APICreateUserBadgeResponse](docs/APICreateUserBadgeResponse.md)
  - [APIEmptyResponse](docs/APIEmptyResponse.md)
+ - [APIEmptySuccessResponse](docs/APIEmptySuccessResponse.md)
  - [APIError](docs/APIError.md)
  - [APIGetCommentResponse](docs/APIGetCommentResponse.md)
  - [APIGetCommentsResponse](docs/APIGetCommentsResponse.md)
+ - [APIGetUserBadgeProgressListResponse](docs/APIGetUserBadgeProgressListResponse.md)
+ - [APIGetUserBadgeProgressResponse](docs/APIGetUserBadgeProgressResponse.md)
+ - [APIGetUserBadgeResponse](docs/APIGetUserBadgeResponse.md)
+ - [APIGetUserBadgesResponse](docs/APIGetUserBadgesResponse.md)
  - [APIStatus](docs/APIStatus.md)
  - [AddDomainConfig200Response](docs/AddDomainConfig200Response.md)
  - [AddDomainConfig200ResponseAnyOf](docs/AddDomainConfig200ResponseAnyOf.md)
@@ -230,6 +246,8 @@ Class | Method | HTTP request | Description
  - [CreateFeedPostPublic200Response](docs/CreateFeedPostPublic200Response.md)
  - [CreateFeedPostResponse](docs/CreateFeedPostResponse.md)
  - [CreateFeedPostsResponse](docs/CreateFeedPostsResponse.md)
+ - [CreateUserBadge200Response](docs/CreateUserBadge200Response.md)
+ - [CreateUserBadgeParams](docs/CreateUserBadgeParams.md)
  - [CustomConfigParameters](docs/CustomConfigParameters.md)
  - [DeleteComment200Response](docs/DeleteComment200Response.md)
  - [DeleteCommentAction](docs/DeleteCommentAction.md)
@@ -237,6 +255,8 @@ Class | Method | HTTP request | Description
  - [DeleteCommentResult](docs/DeleteCommentResult.md)
  - [DeleteCommentVote200Response](docs/DeleteCommentVote200Response.md)
  - [DeleteDomainConfig200Response](docs/DeleteDomainConfig200Response.md)
+ - [DeleteFeedPostPublic200Response](docs/DeleteFeedPostPublic200Response.md)
+ - [DeleteFeedPostPublic200ResponseAnyOf](docs/DeleteFeedPostPublic200ResponseAnyOf.md)
  - [EventLogEntry](docs/EventLogEntry.md)
  - [FComment](docs/FComment.md)
  - [FCommentMeta](docs/FCommentMeta.md)
@@ -269,6 +289,10 @@ Class | Method | HTTP request | Description
  - [GetFeedPostsPublic200Response](docs/GetFeedPostsPublic200Response.md)
  - [GetFeedPostsResponse](docs/GetFeedPostsResponse.md)
  - [GetMyNotificationsResponse](docs/GetMyNotificationsResponse.md)
+ - [GetUserBadge200Response](docs/GetUserBadge200Response.md)
+ - [GetUserBadgeProgressById200Response](docs/GetUserBadgeProgressById200Response.md)
+ - [GetUserBadgeProgressList200Response](docs/GetUserBadgeProgressList200Response.md)
+ - [GetUserBadges200Response](docs/GetUserBadges200Response.md)
  - [GetUserNotificationCount200Response](docs/GetUserNotificationCount200Response.md)
  - [GetUserNotificationCountResponse](docs/GetUserNotificationCountResponse.md)
  - [GetUserNotifications200Response](docs/GetUserNotifications200Response.md)
@@ -338,8 +362,13 @@ Class | Method | HTTP request | Description
  - [UnBlockFromCommentParams](docs/UnBlockFromCommentParams.md)
  - [UnblockSuccess](docs/UnblockSuccess.md)
  - [UpdateDomainConfigParams](docs/UpdateDomainConfigParams.md)
+ - [UpdateFeedPostParams](docs/UpdateFeedPostParams.md)
+ - [UpdateUserBadge200Response](docs/UpdateUserBadge200Response.md)
+ - [UpdateUserBadgeParams](docs/UpdateUserBadgeParams.md)
  - [UpdateUserNotificationStatus200Response](docs/UpdateUserNotificationStatus200Response.md)
  - [UploadImageResponse](docs/UploadImageResponse.md)
+ - [UserBadge](docs/UserBadge.md)
+ - [UserBadgeProgress](docs/UserBadgeProgress.md)
  - [UserNotification](docs/UserNotification.md)
  - [UserNotificationWriteResponse](docs/UserNotificationWriteResponse.md)
  - [UserPresenceData](docs/UserPresenceData.md)

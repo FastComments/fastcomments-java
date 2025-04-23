@@ -33,5 +33,9 @@
 
 * `NEW_FEED_POST` (value: `"new-feed-post"`)
 
+* `UPDATED_FEED_POST` (value: `"updated-feed-post"`)
+
+* `DELETED_FEED_POST` (value: `"deleted-feed-post"`)
+
 
 

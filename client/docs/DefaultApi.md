@@ -12,8 +12,10 @@ All URIs are relative to *http://localhost*
 | [**bulkAggregateQuestionResults**](DefaultApi.md#bulkAggregateQuestionResults) | **POST** /api/v1/question-results-aggregation/bulk |  |
 | [**combineCommentsWithQuestionResults**](DefaultApi.md#combineCommentsWithQuestionResults) | **GET** /api/v1/question-results-aggregation/combine/comments |  |
 | [**createFeedPost**](DefaultApi.md#createFeedPost) | **POST** /api/v1/feed-posts |  |
+| [**createUserBadge**](DefaultApi.md#createUserBadge) | **POST** /api/v1/user-badges |  |
 | [**deleteComment**](DefaultApi.md#deleteComment) | **DELETE** /api/v1/comments/{id} |  |
 | [**deleteDomainConfig**](DefaultApi.md#deleteDomainConfig) | **DELETE** /api/v1/domain-configs/{domain} |  |
+| [**deleteUserBadge**](DefaultApi.md#deleteUserBadge) | **DELETE** /api/v1/user-badges/{id} |  |
 | [**flagComment**](DefaultApi.md#flagComment) | **POST** /api/v1/comments/{id}/flag |  |
 | [**getAuditLogs**](DefaultApi.md#getAuditLogs) | **GET** /api/v1/audit-logs |  |
 | [**getComment**](DefaultApi.md#getComment) | **GET** /api/v1/comments/{id} |  |
@@ -21,6 +23,11 @@ All URIs are relative to *http://localhost*
 | [**getDomainConfig**](DefaultApi.md#getDomainConfig) | **GET** /api/v1/domain-configs/{domain} |  |
 | [**getDomainConfigs**](DefaultApi.md#getDomainConfigs) | **GET** /api/v1/domain-configs |  |
 | [**getFeedPosts**](DefaultApi.md#getFeedPosts) | **GET** /api/v1/feed-posts |  |
+| [**getUserBadge**](DefaultApi.md#getUserBadge) | **GET** /api/v1/user-badges/{id} |  |
+| [**getUserBadgeProgressById**](DefaultApi.md#getUserBadgeProgressById) | **GET** /api/v1/user-badge-progress/{id} |  |
+| [**getUserBadgeProgressByUserId**](DefaultApi.md#getUserBadgeProgressByUserId) | **GET** /api/v1/user-badge-progress/user/{userId} |  |
+| [**getUserBadgeProgressList**](DefaultApi.md#getUserBadgeProgressList) | **GET** /api/v1/user-badge-progress |  |
+| [**getUserBadges**](DefaultApi.md#getUserBadges) | **GET** /api/v1/user-badges |  |
 | [**patchDomainConfig**](DefaultApi.md#patchDomainConfig) | **PATCH** /api/v1/domain-configs/{domainToUpdate} |  |
 | [**putDomainConfig**](DefaultApi.md#putDomainConfig) | **PUT** /api/v1/domain-configs/{domainToUpdate} |  |
 | [**saveComment**](DefaultApi.md#saveComment) | **POST** /api/v1/comments |  |
@@ -28,6 +35,7 @@ All URIs are relative to *http://localhost*
 | [**unFlagComment**](DefaultApi.md#unFlagComment) | **POST** /api/v1/comments/{id}/un-flag |  |
 | [**updateComment**](DefaultApi.md#updateComment) | **PATCH** /api/v1/comments/{id} |  |
 | [**updateFeedPost**](DefaultApi.md#updateFeedPost) | **PATCH** /api/v1/feed-posts/{id} |  |
+| [**updateUserBadge**](DefaultApi.md#updateUserBadge) | **PUT** /api/v1/user-badges/{id} |  |
 
 
 <a id="addDomainConfig"></a>
@@ -589,6 +597,76 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
+<a id="createUserBadge"></a>
+# **createUserBadge**
+> CreateUserBadge200Response createUserBadge(tenantId, createUserBadgeParams).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    CreateUserBadgeParams createUserBadgeParams = new CreateUserBadgeParams(); // CreateUserBadgeParams | 
+    try {
+      CreateUserBadge200Response result = apiInstance.createUserBadge(tenantId, createUserBadgeParams)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createUserBadge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **createUserBadgeParams** | [**CreateUserBadgeParams**](CreateUserBadgeParams.md)|  | |
+
+### Return type
+
+[**CreateUserBadge200Response**](CreateUserBadge200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
 <a id="deleteComment"></a>
 # **deleteComment**
 > DeleteComment200Response deleteComment(tenantId, id).contextUserId(contextUserId).isLive(isLive).execute();
@@ -720,6 +798,76 @@ public class Example {
 ### Return type
 
 [**DeleteDomainConfig200Response**](DeleteDomainConfig200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="deleteUserBadge"></a>
+# **deleteUserBadge**
+> UpdateUserBadge200Response deleteUserBadge(tenantId, id).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      UpdateUserBadge200Response result = apiInstance.deleteUserBadge(tenantId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteUserBadge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**UpdateUserBadge200Response**](UpdateUserBadge200Response.md)
 
 ### Authorization
 
@@ -1291,6 +1439,379 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
+<a id="getUserBadge"></a>
+# **getUserBadge**
+> GetUserBadge200Response getUserBadge(tenantId, id).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      GetUserBadge200Response result = apiInstance.getUserBadge(tenantId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getUserBadge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**GetUserBadge200Response**](GetUserBadge200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getUserBadgeProgressById"></a>
+# **getUserBadgeProgressById**
+> GetUserBadgeProgressById200Response getUserBadgeProgressById(tenantId, id).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      GetUserBadgeProgressById200Response result = apiInstance.getUserBadgeProgressById(tenantId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getUserBadgeProgressById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**GetUserBadgeProgressById200Response**](GetUserBadgeProgressById200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getUserBadgeProgressByUserId"></a>
+# **getUserBadgeProgressByUserId**
+> GetUserBadgeProgressById200Response getUserBadgeProgressByUserId(tenantId, userId).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String userId = "userId_example"; // String | 
+    try {
+      GetUserBadgeProgressById200Response result = apiInstance.getUserBadgeProgressByUserId(tenantId, userId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getUserBadgeProgressByUserId");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **userId** | **String**|  | |
+
+### Return type
+
+[**GetUserBadgeProgressById200Response**](GetUserBadgeProgressById200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getUserBadgeProgressList"></a>
+# **getUserBadgeProgressList**
+> GetUserBadgeProgressList200Response getUserBadgeProgressList(tenantId).userId(userId).limit(limit).skip(skip).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String userId = "userId_example"; // String | 
+    Double limit = 3.4D; // Double | 
+    Double skip = 3.4D; // Double | 
+    try {
+      GetUserBadgeProgressList200Response result = apiInstance.getUserBadgeProgressList(tenantId)
+            .userId(userId)
+            .limit(limit)
+            .skip(skip)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getUserBadgeProgressList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **userId** | **String**|  | [optional] |
+| **limit** | **Double**|  | [optional] |
+| **skip** | **Double**|  | [optional] |
+
+### Return type
+
+[**GetUserBadgeProgressList200Response**](GetUserBadgeProgressList200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getUserBadges"></a>
+# **getUserBadges**
+> GetUserBadges200Response getUserBadges(tenantId).userId(userId).badgeId(badgeId).type(type).displayedOnComments(displayedOnComments).limit(limit).skip(skip).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String userId = "userId_example"; // String | 
+    String badgeId = "badgeId_example"; // String | 
+    Double type = 3.4D; // Double | 
+    Boolean displayedOnComments = true; // Boolean | 
+    Double limit = 3.4D; // Double | 
+    Double skip = 3.4D; // Double | 
+    try {
+      GetUserBadges200Response result = apiInstance.getUserBadges(tenantId)
+            .userId(userId)
+            .badgeId(badgeId)
+            .type(type)
+            .displayedOnComments(displayedOnComments)
+            .limit(limit)
+            .skip(skip)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getUserBadges");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **userId** | **String**|  | [optional] |
+| **badgeId** | **String**|  | [optional] |
+| **type** | **Double**|  | [optional] |
+| **displayedOnComments** | **Boolean**|  | [optional] |
+| **limit** | **Double**|  | [optional] |
+| **skip** | **Double**|  | [optional] |
+
+### Return type
+
+[**GetUserBadges200Response**](GetUserBadges200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
 <a id="patchDomainConfig"></a>
 # **patchDomainConfig**
 > GetDomainConfig200Response patchDomainConfig(tenantId, domainToUpdate, patchDomainConfigParams).execute();
@@ -1809,6 +2330,78 @@ public class Example {
 ### Return type
 
 [**FlagCommentPublic200Response**](FlagCommentPublic200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="updateUserBadge"></a>
+# **updateUserBadge**
+> UpdateUserBadge200Response updateUserBadge(tenantId, id, updateUserBadgeParams).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    UpdateUserBadgeParams updateUserBadgeParams = new UpdateUserBadgeParams(); // UpdateUserBadgeParams | 
+    try {
+      UpdateUserBadge200Response result = apiInstance.updateUserBadge(tenantId, id, updateUserBadgeParams)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#updateUserBadge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+| **updateUserBadgeParams** | [**UpdateUserBadgeParams**](UpdateUserBadgeParams.md)|  | |
+
+### Return type
+
+[**UpdateUserBadge200Response**](UpdateUserBadge200Response.md)
 
 ### Authorization
 

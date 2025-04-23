@@ -139,7 +139,7 @@ public class LiveEvent {
   public static final String SERIALIZED_NAME_CHANGES = "changes";
   @SerializedName(SERIALIZED_NAME_CHANGES)
   @javax.annotation.Nullable
-  private Map<String, Double> changes = new HashMap<>();
+  private Map<String, Integer> changes = new HashMap<>();
 
   public LiveEvent() {
   }
@@ -453,12 +453,12 @@ public class LiveEvent {
   }
 
 
-  public LiveEvent changes(@javax.annotation.Nullable Map<String, Double> changes) {
+  public LiveEvent changes(@javax.annotation.Nullable Map<String, Integer> changes) {
     this.changes = changes;
     return this;
   }
 
-  public LiveEvent putChangesItem(String key, Double changesItem) {
+  public LiveEvent putChangesItem(String key, Integer changesItem) {
     if (this.changes == null) {
       this.changes = new HashMap<>();
     }
@@ -467,15 +467,15 @@ public class LiveEvent {
   }
 
   /**
-   * Construct a type with a set of properties K of type T
+   * Get changes
    * @return changes
    */
   @javax.annotation.Nullable
-  public Map<String, Double> getChanges() {
+  public Map<String, Integer> getChanges() {
     return changes;
   }
 
-  public void setChanges(@javax.annotation.Nullable Map<String, Double> changes) {
+  public void setChanges(@javax.annotation.Nullable Map<String, Integer> changes) {
     this.changes = changes;
   }
 

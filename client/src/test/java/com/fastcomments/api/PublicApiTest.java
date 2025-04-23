@@ -24,6 +24,7 @@ import com.fastcomments.model.CreateFeedPostParams;
 import com.fastcomments.model.CreateFeedPostPublic200Response;
 import com.fastcomments.model.DeleteCommentPublic200Response;
 import com.fastcomments.model.DeleteCommentVote200Response;
+import com.fastcomments.model.DeleteFeedPostPublic200Response;
 import java.io.File;
 import com.fastcomments.model.FlagCommentPublic200Response;
 import com.fastcomments.model.GetCommentText200Response;
@@ -45,6 +46,7 @@ import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SizePreset;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
+import com.fastcomments.model.UpdateFeedPostParams;
 import com.fastcomments.model.UpdateUserNotificationStatus200Response;
 import com.fastcomments.model.UploadImageResponse;
 import com.fastcomments.model.VoteBodyParams;
@@ -157,6 +159,22 @@ public class PublicApiTest {
         String sso = null;
         DeleteCommentVote200Response response = api.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
                 .editKey(editKey)
+                .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteFeedPostPublicTest() throws ApiException {
+        String tenantId = null;
+        String postId = null;
+        String broadcastId = null;
+        String sso = null;
+        DeleteFeedPostPublic200Response response = api.deleteFeedPostPublic(tenantId, postId)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -542,6 +560,23 @@ public class PublicApiTest {
         String broadcastId = null;
         String sso = null;
         PinComment200Response response = api.unPinComment(tenantId, commentId, broadcastId)
+                .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateFeedPostPublicTest() throws ApiException {
+        String tenantId = null;
+        String postId = null;
+        UpdateFeedPostParams updateFeedPostParams = null;
+        String broadcastId = null;
+        String sso = null;
+        CreateFeedPostPublic200Response response = api.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations

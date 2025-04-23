@@ -22,7 +22,7 @@
 |**isClosed** | **Boolean** |  |  [optional] |
 |**uj** | **List&lt;String&gt;** |  |  [optional] |
 |**ul** | **List&lt;String&gt;** |  |  [optional] |
-|**changes** | **Map&lt;String, Double&gt;** | Construct a type with a set of properties K of type T |  [optional] |
+|**changes** | **Map&lt;String, Integer&gt;** |  |  [optional] |
 
 
 

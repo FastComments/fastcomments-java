@@ -21,7 +21,8 @@
 |**media** | [**List&lt;FeedPostMediaItem&gt;**](FeedPostMediaItem.md) |  |  [optional] |
 |**links** | [**List&lt;FeedPostLink&gt;**](FeedPostLink.md) |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  |
-|**reacts** | **Map&lt;String, Double&gt;** | Construct a type with a set of properties K of type T |  [optional] |
+|**reacts** | **Map&lt;String, Integer&gt;** |  |  [optional] |
+|**commentCount** | **Integer** |  |  [optional] |
 
 
 

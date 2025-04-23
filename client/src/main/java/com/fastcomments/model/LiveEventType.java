@@ -55,7 +55,11 @@ public enum LiveEventType {
   
   DFR("dfr"),
   
-  NEW_FEED_POST("new-feed-post");
+  NEW_FEED_POST("new-feed-post"),
+  
+  UPDATED_FEED_POST("updated-feed-post"),
+  
+  DELETED_FEED_POST("deleted-feed-post");
 
   private String value;
 
