@@ -32,6 +32,7 @@ import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetCommentsPublic200Response;
 import com.fastcomments.model.GetEventLog200Response;
 import com.fastcomments.model.GetFeedPostsPublic200Response;
+import com.fastcomments.model.GetFeedPostsStats200Response;
 import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.GetUserPresenceStatuses200Response;
@@ -326,6 +327,20 @@ public class PublicApiTest {
                 .tags(tags)
                 .sso(sso)
                 .isCrawler(isCrawler)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getFeedPostsStatsTest() throws ApiException {
+        String tenantId = null;
+        List<String> postIds = null;
+        String sso = null;
+        GetFeedPostsStats200Response response = api.getFeedPostsStats(tenantId, postIds)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }

@@ -987,6 +987,45 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /feed-posts/{tenantId}/stats:
+    get:
+      operationId: GetFeedPostsStats
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: postIds
+        required: true
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeedPostsStats_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
   /event-log/{tenantId}:
     get:
       description: |2-
@@ -4810,6 +4849,44 @@ components:
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
+      type: object
+    FeedPostStats:
+      additionalProperties: false
+      example:
+        reacts:
+          key: 0
+        commentCount: 6
+      properties:
+        reacts:
+          additionalProperties:
+            format: int32
+            type: integer
+          properties: {}
+          type: object
+        commentCount:
+          format: int32
+          type: integer
+      type: object
+    FeedPostsStatsResponse:
+      additionalProperties: false
+      example:
+        stats:
+          key:
+            reacts:
+              key: 0
+            commentCount: 6
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        stats:
+          additionalProperties:
+            $ref: '#/components/schemas/FeedPostStats'
+          properties: {}
+          type: object
+      required:
+      - stats
+      - status
       type: object
     EventLogEntry:
       additionalProperties: false
@@ -8722,6 +8799,10 @@ components:
     DeleteFeedPostPublic_200_response:
       anyOf:
       - $ref: '#/components/schemas/DeleteFeedPostPublic_200_response_anyOf'
+      - $ref: '#/components/schemas/APIError'
+    GetFeedPostsStats_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/FeedPostsStatsResponse'
       - $ref: '#/components/schemas/APIError'
     GetEventLog_200_response:
       anyOf:

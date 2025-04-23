@@ -156,6 +156,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FeedPostLink.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FeedPostMediaItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FeedPostMediaItemAsset.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FeedPostStats.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FeedPostsStatsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FindCommentsByRangeItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FindCommentsByRangeResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.FlagComment200Response.CustomTypeAdapterFactory());
@@ -180,6 +182,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetFeedPosts200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetFeedPostsPublic200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetFeedPostsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetFeedPostsStats200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetMyNotificationsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserBadge200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetUserBadgeProgressById200Response.CustomTypeAdapterFactory());

@@ -18,6 +18,7 @@ All URIs are relative to *http://localhost*
 | [**getCommentsPublic**](PublicApi.md#getCommentsPublic) | **GET** /comments/{tenantId} |  |
 | [**getEventLog**](PublicApi.md#getEventLog) | **GET** /event-log/{tenantId} |  |
 | [**getFeedPostsPublic**](PublicApi.md#getFeedPostsPublic) | **GET** /feed-posts/{tenantId} |  |
+| [**getFeedPostsStats**](PublicApi.md#getFeedPostsStats) | **GET** /feed-posts/{tenantId}/stats |  |
 | [**getGlobalEventLog**](PublicApi.md#getGlobalEventLog) | **GET** /event-log/global/{tenantId} |  |
 | [**getUserNotificationCount**](PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count |  |
 | [**getUserNotifications**](PublicApi.md#getUserNotifications) | **GET** /user-notifications |  |
@@ -1007,6 +1008,72 @@ public class Example {
 ### Return type
 
 [**GetFeedPostsPublic200Response**](GetFeedPostsPublic200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getFeedPostsStats"></a>
+# **getFeedPostsStats**
+> GetFeedPostsStats200Response getFeedPostsStats(tenantId, postIds).sso(sso).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    List<String> postIds = Arrays.asList(); // List<String> | 
+    String sso = "sso_example"; // String | 
+    try {
+      GetFeedPostsStats200Response result = apiInstance.getFeedPostsStats(tenantId, postIds)
+            .sso(sso)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getFeedPostsStats");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **postIds** | [**List&lt;String&gt;**](String.md)|  | |
+| **sso** | **String**|  | [optional] |
+
+### Return type
+
+[**GetFeedPostsStats200Response**](GetFeedPostsStats200Response.md)
 
 ### Authorization
 

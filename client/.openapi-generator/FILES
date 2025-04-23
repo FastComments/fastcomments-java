@@ -78,6 +78,8 @@ docs/FeedPost.md
 docs/FeedPostLink.md
 docs/FeedPostMediaItem.md
 docs/FeedPostMediaItemAsset.md
+docs/FeedPostStats.md
+docs/FeedPostsStatsResponse.md
 docs/FindCommentsByRangeItem.md
 docs/FindCommentsByRangeResponse.md
 docs/FlagComment200Response.md
@@ -102,6 +104,7 @@ docs/GetEventLogResponse.md
 docs/GetFeedPosts200Response.md
 docs/GetFeedPostsPublic200Response.md
 docs/GetFeedPostsResponse.md
+docs/GetFeedPostsStats200Response.md
 docs/GetMyNotificationsResponse.md
 docs/GetUserBadge200Response.md
 docs/GetUserBadgeProgressById200Response.md
@@ -300,6 +303,8 @@ src/main/java/com/fastcomments/model/FeedPost.java
 src/main/java/com/fastcomments/model/FeedPostLink.java
 src/main/java/com/fastcomments/model/FeedPostMediaItem.java
 src/main/java/com/fastcomments/model/FeedPostMediaItemAsset.java
+src/main/java/com/fastcomments/model/FeedPostStats.java
+src/main/java/com/fastcomments/model/FeedPostsStatsResponse.java
 src/main/java/com/fastcomments/model/FindCommentsByRangeItem.java
 src/main/java/com/fastcomments/model/FindCommentsByRangeResponse.java
 src/main/java/com/fastcomments/model/FlagComment200Response.java
@@ -324,6 +329,7 @@ src/main/java/com/fastcomments/model/GetEventLogResponse.java
 src/main/java/com/fastcomments/model/GetFeedPosts200Response.java
 src/main/java/com/fastcomments/model/GetFeedPostsPublic200Response.java
 src/main/java/com/fastcomments/model/GetFeedPostsResponse.java
+src/main/java/com/fastcomments/model/GetFeedPostsStats200Response.java
 src/main/java/com/fastcomments/model/GetMyNotificationsResponse.java
 src/main/java/com/fastcomments/model/GetUserBadge200Response.java
 src/main/java/com/fastcomments/model/GetUserBadgeProgressById200Response.java
@@ -492,7 +498,9 @@ src/test/java/com/fastcomments/model/FCommentTest.java
 src/test/java/com/fastcomments/model/FeedPostLinkTest.java
 src/test/java/com/fastcomments/model/FeedPostMediaItemAssetTest.java
 src/test/java/com/fastcomments/model/FeedPostMediaItemTest.java
+src/test/java/com/fastcomments/model/FeedPostStatsTest.java
 src/test/java/com/fastcomments/model/FeedPostTest.java
+src/test/java/com/fastcomments/model/FeedPostsStatsResponseTest.java
 src/test/java/com/fastcomments/model/FindCommentsByRangeItemTest.java
 src/test/java/com/fastcomments/model/FindCommentsByRangeResponseTest.java
 src/test/java/com/fastcomments/model/FlagComment200ResponseTest.java
@@ -517,6 +525,7 @@ src/test/java/com/fastcomments/model/GetEventLogResponseTest.java
 src/test/java/com/fastcomments/model/GetFeedPosts200ResponseTest.java
 src/test/java/com/fastcomments/model/GetFeedPostsPublic200ResponseTest.java
 src/test/java/com/fastcomments/model/GetFeedPostsResponseTest.java
+src/test/java/com/fastcomments/model/GetFeedPostsStats200ResponseTest.java
 src/test/java/com/fastcomments/model/GetMyNotificationsResponseTest.java
 src/test/java/com/fastcomments/model/GetUserBadge200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserBadgeProgressById200ResponseTest.java

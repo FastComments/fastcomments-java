@@ -45,6 +45,7 @@ import com.fastcomments.model.GetCommentVoteUserNames200Response;
 import com.fastcomments.model.GetCommentsPublic200Response;
 import com.fastcomments.model.GetEventLog200Response;
 import com.fastcomments.model.GetFeedPostsPublic200Response;
+import com.fastcomments.model.GetFeedPostsStats200Response;
 import com.fastcomments.model.GetUserNotificationCount200Response;
 import com.fastcomments.model.GetUserNotifications200Response;
 import com.fastcomments.model.GetUserPresenceStatuses200Response;
@@ -3087,6 +3088,190 @@ public class PublicApi {
      */
     public APIgetFeedPostsPublicRequest getFeedPostsPublic(String tenantId) {
         return new APIgetFeedPostsPublicRequest(tenantId);
+    }
+    private okhttp3.Call getFeedPostsStatsCall(String tenantId, List<String> postIds, String sso, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/feed-posts/{tenantId}/stats"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (postIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "postIds", postIds));
+        }
+
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFeedPostsStatsValidateBeforeCall(String tenantId, List<String> postIds, String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getFeedPostsStats(Async)");
+        }
+
+        // verify the required parameter 'postIds' is set
+        if (postIds == null) {
+            throw new ApiException("Missing the required parameter 'postIds' when calling getFeedPostsStats(Async)");
+        }
+
+        return getFeedPostsStatsCall(tenantId, postIds, sso, _callback);
+
+    }
+
+
+    private ApiResponse<GetFeedPostsStats200Response> getFeedPostsStatsWithHttpInfo(String tenantId, List<String> postIds, String sso) throws ApiException {
+        okhttp3.Call localVarCall = getFeedPostsStatsValidateBeforeCall(tenantId, postIds, sso, null);
+        Type localVarReturnType = new TypeToken<GetFeedPostsStats200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getFeedPostsStatsAsync(String tenantId, List<String> postIds, String sso, final ApiCallback<GetFeedPostsStats200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFeedPostsStatsValidateBeforeCall(tenantId, postIds, sso, _callback);
+        Type localVarReturnType = new TypeToken<GetFeedPostsStats200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetFeedPostsStatsRequest {
+        private final String tenantId;
+        private final List<String> postIds;
+        private String sso;
+
+        private APIgetFeedPostsStatsRequest(String tenantId, List<String> postIds) {
+            this.tenantId = tenantId;
+            this.postIds = postIds;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetFeedPostsStatsRequest
+         */
+        public APIgetFeedPostsStatsRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for getFeedPostsStats
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getFeedPostsStatsCall(tenantId, postIds, sso, _callback);
+        }
+
+        /**
+         * Execute getFeedPostsStats request
+         * @return GetFeedPostsStats200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetFeedPostsStats200Response execute() throws ApiException {
+            ApiResponse<GetFeedPostsStats200Response> localVarResp = getFeedPostsStatsWithHttpInfo(tenantId, postIds, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getFeedPostsStats request with HTTP info returned
+         * @return ApiResponse&lt;GetFeedPostsStats200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetFeedPostsStats200Response> executeWithHttpInfo() throws ApiException {
+            return getFeedPostsStatsWithHttpInfo(tenantId, postIds, sso);
+        }
+
+        /**
+         * Execute getFeedPostsStats request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetFeedPostsStats200Response> _callback) throws ApiException {
+            return getFeedPostsStatsAsync(tenantId, postIds, sso, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param postIds  (required)
+     * @return APIgetFeedPostsStatsRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetFeedPostsStatsRequest getFeedPostsStats(String tenantId, List<String> postIds) {
+        return new APIgetFeedPostsStatsRequest(tenantId, postIds);
     }
     private okhttp3.Call getGlobalEventLogCall(String tenantId, String urlId, String userIdWS, Long startTime, Long endTime, final ApiCallback _callback) throws ApiException {
         String basePath = null;

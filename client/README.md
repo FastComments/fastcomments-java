@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.10</version>
+  <version>0.0.11</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.10"
+     implementation "com.fastcomments:client:0.0.11"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.10.jar`
+* `target/client-0.0.11.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**getCommentsPublic**](docs/PublicApi.md#getCommentsPublic) | **GET** /comments/{tenantId} | 
 *PublicApi* | [**getEventLog**](docs/PublicApi.md#getEventLog) | **GET** /event-log/{tenantId} | 
 *PublicApi* | [**getFeedPostsPublic**](docs/PublicApi.md#getFeedPostsPublic) | **GET** /feed-posts/{tenantId} | 
+*PublicApi* | [**getFeedPostsStats**](docs/PublicApi.md#getFeedPostsStats) | **GET** /feed-posts/{tenantId}/stats | 
 *PublicApi* | [**getGlobalEventLog**](docs/PublicApi.md#getGlobalEventLog) | **GET** /event-log/global/{tenantId} | 
 *PublicApi* | [**getUserNotificationCount**](docs/PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count | 
 *PublicApi* | [**getUserNotifications**](docs/PublicApi.md#getUserNotifications) | **GET** /user-notifications | 
@@ -264,6 +265,8 @@ Class | Method | HTTP request | Description
  - [FeedPostLink](docs/FeedPostLink.md)
  - [FeedPostMediaItem](docs/FeedPostMediaItem.md)
  - [FeedPostMediaItemAsset](docs/FeedPostMediaItemAsset.md)
+ - [FeedPostStats](docs/FeedPostStats.md)
+ - [FeedPostsStatsResponse](docs/FeedPostsStatsResponse.md)
  - [FindCommentsByRangeItem](docs/FindCommentsByRangeItem.md)
  - [FindCommentsByRangeResponse](docs/FindCommentsByRangeResponse.md)
  - [FlagComment200Response](docs/FlagComment200Response.md)
@@ -288,6 +291,7 @@ Class | Method | HTTP request | Description
  - [GetFeedPosts200Response](docs/GetFeedPosts200Response.md)
  - [GetFeedPostsPublic200Response](docs/GetFeedPostsPublic200Response.md)
  - [GetFeedPostsResponse](docs/GetFeedPostsResponse.md)
+ - [GetFeedPostsStats200Response](docs/GetFeedPostsStats200Response.md)
  - [GetMyNotificationsResponse](docs/GetMyNotificationsResponse.md)
  - [GetUserBadge200Response](docs/GetUserBadge200Response.md)
  - [GetUserBadgeProgressById200Response](docs/GetUserBadgeProgressById200Response.md)
