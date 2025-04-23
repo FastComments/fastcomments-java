@@ -319,7 +319,7 @@ No authorization required
 
 <a id="deleteCommentPublic"></a>
 # **deleteCommentPublic**
-> DeleteCommentPublic200Response deleteCommentPublic(tenantId, commentId, broadcastId).editKey(editKey).execute();
+> DeleteCommentPublic200Response deleteCommentPublic(tenantId, commentId, broadcastId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -342,9 +342,11 @@ public class Example {
     String commentId = "commentId_example"; // String | 
     String broadcastId = "broadcastId_example"; // String | 
     String editKey = "editKey_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       DeleteCommentPublic200Response result = apiInstance.deleteCommentPublic(tenantId, commentId, broadcastId)
             .editKey(editKey)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -366,6 +368,7 @@ public class Example {
 | **commentId** | **String**|  | |
 | **broadcastId** | **String**|  | |
 | **editKey** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 

@@ -140,8 +140,10 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String editKey = null;
+        String sso = null;
         DeleteCommentPublic200Response response = api.deleteCommentPublic(tenantId, commentId, broadcastId)
                 .editKey(editKey)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }

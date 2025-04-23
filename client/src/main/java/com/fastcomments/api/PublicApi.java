@@ -905,7 +905,7 @@ public class PublicApi {
     public APIcreateFeedPostPublicRequest createFeedPostPublic(String tenantId, CreateFeedPostParams createFeedPostParams) {
         return new APIcreateFeedPostPublicRequest(tenantId, createFeedPostParams);
     }
-    private okhttp3.Call deleteCommentPublicCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCommentPublicCall(String tenantId, String commentId, String broadcastId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -940,6 +940,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("editKey", editKey));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -960,7 +964,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCommentPublicValidateBeforeCall(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCommentPublicValidateBeforeCall(String tenantId, String commentId, String broadcastId, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteCommentPublic(Async)");
@@ -976,20 +980,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'broadcastId' when calling deleteCommentPublic(Async)");
         }
 
-        return deleteCommentPublicCall(tenantId, commentId, broadcastId, editKey, _callback);
+        return deleteCommentPublicCall(tenantId, commentId, broadcastId, editKey, sso, _callback);
 
     }
 
 
-    private ApiResponse<DeleteCommentPublic200Response> deleteCommentPublicWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey) throws ApiException {
-        okhttp3.Call localVarCall = deleteCommentPublicValidateBeforeCall(tenantId, commentId, broadcastId, editKey, null);
+    private ApiResponse<DeleteCommentPublic200Response> deleteCommentPublicWithHttpInfo(String tenantId, String commentId, String broadcastId, String editKey, String sso) throws ApiException {
+        okhttp3.Call localVarCall = deleteCommentPublicValidateBeforeCall(tenantId, commentId, broadcastId, editKey, sso, null);
         Type localVarReturnType = new TypeToken<DeleteCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCommentPublicAsync(String tenantId, String commentId, String broadcastId, String editKey, final ApiCallback<DeleteCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteCommentPublicAsync(String tenantId, String commentId, String broadcastId, String editKey, String sso, final ApiCallback<DeleteCommentPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCommentPublicValidateBeforeCall(tenantId, commentId, broadcastId, editKey, _callback);
+        okhttp3.Call localVarCall = deleteCommentPublicValidateBeforeCall(tenantId, commentId, broadcastId, editKey, sso, _callback);
         Type localVarReturnType = new TypeToken<DeleteCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1000,6 +1004,7 @@ public class PublicApi {
         private final String commentId;
         private final String broadcastId;
         private String editKey;
+        private String sso;
 
         private APIdeleteCommentPublicRequest(String tenantId, String commentId, String broadcastId) {
             this.tenantId = tenantId;
@@ -1018,6 +1023,16 @@ public class PublicApi {
         }
 
         /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIdeleteCommentPublicRequest
+         */
+        public APIdeleteCommentPublicRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
          * Build call for deleteCommentPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1030,7 +1045,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCommentPublicCall(tenantId, commentId, broadcastId, editKey, _callback);
+            return deleteCommentPublicCall(tenantId, commentId, broadcastId, editKey, sso, _callback);
         }
 
         /**
@@ -1045,7 +1060,7 @@ public class PublicApi {
          </table>
          */
         public DeleteCommentPublic200Response execute() throws ApiException {
-            ApiResponse<DeleteCommentPublic200Response> localVarResp = deleteCommentPublicWithHttpInfo(tenantId, commentId, broadcastId, editKey);
+            ApiResponse<DeleteCommentPublic200Response> localVarResp = deleteCommentPublicWithHttpInfo(tenantId, commentId, broadcastId, editKey, sso);
             return localVarResp.getData();
         }
 
@@ -1061,7 +1076,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<DeleteCommentPublic200Response> executeWithHttpInfo() throws ApiException {
-            return deleteCommentPublicWithHttpInfo(tenantId, commentId, broadcastId, editKey);
+            return deleteCommentPublicWithHttpInfo(tenantId, commentId, broadcastId, editKey, sso);
         }
 
         /**
@@ -1077,7 +1092,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<DeleteCommentPublic200Response> _callback) throws ApiException {
-            return deleteCommentPublicAsync(tenantId, commentId, broadcastId, editKey, _callback);
+            return deleteCommentPublicAsync(tenantId, commentId, broadcastId, editKey, sso, _callback);
         }
     }
 
