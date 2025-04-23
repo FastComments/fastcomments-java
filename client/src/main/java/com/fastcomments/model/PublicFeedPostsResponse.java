@@ -15,7 +15,6 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.FeedPost;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -60,7 +59,7 @@ public class PublicFeedPostsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusSUCCESS status;
+  private String status;
 
   public static final String SERIALIZED_NAME_FEED_POSTS = "feedPosts";
   @SerializedName(SERIALIZED_NAME_FEED_POSTS)
@@ -95,7 +94,7 @@ public class PublicFeedPostsResponse {
   public PublicFeedPostsResponse() {
   }
 
-  public PublicFeedPostsResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public PublicFeedPostsResponse status(@javax.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
@@ -105,11 +104,11 @@ public class PublicFeedPostsResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusSUCCESS getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull String status) {
     this.status = status;
   }
 
@@ -344,8 +343,9 @@ public class PublicFeedPostsResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `status`
-      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
       // ensure the json data is an array
       if (!jsonObj.get("feedPosts").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `feedPosts` to be an array in the JSON string but got `%s`", jsonObj.get("feedPosts").toString()));

@@ -4365,7 +4365,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          type: string
         feedPosts:
           items:
             $ref: '#/components/schemas/FeedPost'
@@ -4509,7 +4509,7 @@ components:
             key: true
         user: ""
         tenantIdWS: tenantIdWS
-        status: success
+        status: status
     ReactFeedPostResponse:
       additionalProperties: false
       example:
