@@ -15,6 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.FeedPost;
+import com.fastcomments.model.ImportedAPIStatusSUCCESS;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -59,7 +60,7 @@ public class PublicFeedPostsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private String status;
+  private ImportedAPIStatusSUCCESS status;
 
   public static final String SERIALIZED_NAME_FEED_POSTS = "feedPosts";
   @SerializedName(SERIALIZED_NAME_FEED_POSTS)
@@ -94,7 +95,7 @@ public class PublicFeedPostsResponse {
   public PublicFeedPostsResponse() {
   }
 
-  public PublicFeedPostsResponse status(@javax.annotation.Nonnull String status) {
+  public PublicFeedPostsResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
     this.status = status;
     return this;
   }
@@ -104,11 +105,11 @@ public class PublicFeedPostsResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public String getStatus() {
+  public ImportedAPIStatusSUCCESS getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull String status) {
+  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
     this.status = status;
   }
 
@@ -312,7 +313,6 @@ public class PublicFeedPostsResponse {
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("status");
     openapiRequiredFields.add("feedPosts");
-    openapiRequiredFields.add("user");
   }
 
   /**
@@ -343,9 +343,8 @@ public class PublicFeedPostsResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
+      // validate the required field `status`
+      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("feedPosts").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `feedPosts` to be an array in the JSON string but got `%s`", jsonObj.get("feedPosts").toString()));
@@ -356,8 +355,10 @@ public class PublicFeedPostsResponse {
       for (int i = 0; i < jsonArrayfeedPosts.size(); i++) {
         FeedPost.validateJsonElement(jsonArrayfeedPosts.get(i));
       };
-      // validate the required field `user`
-      UserSessionInfo.validateJsonElement(jsonObj.get("user"));
+      // validate the optional field `user`
+      if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
+        UserSessionInfo.validateJsonElement(jsonObj.get("user"));
+      }
       if ((jsonObj.get("urlIdWS") != null && !jsonObj.get("urlIdWS").isJsonNull()) && !jsonObj.get("urlIdWS").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `urlIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdWS").toString()));
       }

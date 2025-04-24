@@ -4322,6 +4322,7 @@ components:
           type: object
         commentCount:
           format: int32
+          nullable: true
           type: integer
       required:
       - _id
@@ -4365,7 +4366,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          type: string
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
         feedPosts:
           items:
             $ref: '#/components/schemas/FeedPost'
@@ -4377,7 +4378,6 @@ components:
       required:
       - feedPosts
       - status
-      - user
       type: object
     TenantIdWS:
       type: string
@@ -4509,7 +4509,7 @@ components:
             key: true
         user: ""
         tenantIdWS: tenantIdWS
-        status: status
+        status: success
     ReactFeedPostResponse:
       additionalProperties: false
       example:

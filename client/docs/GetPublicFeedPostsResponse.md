@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **String** |  |  |
+|**status** | **ImportedAPIStatusSUCCESS** |  |  |
 |**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  |
-|**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
+|**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  [optional] |
 
 
 
