@@ -1,6 +1,6 @@
 
 
-# RenderableUserNotification
+# PublicUserNotification
 
 
 ## Properties

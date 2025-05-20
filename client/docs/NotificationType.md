@@ -21,5 +21,15 @@
 
 * `NUMBER_7` (value: `new BigDecimal("7")`)
 
+* `NUMBER_8` (value: `new BigDecimal("8")`)
+
+* `NUMBER_81` (value: `new BigDecimal("81")`)
+
+* `NUMBER_82` (value: `new BigDecimal("82")`)
+
+* `NUMBER_9` (value: `new BigDecimal("9")`)
+
+* `NUMBER_10` (value: `new BigDecimal("10")`)
+
 
 

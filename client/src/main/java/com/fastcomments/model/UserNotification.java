@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.NotificationObjectType;
 import com.fastcomments.model.NotificationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -22,7 +23,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -90,7 +93,7 @@ public class UserNotification {
   public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "relatedObjectType";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
   @javax.annotation.Nonnull
-  private Double relatedObjectType;
+  private NotificationObjectType relatedObjectType;
 
   public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "relatedObjectId";
   @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
@@ -151,6 +154,26 @@ public class UserNotification {
   @SerializedName(SERIALIZED_NAME_OPTED_OUT)
   @javax.annotation.Nonnull
   private Boolean optedOut;
+
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  @javax.annotation.Nullable
+  private Double count;
+
+  public static final String SERIALIZED_NAME_RELATED_IDS = "relatedIds";
+  @SerializedName(SERIALIZED_NAME_RELATED_IDS)
+  @javax.annotation.Nullable
+  private List<String> relatedIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_FROM_USER_IDS = "fromUserIds";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_IDS)
+  @javax.annotation.Nullable
+  private List<String> fromUserIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_FROM_USER_NAMES = "fromUserNames";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_NAMES)
+  @javax.annotation.Nullable
+  private List<String> fromUserNames = new ArrayList<>();
 
   public UserNotification() {
   }
@@ -288,7 +311,7 @@ public class UserNotification {
   }
 
 
-  public UserNotification relatedObjectType(@javax.annotation.Nonnull Double relatedObjectType) {
+  public UserNotification relatedObjectType(@javax.annotation.Nonnull NotificationObjectType relatedObjectType) {
     this.relatedObjectType = relatedObjectType;
     return this;
   }
@@ -298,11 +321,11 @@ public class UserNotification {
    * @return relatedObjectType
    */
   @javax.annotation.Nonnull
-  public Double getRelatedObjectType() {
+  public NotificationObjectType getRelatedObjectType() {
     return relatedObjectType;
   }
 
-  public void setRelatedObjectType(@javax.annotation.Nonnull Double relatedObjectType) {
+  public void setRelatedObjectType(@javax.annotation.Nonnull NotificationObjectType relatedObjectType) {
     this.relatedObjectType = relatedObjectType;
   }
 
@@ -535,6 +558,106 @@ public class UserNotification {
   }
 
 
+  public UserNotification count(@javax.annotation.Nullable Double count) {
+    this.count = count;
+    return this;
+  }
+
+  /**
+   * Get count
+   * @return count
+   */
+  @javax.annotation.Nullable
+  public Double getCount() {
+    return count;
+  }
+
+  public void setCount(@javax.annotation.Nullable Double count) {
+    this.count = count;
+  }
+
+
+  public UserNotification relatedIds(@javax.annotation.Nullable List<String> relatedIds) {
+    this.relatedIds = relatedIds;
+    return this;
+  }
+
+  public UserNotification addRelatedIdsItem(String relatedIdsItem) {
+    if (this.relatedIds == null) {
+      this.relatedIds = new ArrayList<>();
+    }
+    this.relatedIds.add(relatedIdsItem);
+    return this;
+  }
+
+  /**
+   * Get relatedIds
+   * @return relatedIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getRelatedIds() {
+    return relatedIds;
+  }
+
+  public void setRelatedIds(@javax.annotation.Nullable List<String> relatedIds) {
+    this.relatedIds = relatedIds;
+  }
+
+
+  public UserNotification fromUserIds(@javax.annotation.Nullable List<String> fromUserIds) {
+    this.fromUserIds = fromUserIds;
+    return this;
+  }
+
+  public UserNotification addFromUserIdsItem(String fromUserIdsItem) {
+    if (this.fromUserIds == null) {
+      this.fromUserIds = new ArrayList<>();
+    }
+    this.fromUserIds.add(fromUserIdsItem);
+    return this;
+  }
+
+  /**
+   * Get fromUserIds
+   * @return fromUserIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getFromUserIds() {
+    return fromUserIds;
+  }
+
+  public void setFromUserIds(@javax.annotation.Nullable List<String> fromUserIds) {
+    this.fromUserIds = fromUserIds;
+  }
+
+
+  public UserNotification fromUserNames(@javax.annotation.Nullable List<String> fromUserNames) {
+    this.fromUserNames = fromUserNames;
+    return this;
+  }
+
+  public UserNotification addFromUserNamesItem(String fromUserNamesItem) {
+    if (this.fromUserNames == null) {
+      this.fromUserNames = new ArrayList<>();
+    }
+    this.fromUserNames.add(fromUserNamesItem);
+    return this;
+  }
+
+  /**
+   * Get fromUserNames
+   * @return fromUserNames
+   */
+  @javax.annotation.Nullable
+  public List<String> getFromUserNames() {
+    return fromUserNames;
+  }
+
+  public void setFromUserNames(@javax.annotation.Nullable List<String> fromUserNames) {
+    this.fromUserNames = fromUserNames;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -564,12 +687,16 @@ public class UserNotification {
         Objects.equals(this.fromUserName, userNotification.fromUserName) &&
         Objects.equals(this.fromUserId, userNotification.fromUserId) &&
         Objects.equals(this.fromUserAvatarSrc, userNotification.fromUserAvatarSrc) &&
-        Objects.equals(this.optedOut, userNotification.optedOut);
+        Objects.equals(this.optedOut, userNotification.optedOut) &&
+        Objects.equals(this.count, userNotification.count) &&
+        Objects.equals(this.relatedIds, userNotification.relatedIds) &&
+        Objects.equals(this.fromUserIds, userNotification.fromUserIds) &&
+        Objects.equals(this.fromUserNames, userNotification.fromUserNames);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, userId, anonUserId, urlId, url, pageTitle, relatedObjectType, relatedObjectId, viewed, isUnreadMessage, sent, createdAt, type, fromCommentId, fromVoteId, fromUserName, fromUserId, fromUserAvatarSrc, optedOut);
+    return Objects.hash(id, tenantId, userId, anonUserId, urlId, url, pageTitle, relatedObjectType, relatedObjectId, viewed, isUnreadMessage, sent, createdAt, type, fromCommentId, fromVoteId, fromUserName, fromUserId, fromUserAvatarSrc, optedOut, count, relatedIds, fromUserIds, fromUserNames);
   }
 
   @Override
@@ -596,6 +723,10 @@ public class UserNotification {
     sb.append("    fromUserId: ").append(toIndentedString(fromUserId)).append("\n");
     sb.append("    fromUserAvatarSrc: ").append(toIndentedString(fromUserAvatarSrc)).append("\n");
     sb.append("    optedOut: ").append(toIndentedString(optedOut)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    relatedIds: ").append(toIndentedString(relatedIds)).append("\n");
+    sb.append("    fromUserIds: ").append(toIndentedString(fromUserIds)).append("\n");
+    sb.append("    fromUserNames: ").append(toIndentedString(fromUserNames)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -638,6 +769,10 @@ public class UserNotification {
     openapiFields.add("fromUserId");
     openapiFields.add("fromUserAvatarSrc");
     openapiFields.add("optedOut");
+    openapiFields.add("count");
+    openapiFields.add("relatedIds");
+    openapiFields.add("fromUserIds");
+    openapiFields.add("fromUserNames");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -704,6 +839,8 @@ public class UserNotification {
       if ((jsonObj.get("pageTitle") != null && !jsonObj.get("pageTitle").isJsonNull()) && !jsonObj.get("pageTitle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pageTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageTitle").toString()));
       }
+      // validate the required field `relatedObjectType`
+      NotificationObjectType.validateJsonElement(jsonObj.get("relatedObjectType"));
       if (!jsonObj.get("relatedObjectId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `relatedObjectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relatedObjectId").toString()));
       }
@@ -723,6 +860,18 @@ public class UserNotification {
       }
       if ((jsonObj.get("fromUserAvatarSrc") != null && !jsonObj.get("fromUserAvatarSrc").isJsonNull()) && !jsonObj.get("fromUserAvatarSrc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fromUserAvatarSrc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserAvatarSrc").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("relatedIds") != null && !jsonObj.get("relatedIds").isJsonNull() && !jsonObj.get("relatedIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `relatedIds` to be an array in the JSON string but got `%s`", jsonObj.get("relatedIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("fromUserIds") != null && !jsonObj.get("fromUserIds").isJsonNull() && !jsonObj.get("fromUserIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserIds` to be an array in the JSON string but got `%s`", jsonObj.get("fromUserIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("fromUserNames") != null && !jsonObj.get("fromUserNames").isJsonNull() && !jsonObj.get("fromUserNames").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserNames` to be an array in the JSON string but got `%s`", jsonObj.get("fromUserNames").toString()));
       }
   }
 

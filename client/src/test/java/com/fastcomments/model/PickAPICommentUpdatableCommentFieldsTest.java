@@ -42,11 +42,27 @@ public class PickAPICommentUpdatableCommentFieldsTest {
     }
 
     /**
+     * Test the property 'date'
+     */
+    @Test
+    public void dateTest() {
+        // TODO: test date
+    }
+
+    /**
      * Test the property 'urlId'
      */
     @Test
     public void urlIdTest() {
         // TODO: test urlId
+    }
+
+    /**
+     * Test the property 'urlIdRaw'
+     */
+    @Test
+    public void urlIdRawTest() {
+        // TODO: test urlIdRaw
     }
 
     /**
@@ -63,22 +79,6 @@ public class PickAPICommentUpdatableCommentFieldsTest {
     @Test
     public void pageTitleTest() {
         // TODO: test pageTitle
-    }
-
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        // TODO: test date
-    }
-
-    /**
-     * Test the property 'urlIdRaw'
-     */
-    @Test
-    public void urlIdRawTest() {
-        // TODO: test urlIdRaw
     }
 
     /**

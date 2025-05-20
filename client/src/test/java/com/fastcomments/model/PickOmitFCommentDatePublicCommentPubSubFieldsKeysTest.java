@@ -42,11 +42,27 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeysTest {
     }
 
     /**
+     * Test the property 'date'
+     */
+    @Test
+    public void dateTest() {
+        // TODO: test date
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
     public void idTest() {
         // TODO: test id
+    }
+
+    /**
+     * Test the property 'tenantId'
+     */
+    @Test
+    public void tenantIdTest() {
+        // TODO: test tenantId
     }
 
     /**
@@ -71,22 +87,6 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeysTest {
     @Test
     public void pageTitleTest() {
         // TODO: test pageTitle
-    }
-
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        // TODO: test date
-    }
-
-    /**
-     * Test the property 'tenantId'
-     */
-    @Test
-    public void tenantIdTest() {
-        // TODO: test tenantId
     }
 
     /**

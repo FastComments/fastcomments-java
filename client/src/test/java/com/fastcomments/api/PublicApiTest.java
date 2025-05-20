@@ -43,6 +43,7 @@ import com.fastcomments.model.PublicBlockFromCommentParams;
 import com.fastcomments.model.ReactBodyParams;
 import com.fastcomments.model.ReactFeedPostPublic200Response;
 import com.fastcomments.model.ResetUserNotifications200Response;
+import com.fastcomments.model.SearchUsers200Response;
 import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SizePreset;
 import com.fastcomments.model.SortDirections;
@@ -221,9 +222,9 @@ public class PublicApiTest {
     public void getCommentVoteUserNamesTest() throws ApiException {
         String tenantId = null;
         String commentId = null;
-        Double direction = null;
+        Double dir = null;
         String sso = null;
-        GetCommentVoteUserNames200Response response = api.getCommentVoteUserNames(tenantId, commentId, direction)
+        GetCommentVoteUserNames200Response response = api.getCommentVoteUserNames(tenantId, commentId, dir)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -516,6 +517,23 @@ public class PublicApiTest {
                 .unreadOnly(unreadOnly)
                 .dmOnly(dmOnly)
                 .noDm(noDm)
+                .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void searchUsersTest() throws ApiException {
+        String tenantId = null;
+        String urlId = null;
+        String usernameStartsWith = null;
+        List<String> mentionGroupIds = null;
+        String sso = null;
+        SearchUsers200Response response = api.searchUsers(tenantId, urlId, usernameStartsWith)
+                .mentionGroupIds(mentionGroupIds)
                 .sso(sso)
                 .execute();
         // TODO: test validations

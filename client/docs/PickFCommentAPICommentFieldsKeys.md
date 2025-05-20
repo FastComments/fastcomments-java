@@ -8,13 +8,13 @@ From T, pick a set of properties whose keys are in the union K
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**date** | **OffsetDateTime** |  |  |
 |**id** | **String** |  |  |
+|**tenantId** | **String** |  |  |
 |**urlId** | **String** |  |  |
+|**urlIdRaw** | **String** |  |  [optional] |
 |**url** | **String** |  |  |
 |**pageTitle** | **String** |  |  [optional] |
-|**date** | **OffsetDateTime** |  |  |
-|**tenantId** | **String** |  |  |
-|**urlIdRaw** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**commenterEmail** | **String** |  |  [optional] |

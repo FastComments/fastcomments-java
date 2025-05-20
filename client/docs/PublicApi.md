@@ -29,6 +29,7 @@ All URIs are relative to *http://localhost*
 | [**reactFeedPostPublic**](PublicApi.md#reactFeedPostPublic) | **POST** /feed-posts/{tenantId}/react/{postId} |  |
 | [**resetUserNotificationCount**](PublicApi.md#resetUserNotificationCount) | **POST** /user-notifications/reset-count |  |
 | [**resetUserNotifications**](PublicApi.md#resetUserNotifications) | **POST** /user-notifications/reset |  |
+| [**searchUsers**](PublicApi.md#searchUsers) | **GET** /user-search/{tenantId} |  |
 | [**setCommentText**](PublicApi.md#setCommentText) | **POST** /comments/{tenantId}/{commentId}/update-text |  |
 | [**unBlockCommentPublic**](PublicApi.md#unBlockCommentPublic) | **DELETE** /block-from-comment/{commentId} |  |
 | [**unLockComment**](PublicApi.md#unLockComment) | **POST** /comments/{tenantId}/{commentId}/unlock |  |
@@ -671,7 +672,7 @@ No authorization required
 
 <a id="getCommentVoteUserNames"></a>
 # **getCommentVoteUserNames**
-> GetCommentVoteUserNames200Response getCommentVoteUserNames(tenantId, commentId, direction).sso(sso).execute();
+> GetCommentVoteUserNames200Response getCommentVoteUserNames(tenantId, commentId, dir).sso(sso).execute();
 
 
 
@@ -692,10 +693,10 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
-    Double direction = 3.4D; // Double | Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted.
+    Double dir = 3.4D; // Double | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentVoteUserNames200Response result = apiInstance.getCommentVoteUserNames(tenantId, commentId, direction)
+      GetCommentVoteUserNames200Response result = apiInstance.getCommentVoteUserNames(tenantId, commentId, dir)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -716,7 +717,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
-| **direction** | **Double**| Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. | |
+| **dir** | **Double**|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -1789,6 +1790,77 @@ public class Example {
 ### Return type
 
 [**ResetUserNotifications200Response**](ResetUserNotifications200Response.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="searchUsers"></a>
+# **searchUsers**
+> SearchUsers200Response searchUsers(tenantId, urlId, usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    String usernameStartsWith = "usernameStartsWith_example"; // String | 
+    List<String> mentionGroupIds = Arrays.asList(); // List<String> | 
+    String sso = "sso_example"; // String | 
+    try {
+      SearchUsers200Response result = apiInstance.searchUsers(tenantId, urlId, usernameStartsWith)
+            .mentionGroupIds(mentionGroupIds)
+            .sso(sso)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#searchUsers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **usernameStartsWith** | **String**|  | |
+| **mentionGroupIds** | [**List&lt;String&gt;**](String.md)|  | [optional] |
+| **sso** | **String**|  | [optional] |
+
+### Return type
+
+[**SearchUsers200Response**](SearchUsers200Response.md)
 
 ### Authorization
 

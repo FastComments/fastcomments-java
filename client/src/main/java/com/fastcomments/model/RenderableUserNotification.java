@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.NotificationObjectType;
 import com.fastcomments.model.NotificationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -21,8 +22,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,81 +54,6 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class RenderableUserNotification {
-  public static final String SERIALIZED_NAME_ID = "_id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private String id;
-
-  public static final String SERIALIZED_NAME_URL_ID = "urlId";
-  @SerializedName(SERIALIZED_NAME_URL_ID)
-  @javax.annotation.Nonnull
-  private String urlId;
-
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  @javax.annotation.Nonnull
-  private String url;
-
-  public static final String SERIALIZED_NAME_PAGE_TITLE = "pageTitle";
-  @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
-  @javax.annotation.Nullable
-  private String pageTitle;
-
-  public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "relatedObjectType";
-  @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
-  @javax.annotation.Nonnull
-  private Double relatedObjectType;
-
-  public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "relatedObjectId";
-  @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
-  @javax.annotation.Nonnull
-  private String relatedObjectId;
-
-  public static final String SERIALIZED_NAME_VIEWED = "viewed";
-  @SerializedName(SERIALIZED_NAME_VIEWED)
-  @javax.annotation.Nonnull
-  private Boolean viewed;
-
-  public static final String SERIALIZED_NAME_SENT = "sent";
-  @SerializedName(SERIALIZED_NAME_SENT)
-  @javax.annotation.Nonnull
-  private Boolean sent;
-
-  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  @javax.annotation.Nonnull
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
-  private NotificationType type;
-
-  public static final String SERIALIZED_NAME_FROM_COMMENT_ID = "fromCommentId";
-  @SerializedName(SERIALIZED_NAME_FROM_COMMENT_ID)
-  @javax.annotation.Nullable
-  private String fromCommentId;
-
-  public static final String SERIALIZED_NAME_FROM_USER_NAME = "fromUserName";
-  @SerializedName(SERIALIZED_NAME_FROM_USER_NAME)
-  @javax.annotation.Nonnull
-  private String fromUserName;
-
-  public static final String SERIALIZED_NAME_FROM_USER_ID = "fromUserId";
-  @SerializedName(SERIALIZED_NAME_FROM_USER_ID)
-  @javax.annotation.Nonnull
-  private String fromUserId;
-
-  public static final String SERIALIZED_NAME_FROM_USER_AVATAR_SRC = "fromUserAvatarSrc";
-  @SerializedName(SERIALIZED_NAME_FROM_USER_AVATAR_SRC)
-  @javax.annotation.Nullable
-  private String fromUserAvatarSrc;
-
-  public static final String SERIALIZED_NAME_OPTED_OUT = "optedOut";
-  @SerializedName(SERIALIZED_NAME_OPTED_OUT)
-  @javax.annotation.Nonnull
-  private Boolean optedOut;
-
   public static final String SERIALIZED_NAME_CONVERSATION_ID = "conversationId";
   @SerializedName(SERIALIZED_NAME_CONVERSATION_ID)
   @javax.annotation.Nullable
@@ -137,293 +64,103 @@ public class RenderableUserNotification {
   @javax.annotation.Nullable
   private String contextHTML;
 
+  public static final String SERIALIZED_NAME_FROM_USER_NAMES = "fromUserNames";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_NAMES)
+  @javax.annotation.Nullable
+  private List<String> fromUserNames = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_FROM_USER_IDS = "fromUserIds";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_IDS)
+  @javax.annotation.Nullable
+  private List<String> fromUserIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_RELATED_IDS = "relatedIds";
+  @SerializedName(SERIALIZED_NAME_RELATED_IDS)
+  @javax.annotation.Nullable
+  private List<String> relatedIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  @javax.annotation.Nullable
+  private Double count;
+
+  public static final String SERIALIZED_NAME_OPTED_OUT = "optedOut";
+  @SerializedName(SERIALIZED_NAME_OPTED_OUT)
+  @javax.annotation.Nonnull
+  private Boolean optedOut;
+
+  public static final String SERIALIZED_NAME_FROM_USER_AVATAR_SRC = "fromUserAvatarSrc";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_AVATAR_SRC)
+  @javax.annotation.Nullable
+  private String fromUserAvatarSrc;
+
+  public static final String SERIALIZED_NAME_FROM_USER_ID = "fromUserId";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_ID)
+  @javax.annotation.Nullable
+  private String fromUserId;
+
+  public static final String SERIALIZED_NAME_FROM_USER_NAME = "fromUserName";
+  @SerializedName(SERIALIZED_NAME_FROM_USER_NAME)
+  @javax.annotation.Nullable
+  private String fromUserName;
+
+  public static final String SERIALIZED_NAME_FROM_COMMENT_ID = "fromCommentId";
+  @SerializedName(SERIALIZED_NAME_FROM_COMMENT_ID)
+  @javax.annotation.Nullable
+  private String fromCommentId;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nonnull
+  private NotificationType type;
+
+  public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  @javax.annotation.Nonnull
+  private String createdAt;
+
+  public static final String SERIALIZED_NAME_SENT = "sent";
+  @SerializedName(SERIALIZED_NAME_SENT)
+  @javax.annotation.Nonnull
+  private String sent;
+
+  public static final String SERIALIZED_NAME_VIEWED = "viewed";
+  @SerializedName(SERIALIZED_NAME_VIEWED)
+  @javax.annotation.Nonnull
+  private String viewed;
+
+  public static final String SERIALIZED_NAME_RELATED_OBJECT_ID = "relatedObjectId";
+  @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_ID)
+  @javax.annotation.Nonnull
+  private String relatedObjectId;
+
+  public static final String SERIALIZED_NAME_RELATED_OBJECT_TYPE = "relatedObjectType";
+  @SerializedName(SERIALIZED_NAME_RELATED_OBJECT_TYPE)
+  @javax.annotation.Nonnull
+  private NotificationObjectType relatedObjectType;
+
+  public static final String SERIALIZED_NAME_PAGE_TITLE = "pageTitle";
+  @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
+  @javax.annotation.Nullable
+  private String pageTitle;
+
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  @javax.annotation.Nonnull
+  private String url;
+
+  public static final String SERIALIZED_NAME_URL_ID = "urlId";
+  @SerializedName(SERIALIZED_NAME_URL_ID)
+  @javax.annotation.Nonnull
+  private String urlId;
+
+  public static final String SERIALIZED_NAME_ID = "_id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private String id;
+
   public RenderableUserNotification() {
   }
-
-  public RenderableUserNotification id(@javax.annotation.Nonnull String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public String getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
-
-
-  public RenderableUserNotification urlId(@javax.annotation.Nonnull String urlId) {
-    this.urlId = urlId;
-    return this;
-  }
-
-  /**
-   * Get urlId
-   * @return urlId
-   */
-  @javax.annotation.Nonnull
-  public String getUrlId() {
-    return urlId;
-  }
-
-  public void setUrlId(@javax.annotation.Nonnull String urlId) {
-    this.urlId = urlId;
-  }
-
-
-  public RenderableUserNotification url(@javax.annotation.Nonnull String url) {
-    this.url = url;
-    return this;
-  }
-
-  /**
-   * Get url
-   * @return url
-   */
-  @javax.annotation.Nonnull
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(@javax.annotation.Nonnull String url) {
-    this.url = url;
-  }
-
-
-  public RenderableUserNotification pageTitle(@javax.annotation.Nullable String pageTitle) {
-    this.pageTitle = pageTitle;
-    return this;
-  }
-
-  /**
-   * Get pageTitle
-   * @return pageTitle
-   */
-  @javax.annotation.Nullable
-  public String getPageTitle() {
-    return pageTitle;
-  }
-
-  public void setPageTitle(@javax.annotation.Nullable String pageTitle) {
-    this.pageTitle = pageTitle;
-  }
-
-
-  public RenderableUserNotification relatedObjectType(@javax.annotation.Nonnull Double relatedObjectType) {
-    this.relatedObjectType = relatedObjectType;
-    return this;
-  }
-
-  /**
-   * Get relatedObjectType
-   * @return relatedObjectType
-   */
-  @javax.annotation.Nonnull
-  public Double getRelatedObjectType() {
-    return relatedObjectType;
-  }
-
-  public void setRelatedObjectType(@javax.annotation.Nonnull Double relatedObjectType) {
-    this.relatedObjectType = relatedObjectType;
-  }
-
-
-  public RenderableUserNotification relatedObjectId(@javax.annotation.Nonnull String relatedObjectId) {
-    this.relatedObjectId = relatedObjectId;
-    return this;
-  }
-
-  /**
-   * Get relatedObjectId
-   * @return relatedObjectId
-   */
-  @javax.annotation.Nonnull
-  public String getRelatedObjectId() {
-    return relatedObjectId;
-  }
-
-  public void setRelatedObjectId(@javax.annotation.Nonnull String relatedObjectId) {
-    this.relatedObjectId = relatedObjectId;
-  }
-
-
-  public RenderableUserNotification viewed(@javax.annotation.Nonnull Boolean viewed) {
-    this.viewed = viewed;
-    return this;
-  }
-
-  /**
-   * Get viewed
-   * @return viewed
-   */
-  @javax.annotation.Nonnull
-  public Boolean getViewed() {
-    return viewed;
-  }
-
-  public void setViewed(@javax.annotation.Nonnull Boolean viewed) {
-    this.viewed = viewed;
-  }
-
-
-  public RenderableUserNotification sent(@javax.annotation.Nonnull Boolean sent) {
-    this.sent = sent;
-    return this;
-  }
-
-  /**
-   * Get sent
-   * @return sent
-   */
-  @javax.annotation.Nonnull
-  public Boolean getSent() {
-    return sent;
-  }
-
-  public void setSent(@javax.annotation.Nonnull Boolean sent) {
-    this.sent = sent;
-  }
-
-
-  public RenderableUserNotification createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-    return this;
-  }
-
-  /**
-   * Get createdAt
-   * @return createdAt
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
-  }
-
-  public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public RenderableUserNotification type(@javax.annotation.Nonnull NotificationType type) {
-    this.type = type;
-    return this;
-  }
-
-  /**
-   * Get type
-   * @return type
-   */
-  @javax.annotation.Nonnull
-  public NotificationType getType() {
-    return type;
-  }
-
-  public void setType(@javax.annotation.Nonnull NotificationType type) {
-    this.type = type;
-  }
-
-
-  public RenderableUserNotification fromCommentId(@javax.annotation.Nullable String fromCommentId) {
-    this.fromCommentId = fromCommentId;
-    return this;
-  }
-
-  /**
-   * Get fromCommentId
-   * @return fromCommentId
-   */
-  @javax.annotation.Nullable
-  public String getFromCommentId() {
-    return fromCommentId;
-  }
-
-  public void setFromCommentId(@javax.annotation.Nullable String fromCommentId) {
-    this.fromCommentId = fromCommentId;
-  }
-
-
-  public RenderableUserNotification fromUserName(@javax.annotation.Nonnull String fromUserName) {
-    this.fromUserName = fromUserName;
-    return this;
-  }
-
-  /**
-   * Get fromUserName
-   * @return fromUserName
-   */
-  @javax.annotation.Nonnull
-  public String getFromUserName() {
-    return fromUserName;
-  }
-
-  public void setFromUserName(@javax.annotation.Nonnull String fromUserName) {
-    this.fromUserName = fromUserName;
-  }
-
-
-  public RenderableUserNotification fromUserId(@javax.annotation.Nonnull String fromUserId) {
-    this.fromUserId = fromUserId;
-    return this;
-  }
-
-  /**
-   * Get fromUserId
-   * @return fromUserId
-   */
-  @javax.annotation.Nonnull
-  public String getFromUserId() {
-    return fromUserId;
-  }
-
-  public void setFromUserId(@javax.annotation.Nonnull String fromUserId) {
-    this.fromUserId = fromUserId;
-  }
-
-
-  public RenderableUserNotification fromUserAvatarSrc(@javax.annotation.Nullable String fromUserAvatarSrc) {
-    this.fromUserAvatarSrc = fromUserAvatarSrc;
-    return this;
-  }
-
-  /**
-   * Get fromUserAvatarSrc
-   * @return fromUserAvatarSrc
-   */
-  @javax.annotation.Nullable
-  public String getFromUserAvatarSrc() {
-    return fromUserAvatarSrc;
-  }
-
-  public void setFromUserAvatarSrc(@javax.annotation.Nullable String fromUserAvatarSrc) {
-    this.fromUserAvatarSrc = fromUserAvatarSrc;
-  }
-
-
-  public RenderableUserNotification optedOut(@javax.annotation.Nonnull Boolean optedOut) {
-    this.optedOut = optedOut;
-    return this;
-  }
-
-  /**
-   * Get optedOut
-   * @return optedOut
-   */
-  @javax.annotation.Nonnull
-  public Boolean getOptedOut() {
-    return optedOut;
-  }
-
-  public void setOptedOut(@javax.annotation.Nonnull Boolean optedOut) {
-    this.optedOut = optedOut;
-  }
-
 
   public RenderableUserNotification conversationId(@javax.annotation.Nullable String conversationId) {
     this.conversationId = conversationId;
@@ -463,6 +200,391 @@ public class RenderableUserNotification {
   }
 
 
+  public RenderableUserNotification fromUserNames(@javax.annotation.Nullable List<String> fromUserNames) {
+    this.fromUserNames = fromUserNames;
+    return this;
+  }
+
+  public RenderableUserNotification addFromUserNamesItem(String fromUserNamesItem) {
+    if (this.fromUserNames == null) {
+      this.fromUserNames = new ArrayList<>();
+    }
+    this.fromUserNames.add(fromUserNamesItem);
+    return this;
+  }
+
+  /**
+   * Get fromUserNames
+   * @return fromUserNames
+   */
+  @javax.annotation.Nullable
+  public List<String> getFromUserNames() {
+    return fromUserNames;
+  }
+
+  public void setFromUserNames(@javax.annotation.Nullable List<String> fromUserNames) {
+    this.fromUserNames = fromUserNames;
+  }
+
+
+  public RenderableUserNotification fromUserIds(@javax.annotation.Nullable List<String> fromUserIds) {
+    this.fromUserIds = fromUserIds;
+    return this;
+  }
+
+  public RenderableUserNotification addFromUserIdsItem(String fromUserIdsItem) {
+    if (this.fromUserIds == null) {
+      this.fromUserIds = new ArrayList<>();
+    }
+    this.fromUserIds.add(fromUserIdsItem);
+    return this;
+  }
+
+  /**
+   * Get fromUserIds
+   * @return fromUserIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getFromUserIds() {
+    return fromUserIds;
+  }
+
+  public void setFromUserIds(@javax.annotation.Nullable List<String> fromUserIds) {
+    this.fromUserIds = fromUserIds;
+  }
+
+
+  public RenderableUserNotification relatedIds(@javax.annotation.Nullable List<String> relatedIds) {
+    this.relatedIds = relatedIds;
+    return this;
+  }
+
+  public RenderableUserNotification addRelatedIdsItem(String relatedIdsItem) {
+    if (this.relatedIds == null) {
+      this.relatedIds = new ArrayList<>();
+    }
+    this.relatedIds.add(relatedIdsItem);
+    return this;
+  }
+
+  /**
+   * Get relatedIds
+   * @return relatedIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getRelatedIds() {
+    return relatedIds;
+  }
+
+  public void setRelatedIds(@javax.annotation.Nullable List<String> relatedIds) {
+    this.relatedIds = relatedIds;
+  }
+
+
+  public RenderableUserNotification count(@javax.annotation.Nullable Double count) {
+    this.count = count;
+    return this;
+  }
+
+  /**
+   * Get count
+   * @return count
+   */
+  @javax.annotation.Nullable
+  public Double getCount() {
+    return count;
+  }
+
+  public void setCount(@javax.annotation.Nullable Double count) {
+    this.count = count;
+  }
+
+
+  public RenderableUserNotification optedOut(@javax.annotation.Nonnull Boolean optedOut) {
+    this.optedOut = optedOut;
+    return this;
+  }
+
+  /**
+   * Get optedOut
+   * @return optedOut
+   */
+  @javax.annotation.Nonnull
+  public Boolean getOptedOut() {
+    return optedOut;
+  }
+
+  public void setOptedOut(@javax.annotation.Nonnull Boolean optedOut) {
+    this.optedOut = optedOut;
+  }
+
+
+  public RenderableUserNotification fromUserAvatarSrc(@javax.annotation.Nullable String fromUserAvatarSrc) {
+    this.fromUserAvatarSrc = fromUserAvatarSrc;
+    return this;
+  }
+
+  /**
+   * Get fromUserAvatarSrc
+   * @return fromUserAvatarSrc
+   */
+  @javax.annotation.Nullable
+  public String getFromUserAvatarSrc() {
+    return fromUserAvatarSrc;
+  }
+
+  public void setFromUserAvatarSrc(@javax.annotation.Nullable String fromUserAvatarSrc) {
+    this.fromUserAvatarSrc = fromUserAvatarSrc;
+  }
+
+
+  public RenderableUserNotification fromUserId(@javax.annotation.Nullable String fromUserId) {
+    this.fromUserId = fromUserId;
+    return this;
+  }
+
+  /**
+   * Get fromUserId
+   * @return fromUserId
+   */
+  @javax.annotation.Nullable
+  public String getFromUserId() {
+    return fromUserId;
+  }
+
+  public void setFromUserId(@javax.annotation.Nullable String fromUserId) {
+    this.fromUserId = fromUserId;
+  }
+
+
+  public RenderableUserNotification fromUserName(@javax.annotation.Nullable String fromUserName) {
+    this.fromUserName = fromUserName;
+    return this;
+  }
+
+  /**
+   * Get fromUserName
+   * @return fromUserName
+   */
+  @javax.annotation.Nullable
+  public String getFromUserName() {
+    return fromUserName;
+  }
+
+  public void setFromUserName(@javax.annotation.Nullable String fromUserName) {
+    this.fromUserName = fromUserName;
+  }
+
+
+  public RenderableUserNotification fromCommentId(@javax.annotation.Nullable String fromCommentId) {
+    this.fromCommentId = fromCommentId;
+    return this;
+  }
+
+  /**
+   * Get fromCommentId
+   * @return fromCommentId
+   */
+  @javax.annotation.Nullable
+  public String getFromCommentId() {
+    return fromCommentId;
+  }
+
+  public void setFromCommentId(@javax.annotation.Nullable String fromCommentId) {
+    this.fromCommentId = fromCommentId;
+  }
+
+
+  public RenderableUserNotification type(@javax.annotation.Nonnull NotificationType type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nonnull
+  public NotificationType getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nonnull NotificationType type) {
+    this.type = type;
+  }
+
+
+  public RenderableUserNotification createdAt(@javax.annotation.Nonnull String createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * Get createdAt
+   * @return createdAt
+   */
+  @javax.annotation.Nonnull
+  public String getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public RenderableUserNotification sent(@javax.annotation.Nonnull String sent) {
+    this.sent = sent;
+    return this;
+  }
+
+  /**
+   * Get sent
+   * @return sent
+   */
+  @javax.annotation.Nonnull
+  public String getSent() {
+    return sent;
+  }
+
+  public void setSent(@javax.annotation.Nonnull String sent) {
+    this.sent = sent;
+  }
+
+
+  public RenderableUserNotification viewed(@javax.annotation.Nonnull String viewed) {
+    this.viewed = viewed;
+    return this;
+  }
+
+  /**
+   * Get viewed
+   * @return viewed
+   */
+  @javax.annotation.Nonnull
+  public String getViewed() {
+    return viewed;
+  }
+
+  public void setViewed(@javax.annotation.Nonnull String viewed) {
+    this.viewed = viewed;
+  }
+
+
+  public RenderableUserNotification relatedObjectId(@javax.annotation.Nonnull String relatedObjectId) {
+    this.relatedObjectId = relatedObjectId;
+    return this;
+  }
+
+  /**
+   * Get relatedObjectId
+   * @return relatedObjectId
+   */
+  @javax.annotation.Nonnull
+  public String getRelatedObjectId() {
+    return relatedObjectId;
+  }
+
+  public void setRelatedObjectId(@javax.annotation.Nonnull String relatedObjectId) {
+    this.relatedObjectId = relatedObjectId;
+  }
+
+
+  public RenderableUserNotification relatedObjectType(@javax.annotation.Nonnull NotificationObjectType relatedObjectType) {
+    this.relatedObjectType = relatedObjectType;
+    return this;
+  }
+
+  /**
+   * Get relatedObjectType
+   * @return relatedObjectType
+   */
+  @javax.annotation.Nonnull
+  public NotificationObjectType getRelatedObjectType() {
+    return relatedObjectType;
+  }
+
+  public void setRelatedObjectType(@javax.annotation.Nonnull NotificationObjectType relatedObjectType) {
+    this.relatedObjectType = relatedObjectType;
+  }
+
+
+  public RenderableUserNotification pageTitle(@javax.annotation.Nullable String pageTitle) {
+    this.pageTitle = pageTitle;
+    return this;
+  }
+
+  /**
+   * Get pageTitle
+   * @return pageTitle
+   */
+  @javax.annotation.Nullable
+  public String getPageTitle() {
+    return pageTitle;
+  }
+
+  public void setPageTitle(@javax.annotation.Nullable String pageTitle) {
+    this.pageTitle = pageTitle;
+  }
+
+
+  public RenderableUserNotification url(@javax.annotation.Nonnull String url) {
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * Get url
+   * @return url
+   */
+  @javax.annotation.Nonnull
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(@javax.annotation.Nonnull String url) {
+    this.url = url;
+  }
+
+
+  public RenderableUserNotification urlId(@javax.annotation.Nonnull String urlId) {
+    this.urlId = urlId;
+    return this;
+  }
+
+  /**
+   * Get urlId
+   * @return urlId
+   */
+  @javax.annotation.Nonnull
+  public String getUrlId() {
+    return urlId;
+  }
+
+  public void setUrlId(@javax.annotation.Nonnull String urlId) {
+    this.urlId = urlId;
+  }
+
+
+  public RenderableUserNotification id(@javax.annotation.Nonnull String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public String getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull String id) {
+    this.id = id;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -473,51 +595,59 @@ public class RenderableUserNotification {
       return false;
     }
     RenderableUserNotification renderableUserNotification = (RenderableUserNotification) o;
-    return Objects.equals(this.id, renderableUserNotification.id) &&
-        Objects.equals(this.urlId, renderableUserNotification.urlId) &&
-        Objects.equals(this.url, renderableUserNotification.url) &&
-        Objects.equals(this.pageTitle, renderableUserNotification.pageTitle) &&
-        Objects.equals(this.relatedObjectType, renderableUserNotification.relatedObjectType) &&
-        Objects.equals(this.relatedObjectId, renderableUserNotification.relatedObjectId) &&
-        Objects.equals(this.viewed, renderableUserNotification.viewed) &&
-        Objects.equals(this.sent, renderableUserNotification.sent) &&
-        Objects.equals(this.createdAt, renderableUserNotification.createdAt) &&
-        Objects.equals(this.type, renderableUserNotification.type) &&
-        Objects.equals(this.fromCommentId, renderableUserNotification.fromCommentId) &&
-        Objects.equals(this.fromUserName, renderableUserNotification.fromUserName) &&
-        Objects.equals(this.fromUserId, renderableUserNotification.fromUserId) &&
-        Objects.equals(this.fromUserAvatarSrc, renderableUserNotification.fromUserAvatarSrc) &&
+    return Objects.equals(this.conversationId, renderableUserNotification.conversationId) &&
+        Objects.equals(this.contextHTML, renderableUserNotification.contextHTML) &&
+        Objects.equals(this.fromUserNames, renderableUserNotification.fromUserNames) &&
+        Objects.equals(this.fromUserIds, renderableUserNotification.fromUserIds) &&
+        Objects.equals(this.relatedIds, renderableUserNotification.relatedIds) &&
+        Objects.equals(this.count, renderableUserNotification.count) &&
         Objects.equals(this.optedOut, renderableUserNotification.optedOut) &&
-        Objects.equals(this.conversationId, renderableUserNotification.conversationId) &&
-        Objects.equals(this.contextHTML, renderableUserNotification.contextHTML);
+        Objects.equals(this.fromUserAvatarSrc, renderableUserNotification.fromUserAvatarSrc) &&
+        Objects.equals(this.fromUserId, renderableUserNotification.fromUserId) &&
+        Objects.equals(this.fromUserName, renderableUserNotification.fromUserName) &&
+        Objects.equals(this.fromCommentId, renderableUserNotification.fromCommentId) &&
+        Objects.equals(this.type, renderableUserNotification.type) &&
+        Objects.equals(this.createdAt, renderableUserNotification.createdAt) &&
+        Objects.equals(this.sent, renderableUserNotification.sent) &&
+        Objects.equals(this.viewed, renderableUserNotification.viewed) &&
+        Objects.equals(this.relatedObjectId, renderableUserNotification.relatedObjectId) &&
+        Objects.equals(this.relatedObjectType, renderableUserNotification.relatedObjectType) &&
+        Objects.equals(this.pageTitle, renderableUserNotification.pageTitle) &&
+        Objects.equals(this.url, renderableUserNotification.url) &&
+        Objects.equals(this.urlId, renderableUserNotification.urlId) &&
+        Objects.equals(this.id, renderableUserNotification.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, urlId, url, pageTitle, relatedObjectType, relatedObjectId, viewed, sent, createdAt, type, fromCommentId, fromUserName, fromUserId, fromUserAvatarSrc, optedOut, conversationId, contextHTML);
+    return Objects.hash(conversationId, contextHTML, fromUserNames, fromUserIds, relatedIds, count, optedOut, fromUserAvatarSrc, fromUserId, fromUserName, fromCommentId, type, createdAt, sent, viewed, relatedObjectId, relatedObjectType, pageTitle, url, urlId, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RenderableUserNotification {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
-    sb.append("    relatedObjectType: ").append(toIndentedString(relatedObjectType)).append("\n");
-    sb.append("    relatedObjectId: ").append(toIndentedString(relatedObjectId)).append("\n");
-    sb.append("    viewed: ").append(toIndentedString(viewed)).append("\n");
-    sb.append("    sent: ").append(toIndentedString(sent)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    fromCommentId: ").append(toIndentedString(fromCommentId)).append("\n");
-    sb.append("    fromUserName: ").append(toIndentedString(fromUserName)).append("\n");
-    sb.append("    fromUserId: ").append(toIndentedString(fromUserId)).append("\n");
-    sb.append("    fromUserAvatarSrc: ").append(toIndentedString(fromUserAvatarSrc)).append("\n");
-    sb.append("    optedOut: ").append(toIndentedString(optedOut)).append("\n");
     sb.append("    conversationId: ").append(toIndentedString(conversationId)).append("\n");
     sb.append("    contextHTML: ").append(toIndentedString(contextHTML)).append("\n");
+    sb.append("    fromUserNames: ").append(toIndentedString(fromUserNames)).append("\n");
+    sb.append("    fromUserIds: ").append(toIndentedString(fromUserIds)).append("\n");
+    sb.append("    relatedIds: ").append(toIndentedString(relatedIds)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    optedOut: ").append(toIndentedString(optedOut)).append("\n");
+    sb.append("    fromUserAvatarSrc: ").append(toIndentedString(fromUserAvatarSrc)).append("\n");
+    sb.append("    fromUserId: ").append(toIndentedString(fromUserId)).append("\n");
+    sb.append("    fromUserName: ").append(toIndentedString(fromUserName)).append("\n");
+    sb.append("    fromCommentId: ").append(toIndentedString(fromCommentId)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    sent: ").append(toIndentedString(sent)).append("\n");
+    sb.append("    viewed: ").append(toIndentedString(viewed)).append("\n");
+    sb.append("    relatedObjectId: ").append(toIndentedString(relatedObjectId)).append("\n");
+    sb.append("    relatedObjectType: ").append(toIndentedString(relatedObjectType)).append("\n");
+    sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -540,38 +670,40 @@ public class RenderableUserNotification {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("_id");
-    openapiFields.add("urlId");
-    openapiFields.add("url");
-    openapiFields.add("pageTitle");
-    openapiFields.add("relatedObjectType");
-    openapiFields.add("relatedObjectId");
-    openapiFields.add("viewed");
-    openapiFields.add("sent");
-    openapiFields.add("createdAt");
-    openapiFields.add("type");
-    openapiFields.add("fromCommentId");
-    openapiFields.add("fromUserName");
-    openapiFields.add("fromUserId");
-    openapiFields.add("fromUserAvatarSrc");
-    openapiFields.add("optedOut");
     openapiFields.add("conversationId");
     openapiFields.add("contextHTML");
+    openapiFields.add("fromUserNames");
+    openapiFields.add("fromUserIds");
+    openapiFields.add("relatedIds");
+    openapiFields.add("count");
+    openapiFields.add("optedOut");
+    openapiFields.add("fromUserAvatarSrc");
+    openapiFields.add("fromUserId");
+    openapiFields.add("fromUserName");
+    openapiFields.add("fromCommentId");
+    openapiFields.add("type");
+    openapiFields.add("createdAt");
+    openapiFields.add("sent");
+    openapiFields.add("viewed");
+    openapiFields.add("relatedObjectId");
+    openapiFields.add("relatedObjectType");
+    openapiFields.add("pageTitle");
+    openapiFields.add("url");
+    openapiFields.add("urlId");
+    openapiFields.add("_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("_id");
-    openapiRequiredFields.add("urlId");
-    openapiRequiredFields.add("url");
-    openapiRequiredFields.add("relatedObjectType");
-    openapiRequiredFields.add("relatedObjectId");
-    openapiRequiredFields.add("viewed");
-    openapiRequiredFields.add("sent");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("fromUserName");
-    openapiRequiredFields.add("fromUserId");
     openapiRequiredFields.add("optedOut");
+    openapiRequiredFields.add("type");
+    openapiRequiredFields.add("createdAt");
+    openapiRequiredFields.add("sent");
+    openapiRequiredFields.add("viewed");
+    openapiRequiredFields.add("relatedObjectId");
+    openapiRequiredFields.add("relatedObjectType");
+    openapiRequiredFields.add("url");
+    openapiRequiredFields.add("urlId");
+    openapiRequiredFields.add("_id");
   }
 
   /**
@@ -602,40 +734,63 @@ public class RenderableUserNotification {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
-      }
-      if (!jsonObj.get("urlId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
-      }
-      if (!jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
-      }
-      if ((jsonObj.get("pageTitle") != null && !jsonObj.get("pageTitle").isJsonNull()) && !jsonObj.get("pageTitle").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pageTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageTitle").toString()));
-      }
-      if (!jsonObj.get("relatedObjectId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `relatedObjectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relatedObjectId").toString()));
-      }
-      // validate the required field `type`
-      NotificationType.validateJsonElement(jsonObj.get("type"));
-      if ((jsonObj.get("fromCommentId") != null && !jsonObj.get("fromCommentId").isJsonNull()) && !jsonObj.get("fromCommentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fromCommentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromCommentId").toString()));
-      }
-      if (!jsonObj.get("fromUserName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fromUserName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserName").toString()));
-      }
-      if (!jsonObj.get("fromUserId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fromUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserId").toString()));
-      }
-      if ((jsonObj.get("fromUserAvatarSrc") != null && !jsonObj.get("fromUserAvatarSrc").isJsonNull()) && !jsonObj.get("fromUserAvatarSrc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fromUserAvatarSrc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserAvatarSrc").toString()));
-      }
       if ((jsonObj.get("conversationId") != null && !jsonObj.get("conversationId").isJsonNull()) && !jsonObj.get("conversationId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conversationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conversationId").toString()));
       }
       if ((jsonObj.get("contextHTML") != null && !jsonObj.get("contextHTML").isJsonNull()) && !jsonObj.get("contextHTML").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contextHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contextHTML").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("fromUserNames") != null && !jsonObj.get("fromUserNames").isJsonNull() && !jsonObj.get("fromUserNames").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserNames` to be an array in the JSON string but got `%s`", jsonObj.get("fromUserNames").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("fromUserIds") != null && !jsonObj.get("fromUserIds").isJsonNull() && !jsonObj.get("fromUserIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserIds` to be an array in the JSON string but got `%s`", jsonObj.get("fromUserIds").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("relatedIds") != null && !jsonObj.get("relatedIds").isJsonNull() && !jsonObj.get("relatedIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `relatedIds` to be an array in the JSON string but got `%s`", jsonObj.get("relatedIds").toString()));
+      }
+      if ((jsonObj.get("fromUserAvatarSrc") != null && !jsonObj.get("fromUserAvatarSrc").isJsonNull()) && !jsonObj.get("fromUserAvatarSrc").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserAvatarSrc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserAvatarSrc").toString()));
+      }
+      if ((jsonObj.get("fromUserId") != null && !jsonObj.get("fromUserId").isJsonNull()) && !jsonObj.get("fromUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserId").toString()));
+      }
+      if ((jsonObj.get("fromUserName") != null && !jsonObj.get("fromUserName").isJsonNull()) && !jsonObj.get("fromUserName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromUserName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserName").toString()));
+      }
+      if ((jsonObj.get("fromCommentId") != null && !jsonObj.get("fromCommentId").isJsonNull()) && !jsonObj.get("fromCommentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fromCommentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromCommentId").toString()));
+      }
+      // validate the required field `type`
+      NotificationType.validateJsonElement(jsonObj.get("type"));
+      if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdAt").toString()));
+      }
+      if (!jsonObj.get("sent").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sent").toString()));
+      }
+      if (!jsonObj.get("viewed").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `viewed` to be a primitive type in the JSON string but got `%s`", jsonObj.get("viewed").toString()));
+      }
+      if (!jsonObj.get("relatedObjectId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `relatedObjectId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relatedObjectId").toString()));
+      }
+      // validate the required field `relatedObjectType`
+      NotificationObjectType.validateJsonElement(jsonObj.get("relatedObjectType"));
+      if ((jsonObj.get("pageTitle") != null && !jsonObj.get("pageTitle").isJsonNull()) && !jsonObj.get("pageTitle").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pageTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageTitle").toString()));
+      }
+      if (!jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      if (!jsonObj.get("urlId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
+      }
+      if (!jsonObj.get("_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
   }
 

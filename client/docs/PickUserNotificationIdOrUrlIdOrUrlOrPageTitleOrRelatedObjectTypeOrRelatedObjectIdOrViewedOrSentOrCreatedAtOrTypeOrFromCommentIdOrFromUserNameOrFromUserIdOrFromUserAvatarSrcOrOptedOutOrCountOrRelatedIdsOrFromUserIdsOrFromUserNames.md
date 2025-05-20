@@ -1,30 +1,26 @@
 
 
-# UserNotification
+# PickUserNotificationIdOrUrlIdOrUrlOrPageTitleOrRelatedObjectTypeOrRelatedObjectIdOrViewedOrSentOrCreatedAtOrTypeOrFromCommentIdOrFromUserNameOrFromUserIdOrFromUserAvatarSrcOrOptedOutOrCountOrRelatedIdsOrFromUserIdsOrFromUserNames
 
+From T, pick a set of properties whose keys are in the union K
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**tenantId** | **String** |  |  |
-|**userId** | **String** |  |  [optional] |
-|**anonUserId** | **String** |  |  [optional] |
 |**urlId** | **String** |  |  |
 |**url** | **String** |  |  |
 |**pageTitle** | **String** |  |  [optional] |
-|**relatedObjectType** | **NotificationObjectType** |  |  |
+|**relatedObjectType** | **Double** |  |  |
 |**relatedObjectId** | **String** |  |  |
 |**viewed** | **Boolean** |  |  |
-|**isUnreadMessage** | **Boolean** |  |  |
 |**sent** | **Boolean** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**type** | **NotificationType** |  |  |
 |**fromCommentId** | **String** |  |  [optional] |
-|**fromVoteId** | **String** |  |  [optional] |
-|**fromUserName** | **String** |  |  [optional] |
-|**fromUserId** | **String** |  |  [optional] |
+|**fromUserName** | **String** |  |  |
+|**fromUserId** | **String** |  |  |
 |**fromUserAvatarSrc** | **String** |  |  [optional] |
 |**optedOut** | **Boolean** |  |  |
 |**count** | **Double** |  |  [optional] |

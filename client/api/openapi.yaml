@@ -6,6 +6,59 @@ info:
 servers:
 - url: /
 paths:
+  /user-search/{tenantId}:
+    get:
+      operationId: SearchUsers
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: usernameStartsWith
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: mentionGroupIds
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchUsers_200_response'
+          description: Ok
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
   /user-presence-status:
     get:
       operationId: GetUserPresenceStatuses
@@ -1623,11 +1676,9 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Pass 1 for getting the names of users that up voted, and -1\
-          \ for the usernames for users that down voted."
-        explode: true
+      - explode: true
         in: query
-        name: direction
+        name: dir
         required: true
         schema:
           format: double
@@ -3322,33 +3373,62 @@ components:
   requestBodies: {}
   responses: {}
   schemas:
-    Record_string.boolean_:
-      additionalProperties:
-        type: boolean
-      description: Construct a type with a set of properties K of type T
-      properties: {}
+    UserSearchResult:
+      additionalProperties: false
+      example:
+        displayName: displayName
+        name: name
+        avatarSrc: avatarSrc
+        id: id
+        type: user
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        displayName:
+          type: string
+        avatarSrc:
+          nullable: true
+          type: string
+        type:
+          enum:
+          - user
+          - sso
+          type: string
+      required:
+      - id
+      - name
+      - type
       type: object
     ImportedAPIStatus.SUCCESS:
       enum:
       - success
       type: string
-    GetUserPresenceStatusesResponse:
+    SearchUsersResponse:
       example:
-        userIdsOnline:
-          key: true
+        users:
+        - displayName: displayName
+          name: name
+          avatarSrc: avatarSrc
+          id: id
+          type: user
+        - displayName: displayName
+          name: name
+          avatarSrc: avatarSrc
+          id: id
+          type: user
         status: success
       properties:
         status:
           $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-        userIdsOnline:
-          additionalProperties:
-            type: boolean
-          description: Construct a type with a set of properties K of type T
-          properties: {}
-          type: object
+        users:
+          items:
+            $ref: '#/components/schemas/UserSearchResult'
+          type: array
       required:
       - status
-      - userIdsOnline
+      - users
       type: object
     ImportedAPIStatus.FAILED:
       enum:
@@ -3831,6 +3911,36 @@ components:
       - reason
       - status
       type: object
+    Record_string.boolean_:
+      additionalProperties:
+        type: boolean
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    GetUserPresenceStatusesResponse:
+      example:
+        userIdsOnline:
+          key: true
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+        userIdsOnline:
+          additionalProperties:
+            type: boolean
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+      required:
+      - status
+      - userIdsOnline
+      type: object
+    NotificationObjectType:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
     NotificationType:
       enum:
       - 0
@@ -3841,47 +3951,99 @@ components:
       - 5
       - 6
       - 7
+      - 8
+      - 81
+      - 82
+      - 9
+      - 10
       type: number
-    ? Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_
-    : description: "From T, pick a set of properties whose keys are in the union K"
+    RenderableUserNotification:
+      example:
+        fromUserAvatarSrc: fromUserAvatarSrc
+        contextHTML: contextHTML
+        fromCommentId: fromCommentId
+        relatedObjectId: relatedObjectId
+        conversationId: conversationId
+        fromUserNames:
+        - fromUserNames
+        - fromUserNames
+        fromUserId: fromUserId
+        pageTitle: pageTitle
+        count: 0.8008281904610115
+        type: 6.027456183070403
+        urlId: urlId
+        sent: sent
+        url: url
+        fromUserIds:
+        - fromUserIds
+        - fromUserIds
+        optedOut: true
+        fromUserName: fromUserName
+        createdAt: createdAt
+        relatedIds:
+        - relatedIds
+        - relatedIds
+        viewed: viewed
+        relatedObjectType: 1.4658129805029452
+        _id: _id
       properties:
-        _id:
+        conversationId:
           type: string
-        urlId:
+        contextHTML:
           type: string
-        url:
-          type: string
-        pageTitle:
-          type: string
-        relatedObjectType:
+        fromUserNames:
+          items:
+            type: string
+          type: array
+        fromUserIds:
+          items:
+            type: string
+          type: array
+        relatedIds:
+          items:
+            type: string
+          type: array
+        count:
           format: double
           type: number
-        relatedObjectId:
+        optedOut:
+          type: boolean
+        fromUserAvatarSrc:
+          nullable: true
           type: string
-        viewed:
-          type: boolean
-        sent:
-          type: boolean
-        createdAt:
-          format: date-time
+        fromUserId:
+          nullable: true
+          type: string
+        fromUserName:
+          nullable: true
+          type: string
+        fromCommentId:
+          nullable: true
           type: string
         type:
           $ref: '#/components/schemas/NotificationType'
-        fromCommentId:
+        createdAt:
           type: string
-        fromUserName:
+        sent:
           type: string
-        fromUserId:
+        viewed:
           type: string
-        fromUserAvatarSrc:
+        relatedObjectId:
           type: string
-        optedOut:
-          type: boolean
+        relatedObjectType:
+          $ref: '#/components/schemas/NotificationObjectType'
+        pageTitle:
+          nullable: true
+          type: string
+        url:
+          type: string
+        urlId:
+          type: string
+        _id:
+          type: string
       required:
       - _id
       - createdAt
-      - fromUserId
-      - fromUserName
       - optedOut
       - relatedObjectId
       - relatedObjectType
@@ -3891,33 +4053,6 @@ components:
       - urlId
       - viewed
       type: object
-    RenderableUserNotification:
-      allOf:
-      - $ref: '#/components/schemas/Pick_UserNotification._id-or-urlId-or-url-or-pageTitle-or-relatedObjectType-or-relatedObjectId-or-viewed-or-sent-or-createdAt-or-type-or-fromCommentId-or-fromUserName-or-fromUserId-or-fromUserAvatarSrc-or-optedOut_'
-      - properties:
-          conversationId:
-            type: string
-          contextHTML:
-            type: string
-        type: object
-      example:
-        fromUserAvatarSrc: fromUserAvatarSrc
-        contextHTML: contextHTML
-        relatedObjectId: relatedObjectId
-        fromCommentId: fromCommentId
-        pageTitle: pageTitle
-        fromUserId: fromUserId
-        conversationId: conversationId
-        urlId: urlId
-        type: 6.027456183070403
-        sent: true
-        url: url
-        fromUserName: fromUserName
-        optedOut: true
-        createdAt: 2000-01-23T04:56:07.000+00:00
-        viewed: true
-        _id: _id
-        relatedObjectType: 0.8008281904610115
     GetMyNotificationsResponse:
       example:
         isSubscribed: true
@@ -3927,38 +4062,58 @@ components:
         notifications:
         - fromUserAvatarSrc: fromUserAvatarSrc
           contextHTML: contextHTML
-          relatedObjectId: relatedObjectId
           fromCommentId: fromCommentId
-          pageTitle: pageTitle
-          fromUserId: fromUserId
+          relatedObjectId: relatedObjectId
           conversationId: conversationId
-          urlId: urlId
+          fromUserNames:
+          - fromUserNames
+          - fromUserNames
+          fromUserId: fromUserId
+          pageTitle: pageTitle
+          count: 0.8008281904610115
           type: 6.027456183070403
-          sent: true
+          urlId: urlId
+          sent: sent
           url: url
-          fromUserName: fromUserName
+          fromUserIds:
+          - fromUserIds
+          - fromUserIds
           optedOut: true
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          viewed: true
+          fromUserName: fromUserName
+          createdAt: createdAt
+          relatedIds:
+          - relatedIds
+          - relatedIds
+          viewed: viewed
+          relatedObjectType: 1.4658129805029452
           _id: _id
-          relatedObjectType: 0.8008281904610115
         - fromUserAvatarSrc: fromUserAvatarSrc
           contextHTML: contextHTML
-          relatedObjectId: relatedObjectId
           fromCommentId: fromCommentId
-          pageTitle: pageTitle
-          fromUserId: fromUserId
+          relatedObjectId: relatedObjectId
           conversationId: conversationId
-          urlId: urlId
+          fromUserNames:
+          - fromUserNames
+          - fromUserNames
+          fromUserId: fromUserId
+          pageTitle: pageTitle
+          count: 0.8008281904610115
           type: 6.027456183070403
-          sent: true
+          urlId: urlId
+          sent: sent
           url: url
-          fromUserName: fromUserName
+          fromUserIds:
+          - fromUserIds
+          - fromUserIds
           optedOut: true
-          createdAt: 2000-01-23T04:56:07.000+00:00
-          viewed: true
+          fromUserName: fromUserName
+          createdAt: createdAt
+          relatedIds:
+          - relatedIds
+          - relatedIds
+          viewed: viewed
+          relatedObjectType: 1.4658129805029452
           _id: _id
-          relatedObjectType: 0.8008281904610115
         status: success
       properties:
         translations:
@@ -4848,6 +5003,7 @@ components:
       enum:
       - update-badges
       - notification
+      - notification-update
       - p-u
       - new-vote
       - deleted-vote
@@ -4929,8 +5085,7 @@ components:
           nullable: true
           type: string
         relatedObjectType:
-          format: double
-          type: number
+          $ref: '#/components/schemas/NotificationObjectType'
         relatedObjectId:
           type: string
         viewed:
@@ -4961,6 +5116,21 @@ components:
           type: string
         optedOut:
           type: boolean
+        count:
+          format: double
+          type: number
+        relatedIds:
+          items:
+            type: string
+          type: array
+        fromUserIds:
+          items:
+            type: string
+          type: array
+        fromUserNames:
+          items:
+            type: string
+          type: array
       required:
       - _id
       - createdAt
@@ -5013,16 +5183,16 @@ components:
     Pick_Omit_FComment.date_.PublicCommentPubSubFieldsKeys_:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
+        date: {}
         _id:
+          type: string
+        tenantId:
           type: string
         urlId:
           type: string
         url:
           type: string
         pageTitle:
-          type: string
-        date: {}
-        tenantId:
           type: string
         userId:
           type: string
@@ -5424,10 +5594,10 @@ components:
     Pick_FComment.PublicCommentFieldsKeys_:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
-        _id:
-          type: string
         date:
           format: date-time
+          type: string
+        _id:
           type: string
         userId:
           type: string
@@ -7768,20 +7938,20 @@ components:
         votes: 6
         isByAdmin: true
       properties:
+        date:
+          format: date-time
+          type: string
         _id:
           type: string
+        tenantId:
+          type: string
         urlId:
+          type: string
+        urlIdRaw:
           type: string
         url:
           type: string
         pageTitle:
-          type: string
-        date:
-          format: date-time
-          type: string
-        tenantId:
-          type: string
-        urlIdRaw:
           type: string
         userId:
           type: string
@@ -8039,16 +8209,16 @@ components:
     Pick_APIComment.UpdatableCommentFields_:
       description: "From T, pick a set of properties whose keys are in the union K"
       properties:
+        date:
+          format: date-time
+          type: string
         urlId:
+          type: string
+        urlIdRaw:
           type: string
         url:
           type: string
         pageTitle:
-          type: string
-        date:
-          format: date-time
-          type: string
-        urlIdRaw:
           type: string
         userId:
           type: string
@@ -8763,6 +8933,10 @@ components:
       - operations
       - resourceName
       type: object
+    SearchUsers_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/SearchUsersResponse'
+      - $ref: '#/components/schemas/APIError'
     GetUserPresenceStatuses_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetUserPresenceStatusesResponse'

@@ -42,19 +42,19 @@ public class PickFCommentPublicCommentFieldsKeysTest {
     }
 
     /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
      * Test the property 'date'
      */
     @Test
     public void dateTest() {
         // TODO: test date
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
     /**

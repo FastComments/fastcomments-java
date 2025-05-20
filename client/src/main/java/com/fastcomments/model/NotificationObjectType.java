@@ -25,40 +25,20 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets NotificationType
+ * Gets or Sets NotificationObjectType
  */
-@JsonAdapter(NotificationType.Adapter.class)
-public enum NotificationType {
+@JsonAdapter(NotificationObjectType.Adapter.class)
+public enum NotificationObjectType {
   
   NUMBER_0(new BigDecimal("0")),
   
   NUMBER_1(new BigDecimal("1")),
   
-  NUMBER_2(new BigDecimal("2")),
-  
-  NUMBER_3(new BigDecimal("3")),
-  
-  NUMBER_4(new BigDecimal("4")),
-  
-  NUMBER_5(new BigDecimal("5")),
-  
-  NUMBER_6(new BigDecimal("6")),
-  
-  NUMBER_7(new BigDecimal("7")),
-  
-  NUMBER_8(new BigDecimal("8")),
-  
-  NUMBER_81(new BigDecimal("81")),
-  
-  NUMBER_82(new BigDecimal("82")),
-  
-  NUMBER_9(new BigDecimal("9")),
-  
-  NUMBER_10(new BigDecimal("10"));
+  NUMBER_2(new BigDecimal("2"));
 
   private BigDecimal value;
 
-  NotificationType(BigDecimal value) {
+  NotificationObjectType(BigDecimal value) {
     this.value = value;
   }
 
@@ -71,8 +51,8 @@ public enum NotificationType {
     return String.valueOf(value);
   }
 
-  public static NotificationType fromValue(BigDecimal value) {
-    for (NotificationType b : NotificationType.values()) {
+  public static NotificationObjectType fromValue(BigDecimal value) {
+    for (NotificationObjectType b : NotificationObjectType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -80,22 +60,22 @@ public enum NotificationType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
-  public static class Adapter extends TypeAdapter<NotificationType> {
+  public static class Adapter extends TypeAdapter<NotificationObjectType> {
     @Override
-    public void write(final JsonWriter jsonWriter, final NotificationType enumeration) throws IOException {
+    public void write(final JsonWriter jsonWriter, final NotificationObjectType enumeration) throws IOException {
       jsonWriter.value(enumeration.getValue());
     }
 
     @Override
-    public NotificationType read(final JsonReader jsonReader) throws IOException {
+    public NotificationObjectType read(final JsonReader jsonReader) throws IOException {
       String value = jsonReader.nextString();
-      return NotificationType.fromValue(new BigDecimal(value));
+      return NotificationObjectType.fromValue(new BigDecimal(value));
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
     String value = jsonElement.getAsString();
-    NotificationType.fromValue(new BigDecimal(value));
+    NotificationObjectType.fromValue(new BigDecimal(value));
   }
 }
 

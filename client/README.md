@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.18</version>
+  <version>0.0.19</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.18"
+     implementation "com.fastcomments:client:0.0.19"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.18.jar`
+* `target/client-0.0.19.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -179,6 +179,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**reactFeedPostPublic**](docs/PublicApi.md#reactFeedPostPublic) | **POST** /feed-posts/{tenantId}/react/{postId} | 
 *PublicApi* | [**resetUserNotificationCount**](docs/PublicApi.md#resetUserNotificationCount) | **POST** /user-notifications/reset-count | 
 *PublicApi* | [**resetUserNotifications**](docs/PublicApi.md#resetUserNotifications) | **POST** /user-notifications/reset | 
+*PublicApi* | [**searchUsers**](docs/PublicApi.md#searchUsers) | **GET** /user-search/{tenantId} | 
 *PublicApi* | [**setCommentText**](docs/PublicApi.md#setCommentText) | **POST** /comments/{tenantId}/{commentId}/update-text | 
 *PublicApi* | [**unBlockCommentPublic**](docs/PublicApi.md#unBlockCommentPublic) | **DELETE** /block-from-comment/{commentId} | 
 *PublicApi* | [**unLockComment**](docs/PublicApi.md#unLockComment) | **POST** /comments/{tenantId}/{commentId}/unlock | 
@@ -317,6 +318,7 @@ Class | Method | HTTP request | Description
  - [MediaAsset](docs/MediaAsset.md)
  - [MetaItem](docs/MetaItem.md)
  - [NotificationAndCount](docs/NotificationAndCount.md)
+ - [NotificationObjectType](docs/NotificationObjectType.md)
  - [NotificationType](docs/NotificationType.md)
  - [PatchDomainConfigParams](docs/PatchDomainConfigParams.md)
  - [PickAPICommentUpdatableCommentFields](docs/PickAPICommentUpdatableCommentFields.md)
@@ -327,7 +329,6 @@ Class | Method | HTTP request | Description
  - [PickFCommentPublicCommentFieldsKeys](docs/PickFCommentPublicCommentFieldsKeys.md)
  - [PickOmitFCommentDatePublicCommentPubSubFieldsKeys](docs/PickOmitFCommentDatePublicCommentPubSubFieldsKeys.md)
  - [PickTenantAuditLogTenantAuditLogKeys](docs/PickTenantAuditLogTenantAuditLogKeys.md)
- - [PickUserNotificationIdOrUrlIdOrUrlOrPageTitleOrRelatedObjectTypeOrRelatedObjectIdOrViewedOrSentOrCreatedAtOrTypeOrFromCommentIdOrFromUserNameOrFromUserIdOrFromUserAvatarSrcOrOptedOut](docs/PickUserNotificationIdOrUrlIdOrUrlOrPageTitleOrRelatedObjectTypeOrRelatedObjectIdOrViewedOrSentOrCreatedAtOrTypeOrFromCommentIdOrFromUserNameOrFromUserIdOrFromUserAvatarSrcOrOptedOut.md)
  - [PinComment200Response](docs/PinComment200Response.md)
  - [PubSubComment](docs/PubSubComment.md)
  - [PubSubVote](docs/PubSubVote.md)
@@ -359,6 +360,8 @@ Class | Method | HTTP request | Description
  - [SaveCommentResponse](docs/SaveCommentResponse.md)
  - [SaveCommentResponseOptimized](docs/SaveCommentResponseOptimized.md)
  - [SaveCommentsResponseWithPresence](docs/SaveCommentsResponseWithPresence.md)
+ - [SearchUsers200Response](docs/SearchUsers200Response.md)
+ - [SearchUsersResponse](docs/SearchUsersResponse.md)
  - [SetCommentText200Response](docs/SetCommentText200Response.md)
  - [SizePreset](docs/SizePreset.md)
  - [SortDirections](docs/SortDirections.md)
@@ -378,6 +381,7 @@ Class | Method | HTTP request | Description
  - [UserNotificationWriteResponse](docs/UserNotificationWriteResponse.md)
  - [UserPresenceData](docs/UserPresenceData.md)
  - [UserReactsResponse](docs/UserReactsResponse.md)
+ - [UserSearchResult](docs/UserSearchResult.md)
  - [UserSessionInfo](docs/UserSessionInfo.md)
  - [VoteBodyParams](docs/VoteBodyParams.md)
  - [VoteComment200Response](docs/VoteComment200Response.md)

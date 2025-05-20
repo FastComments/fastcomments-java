@@ -45,6 +45,14 @@ public class PickFCommentAPICommentFieldsKeysTest {
     }
 
     /**
+     * Test the property 'date'
+     */
+    @Test
+    public void dateTest() {
+        // TODO: test date
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
@@ -53,11 +61,27 @@ public class PickFCommentAPICommentFieldsKeysTest {
     }
 
     /**
+     * Test the property 'tenantId'
+     */
+    @Test
+    public void tenantIdTest() {
+        // TODO: test tenantId
+    }
+
+    /**
      * Test the property 'urlId'
      */
     @Test
     public void urlIdTest() {
         // TODO: test urlId
+    }
+
+    /**
+     * Test the property 'urlIdRaw'
+     */
+    @Test
+    public void urlIdRawTest() {
+        // TODO: test urlIdRaw
     }
 
     /**
@@ -74,30 +98,6 @@ public class PickFCommentAPICommentFieldsKeysTest {
     @Test
     public void pageTitleTest() {
         // TODO: test pageTitle
-    }
-
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        // TODO: test date
-    }
-
-    /**
-     * Test the property 'tenantId'
-     */
-    @Test
-    public void tenantIdTest() {
-        // TODO: test tenantId
-    }
-
-    /**
-     * Test the property 'urlIdRaw'
-     */
-    @Test
-    public void urlIdRawTest() {
-        // TODO: test urlIdRaw
     }
 
     /**

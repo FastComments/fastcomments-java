@@ -13,6 +13,7 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.NotificationObjectType;
 import com.fastcomments.model.NotificationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -20,8 +21,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -40,126 +42,6 @@ public class RenderableUserNotificationTest {
     }
 
     /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'urlId'
-     */
-    @Test
-    public void urlIdTest() {
-        // TODO: test urlId
-    }
-
-    /**
-     * Test the property 'url'
-     */
-    @Test
-    public void urlTest() {
-        // TODO: test url
-    }
-
-    /**
-     * Test the property 'pageTitle'
-     */
-    @Test
-    public void pageTitleTest() {
-        // TODO: test pageTitle
-    }
-
-    /**
-     * Test the property 'relatedObjectType'
-     */
-    @Test
-    public void relatedObjectTypeTest() {
-        // TODO: test relatedObjectType
-    }
-
-    /**
-     * Test the property 'relatedObjectId'
-     */
-    @Test
-    public void relatedObjectIdTest() {
-        // TODO: test relatedObjectId
-    }
-
-    /**
-     * Test the property 'viewed'
-     */
-    @Test
-    public void viewedTest() {
-        // TODO: test viewed
-    }
-
-    /**
-     * Test the property 'sent'
-     */
-    @Test
-    public void sentTest() {
-        // TODO: test sent
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
-     * Test the property 'fromCommentId'
-     */
-    @Test
-    public void fromCommentIdTest() {
-        // TODO: test fromCommentId
-    }
-
-    /**
-     * Test the property 'fromUserName'
-     */
-    @Test
-    public void fromUserNameTest() {
-        // TODO: test fromUserName
-    }
-
-    /**
-     * Test the property 'fromUserId'
-     */
-    @Test
-    public void fromUserIdTest() {
-        // TODO: test fromUserId
-    }
-
-    /**
-     * Test the property 'fromUserAvatarSrc'
-     */
-    @Test
-    public void fromUserAvatarSrcTest() {
-        // TODO: test fromUserAvatarSrc
-    }
-
-    /**
-     * Test the property 'optedOut'
-     */
-    @Test
-    public void optedOutTest() {
-        // TODO: test optedOut
-    }
-
-    /**
      * Test the property 'conversationId'
      */
     @Test
@@ -173,6 +55,158 @@ public class RenderableUserNotificationTest {
     @Test
     public void contextHTMLTest() {
         // TODO: test contextHTML
+    }
+
+    /**
+     * Test the property 'fromUserNames'
+     */
+    @Test
+    public void fromUserNamesTest() {
+        // TODO: test fromUserNames
+    }
+
+    /**
+     * Test the property 'fromUserIds'
+     */
+    @Test
+    public void fromUserIdsTest() {
+        // TODO: test fromUserIds
+    }
+
+    /**
+     * Test the property 'relatedIds'
+     */
+    @Test
+    public void relatedIdsTest() {
+        // TODO: test relatedIds
+    }
+
+    /**
+     * Test the property 'count'
+     */
+    @Test
+    public void countTest() {
+        // TODO: test count
+    }
+
+    /**
+     * Test the property 'optedOut'
+     */
+    @Test
+    public void optedOutTest() {
+        // TODO: test optedOut
+    }
+
+    /**
+     * Test the property 'fromUserAvatarSrc'
+     */
+    @Test
+    public void fromUserAvatarSrcTest() {
+        // TODO: test fromUserAvatarSrc
+    }
+
+    /**
+     * Test the property 'fromUserId'
+     */
+    @Test
+    public void fromUserIdTest() {
+        // TODO: test fromUserId
+    }
+
+    /**
+     * Test the property 'fromUserName'
+     */
+    @Test
+    public void fromUserNameTest() {
+        // TODO: test fromUserName
+    }
+
+    /**
+     * Test the property 'fromCommentId'
+     */
+    @Test
+    public void fromCommentIdTest() {
+        // TODO: test fromCommentId
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'sent'
+     */
+    @Test
+    public void sentTest() {
+        // TODO: test sent
+    }
+
+    /**
+     * Test the property 'viewed'
+     */
+    @Test
+    public void viewedTest() {
+        // TODO: test viewed
+    }
+
+    /**
+     * Test the property 'relatedObjectId'
+     */
+    @Test
+    public void relatedObjectIdTest() {
+        // TODO: test relatedObjectId
+    }
+
+    /**
+     * Test the property 'relatedObjectType'
+     */
+    @Test
+    public void relatedObjectTypeTest() {
+        // TODO: test relatedObjectType
+    }
+
+    /**
+     * Test the property 'pageTitle'
+     */
+    @Test
+    public void pageTitleTest() {
+        // TODO: test pageTitle
+    }
+
+    /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
+    }
+
+    /**
+     * Test the property 'urlId'
+     */
+    @Test
+    public void urlIdTest() {
+        // TODO: test urlId
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
 }

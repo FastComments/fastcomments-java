@@ -8,8 +8,8 @@ From T, pick a set of properties whose keys are in the union K
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** |  |  |
 |**date** | **OffsetDateTime** |  |  |
+|**id** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**commenterName** | **String** |  |  |

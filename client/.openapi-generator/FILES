@@ -131,6 +131,7 @@ docs/LockComment200Response.md
 docs/MediaAsset.md
 docs/MetaItem.md
 docs/NotificationAndCount.md
+docs/NotificationObjectType.md
 docs/NotificationType.md
 docs/PatchDomainConfigParams.md
 docs/PickAPICommentUpdatableCommentFields.md
@@ -141,7 +142,6 @@ docs/PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.md
 docs/PickFCommentPublicCommentFieldsKeys.md
 docs/PickOmitFCommentDatePublicCommentPubSubFieldsKeys.md
 docs/PickTenantAuditLogTenantAuditLogKeys.md
-docs/PickUserNotificationIdOrUrlIdOrUrlOrPageTitleOrRelatedObjectTypeOrRelatedObjectIdOrViewedOrSentOrCreatedAtOrTypeOrFromCommentIdOrFromUserNameOrFromUserIdOrFromUserAvatarSrcOrOptedOut.md
 docs/PinComment200Response.md
 docs/PubSubComment.md
 docs/PubSubVote.md
@@ -174,6 +174,8 @@ docs/SaveComment200Response.md
 docs/SaveCommentResponse.md
 docs/SaveCommentResponseOptimized.md
 docs/SaveCommentsResponseWithPresence.md
+docs/SearchUsers200Response.md
+docs/SearchUsersResponse.md
 docs/SetCommentText200Response.md
 docs/SizePreset.md
 docs/SortDirections.md
@@ -193,6 +195,7 @@ docs/UserNotification.md
 docs/UserNotificationWriteResponse.md
 docs/UserPresenceData.md
 docs/UserReactsResponse.md
+docs/UserSearchResult.md
 docs/UserSessionInfo.md
 docs/VoteBodyParams.md
 docs/VoteComment200Response.md
@@ -356,6 +359,7 @@ src/main/java/com/fastcomments/model/LockComment200Response.java
 src/main/java/com/fastcomments/model/MediaAsset.java
 src/main/java/com/fastcomments/model/MetaItem.java
 src/main/java/com/fastcomments/model/NotificationAndCount.java
+src/main/java/com/fastcomments/model/NotificationObjectType.java
 src/main/java/com/fastcomments/model/NotificationType.java
 src/main/java/com/fastcomments/model/PatchDomainConfigParams.java
 src/main/java/com/fastcomments/model/PickAPICommentUpdatableCommentFields.java
@@ -366,7 +370,6 @@ src/main/java/com/fastcomments/model/PickFCommentIsDeletedOrCommentHTMLOrComment
 src/main/java/com/fastcomments/model/PickFCommentPublicCommentFieldsKeys.java
 src/main/java/com/fastcomments/model/PickOmitFCommentDatePublicCommentPubSubFieldsKeys.java
 src/main/java/com/fastcomments/model/PickTenantAuditLogTenantAuditLogKeys.java
-src/main/java/com/fastcomments/model/PickUserNotificationIdOrUrlIdOrUrlOrPageTitleOrRelatedObjectTypeOrRelatedObjectIdOrViewedOrSentOrCreatedAtOrTypeOrFromCommentIdOrFromUserNameOrFromUserIdOrFromUserAvatarSrcOrOptedOut.java
 src/main/java/com/fastcomments/model/PinComment200Response.java
 src/main/java/com/fastcomments/model/PubSubComment.java
 src/main/java/com/fastcomments/model/PubSubVote.java
@@ -398,6 +401,8 @@ src/main/java/com/fastcomments/model/SaveComment200Response.java
 src/main/java/com/fastcomments/model/SaveCommentResponse.java
 src/main/java/com/fastcomments/model/SaveCommentResponseOptimized.java
 src/main/java/com/fastcomments/model/SaveCommentsResponseWithPresence.java
+src/main/java/com/fastcomments/model/SearchUsers200Response.java
+src/main/java/com/fastcomments/model/SearchUsersResponse.java
 src/main/java/com/fastcomments/model/SetCommentText200Response.java
 src/main/java/com/fastcomments/model/SizePreset.java
 src/main/java/com/fastcomments/model/SortDirections.java
@@ -417,6 +422,7 @@ src/main/java/com/fastcomments/model/UserNotification.java
 src/main/java/com/fastcomments/model/UserNotificationWriteResponse.java
 src/main/java/com/fastcomments/model/UserPresenceData.java
 src/main/java/com/fastcomments/model/UserReactsResponse.java
+src/main/java/com/fastcomments/model/UserSearchResult.java
 src/main/java/com/fastcomments/model/UserSessionInfo.java
 src/main/java/com/fastcomments/model/VoteBodyParams.java
 src/main/java/com/fastcomments/model/VoteComment200Response.java
@@ -553,6 +559,7 @@ src/test/java/com/fastcomments/model/LockComment200ResponseTest.java
 src/test/java/com/fastcomments/model/MediaAssetTest.java
 src/test/java/com/fastcomments/model/MetaItemTest.java
 src/test/java/com/fastcomments/model/NotificationAndCountTest.java
+src/test/java/com/fastcomments/model/NotificationObjectTypeTest.java
 src/test/java/com/fastcomments/model/NotificationTypeTest.java
 src/test/java/com/fastcomments/model/PatchDomainConfigParamsTest.java
 src/test/java/com/fastcomments/model/PickAPICommentUpdatableCommentFieldsTest.java
@@ -563,7 +570,6 @@ src/test/java/com/fastcomments/model/PickFCommentIsDeletedOrCommentHTMLOrComment
 src/test/java/com/fastcomments/model/PickFCommentPublicCommentFieldsKeysTest.java
 src/test/java/com/fastcomments/model/PickOmitFCommentDatePublicCommentPubSubFieldsKeysTest.java
 src/test/java/com/fastcomments/model/PickTenantAuditLogTenantAuditLogKeysTest.java
-src/test/java/com/fastcomments/model/PickUserNotificationIdOrUrlIdOrUrlOrPageTitleOrRelatedObjectTypeOrRelatedObjectIdOrViewedOrSentOrCreatedAtOrTypeOrFromCommentIdOrFromUserNameOrFromUserIdOrFromUserAvatarSrcOrOptedOutTest.java
 src/test/java/com/fastcomments/model/PinComment200ResponseTest.java
 src/test/java/com/fastcomments/model/PubSubCommentTest.java
 src/test/java/com/fastcomments/model/PubSubVoteTest.java
@@ -595,6 +601,8 @@ src/test/java/com/fastcomments/model/SaveComment200ResponseTest.java
 src/test/java/com/fastcomments/model/SaveCommentResponseOptimizedTest.java
 src/test/java/com/fastcomments/model/SaveCommentResponseTest.java
 src/test/java/com/fastcomments/model/SaveCommentsResponseWithPresenceTest.java
+src/test/java/com/fastcomments/model/SearchUsers200ResponseTest.java
+src/test/java/com/fastcomments/model/SearchUsersResponseTest.java
 src/test/java/com/fastcomments/model/SetCommentText200ResponseTest.java
 src/test/java/com/fastcomments/model/SizePresetTest.java
 src/test/java/com/fastcomments/model/SortDirectionsTest.java
@@ -614,6 +622,7 @@ src/test/java/com/fastcomments/model/UserNotificationTest.java
 src/test/java/com/fastcomments/model/UserNotificationWriteResponseTest.java
 src/test/java/com/fastcomments/model/UserPresenceDataTest.java
 src/test/java/com/fastcomments/model/UserReactsResponseTest.java
+src/test/java/com/fastcomments/model/UserSearchResultTest.java
 src/test/java/com/fastcomments/model/UserSessionInfoTest.java
 src/test/java/com/fastcomments/model/VoteBodyParamsTest.java
 src/test/java/com/fastcomments/model/VoteComment200ResponseTest.java

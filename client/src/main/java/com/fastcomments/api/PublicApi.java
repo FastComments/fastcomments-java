@@ -56,6 +56,7 @@ import com.fastcomments.model.PublicBlockFromCommentParams;
 import com.fastcomments.model.ReactBodyParams;
 import com.fastcomments.model.ReactFeedPostPublic200Response;
 import com.fastcomments.model.ResetUserNotifications200Response;
+import com.fastcomments.model.SearchUsers200Response;
 import com.fastcomments.model.SetCommentText200Response;
 import com.fastcomments.model.SizePreset;
 import com.fastcomments.model.SortDirections;
@@ -1930,7 +1931,7 @@ public class PublicApi {
     public APIgetCommentTextRequest getCommentText(String tenantId, String commentId) {
         return new APIgetCommentTextRequest(tenantId, commentId);
     }
-    private okhttp3.Call getCommentVoteUserNamesCall(String tenantId, String commentId, Double direction, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentVoteUserNamesCall(String tenantId, String commentId, Double dir, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1957,8 +1958,8 @@ public class PublicApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (direction != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
+        if (dir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("dir", dir));
         }
 
         if (sso != null) {
@@ -1985,7 +1986,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentVoteUserNamesValidateBeforeCall(String tenantId, String commentId, Double direction, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentVoteUserNamesValidateBeforeCall(String tenantId, String commentId, Double dir, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCommentVoteUserNames(Async)");
@@ -1996,25 +1997,25 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'commentId' when calling getCommentVoteUserNames(Async)");
         }
 
-        // verify the required parameter 'direction' is set
-        if (direction == null) {
-            throw new ApiException("Missing the required parameter 'direction' when calling getCommentVoteUserNames(Async)");
+        // verify the required parameter 'dir' is set
+        if (dir == null) {
+            throw new ApiException("Missing the required parameter 'dir' when calling getCommentVoteUserNames(Async)");
         }
 
-        return getCommentVoteUserNamesCall(tenantId, commentId, direction, sso, _callback);
+        return getCommentVoteUserNamesCall(tenantId, commentId, dir, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetCommentVoteUserNames200Response> getCommentVoteUserNamesWithHttpInfo(String tenantId, String commentId, Double direction, String sso) throws ApiException {
-        okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, direction, sso, null);
+    private ApiResponse<GetCommentVoteUserNames200Response> getCommentVoteUserNamesWithHttpInfo(String tenantId, String commentId, Double dir, String sso) throws ApiException {
+        okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, dir, sso, null);
         Type localVarReturnType = new TypeToken<GetCommentVoteUserNames200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentVoteUserNamesAsync(String tenantId, String commentId, Double direction, String sso, final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentVoteUserNamesAsync(String tenantId, String commentId, Double dir, String sso, final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, direction, sso, _callback);
+        okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, dir, sso, _callback);
         Type localVarReturnType = new TypeToken<GetCommentVoteUserNames200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2023,13 +2024,13 @@ public class PublicApi {
     public class APIgetCommentVoteUserNamesRequest {
         private final String tenantId;
         private final String commentId;
-        private final Double direction;
+        private final Double dir;
         private String sso;
 
-        private APIgetCommentVoteUserNamesRequest(String tenantId, String commentId, Double direction) {
+        private APIgetCommentVoteUserNamesRequest(String tenantId, String commentId, Double dir) {
             this.tenantId = tenantId;
             this.commentId = commentId;
-            this.direction = direction;
+            this.dir = dir;
         }
 
         /**
@@ -2055,7 +2056,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCommentVoteUserNamesCall(tenantId, commentId, direction, sso, _callback);
+            return getCommentVoteUserNamesCall(tenantId, commentId, dir, sso, _callback);
         }
 
         /**
@@ -2070,7 +2071,7 @@ public class PublicApi {
          </table>
          */
         public GetCommentVoteUserNames200Response execute() throws ApiException {
-            ApiResponse<GetCommentVoteUserNames200Response> localVarResp = getCommentVoteUserNamesWithHttpInfo(tenantId, commentId, direction, sso);
+            ApiResponse<GetCommentVoteUserNames200Response> localVarResp = getCommentVoteUserNamesWithHttpInfo(tenantId, commentId, dir, sso);
             return localVarResp.getData();
         }
 
@@ -2086,7 +2087,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetCommentVoteUserNames200Response> executeWithHttpInfo() throws ApiException {
-            return getCommentVoteUserNamesWithHttpInfo(tenantId, commentId, direction, sso);
+            return getCommentVoteUserNamesWithHttpInfo(tenantId, commentId, dir, sso);
         }
 
         /**
@@ -2102,7 +2103,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
-            return getCommentVoteUserNamesAsync(tenantId, commentId, direction, sso, _callback);
+            return getCommentVoteUserNamesAsync(tenantId, commentId, dir, sso, _callback);
         }
     }
 
@@ -2111,7 +2112,7 @@ public class PublicApi {
      * 
      * @param tenantId  (required)
      * @param commentId  (required)
-     * @param direction Pass 1 for getting the names of users that up voted, and -1 for the usernames for users that down voted. (required)
+     * @param dir  (required)
      * @return APIgetCommentVoteUserNamesRequest
      * @http.response.details
      <table border="1">
@@ -2120,8 +2121,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Double direction) {
-        return new APIgetCommentVoteUserNamesRequest(tenantId, commentId, direction);
+    public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Double dir) {
+        return new APIgetCommentVoteUserNamesRequest(tenantId, commentId, dir);
     }
     private okhttp3.Call getCommentsPublicCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -5384,6 +5385,217 @@ public class PublicApi {
      */
     public APIresetUserNotificationsRequest resetUserNotifications(String tenantId) {
         return new APIresetUserNotificationsRequest(tenantId);
+    }
+    private okhttp3.Call searchUsersCall(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/user-search/{tenantId}"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (usernameStartsWith != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("usernameStartsWith", usernameStartsWith));
+        }
+
+        if (mentionGroupIds != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "mentionGroupIds", mentionGroupIds));
+        }
+
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchUsersValidateBeforeCall(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling searchUsers(Async)");
+        }
+
+        // verify the required parameter 'urlId' is set
+        if (urlId == null) {
+            throw new ApiException("Missing the required parameter 'urlId' when calling searchUsers(Async)");
+        }
+
+        // verify the required parameter 'usernameStartsWith' is set
+        if (usernameStartsWith == null) {
+            throw new ApiException("Missing the required parameter 'usernameStartsWith' when calling searchUsers(Async)");
+        }
+
+        return searchUsersCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+
+    }
+
+
+    private ApiResponse<SearchUsers200Response> searchUsersWithHttpInfo(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso) throws ApiException {
+        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, null);
+        Type localVarReturnType = new TypeToken<SearchUsers200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call searchUsersAsync(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, final ApiCallback<SearchUsers200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+        Type localVarReturnType = new TypeToken<SearchUsers200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIsearchUsersRequest {
+        private final String tenantId;
+        private final String urlId;
+        private final String usernameStartsWith;
+        private List<String> mentionGroupIds;
+        private String sso;
+
+        private APIsearchUsersRequest(String tenantId, String urlId, String usernameStartsWith) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+            this.usernameStartsWith = usernameStartsWith;
+        }
+
+        /**
+         * Set mentionGroupIds
+         * @param mentionGroupIds  (optional)
+         * @return APIsearchUsersRequest
+         */
+        public APIsearchUsersRequest mentionGroupIds(List<String> mentionGroupIds) {
+            this.mentionGroupIds = mentionGroupIds;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIsearchUsersRequest
+         */
+        public APIsearchUsersRequest sso(String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for searchUsers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return searchUsersCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+        }
+
+        /**
+         * Execute searchUsers request
+         * @return SearchUsers200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public SearchUsers200Response execute() throws ApiException {
+            ApiResponse<SearchUsers200Response> localVarResp = searchUsersWithHttpInfo(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute searchUsers request with HTTP info returned
+         * @return ApiResponse&lt;SearchUsers200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<SearchUsers200Response> executeWithHttpInfo() throws ApiException {
+            return searchUsersWithHttpInfo(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso);
+        }
+
+        /**
+         * Execute searchUsers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<SearchUsers200Response> _callback) throws ApiException {
+            return searchUsersAsync(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param urlId  (required)
+     * @param usernameStartsWith  (required)
+     * @return APIsearchUsersRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIsearchUsersRequest searchUsers(String tenantId, String urlId, String usernameStartsWith) {
+        return new APIsearchUsersRequest(tenantId, urlId, usernameStartsWith);
     }
     private okhttp3.Call setCommentTextCall(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

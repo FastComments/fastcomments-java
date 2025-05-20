@@ -9,6 +9,8 @@
 
 * `NOTIFICATION` (value: `"notification"`)
 
+* `NOTIFICATION_UPDATE` (value: `"notification-update"`)
+
 * `P_U` (value: `"p-u"`)
 
 * `NEW_VOTE` (value: `"new-vote"`)

@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**date** | **String** |  |  |
 |**id** | **String** |  |  |
+|**tenantId** | **String** |  |  |
 |**urlId** | **String** |  |  |
 |**url** | **String** |  |  |
 |**pageTitle** | **String** |  |  [optional] |
-|**date** | **String** |  |  |
-|**tenantId** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**commenterName** | **String** |  |  |

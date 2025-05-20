@@ -13,6 +13,7 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.NotificationObjectType;
 import com.fastcomments.model.NotificationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -21,7 +22,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -197,6 +200,38 @@ public class UserNotificationTest {
     @Test
     public void optedOutTest() {
         // TODO: test optedOut
+    }
+
+    /**
+     * Test the property 'count'
+     */
+    @Test
+    public void countTest() {
+        // TODO: test count
+    }
+
+    /**
+     * Test the property 'relatedIds'
+     */
+    @Test
+    public void relatedIdsTest() {
+        // TODO: test relatedIds
+    }
+
+    /**
+     * Test the property 'fromUserIds'
+     */
+    @Test
+    public void fromUserIdsTest() {
+        // TODO: test fromUserIds
+    }
+
+    /**
+     * Test the property 'fromUserNames'
+     */
+    @Test
+    public void fromUserNamesTest() {
+        // TODO: test fromUserNames
     }
 
 }

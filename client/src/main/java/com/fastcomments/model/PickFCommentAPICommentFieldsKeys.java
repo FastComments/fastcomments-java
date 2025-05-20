@@ -57,15 +57,30 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class PickFCommentAPICommentFieldsKeys {
+  public static final String SERIALIZED_NAME_DATE = "date";
+  @SerializedName(SERIALIZED_NAME_DATE)
+  @javax.annotation.Nonnull
+  private OffsetDateTime date;
+
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private String id;
 
+  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
+  @SerializedName(SERIALIZED_NAME_TENANT_ID)
+  @javax.annotation.Nonnull
+  private String tenantId;
+
   public static final String SERIALIZED_NAME_URL_ID = "urlId";
   @SerializedName(SERIALIZED_NAME_URL_ID)
   @javax.annotation.Nonnull
   private String urlId;
+
+  public static final String SERIALIZED_NAME_URL_ID_RAW = "urlIdRaw";
+  @SerializedName(SERIALIZED_NAME_URL_ID_RAW)
+  @javax.annotation.Nullable
+  private String urlIdRaw;
 
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
@@ -76,21 +91,6 @@ public class PickFCommentAPICommentFieldsKeys {
   @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
   @javax.annotation.Nullable
   private String pageTitle;
-
-  public static final String SERIALIZED_NAME_DATE = "date";
-  @SerializedName(SERIALIZED_NAME_DATE)
-  @javax.annotation.Nonnull
-  private OffsetDateTime date;
-
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  @javax.annotation.Nonnull
-  private String tenantId;
-
-  public static final String SERIALIZED_NAME_URL_ID_RAW = "urlIdRaw";
-  @SerializedName(SERIALIZED_NAME_URL_ID_RAW)
-  @javax.annotation.Nullable
-  private String urlIdRaw;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -325,6 +325,25 @@ public class PickFCommentAPICommentFieldsKeys {
   public PickFCommentAPICommentFieldsKeys() {
   }
 
+  public PickFCommentAPICommentFieldsKeys date(@javax.annotation.Nonnull OffsetDateTime date) {
+    this.date = date;
+    return this;
+  }
+
+  /**
+   * Get date
+   * @return date
+   */
+  @javax.annotation.Nonnull
+  public OffsetDateTime getDate() {
+    return date;
+  }
+
+  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
+    this.date = date;
+  }
+
+
   public PickFCommentAPICommentFieldsKeys id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
@@ -344,6 +363,25 @@ public class PickFCommentAPICommentFieldsKeys {
   }
 
 
+  public PickFCommentAPICommentFieldsKeys tenantId(@javax.annotation.Nonnull String tenantId) {
+    this.tenantId = tenantId;
+    return this;
+  }
+
+  /**
+   * Get tenantId
+   * @return tenantId
+   */
+  @javax.annotation.Nonnull
+  public String getTenantId() {
+    return tenantId;
+  }
+
+  public void setTenantId(@javax.annotation.Nonnull String tenantId) {
+    this.tenantId = tenantId;
+  }
+
+
   public PickFCommentAPICommentFieldsKeys urlId(@javax.annotation.Nonnull String urlId) {
     this.urlId = urlId;
     return this;
@@ -360,6 +398,25 @@ public class PickFCommentAPICommentFieldsKeys {
 
   public void setUrlId(@javax.annotation.Nonnull String urlId) {
     this.urlId = urlId;
+  }
+
+
+  public PickFCommentAPICommentFieldsKeys urlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
+    this.urlIdRaw = urlIdRaw;
+    return this;
+  }
+
+  /**
+   * Get urlIdRaw
+   * @return urlIdRaw
+   */
+  @javax.annotation.Nullable
+  public String getUrlIdRaw() {
+    return urlIdRaw;
+  }
+
+  public void setUrlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
+    this.urlIdRaw = urlIdRaw;
   }
 
 
@@ -398,63 +455,6 @@ public class PickFCommentAPICommentFieldsKeys {
 
   public void setPageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
-  }
-
-
-  public PickFCommentAPICommentFieldsKeys date(@javax.annotation.Nonnull OffsetDateTime date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-   */
-  @javax.annotation.Nonnull
-  public OffsetDateTime getDate() {
-    return date;
-  }
-
-  public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
-    this.date = date;
-  }
-
-
-  public PickFCommentAPICommentFieldsKeys tenantId(@javax.annotation.Nonnull String tenantId) {
-    this.tenantId = tenantId;
-    return this;
-  }
-
-  /**
-   * Get tenantId
-   * @return tenantId
-   */
-  @javax.annotation.Nonnull
-  public String getTenantId() {
-    return tenantId;
-  }
-
-  public void setTenantId(@javax.annotation.Nonnull String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public PickFCommentAPICommentFieldsKeys urlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
-    this.urlIdRaw = urlIdRaw;
-    return this;
-  }
-
-  /**
-   * Get urlIdRaw
-   * @return urlIdRaw
-   */
-  @javax.annotation.Nullable
-  public String getUrlIdRaw() {
-    return urlIdRaw;
-  }
-
-  public void setUrlIdRaw(@javax.annotation.Nullable String urlIdRaw) {
-    this.urlIdRaw = urlIdRaw;
   }
 
 
@@ -1382,13 +1382,13 @@ public class PickFCommentAPICommentFieldsKeys {
       return false;
     }
     PickFCommentAPICommentFieldsKeys pickFCommentAPICommentFieldsKeys = (PickFCommentAPICommentFieldsKeys) o;
-    return Objects.equals(this.id, pickFCommentAPICommentFieldsKeys.id) &&
+    return Objects.equals(this.date, pickFCommentAPICommentFieldsKeys.date) &&
+        Objects.equals(this.id, pickFCommentAPICommentFieldsKeys.id) &&
+        Objects.equals(this.tenantId, pickFCommentAPICommentFieldsKeys.tenantId) &&
         Objects.equals(this.urlId, pickFCommentAPICommentFieldsKeys.urlId) &&
+        Objects.equals(this.urlIdRaw, pickFCommentAPICommentFieldsKeys.urlIdRaw) &&
         Objects.equals(this.url, pickFCommentAPICommentFieldsKeys.url) &&
         Objects.equals(this.pageTitle, pickFCommentAPICommentFieldsKeys.pageTitle) &&
-        Objects.equals(this.date, pickFCommentAPICommentFieldsKeys.date) &&
-        Objects.equals(this.tenantId, pickFCommentAPICommentFieldsKeys.tenantId) &&
-        Objects.equals(this.urlIdRaw, pickFCommentAPICommentFieldsKeys.urlIdRaw) &&
         Objects.equals(this.userId, pickFCommentAPICommentFieldsKeys.userId) &&
         Objects.equals(this.anonUserId, pickFCommentAPICommentFieldsKeys.anonUserId) &&
         Objects.equals(this.commenterEmail, pickFCommentAPICommentFieldsKeys.commenterEmail) &&
@@ -1439,20 +1439,20 @@ public class PickFCommentAPICommentFieldsKeys {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, urlId, url, pageTitle, date, tenantId, urlIdRaw, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, notificationSentForParent, notificationSentForParentTenant, reviewed, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, mentions, hashTags, badges, domain, moderationGroupIds, feedbackIds);
+    return Objects.hash(date, id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, notificationSentForParent, notificationSentForParentTenant, reviewed, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, mentions, hashTags, badges, domain, moderationGroupIds, feedbackIds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PickFCommentAPICommentFieldsKeys {\n");
+    sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
+    sb.append("    urlIdRaw: ").append(toIndentedString(urlIdRaw)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
-    sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    urlIdRaw: ").append(toIndentedString(urlIdRaw)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    commenterEmail: ").append(toIndentedString(commenterEmail)).append("\n");
@@ -1521,13 +1521,13 @@ public class PickFCommentAPICommentFieldsKeys {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("date");
     openapiFields.add("_id");
+    openapiFields.add("tenantId");
     openapiFields.add("urlId");
+    openapiFields.add("urlIdRaw");
     openapiFields.add("url");
     openapiFields.add("pageTitle");
-    openapiFields.add("date");
-    openapiFields.add("tenantId");
-    openapiFields.add("urlIdRaw");
     openapiFields.add("userId");
     openapiFields.add("anonUserId");
     openapiFields.add("commenterEmail");
@@ -1577,11 +1577,11 @@ public class PickFCommentAPICommentFieldsKeys {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("date");
     openapiRequiredFields.add("_id");
+    openapiRequiredFields.add("tenantId");
     openapiRequiredFields.add("urlId");
     openapiRequiredFields.add("url");
-    openapiRequiredFields.add("date");
-    openapiRequiredFields.add("tenantId");
     openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("comment");
     openapiRequiredFields.add("commentHTML");
@@ -1621,20 +1621,20 @@ public class PickFCommentAPICommentFieldsKeys {
       if (!jsonObj.get("_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
+      if (!jsonObj.get("tenantId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+      }
       if (!jsonObj.get("urlId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
+      }
+      if ((jsonObj.get("urlIdRaw") != null && !jsonObj.get("urlIdRaw").isJsonNull()) && !jsonObj.get("urlIdRaw").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlIdRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdRaw").toString()));
       }
       if (!jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       if ((jsonObj.get("pageTitle") != null && !jsonObj.get("pageTitle").isJsonNull()) && !jsonObj.get("pageTitle").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pageTitle` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageTitle").toString()));
-      }
-      if (!jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
-      }
-      if ((jsonObj.get("urlIdRaw") != null && !jsonObj.get("urlIdRaw").isJsonNull()) && !jsonObj.get("urlIdRaw").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlIdRaw` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdRaw").toString()));
       }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));

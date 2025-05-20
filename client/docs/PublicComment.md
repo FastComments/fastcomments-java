@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**id** | **String** |  |  |
 |**date** | **OffsetDateTime** |  |  |
+|**id** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**commenterName** | **String** |  |  |

@@ -33,6 +33,8 @@ public enum LiveEventType {
   
   NOTIFICATION("notification"),
   
+  NOTIFICATION_UPDATE("notification-update"),
+  
   P_U("p-u"),
   
   NEW_VOTE("new-vote"),

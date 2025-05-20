@@ -54,15 +54,15 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class PickFCommentPublicCommentFieldsKeys {
-  public static final String SERIALIZED_NAME_ID = "_id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
-  private String id;
-
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   @javax.annotation.Nonnull
   private OffsetDateTime date;
+
+  public static final String SERIALIZED_NAME_ID = "_id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
+  private String id;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -197,25 +197,6 @@ public class PickFCommentPublicCommentFieldsKeys {
   public PickFCommentPublicCommentFieldsKeys() {
   }
 
-  public PickFCommentPublicCommentFieldsKeys id(@javax.annotation.Nonnull String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-   */
-  @javax.annotation.Nonnull
-  public String getId() {
-    return id;
-  }
-
-  public void setId(@javax.annotation.Nonnull String id) {
-    this.id = id;
-  }
-
-
   public PickFCommentPublicCommentFieldsKeys date(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
     return this;
@@ -232,6 +213,25 @@ public class PickFCommentPublicCommentFieldsKeys {
 
   public void setDate(@javax.annotation.Nonnull OffsetDateTime date) {
     this.date = date;
+  }
+
+
+  public PickFCommentPublicCommentFieldsKeys id(@javax.annotation.Nonnull String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+   */
+  @javax.annotation.Nonnull
+  public String getId() {
+    return id;
+  }
+
+  public void setId(@javax.annotation.Nonnull String id) {
+    this.id = id;
   }
 
 
@@ -755,8 +755,8 @@ public class PickFCommentPublicCommentFieldsKeys {
       return false;
     }
     PickFCommentPublicCommentFieldsKeys pickFCommentPublicCommentFieldsKeys = (PickFCommentPublicCommentFieldsKeys) o;
-    return Objects.equals(this.id, pickFCommentPublicCommentFieldsKeys.id) &&
-        Objects.equals(this.date, pickFCommentPublicCommentFieldsKeys.date) &&
+    return Objects.equals(this.date, pickFCommentPublicCommentFieldsKeys.date) &&
+        Objects.equals(this.id, pickFCommentPublicCommentFieldsKeys.id) &&
         Objects.equals(this.userId, pickFCommentPublicCommentFieldsKeys.userId) &&
         Objects.equals(this.anonUserId, pickFCommentPublicCommentFieldsKeys.anonUserId) &&
         Objects.equals(this.commenterName, pickFCommentPublicCommentFieldsKeys.commenterName) &&
@@ -787,15 +787,15 @@ public class PickFCommentPublicCommentFieldsKeys {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, date, userId, anonUserId, commenterName, commenterLink, commentHTML, parentId, votes, votesUp, votesDown, verified, avatarSrc, isSpam, hasImages, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, rating, displayLabel, badges, feedbackIds, viewCount, requiresVerification, editKey);
+    return Objects.hash(date, id, userId, anonUserId, commenterName, commenterLink, commentHTML, parentId, votes, votesUp, votesDown, verified, avatarSrc, isSpam, hasImages, isDeleted, isDeletedUser, isByAdmin, isByModerator, isPinned, isLocked, rating, displayLabel, badges, feedbackIds, viewCount, requiresVerification, editKey);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PickFCommentPublicCommentFieldsKeys {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    commenterName: ").append(toIndentedString(commenterName)).append("\n");
@@ -844,8 +844,8 @@ public class PickFCommentPublicCommentFieldsKeys {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("_id");
     openapiFields.add("date");
+    openapiFields.add("_id");
     openapiFields.add("userId");
     openapiFields.add("anonUserId");
     openapiFields.add("commenterName");
@@ -875,8 +875,8 @@ public class PickFCommentPublicCommentFieldsKeys {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("_id");
     openapiRequiredFields.add("date");
+    openapiRequiredFields.add("_id");
     openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("commentHTML");
     openapiRequiredFields.add("verified");
