@@ -131,6 +131,7 @@ public class LiveEventSubscriber {
         private final boolean[] isIntentionallyClosed;
         private final CommentWidgetConfig config;
         private final Timer pingTimer = new Timer();
+        private Timer reconnectTimer;
         private final String tenantId;
         private final String urlId;
         private final String userIdWS;
@@ -240,6 +241,12 @@ public class LiveEventSubscriber {
             // Clean up ping timer
             pingTimer.cancel();
 
+            // Cancel any existing reconnect timer
+            if (reconnectTimer != null) {
+                reconnectTimer.cancel();
+                reconnectTimer = null;
+            }
+
             // Initialize last event time if not set
             if (lastEventTime <= 0) {
                 lastEventTime = new Date().getTime();
@@ -255,7 +262,8 @@ public class LiveEventSubscriber {
                 double jitter = Math.random();
                 long reconnectDelay = (long) (RECONNECT_INTERVAL_BASE * jitter);
 
-                new Timer().schedule(new TimerTask() {
+                reconnectTimer = new Timer();
+                reconnectTimer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         if (!isIntentionallyClosed[0]) {
