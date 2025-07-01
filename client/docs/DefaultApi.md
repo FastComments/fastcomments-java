@@ -31,6 +31,7 @@ All URIs are relative to *http://localhost*
 | [**patchDomainConfig**](DefaultApi.md#patchDomainConfig) | **PATCH** /api/v1/domain-configs/{domainToUpdate} |  |
 | [**putDomainConfig**](DefaultApi.md#putDomainConfig) | **PUT** /api/v1/domain-configs/{domainToUpdate} |  |
 | [**saveComment**](DefaultApi.md#saveComment) | **POST** /api/v1/comments |  |
+| [**saveCommentsBulk**](DefaultApi.md#saveCommentsBulk) | **POST** /api/v1/comments/bulk |  |
 | [**unBlockUserFromComment**](DefaultApi.md#unBlockUserFromComment) | **POST** /api/v1/comments/{id}/un-block |  |
 | [**unFlagComment**](DefaultApi.md#unFlagComment) | **POST** /api/v1/comments/{id}/un-flag |  |
 | [**updateComment**](DefaultApi.md#updateComment) | **PATCH** /api/v1/comments/{id} |  |
@@ -2023,6 +2024,88 @@ public class Example {
 ### Return type
 
 [**SaveComment200Response**](SaveComment200Response.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="saveCommentsBulk"></a>
+# **saveCommentsBulk**
+> List&lt;SaveComment200Response&gt; saveCommentsBulk(tenantId, createCommentParams).isLive(isLive).doSpamCheck(doSpamCheck).sendEmails(sendEmails).populateNotifications(populateNotifications).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    List<CreateCommentParams> createCommentParams = Arrays.asList(); // List<CreateCommentParams> | 
+    Boolean isLive = true; // Boolean | 
+    Boolean doSpamCheck = true; // Boolean | 
+    Boolean sendEmails = true; // Boolean | 
+    Boolean populateNotifications = true; // Boolean | 
+    try {
+      List<SaveComment200Response> result = apiInstance.saveCommentsBulk(tenantId, createCommentParams)
+            .isLive(isLive)
+            .doSpamCheck(doSpamCheck)
+            .sendEmails(sendEmails)
+            .populateNotifications(populateNotifications)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#saveCommentsBulk");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **createCommentParams** | [**List&lt;CreateCommentParams&gt;**](CreateCommentParams.md)|  | |
+| **isLive** | **Boolean**|  | [optional] |
+| **doSpamCheck** | **Boolean**|  | [optional] |
+| **sendEmails** | **Boolean**|  | [optional] |
+| **populateNotifications** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**List&lt;SaveComment200Response&gt;**](SaveComment200Response.md)
 
 ### Authorization
 

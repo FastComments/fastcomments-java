@@ -511,6 +511,26 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void saveCommentsBulkTest() throws ApiException {
+        String tenantId = null;
+        List<CreateCommentParams> createCommentParams = null;
+        Boolean isLive = null;
+        Boolean doSpamCheck = null;
+        Boolean sendEmails = null;
+        Boolean populateNotifications = null;
+        List<SaveComment200Response> response = api.saveCommentsBulk(tenantId, createCommentParams)
+                .isLive(isLive)
+                .doSpamCheck(doSpamCheck)
+                .sendEmails(sendEmails)
+                .populateNotifications(populateNotifications)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void unBlockUserFromCommentTest() throws ApiException {
         String tenantId = null;
         String id = null;

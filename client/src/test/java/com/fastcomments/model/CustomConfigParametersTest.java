@@ -480,6 +480,14 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'enableResizeHandle'
+     */
+    @Test
+    public void enableResizeHandleTest() {
+        // TODO: test enableResizeHandle
+    }
+
+    /**
      * Test the property 'restrictedLinkDomains'
      */
     @Test

@@ -247,7 +247,6 @@ public class PublicApiTest {
         Integer limit = null;
         Integer limitChildren = null;
         Boolean countChildren = null;
-        Long lastGenDate = null;
         String fetchPageForCommentId = null;
         Boolean includeConfig = null;
         Boolean countAll = null;
@@ -264,6 +263,8 @@ public class PublicApiTest {
         List<String> hashTags = null;
         String userId = null;
         String customConfigStr = null;
+        String afterCommentId = null;
+        String beforeCommentId = null;
         GetCommentsPublic200Response response = api.getCommentsPublic(tenantId, urlId)
                 .page(page)
                 .direction(direction)
@@ -273,7 +274,6 @@ public class PublicApiTest {
                 .limit(limit)
                 .limitChildren(limitChildren)
                 .countChildren(countChildren)
-                .lastGenDate(lastGenDate)
                 .fetchPageForCommentId(fetchPageForCommentId)
                 .includeConfig(includeConfig)
                 .countAll(countAll)
@@ -290,6 +290,8 @@ public class PublicApiTest {
                 .hashTags(hashTags)
                 .userId(userId)
                 .customConfigStr(customConfigStr)
+                .afterCommentId(afterCommentId)
+                .beforeCommentId(beforeCommentId)
                 .execute();
         // TODO: test validations
     }

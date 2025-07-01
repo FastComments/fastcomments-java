@@ -301,6 +301,14 @@ public class FCommentTest {
     }
 
     /**
+     * Test the property 'permNotSpam'
+     */
+    @Test
+    public void permNotSpamTest() {
+        // TODO: test permNotSpam
+    }
+
+    /**
      * Test the property 'aiDeterminedSpam'
      */
     @Test

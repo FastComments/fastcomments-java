@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.19</version>
+  <version>0.0.20</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.19"
+     implementation "com.fastcomments:client:0.0.20"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.19.jar`
+* `target/client-0.0.20.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -149,6 +149,7 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**patchDomainConfig**](docs/DefaultApi.md#patchDomainConfig) | **PATCH** /api/v1/domain-configs/{domainToUpdate} | 
 *DefaultApi* | [**putDomainConfig**](docs/DefaultApi.md#putDomainConfig) | **PUT** /api/v1/domain-configs/{domainToUpdate} | 
 *DefaultApi* | [**saveComment**](docs/DefaultApi.md#saveComment) | **POST** /api/v1/comments | 
+*DefaultApi* | [**saveCommentsBulk**](docs/DefaultApi.md#saveCommentsBulk) | **POST** /api/v1/comments/bulk | 
 *DefaultApi* | [**unBlockUserFromComment**](docs/DefaultApi.md#unBlockUserFromComment) | **POST** /api/v1/comments/{id}/un-block | 
 *DefaultApi* | [**unFlagComment**](docs/DefaultApi.md#unFlagComment) | **POST** /api/v1/comments/{id}/un-flag | 
 *DefaultApi* | [**updateComment**](docs/DefaultApi.md#updateComment) | **PATCH** /api/v1/comments/{id} | 

@@ -740,7 +740,7 @@ No authorization required
 
 <a id="getCommentsPublic"></a>
 # **getCommentsPublic**
-> GetCommentsPublic200Response getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).lastGenDate(lastGenDate).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).execute();
+> GetCommentsPublic200Response getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).afterCommentId(afterCommentId).beforeCommentId(beforeCommentId).execute();
 
 
 
@@ -771,7 +771,6 @@ public class Example {
     Integer limit = 56; // Integer | 
     Integer limitChildren = 56; // Integer | 
     Boolean countChildren = true; // Boolean | 
-    Long lastGenDate = 56L; // Long | 
     String fetchPageForCommentId = "fetchPageForCommentId_example"; // String | 
     Boolean includeConfig = true; // Boolean | 
     Boolean countAll = true; // Boolean | 
@@ -788,6 +787,8 @@ public class Example {
     List<String> hashTags = Arrays.asList(); // List<String> | 
     String userId = "userId_example"; // String | 
     String customConfigStr = "customConfigStr_example"; // String | 
+    String afterCommentId = "afterCommentId_example"; // String | 
+    String beforeCommentId = "beforeCommentId_example"; // String | 
     try {
       GetCommentsPublic200Response result = apiInstance.getCommentsPublic(tenantId, urlId)
             .page(page)
@@ -798,7 +799,6 @@ public class Example {
             .limit(limit)
             .limitChildren(limitChildren)
             .countChildren(countChildren)
-            .lastGenDate(lastGenDate)
             .fetchPageForCommentId(fetchPageForCommentId)
             .includeConfig(includeConfig)
             .countAll(countAll)
@@ -815,6 +815,8 @@ public class Example {
             .hashTags(hashTags)
             .userId(userId)
             .customConfigStr(customConfigStr)
+            .afterCommentId(afterCommentId)
+            .beforeCommentId(beforeCommentId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -842,7 +844,6 @@ public class Example {
 | **limit** | **Integer**|  | [optional] |
 | **limitChildren** | **Integer**|  | [optional] |
 | **countChildren** | **Boolean**|  | [optional] |
-| **lastGenDate** | **Long**|  | [optional] |
 | **fetchPageForCommentId** | **String**|  | [optional] |
 | **includeConfig** | **Boolean**|  | [optional] |
 | **countAll** | **Boolean**|  | [optional] |
@@ -859,6 +860,8 @@ public class Example {
 | **hashTags** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **userId** | **String**|  | [optional] |
 | **customConfigStr** | **String**|  | [optional] |
+| **afterCommentId** | **String**|  | [optional] |
+| **beforeCommentId** | **String**|  | [optional] |
 
 ### Return type
 

@@ -39,6 +39,7 @@
 |**externalParentId** | **String** |  |  [optional] |
 |**avatarSrc** | **String** |  |  [optional] |
 |**isSpam** | **Boolean** |  |  [optional] |
+|**permNotSpam** | **Boolean** |  |  [optional] |
 |**aiDeterminedSpam** | **Boolean** |  |  [optional] |
 |**hasImages** | **Boolean** |  |  [optional] |
 |**pageNumber** | **Integer** |  |  [optional] |

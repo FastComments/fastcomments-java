@@ -60,6 +60,7 @@
 |**pageSize** | **Double** |  |  [optional] |
 |**readonly** | **Boolean** |  |  [optional] |
 |**requireSSO** | **Boolean** |  |  [optional] |
+|**enableResizeHandle** | **Boolean** |  |  [optional] |
 |**restrictedLinkDomains** | **List&lt;String&gt;** |  |  [optional] |
 |**showCommentSaveSuccess** | **Boolean** |  |  [optional] |
 |**showLiveRightAway** | **Boolean** |  |  [optional] |

@@ -217,6 +217,11 @@ public class FComment {
   @javax.annotation.Nullable
   private Boolean isSpam;
 
+  public static final String SERIALIZED_NAME_PERM_NOT_SPAM = "permNotSpam";
+  @SerializedName(SERIALIZED_NAME_PERM_NOT_SPAM)
+  @javax.annotation.Nullable
+  private Boolean permNotSpam;
+
   public static final String SERIALIZED_NAME_AI_DETERMINED_SPAM = "aiDeterminedSpam";
   @SerializedName(SERIALIZED_NAME_AI_DETERMINED_SPAM)
   @javax.annotation.Nullable
@@ -1015,6 +1020,25 @@ public class FComment {
 
   public void setIsSpam(@javax.annotation.Nullable Boolean isSpam) {
     this.isSpam = isSpam;
+  }
+
+
+  public FComment permNotSpam(@javax.annotation.Nullable Boolean permNotSpam) {
+    this.permNotSpam = permNotSpam;
+    return this;
+  }
+
+  /**
+   * Get permNotSpam
+   * @return permNotSpam
+   */
+  @javax.annotation.Nullable
+  public Boolean getPermNotSpam() {
+    return permNotSpam;
+  }
+
+  public void setPermNotSpam(@javax.annotation.Nullable Boolean permNotSpam) {
+    this.permNotSpam = permNotSpam;
   }
 
 
@@ -1838,6 +1862,7 @@ public class FComment {
         Objects.equals(this.externalParentId, fcomment.externalParentId) &&
         Objects.equals(this.avatarSrc, fcomment.avatarSrc) &&
         Objects.equals(this.isSpam, fcomment.isSpam) &&
+        Objects.equals(this.permNotSpam, fcomment.permNotSpam) &&
         Objects.equals(this.aiDeterminedSpam, fcomment.aiDeterminedSpam) &&
         Objects.equals(this.hasImages, fcomment.hasImages) &&
         Objects.equals(this.pageNumber, fcomment.pageNumber) &&
@@ -1880,7 +1905,7 @@ public class FComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey);
+    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, permNotSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey);
   }
 
   @Override
@@ -1919,6 +1944,7 @@ public class FComment {
     sb.append("    externalParentId: ").append(toIndentedString(externalParentId)).append("\n");
     sb.append("    avatarSrc: ").append(toIndentedString(avatarSrc)).append("\n");
     sb.append("    isSpam: ").append(toIndentedString(isSpam)).append("\n");
+    sb.append("    permNotSpam: ").append(toIndentedString(permNotSpam)).append("\n");
     sb.append("    aiDeterminedSpam: ").append(toIndentedString(aiDeterminedSpam)).append("\n");
     sb.append("    hasImages: ").append(toIndentedString(hasImages)).append("\n");
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
@@ -2011,6 +2037,7 @@ public class FComment {
     openapiFields.add("externalParentId");
     openapiFields.add("avatarSrc");
     openapiFields.add("isSpam");
+    openapiFields.add("permNotSpam");
     openapiFields.add("aiDeterminedSpam");
     openapiFields.add("hasImages");
     openapiFields.add("pageNumber");

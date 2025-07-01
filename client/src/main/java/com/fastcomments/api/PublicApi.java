@@ -2124,7 +2124,7 @@ public class PublicApi {
     public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Double dir) {
         return new APIgetCommentVoteUserNamesRequest(tenantId, commentId, dir);
     }
-    private okhttp3.Call getCommentsPublicCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, String afterCommentId, String beforeCommentId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2184,10 +2184,6 @@ public class PublicApi {
 
         if (countChildren != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("countChildren", countChildren));
-        }
-
-        if (lastGenDate != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lastGenDate", lastGenDate));
         }
 
         if (fetchPageForCommentId != null) {
@@ -2254,6 +2250,14 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("customConfigStr", customConfigStr));
         }
 
+        if (afterCommentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("afterCommentId", afterCommentId));
+        }
+
+        if (beforeCommentId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("beforeCommentId", beforeCommentId));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2274,7 +2278,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsPublicValidateBeforeCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicValidateBeforeCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, String afterCommentId, String beforeCommentId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCommentsPublic(Async)");
@@ -2285,20 +2289,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling getCommentsPublic(Async)");
         }
 
-        return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+        return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
 
     }
 
 
-    private ApiResponse<GetCommentsPublic200Response> getCommentsPublicWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr) throws ApiException {
-        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, null);
+    private ApiResponse<GetCommentsPublic200Response> getCommentsPublicWithHttpInfo(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, String afterCommentId, String beforeCommentId) throws ApiException {
+        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, null);
         Type localVarReturnType = new TypeToken<GetCommentsPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentsPublicAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, Long lastGenDate, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, final ApiCallback<GetCommentsPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicAsync(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, String afterCommentId, String beforeCommentId, final ApiCallback<GetCommentsPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
         Type localVarReturnType = new TypeToken<GetCommentsPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2315,7 +2319,6 @@ public class PublicApi {
         private Integer limit;
         private Integer limitChildren;
         private Boolean countChildren;
-        private Long lastGenDate;
         private String fetchPageForCommentId;
         private Boolean includeConfig;
         private Boolean countAll;
@@ -2332,6 +2335,8 @@ public class PublicApi {
         private List<String> hashTags;
         private String userId;
         private String customConfigStr;
+        private String afterCommentId;
+        private String beforeCommentId;
 
         private APIgetCommentsPublicRequest(String tenantId, String urlId) {
             this.tenantId = tenantId;
@@ -2415,16 +2420,6 @@ public class PublicApi {
          */
         public APIgetCommentsPublicRequest countChildren(Boolean countChildren) {
             this.countChildren = countChildren;
-            return this;
-        }
-
-        /**
-         * Set lastGenDate
-         * @param lastGenDate  (optional)
-         * @return APIgetCommentsPublicRequest
-         */
-        public APIgetCommentsPublicRequest lastGenDate(Long lastGenDate) {
-            this.lastGenDate = lastGenDate;
             return this;
         }
 
@@ -2589,6 +2584,26 @@ public class PublicApi {
         }
 
         /**
+         * Set afterCommentId
+         * @param afterCommentId  (optional)
+         * @return APIgetCommentsPublicRequest
+         */
+        public APIgetCommentsPublicRequest afterCommentId(String afterCommentId) {
+            this.afterCommentId = afterCommentId;
+            return this;
+        }
+
+        /**
+         * Set beforeCommentId
+         * @param beforeCommentId  (optional)
+         * @return APIgetCommentsPublicRequest
+         */
+        public APIgetCommentsPublicRequest beforeCommentId(String beforeCommentId) {
+            this.beforeCommentId = beforeCommentId;
+            return this;
+        }
+
+        /**
          * Build call for getCommentsPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -2601,7 +2616,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+            return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
         }
 
         /**
@@ -2616,7 +2631,7 @@ public class PublicApi {
          </table>
          */
         public GetCommentsPublic200Response execute() throws ApiException {
-            ApiResponse<GetCommentsPublic200Response> localVarResp = getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+            ApiResponse<GetCommentsPublic200Response> localVarResp = getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId);
             return localVarResp.getData();
         }
 
@@ -2632,7 +2647,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetCommentsPublic200Response> executeWithHttpInfo() throws ApiException {
-            return getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr);
+            return getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId);
         }
 
         /**
@@ -2648,7 +2663,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetCommentsPublic200Response> _callback) throws ApiException {
-            return getCommentsPublicAsync(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, lastGenDate, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, _callback);
+            return getCommentsPublicAsync(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
         }
     }
 

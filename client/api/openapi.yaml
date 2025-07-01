@@ -1249,14 +1249,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: lastGenDate
-        required: false
-        schema:
-          format: int64
-          type: integer
-        style: form
-      - explode: true
-        in: query
         name: fetchPageForCommentId
         required: false
         schema:
@@ -1366,6 +1358,20 @@ paths:
       - explode: true
         in: query
         name: customConfigStr
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: afterCommentId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: beforeCommentId
         required: false
         schema:
           type: string
@@ -3073,6 +3079,67 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /api/v1/comments/bulk:
+    post:
+      operationId: SaveCommentsBulk
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: isLive
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: doSpamCheck
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: sendEmails
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: populateNotifications
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/CreateCommentParams'
+              type: array
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SaveComment_200_response'
+                type: array
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /api/v1/comments/{id}/flag:
     post:
       operationId: FlagComment
@@ -3602,6 +3669,7 @@ components:
         enableSpoilers: true
         disableUnverifiedLabel: true
         noStyles: true
+        enableResizeHandle: true
         absoluteDates: true
         limitCommentsByGroups: true
         enableWYSIWYG: true
@@ -3752,6 +3820,8 @@ components:
           type: boolean
         requireSSO:
           type: boolean
+        enableResizeHandle:
+          type: boolean
         restrictedLinkDomains:
           items:
             type: string
@@ -3863,6 +3933,7 @@ components:
           enableSpoilers: true
           disableUnverifiedLabel: true
           noStyles: true
+          enableResizeHandle: true
           absoluteDates: true
           limitCommentsByGroups: true
           enableWYSIWYG: true
@@ -5821,6 +5892,7 @@ components:
           enableSpoilers: true
           disableUnverifiedLabel: true
           noStyles: true
+          enableResizeHandle: true
           absoluteDates: true
           limitCommentsByGroups: true
           enableWYSIWYG: true
@@ -7081,6 +7153,7 @@ components:
         commentHTML: commentHTML
         isDeleted: true
         imported: true
+        permNotSpam: true
         pageNumberOF: 2
         localDateHours: 0
         viewCount: 7.386281948385884
@@ -7214,6 +7287,8 @@ components:
           nullable: true
           type: string
         isSpam:
+          type: boolean
+        permNotSpam:
           type: boolean
         aiDeterminedSpam:
           type: boolean
@@ -8408,6 +8483,7 @@ components:
           commentHTML: commentHTML
           isDeleted: true
           imported: true
+          permNotSpam: true
           pageNumberOF: 2
           localDateHours: 0
           viewCount: 7.386281948385884

@@ -5392,6 +5392,235 @@ public class DefaultApi {
     public APIsaveCommentRequest saveComment(String tenantId, CreateCommentParams createCommentParams) {
         return new APIsaveCommentRequest(tenantId, createCommentParams);
     }
+    private okhttp3.Call saveCommentsBulkCall(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createCommentParams;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/comments/bulk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (isLive != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("isLive", isLive));
+        }
+
+        if (doSpamCheck != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("doSpamCheck", doSpamCheck));
+        }
+
+        if (sendEmails != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sendEmails", sendEmails));
+        }
+
+        if (populateNotifications != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("populateNotifications", populateNotifications));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "api_key" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call saveCommentsBulkValidateBeforeCall(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling saveCommentsBulk(Async)");
+        }
+
+        // verify the required parameter 'createCommentParams' is set
+        if (createCommentParams == null) {
+            throw new ApiException("Missing the required parameter 'createCommentParams' when calling saveCommentsBulk(Async)");
+        }
+
+        return saveCommentsBulkCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
+
+    }
+
+
+    private ApiResponse<List<SaveComment200Response>> saveCommentsBulkWithHttpInfo(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications) throws ApiException {
+        okhttp3.Call localVarCall = saveCommentsBulkValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, null);
+        Type localVarReturnType = new TypeToken<List<SaveComment200Response>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call saveCommentsBulkAsync(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback<List<SaveComment200Response>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = saveCommentsBulkValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
+        Type localVarReturnType = new TypeToken<List<SaveComment200Response>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIsaveCommentsBulkRequest {
+        private final String tenantId;
+        private final List<CreateCommentParams> createCommentParams;
+        private Boolean isLive;
+        private Boolean doSpamCheck;
+        private Boolean sendEmails;
+        private Boolean populateNotifications;
+
+        private APIsaveCommentsBulkRequest(String tenantId, List<CreateCommentParams> createCommentParams) {
+            this.tenantId = tenantId;
+            this.createCommentParams = createCommentParams;
+        }
+
+        /**
+         * Set isLive
+         * @param isLive  (optional)
+         * @return APIsaveCommentsBulkRequest
+         */
+        public APIsaveCommentsBulkRequest isLive(Boolean isLive) {
+            this.isLive = isLive;
+            return this;
+        }
+
+        /**
+         * Set doSpamCheck
+         * @param doSpamCheck  (optional)
+         * @return APIsaveCommentsBulkRequest
+         */
+        public APIsaveCommentsBulkRequest doSpamCheck(Boolean doSpamCheck) {
+            this.doSpamCheck = doSpamCheck;
+            return this;
+        }
+
+        /**
+         * Set sendEmails
+         * @param sendEmails  (optional)
+         * @return APIsaveCommentsBulkRequest
+         */
+        public APIsaveCommentsBulkRequest sendEmails(Boolean sendEmails) {
+            this.sendEmails = sendEmails;
+            return this;
+        }
+
+        /**
+         * Set populateNotifications
+         * @param populateNotifications  (optional)
+         * @return APIsaveCommentsBulkRequest
+         */
+        public APIsaveCommentsBulkRequest populateNotifications(Boolean populateNotifications) {
+            this.populateNotifications = populateNotifications;
+            return this;
+        }
+
+        /**
+         * Build call for saveCommentsBulk
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return saveCommentsBulkCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
+        }
+
+        /**
+         * Execute saveCommentsBulk request
+         * @return List&lt;SaveComment200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<SaveComment200Response> execute() throws ApiException {
+            ApiResponse<List<SaveComment200Response>> localVarResp = saveCommentsBulkWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute saveCommentsBulk request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;SaveComment200Response&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<SaveComment200Response>> executeWithHttpInfo() throws ApiException {
+            return saveCommentsBulkWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
+        }
+
+        /**
+         * Execute saveCommentsBulk request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<SaveComment200Response>> _callback) throws ApiException {
+            return saveCommentsBulkAsync(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param createCommentParams  (required)
+     * @return APIsaveCommentsBulkRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIsaveCommentsBulkRequest saveCommentsBulk(String tenantId, List<CreateCommentParams> createCommentParams) {
+        return new APIsaveCommentsBulkRequest(tenantId, createCommentParams);
+    }
     private okhttp3.Call unBlockUserFromCommentCall(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
