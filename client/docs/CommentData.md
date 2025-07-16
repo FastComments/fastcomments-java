@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**date** | **Double** |  |  |
+|**date** | **Double** |  |  [optional] |
 |**localDateString** | **String** |  |  [optional] |
 |**localDateHours** | **Double** |  |  [optional] |
 |**commenterName** | **String** |  |  |

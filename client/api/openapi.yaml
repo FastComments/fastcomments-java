@@ -6277,7 +6277,6 @@ components:
       required:
       - comment
       - commenterName
-      - date
       - url
       - urlId
       type: object
@@ -8710,7 +8709,6 @@ components:
       required:
       - comment
       - commenterName
-      - date
       - locale
       - url
       - urlId
