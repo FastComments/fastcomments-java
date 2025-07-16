@@ -247,6 +247,12 @@ public class LiveEventSubscriber {
                 reconnectTimer = null;
             }
 
+            // Clean up all debouncer timers
+            for (Timer timer : debouncers.values()) {
+                timer.cancel();
+            }
+            debouncers.clear();
+
             // Initialize last event time if not set
             if (lastEventTime <= 0) {
                 lastEventTime = new Date().getTime();
