@@ -59,7 +59,7 @@ import com.fastcomments.invoker.JSON;
 public class CreateCommentParams {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Double date;
 
   public static final String SERIALIZED_NAME_LOCAL_DATE_STRING = "localDateString";
@@ -230,7 +230,7 @@ public class CreateCommentParams {
   public CreateCommentParams() {
   }
 
-  public CreateCommentParams date(@javax.annotation.Nonnull Double date) {
+  public CreateCommentParams date(@javax.annotation.Nullable Double date) {
     this.date = date;
     return this;
   }
@@ -239,12 +239,12 @@ public class CreateCommentParams {
    * Get date
    * @return date
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Double getDate() {
     return date;
   }
 
-  public void setDate(@javax.annotation.Nonnull Double date) {
+  public void setDate(@javax.annotation.Nullable Double date) {
     this.date = date;
   }
 
@@ -1064,7 +1064,6 @@ public class CreateCommentParams {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("date");
     openapiRequiredFields.add("commenterName");
     openapiRequiredFields.add("comment");
     openapiRequiredFields.add("url");
