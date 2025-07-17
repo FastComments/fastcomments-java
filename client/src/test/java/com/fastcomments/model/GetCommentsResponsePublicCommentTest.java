@@ -77,6 +77,14 @@ public class GetCommentsResponsePublicCommentTest {
     }
 
     /**
+     * Test the property 'translatedWarning'
+     */
+    @Test
+    public void translatedWarningTest() {
+        // TODO: test translatedWarning
+    }
+
+    /**
      * Test the property 'comments'
      */
     @Test

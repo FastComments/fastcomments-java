@@ -11,6 +11,7 @@
 |**status** | **String** |  |  |
 |**code** | **String** |  |  [optional] |
 |**reason** | **String** |  |  [optional] |
+|**translatedWarning** | **String** |  |  [optional] |
 |**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
 |**urlIdClean** | **String** |  |  [optional] |
