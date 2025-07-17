@@ -5755,6 +5755,8 @@ components:
           type: string
         reason:
           type: string
+        translatedWarning:
+          type: string
         comments:
           items:
             $ref: '#/components/schemas/PublicComment'
@@ -6038,6 +6040,7 @@ components:
           isSpam: true
           isByAdmin: true
         notificationCount: 1
+        translatedWarning: translatedWarning
         includesPastPages: true
         moduleData:
           key: ""

@@ -77,6 +77,11 @@ public class GetCommentsResponseWithPresencePublicComment {
   @javax.annotation.Nullable
   private String reason;
 
+  public static final String SERIALIZED_NAME_TRANSLATED_WARNING = "translatedWarning";
+  @SerializedName(SERIALIZED_NAME_TRANSLATED_WARNING)
+  @javax.annotation.Nullable
+  private String translatedWarning;
+
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
   @javax.annotation.Nonnull
@@ -263,6 +268,25 @@ public class GetCommentsResponseWithPresencePublicComment {
 
   public void setReason(@javax.annotation.Nullable String reason) {
     this.reason = reason;
+  }
+
+
+  public GetCommentsResponseWithPresencePublicComment translatedWarning(@javax.annotation.Nullable String translatedWarning) {
+    this.translatedWarning = translatedWarning;
+    return this;
+  }
+
+  /**
+   * Get translatedWarning
+   * @return translatedWarning
+   */
+  @javax.annotation.Nullable
+  public String getTranslatedWarning() {
+    return translatedWarning;
+  }
+
+  public void setTranslatedWarning(@javax.annotation.Nullable String translatedWarning) {
+    this.translatedWarning = translatedWarning;
   }
 
 
@@ -714,6 +738,7 @@ public class GetCommentsResponseWithPresencePublicComment {
         Objects.equals(this.status, getCommentsResponseWithPresencePublicComment.status) &&
         Objects.equals(this.code, getCommentsResponseWithPresencePublicComment.code) &&
         Objects.equals(this.reason, getCommentsResponseWithPresencePublicComment.reason) &&
+        Objects.equals(this.translatedWarning, getCommentsResponseWithPresencePublicComment.translatedWarning) &&
         Objects.equals(this.comments, getCommentsResponseWithPresencePublicComment.comments) &&
         Objects.equals(this.user, getCommentsResponseWithPresencePublicComment.user) &&
         Objects.equals(this.urlIdClean, getCommentsResponseWithPresencePublicComment.urlIdClean) &&
@@ -740,7 +765,7 @@ public class GetCommentsResponseWithPresencePublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(statusCode, status, code, reason, comments, user, urlIdClean, lastGenDate, includesPastPages, isDemo, commentCount, isSiteAdmin, hasBillingIssue, moduleData, pageNumber, isWhiteLabeled, isProd, isCrawler, notificationCount, hasMore, isClosed, presencePollState, customConfig, urlIdWS, userIdWS, tenantIdWS);
+    return Objects.hash(statusCode, status, code, reason, translatedWarning, comments, user, urlIdClean, lastGenDate, includesPastPages, isDemo, commentCount, isSiteAdmin, hasBillingIssue, moduleData, pageNumber, isWhiteLabeled, isProd, isCrawler, notificationCount, hasMore, isClosed, presencePollState, customConfig, urlIdWS, userIdWS, tenantIdWS);
   }
 
   @Override
@@ -751,6 +776,7 @@ public class GetCommentsResponseWithPresencePublicComment {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    translatedWarning: ").append(toIndentedString(translatedWarning)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    urlIdClean: ").append(toIndentedString(urlIdClean)).append("\n");
@@ -799,6 +825,7 @@ public class GetCommentsResponseWithPresencePublicComment {
     openapiFields.add("status");
     openapiFields.add("code");
     openapiFields.add("reason");
+    openapiFields.add("translatedWarning");
     openapiFields.add("comments");
     openapiFields.add("user");
     openapiFields.add("urlIdClean");
@@ -866,6 +893,9 @@ public class GetCommentsResponseWithPresencePublicComment {
       }
       if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+      if ((jsonObj.get("translatedWarning") != null && !jsonObj.get("translatedWarning").isJsonNull()) && !jsonObj.get("translatedWarning").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `translatedWarning` to be a primitive type in the JSON string but got `%s`", jsonObj.get("translatedWarning").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("comments").isJsonArray()) {
