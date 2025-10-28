@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.CommentUserBadgeInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,6 +67,11 @@ public class UserSessionInfo {
   @SerializedName(SERIALIZED_NAME_AVATAR_SRC)
   @javax.annotation.Nullable
   private String avatarSrc;
+
+  public static final String SERIALIZED_NAME_BADGES = "badges";
+  @SerializedName(SERIALIZED_NAME_BADGES)
+  @javax.annotation.Nullable
+  private List<CommentUserBadgeInfo> badges = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DISPLAY_LABEL = "displayLabel";
   @SerializedName(SERIALIZED_NAME_DISPLAY_LABEL)
@@ -169,6 +175,33 @@ public class UserSessionInfo {
 
   public void setAvatarSrc(@javax.annotation.Nullable String avatarSrc) {
     this.avatarSrc = avatarSrc;
+  }
+
+
+  public UserSessionInfo badges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
+    this.badges = badges;
+    return this;
+  }
+
+  public UserSessionInfo addBadgesItem(CommentUserBadgeInfo badgesItem) {
+    if (this.badges == null) {
+      this.badges = new ArrayList<>();
+    }
+    this.badges.add(badgesItem);
+    return this;
+  }
+
+  /**
+   * Get badges
+   * @return badges
+   */
+  @javax.annotation.Nullable
+  public List<CommentUserBadgeInfo> getBadges() {
+    return badges;
+  }
+
+  public void setBadges(@javax.annotation.Nullable List<CommentUserBadgeInfo> badges) {
+    this.badges = badges;
   }
 
 
@@ -364,6 +397,7 @@ public class UserSessionInfo {
     return Objects.equals(this.id, userSessionInfo.id) &&
         Objects.equals(this.authorized, userSessionInfo.authorized) &&
         Objects.equals(this.avatarSrc, userSessionInfo.avatarSrc) &&
+        Objects.equals(this.badges, userSessionInfo.badges) &&
         Objects.equals(this.displayLabel, userSessionInfo.displayLabel) &&
         Objects.equals(this.displayName, userSessionInfo.displayName) &&
         Objects.equals(this.email, userSessionInfo.email) &&
@@ -377,7 +411,7 @@ public class UserSessionInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, authorized, avatarSrc, displayLabel, displayName, email, groupIds, hasBlockedUsers, isAnonSession, sessionId, username, websiteUrl);
+    return Objects.hash(id, authorized, avatarSrc, badges, displayLabel, displayName, email, groupIds, hasBlockedUsers, isAnonSession, sessionId, username, websiteUrl);
   }
 
   @Override
@@ -387,6 +421,7 @@ public class UserSessionInfo {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    authorized: ").append(toIndentedString(authorized)).append("\n");
     sb.append("    avatarSrc: ").append(toIndentedString(avatarSrc)).append("\n");
+    sb.append("    badges: ").append(toIndentedString(badges)).append("\n");
     sb.append("    displayLabel: ").append(toIndentedString(displayLabel)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -421,6 +456,7 @@ public class UserSessionInfo {
     openapiFields.add("id");
     openapiFields.add("authorized");
     openapiFields.add("avatarSrc");
+    openapiFields.add("badges");
     openapiFields.add("displayLabel");
     openapiFields.add("displayName");
     openapiFields.add("email");
@@ -461,6 +497,20 @@ public class UserSessionInfo {
       }
       if ((jsonObj.get("avatarSrc") != null && !jsonObj.get("avatarSrc").isJsonNull()) && !jsonObj.get("avatarSrc").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `avatarSrc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("avatarSrc").toString()));
+      }
+      if (jsonObj.get("badges") != null && !jsonObj.get("badges").isJsonNull()) {
+        JsonArray jsonArraybadges = jsonObj.getAsJsonArray("badges");
+        if (jsonArraybadges != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("badges").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `badges` to be an array in the JSON string but got `%s`", jsonObj.get("badges").toString()));
+          }
+
+          // validate the optional field `badges` (array)
+          for (int i = 0; i < jsonArraybadges.size(); i++) {
+            CommentUserBadgeInfo.validateJsonElement(jsonArraybadges.get(i));
+          };
+        }
       }
       if ((jsonObj.get("displayLabel") != null && !jsonObj.get("displayLabel").isJsonNull()) && !jsonObj.get("displayLabel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `displayLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayLabel").toString()));

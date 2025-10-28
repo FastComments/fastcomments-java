@@ -72,7 +72,9 @@ public class QueryPredicate {
     
     GREATER_THAN("greater_than"),
     
-    LESS_THAN("less_than");
+    LESS_THAN("less_than"),
+    
+    CONTAINS("contains");
 
     private String value;
 

@@ -16,6 +16,8 @@ package com.fastcomments.api;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.AddDomainConfig200Response;
 import com.fastcomments.model.AddDomainConfigParams;
+import com.fastcomments.model.AddPageAPIResponse;
+import com.fastcomments.model.AddSSOUserAPIResponse;
 import com.fastcomments.model.AggregateQuestionResults200Response;
 import com.fastcomments.model.AggregateTimeBucket;
 import com.fastcomments.model.AggregationRequest;
@@ -25,13 +27,20 @@ import com.fastcomments.model.BlockFromCommentPublic200Response;
 import com.fastcomments.model.BulkAggregateQuestionResults200Response;
 import com.fastcomments.model.BulkAggregateQuestionResultsRequest;
 import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
+import com.fastcomments.model.CreateAPIPageData;
+import com.fastcomments.model.CreateAPISSOUserData;
+import com.fastcomments.model.CreateAPIUserSubscriptionData;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
 import com.fastcomments.model.CreateFeedPostParams;
+import com.fastcomments.model.CreateSubscriptionAPIResponse;
 import com.fastcomments.model.CreateUserBadge200Response;
 import com.fastcomments.model.CreateUserBadgeParams;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
+import com.fastcomments.model.DeletePageAPIResponse;
+import com.fastcomments.model.DeleteSSOUserAPIResponse;
+import com.fastcomments.model.DeleteSubscriptionAPIResponse;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.FlagCommentPublic200Response;
@@ -41,18 +50,29 @@ import com.fastcomments.model.GetComments200Response;
 import com.fastcomments.model.GetDomainConfig200Response;
 import com.fastcomments.model.GetDomainConfigs200Response;
 import com.fastcomments.model.GetFeedPosts200Response;
+import com.fastcomments.model.GetPageByURLIdAPIResponse;
+import com.fastcomments.model.GetPagesAPIResponse;
+import com.fastcomments.model.GetSSOUserByEmailAPIResponse;
+import com.fastcomments.model.GetSSOUserByIdAPIResponse;
+import com.fastcomments.model.GetSSOUsers200Response;
+import com.fastcomments.model.GetSubscriptionsAPIResponse;
 import com.fastcomments.model.GetUserBadge200Response;
 import com.fastcomments.model.GetUserBadgeProgressById200Response;
 import com.fastcomments.model.GetUserBadgeProgressList200Response;
 import com.fastcomments.model.GetUserBadges200Response;
 import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
+import com.fastcomments.model.PatchPageAPIResponse;
+import com.fastcomments.model.PatchSSOUserAPIResponse;
 import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
+import com.fastcomments.model.PutSSOUserAPIResponse;
 import com.fastcomments.model.SORTDIR;
 import com.fastcomments.model.SaveComment200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
+import com.fastcomments.model.UpdateAPIPageData;
+import com.fastcomments.model.UpdateAPISSOUserData;
 import com.fastcomments.model.UpdateDomainConfigParams;
 import com.fastcomments.model.UpdateUserBadge200Response;
 import com.fastcomments.model.UpdateUserBadgeParams;
@@ -80,6 +100,30 @@ public class DefaultApiTest {
         String tenantId = null;
         AddDomainConfigParams addDomainConfigParams = null;
         AddDomainConfig200Response response = api.addDomainConfig(tenantId, addDomainConfigParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void addPageTest() throws ApiException {
+        String tenantId = null;
+        CreateAPIPageData createAPIPageData = null;
+        AddPageAPIResponse response = api.addPage(tenantId, createAPIPageData)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void addSSOUserTest() throws ApiException {
+        String tenantId = null;
+        CreateAPISSOUserData createAPISSOUserData = null;
+        AddSSOUserAPIResponse response = api.addSSOUser(tenantId, createAPISSOUserData)
                 .execute();
         // TODO: test validations
     }
@@ -207,6 +251,18 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void createSubscriptionTest() throws ApiException {
+        String tenantId = null;
+        CreateAPIUserSubscriptionData createAPIUserSubscriptionData = null;
+        CreateSubscriptionAPIResponse response = api.createSubscription(tenantId, createAPIUserSubscriptionData)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void createUserBadgeTest() throws ApiException {
         String tenantId = null;
         CreateUserBadgeParams createUserBadgeParams = null;
@@ -239,6 +295,48 @@ public class DefaultApiTest {
         String tenantId = null;
         String domain = null;
         DeleteDomainConfig200Response response = api.deleteDomainConfig(tenantId, domain)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deletePageTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        DeletePageAPIResponse response = api.deletePage(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteSSOUserTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        Boolean deleteComments = null;
+        String commentDeleteMode = null;
+        DeleteSSOUserAPIResponse response = api.deleteSSOUser(tenantId, id)
+                .deleteComments(deleteComments)
+                .commentDeleteMode(commentDeleteMode)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteSubscriptionTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        String userId = null;
+        DeleteSubscriptionAPIResponse response = api.deleteSubscription(tenantId, id)
+                .userId(userId)
                 .execute();
         // TODO: test validations
     }
@@ -389,6 +487,79 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void getPageByURLIdTest() throws ApiException {
+        String tenantId = null;
+        String urlId = null;
+        GetPageByURLIdAPIResponse response = api.getPageByURLId(tenantId, urlId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPagesTest() throws ApiException {
+        String tenantId = null;
+        GetPagesAPIResponse response = api.getPages(tenantId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSSOUserByEmailTest() throws ApiException {
+        String tenantId = null;
+        String email = null;
+        GetSSOUserByEmailAPIResponse response = api.getSSOUserByEmail(tenantId, email)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSSOUserByIdTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        GetSSOUserByIdAPIResponse response = api.getSSOUserById(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSSOUsersTest() throws ApiException {
+        String tenantId = null;
+        Double skip = null;
+        GetSSOUsers200Response response = api.getSSOUsers(tenantId)
+                .skip(skip)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSubscriptionsTest() throws ApiException {
+        String tenantId = null;
+        String userId = null;
+        GetSubscriptionsAPIResponse response = api.getSubscriptions(tenantId)
+                .userId(userId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void getUserBadgeTest() throws ApiException {
         String tenantId = null;
         String id = null;
@@ -478,11 +649,54 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void patchPageTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        UpdateAPIPageData updateAPIPageData = null;
+        PatchPageAPIResponse response = api.patchPage(tenantId, id, updateAPIPageData)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void patchSSOUserTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        UpdateAPISSOUserData updateAPISSOUserData = null;
+        Boolean updateComments = null;
+        PatchSSOUserAPIResponse response = api.patchSSOUser(tenantId, id, updateAPISSOUserData)
+                .updateComments(updateComments)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void putDomainConfigTest() throws ApiException {
         String tenantId = null;
         String domainToUpdate = null;
         UpdateDomainConfigParams updateDomainConfigParams = null;
         GetDomainConfig200Response response = api.putDomainConfig(tenantId, domainToUpdate, updateDomainConfigParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void putSSOUserTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        UpdateAPISSOUserData updateAPISSOUserData = null;
+        Boolean updateComments = null;
+        PutSSOUserAPIResponse response = api.putSSOUser(tenantId, id, updateAPISSOUserData)
+                .updateComments(updateComments)
                 .execute();
         // TODO: test validations
     }

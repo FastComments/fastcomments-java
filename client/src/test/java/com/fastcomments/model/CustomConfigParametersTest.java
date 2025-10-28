@@ -496,6 +496,14 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'showBadgesInTopBar'
+     */
+    @Test
+    public void showBadgesInTopBarTest() {
+        // TODO: test showBadgesInTopBar
+    }
+
+    /**
      * Test the property 'showCommentSaveSuccess'
      */
     @Test
