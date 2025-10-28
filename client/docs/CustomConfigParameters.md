@@ -62,6 +62,7 @@
 |**requireSSO** | **Boolean** |  |  [optional] |
 |**enableResizeHandle** | **Boolean** |  |  [optional] |
 |**restrictedLinkDomains** | **List&lt;String&gt;** |  |  [optional] |
+|**showBadgesInTopBar** | **Boolean** |  |  [optional] |
 |**showCommentSaveSuccess** | **Boolean** |  |  [optional] |
 |**showLiveRightAway** | **Boolean** |  |  [optional] |
 |**showQuestion** | **Boolean** |  |  [optional] |

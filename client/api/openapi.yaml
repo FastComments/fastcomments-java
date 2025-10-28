@@ -1972,6 +1972,470 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /api/v1/subscriptions:
+    get:
+      operationId: GetSubscriptions
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSubscriptionsAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+    post:
+      operationId: CreateSubscription
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAPIUserSubscriptionData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateSubscriptionAPIResponse'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/subscriptions/{id}:
+    delete:
+      operationId: DeleteSubscription
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteSubscriptionAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+  /api/v1/sso-users:
+    get:
+      operationId: GetSSOUsers
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSSOUsers_200_response'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+    post:
+      operationId: AddSSOUser
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAPISSOUserData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddSSOUserAPIResponse'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/sso-users/by-id/{id}:
+    get:
+      operationId: GetSSOUserById
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSSOUserByIdAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+  /api/v1/sso-users/by-email/{email}:
+    get:
+      operationId: GetSSOUserByEmail
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: email
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetSSOUserByEmailAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+  /api/v1/sso-users/{id}:
+    delete:
+      operationId: DeleteSSOUser
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: deleteComments
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: commentDeleteMode
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteSSOUserAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+    patch:
+      operationId: PatchSSOUser
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: updateComments
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAPISSOUserData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchSSOUserAPIResponse'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+    put:
+      operationId: PutSSOUser
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: updateComments
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAPISSOUserData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutSSOUserAPIResponse'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/pages:
+    get:
+      operationId: GetPages
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPagesAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+    post:
+      operationId: AddPage
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAPIPageData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddPageAPIResponse'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/pages/by-url-id:
+    get:
+      operationId: GetPageByURLId
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPageByURLIdAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+  /api/v1/pages/{id}:
+    delete:
+      operationId: DeletePage
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeletePageAPIResponse'
+          description: Ok
+      security: []
+      x-accepts:
+      - application/json
+    patch:
+      operationId: PatchPage
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAPIPageData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatchPageAPIResponse'
+          description: Ok
+      security: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /api/v1/user-badges/{id}:
     delete:
       operationId: DeleteUserBadge
@@ -3440,6 +3904,11 @@ components:
   requestBodies: {}
   responses: {}
   schemas:
+    APIStatus:
+      enum:
+      - success
+      - failed
+      type: string
     UserSearchResult:
       additionalProperties: false
       example:
@@ -3646,6 +4115,7 @@ components:
         widgetQuestionWhenToSave: 7.386281948385884
         allowAnonFlag: true
         widgetSubQuestionVisibility: 1.0246457001441578
+        showBadgesInTopBar: true
         widgetQuestionStyle: 4.145608029883936
         restrictedLinkDomains:
         - restrictedLinkDomains
@@ -3827,6 +4297,8 @@ components:
             type: string
           nullable: true
           type: array
+        showBadgesInTopBar:
+          type: boolean
         showCommentSaveSuccess:
           type: boolean
         showLiveRightAway:
@@ -3910,6 +4382,7 @@ components:
           widgetQuestionWhenToSave: 7.386281948385884
           allowAnonFlag: true
           widgetSubQuestionVisibility: 1.0246457001441578
+          showBadgesInTopBar: true
           widgetQuestionStyle: 4.145608029883936
           restrictedLinkDomains:
           - restrictedLinkDomains
@@ -4312,11 +4785,6 @@ components:
       - note
       - status
       type: object
-    APIStatus:
-      enum:
-      - success
-      - failed
-      type: string
     MediaAsset:
       additionalProperties: false
       example:
@@ -4555,6 +5023,49 @@ components:
       - createdAt
       - tenantId
       type: object
+    CommentUserBadgeInfo:
+      additionalProperties: false
+      example:
+        displayLabel: displayLabel
+        backgroundColor: backgroundColor
+        borderColor: borderColor
+        cssClass: cssClass
+        description: description
+        id: id
+        type: 9.301444243932576
+        textColor: textColor
+        displaySrc: displaySrc
+      properties:
+        id:
+          type: string
+        type:
+          format: double
+          type: number
+        description:
+          type: string
+        displayLabel:
+          nullable: true
+          type: string
+        displaySrc:
+          nullable: true
+          type: string
+        backgroundColor:
+          nullable: true
+          type: string
+        borderColor:
+          nullable: true
+          type: string
+        textColor:
+          nullable: true
+          type: string
+        cssClass:
+          nullable: true
+          type: string
+      required:
+      - description
+      - id
+      - type
+      type: object
     UserSessionInfo:
       additionalProperties: false
       properties:
@@ -4565,6 +5076,10 @@ components:
         avatarSrc:
           nullable: true
           type: string
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          type: array
         displayLabel:
           type: string
         displayName:
@@ -5090,49 +5605,6 @@ components:
       - updated-feed-post
       - deleted-feed-post
       type: string
-    CommentUserBadgeInfo:
-      additionalProperties: false
-      example:
-        displayLabel: displayLabel
-        backgroundColor: backgroundColor
-        borderColor: borderColor
-        cssClass: cssClass
-        description: description
-        id: id
-        type: 9.301444243932576
-        textColor: textColor
-        displaySrc: displaySrc
-      properties:
-        id:
-          type: string
-        type:
-          format: double
-          type: number
-        description:
-          type: string
-        displayLabel:
-          nullable: true
-          type: string
-        displaySrc:
-          nullable: true
-          type: string
-        backgroundColor:
-          nullable: true
-          type: string
-        borderColor:
-          nullable: true
-          type: string
-        textColor:
-          nullable: true
-          type: string
-        cssClass:
-          nullable: true
-          type: string
-      required:
-      - description
-      - id
-      - type
-      type: object
     TenantId:
       type: string
     UserNotification:
@@ -5871,6 +6343,7 @@ components:
           widgetQuestionWhenToSave: 7.386281948385884
           allowAnonFlag: true
           widgetSubQuestionVisibility: 1.0246457001441578
+          showBadgesInTopBar: true
           widgetQuestionStyle: 4.145608029883936
           restrictedLinkDomains:
           - restrictedLinkDomains
@@ -6509,6 +6982,823 @@ components:
           type: object
       required:
       - commentStatuses
+      - status
+      type: object
+    APIUserSubscription:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        pageTitle: pageTitle
+        anonUserId: anonUserId
+        id: id
+        urlId: urlId
+        userId: userId
+        url: url
+      properties:
+        createdAt:
+          format: date-time
+          type: string
+        pageTitle:
+          type: string
+        url:
+          type: string
+        urlId:
+          type: string
+        anonUserId:
+          type: string
+        userId:
+          type: string
+        id:
+          type: string
+      required:
+      - createdAt
+      - id
+      - urlId
+      type: object
+    GetSubscriptionsAPIResponse:
+      example:
+        reason: reason
+        subscriptions:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          pageTitle: pageTitle
+          anonUserId: anonUserId
+          id: id
+          urlId: urlId
+          userId: userId
+          url: url
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          pageTitle: pageTitle
+          anonUserId: anonUserId
+          id: id
+          urlId: urlId
+          userId: userId
+          url: url
+        code: code
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        subscriptions:
+          items:
+            $ref: '#/components/schemas/APIUserSubscription'
+          type: array
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    CreateSubscriptionAPIResponse:
+      example:
+        reason: reason
+        code: code
+        subscription:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          pageTitle: pageTitle
+          anonUserId: anonUserId
+          id: id
+          urlId: urlId
+          userId: userId
+          url: url
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        subscription:
+          $ref: '#/components/schemas/APIUserSubscription'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    CreateAPIUserSubscriptionData:
+      example:
+        pageTitle: pageTitle
+        anonUserId: anonUserId
+        urlId: urlId
+        userId: userId
+        url: url
+      properties:
+        pageTitle:
+          type: string
+        url:
+          type: string
+        urlId:
+          type: string
+        anonUserId:
+          type: string
+        userId:
+          type: string
+      required:
+      - urlId
+      type: object
+    DeleteSubscriptionAPIResponse:
+      example:
+        reason: reason
+        code: code
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    APISSOUser:
+      additionalProperties: false
+      example:
+        displayLabel: displayLabel
+        displayName: displayName
+        signUpDate: 0.8008281904610115
+        isAdminAdmin: true
+        isCommentModeratorAdmin: true
+        hasBlockedUsers: true
+        isProfileActivityPrivate: true
+        loginCount: 6.027456183070403
+        optedInSubscriptionNotifications: true
+        isProfileCommentsPrivate: true
+        websiteUrl: websiteUrl
+        optedInNotifications: true
+        groupIds:
+        - groupIds
+        - groupIds
+        avatarSrc: avatarSrc
+        createdFromUrlId: createdFromUrlId
+        id: id
+        isAccountOwner: true
+        isProfileDMDisabled: true
+        email: email
+        username: username
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        websiteUrl:
+          type: string
+        email:
+          type: string
+        signUpDate:
+          format: double
+          type: number
+        createdFromUrlId:
+          type: string
+        loginCount:
+          format: double
+          type: number
+        avatarSrc:
+          type: string
+        optedInNotifications:
+          type: boolean
+        optedInSubscriptionNotifications:
+          type: boolean
+        displayLabel:
+          type: string
+        displayName:
+          type: string
+        isAccountOwner:
+          type: boolean
+        isAdminAdmin:
+          type: boolean
+        isCommentModeratorAdmin:
+          type: boolean
+        isProfileActivityPrivate:
+          type: boolean
+        isProfileCommentsPrivate:
+          type: boolean
+        isProfileDMDisabled:
+          type: boolean
+        hasBlockedUsers:
+          type: boolean
+        groupIds:
+          items:
+            type: string
+          type: array
+      required:
+      - avatarSrc
+      - createdFromUrlId
+      - displayLabel
+      - displayName
+      - email
+      - id
+      - loginCount
+      - optedInNotifications
+      - optedInSubscriptionNotifications
+      - signUpDate
+      - username
+      - websiteUrl
+      type: object
+    GetSSOUserByIdAPIResponse:
+      example:
+        reason: reason
+        code: code
+        user:
+          displayLabel: displayLabel
+          displayName: displayName
+          signUpDate: 0.8008281904610115
+          isAdminAdmin: true
+          isCommentModeratorAdmin: true
+          hasBlockedUsers: true
+          isProfileActivityPrivate: true
+          loginCount: 6.027456183070403
+          optedInSubscriptionNotifications: true
+          isProfileCommentsPrivate: true
+          websiteUrl: websiteUrl
+          optedInNotifications: true
+          groupIds:
+          - groupIds
+          - groupIds
+          avatarSrc: avatarSrc
+          createdFromUrlId: createdFromUrlId
+          id: id
+          isAccountOwner: true
+          isProfileDMDisabled: true
+          email: email
+          username: username
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        user:
+          $ref: '#/components/schemas/APISSOUser'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    GetSSOUserByEmailAPIResponse:
+      example:
+        reason: reason
+        code: code
+        user:
+          displayLabel: displayLabel
+          displayName: displayName
+          signUpDate: 0.8008281904610115
+          isAdminAdmin: true
+          isCommentModeratorAdmin: true
+          hasBlockedUsers: true
+          isProfileActivityPrivate: true
+          loginCount: 6.027456183070403
+          optedInSubscriptionNotifications: true
+          isProfileCommentsPrivate: true
+          websiteUrl: websiteUrl
+          optedInNotifications: true
+          groupIds:
+          - groupIds
+          - groupIds
+          avatarSrc: avatarSrc
+          createdFromUrlId: createdFromUrlId
+          id: id
+          isAccountOwner: true
+          isProfileDMDisabled: true
+          email: email
+          username: username
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        user:
+          $ref: '#/components/schemas/APISSOUser'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    DeleteSSOUserAPIResponse:
+      example:
+        reason: reason
+        code: code
+        user:
+          displayLabel: displayLabel
+          displayName: displayName
+          signUpDate: 0.8008281904610115
+          isAdminAdmin: true
+          isCommentModeratorAdmin: true
+          hasBlockedUsers: true
+          isProfileActivityPrivate: true
+          loginCount: 6.027456183070403
+          optedInSubscriptionNotifications: true
+          isProfileCommentsPrivate: true
+          websiteUrl: websiteUrl
+          optedInNotifications: true
+          groupIds:
+          - groupIds
+          - groupIds
+          avatarSrc: avatarSrc
+          createdFromUrlId: createdFromUrlId
+          id: id
+          isAccountOwner: true
+          isProfileDMDisabled: true
+          email: email
+          username: username
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        user:
+          $ref: '#/components/schemas/APISSOUser'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    PatchSSOUserAPIResponse:
+      example:
+        reason: reason
+        code: code
+        user:
+          displayLabel: displayLabel
+          displayName: displayName
+          signUpDate: 0.8008281904610115
+          isAdminAdmin: true
+          isCommentModeratorAdmin: true
+          hasBlockedUsers: true
+          isProfileActivityPrivate: true
+          loginCount: 6.027456183070403
+          optedInSubscriptionNotifications: true
+          isProfileCommentsPrivate: true
+          websiteUrl: websiteUrl
+          optedInNotifications: true
+          groupIds:
+          - groupIds
+          - groupIds
+          avatarSrc: avatarSrc
+          createdFromUrlId: createdFromUrlId
+          id: id
+          isAccountOwner: true
+          isProfileDMDisabled: true
+          email: email
+          username: username
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        user:
+          $ref: '#/components/schemas/APISSOUser'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    UpdateAPISSOUserData:
+      example:
+        displayLabel: displayLabel
+        displayName: displayName
+        isAdminAdmin: true
+        signUpDate: 6.027456183070403
+        isCommentModeratorAdmin: true
+        hasBlockedUsers: true
+        isProfileActivityPrivate: true
+        isProfileCommentsPrivate: true
+        optedInSubscriptionNotifications: true
+        loginCount: 0.8008281904610115
+        optedInNotifications: true
+        websiteUrl: websiteUrl
+        groupIds:
+        - groupIds
+        - groupIds
+        avatarSrc: avatarSrc
+        createdFromUrlId: createdFromUrlId
+        id: id
+        isProfileDMDisabled: true
+        isAccountOwner: true
+        email: email
+        username: username
+      properties:
+        groupIds:
+          items:
+            type: string
+          type: array
+        hasBlockedUsers:
+          type: boolean
+        isProfileDMDisabled:
+          type: boolean
+        isProfileCommentsPrivate:
+          type: boolean
+        isProfileActivityPrivate:
+          type: boolean
+        isCommentModeratorAdmin:
+          type: boolean
+        isAdminAdmin:
+          type: boolean
+        isAccountOwner:
+          type: boolean
+        displayName:
+          type: string
+        displayLabel:
+          type: string
+        optedInSubscriptionNotifications:
+          type: boolean
+        optedInNotifications:
+          type: boolean
+        avatarSrc:
+          type: string
+        loginCount:
+          format: double
+          type: number
+        createdFromUrlId:
+          type: string
+        signUpDate:
+          format: double
+          type: number
+        email:
+          type: string
+        websiteUrl:
+          type: string
+        username:
+          type: string
+        id:
+          type: string
+      type: object
+    PutSSOUserAPIResponse:
+      example:
+        reason: reason
+        code: code
+        user: ""
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        user:
+          allOf:
+          - $ref: '#/components/schemas/APISSOUser'
+          nullable: true
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    AddSSOUserAPIResponse:
+      example:
+        reason: reason
+        code: code
+        user:
+          displayLabel: displayLabel
+          displayName: displayName
+          signUpDate: 0.8008281904610115
+          isAdminAdmin: true
+          isCommentModeratorAdmin: true
+          hasBlockedUsers: true
+          isProfileActivityPrivate: true
+          loginCount: 6.027456183070403
+          optedInSubscriptionNotifications: true
+          isProfileCommentsPrivate: true
+          websiteUrl: websiteUrl
+          optedInNotifications: true
+          groupIds:
+          - groupIds
+          - groupIds
+          avatarSrc: avatarSrc
+          createdFromUrlId: createdFromUrlId
+          id: id
+          isAccountOwner: true
+          isProfileDMDisabled: true
+          email: email
+          username: username
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        user:
+          $ref: '#/components/schemas/APISSOUser'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    CreateAPISSOUserData:
+      example:
+        displayLabel: displayLabel
+        displayName: displayName
+        isAdminAdmin: true
+        signUpDate: 6.027456183070403
+        isCommentModeratorAdmin: true
+        hasBlockedUsers: true
+        isProfileActivityPrivate: true
+        isProfileCommentsPrivate: true
+        optedInSubscriptionNotifications: true
+        loginCount: 0.8008281904610115
+        optedInNotifications: true
+        websiteUrl: websiteUrl
+        groupIds:
+        - groupIds
+        - groupIds
+        avatarSrc: avatarSrc
+        createdFromUrlId: createdFromUrlId
+        id: id
+        isProfileDMDisabled: true
+        isAccountOwner: true
+        email: email
+        username: username
+      properties:
+        groupIds:
+          items:
+            type: string
+          type: array
+        hasBlockedUsers:
+          type: boolean
+        isProfileDMDisabled:
+          type: boolean
+        isProfileCommentsPrivate:
+          type: boolean
+        isProfileActivityPrivate:
+          type: boolean
+        isCommentModeratorAdmin:
+          type: boolean
+        isAdminAdmin:
+          type: boolean
+        isAccountOwner:
+          type: boolean
+        displayName:
+          type: string
+        displayLabel:
+          type: string
+        optedInSubscriptionNotifications:
+          type: boolean
+        optedInNotifications:
+          type: boolean
+        avatarSrc:
+          type: string
+        loginCount:
+          format: double
+          type: number
+        createdFromUrlId:
+          type: string
+        signUpDate:
+          format: double
+          type: number
+        email:
+          type: string
+        websiteUrl:
+          type: string
+        username:
+          type: string
+        id:
+          type: string
+      required:
+      - email
+      - id
+      - username
+      type: object
+    APIPage:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        isClosed: true
+        id: id
+        title: title
+        urlId: urlId
+        rootCommentCount: 0.8008281904610115
+        url: url
+        accessibleByGroupIds:
+        - accessibleByGroupIds
+        - accessibleByGroupIds
+        commentCount: 6.027456183070403
+      properties:
+        isClosed:
+          type: boolean
+        accessibleByGroupIds:
+          items:
+            type: string
+          type: array
+        rootCommentCount:
+          format: double
+          type: number
+        commentCount:
+          format: double
+          type: number
+        createdAt:
+          format: date-time
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+        urlId:
+          type: string
+        id:
+          type: string
+      required:
+      - commentCount
+      - createdAt
+      - id
+      - rootCommentCount
+      - title
+      - urlId
+      type: object
+    GetPagesAPIResponse:
+      example:
+        reason: reason
+        code: code
+        pages:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          isClosed: true
+          id: id
+          title: title
+          urlId: urlId
+          rootCommentCount: 0.8008281904610115
+          url: url
+          accessibleByGroupIds:
+          - accessibleByGroupIds
+          - accessibleByGroupIds
+          commentCount: 6.027456183070403
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          isClosed: true
+          id: id
+          title: title
+          urlId: urlId
+          rootCommentCount: 0.8008281904610115
+          url: url
+          accessibleByGroupIds:
+          - accessibleByGroupIds
+          - accessibleByGroupIds
+          commentCount: 6.027456183070403
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        pages:
+          items:
+            $ref: '#/components/schemas/APIPage'
+          type: array
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    GetPageByURLIdAPIResponse:
+      example:
+        reason: reason
+        code: code
+        page:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          isClosed: true
+          id: id
+          title: title
+          urlId: urlId
+          rootCommentCount: 0.8008281904610115
+          url: url
+          accessibleByGroupIds:
+          - accessibleByGroupIds
+          - accessibleByGroupIds
+          commentCount: 6.027456183070403
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        page:
+          $ref: '#/components/schemas/APIPage'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    AddPageAPIResponse:
+      example:
+        reason: reason
+        code: code
+        page:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          isClosed: true
+          id: id
+          title: title
+          urlId: urlId
+          rootCommentCount: 0.8008281904610115
+          url: url
+          accessibleByGroupIds:
+          - accessibleByGroupIds
+          - accessibleByGroupIds
+          commentCount: 6.027456183070403
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        page:
+          $ref: '#/components/schemas/APIPage'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    CreateAPIPageData:
+      example:
+        title: title
+        urlId: urlId
+        rootCommentCount: 0.8008281904610115
+        url: url
+        accessibleByGroupIds:
+        - accessibleByGroupIds
+        - accessibleByGroupIds
+        commentCount: 6.027456183070403
+      properties:
+        accessibleByGroupIds:
+          items:
+            type: string
+          type: array
+        rootCommentCount:
+          format: double
+          type: number
+        commentCount:
+          format: double
+          type: number
+        title:
+          type: string
+        url:
+          type: string
+        urlId:
+          type: string
+      required:
+      - title
+      - url
+      - urlId
+      type: object
+    PatchPageAPIResponse:
+      example:
+        reason: reason
+        code: code
+        page:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          isClosed: true
+          id: id
+          title: title
+          urlId: urlId
+          rootCommentCount: 0.8008281904610115
+          url: url
+          accessibleByGroupIds:
+          - accessibleByGroupIds
+          - accessibleByGroupIds
+          commentCount: 6.027456183070403
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        page:
+          $ref: '#/components/schemas/APIPage'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    UpdateAPIPageData:
+      example:
+        isClosed: true
+        title: title
+        urlId: urlId
+        url: url
+        accessibleByGroupIds:
+        - accessibleByGroupIds
+        - accessibleByGroupIds
+      properties:
+        isClosed:
+          type: boolean
+        accessibleByGroupIds:
+          items:
+            type: string
+          type: array
+        title:
+          type: string
+        url:
+          type: string
+        urlId:
+          type: string
+      type: object
+    DeletePageAPIResponse:
+      example:
+        reason: reason
+        code: code
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        status:
+          type: string
+      required:
       - status
       type: object
     UserBadge:
@@ -8920,6 +10210,7 @@ components:
           - not_eq
           - greater_than
           - less_than
+          - contains
           type: string
       required:
       - key
@@ -9136,6 +10427,65 @@ components:
       anyOf:
       - $ref: '#/components/schemas/UnblockSuccess'
       - $ref: '#/components/schemas/APIError'
+    GetSSOUsers_200_response:
+      example:
+        users:
+        - displayLabel: displayLabel
+          displayName: displayName
+          signUpDate: 0.8008281904610115
+          isAdminAdmin: true
+          isCommentModeratorAdmin: true
+          hasBlockedUsers: true
+          isProfileActivityPrivate: true
+          loginCount: 6.027456183070403
+          optedInSubscriptionNotifications: true
+          isProfileCommentsPrivate: true
+          websiteUrl: websiteUrl
+          optedInNotifications: true
+          groupIds:
+          - groupIds
+          - groupIds
+          avatarSrc: avatarSrc
+          createdFromUrlId: createdFromUrlId
+          id: id
+          isAccountOwner: true
+          isProfileDMDisabled: true
+          email: email
+          username: username
+        - displayLabel: displayLabel
+          displayName: displayName
+          signUpDate: 0.8008281904610115
+          isAdminAdmin: true
+          isCommentModeratorAdmin: true
+          hasBlockedUsers: true
+          isProfileActivityPrivate: true
+          loginCount: 6.027456183070403
+          optedInSubscriptionNotifications: true
+          isProfileCommentsPrivate: true
+          websiteUrl: websiteUrl
+          optedInNotifications: true
+          groupIds:
+          - groupIds
+          - groupIds
+          avatarSrc: avatarSrc
+          createdFromUrlId: createdFromUrlId
+          id: id
+          isAccountOwner: true
+          isProfileDMDisabled: true
+          email: email
+          username: username
+        status: status
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/APISSOUser'
+          type: array
+        status:
+          type: string
+      required:
+      - status
+      - users
+      type: object
     GetUserBadge_200_response:
       anyOf:
       - $ref: '#/components/schemas/APIGetUserBadgeResponse'

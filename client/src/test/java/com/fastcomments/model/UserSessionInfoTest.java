@@ -13,6 +13,7 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.CommentUserBadgeInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,6 +62,14 @@ public class UserSessionInfoTest {
     @Test
     public void avatarSrcTest() {
         // TODO: test avatarSrc
+    }
+
+    /**
+     * Test the property 'badges'
+     */
+    @Test
+    public void badgesTest() {
+        // TODO: test badges
     }
 
     /**

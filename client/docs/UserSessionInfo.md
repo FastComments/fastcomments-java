@@ -10,6 +10,7 @@
 |**id** | **String** |  |  [optional] |
 |**authorized** | **Boolean** |  |  [optional] |
 |**avatarSrc** | **String** |  |  [optional] |
+|**badges** | [**List&lt;CommentUserBadgeInfo&gt;**](CommentUserBadgeInfo.md) |  |  [optional] |
 |**displayLabel** | **String** |  |  [optional] |
 |**displayName** | **String** |  |  [optional] |
 |**email** | **String** |  |  [optional] |

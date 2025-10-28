@@ -21,6 +21,7 @@
 | NOT_EQ | &quot;not_eq&quot; |
 | GREATER_THAN | &quot;greater_than&quot; |
 | LESS_THAN | &quot;less_than&quot; |
+| CONTAINS | &quot;contains&quot; |
 
 
 

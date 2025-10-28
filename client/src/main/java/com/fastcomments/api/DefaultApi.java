@@ -29,6 +29,8 @@ import java.io.IOException;
 
 import com.fastcomments.model.AddDomainConfig200Response;
 import com.fastcomments.model.AddDomainConfigParams;
+import com.fastcomments.model.AddPageAPIResponse;
+import com.fastcomments.model.AddSSOUserAPIResponse;
 import com.fastcomments.model.AggregateQuestionResults200Response;
 import com.fastcomments.model.AggregateTimeBucket;
 import com.fastcomments.model.AggregationRequest;
@@ -38,13 +40,20 @@ import com.fastcomments.model.BlockFromCommentPublic200Response;
 import com.fastcomments.model.BulkAggregateQuestionResults200Response;
 import com.fastcomments.model.BulkAggregateQuestionResultsRequest;
 import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
+import com.fastcomments.model.CreateAPIPageData;
+import com.fastcomments.model.CreateAPISSOUserData;
+import com.fastcomments.model.CreateAPIUserSubscriptionData;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateFeedPost200Response;
 import com.fastcomments.model.CreateFeedPostParams;
+import com.fastcomments.model.CreateSubscriptionAPIResponse;
 import com.fastcomments.model.CreateUserBadge200Response;
 import com.fastcomments.model.CreateUserBadgeParams;
 import com.fastcomments.model.DeleteComment200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
+import com.fastcomments.model.DeletePageAPIResponse;
+import com.fastcomments.model.DeleteSSOUserAPIResponse;
+import com.fastcomments.model.DeleteSubscriptionAPIResponse;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.FlagCommentPublic200Response;
@@ -54,18 +63,29 @@ import com.fastcomments.model.GetComments200Response;
 import com.fastcomments.model.GetDomainConfig200Response;
 import com.fastcomments.model.GetDomainConfigs200Response;
 import com.fastcomments.model.GetFeedPosts200Response;
+import com.fastcomments.model.GetPageByURLIdAPIResponse;
+import com.fastcomments.model.GetPagesAPIResponse;
+import com.fastcomments.model.GetSSOUserByEmailAPIResponse;
+import com.fastcomments.model.GetSSOUserByIdAPIResponse;
+import com.fastcomments.model.GetSSOUsers200Response;
+import com.fastcomments.model.GetSubscriptionsAPIResponse;
 import com.fastcomments.model.GetUserBadge200Response;
 import com.fastcomments.model.GetUserBadgeProgressById200Response;
 import com.fastcomments.model.GetUserBadgeProgressList200Response;
 import com.fastcomments.model.GetUserBadges200Response;
 import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
+import com.fastcomments.model.PatchPageAPIResponse;
+import com.fastcomments.model.PatchSSOUserAPIResponse;
 import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
+import com.fastcomments.model.PutSSOUserAPIResponse;
 import com.fastcomments.model.SORTDIR;
 import com.fastcomments.model.SaveComment200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
+import com.fastcomments.model.UpdateAPIPageData;
+import com.fastcomments.model.UpdateAPISSOUserData;
 import com.fastcomments.model.UpdateDomainConfigParams;
 import com.fastcomments.model.UpdateUserBadge200Response;
 import com.fastcomments.model.UpdateUserBadgeParams;
@@ -281,6 +301,344 @@ public class DefaultApi {
      */
     public APIaddDomainConfigRequest addDomainConfig(String tenantId, AddDomainConfigParams addDomainConfigParams) {
         return new APIaddDomainConfigRequest(tenantId, addDomainConfigParams);
+    }
+    private okhttp3.Call addPageCall(String tenantId, CreateAPIPageData createAPIPageData, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createAPIPageData;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/pages";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addPageValidateBeforeCall(String tenantId, CreateAPIPageData createAPIPageData, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling addPage(Async)");
+        }
+
+        // verify the required parameter 'createAPIPageData' is set
+        if (createAPIPageData == null) {
+            throw new ApiException("Missing the required parameter 'createAPIPageData' when calling addPage(Async)");
+        }
+
+        return addPageCall(tenantId, createAPIPageData, _callback);
+
+    }
+
+
+    private ApiResponse<AddPageAPIResponse> addPageWithHttpInfo(String tenantId, CreateAPIPageData createAPIPageData) throws ApiException {
+        okhttp3.Call localVarCall = addPageValidateBeforeCall(tenantId, createAPIPageData, null);
+        Type localVarReturnType = new TypeToken<AddPageAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call addPageAsync(String tenantId, CreateAPIPageData createAPIPageData, final ApiCallback<AddPageAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = addPageValidateBeforeCall(tenantId, createAPIPageData, _callback);
+        Type localVarReturnType = new TypeToken<AddPageAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIaddPageRequest {
+        private final String tenantId;
+        private final CreateAPIPageData createAPIPageData;
+
+        private APIaddPageRequest(String tenantId, CreateAPIPageData createAPIPageData) {
+            this.tenantId = tenantId;
+            this.createAPIPageData = createAPIPageData;
+        }
+
+        /**
+         * Build call for addPage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return addPageCall(tenantId, createAPIPageData, _callback);
+        }
+
+        /**
+         * Execute addPage request
+         * @return AddPageAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public AddPageAPIResponse execute() throws ApiException {
+            ApiResponse<AddPageAPIResponse> localVarResp = addPageWithHttpInfo(tenantId, createAPIPageData);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute addPage request with HTTP info returned
+         * @return ApiResponse&lt;AddPageAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<AddPageAPIResponse> executeWithHttpInfo() throws ApiException {
+            return addPageWithHttpInfo(tenantId, createAPIPageData);
+        }
+
+        /**
+         * Execute addPage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AddPageAPIResponse> _callback) throws ApiException {
+            return addPageAsync(tenantId, createAPIPageData, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param createAPIPageData  (required)
+     * @return APIaddPageRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIaddPageRequest addPage(String tenantId, CreateAPIPageData createAPIPageData) {
+        return new APIaddPageRequest(tenantId, createAPIPageData);
+    }
+    private okhttp3.Call addSSOUserCall(String tenantId, CreateAPISSOUserData createAPISSOUserData, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createAPISSOUserData;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sso-users";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addSSOUserValidateBeforeCall(String tenantId, CreateAPISSOUserData createAPISSOUserData, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling addSSOUser(Async)");
+        }
+
+        // verify the required parameter 'createAPISSOUserData' is set
+        if (createAPISSOUserData == null) {
+            throw new ApiException("Missing the required parameter 'createAPISSOUserData' when calling addSSOUser(Async)");
+        }
+
+        return addSSOUserCall(tenantId, createAPISSOUserData, _callback);
+
+    }
+
+
+    private ApiResponse<AddSSOUserAPIResponse> addSSOUserWithHttpInfo(String tenantId, CreateAPISSOUserData createAPISSOUserData) throws ApiException {
+        okhttp3.Call localVarCall = addSSOUserValidateBeforeCall(tenantId, createAPISSOUserData, null);
+        Type localVarReturnType = new TypeToken<AddSSOUserAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call addSSOUserAsync(String tenantId, CreateAPISSOUserData createAPISSOUserData, final ApiCallback<AddSSOUserAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = addSSOUserValidateBeforeCall(tenantId, createAPISSOUserData, _callback);
+        Type localVarReturnType = new TypeToken<AddSSOUserAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIaddSSOUserRequest {
+        private final String tenantId;
+        private final CreateAPISSOUserData createAPISSOUserData;
+
+        private APIaddSSOUserRequest(String tenantId, CreateAPISSOUserData createAPISSOUserData) {
+            this.tenantId = tenantId;
+            this.createAPISSOUserData = createAPISSOUserData;
+        }
+
+        /**
+         * Build call for addSSOUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return addSSOUserCall(tenantId, createAPISSOUserData, _callback);
+        }
+
+        /**
+         * Execute addSSOUser request
+         * @return AddSSOUserAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public AddSSOUserAPIResponse execute() throws ApiException {
+            ApiResponse<AddSSOUserAPIResponse> localVarResp = addSSOUserWithHttpInfo(tenantId, createAPISSOUserData);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute addSSOUser request with HTTP info returned
+         * @return ApiResponse&lt;AddSSOUserAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<AddSSOUserAPIResponse> executeWithHttpInfo() throws ApiException {
+            return addSSOUserWithHttpInfo(tenantId, createAPISSOUserData);
+        }
+
+        /**
+         * Execute addSSOUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<AddSSOUserAPIResponse> _callback) throws ApiException {
+            return addSSOUserAsync(tenantId, createAPISSOUserData, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param createAPISSOUserData  (required)
+     * @return APIaddSSOUserRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIaddSSOUserRequest addSSOUser(String tenantId, CreateAPISSOUserData createAPISSOUserData) {
+        return new APIaddSSOUserRequest(tenantId, createAPISSOUserData);
     }
     private okhttp3.Call aggregateCall(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -1632,6 +1990,175 @@ public class DefaultApi {
     public APIcreateFeedPostRequest createFeedPost(String tenantId, CreateFeedPostParams createFeedPostParams) {
         return new APIcreateFeedPostRequest(tenantId, createFeedPostParams);
     }
+    private okhttp3.Call createSubscriptionCall(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createAPIUserSubscriptionData;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/subscriptions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSubscriptionValidateBeforeCall(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling createSubscription(Async)");
+        }
+
+        // verify the required parameter 'createAPIUserSubscriptionData' is set
+        if (createAPIUserSubscriptionData == null) {
+            throw new ApiException("Missing the required parameter 'createAPIUserSubscriptionData' when calling createSubscription(Async)");
+        }
+
+        return createSubscriptionCall(tenantId, createAPIUserSubscriptionData, _callback);
+
+    }
+
+
+    private ApiResponse<CreateSubscriptionAPIResponse> createSubscriptionWithHttpInfo(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData) throws ApiException {
+        okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(tenantId, createAPIUserSubscriptionData, null);
+        Type localVarReturnType = new TypeToken<CreateSubscriptionAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call createSubscriptionAsync(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback<CreateSubscriptionAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(tenantId, createAPIUserSubscriptionData, _callback);
+        Type localVarReturnType = new TypeToken<CreateSubscriptionAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcreateSubscriptionRequest {
+        private final String tenantId;
+        private final CreateAPIUserSubscriptionData createAPIUserSubscriptionData;
+
+        private APIcreateSubscriptionRequest(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData) {
+            this.tenantId = tenantId;
+            this.createAPIUserSubscriptionData = createAPIUserSubscriptionData;
+        }
+
+        /**
+         * Build call for createSubscription
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createSubscriptionCall(tenantId, createAPIUserSubscriptionData, _callback);
+        }
+
+        /**
+         * Execute createSubscription request
+         * @return CreateSubscriptionAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public CreateSubscriptionAPIResponse execute() throws ApiException {
+            ApiResponse<CreateSubscriptionAPIResponse> localVarResp = createSubscriptionWithHttpInfo(tenantId, createAPIUserSubscriptionData);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createSubscription request with HTTP info returned
+         * @return ApiResponse&lt;CreateSubscriptionAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CreateSubscriptionAPIResponse> executeWithHttpInfo() throws ApiException {
+            return createSubscriptionWithHttpInfo(tenantId, createAPIUserSubscriptionData);
+        }
+
+        /**
+         * Execute createSubscription request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CreateSubscriptionAPIResponse> _callback) throws ApiException {
+            return createSubscriptionAsync(tenantId, createAPIUserSubscriptionData, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param createAPIUserSubscriptionData  (required)
+     * @return APIcreateSubscriptionRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIcreateSubscriptionRequest createSubscription(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData) {
+        return new APIcreateSubscriptionRequest(tenantId, createAPIUserSubscriptionData);
+    }
     private okhttp3.Call createUserBadgeCall(String tenantId, CreateUserBadgeParams createUserBadgeParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2168,6 +2695,558 @@ public class DefaultApi {
      */
     public APIdeleteDomainConfigRequest deleteDomainConfig(String tenantId, String domain) {
         return new APIdeleteDomainConfigRequest(tenantId, domain);
+    }
+    private okhttp3.Call deletePageCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/pages/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deletePageValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deletePage(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deletePage(Async)");
+        }
+
+        return deletePageCall(tenantId, id, _callback);
+
+    }
+
+
+    private ApiResponse<DeletePageAPIResponse> deletePageWithHttpInfo(String tenantId, String id) throws ApiException {
+        okhttp3.Call localVarCall = deletePageValidateBeforeCall(tenantId, id, null);
+        Type localVarReturnType = new TypeToken<DeletePageAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deletePageAsync(String tenantId, String id, final ApiCallback<DeletePageAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deletePageValidateBeforeCall(tenantId, id, _callback);
+        Type localVarReturnType = new TypeToken<DeletePageAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeletePageRequest {
+        private final String tenantId;
+        private final String id;
+
+        private APIdeletePageRequest(String tenantId, String id) {
+            this.tenantId = tenantId;
+            this.id = id;
+        }
+
+        /**
+         * Build call for deletePage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deletePageCall(tenantId, id, _callback);
+        }
+
+        /**
+         * Execute deletePage request
+         * @return DeletePageAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public DeletePageAPIResponse execute() throws ApiException {
+            ApiResponse<DeletePageAPIResponse> localVarResp = deletePageWithHttpInfo(tenantId, id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deletePage request with HTTP info returned
+         * @return ApiResponse&lt;DeletePageAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<DeletePageAPIResponse> executeWithHttpInfo() throws ApiException {
+            return deletePageWithHttpInfo(tenantId, id);
+        }
+
+        /**
+         * Execute deletePage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeletePageAPIResponse> _callback) throws ApiException {
+            return deletePageAsync(tenantId, id, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @return APIdeletePageRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeletePageRequest deletePage(String tenantId, String id) {
+        return new APIdeletePageRequest(tenantId, id);
+    }
+    private okhttp3.Call deleteSSOUserCall(String tenantId, String id, Boolean deleteComments, String commentDeleteMode, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sso-users/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (deleteComments != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("deleteComments", deleteComments));
+        }
+
+        if (commentDeleteMode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("commentDeleteMode", commentDeleteMode));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSSOUserValidateBeforeCall(String tenantId, String id, Boolean deleteComments, String commentDeleteMode, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteSSOUser(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteSSOUser(Async)");
+        }
+
+        return deleteSSOUserCall(tenantId, id, deleteComments, commentDeleteMode, _callback);
+
+    }
+
+
+    private ApiResponse<DeleteSSOUserAPIResponse> deleteSSOUserWithHttpInfo(String tenantId, String id, Boolean deleteComments, String commentDeleteMode) throws ApiException {
+        okhttp3.Call localVarCall = deleteSSOUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, null);
+        Type localVarReturnType = new TypeToken<DeleteSSOUserAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteSSOUserAsync(String tenantId, String id, Boolean deleteComments, String commentDeleteMode, final ApiCallback<DeleteSSOUserAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSSOUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, _callback);
+        Type localVarReturnType = new TypeToken<DeleteSSOUserAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteSSOUserRequest {
+        private final String tenantId;
+        private final String id;
+        private Boolean deleteComments;
+        private String commentDeleteMode;
+
+        private APIdeleteSSOUserRequest(String tenantId, String id) {
+            this.tenantId = tenantId;
+            this.id = id;
+        }
+
+        /**
+         * Set deleteComments
+         * @param deleteComments  (optional)
+         * @return APIdeleteSSOUserRequest
+         */
+        public APIdeleteSSOUserRequest deleteComments(Boolean deleteComments) {
+            this.deleteComments = deleteComments;
+            return this;
+        }
+
+        /**
+         * Set commentDeleteMode
+         * @param commentDeleteMode  (optional)
+         * @return APIdeleteSSOUserRequest
+         */
+        public APIdeleteSSOUserRequest commentDeleteMode(String commentDeleteMode) {
+            this.commentDeleteMode = commentDeleteMode;
+            return this;
+        }
+
+        /**
+         * Build call for deleteSSOUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteSSOUserCall(tenantId, id, deleteComments, commentDeleteMode, _callback);
+        }
+
+        /**
+         * Execute deleteSSOUser request
+         * @return DeleteSSOUserAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public DeleteSSOUserAPIResponse execute() throws ApiException {
+            ApiResponse<DeleteSSOUserAPIResponse> localVarResp = deleteSSOUserWithHttpInfo(tenantId, id, deleteComments, commentDeleteMode);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteSSOUser request with HTTP info returned
+         * @return ApiResponse&lt;DeleteSSOUserAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<DeleteSSOUserAPIResponse> executeWithHttpInfo() throws ApiException {
+            return deleteSSOUserWithHttpInfo(tenantId, id, deleteComments, commentDeleteMode);
+        }
+
+        /**
+         * Execute deleteSSOUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteSSOUserAPIResponse> _callback) throws ApiException {
+            return deleteSSOUserAsync(tenantId, id, deleteComments, commentDeleteMode, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @return APIdeleteSSOUserRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteSSOUserRequest deleteSSOUser(String tenantId, String id) {
+        return new APIdeleteSSOUserRequest(tenantId, id);
+    }
+    private okhttp3.Call deleteSubscriptionCall(String tenantId, String id, String userId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/subscriptions/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSubscriptionValidateBeforeCall(String tenantId, String id, String userId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteSubscription(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteSubscription(Async)");
+        }
+
+        return deleteSubscriptionCall(tenantId, id, userId, _callback);
+
+    }
+
+
+    private ApiResponse<DeleteSubscriptionAPIResponse> deleteSubscriptionWithHttpInfo(String tenantId, String id, String userId) throws ApiException {
+        okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(tenantId, id, userId, null);
+        Type localVarReturnType = new TypeToken<DeleteSubscriptionAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call deleteSubscriptionAsync(String tenantId, String id, String userId, final ApiCallback<DeleteSubscriptionAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(tenantId, id, userId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteSubscriptionAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIdeleteSubscriptionRequest {
+        private final String tenantId;
+        private final String id;
+        private String userId;
+
+        private APIdeleteSubscriptionRequest(String tenantId, String id) {
+            this.tenantId = tenantId;
+            this.id = id;
+        }
+
+        /**
+         * Set userId
+         * @param userId  (optional)
+         * @return APIdeleteSubscriptionRequest
+         */
+        public APIdeleteSubscriptionRequest userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Build call for deleteSubscription
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return deleteSubscriptionCall(tenantId, id, userId, _callback);
+        }
+
+        /**
+         * Execute deleteSubscription request
+         * @return DeleteSubscriptionAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public DeleteSubscriptionAPIResponse execute() throws ApiException {
+            ApiResponse<DeleteSubscriptionAPIResponse> localVarResp = deleteSubscriptionWithHttpInfo(tenantId, id, userId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute deleteSubscription request with HTTP info returned
+         * @return ApiResponse&lt;DeleteSubscriptionAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<DeleteSubscriptionAPIResponse> executeWithHttpInfo() throws ApiException {
+            return deleteSubscriptionWithHttpInfo(tenantId, id, userId);
+        }
+
+        /**
+         * Execute deleteSubscription request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteSubscriptionAPIResponse> _callback) throws ApiException {
+            return deleteSubscriptionAsync(tenantId, id, userId, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @return APIdeleteSubscriptionRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIdeleteSubscriptionRequest deleteSubscription(String tenantId, String id) {
+        return new APIdeleteSubscriptionRequest(tenantId, id);
     }
     private okhttp3.Call deleteUserBadgeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -3845,6 +4924,1026 @@ public class DefaultApi {
     public APIgetFeedPostsRequest getFeedPosts(String tenantId) {
         return new APIgetFeedPostsRequest(tenantId);
     }
+    private okhttp3.Call getPageByURLIdCall(String tenantId, String urlId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/pages/by-url-id";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPageByURLIdValidateBeforeCall(String tenantId, String urlId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getPageByURLId(Async)");
+        }
+
+        // verify the required parameter 'urlId' is set
+        if (urlId == null) {
+            throw new ApiException("Missing the required parameter 'urlId' when calling getPageByURLId(Async)");
+        }
+
+        return getPageByURLIdCall(tenantId, urlId, _callback);
+
+    }
+
+
+    private ApiResponse<GetPageByURLIdAPIResponse> getPageByURLIdWithHttpInfo(String tenantId, String urlId) throws ApiException {
+        okhttp3.Call localVarCall = getPageByURLIdValidateBeforeCall(tenantId, urlId, null);
+        Type localVarReturnType = new TypeToken<GetPageByURLIdAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getPageByURLIdAsync(String tenantId, String urlId, final ApiCallback<GetPageByURLIdAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getPageByURLIdValidateBeforeCall(tenantId, urlId, _callback);
+        Type localVarReturnType = new TypeToken<GetPageByURLIdAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetPageByURLIdRequest {
+        private final String tenantId;
+        private final String urlId;
+
+        private APIgetPageByURLIdRequest(String tenantId, String urlId) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+        }
+
+        /**
+         * Build call for getPageByURLId
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPageByURLIdCall(tenantId, urlId, _callback);
+        }
+
+        /**
+         * Execute getPageByURLId request
+         * @return GetPageByURLIdAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetPageByURLIdAPIResponse execute() throws ApiException {
+            ApiResponse<GetPageByURLIdAPIResponse> localVarResp = getPageByURLIdWithHttpInfo(tenantId, urlId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPageByURLId request with HTTP info returned
+         * @return ApiResponse&lt;GetPageByURLIdAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetPageByURLIdAPIResponse> executeWithHttpInfo() throws ApiException {
+            return getPageByURLIdWithHttpInfo(tenantId, urlId);
+        }
+
+        /**
+         * Execute getPageByURLId request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetPageByURLIdAPIResponse> _callback) throws ApiException {
+            return getPageByURLIdAsync(tenantId, urlId, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param urlId  (required)
+     * @return APIgetPageByURLIdRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetPageByURLIdRequest getPageByURLId(String tenantId, String urlId) {
+        return new APIgetPageByURLIdRequest(tenantId, urlId);
+    }
+    private okhttp3.Call getPagesCall(String tenantId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/pages";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPagesValidateBeforeCall(String tenantId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getPages(Async)");
+        }
+
+        return getPagesCall(tenantId, _callback);
+
+    }
+
+
+    private ApiResponse<GetPagesAPIResponse> getPagesWithHttpInfo(String tenantId) throws ApiException {
+        okhttp3.Call localVarCall = getPagesValidateBeforeCall(tenantId, null);
+        Type localVarReturnType = new TypeToken<GetPagesAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getPagesAsync(String tenantId, final ApiCallback<GetPagesAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getPagesValidateBeforeCall(tenantId, _callback);
+        Type localVarReturnType = new TypeToken<GetPagesAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetPagesRequest {
+        private final String tenantId;
+
+        private APIgetPagesRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Build call for getPages
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPagesCall(tenantId, _callback);
+        }
+
+        /**
+         * Execute getPages request
+         * @return GetPagesAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetPagesAPIResponse execute() throws ApiException {
+            ApiResponse<GetPagesAPIResponse> localVarResp = getPagesWithHttpInfo(tenantId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPages request with HTTP info returned
+         * @return ApiResponse&lt;GetPagesAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetPagesAPIResponse> executeWithHttpInfo() throws ApiException {
+            return getPagesWithHttpInfo(tenantId);
+        }
+
+        /**
+         * Execute getPages request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetPagesAPIResponse> _callback) throws ApiException {
+            return getPagesAsync(tenantId, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @return APIgetPagesRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetPagesRequest getPages(String tenantId) {
+        return new APIgetPagesRequest(tenantId);
+    }
+    private okhttp3.Call getSSOUserByEmailCall(String tenantId, String email, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sso-users/by-email/{email}"
+            .replace("{" + "email" + "}", localVarApiClient.escapeString(email.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSSOUserByEmailValidateBeforeCall(String tenantId, String email, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSSOUserByEmail(Async)");
+        }
+
+        // verify the required parameter 'email' is set
+        if (email == null) {
+            throw new ApiException("Missing the required parameter 'email' when calling getSSOUserByEmail(Async)");
+        }
+
+        return getSSOUserByEmailCall(tenantId, email, _callback);
+
+    }
+
+
+    private ApiResponse<GetSSOUserByEmailAPIResponse> getSSOUserByEmailWithHttpInfo(String tenantId, String email) throws ApiException {
+        okhttp3.Call localVarCall = getSSOUserByEmailValidateBeforeCall(tenantId, email, null);
+        Type localVarReturnType = new TypeToken<GetSSOUserByEmailAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getSSOUserByEmailAsync(String tenantId, String email, final ApiCallback<GetSSOUserByEmailAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSSOUserByEmailValidateBeforeCall(tenantId, email, _callback);
+        Type localVarReturnType = new TypeToken<GetSSOUserByEmailAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetSSOUserByEmailRequest {
+        private final String tenantId;
+        private final String email;
+
+        private APIgetSSOUserByEmailRequest(String tenantId, String email) {
+            this.tenantId = tenantId;
+            this.email = email;
+        }
+
+        /**
+         * Build call for getSSOUserByEmail
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getSSOUserByEmailCall(tenantId, email, _callback);
+        }
+
+        /**
+         * Execute getSSOUserByEmail request
+         * @return GetSSOUserByEmailAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetSSOUserByEmailAPIResponse execute() throws ApiException {
+            ApiResponse<GetSSOUserByEmailAPIResponse> localVarResp = getSSOUserByEmailWithHttpInfo(tenantId, email);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getSSOUserByEmail request with HTTP info returned
+         * @return ApiResponse&lt;GetSSOUserByEmailAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetSSOUserByEmailAPIResponse> executeWithHttpInfo() throws ApiException {
+            return getSSOUserByEmailWithHttpInfo(tenantId, email);
+        }
+
+        /**
+         * Execute getSSOUserByEmail request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetSSOUserByEmailAPIResponse> _callback) throws ApiException {
+            return getSSOUserByEmailAsync(tenantId, email, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param email  (required)
+     * @return APIgetSSOUserByEmailRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetSSOUserByEmailRequest getSSOUserByEmail(String tenantId, String email) {
+        return new APIgetSSOUserByEmailRequest(tenantId, email);
+    }
+    private okhttp3.Call getSSOUserByIdCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sso-users/by-id/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSSOUserByIdValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSSOUserById(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getSSOUserById(Async)");
+        }
+
+        return getSSOUserByIdCall(tenantId, id, _callback);
+
+    }
+
+
+    private ApiResponse<GetSSOUserByIdAPIResponse> getSSOUserByIdWithHttpInfo(String tenantId, String id) throws ApiException {
+        okhttp3.Call localVarCall = getSSOUserByIdValidateBeforeCall(tenantId, id, null);
+        Type localVarReturnType = new TypeToken<GetSSOUserByIdAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getSSOUserByIdAsync(String tenantId, String id, final ApiCallback<GetSSOUserByIdAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSSOUserByIdValidateBeforeCall(tenantId, id, _callback);
+        Type localVarReturnType = new TypeToken<GetSSOUserByIdAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetSSOUserByIdRequest {
+        private final String tenantId;
+        private final String id;
+
+        private APIgetSSOUserByIdRequest(String tenantId, String id) {
+            this.tenantId = tenantId;
+            this.id = id;
+        }
+
+        /**
+         * Build call for getSSOUserById
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getSSOUserByIdCall(tenantId, id, _callback);
+        }
+
+        /**
+         * Execute getSSOUserById request
+         * @return GetSSOUserByIdAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetSSOUserByIdAPIResponse execute() throws ApiException {
+            ApiResponse<GetSSOUserByIdAPIResponse> localVarResp = getSSOUserByIdWithHttpInfo(tenantId, id);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getSSOUserById request with HTTP info returned
+         * @return ApiResponse&lt;GetSSOUserByIdAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetSSOUserByIdAPIResponse> executeWithHttpInfo() throws ApiException {
+            return getSSOUserByIdWithHttpInfo(tenantId, id);
+        }
+
+        /**
+         * Execute getSSOUserById request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetSSOUserByIdAPIResponse> _callback) throws ApiException {
+            return getSSOUserByIdAsync(tenantId, id, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @return APIgetSSOUserByIdRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetSSOUserByIdRequest getSSOUserById(String tenantId, String id) {
+        return new APIgetSSOUserByIdRequest(tenantId, id);
+    }
+    private okhttp3.Call getSSOUsersCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sso-users";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (skip != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip", skip));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSSOUsersValidateBeforeCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSSOUsers(Async)");
+        }
+
+        return getSSOUsersCall(tenantId, skip, _callback);
+
+    }
+
+
+    private ApiResponse<GetSSOUsers200Response> getSSOUsersWithHttpInfo(String tenantId, Double skip) throws ApiException {
+        okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, null);
+        Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getSSOUsersAsync(String tenantId, Double skip, final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, _callback);
+        Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetSSOUsersRequest {
+        private final String tenantId;
+        private Double skip;
+
+        private APIgetSSOUsersRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set skip
+         * @param skip  (optional)
+         * @return APIgetSSOUsersRequest
+         */
+        public APIgetSSOUsersRequest skip(Double skip) {
+            this.skip = skip;
+            return this;
+        }
+
+        /**
+         * Build call for getSSOUsers
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getSSOUsersCall(tenantId, skip, _callback);
+        }
+
+        /**
+         * Execute getSSOUsers request
+         * @return GetSSOUsers200Response
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetSSOUsers200Response execute() throws ApiException {
+            ApiResponse<GetSSOUsers200Response> localVarResp = getSSOUsersWithHttpInfo(tenantId, skip);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getSSOUsers request with HTTP info returned
+         * @return ApiResponse&lt;GetSSOUsers200Response&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetSSOUsers200Response> executeWithHttpInfo() throws ApiException {
+            return getSSOUsersWithHttpInfo(tenantId, skip);
+        }
+
+        /**
+         * Execute getSSOUsers request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
+            return getSSOUsersAsync(tenantId, skip, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @return APIgetSSOUsersRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetSSOUsersRequest getSSOUsers(String tenantId) {
+        return new APIgetSSOUsersRequest(tenantId);
+    }
+    private okhttp3.Call getSubscriptionsCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/subscriptions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (userId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSubscriptionsValidateBeforeCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSubscriptions(Async)");
+        }
+
+        return getSubscriptionsCall(tenantId, userId, _callback);
+
+    }
+
+
+    private ApiResponse<GetSubscriptionsAPIResponse> getSubscriptionsWithHttpInfo(String tenantId, String userId) throws ApiException {
+        okhttp3.Call localVarCall = getSubscriptionsValidateBeforeCall(tenantId, userId, null);
+        Type localVarReturnType = new TypeToken<GetSubscriptionsAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getSubscriptionsAsync(String tenantId, String userId, final ApiCallback<GetSubscriptionsAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSubscriptionsValidateBeforeCall(tenantId, userId, _callback);
+        Type localVarReturnType = new TypeToken<GetSubscriptionsAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetSubscriptionsRequest {
+        private final String tenantId;
+        private String userId;
+
+        private APIgetSubscriptionsRequest(String tenantId) {
+            this.tenantId = tenantId;
+        }
+
+        /**
+         * Set userId
+         * @param userId  (optional)
+         * @return APIgetSubscriptionsRequest
+         */
+        public APIgetSubscriptionsRequest userId(String userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        /**
+         * Build call for getSubscriptions
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getSubscriptionsCall(tenantId, userId, _callback);
+        }
+
+        /**
+         * Execute getSubscriptions request
+         * @return GetSubscriptionsAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetSubscriptionsAPIResponse execute() throws ApiException {
+            ApiResponse<GetSubscriptionsAPIResponse> localVarResp = getSubscriptionsWithHttpInfo(tenantId, userId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getSubscriptions request with HTTP info returned
+         * @return ApiResponse&lt;GetSubscriptionsAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetSubscriptionsAPIResponse> executeWithHttpInfo() throws ApiException {
+            return getSubscriptionsWithHttpInfo(tenantId, userId);
+        }
+
+        /**
+         * Execute getSubscriptions request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetSubscriptionsAPIResponse> _callback) throws ApiException {
+            return getSubscriptionsAsync(tenantId, userId, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @return APIgetSubscriptionsRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetSubscriptionsRequest getSubscriptions(String tenantId) {
+        return new APIgetSubscriptionsRequest(tenantId);
+    }
     private okhttp3.Call getUserBadgeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4985,6 +7084,377 @@ public class DefaultApi {
     public APIpatchDomainConfigRequest patchDomainConfig(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams) {
         return new APIpatchDomainConfigRequest(tenantId, domainToUpdate, patchDomainConfigParams);
     }
+    private okhttp3.Call patchPageCall(String tenantId, String id, UpdateAPIPageData updateAPIPageData, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateAPIPageData;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/pages/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchPageValidateBeforeCall(String tenantId, String id, UpdateAPIPageData updateAPIPageData, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling patchPage(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling patchPage(Async)");
+        }
+
+        // verify the required parameter 'updateAPIPageData' is set
+        if (updateAPIPageData == null) {
+            throw new ApiException("Missing the required parameter 'updateAPIPageData' when calling patchPage(Async)");
+        }
+
+        return patchPageCall(tenantId, id, updateAPIPageData, _callback);
+
+    }
+
+
+    private ApiResponse<PatchPageAPIResponse> patchPageWithHttpInfo(String tenantId, String id, UpdateAPIPageData updateAPIPageData) throws ApiException {
+        okhttp3.Call localVarCall = patchPageValidateBeforeCall(tenantId, id, updateAPIPageData, null);
+        Type localVarReturnType = new TypeToken<PatchPageAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call patchPageAsync(String tenantId, String id, UpdateAPIPageData updateAPIPageData, final ApiCallback<PatchPageAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchPageValidateBeforeCall(tenantId, id, updateAPIPageData, _callback);
+        Type localVarReturnType = new TypeToken<PatchPageAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpatchPageRequest {
+        private final String tenantId;
+        private final String id;
+        private final UpdateAPIPageData updateAPIPageData;
+
+        private APIpatchPageRequest(String tenantId, String id, UpdateAPIPageData updateAPIPageData) {
+            this.tenantId = tenantId;
+            this.id = id;
+            this.updateAPIPageData = updateAPIPageData;
+        }
+
+        /**
+         * Build call for patchPage
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return patchPageCall(tenantId, id, updateAPIPageData, _callback);
+        }
+
+        /**
+         * Execute patchPage request
+         * @return PatchPageAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public PatchPageAPIResponse execute() throws ApiException {
+            ApiResponse<PatchPageAPIResponse> localVarResp = patchPageWithHttpInfo(tenantId, id, updateAPIPageData);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute patchPage request with HTTP info returned
+         * @return ApiResponse&lt;PatchPageAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PatchPageAPIResponse> executeWithHttpInfo() throws ApiException {
+            return patchPageWithHttpInfo(tenantId, id, updateAPIPageData);
+        }
+
+        /**
+         * Execute patchPage request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PatchPageAPIResponse> _callback) throws ApiException {
+            return patchPageAsync(tenantId, id, updateAPIPageData, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @param updateAPIPageData  (required)
+     * @return APIpatchPageRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpatchPageRequest patchPage(String tenantId, String id, UpdateAPIPageData updateAPIPageData) {
+        return new APIpatchPageRequest(tenantId, id, updateAPIPageData);
+    }
+    private okhttp3.Call patchSSOUserCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateAPISSOUserData;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sso-users/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (updateComments != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("updateComments", updateComments));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchSSOUserValidateBeforeCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling patchSSOUser(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling patchSSOUser(Async)");
+        }
+
+        // verify the required parameter 'updateAPISSOUserData' is set
+        if (updateAPISSOUserData == null) {
+            throw new ApiException("Missing the required parameter 'updateAPISSOUserData' when calling patchSSOUser(Async)");
+        }
+
+        return patchSSOUserCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+
+    }
+
+
+    private ApiResponse<PatchSSOUserAPIResponse> patchSSOUserWithHttpInfo(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments) throws ApiException {
+        okhttp3.Call localVarCall = patchSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, null);
+        Type localVarReturnType = new TypeToken<PatchSSOUserAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call patchSSOUserAsync(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback<PatchSSOUserAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+        Type localVarReturnType = new TypeToken<PatchSSOUserAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIpatchSSOUserRequest {
+        private final String tenantId;
+        private final String id;
+        private final UpdateAPISSOUserData updateAPISSOUserData;
+        private Boolean updateComments;
+
+        private APIpatchSSOUserRequest(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+            this.tenantId = tenantId;
+            this.id = id;
+            this.updateAPISSOUserData = updateAPISSOUserData;
+        }
+
+        /**
+         * Set updateComments
+         * @param updateComments  (optional)
+         * @return APIpatchSSOUserRequest
+         */
+        public APIpatchSSOUserRequest updateComments(Boolean updateComments) {
+            this.updateComments = updateComments;
+            return this;
+        }
+
+        /**
+         * Build call for patchSSOUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return patchSSOUserCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+        }
+
+        /**
+         * Execute patchSSOUser request
+         * @return PatchSSOUserAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public PatchSSOUserAPIResponse execute() throws ApiException {
+            ApiResponse<PatchSSOUserAPIResponse> localVarResp = patchSSOUserWithHttpInfo(tenantId, id, updateAPISSOUserData, updateComments);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute patchSSOUser request with HTTP info returned
+         * @return ApiResponse&lt;PatchSSOUserAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PatchSSOUserAPIResponse> executeWithHttpInfo() throws ApiException {
+            return patchSSOUserWithHttpInfo(tenantId, id, updateAPISSOUserData, updateComments);
+        }
+
+        /**
+         * Execute patchSSOUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PatchSSOUserAPIResponse> _callback) throws ApiException {
+            return patchSSOUserAsync(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @param updateAPISSOUserData  (required)
+     * @return APIpatchSSOUserRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIpatchSSOUserRequest patchSSOUser(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+        return new APIpatchSSOUserRequest(tenantId, id, updateAPISSOUserData);
+    }
     private okhttp3.Call putDomainConfigCall(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -5162,6 +7632,199 @@ public class DefaultApi {
      */
     public APIputDomainConfigRequest putDomainConfig(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams) {
         return new APIputDomainConfigRequest(tenantId, domainToUpdate, updateDomainConfigParams);
+    }
+    private okhttp3.Call putSSOUserCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateAPISSOUserData;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sso-users/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (updateComments != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("updateComments", updateComments));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call putSSOUserValidateBeforeCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling putSSOUser(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling putSSOUser(Async)");
+        }
+
+        // verify the required parameter 'updateAPISSOUserData' is set
+        if (updateAPISSOUserData == null) {
+            throw new ApiException("Missing the required parameter 'updateAPISSOUserData' when calling putSSOUser(Async)");
+        }
+
+        return putSSOUserCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+
+    }
+
+
+    private ApiResponse<PutSSOUserAPIResponse> putSSOUserWithHttpInfo(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments) throws ApiException {
+        okhttp3.Call localVarCall = putSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, null);
+        Type localVarReturnType = new TypeToken<PutSSOUserAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call putSSOUserAsync(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback<PutSSOUserAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = putSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+        Type localVarReturnType = new TypeToken<PutSSOUserAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIputSSOUserRequest {
+        private final String tenantId;
+        private final String id;
+        private final UpdateAPISSOUserData updateAPISSOUserData;
+        private Boolean updateComments;
+
+        private APIputSSOUserRequest(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+            this.tenantId = tenantId;
+            this.id = id;
+            this.updateAPISSOUserData = updateAPISSOUserData;
+        }
+
+        /**
+         * Set updateComments
+         * @param updateComments  (optional)
+         * @return APIputSSOUserRequest
+         */
+        public APIputSSOUserRequest updateComments(Boolean updateComments) {
+            this.updateComments = updateComments;
+            return this;
+        }
+
+        /**
+         * Build call for putSSOUser
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return putSSOUserCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+        }
+
+        /**
+         * Execute putSSOUser request
+         * @return PutSSOUserAPIResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public PutSSOUserAPIResponse execute() throws ApiException {
+            ApiResponse<PutSSOUserAPIResponse> localVarResp = putSSOUserWithHttpInfo(tenantId, id, updateAPISSOUserData, updateComments);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute putSSOUser request with HTTP info returned
+         * @return ApiResponse&lt;PutSSOUserAPIResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<PutSSOUserAPIResponse> executeWithHttpInfo() throws ApiException {
+            return putSSOUserWithHttpInfo(tenantId, id, updateAPISSOUserData, updateComments);
+        }
+
+        /**
+         * Execute putSSOUser request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<PutSSOUserAPIResponse> _callback) throws ApiException {
+            return putSSOUserAsync(tenantId, id, updateAPISSOUserData, updateComments, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param id  (required)
+     * @param updateAPISSOUserData  (required)
+     * @return APIputSSOUserRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIputSSOUserRequest putSSOUser(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+        return new APIputSSOUserRequest(tenantId, id, updateAPISSOUserData);
     }
     private okhttp3.Call saveCommentCall(String tenantId, CreateCommentParams createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
         String basePath = null;

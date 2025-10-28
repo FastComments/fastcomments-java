@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.23</version>
+  <version>0.0.24</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.23"
+     implementation "com.fastcomments:client:0.0.24"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.23.jar`
+* `target/client-0.0.24.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -124,15 +124,21 @@ All URIs are relative to *http://localhost*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**addDomainConfig**](docs/DefaultApi.md#addDomainConfig) | **POST** /api/v1/domain-configs | 
+*DefaultApi* | [**addPage**](docs/DefaultApi.md#addPage) | **POST** /api/v1/pages | 
+*DefaultApi* | [**addSSOUser**](docs/DefaultApi.md#addSSOUser) | **POST** /api/v1/sso-users | 
 *DefaultApi* | [**aggregate**](docs/DefaultApi.md#aggregate) | **POST** /api/v1/aggregate | 
 *DefaultApi* | [**aggregateQuestionResults**](docs/DefaultApi.md#aggregateQuestionResults) | **GET** /api/v1/question-results-aggregation | 
 *DefaultApi* | [**blockUserFromComment**](docs/DefaultApi.md#blockUserFromComment) | **POST** /api/v1/comments/{id}/block | 
 *DefaultApi* | [**bulkAggregateQuestionResults**](docs/DefaultApi.md#bulkAggregateQuestionResults) | **POST** /api/v1/question-results-aggregation/bulk | 
 *DefaultApi* | [**combineCommentsWithQuestionResults**](docs/DefaultApi.md#combineCommentsWithQuestionResults) | **GET** /api/v1/question-results-aggregation/combine/comments | 
 *DefaultApi* | [**createFeedPost**](docs/DefaultApi.md#createFeedPost) | **POST** /api/v1/feed-posts | 
+*DefaultApi* | [**createSubscription**](docs/DefaultApi.md#createSubscription) | **POST** /api/v1/subscriptions | 
 *DefaultApi* | [**createUserBadge**](docs/DefaultApi.md#createUserBadge) | **POST** /api/v1/user-badges | 
 *DefaultApi* | [**deleteComment**](docs/DefaultApi.md#deleteComment) | **DELETE** /api/v1/comments/{id} | 
 *DefaultApi* | [**deleteDomainConfig**](docs/DefaultApi.md#deleteDomainConfig) | **DELETE** /api/v1/domain-configs/{domain} | 
+*DefaultApi* | [**deletePage**](docs/DefaultApi.md#deletePage) | **DELETE** /api/v1/pages/{id} | 
+*DefaultApi* | [**deleteSSOUser**](docs/DefaultApi.md#deleteSSOUser) | **DELETE** /api/v1/sso-users/{id} | 
+*DefaultApi* | [**deleteSubscription**](docs/DefaultApi.md#deleteSubscription) | **DELETE** /api/v1/subscriptions/{id} | 
 *DefaultApi* | [**deleteUserBadge**](docs/DefaultApi.md#deleteUserBadge) | **DELETE** /api/v1/user-badges/{id} | 
 *DefaultApi* | [**flagComment**](docs/DefaultApi.md#flagComment) | **POST** /api/v1/comments/{id}/flag | 
 *DefaultApi* | [**getAuditLogs**](docs/DefaultApi.md#getAuditLogs) | **GET** /api/v1/audit-logs | 
@@ -141,13 +147,22 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**getDomainConfig**](docs/DefaultApi.md#getDomainConfig) | **GET** /api/v1/domain-configs/{domain} | 
 *DefaultApi* | [**getDomainConfigs**](docs/DefaultApi.md#getDomainConfigs) | **GET** /api/v1/domain-configs | 
 *DefaultApi* | [**getFeedPosts**](docs/DefaultApi.md#getFeedPosts) | **GET** /api/v1/feed-posts | 
+*DefaultApi* | [**getPageByURLId**](docs/DefaultApi.md#getPageByURLId) | **GET** /api/v1/pages/by-url-id | 
+*DefaultApi* | [**getPages**](docs/DefaultApi.md#getPages) | **GET** /api/v1/pages | 
+*DefaultApi* | [**getSSOUserByEmail**](docs/DefaultApi.md#getSSOUserByEmail) | **GET** /api/v1/sso-users/by-email/{email} | 
+*DefaultApi* | [**getSSOUserById**](docs/DefaultApi.md#getSSOUserById) | **GET** /api/v1/sso-users/by-id/{id} | 
+*DefaultApi* | [**getSSOUsers**](docs/DefaultApi.md#getSSOUsers) | **GET** /api/v1/sso-users | 
+*DefaultApi* | [**getSubscriptions**](docs/DefaultApi.md#getSubscriptions) | **GET** /api/v1/subscriptions | 
 *DefaultApi* | [**getUserBadge**](docs/DefaultApi.md#getUserBadge) | **GET** /api/v1/user-badges/{id} | 
 *DefaultApi* | [**getUserBadgeProgressById**](docs/DefaultApi.md#getUserBadgeProgressById) | **GET** /api/v1/user-badge-progress/{id} | 
 *DefaultApi* | [**getUserBadgeProgressByUserId**](docs/DefaultApi.md#getUserBadgeProgressByUserId) | **GET** /api/v1/user-badge-progress/user/{userId} | 
 *DefaultApi* | [**getUserBadgeProgressList**](docs/DefaultApi.md#getUserBadgeProgressList) | **GET** /api/v1/user-badge-progress | 
 *DefaultApi* | [**getUserBadges**](docs/DefaultApi.md#getUserBadges) | **GET** /api/v1/user-badges | 
 *DefaultApi* | [**patchDomainConfig**](docs/DefaultApi.md#patchDomainConfig) | **PATCH** /api/v1/domain-configs/{domainToUpdate} | 
+*DefaultApi* | [**patchPage**](docs/DefaultApi.md#patchPage) | **PATCH** /api/v1/pages/{id} | 
+*DefaultApi* | [**patchSSOUser**](docs/DefaultApi.md#patchSSOUser) | **PATCH** /api/v1/sso-users/{id} | 
 *DefaultApi* | [**putDomainConfig**](docs/DefaultApi.md#putDomainConfig) | **PUT** /api/v1/domain-configs/{domainToUpdate} | 
+*DefaultApi* | [**putSSOUser**](docs/DefaultApi.md#putSSOUser) | **PUT** /api/v1/sso-users/{id} | 
 *DefaultApi* | [**saveComment**](docs/DefaultApi.md#saveComment) | **POST** /api/v1/comments | 
 *DefaultApi* | [**saveCommentsBulk**](docs/DefaultApi.md#saveCommentsBulk) | **POST** /api/v1/comments/bulk | 
 *DefaultApi* | [**unBlockUserFromComment**](docs/DefaultApi.md#unBlockUserFromComment) | **POST** /api/v1/comments/{id}/un-block | 
@@ -205,10 +220,15 @@ Class | Method | HTTP request | Description
  - [APIGetUserBadgeProgressResponse](docs/APIGetUserBadgeProgressResponse.md)
  - [APIGetUserBadgeResponse](docs/APIGetUserBadgeResponse.md)
  - [APIGetUserBadgesResponse](docs/APIGetUserBadgesResponse.md)
+ - [APIPage](docs/APIPage.md)
+ - [APISSOUser](docs/APISSOUser.md)
  - [APIStatus](docs/APIStatus.md)
+ - [APIUserSubscription](docs/APIUserSubscription.md)
  - [AddDomainConfig200Response](docs/AddDomainConfig200Response.md)
  - [AddDomainConfig200ResponseAnyOf](docs/AddDomainConfig200ResponseAnyOf.md)
  - [AddDomainConfigParams](docs/AddDomainConfigParams.md)
+ - [AddPageAPIResponse](docs/AddPageAPIResponse.md)
+ - [AddSSOUserAPIResponse](docs/AddSSOUserAPIResponse.md)
  - [AggregateQuestionResults200Response](docs/AggregateQuestionResults200Response.md)
  - [AggregateQuestionResultsResponse](docs/AggregateQuestionResultsResponse.md)
  - [AggregateTimeBucket](docs/AggregateTimeBucket.md)
@@ -242,6 +262,9 @@ Class | Method | HTTP request | Description
  - [CommentUserHashTagInfo](docs/CommentUserHashTagInfo.md)
  - [CommentUserMentionInfo](docs/CommentUserMentionInfo.md)
  - [CommenterNameFormats](docs/CommenterNameFormats.md)
+ - [CreateAPIPageData](docs/CreateAPIPageData.md)
+ - [CreateAPISSOUserData](docs/CreateAPISSOUserData.md)
+ - [CreateAPIUserSubscriptionData](docs/CreateAPIUserSubscriptionData.md)
  - [CreateCommentParams](docs/CreateCommentParams.md)
  - [CreateCommentPublic200Response](docs/CreateCommentPublic200Response.md)
  - [CreateFeedPost200Response](docs/CreateFeedPost200Response.md)
@@ -249,6 +272,7 @@ Class | Method | HTTP request | Description
  - [CreateFeedPostPublic200Response](docs/CreateFeedPostPublic200Response.md)
  - [CreateFeedPostResponse](docs/CreateFeedPostResponse.md)
  - [CreateFeedPostsResponse](docs/CreateFeedPostsResponse.md)
+ - [CreateSubscriptionAPIResponse](docs/CreateSubscriptionAPIResponse.md)
  - [CreateUserBadge200Response](docs/CreateUserBadge200Response.md)
  - [CreateUserBadgeParams](docs/CreateUserBadgeParams.md)
  - [CustomConfigParameters](docs/CustomConfigParameters.md)
@@ -260,6 +284,9 @@ Class | Method | HTTP request | Description
  - [DeleteDomainConfig200Response](docs/DeleteDomainConfig200Response.md)
  - [DeleteFeedPostPublic200Response](docs/DeleteFeedPostPublic200Response.md)
  - [DeleteFeedPostPublic200ResponseAnyOf](docs/DeleteFeedPostPublic200ResponseAnyOf.md)
+ - [DeletePageAPIResponse](docs/DeletePageAPIResponse.md)
+ - [DeleteSSOUserAPIResponse](docs/DeleteSSOUserAPIResponse.md)
+ - [DeleteSubscriptionAPIResponse](docs/DeleteSubscriptionAPIResponse.md)
  - [EventLogEntry](docs/EventLogEntry.md)
  - [FComment](docs/FComment.md)
  - [FCommentMeta](docs/FCommentMeta.md)
@@ -295,7 +322,13 @@ Class | Method | HTTP request | Description
  - [GetFeedPostsResponse](docs/GetFeedPostsResponse.md)
  - [GetFeedPostsStats200Response](docs/GetFeedPostsStats200Response.md)
  - [GetMyNotificationsResponse](docs/GetMyNotificationsResponse.md)
+ - [GetPageByURLIdAPIResponse](docs/GetPageByURLIdAPIResponse.md)
+ - [GetPagesAPIResponse](docs/GetPagesAPIResponse.md)
  - [GetPublicFeedPostsResponse](docs/GetPublicFeedPostsResponse.md)
+ - [GetSSOUserByEmailAPIResponse](docs/GetSSOUserByEmailAPIResponse.md)
+ - [GetSSOUserByIdAPIResponse](docs/GetSSOUserByIdAPIResponse.md)
+ - [GetSSOUsers200Response](docs/GetSSOUsers200Response.md)
+ - [GetSubscriptionsAPIResponse](docs/GetSubscriptionsAPIResponse.md)
  - [GetUserBadge200Response](docs/GetUserBadge200Response.md)
  - [GetUserBadgeProgressById200Response](docs/GetUserBadgeProgressById200Response.md)
  - [GetUserBadgeProgressList200Response](docs/GetUserBadgeProgressList200Response.md)
@@ -322,6 +355,8 @@ Class | Method | HTTP request | Description
  - [NotificationObjectType](docs/NotificationObjectType.md)
  - [NotificationType](docs/NotificationType.md)
  - [PatchDomainConfigParams](docs/PatchDomainConfigParams.md)
+ - [PatchPageAPIResponse](docs/PatchPageAPIResponse.md)
+ - [PatchSSOUserAPIResponse](docs/PatchSSOUserAPIResponse.md)
  - [PickAPICommentUpdatableCommentFields](docs/PickAPICommentUpdatableCommentFields.md)
  - [PickFCommentAPICommentFieldsKeys](docs/PickFCommentAPICommentFieldsKeys.md)
  - [PickFCommentAPICommentFieldsKeysMeta](docs/PickFCommentAPICommentFieldsKeysMeta.md)
@@ -339,6 +374,7 @@ Class | Method | HTTP request | Description
  - [PublicBlockFromCommentParams](docs/PublicBlockFromCommentParams.md)
  - [PublicComment](docs/PublicComment.md)
  - [PublicFeedPostsResponse](docs/PublicFeedPostsResponse.md)
+ - [PutSSOUserAPIResponse](docs/PutSSOUserAPIResponse.md)
  - [QueryPredicate](docs/QueryPredicate.md)
  - [QueryPredicateValue](docs/QueryPredicateValue.md)
  - [QuestionDatum](docs/QuestionDatum.md)
@@ -370,6 +406,8 @@ Class | Method | HTTP request | Description
  - [UnBlockCommentPublic200Response](docs/UnBlockCommentPublic200Response.md)
  - [UnBlockFromCommentParams](docs/UnBlockFromCommentParams.md)
  - [UnblockSuccess](docs/UnblockSuccess.md)
+ - [UpdateAPIPageData](docs/UpdateAPIPageData.md)
+ - [UpdateAPISSOUserData](docs/UpdateAPISSOUserData.md)
  - [UpdateDomainConfigParams](docs/UpdateDomainConfigParams.md)
  - [UpdateFeedPostParams](docs/UpdateFeedPostParams.md)
  - [UpdateUserBadge200Response](docs/UpdateUserBadge200Response.md)
