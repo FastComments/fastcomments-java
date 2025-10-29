@@ -136,6 +136,7 @@ public class Example {
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -143,6 +144,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -175,7 +182,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -199,6 +206,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -206,6 +214,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -238,7 +252,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -751,6 +765,7 @@ public class Example {
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -758,6 +773,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -790,7 +811,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1030,6 +1051,7 @@ public class Example {
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -1037,6 +1059,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -1069,7 +1097,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1093,6 +1121,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -1100,6 +1129,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -1138,7 +1173,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1162,6 +1197,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -1169,6 +1205,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -1204,7 +1246,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1854,6 +1896,7 @@ public class Example {
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -1861,6 +1904,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -1893,7 +1942,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1917,6 +1966,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -1924,6 +1974,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -1954,7 +2010,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -1978,6 +2034,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -1985,6 +2042,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -2017,7 +2080,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -2041,6 +2104,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -2048,6 +2112,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -2080,7 +2150,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -2104,6 +2174,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -2111,6 +2182,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -2144,7 +2221,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -2168,6 +2245,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -2175,6 +2253,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -2208,7 +2292,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -2677,6 +2761,7 @@ public class Example {
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -2684,6 +2769,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -2718,7 +2809,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -2742,6 +2833,7 @@ No authorization required
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -2749,6 +2841,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -2786,7 +2884,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -2882,6 +2980,7 @@ public class Example {
 import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
 import com.fastcomments.invoker.models.*;
 import com.fastcomments.api.DefaultApi;
 
@@ -2889,6 +2988,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
@@ -2926,7 +3031,7 @@ public class Example {
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

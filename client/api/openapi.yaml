@@ -1998,7 +1998,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSubscriptionsAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
     post:
@@ -2024,7 +2025,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateSubscriptionAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2060,7 +2062,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeleteSubscriptionAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
   /api/v1/sso-users:
@@ -2089,7 +2092,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSSOUsers_200_response'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
     post:
@@ -2115,7 +2119,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/AddSSOUserAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2144,7 +2149,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSSOUserByIdAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
   /api/v1/sso-users/by-email/{email}:
@@ -2172,7 +2178,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetSSOUserByEmailAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
   /api/v1/sso-users/{id}:
@@ -2214,7 +2221,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeleteSSOUserAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
     patch:
@@ -2254,7 +2262,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PatchSSOUserAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2295,7 +2304,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PutSSOUserAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2317,7 +2327,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetPagesAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
     post:
@@ -2343,7 +2354,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/AddPageAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -2372,7 +2384,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetPageByURLIdAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
   /api/v1/pages/{id}:
@@ -2400,7 +2413,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/DeletePageAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-accepts:
       - application/json
     patch:
@@ -2433,7 +2447,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/PatchPageAPIResponse'
           description: Ok
-      security: []
+      security:
+      - api_key: []
       x-content-type: application/json
       x-accepts:
       - application/json
