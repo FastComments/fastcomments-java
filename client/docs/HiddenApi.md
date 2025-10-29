@@ -1,7 +1,7 @@
 # HiddenApi
 FastComments API Client - A SDK for interacting with the FastComments API
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://fastcomments.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -26,7 +26,7 @@ import com.fastcomments.api.HiddenApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://fastcomments.com");
 
     HiddenApi apiInstance = new HiddenApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
