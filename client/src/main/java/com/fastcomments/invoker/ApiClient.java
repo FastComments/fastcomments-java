@@ -61,10 +61,15 @@ import com.fastcomments.invoker.auth.ApiKeyAuth;
  */
 public class ApiClient {
 
-    private String basePath = "http://localhost";
+    private String basePath = "https://fastcomments.com";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "",
+      "https://fastcomments.com",
+      "No description provided",
+      new HashMap<String, ServerVariable>()
+    ),
+    new ServerConfiguration(
+      "https://eu.fastcomments.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
@@ -141,7 +146,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("OpenAPI-Generator/0.0.24/java");
+        setUserAgent("OpenAPI-Generator/0.0.25/java");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -158,7 +163,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g http://localhost
+     * @param basePath Base path of the URL (e.g https://fastcomments.com
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
