@@ -1,9 +1,9 @@
 #!/bin/bash
 
 rm -rvf ./client/src \
-    && wget http://localhost:3001/js/swagger.json -O /tmp/fastcomments-openapi.json \
+    && wget http://localhost:3001/js/swagger.json -O ./openapi.json \
     && openapi-generator-cli generate \
-        -i /tmp/fastcomments-openapi.json \
+        -i ./openapi.json \
         -g java \
         -o ./client \
         --additional-properties=useSingleRequestParameter=true,disallowAdditionalPropertiesIfNotPresent=false \
