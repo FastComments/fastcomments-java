@@ -53,17 +53,17 @@ public class AggregationResponseStats {
   public static final String SERIALIZED_NAME_TIME_M_S = "timeMS";
   @SerializedName(SERIALIZED_NAME_TIME_M_S)
   @javax.annotation.Nonnull
-  private Double timeMS;
+  private Long timeMS;
 
   public static final String SERIALIZED_NAME_SCANNED = "scanned";
   @SerializedName(SERIALIZED_NAME_SCANNED)
   @javax.annotation.Nonnull
-  private Double scanned;
+  private Long scanned;
 
   public AggregationResponseStats() {
   }
 
-  public AggregationResponseStats timeMS(@javax.annotation.Nonnull Double timeMS) {
+  public AggregationResponseStats timeMS(@javax.annotation.Nonnull Long timeMS) {
     this.timeMS = timeMS;
     return this;
   }
@@ -73,16 +73,16 @@ public class AggregationResponseStats {
    * @return timeMS
    */
   @javax.annotation.Nonnull
-  public Double getTimeMS() {
+  public Long getTimeMS() {
     return timeMS;
   }
 
-  public void setTimeMS(@javax.annotation.Nonnull Double timeMS) {
+  public void setTimeMS(@javax.annotation.Nonnull Long timeMS) {
     this.timeMS = timeMS;
   }
 
 
-  public AggregationResponseStats scanned(@javax.annotation.Nonnull Double scanned) {
+  public AggregationResponseStats scanned(@javax.annotation.Nonnull Long scanned) {
     this.scanned = scanned;
     return this;
   }
@@ -92,11 +92,11 @@ public class AggregationResponseStats {
    * @return scanned
    */
   @javax.annotation.Nonnull
-  public Double getScanned() {
+  public Long getScanned() {
     return scanned;
   }
 
-  public void setScanned(@javax.annotation.Nonnull Double scanned) {
+  public void setScanned(@javax.annotation.Nonnull Long scanned) {
     this.scanned = scanned;
   }
 

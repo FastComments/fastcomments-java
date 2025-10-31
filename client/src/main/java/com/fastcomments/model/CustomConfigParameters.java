@@ -126,7 +126,7 @@ public class CustomConfigParameters {
   public static final String SERIALIZED_NAME_COUNT_ABOVE_TOGGLE = "countAboveToggle";
   @SerializedName(SERIALIZED_NAME_COUNT_ABOVE_TOGGLE)
   @javax.annotation.Nullable
-  private Double countAboveToggle;
+  private Integer countAboveToggle;
 
   public static final String SERIALIZED_NAME_CUSTOM_C_S_S = "customCSS";
   @SerializedName(SERIALIZED_NAME_CUSTOM_C_S_S)
@@ -296,12 +296,12 @@ public class CustomConfigParameters {
   public static final String SERIALIZED_NAME_MAX_COMMENT_CHARACTER_LENGTH = "maxCommentCharacterLength";
   @SerializedName(SERIALIZED_NAME_MAX_COMMENT_CHARACTER_LENGTH)
   @javax.annotation.Nullable
-  private Double maxCommentCharacterLength;
+  private Integer maxCommentCharacterLength;
 
   public static final String SERIALIZED_NAME_MAX_COMMENT_CREATED_COUNT_P_U_P_M = "maxCommentCreatedCountPUPM";
   @SerializedName(SERIALIZED_NAME_MAX_COMMENT_CREATED_COUNT_P_U_P_M)
   @javax.annotation.Nullable
-  private Double maxCommentCreatedCountPUPM;
+  private Integer maxCommentCreatedCountPUPM;
 
   public static final String SERIALIZED_NAME_NO_CUSTOM_CONFIG = "noCustomConfig";
   @SerializedName(SERIALIZED_NAME_NO_CUSTOM_CONFIG)
@@ -321,7 +321,7 @@ public class CustomConfigParameters {
   public static final String SERIALIZED_NAME_PAGE_SIZE = "pageSize";
   @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
   @javax.annotation.Nullable
-  private Double pageSize;
+  private Integer pageSize;
 
   public static final String SERIALIZED_NAME_READONLY = "readonly";
   @SerializedName(SERIALIZED_NAME_READONLY)
@@ -648,7 +648,7 @@ public class CustomConfigParameters {
   }
 
 
-  public CustomConfigParameters countAboveToggle(@javax.annotation.Nullable Double countAboveToggle) {
+  public CustomConfigParameters countAboveToggle(@javax.annotation.Nullable Integer countAboveToggle) {
     this.countAboveToggle = countAboveToggle;
     return this;
   }
@@ -658,11 +658,11 @@ public class CustomConfigParameters {
    * @return countAboveToggle
    */
   @javax.annotation.Nullable
-  public Double getCountAboveToggle() {
+  public Integer getCountAboveToggle() {
     return countAboveToggle;
   }
 
-  public void setCountAboveToggle(@javax.annotation.Nullable Double countAboveToggle) {
+  public void setCountAboveToggle(@javax.annotation.Nullable Integer countAboveToggle) {
     this.countAboveToggle = countAboveToggle;
   }
 
@@ -1294,7 +1294,7 @@ public class CustomConfigParameters {
   }
 
 
-  public CustomConfigParameters maxCommentCharacterLength(@javax.annotation.Nullable Double maxCommentCharacterLength) {
+  public CustomConfigParameters maxCommentCharacterLength(@javax.annotation.Nullable Integer maxCommentCharacterLength) {
     this.maxCommentCharacterLength = maxCommentCharacterLength;
     return this;
   }
@@ -1304,16 +1304,16 @@ public class CustomConfigParameters {
    * @return maxCommentCharacterLength
    */
   @javax.annotation.Nullable
-  public Double getMaxCommentCharacterLength() {
+  public Integer getMaxCommentCharacterLength() {
     return maxCommentCharacterLength;
   }
 
-  public void setMaxCommentCharacterLength(@javax.annotation.Nullable Double maxCommentCharacterLength) {
+  public void setMaxCommentCharacterLength(@javax.annotation.Nullable Integer maxCommentCharacterLength) {
     this.maxCommentCharacterLength = maxCommentCharacterLength;
   }
 
 
-  public CustomConfigParameters maxCommentCreatedCountPUPM(@javax.annotation.Nullable Double maxCommentCreatedCountPUPM) {
+  public CustomConfigParameters maxCommentCreatedCountPUPM(@javax.annotation.Nullable Integer maxCommentCreatedCountPUPM) {
     this.maxCommentCreatedCountPUPM = maxCommentCreatedCountPUPM;
     return this;
   }
@@ -1323,11 +1323,11 @@ public class CustomConfigParameters {
    * @return maxCommentCreatedCountPUPM
    */
   @javax.annotation.Nullable
-  public Double getMaxCommentCreatedCountPUPM() {
+  public Integer getMaxCommentCreatedCountPUPM() {
     return maxCommentCreatedCountPUPM;
   }
 
-  public void setMaxCommentCreatedCountPUPM(@javax.annotation.Nullable Double maxCommentCreatedCountPUPM) {
+  public void setMaxCommentCreatedCountPUPM(@javax.annotation.Nullable Integer maxCommentCreatedCountPUPM) {
     this.maxCommentCreatedCountPUPM = maxCommentCreatedCountPUPM;
   }
 
@@ -1389,7 +1389,7 @@ public class CustomConfigParameters {
   }
 
 
-  public CustomConfigParameters pageSize(@javax.annotation.Nullable Double pageSize) {
+  public CustomConfigParameters pageSize(@javax.annotation.Nullable Integer pageSize) {
     this.pageSize = pageSize;
     return this;
   }
@@ -1399,11 +1399,11 @@ public class CustomConfigParameters {
    * @return pageSize
    */
   @javax.annotation.Nullable
-  public Double getPageSize() {
+  public Integer getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(@javax.annotation.Nullable Double pageSize) {
+  public void setPageSize(@javax.annotation.Nullable Integer pageSize) {
     this.pageSize = pageSize;
   }
 

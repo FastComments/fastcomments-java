@@ -693,7 +693,7 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
-    Double dir = 3.4D; // Double | 
+    Integer dir = 56; // Integer | 
     String sso = "sso_example"; // String | 
     try {
       GetCommentVoteUserNames200Response result = apiInstance.getCommentVoteUserNames(tenantId, commentId, dir)
@@ -717,7 +717,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
-| **dir** | **Double**|  | |
+| **dir** | **Integer**|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -1256,10 +1256,10 @@ public class Example {
 
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
-    Double pageSize = 3.4D; // Double | Defaults to 20.
+    Integer pageSize = 56; // Integer | 
     String afterId = "afterId_example"; // String | 
     Boolean includeContext = true; // Boolean | 
-    Double afterCreatedAt = 3.4D; // Double | 
+    Long afterCreatedAt = 56L; // Long | 
     Boolean unreadOnly = true; // Boolean | 
     Boolean dmOnly = true; // Boolean | 
     Boolean noDm = true; // Boolean | 
@@ -1294,10 +1294,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
-| **pageSize** | **Double**| Defaults to 20. | [optional] |
+| **pageSize** | **Integer**|  | [optional] |
 | **afterId** | **String**|  | [optional] |
 | **includeContext** | **Boolean**|  | [optional] |
-| **afterCreatedAt** | **Double**|  | [optional] |
+| **afterCreatedAt** | **Long**|  | [optional] |
 | **unreadOnly** | **Boolean**|  | [optional] |
 | **dmOnly** | **Boolean**|  | [optional] |
 | **noDm** | **Boolean**|  | [optional] |
@@ -1752,7 +1752,7 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String afterId = "afterId_example"; // String | 
-    Double afterCreatedAt = 3.4D; // Double | 
+    Long afterCreatedAt = 56L; // Long | 
     Boolean unreadOnly = true; // Boolean | 
     Boolean dmOnly = true; // Boolean | 
     Boolean noDm = true; // Boolean | 
@@ -1784,7 +1784,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **afterId** | **String**|  | [optional] |
-| **afterCreatedAt** | **Double**|  | [optional] |
+| **afterCreatedAt** | **Long**|  | [optional] |
 | **unreadOnly** | **Boolean**|  | [optional] |
 | **dmOnly** | **Boolean**|  | [optional] |
 | **noDm** | **Boolean**|  | [optional] |

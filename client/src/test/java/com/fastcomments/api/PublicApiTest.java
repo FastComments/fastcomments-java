@@ -222,7 +222,7 @@ public class PublicApiTest {
     public void getCommentVoteUserNamesTest() throws ApiException {
         String tenantId = null;
         String commentId = null;
-        Double dir = null;
+        Integer dir = null;
         String sso = null;
         GetCommentVoteUserNames200Response response = api.getCommentVoteUserNames(tenantId, commentId, dir)
                 .sso(sso)
@@ -388,10 +388,10 @@ public class PublicApiTest {
     @Test
     public void getUserNotificationsTest() throws ApiException {
         String tenantId = null;
-        Double pageSize = null;
+        Integer pageSize = null;
         String afterId = null;
         Boolean includeContext = null;
-        Double afterCreatedAt = null;
+        Long afterCreatedAt = null;
         Boolean unreadOnly = null;
         Boolean dmOnly = null;
         Boolean noDm = null;
@@ -508,7 +508,7 @@ public class PublicApiTest {
     public void resetUserNotificationsTest() throws ApiException {
         String tenantId = null;
         String afterId = null;
-        Double afterCreatedAt = null;
+        Long afterCreatedAt = null;
         Boolean unreadOnly = null;
         Boolean dmOnly = null;
         Boolean noDm = null;

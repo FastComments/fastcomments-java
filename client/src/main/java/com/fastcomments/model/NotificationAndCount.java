@@ -59,7 +59,7 @@ public class NotificationAndCount {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
   @javax.annotation.Nonnull
-  private Double count;
+  private Long count;
 
   public NotificationAndCount() {
   }
@@ -83,7 +83,7 @@ public class NotificationAndCount {
   }
 
 
-  public NotificationAndCount count(@javax.annotation.Nonnull Double count) {
+  public NotificationAndCount count(@javax.annotation.Nonnull Long count) {
     this.count = count;
     return this;
   }
@@ -93,11 +93,11 @@ public class NotificationAndCount {
    * @return count
    */
   @javax.annotation.Nonnull
-  public Double getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@javax.annotation.Nonnull Double count) {
+  public void setCount(@javax.annotation.Nonnull Long count) {
     this.count = count;
   }
 

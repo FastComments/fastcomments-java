@@ -58,7 +58,7 @@ public class CommentUserBadgeInfo {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
-  private Double type;
+  private Integer type;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -117,7 +117,7 @@ public class CommentUserBadgeInfo {
   }
 
 
-  public CommentUserBadgeInfo type(@javax.annotation.Nonnull Double type) {
+  public CommentUserBadgeInfo type(@javax.annotation.Nonnull Integer type) {
     this.type = type;
     return this;
   }
@@ -127,11 +127,11 @@ public class CommentUserBadgeInfo {
    * @return type
    */
   @javax.annotation.Nonnull
-  public Double getType() {
+  public Integer getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull Double type) {
+  public void setType(@javax.annotation.Nonnull Integer type) {
     this.type = type;
   }
 

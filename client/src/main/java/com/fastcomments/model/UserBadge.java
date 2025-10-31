@@ -79,12 +79,12 @@ public class UserBadge {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nonnull
-  private Double type;
+  private Integer type;
 
   public static final String SERIALIZED_NAME_THRESHOLD = "threshold";
   @SerializedName(SERIALIZED_NAME_THRESHOLD)
   @javax.annotation.Nonnull
-  private Double threshold;
+  private Long threshold;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -124,7 +124,7 @@ public class UserBadge {
   public static final String SERIALIZED_NAME_VETERAN_USER_THRESHOLD_MILLIS = "veteranUserThresholdMillis";
   @SerializedName(SERIALIZED_NAME_VETERAN_USER_THRESHOLD_MILLIS)
   @javax.annotation.Nonnull
-  private Double veteranUserThresholdMillis;
+  private Long veteranUserThresholdMillis;
 
   public static final String SERIALIZED_NAME_DISPLAYED_ON_COMMENTS = "displayedOnComments";
   @SerializedName(SERIALIZED_NAME_DISPLAYED_ON_COMMENTS)
@@ -139,7 +139,7 @@ public class UserBadge {
   public static final String SERIALIZED_NAME_ORDER = "order";
   @SerializedName(SERIALIZED_NAME_ORDER)
   @javax.annotation.Nullable
-  private Double order;
+  private Integer order;
 
   public UserBadge() {
   }
@@ -239,7 +239,7 @@ public class UserBadge {
   }
 
 
-  public UserBadge type(@javax.annotation.Nonnull Double type) {
+  public UserBadge type(@javax.annotation.Nonnull Integer type) {
     this.type = type;
     return this;
   }
@@ -249,16 +249,16 @@ public class UserBadge {
    * @return type
    */
   @javax.annotation.Nonnull
-  public Double getType() {
+  public Integer getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull Double type) {
+  public void setType(@javax.annotation.Nonnull Integer type) {
     this.type = type;
   }
 
 
-  public UserBadge threshold(@javax.annotation.Nonnull Double threshold) {
+  public UserBadge threshold(@javax.annotation.Nonnull Long threshold) {
     this.threshold = threshold;
     return this;
   }
@@ -268,11 +268,11 @@ public class UserBadge {
    * @return threshold
    */
   @javax.annotation.Nonnull
-  public Double getThreshold() {
+  public Long getThreshold() {
     return threshold;
   }
 
-  public void setThreshold(@javax.annotation.Nonnull Double threshold) {
+  public void setThreshold(@javax.annotation.Nonnull Long threshold) {
     this.threshold = threshold;
   }
 
@@ -410,7 +410,7 @@ public class UserBadge {
   }
 
 
-  public UserBadge veteranUserThresholdMillis(@javax.annotation.Nonnull Double veteranUserThresholdMillis) {
+  public UserBadge veteranUserThresholdMillis(@javax.annotation.Nonnull Long veteranUserThresholdMillis) {
     this.veteranUserThresholdMillis = veteranUserThresholdMillis;
     return this;
   }
@@ -420,11 +420,11 @@ public class UserBadge {
    * @return veteranUserThresholdMillis
    */
   @javax.annotation.Nonnull
-  public Double getVeteranUserThresholdMillis() {
+  public Long getVeteranUserThresholdMillis() {
     return veteranUserThresholdMillis;
   }
 
-  public void setVeteranUserThresholdMillis(@javax.annotation.Nonnull Double veteranUserThresholdMillis) {
+  public void setVeteranUserThresholdMillis(@javax.annotation.Nonnull Long veteranUserThresholdMillis) {
     this.veteranUserThresholdMillis = veteranUserThresholdMillis;
   }
 
@@ -467,7 +467,7 @@ public class UserBadge {
   }
 
 
-  public UserBadge order(@javax.annotation.Nullable Double order) {
+  public UserBadge order(@javax.annotation.Nullable Integer order) {
     this.order = order;
     return this;
   }
@@ -477,11 +477,11 @@ public class UserBadge {
    * @return order
    */
   @javax.annotation.Nullable
-  public Double getOrder() {
+  public Integer getOrder() {
     return order;
   }
 
-  public void setOrder(@javax.annotation.Nullable Double order) {
+  public void setOrder(@javax.annotation.Nullable Integer order) {
     this.order = order;
   }
 

@@ -35,8 +35,8 @@
 |**userIdWS** | **String** |  |  [optional] |
 |**tenantIdWS** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
-|**bannedUntil** | **Double** |  |  [optional] |
-|**maxCharacterLength** | **Double** |  |  [optional] |
+|**bannedUntil** | **Long** |  |  [optional] |
+|**maxCharacterLength** | **Integer** |  |  [optional] |
 |**translatedError** | **String** |  |  [optional] |
 
 

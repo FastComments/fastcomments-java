@@ -75,7 +75,7 @@
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**logs** | **List&lt;List&lt;Object&gt;&gt;** |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
-|**viewCount** | **Double** |  |  [optional] |
+|**viewCount** | **Long** |  |  [optional] |
 |**requiresVerification** | **Boolean** |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
 

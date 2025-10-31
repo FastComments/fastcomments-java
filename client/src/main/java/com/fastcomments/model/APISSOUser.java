@@ -75,7 +75,7 @@ public class APISSOUser {
   public static final String SERIALIZED_NAME_SIGN_UP_DATE = "signUpDate";
   @SerializedName(SERIALIZED_NAME_SIGN_UP_DATE)
   @javax.annotation.Nonnull
-  private Double signUpDate;
+  private Long signUpDate;
 
   public static final String SERIALIZED_NAME_CREATED_FROM_URL_ID = "createdFromUrlId";
   @SerializedName(SERIALIZED_NAME_CREATED_FROM_URL_ID)
@@ -85,7 +85,7 @@ public class APISSOUser {
   public static final String SERIALIZED_NAME_LOGIN_COUNT = "loginCount";
   @SerializedName(SERIALIZED_NAME_LOGIN_COUNT)
   @javax.annotation.Nonnull
-  private Double loginCount;
+  private Integer loginCount;
 
   public static final String SERIALIZED_NAME_AVATAR_SRC = "avatarSrc";
   @SerializedName(SERIALIZED_NAME_AVATAR_SRC)
@@ -231,7 +231,7 @@ public class APISSOUser {
   }
 
 
-  public APISSOUser signUpDate(@javax.annotation.Nonnull Double signUpDate) {
+  public APISSOUser signUpDate(@javax.annotation.Nonnull Long signUpDate) {
     this.signUpDate = signUpDate;
     return this;
   }
@@ -241,11 +241,11 @@ public class APISSOUser {
    * @return signUpDate
    */
   @javax.annotation.Nonnull
-  public Double getSignUpDate() {
+  public Long getSignUpDate() {
     return signUpDate;
   }
 
-  public void setSignUpDate(@javax.annotation.Nonnull Double signUpDate) {
+  public void setSignUpDate(@javax.annotation.Nonnull Long signUpDate) {
     this.signUpDate = signUpDate;
   }
 
@@ -269,7 +269,7 @@ public class APISSOUser {
   }
 
 
-  public APISSOUser loginCount(@javax.annotation.Nonnull Double loginCount) {
+  public APISSOUser loginCount(@javax.annotation.Nonnull Integer loginCount) {
     this.loginCount = loginCount;
     return this;
   }
@@ -279,11 +279,11 @@ public class APISSOUser {
    * @return loginCount
    */
   @javax.annotation.Nonnull
-  public Double getLoginCount() {
+  public Integer getLoginCount() {
     return loginCount;
   }
 
-  public void setLoginCount(@javax.annotation.Nonnull Double loginCount) {
+  public void setLoginCount(@javax.annotation.Nonnull Integer loginCount) {
     this.loginCount = loginCount;
   }
 

@@ -33,7 +33,7 @@ From T, pick a set of properties whose keys are in the union K
 |**displayLabel** | **String** |  |  [optional] |
 |**badges** | [**List&lt;CommentUserBadgeInfo&gt;**](CommentUserBadgeInfo.md) |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
-|**viewCount** | **Double** |  |  [optional] |
+|**viewCount** | **Long** |  |  [optional] |
 |**requiresVerification** | **Boolean** |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
 

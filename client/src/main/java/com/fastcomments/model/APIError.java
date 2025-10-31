@@ -75,12 +75,12 @@ public class APIError {
   public static final String SERIALIZED_NAME_BANNED_UNTIL = "bannedUntil";
   @SerializedName(SERIALIZED_NAME_BANNED_UNTIL)
   @javax.annotation.Nullable
-  private Double bannedUntil;
+  private Long bannedUntil;
 
   public static final String SERIALIZED_NAME_MAX_CHARACTER_LENGTH = "maxCharacterLength";
   @SerializedName(SERIALIZED_NAME_MAX_CHARACTER_LENGTH)
   @javax.annotation.Nullable
-  private Double maxCharacterLength;
+  private Integer maxCharacterLength;
 
   public static final String SERIALIZED_NAME_TRANSLATED_ERROR = "translatedError";
   @SerializedName(SERIALIZED_NAME_TRANSLATED_ERROR)
@@ -171,7 +171,7 @@ public class APIError {
   }
 
 
-  public APIError bannedUntil(@javax.annotation.Nullable Double bannedUntil) {
+  public APIError bannedUntil(@javax.annotation.Nullable Long bannedUntil) {
     this.bannedUntil = bannedUntil;
     return this;
   }
@@ -181,16 +181,16 @@ public class APIError {
    * @return bannedUntil
    */
   @javax.annotation.Nullable
-  public Double getBannedUntil() {
+  public Long getBannedUntil() {
     return bannedUntil;
   }
 
-  public void setBannedUntil(@javax.annotation.Nullable Double bannedUntil) {
+  public void setBannedUntil(@javax.annotation.Nullable Long bannedUntil) {
     this.bannedUntil = bannedUntil;
   }
 
 
-  public APIError maxCharacterLength(@javax.annotation.Nullable Double maxCharacterLength) {
+  public APIError maxCharacterLength(@javax.annotation.Nullable Integer maxCharacterLength) {
     this.maxCharacterLength = maxCharacterLength;
     return this;
   }
@@ -200,11 +200,11 @@ public class APIError {
    * @return maxCharacterLength
    */
   @javax.annotation.Nullable
-  public Double getMaxCharacterLength() {
+  public Integer getMaxCharacterLength() {
     return maxCharacterLength;
   }
 
-  public void setMaxCharacterLength(@javax.annotation.Nullable Double maxCharacterLength) {
+  public void setMaxCharacterLength(@javax.annotation.Nullable Integer maxCharacterLength) {
     this.maxCharacterLength = maxCharacterLength;
   }
 

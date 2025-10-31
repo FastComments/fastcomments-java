@@ -66,12 +66,12 @@ public class APIPage {
   public static final String SERIALIZED_NAME_ROOT_COMMENT_COUNT = "rootCommentCount";
   @SerializedName(SERIALIZED_NAME_ROOT_COMMENT_COUNT)
   @javax.annotation.Nonnull
-  private Double rootCommentCount;
+  private Long rootCommentCount;
 
   public static final String SERIALIZED_NAME_COMMENT_COUNT = "commentCount";
   @SerializedName(SERIALIZED_NAME_COMMENT_COUNT)
   @javax.annotation.Nonnull
-  private Double commentCount;
+  private Long commentCount;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -147,7 +147,7 @@ public class APIPage {
   }
 
 
-  public APIPage rootCommentCount(@javax.annotation.Nonnull Double rootCommentCount) {
+  public APIPage rootCommentCount(@javax.annotation.Nonnull Long rootCommentCount) {
     this.rootCommentCount = rootCommentCount;
     return this;
   }
@@ -157,16 +157,16 @@ public class APIPage {
    * @return rootCommentCount
    */
   @javax.annotation.Nonnull
-  public Double getRootCommentCount() {
+  public Long getRootCommentCount() {
     return rootCommentCount;
   }
 
-  public void setRootCommentCount(@javax.annotation.Nonnull Double rootCommentCount) {
+  public void setRootCommentCount(@javax.annotation.Nonnull Long rootCommentCount) {
     this.rootCommentCount = rootCommentCount;
   }
 
 
-  public APIPage commentCount(@javax.annotation.Nonnull Double commentCount) {
+  public APIPage commentCount(@javax.annotation.Nonnull Long commentCount) {
     this.commentCount = commentCount;
     return this;
   }
@@ -176,11 +176,11 @@ public class APIPage {
    * @return commentCount
    */
   @javax.annotation.Nonnull
-  public Double getCommentCount() {
+  public Long getCommentCount() {
     return commentCount;
   }
 
-  public void setCommentCount(@javax.annotation.Nonnull Double commentCount) {
+  public void setCommentCount(@javax.annotation.Nonnull Long commentCount) {
     this.commentCount = commentCount;
   }
 

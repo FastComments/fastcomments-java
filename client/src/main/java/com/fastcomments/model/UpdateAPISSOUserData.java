@@ -120,7 +120,7 @@ public class UpdateAPISSOUserData {
   public static final String SERIALIZED_NAME_LOGIN_COUNT = "loginCount";
   @SerializedName(SERIALIZED_NAME_LOGIN_COUNT)
   @javax.annotation.Nullable
-  private Double loginCount;
+  private Integer loginCount;
 
   public static final String SERIALIZED_NAME_CREATED_FROM_URL_ID = "createdFromUrlId";
   @SerializedName(SERIALIZED_NAME_CREATED_FROM_URL_ID)
@@ -130,7 +130,7 @@ public class UpdateAPISSOUserData {
   public static final String SERIALIZED_NAME_SIGN_UP_DATE = "signUpDate";
   @SerializedName(SERIALIZED_NAME_SIGN_UP_DATE)
   @javax.annotation.Nullable
-  private Double signUpDate;
+  private Long signUpDate;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -410,7 +410,7 @@ public class UpdateAPISSOUserData {
   }
 
 
-  public UpdateAPISSOUserData loginCount(@javax.annotation.Nullable Double loginCount) {
+  public UpdateAPISSOUserData loginCount(@javax.annotation.Nullable Integer loginCount) {
     this.loginCount = loginCount;
     return this;
   }
@@ -420,11 +420,11 @@ public class UpdateAPISSOUserData {
    * @return loginCount
    */
   @javax.annotation.Nullable
-  public Double getLoginCount() {
+  public Integer getLoginCount() {
     return loginCount;
   }
 
-  public void setLoginCount(@javax.annotation.Nullable Double loginCount) {
+  public void setLoginCount(@javax.annotation.Nullable Integer loginCount) {
     this.loginCount = loginCount;
   }
 
@@ -448,7 +448,7 @@ public class UpdateAPISSOUserData {
   }
 
 
-  public UpdateAPISSOUserData signUpDate(@javax.annotation.Nullable Double signUpDate) {
+  public UpdateAPISSOUserData signUpDate(@javax.annotation.Nullable Long signUpDate) {
     this.signUpDate = signUpDate;
     return this;
   }
@@ -458,11 +458,11 @@ public class UpdateAPISSOUserData {
    * @return signUpDate
    */
   @javax.annotation.Nullable
-  public Double getSignUpDate() {
+  public Long getSignUpDate() {
     return signUpDate;
   }
 
-  public void setSignUpDate(@javax.annotation.Nullable Double signUpDate) {
+  public void setSignUpDate(@javax.annotation.Nullable Long signUpDate) {
     this.signUpDate = signUpDate;
   }
 

@@ -48,7 +48,7 @@ From T, pick a set of properties whose keys are in the union K
 |**domain** | **String** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
-|**viewCount** | **Double** |  |  [optional] |
+|**viewCount** | **Long** |  |  [optional] |
 
 
 

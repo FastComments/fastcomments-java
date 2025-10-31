@@ -27,7 +27,7 @@
 |**fromUserId** | **String** |  |  [optional] |
 |**fromUserAvatarSrc** | **String** |  |  [optional] |
 |**optedOut** | **Boolean** |  |  |
-|**count** | **Double** |  |  [optional] |
+|**count** | **Long** |  |  [optional] |
 |**relatedIds** | **List&lt;String&gt;** |  |  [optional] |
 |**fromUserIds** | **List&lt;String&gt;** |  |  [optional] |
 |**fromUserNames** | **List&lt;String&gt;** |  |  [optional] |

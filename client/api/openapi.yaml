@@ -114,14 +114,13 @@ paths:
         schema:
           type: string
         style: form
-      - description: Defaults to 20.
-        explode: true
+      - explode: true
         in: query
         name: pageSize
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
@@ -142,8 +141,8 @@ paths:
         name: afterCreatedAt
         required: false
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       - explode: true
         in: query
@@ -215,8 +214,8 @@ paths:
         name: afterCreatedAt
         required: false
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       - explode: true
         in: query
@@ -485,28 +484,6 @@ paths:
       x-accepts:
       - application/json
   /upload-image/{tenantId}:
-    options:
-      operationId: UploadImageOptions
-      parameters:
-      - explode: false
-        in: path
-        name: tenantId
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: string
-          description: Ok
-      security: []
-      tags:
-      - Hidden
-      x-accepts:
-      - application/json
     post:
       description: Upload and resize an image
       operationId: UploadImage
@@ -1688,8 +1665,8 @@ paths:
         name: dir
         required: true
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
@@ -2082,8 +2059,8 @@ paths:
         name: skip
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       responses:
         "200":
@@ -3393,24 +3370,24 @@ paths:
         name: page
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: limit
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: skip
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
@@ -3424,24 +3401,24 @@ paths:
         name: skipChildren
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: limitChildren
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
         name: maxTreeDepth
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
       - explode: true
         in: query
@@ -4095,12 +4072,12 @@ components:
         disableAutoHashTagCreation: true
         disableCommenterCommentDelete: true
         enableVoteList: true
-        pageSize: 7.061401241503109
+        pageSize: 7
         collapseReplies: true
         disableProfiles: true
         disableSuccessMessage: true
         allowAnon: true
-        countAboveToggle: 5.962133916683182
+        countAboveToggle: 5
         readonly: true
         useShowCommentsToggle: true
         noImageUploads: true
@@ -4125,7 +4102,7 @@ components:
         requireSSO: true
         disableToolbar: true
         hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
-        maxCommentCreatedCountPUPM: 2.3021358869347655
+        maxCommentCreatedCountPUPM: 2
         disableBlocking: true
         disableEmailInputs: true
         widgetQuestionWhenToSave: 7.386281948385884
@@ -4165,7 +4142,7 @@ components:
         hideAvatars: true
         defaultAvatarSrc: defaultAvatarSrc
         commentHTMLRenderingMode: 1.4658129805029452
-        maxCommentCharacterLength: 5.637376656633329
+        maxCommentCharacterLength: 5
         useSingleLineCommentInput: true
         allowedLanguages:
         - allowedLanguages
@@ -4208,8 +4185,8 @@ components:
           - $ref: '#/components/schemas/CommenterNameFormats'
           nullable: true
         countAboveToggle:
-          format: double
-          type: number
+          format: int32
+          type: integer
         customCSS:
           nullable: true
           type: string
@@ -4285,13 +4262,13 @@ components:
           nullable: true
           type: string
         maxCommentCharacterLength:
-          format: double
+          format: int32
           nullable: true
-          type: number
+          type: integer
         maxCommentCreatedCountPUPM:
-          format: double
+          format: int32
           nullable: true
-          type: number
+          type: integer
         noCustomConfig:
           type: boolean
         noImageUploads:
@@ -4299,9 +4276,9 @@ components:
         noStyles:
           type: boolean
         pageSize:
-          format: double
+          format: int32
           nullable: true
-          type: number
+          type: integer
         readonly:
           type: boolean
         requireSSO:
@@ -4357,17 +4334,17 @@ components:
       example:
         reason: reason
         code: code
-        bannedUntil: 0.8008281904610115
+        bannedUntil: 0
         customConfig:
           disableAutoHashTagCreation: true
           disableCommenterCommentDelete: true
           enableVoteList: true
-          pageSize: 7.061401241503109
+          pageSize: 7
           collapseReplies: true
           disableProfiles: true
           disableSuccessMessage: true
           allowAnon: true
-          countAboveToggle: 5.962133916683182
+          countAboveToggle: 5
           readonly: true
           useShowCommentsToggle: true
           noImageUploads: true
@@ -4392,7 +4369,7 @@ components:
           requireSSO: true
           disableToolbar: true
           hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
-          maxCommentCreatedCountPUPM: 2.3021358869347655
+          maxCommentCreatedCountPUPM: 2
           disableBlocking: true
           disableEmailInputs: true
           widgetQuestionWhenToSave: 7.386281948385884
@@ -4432,7 +4409,7 @@ components:
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
           commentHTMLRenderingMode: 1.4658129805029452
-          maxCommentCharacterLength: 5.637376656633329
+          maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
           allowedLanguages:
           - allowedLanguages
@@ -4445,7 +4422,7 @@ components:
           wrap: true
         translatedError: translatedError
         secondaryCode: secondaryCode
-        maxCharacterLength: 6.027456183070403
+        maxCharacterLength: 6
         status: failed
       properties:
         status:
@@ -4457,11 +4434,11 @@ components:
         secondaryCode:
           type: string
         bannedUntil:
-          format: double
-          type: number
+          format: int64
+          type: integer
         maxCharacterLength:
-          format: double
-          type: number
+          format: int32
+          type: integer
         translatedError:
           type: string
         customConfig:
@@ -4529,7 +4506,7 @@ components:
         - fromUserNames
         fromUserId: fromUserId
         pageTitle: pageTitle
-        count: 0.8008281904610115
+        count: 0
         type: 6.027456183070403
         urlId: urlId
         sent: sent
@@ -4564,8 +4541,8 @@ components:
             type: string
           type: array
         count:
-          format: double
-          type: number
+          format: int64
+          type: integer
         optedOut:
           type: boolean
         fromUserAvatarSrc:
@@ -4630,7 +4607,7 @@ components:
           - fromUserNames
           fromUserId: fromUserId
           pageTitle: pageTitle
-          count: 0.8008281904610115
+          count: 0
           type: 6.027456183070403
           urlId: urlId
           sent: sent
@@ -4657,7 +4634,7 @@ components:
           - fromUserNames
           fromUserId: fromUserId
           pageTitle: pageTitle
-          count: 0.8008281904610115
+          count: 0
           type: 6.027456183070403
           urlId: urlId
           sent: sent
@@ -4717,14 +4694,14 @@ components:
     GetUserNotificationCountResponse:
       additionalProperties: false
       example:
-        count: 0.8008281904610115
+        count: 0
         status: success
       properties:
         status:
           $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
         count:
-          format: double
-          type: number
+          format: int64
+          type: integer
       required:
       - count
       - status
@@ -4738,8 +4715,8 @@ components:
         type:
           $ref: '#/components/schemas/NotificationType'
         count:
-          format: double
-          type: number
+          format: int64
+          type: integer
       required:
       - count
       - type
@@ -4770,18 +4747,18 @@ components:
     UserNotificationWriteResponse:
       additionalProperties: false
       example:
-        modifiedCount: 6.027456183070403
-        matchedCount: 0.8008281904610115
+        modifiedCount: 6
+        matchedCount: 0
         status: success
       properties:
         status:
           $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
         matchedCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
         modifiedCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
       required:
       - matchedCount
       - modifiedCount
@@ -5048,15 +5025,15 @@ components:
         cssClass: cssClass
         description: description
         id: id
-        type: 9.301444243932576
+        type: 9
         textColor: textColor
         displaySrc: displaySrc
       properties:
         id:
           type: string
         type:
-          format: double
-          type: number
+          format: int32
+          type: integer
         description:
           type: string
         displayLabel:
@@ -5676,8 +5653,8 @@ components:
         optedOut:
           type: boolean
         count:
-          format: double
-          type: number
+          format: int64
+          type: integer
         relatedIds:
           items:
             type: string
@@ -5834,8 +5811,8 @@ components:
             type: string
           type: array
         viewCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
       required:
       - _id
       - approved
@@ -6107,7 +6084,7 @@ components:
         - null
         nestedChildrenCount: 6
         isLocked: true
-        viewCount: 3.616076749251911
+        viewCount: 3
         votesUp: 5
         displayLabel: displayLabel
         requiresVerification: true
@@ -6130,7 +6107,7 @@ components:
           cssClass: cssClass
           description: description
           id: id
-          type: 9.301444243932576
+          type: 9
           textColor: textColor
           displaySrc: displaySrc
         - displayLabel: displayLabel
@@ -6139,7 +6116,7 @@ components:
           cssClass: cssClass
           description: description
           id: id
-          type: 9.301444243932576
+          type: 9
           textColor: textColor
           displaySrc: displaySrc
         myVoteId: myVoteId
@@ -6213,8 +6190,8 @@ components:
             type: string
           type: array
         viewCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
         requiresVerification:
           type: boolean
         editKey:
@@ -6323,12 +6300,12 @@ components:
           disableAutoHashTagCreation: true
           disableCommenterCommentDelete: true
           enableVoteList: true
-          pageSize: 7.061401241503109
+          pageSize: 7
           collapseReplies: true
           disableProfiles: true
           disableSuccessMessage: true
           allowAnon: true
-          countAboveToggle: 5.962133916683182
+          countAboveToggle: 5
           readonly: true
           useShowCommentsToggle: true
           noImageUploads: true
@@ -6353,7 +6330,7 @@ components:
           requireSSO: true
           disableToolbar: true
           hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
-          maxCommentCreatedCountPUPM: 2.3021358869347655
+          maxCommentCreatedCountPUPM: 2
           disableBlocking: true
           disableEmailInputs: true
           widgetQuestionWhenToSave: 7.386281948385884
@@ -6393,7 +6370,7 @@ components:
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
           commentHTMLRenderingMode: 1.4658129805029452
-          maxCommentCharacterLength: 5.637376656633329
+          maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
           allowedLanguages:
           - allowedLanguages
@@ -6425,7 +6402,7 @@ components:
           - null
           nestedChildrenCount: 6
           isLocked: true
-          viewCount: 3.616076749251911
+          viewCount: 3
           votesUp: 5
           displayLabel: displayLabel
           requiresVerification: true
@@ -6448,7 +6425,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           - displayLabel: displayLabel
@@ -6457,7 +6434,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           myVoteId: myVoteId
@@ -6485,7 +6462,7 @@ components:
           - null
           nestedChildrenCount: 6
           isLocked: true
-          viewCount: 3.616076749251911
+          viewCount: 3
           votesUp: 5
           displayLabel: displayLabel
           requiresVerification: true
@@ -6508,7 +6485,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           - displayLabel: displayLabel
@@ -6517,7 +6494,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           myVoteId: myVoteId
@@ -6590,7 +6567,7 @@ components:
           - null
           nestedChildrenCount: 6
           isLocked: true
-          viewCount: 3.616076749251911
+          viewCount: 3
           votesUp: 5
           displayLabel: displayLabel
           requiresVerification: true
@@ -6613,7 +6590,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           - displayLabel: displayLabel
@@ -6622,7 +6599,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           myVoteId: myVoteId
@@ -6647,8 +6624,8 @@ components:
     CommentData:
       additionalProperties: false
       example:
-        date: 0.8008281904610115
-        productId: 1.4658129805029452
+        date: 0
+        productId: 1
         questionValues:
           key: Record_string_string_or_number__value
         pageTitle: pageTitle
@@ -6658,7 +6635,7 @@ components:
         - feedbackIds
         - feedbackIds
         commenterLink: commenterLink
-        autoplayDelayMS: 5.637376656633329
+        autoplayDelayMS: 5
         urlId: urlId
         userId: userId
         parentId: parentId
@@ -6693,16 +6670,16 @@ components:
           sent: true
         avatarSrc: avatarSrc
         comment: comment
-        localDateHours: 6.027456183070403
+        localDateHours: 6
       properties:
         date:
-          format: double
-          type: number
+          format: int64
+          type: integer
         localDateString:
           type: string
         localDateHours:
-          format: double
-          type: number
+          format: int32
+          type: integer
         commenterName:
           type: string
         commenterEmail:
@@ -6714,8 +6691,8 @@ components:
         comment:
           type: string
         productId:
-          format: double
-          type: number
+          format: int32
+          type: integer
         userId:
           nullable: true
           type: string
@@ -6754,8 +6731,8 @@ components:
         fromOfflineRestore:
           type: boolean
         autoplayDelayMS:
-          format: double
-          type: number
+          format: int64
+          type: integer
         feedbackIds:
           items:
             type: string
@@ -7130,12 +7107,12 @@ components:
       example:
         displayLabel: displayLabel
         displayName: displayName
-        signUpDate: 0.8008281904610115
+        signUpDate: 0
         isAdminAdmin: true
         isCommentModeratorAdmin: true
         hasBlockedUsers: true
         isProfileActivityPrivate: true
-        loginCount: 6.027456183070403
+        loginCount: 6
         optedInSubscriptionNotifications: true
         isProfileCommentsPrivate: true
         websiteUrl: websiteUrl
@@ -7160,13 +7137,13 @@ components:
         email:
           type: string
         signUpDate:
-          format: double
-          type: number
+          format: int64
+          type: integer
         createdFromUrlId:
           type: string
         loginCount:
-          format: double
-          type: number
+          format: int32
+          type: integer
         avatarSrc:
           type: string
         optedInNotifications:
@@ -7216,12 +7193,12 @@ components:
         user:
           displayLabel: displayLabel
           displayName: displayName
-          signUpDate: 0.8008281904610115
+          signUpDate: 0
           isAdminAdmin: true
           isCommentModeratorAdmin: true
           hasBlockedUsers: true
           isProfileActivityPrivate: true
-          loginCount: 6.027456183070403
+          loginCount: 6
           optedInSubscriptionNotifications: true
           isProfileCommentsPrivate: true
           websiteUrl: websiteUrl
@@ -7256,12 +7233,12 @@ components:
         user:
           displayLabel: displayLabel
           displayName: displayName
-          signUpDate: 0.8008281904610115
+          signUpDate: 0
           isAdminAdmin: true
           isCommentModeratorAdmin: true
           hasBlockedUsers: true
           isProfileActivityPrivate: true
-          loginCount: 6.027456183070403
+          loginCount: 6
           optedInSubscriptionNotifications: true
           isProfileCommentsPrivate: true
           websiteUrl: websiteUrl
@@ -7296,12 +7273,12 @@ components:
         user:
           displayLabel: displayLabel
           displayName: displayName
-          signUpDate: 0.8008281904610115
+          signUpDate: 0
           isAdminAdmin: true
           isCommentModeratorAdmin: true
           hasBlockedUsers: true
           isProfileActivityPrivate: true
-          loginCount: 6.027456183070403
+          loginCount: 6
           optedInSubscriptionNotifications: true
           isProfileCommentsPrivate: true
           websiteUrl: websiteUrl
@@ -7336,12 +7313,12 @@ components:
         user:
           displayLabel: displayLabel
           displayName: displayName
-          signUpDate: 0.8008281904610115
+          signUpDate: 0
           isAdminAdmin: true
           isCommentModeratorAdmin: true
           hasBlockedUsers: true
           isProfileActivityPrivate: true
-          loginCount: 6.027456183070403
+          loginCount: 6
           optedInSubscriptionNotifications: true
           isProfileCommentsPrivate: true
           websiteUrl: websiteUrl
@@ -7374,13 +7351,13 @@ components:
         displayLabel: displayLabel
         displayName: displayName
         isAdminAdmin: true
-        signUpDate: 6.027456183070403
+        signUpDate: 6
         isCommentModeratorAdmin: true
         hasBlockedUsers: true
         isProfileActivityPrivate: true
         isProfileCommentsPrivate: true
         optedInSubscriptionNotifications: true
-        loginCount: 0.8008281904610115
+        loginCount: 0
         optedInNotifications: true
         websiteUrl: websiteUrl
         groupIds:
@@ -7423,13 +7400,13 @@ components:
         avatarSrc:
           type: string
         loginCount:
-          format: double
-          type: number
+          format: int32
+          type: integer
         createdFromUrlId:
           type: string
         signUpDate:
-          format: double
-          type: number
+          format: int64
+          type: integer
         email:
           type: string
         websiteUrl:
@@ -7466,12 +7443,12 @@ components:
         user:
           displayLabel: displayLabel
           displayName: displayName
-          signUpDate: 0.8008281904610115
+          signUpDate: 0
           isAdminAdmin: true
           isCommentModeratorAdmin: true
           hasBlockedUsers: true
           isProfileActivityPrivate: true
-          loginCount: 6.027456183070403
+          loginCount: 6
           optedInSubscriptionNotifications: true
           isProfileCommentsPrivate: true
           websiteUrl: websiteUrl
@@ -7504,13 +7481,13 @@ components:
         displayLabel: displayLabel
         displayName: displayName
         isAdminAdmin: true
-        signUpDate: 6.027456183070403
+        signUpDate: 6
         isCommentModeratorAdmin: true
         hasBlockedUsers: true
         isProfileActivityPrivate: true
         isProfileCommentsPrivate: true
         optedInSubscriptionNotifications: true
-        loginCount: 0.8008281904610115
+        loginCount: 0
         optedInNotifications: true
         websiteUrl: websiteUrl
         groupIds:
@@ -7553,13 +7530,13 @@ components:
         avatarSrc:
           type: string
         loginCount:
-          format: double
-          type: number
+          format: int32
+          type: integer
         createdFromUrlId:
           type: string
         signUpDate:
-          format: double
-          type: number
+          format: int64
+          type: integer
         email:
           type: string
         websiteUrl:
@@ -7580,12 +7557,12 @@ components:
         id: id
         title: title
         urlId: urlId
-        rootCommentCount: 0.8008281904610115
+        rootCommentCount: 0
         url: url
         accessibleByGroupIds:
         - accessibleByGroupIds
         - accessibleByGroupIds
-        commentCount: 6.027456183070403
+        commentCount: 6
       properties:
         isClosed:
           type: boolean
@@ -7594,11 +7571,11 @@ components:
             type: string
           type: array
         rootCommentCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
         commentCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
         createdAt:
           format: date-time
           type: string
@@ -7628,23 +7605,23 @@ components:
           id: id
           title: title
           urlId: urlId
-          rootCommentCount: 0.8008281904610115
+          rootCommentCount: 0
           url: url
           accessibleByGroupIds:
           - accessibleByGroupIds
           - accessibleByGroupIds
-          commentCount: 6.027456183070403
+          commentCount: 6
         - createdAt: 2000-01-23T04:56:07.000+00:00
           isClosed: true
           id: id
           title: title
           urlId: urlId
-          rootCommentCount: 0.8008281904610115
+          rootCommentCount: 0
           url: url
           accessibleByGroupIds:
           - accessibleByGroupIds
           - accessibleByGroupIds
-          commentCount: 6.027456183070403
+          commentCount: 6
         status: status
       properties:
         reason:
@@ -7670,12 +7647,12 @@ components:
           id: id
           title: title
           urlId: urlId
-          rootCommentCount: 0.8008281904610115
+          rootCommentCount: 0
           url: url
           accessibleByGroupIds:
           - accessibleByGroupIds
           - accessibleByGroupIds
-          commentCount: 6.027456183070403
+          commentCount: 6
         status: status
       properties:
         reason:
@@ -7699,12 +7676,12 @@ components:
           id: id
           title: title
           urlId: urlId
-          rootCommentCount: 0.8008281904610115
+          rootCommentCount: 0
           url: url
           accessibleByGroupIds:
           - accessibleByGroupIds
           - accessibleByGroupIds
-          commentCount: 6.027456183070403
+          commentCount: 6
         status: status
       properties:
         reason:
@@ -7722,23 +7699,23 @@ components:
       example:
         title: title
         urlId: urlId
-        rootCommentCount: 0.8008281904610115
+        rootCommentCount: 0
         url: url
         accessibleByGroupIds:
         - accessibleByGroupIds
         - accessibleByGroupIds
-        commentCount: 6.027456183070403
+        commentCount: 6
       properties:
         accessibleByGroupIds:
           items:
             type: string
           type: array
         rootCommentCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
         commentCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
         title:
           type: string
         url:
@@ -7760,12 +7737,12 @@ components:
           id: id
           title: title
           urlId: urlId
-          rootCommentCount: 0.8008281904610115
+          rootCommentCount: 0
           url: url
           accessibleByGroupIds:
           - accessibleByGroupIds
           - accessibleByGroupIds
-          commentCount: 6.027456183070403
+          commentCount: 6
         status: status
       properties:
         reason:
@@ -7825,19 +7802,19 @@ components:
         borderColor: borderColor
         badgeId: badgeId
         description: description
-        threshold: 6.027456183070403
-        type: 0.8008281904610115
+        threshold: 6
+        type: 0
         receivedAt: 2000-01-23T04:56:07.000+00:00
         userId: userId
         textColor: textColor
         displayedOnComments: true
         createdAt: 2000-01-23T04:56:07.000+00:00
-        veteranUserThresholdMillis: 1.4658129805029452
+        veteranUserThresholdMillis: 1
         cssClass: cssClass
         _id: _id
         fromTenantId: fromTenantId
         displaySrc: displaySrc
-        order: 5.962133916683182
+        order: 5
       properties:
         _id:
           type: string
@@ -7851,11 +7828,11 @@ components:
           format: date-time
           type: string
         type:
-          format: double
-          type: number
+          format: int32
+          type: integer
         threshold:
-          format: double
-          type: number
+          format: int64
+          type: integer
         description:
           type: string
         displayLabel:
@@ -7876,16 +7853,16 @@ components:
           nullable: true
           type: string
         veteranUserThresholdMillis:
-          format: double
-          type: number
+          format: int64
+          type: integer
         displayedOnComments:
           type: boolean
         receivedAt:
           format: date-time
           type: string
         order:
-          format: double
-          type: number
+          format: int32
+          type: integer
       required:
       - _id
       - badgeId
@@ -7909,19 +7886,19 @@ components:
           borderColor: borderColor
           badgeId: badgeId
           description: description
-          threshold: 6.027456183070403
-          type: 0.8008281904610115
+          threshold: 6
+          type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
           userId: userId
           textColor: textColor
           displayedOnComments: true
           createdAt: 2000-01-23T04:56:07.000+00:00
-          veteranUserThresholdMillis: 1.4658129805029452
+          veteranUserThresholdMillis: 1
           cssClass: cssClass
           _id: _id
           fromTenantId: fromTenantId
           displaySrc: displaySrc
-          order: 5.962133916683182
+          order: 5
         status: success
       properties:
         status:
@@ -7941,37 +7918,37 @@ components:
           borderColor: borderColor
           badgeId: badgeId
           description: description
-          threshold: 6.027456183070403
-          type: 0.8008281904610115
+          threshold: 6
+          type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
           userId: userId
           textColor: textColor
           displayedOnComments: true
           createdAt: 2000-01-23T04:56:07.000+00:00
-          veteranUserThresholdMillis: 1.4658129805029452
+          veteranUserThresholdMillis: 1
           cssClass: cssClass
           _id: _id
           fromTenantId: fromTenantId
           displaySrc: displaySrc
-          order: 5.962133916683182
+          order: 5
         - displayLabel: displayLabel
           backgroundColor: backgroundColor
           borderColor: borderColor
           badgeId: badgeId
           description: description
-          threshold: 6.027456183070403
-          type: 0.8008281904610115
+          threshold: 6
+          type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
           userId: userId
           textColor: textColor
           displayedOnComments: true
           createdAt: 2000-01-23T04:56:07.000+00:00
-          veteranUserThresholdMillis: 1.4658129805029452
+          veteranUserThresholdMillis: 1
           cssClass: cssClass
           _id: _id
           fromTenantId: fromTenantId
           displaySrc: displaySrc
-          order: 5.962133916683182
+          order: 5
         status: success
       properties:
         status:
@@ -7993,19 +7970,19 @@ components:
           borderColor: borderColor
           badgeId: badgeId
           description: description
-          threshold: 6.027456183070403
-          type: 0.8008281904610115
+          threshold: 6
+          type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
           userId: userId
           textColor: textColor
           displayedOnComments: true
           createdAt: 2000-01-23T04:56:07.000+00:00
-          veteranUserThresholdMillis: 1.4658129805029452
+          veteranUserThresholdMillis: 1
           cssClass: cssClass
           _id: _id
           fromTenantId: fromTenantId
           displaySrc: displaySrc
-          order: 5.962133916683182
+          order: 5
         status: success
       properties:
         status:
@@ -8170,7 +8147,7 @@ components:
     QuestionDatum:
       additionalProperties: false
       example:
-        total: 6.027456183070403
+        total: 6
         v:
           key: 0.8008281904610115
       properties:
@@ -8182,8 +8159,8 @@ components:
           properties: {}
           type: object
         total:
-          format: double
-          type: number
+          format: int64
+          type: integer
       required:
       - total
       - v
@@ -8199,17 +8176,17 @@ components:
       example:
         average: 5.637376656633329
         createdAt: 2000-01-23T04:56:07.000+00:00
-        total: 5.962133916683182
+        total: 5
         countsByValue:
           key: 1
         dataByDateBucket:
           key:
-            total: 6.027456183070403
+            total: 6
             v:
               key: 0.8008281904610115
         dataByUrlId:
           key:
-            total: 6.027456183070403
+            total: 6
             v:
               key: 0.8008281904610115
       properties:
@@ -8232,8 +8209,8 @@ components:
           properties: {}
           type: object
         total:
-          format: double
-          type: number
+          format: int64
+          type: integer
         average:
           format: double
           type: number
@@ -8250,17 +8227,17 @@ components:
         data:
           average: 5.637376656633329
           createdAt: 2000-01-23T04:56:07.000+00:00
-          total: 5.962133916683182
+          total: 5
           countsByValue:
             key: 1
           dataByDateBucket:
             key:
-              total: 6.027456183070403
+              total: 6
               v:
                 key: 0.8008281904610115
           dataByUrlId:
             key:
-              total: 6.027456183070403
+              total: 6
               v:
                 key: 0.8008281904610115
         status: success
@@ -8292,17 +8269,17 @@ components:
           key:
             average: 5.637376656633329
             createdAt: 2000-01-23T04:56:07.000+00:00
-            total: 5.962133916683182
+            total: 5
             countsByValue:
               key: 1
             dataByDateBucket:
               key:
-                total: 6.027456183070403
+                total: 6
                 v:
                   key: 0.8008281904610115
             dataByUrlId:
               key:
-                total: 6.027456183070403
+                total: 6
                 v:
                   key: 0.8008281904610115
         status: success
@@ -8464,7 +8441,7 @@ components:
         permNotSpam: true
         pageNumberOF: 2
         localDateHours: 0
-        viewCount: 7.386281948385884
+        viewCount: 7
         votesUp: 1
         displayLabel: displayLabel
         requiresVerification: true
@@ -8486,7 +8463,7 @@ components:
           cssClass: cssClass
           description: description
           id: id
-          type: 9.301444243932576
+          type: 9
           textColor: textColor
           displaySrc: displaySrc
         - displayLabel: displayLabel
@@ -8495,7 +8472,7 @@ components:
           cssClass: cssClass
           description: description
           id: id
-          type: 9.301444243932576
+          type: 9
           textColor: textColor
           displaySrc: displaySrc
         notificationSentForParent: true
@@ -8705,9 +8682,9 @@ components:
           nullable: true
           type: array
         viewCount:
-          format: double
+          format: int64
           nullable: true
-          type: number
+          type: integer
         requiresVerification:
           type: boolean
         editKey:
@@ -8764,7 +8741,7 @@ components:
         urlId: urlId
         ipHash: ipHash
         userId: userId
-        value: 0.8008281904610115
+        value: 0
       properties:
         _id:
           type: string
@@ -8780,8 +8757,8 @@ components:
           format: date-time
           type: string
         value:
-          format: double
-          type: number
+          format: int32
+          type: integer
         commentId:
           nullable: true
           type: string
@@ -8827,7 +8804,7 @@ components:
           urlId: urlId
           ipHash: ipHash
           userId: userId
-          value: 0.8008281904610115
+          value: 0
         comment: ""
       properties:
         comment:
@@ -8864,7 +8841,7 @@ components:
             urlId: urlId
             ipHash: ipHash
             userId: userId
-            value: 0.8008281904610115
+            value: 0
           comment: ""
         - result:
             createdAt: 2000-01-23T04:56:07.000+00:00
@@ -8885,7 +8862,7 @@ components:
             urlId: urlId
             ipHash: ipHash
             userId: userId
-            value: 0.8008281904610115
+            value: 0
           comment: ""
       properties:
         results:
@@ -8924,7 +8901,7 @@ components:
               urlId: urlId
               ipHash: ipHash
               userId: userId
-              value: 0.8008281904610115
+              value: 0
             comment: ""
           - result:
               createdAt: 2000-01-23T04:56:07.000+00:00
@@ -8945,7 +8922,7 @@ components:
               urlId: urlId
               ipHash: ipHash
               userId: userId
-              value: 0.8008281904610115
+              value: 0
             comment: ""
         status: success
       properties:
@@ -9302,7 +9279,7 @@ components:
           cssClass: cssClass
           description: description
           id: id
-          type: 9.301444243932576
+          type: 9
           textColor: textColor
           displaySrc: displaySrc
         - displayLabel: displayLabel
@@ -9311,7 +9288,7 @@ components:
           cssClass: cssClass
           description: description
           id: id
-          type: 9.301444243932576
+          type: 9
           textColor: textColor
           displaySrc: displaySrc
         notificationSentForParent: true
@@ -9543,7 +9520,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           - displayLabel: displayLabel
@@ -9552,7 +9529,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           notificationSentForParent: true
@@ -9794,7 +9771,7 @@ components:
           permNotSpam: true
           pageNumberOF: 2
           localDateHours: 0
-          viewCount: 7.386281948385884
+          viewCount: 7
           votesUp: 1
           displayLabel: displayLabel
           requiresVerification: true
@@ -9816,7 +9793,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           - displayLabel: displayLabel
@@ -9825,7 +9802,7 @@ components:
             cssClass: cssClass
             description: description
             id: id
-            type: 9.301444243932576
+            type: 9
             textColor: textColor
             displaySrc: displaySrc
           notificationSentForParent: true
@@ -9862,8 +9839,8 @@ components:
     CreateCommentParams:
       additionalProperties: false
       example:
-        date: 0.8008281904610115
-        votesDown: 7.061401241503109
+        date: 0
+        votesDown: 7
         pageTitle: pageTitle
         commenterName: commenterName
         rating: 5.962133916683182
@@ -9882,9 +9859,9 @@ components:
         approved: true
         localDateString: localDateString
         reviewed: true
-        localDateHours: 6.027456183070403
-        votesUp: 9.301444243932576
-        productId: 1.4658129805029452
+        localDateHours: 6
+        votesUp: 9
+        productId: 1
         questionValues:
           key: Record_string_string_or_number__value
         isPinned: true
@@ -9893,7 +9870,7 @@ components:
         - feedbackIds
         - feedbackIds
         verified: true
-        autoplayDelayMS: 5.637376656633329
+        autoplayDelayMS: 5
         userId: userId
         parentId: parentId
         url: url
@@ -9918,16 +9895,16 @@ components:
         domain: domain
         avatarSrc: avatarSrc
         comment: comment
-        votes: 2.3021358869347655
+        votes: 2
       properties:
         date:
-          format: double
-          type: number
+          format: int64
+          type: integer
         localDateString:
           type: string
         localDateHours:
-          format: double
-          type: number
+          format: int32
+          type: integer
         commenterName:
           type: string
         commenterEmail:
@@ -9939,8 +9916,8 @@ components:
         comment:
           type: string
         productId:
-          format: double
-          type: number
+          format: int32
+          type: integer
         userId:
           nullable: true
           type: string
@@ -9979,8 +9956,8 @@ components:
         fromOfflineRestore:
           type: boolean
         autoplayDelayMS:
-          format: double
-          type: number
+          format: int64
+          type: integer
         feedbackIds:
           items:
             type: string
@@ -10007,14 +9984,14 @@ components:
         verified:
           type: boolean
         votes:
-          format: double
-          type: number
+          format: int32
+          type: integer
         votesDown:
-          format: double
-          type: number
+          format: int32
+          type: integer
         votesUp:
-          format: double
-          type: number
+          format: int32
+          type: integer
       required:
       - comment
       - commenterName
@@ -10028,12 +10005,12 @@ components:
         reason: reason
         code: code
         wasUnapproved: true
-        statusCode: 0.8008281904610115
+        statusCode: 0
         status: success
       properties:
         statusCode:
-          format: double
-          type: number
+          format: int32
+          type: integer
         status:
           $ref: '#/components/schemas/APIStatus'
         code:
@@ -10159,8 +10136,8 @@ components:
           format: double
           type: number
         distinctCount:
-          format: double
-          type: number
+          format: int64
+          type: integer
         distinctCounts:
           additionalProperties:
             format: double
@@ -10193,8 +10170,8 @@ components:
         - groups: null
         - groups: null
         stats:
-          scanned: 6.027456183070403
-          timeMS: 0.8008281904610115
+          scanned: 6
+          timeMS: 0
         status: success
       properties:
         status:
@@ -10448,12 +10425,12 @@ components:
         users:
         - displayLabel: displayLabel
           displayName: displayName
-          signUpDate: 0.8008281904610115
+          signUpDate: 0
           isAdminAdmin: true
           isCommentModeratorAdmin: true
           hasBlockedUsers: true
           isProfileActivityPrivate: true
-          loginCount: 6.027456183070403
+          loginCount: 6
           optedInSubscriptionNotifications: true
           isProfileCommentsPrivate: true
           websiteUrl: websiteUrl
@@ -10470,12 +10447,12 @@ components:
           username: username
         - displayLabel: displayLabel
           displayName: displayName
-          signUpDate: 0.8008281904610115
+          signUpDate: 0
           isAdminAdmin: true
           isCommentModeratorAdmin: true
           hasBlockedUsers: true
           isProfileActivityPrivate: true
-          loginCount: 6.027456183070403
+          loginCount: 6
           optedInSubscriptionNotifications: true
           isProfileCommentsPrivate: true
           websiteUrl: websiteUrl
@@ -10691,15 +10668,15 @@ components:
       type: object
     AggregationResponse_stats:
       example:
-        scanned: 6.027456183070403
-        timeMS: 0.8008281904610115
+        scanned: 6
+        timeMS: 0
       properties:
         timeMS:
-          format: double
-          type: number
+          format: int64
+          type: integer
         scanned:
-          format: double
-          type: number
+          format: int64
+          type: integer
       required:
       - scanned
       - timeMS

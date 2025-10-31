@@ -20,9 +20,9 @@
 |**optedInSubscriptionNotifications** | **Boolean** |  |  [optional] |
 |**optedInNotifications** | **Boolean** |  |  [optional] |
 |**avatarSrc** | **String** |  |  [optional] |
-|**loginCount** | **Double** |  |  [optional] |
+|**loginCount** | **Integer** |  |  [optional] |
 |**createdFromUrlId** | **String** |  |  [optional] |
-|**signUpDate** | **Double** |  |  [optional] |
+|**signUpDate** | **Long** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
 |**websiteUrl** | **String** |  |  [optional] |
 |**username** | **String** |  |  [optional] |

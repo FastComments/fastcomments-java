@@ -60,7 +60,7 @@ public class CreateCommentParams {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   @javax.annotation.Nullable
-  private Double date;
+  private Long date;
 
   public static final String SERIALIZED_NAME_LOCAL_DATE_STRING = "localDateString";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_STRING)
@@ -70,7 +70,7 @@ public class CreateCommentParams {
   public static final String SERIALIZED_NAME_LOCAL_DATE_HOURS = "localDateHours";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_HOURS)
   @javax.annotation.Nullable
-  private Double localDateHours;
+  private Integer localDateHours;
 
   public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
   @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
@@ -95,7 +95,7 @@ public class CreateCommentParams {
   public static final String SERIALIZED_NAME_PRODUCT_ID = "productId";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
   @javax.annotation.Nullable
-  private Double productId;
+  private Integer productId;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -165,7 +165,7 @@ public class CreateCommentParams {
   public static final String SERIALIZED_NAME_AUTOPLAY_DELAY_M_S = "autoplayDelayMS";
   @SerializedName(SERIALIZED_NAME_AUTOPLAY_DELAY_M_S)
   @javax.annotation.Nullable
-  private Double autoplayDelayMS;
+  private Long autoplayDelayMS;
 
   public static final String SERIALIZED_NAME_FEEDBACK_IDS = "feedbackIds";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
@@ -215,22 +215,22 @@ public class CreateCommentParams {
   public static final String SERIALIZED_NAME_VOTES = "votes";
   @SerializedName(SERIALIZED_NAME_VOTES)
   @javax.annotation.Nullable
-  private Double votes;
+  private Integer votes;
 
   public static final String SERIALIZED_NAME_VOTES_DOWN = "votesDown";
   @SerializedName(SERIALIZED_NAME_VOTES_DOWN)
   @javax.annotation.Nullable
-  private Double votesDown;
+  private Integer votesDown;
 
   public static final String SERIALIZED_NAME_VOTES_UP = "votesUp";
   @SerializedName(SERIALIZED_NAME_VOTES_UP)
   @javax.annotation.Nullable
-  private Double votesUp;
+  private Integer votesUp;
 
   public CreateCommentParams() {
   }
 
-  public CreateCommentParams date(@javax.annotation.Nullable Double date) {
+  public CreateCommentParams date(@javax.annotation.Nullable Long date) {
     this.date = date;
     return this;
   }
@@ -240,11 +240,11 @@ public class CreateCommentParams {
    * @return date
    */
   @javax.annotation.Nullable
-  public Double getDate() {
+  public Long getDate() {
     return date;
   }
 
-  public void setDate(@javax.annotation.Nullable Double date) {
+  public void setDate(@javax.annotation.Nullable Long date) {
     this.date = date;
   }
 
@@ -268,7 +268,7 @@ public class CreateCommentParams {
   }
 
 
-  public CreateCommentParams localDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public CreateCommentParams localDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
     return this;
   }
@@ -278,11 +278,11 @@ public class CreateCommentParams {
    * @return localDateHours
    */
   @javax.annotation.Nullable
-  public Double getLocalDateHours() {
+  public Integer getLocalDateHours() {
     return localDateHours;
   }
 
-  public void setLocalDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public void setLocalDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
   }
 
@@ -363,7 +363,7 @@ public class CreateCommentParams {
   }
 
 
-  public CreateCommentParams productId(@javax.annotation.Nullable Double productId) {
+  public CreateCommentParams productId(@javax.annotation.Nullable Integer productId) {
     this.productId = productId;
     return this;
   }
@@ -373,11 +373,11 @@ public class CreateCommentParams {
    * @return productId
    */
   @javax.annotation.Nullable
-  public Double getProductId() {
+  public Integer getProductId() {
     return productId;
   }
 
-  public void setProductId(@javax.annotation.Nullable Double productId) {
+  public void setProductId(@javax.annotation.Nullable Integer productId) {
     this.productId = productId;
   }
 
@@ -653,7 +653,7 @@ public class CreateCommentParams {
   }
 
 
-  public CreateCommentParams autoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public CreateCommentParams autoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
     return this;
   }
@@ -663,11 +663,11 @@ public class CreateCommentParams {
    * @return autoplayDelayMS
    */
   @javax.annotation.Nullable
-  public Double getAutoplayDelayMS() {
+  public Long getAutoplayDelayMS() {
     return autoplayDelayMS;
   }
 
-  public void setAutoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public void setAutoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
   }
 
@@ -859,7 +859,7 @@ public class CreateCommentParams {
   }
 
 
-  public CreateCommentParams votes(@javax.annotation.Nullable Double votes) {
+  public CreateCommentParams votes(@javax.annotation.Nullable Integer votes) {
     this.votes = votes;
     return this;
   }
@@ -869,16 +869,16 @@ public class CreateCommentParams {
    * @return votes
    */
   @javax.annotation.Nullable
-  public Double getVotes() {
+  public Integer getVotes() {
     return votes;
   }
 
-  public void setVotes(@javax.annotation.Nullable Double votes) {
+  public void setVotes(@javax.annotation.Nullable Integer votes) {
     this.votes = votes;
   }
 
 
-  public CreateCommentParams votesDown(@javax.annotation.Nullable Double votesDown) {
+  public CreateCommentParams votesDown(@javax.annotation.Nullable Integer votesDown) {
     this.votesDown = votesDown;
     return this;
   }
@@ -888,16 +888,16 @@ public class CreateCommentParams {
    * @return votesDown
    */
   @javax.annotation.Nullable
-  public Double getVotesDown() {
+  public Integer getVotesDown() {
     return votesDown;
   }
 
-  public void setVotesDown(@javax.annotation.Nullable Double votesDown) {
+  public void setVotesDown(@javax.annotation.Nullable Integer votesDown) {
     this.votesDown = votesDown;
   }
 
 
-  public CreateCommentParams votesUp(@javax.annotation.Nullable Double votesUp) {
+  public CreateCommentParams votesUp(@javax.annotation.Nullable Integer votesUp) {
     this.votesUp = votesUp;
     return this;
   }
@@ -907,11 +907,11 @@ public class CreateCommentParams {
    * @return votesUp
    */
   @javax.annotation.Nullable
-  public Double getVotesUp() {
+  public Integer getVotesUp() {
     return votesUp;
   }
 
-  public void setVotesUp(@javax.annotation.Nullable Double votesUp) {
+  public void setVotesUp(@javax.annotation.Nullable Integer votesUp) {
     this.votesUp = votesUp;
   }
 

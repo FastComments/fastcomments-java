@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **ImportedAPIStatusSUCCESS** |  |  |
-|**matchedCount** | **Double** |  |  |
-|**modifiedCount** | **Double** |  |  |
+|**matchedCount** | **Long** |  |  |
+|**modifiedCount** | **Long** |  |  |
 
 
 

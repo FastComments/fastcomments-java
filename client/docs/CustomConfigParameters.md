@@ -18,7 +18,7 @@
 |**commentHTMLRenderingMode** | **CommentHTMLRenderingMode** |  |  [optional] |
 |**commentThreadDeleteMode** | **CommentThreadDeletionMode** |  |  [optional] |
 |**commenterNameFormat** | **CommenterNameFormats** |  |  [optional] |
-|**countAboveToggle** | **Double** |  |  [optional] |
+|**countAboveToggle** | **Integer** |  |  [optional] |
 |**customCSS** | **String** |  |  [optional] |
 |**defaultAvatarSrc** | **String** |  |  [optional] |
 |**defaultSortDirection** | **SortDirections** |  |  [optional] |
@@ -52,12 +52,12 @@
 |**inputAfterComments** | **Boolean** |  |  [optional] |
 |**limitCommentsByGroups** | **Boolean** |  |  [optional] |
 |**locale** | **String** |  |  [optional] |
-|**maxCommentCharacterLength** | **Double** |  |  [optional] |
-|**maxCommentCreatedCountPUPM** | **Double** |  |  [optional] |
+|**maxCommentCharacterLength** | **Integer** |  |  [optional] |
+|**maxCommentCreatedCountPUPM** | **Integer** |  |  [optional] |
 |**noCustomConfig** | **Boolean** |  |  [optional] |
 |**noImageUploads** | **Boolean** |  |  [optional] |
 |**noStyles** | **Boolean** |  |  [optional] |
-|**pageSize** | **Double** |  |  [optional] |
+|**pageSize** | **Integer** |  |  [optional] |
 |**readonly** | **Boolean** |  |  [optional] |
 |**requireSSO** | **Boolean** |  |  [optional] |
 |**enableResizeHandle** | **Boolean** |  |  [optional] |

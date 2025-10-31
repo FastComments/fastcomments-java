@@ -12,7 +12,7 @@
 |**fromUserNames** | **List&lt;String&gt;** |  |  [optional] |
 |**fromUserIds** | **List&lt;String&gt;** |  |  [optional] |
 |**relatedIds** | **List&lt;String&gt;** |  |  [optional] |
-|**count** | **Double** |  |  [optional] |
+|**count** | **Long** |  |  [optional] |
 |**optedOut** | **Boolean** |  |  |
 |**fromUserAvatarSrc** | **String** |  |  [optional] |
 |**fromUserId** | **String** |  |  [optional] |

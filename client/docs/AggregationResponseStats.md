@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**timeMS** | **Double** |  |  |
-|**scanned** | **Double** |  |  |
+|**timeMS** | **Long** |  |  |
+|**scanned** | **Long** |  |  |
 
 
 

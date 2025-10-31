@@ -70,7 +70,7 @@ public class AggregationValue {
   public static final String SERIALIZED_NAME_DISTINCT_COUNT = "distinctCount";
   @SerializedName(SERIALIZED_NAME_DISTINCT_COUNT)
   @javax.annotation.Nullable
-  private Double distinctCount;
+  private Long distinctCount;
 
   public static final String SERIALIZED_NAME_DISTINCT_COUNTS = "distinctCounts";
   @SerializedName(SERIALIZED_NAME_DISTINCT_COUNTS)
@@ -145,7 +145,7 @@ public class AggregationValue {
   }
 
 
-  public AggregationValue distinctCount(@javax.annotation.Nullable Double distinctCount) {
+  public AggregationValue distinctCount(@javax.annotation.Nullable Long distinctCount) {
     this.distinctCount = distinctCount;
     return this;
   }
@@ -155,11 +155,11 @@ public class AggregationValue {
    * @return distinctCount
    */
   @javax.annotation.Nullable
-  public Double getDistinctCount() {
+  public Long getDistinctCount() {
     return distinctCount;
   }
 
-  public void setDistinctCount(@javax.annotation.Nullable Double distinctCount) {
+  public void setDistinctCount(@javax.annotation.Nullable Long distinctCount) {
     this.distinctCount = distinctCount;
   }
 

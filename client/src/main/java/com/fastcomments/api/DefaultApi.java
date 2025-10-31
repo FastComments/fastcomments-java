@@ -4020,7 +4020,7 @@ public class DefaultApi {
     public APIgetCommentRequest getComment(String tenantId, String id) {
         return new APIgetCommentRequest(tenantId, id);
     }
-    private okhttp3.Call getCommentsCall(String tenantId, Double page, Double limit, Double skip, Boolean asTree, Double skipChildren, Double limitChildren, Double maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsCall(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4125,7 +4125,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, Double page, Double limit, Double skip, Boolean asTree, Double skipChildren, Double limitChildren, Double maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getComments(Async)");
@@ -4136,13 +4136,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, Double page, Double limit, Double skip, Boolean asTree, Double skipChildren, Double limitChildren, Double maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction) throws ApiException {
+    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction) throws ApiException {
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, null);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentsAsync(String tenantId, Double page, Double limit, Double skip, Boolean asTree, Double skipChildren, Double limitChildren, Double maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback<GetComments200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentsAsync(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback<GetComments200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, _callback);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
@@ -4152,13 +4152,13 @@ public class DefaultApi {
 
     public class APIgetCommentsRequest {
         private final String tenantId;
-        private Double page;
-        private Double limit;
-        private Double skip;
+        private Integer page;
+        private Integer limit;
+        private Integer skip;
         private Boolean asTree;
-        private Double skipChildren;
-        private Double limitChildren;
-        private Double maxTreeDepth;
+        private Integer skipChildren;
+        private Integer limitChildren;
+        private Integer maxTreeDepth;
         private String urlId;
         private String userId;
         private String anonUserId;
@@ -4176,7 +4176,7 @@ public class DefaultApi {
          * @param page  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest page(Double page) {
+        public APIgetCommentsRequest page(Integer page) {
             this.page = page;
             return this;
         }
@@ -4186,7 +4186,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest limit(Double limit) {
+        public APIgetCommentsRequest limit(Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -4196,7 +4196,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest skip(Double skip) {
+        public APIgetCommentsRequest skip(Integer skip) {
             this.skip = skip;
             return this;
         }
@@ -4216,7 +4216,7 @@ public class DefaultApi {
          * @param skipChildren  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest skipChildren(Double skipChildren) {
+        public APIgetCommentsRequest skipChildren(Integer skipChildren) {
             this.skipChildren = skipChildren;
             return this;
         }
@@ -4226,7 +4226,7 @@ public class DefaultApi {
          * @param limitChildren  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest limitChildren(Double limitChildren) {
+        public APIgetCommentsRequest limitChildren(Integer limitChildren) {
             this.limitChildren = limitChildren;
             return this;
         }
@@ -4236,7 +4236,7 @@ public class DefaultApi {
          * @param maxTreeDepth  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest maxTreeDepth(Double maxTreeDepth) {
+        public APIgetCommentsRequest maxTreeDepth(Integer maxTreeDepth) {
             this.maxTreeDepth = maxTreeDepth;
             return this;
         }
@@ -5594,7 +5594,7 @@ public class DefaultApi {
     public APIgetSSOUserByIdRequest getSSOUserById(String tenantId, String id) {
         return new APIgetSSOUserByIdRequest(tenantId, id);
     }
-    private okhttp3.Call getSSOUsersCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUsersCall(String tenantId, Integer skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5647,7 +5647,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSSOUsersValidateBeforeCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUsersValidateBeforeCall(String tenantId, Integer skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSSOUsers(Async)");
@@ -5658,13 +5658,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetSSOUsers200Response> getSSOUsersWithHttpInfo(String tenantId, Double skip) throws ApiException {
+    private ApiResponse<GetSSOUsers200Response> getSSOUsersWithHttpInfo(String tenantId, Integer skip) throws ApiException {
         okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, null);
         Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSSOUsersAsync(String tenantId, Double skip, final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
+    private okhttp3.Call getSSOUsersAsync(String tenantId, Integer skip, final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, _callback);
         Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
@@ -5674,7 +5674,7 @@ public class DefaultApi {
 
     public class APIgetSSOUsersRequest {
         private final String tenantId;
-        private Double skip;
+        private Integer skip;
 
         private APIgetSSOUsersRequest(String tenantId) {
             this.tenantId = tenantId;
@@ -5685,7 +5685,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetSSOUsersRequest
          */
-        public APIgetSSOUsersRequest skip(Double skip) {
+        public APIgetSSOUsersRequest skip(Integer skip) {
             this.skip = skip;
             return this;
         }

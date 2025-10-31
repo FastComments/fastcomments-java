@@ -257,7 +257,7 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
   public static final String SERIALIZED_NAME_VIEW_COUNT = "viewCount";
   @SerializedName(SERIALIZED_NAME_VIEW_COUNT)
   @javax.annotation.Nullable
-  private Double viewCount;
+  private Long viewCount;
 
   public PickOmitFCommentDatePublicCommentPubSubFieldsKeys() {
   }
@@ -1046,7 +1046,7 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
   }
 
 
-  public PickOmitFCommentDatePublicCommentPubSubFieldsKeys viewCount(@javax.annotation.Nullable Double viewCount) {
+  public PickOmitFCommentDatePublicCommentPubSubFieldsKeys viewCount(@javax.annotation.Nullable Long viewCount) {
     this.viewCount = viewCount;
     return this;
   }
@@ -1056,11 +1056,11 @@ public class PickOmitFCommentDatePublicCommentPubSubFieldsKeys {
    * @return viewCount
    */
   @javax.annotation.Nullable
-  public Double getViewCount() {
+  public Long getViewCount() {
     return viewCount;
   }
 
-  public void setViewCount(@javax.annotation.Nullable Double viewCount) {
+  public void setViewCount(@javax.annotation.Nullable Long viewCount) {
     this.viewCount = viewCount;
   }
 

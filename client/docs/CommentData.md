@@ -7,14 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**date** | **Double** |  |  [optional] |
+|**date** | **Long** |  |  [optional] |
 |**localDateString** | **String** |  |  [optional] |
-|**localDateHours** | **Double** |  |  [optional] |
+|**localDateHours** | **Integer** |  |  [optional] |
 |**commenterName** | **String** |  |  |
 |**commenterEmail** | **String** |  |  [optional] |
 |**commenterLink** | **String** |  |  [optional] |
 |**comment** | **String** |  |  |
-|**productId** | **Double** |  |  [optional] |
+|**productId** | **Integer** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**avatarSrc** | **String** |  |  [optional] |
 |**parentId** | **String** |  |  [optional] |
@@ -28,7 +28,7 @@
 |**moderationGroupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**rating** | **Double** |  |  [optional] |
 |**fromOfflineRestore** | **Boolean** |  |  [optional] |
-|**autoplayDelayMS** | **Double** |  |  [optional] |
+|**autoplayDelayMS** | **Long** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**questionValues** | [**Map&lt;String, RecordStringStringOrNumberValue&gt;**](RecordStringStringOrNumberValue.md) | Construct a type with a set of properties K of type T |  [optional] |
 

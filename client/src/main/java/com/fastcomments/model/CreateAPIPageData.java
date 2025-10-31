@@ -60,12 +60,12 @@ public class CreateAPIPageData {
   public static final String SERIALIZED_NAME_ROOT_COMMENT_COUNT = "rootCommentCount";
   @SerializedName(SERIALIZED_NAME_ROOT_COMMENT_COUNT)
   @javax.annotation.Nullable
-  private Double rootCommentCount;
+  private Long rootCommentCount;
 
   public static final String SERIALIZED_NAME_COMMENT_COUNT = "commentCount";
   @SerializedName(SERIALIZED_NAME_COMMENT_COUNT)
   @javax.annotation.Nullable
-  private Double commentCount;
+  private Long commentCount;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -112,7 +112,7 @@ public class CreateAPIPageData {
   }
 
 
-  public CreateAPIPageData rootCommentCount(@javax.annotation.Nullable Double rootCommentCount) {
+  public CreateAPIPageData rootCommentCount(@javax.annotation.Nullable Long rootCommentCount) {
     this.rootCommentCount = rootCommentCount;
     return this;
   }
@@ -122,16 +122,16 @@ public class CreateAPIPageData {
    * @return rootCommentCount
    */
   @javax.annotation.Nullable
-  public Double getRootCommentCount() {
+  public Long getRootCommentCount() {
     return rootCommentCount;
   }
 
-  public void setRootCommentCount(@javax.annotation.Nullable Double rootCommentCount) {
+  public void setRootCommentCount(@javax.annotation.Nullable Long rootCommentCount) {
     this.rootCommentCount = rootCommentCount;
   }
 
 
-  public CreateAPIPageData commentCount(@javax.annotation.Nullable Double commentCount) {
+  public CreateAPIPageData commentCount(@javax.annotation.Nullable Long commentCount) {
     this.commentCount = commentCount;
     return this;
   }
@@ -141,11 +141,11 @@ public class CreateAPIPageData {
    * @return commentCount
    */
   @javax.annotation.Nullable
-  public Double getCommentCount() {
+  public Long getCommentCount() {
     return commentCount;
   }
 
-  public void setCommentCount(@javax.annotation.Nullable Double commentCount) {
+  public void setCommentCount(@javax.annotation.Nullable Long commentCount) {
     this.commentCount = commentCount;
   }
 

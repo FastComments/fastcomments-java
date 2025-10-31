@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rvf ./client/src \
+rm -rvf ./client/src ./client/docs \
     && wget http://localhost:3001/js/swagger.json -O ./openapi.json \
     && openapi-generator-cli generate \
         -i ./openapi.json \
