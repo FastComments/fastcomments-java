@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**isClosed** | **Boolean** |  |  [optional] |
 |**accessibleByGroupIds** | **List&lt;String&gt;** |  |  [optional] |
-|**rootCommentCount** | **Double** |  |  |
-|**commentCount** | **Double** |  |  |
+|**rootCommentCount** | **Long** |  |  |
+|**commentCount** | **Long** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**title** | **String** |  |  |
 |**url** | **String** |  |  [optional] |

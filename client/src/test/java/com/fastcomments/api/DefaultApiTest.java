@@ -408,13 +408,13 @@ public class DefaultApiTest {
     @Test
     public void getCommentsTest() throws ApiException {
         String tenantId = null;
-        Double page = null;
-        Double limit = null;
-        Double skip = null;
+        Integer page = null;
+        Integer limit = null;
+        Integer skip = null;
         Boolean asTree = null;
-        Double skipChildren = null;
-        Double limitChildren = null;
-        Double maxTreeDepth = null;
+        Integer skipChildren = null;
+        Integer limitChildren = null;
+        Integer maxTreeDepth = null;
         String urlId = null;
         String userId = null;
         String anonUserId = null;
@@ -536,7 +536,7 @@ public class DefaultApiTest {
     @Test
     public void getSSOUsersTest() throws ApiException {
         String tenantId = null;
-        Double skip = null;
+        Integer skip = null;
         GetSSOUsers200Response response = api.getSSOUsers(tenantId)
                 .skip(skip)
                 .execute();

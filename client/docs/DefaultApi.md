@@ -1586,13 +1586,13 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
-    Double page = 3.4D; // Double | 
-    Double limit = 3.4D; // Double | 
-    Double skip = 3.4D; // Double | 
+    Integer page = 56; // Integer | 
+    Integer limit = 56; // Integer | 
+    Integer skip = 56; // Integer | 
     Boolean asTree = true; // Boolean | 
-    Double skipChildren = 3.4D; // Double | 
-    Double limitChildren = 3.4D; // Double | 
-    Double maxTreeDepth = 3.4D; // Double | 
+    Integer skipChildren = 56; // Integer | 
+    Integer limitChildren = 56; // Integer | 
+    Integer maxTreeDepth = 56; // Integer | 
     String urlId = "urlId_example"; // String | 
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
@@ -1634,13 +1634,13 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
-| **page** | **Double**|  | [optional] |
-| **limit** | **Double**|  | [optional] |
-| **skip** | **Double**|  | [optional] |
+| **page** | **Integer**|  | [optional] |
+| **limit** | **Integer**|  | [optional] |
+| **skip** | **Integer**|  | [optional] |
 | **asTree** | **Boolean**|  | [optional] |
-| **skipChildren** | **Double**|  | [optional] |
-| **limitChildren** | **Double**|  | [optional] |
-| **maxTreeDepth** | **Double**|  | [optional] |
+| **skipChildren** | **Integer**|  | [optional] |
+| **limitChildren** | **Integer**|  | [optional] |
+| **maxTreeDepth** | **Integer**|  | [optional] |
 | **urlId** | **String**|  | [optional] |
 | **userId** | **String**|  | [optional] |
 | **anonUserId** | **String**|  | [optional] |
@@ -2191,7 +2191,7 @@ public class Example {
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
-    Double skip = 3.4D; // Double | 
+    Integer skip = 56; // Integer | 
     try {
       GetSSOUsers200Response result = apiInstance.getSSOUsers(tenantId)
             .skip(skip)
@@ -2213,7 +2213,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
-| **skip** | **Double**|  | [optional] |
+| **skip** | **Integer**|  | [optional] |
 
 ### Return type
 

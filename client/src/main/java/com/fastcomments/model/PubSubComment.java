@@ -257,7 +257,7 @@ public class PubSubComment {
   public static final String SERIALIZED_NAME_VIEW_COUNT = "viewCount";
   @SerializedName(SERIALIZED_NAME_VIEW_COUNT)
   @javax.annotation.Nullable
-  private Double viewCount;
+  private Long viewCount;
 
   public static final String SERIALIZED_NAME_IS_LIVE = "isLive";
   @SerializedName(SERIALIZED_NAME_IS_LIVE)
@@ -1056,7 +1056,7 @@ public class PubSubComment {
   }
 
 
-  public PubSubComment viewCount(@javax.annotation.Nullable Double viewCount) {
+  public PubSubComment viewCount(@javax.annotation.Nullable Long viewCount) {
     this.viewCount = viewCount;
     return this;
   }
@@ -1066,11 +1066,11 @@ public class PubSubComment {
    * @return viewCount
    */
   @javax.annotation.Nullable
-  public Double getViewCount() {
+  public Long getViewCount() {
     return viewCount;
   }
 
-  public void setViewCount(@javax.annotation.Nullable Double viewCount) {
+  public void setViewCount(@javax.annotation.Nullable Long viewCount) {
     this.viewCount = viewCount;
   }
 

@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  |
-|**type** | **Double** |  |  |
+|**type** | **Integer** |  |  |
 |**description** | **String** |  |  |
 |**displayLabel** | **String** |  |  [optional] |
 |**displaySrc** | **String** |  |  [optional] |

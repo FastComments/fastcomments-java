@@ -87,7 +87,7 @@ public class QuestionResult {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nonnull
-  private Double value;
+  private Integer value;
 
   public static final String SERIALIZED_NAME_COMMENT_ID = "commentId";
   @SerializedName(SERIALIZED_NAME_COMMENT_ID)
@@ -226,7 +226,7 @@ public class QuestionResult {
   }
 
 
-  public QuestionResult value(@javax.annotation.Nonnull Double value) {
+  public QuestionResult value(@javax.annotation.Nonnull Integer value) {
     this.value = value;
     return this;
   }
@@ -236,11 +236,11 @@ public class QuestionResult {
    * @return value
    */
   @javax.annotation.Nonnull
-  public Double getValue() {
+  public Integer getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Double value) {
+  public void setValue(@javax.annotation.Nonnull Integer value) {
     this.value = value;
   }
 

@@ -60,7 +60,7 @@ public class CommentData {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
   @javax.annotation.Nullable
-  private Double date;
+  private Long date;
 
   public static final String SERIALIZED_NAME_LOCAL_DATE_STRING = "localDateString";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_STRING)
@@ -70,7 +70,7 @@ public class CommentData {
   public static final String SERIALIZED_NAME_LOCAL_DATE_HOURS = "localDateHours";
   @SerializedName(SERIALIZED_NAME_LOCAL_DATE_HOURS)
   @javax.annotation.Nullable
-  private Double localDateHours;
+  private Integer localDateHours;
 
   public static final String SERIALIZED_NAME_COMMENTER_NAME = "commenterName";
   @SerializedName(SERIALIZED_NAME_COMMENTER_NAME)
@@ -95,7 +95,7 @@ public class CommentData {
   public static final String SERIALIZED_NAME_PRODUCT_ID = "productId";
   @SerializedName(SERIALIZED_NAME_PRODUCT_ID)
   @javax.annotation.Nullable
-  private Double productId;
+  private Integer productId;
 
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -165,7 +165,7 @@ public class CommentData {
   public static final String SERIALIZED_NAME_AUTOPLAY_DELAY_M_S = "autoplayDelayMS";
   @SerializedName(SERIALIZED_NAME_AUTOPLAY_DELAY_M_S)
   @javax.annotation.Nullable
-  private Double autoplayDelayMS;
+  private Long autoplayDelayMS;
 
   public static final String SERIALIZED_NAME_FEEDBACK_IDS = "feedbackIds";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
@@ -180,7 +180,7 @@ public class CommentData {
   public CommentData() {
   }
 
-  public CommentData date(@javax.annotation.Nullable Double date) {
+  public CommentData date(@javax.annotation.Nullable Long date) {
     this.date = date;
     return this;
   }
@@ -190,11 +190,11 @@ public class CommentData {
    * @return date
    */
   @javax.annotation.Nullable
-  public Double getDate() {
+  public Long getDate() {
     return date;
   }
 
-  public void setDate(@javax.annotation.Nullable Double date) {
+  public void setDate(@javax.annotation.Nullable Long date) {
     this.date = date;
   }
 
@@ -218,7 +218,7 @@ public class CommentData {
   }
 
 
-  public CommentData localDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public CommentData localDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
     return this;
   }
@@ -228,11 +228,11 @@ public class CommentData {
    * @return localDateHours
    */
   @javax.annotation.Nullable
-  public Double getLocalDateHours() {
+  public Integer getLocalDateHours() {
     return localDateHours;
   }
 
-  public void setLocalDateHours(@javax.annotation.Nullable Double localDateHours) {
+  public void setLocalDateHours(@javax.annotation.Nullable Integer localDateHours) {
     this.localDateHours = localDateHours;
   }
 
@@ -313,7 +313,7 @@ public class CommentData {
   }
 
 
-  public CommentData productId(@javax.annotation.Nullable Double productId) {
+  public CommentData productId(@javax.annotation.Nullable Integer productId) {
     this.productId = productId;
     return this;
   }
@@ -323,11 +323,11 @@ public class CommentData {
    * @return productId
    */
   @javax.annotation.Nullable
-  public Double getProductId() {
+  public Integer getProductId() {
     return productId;
   }
 
-  public void setProductId(@javax.annotation.Nullable Double productId) {
+  public void setProductId(@javax.annotation.Nullable Integer productId) {
     this.productId = productId;
   }
 
@@ -603,7 +603,7 @@ public class CommentData {
   }
 
 
-  public CommentData autoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public CommentData autoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
     return this;
   }
@@ -613,11 +613,11 @@ public class CommentData {
    * @return autoplayDelayMS
    */
   @javax.annotation.Nullable
-  public Double getAutoplayDelayMS() {
+  public Long getAutoplayDelayMS() {
     return autoplayDelayMS;
   }
 
-  public void setAutoplayDelayMS(@javax.annotation.Nullable Double autoplayDelayMS) {
+  public void setAutoplayDelayMS(@javax.annotation.Nullable Long autoplayDelayMS) {
     this.autoplayDelayMS = autoplayDelayMS;
   }
 

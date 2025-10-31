@@ -82,7 +82,7 @@ public class RenderableUserNotification {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
   @javax.annotation.Nullable
-  private Double count;
+  private Long count;
 
   public static final String SERIALIZED_NAME_OPTED_OUT = "optedOut";
   @SerializedName(SERIALIZED_NAME_OPTED_OUT)
@@ -281,7 +281,7 @@ public class RenderableUserNotification {
   }
 
 
-  public RenderableUserNotification count(@javax.annotation.Nullable Double count) {
+  public RenderableUserNotification count(@javax.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -291,11 +291,11 @@ public class RenderableUserNotification {
    * @return count
    */
   @javax.annotation.Nullable
-  public Double getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@javax.annotation.Nullable Double count) {
+  public void setCount(@javax.annotation.Nullable Long count) {
     this.count = count;
   }
 

@@ -7,14 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**statusCode** | **Double** |  |  [optional] |
+|**statusCode** | **Integer** |  |  [optional] |
 |**status** | **ImportedAPIStatusFAILED** |  |  |
 |**code** | **String** |  |  |
 |**reason** | **String** |  |  |
 |**wasUnapproved** | **Boolean** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
-|**bannedUntil** | **Double** |  |  [optional] |
-|**maxCharacterLength** | **Double** |  |  [optional] |
+|**bannedUntil** | **Long** |  |  [optional] |
+|**maxCharacterLength** | **Integer** |  |  [optional] |
 |**translatedError** | **String** |  |  [optional] |
 |**customConfig** | [**CustomConfigParameters**](CustomConfigParameters.md) |  |  [optional] |
 

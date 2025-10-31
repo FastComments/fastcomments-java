@@ -137,7 +137,6 @@ docs/GetUserPresenceStatusesResponse.md
 docs/GetUserReactsPublic200Response.md
 docs/GifRating.md
 docs/HeaderState.md
-docs/HiddenApi.md
 docs/IgnoredResponse.md
 docs/ImageContentProfanityLevel.md
 docs/ImportedAPIStatusFAILED.md
@@ -238,7 +237,6 @@ pom.xml
 settings.gradle
 src/main/AndroidManifest.xml
 src/main/java/com/fastcomments/api/DefaultApi.java
-src/main/java/com/fastcomments/api/HiddenApi.java
 src/main/java/com/fastcomments/api/PublicApi.java
 src/main/java/com/fastcomments/invoker/ApiCallback.java
 src/main/java/com/fastcomments/invoker/ApiClient.java
@@ -479,7 +477,6 @@ src/main/java/com/fastcomments/model/VoteResponseStatus.java
 src/main/java/com/fastcomments/model/VoteResponseUser.java
 src/main/java/com/fastcomments/model/VoteStyle.java
 src/test/java/com/fastcomments/api/DefaultApiTest.java
-src/test/java/com/fastcomments/api/HiddenApiTest.java
 src/test/java/com/fastcomments/api/PublicApiTest.java
 src/test/java/com/fastcomments/model/APICreateUserBadgeResponseTest.java
 src/test/java/com/fastcomments/model/APIEmptyResponseTest.java

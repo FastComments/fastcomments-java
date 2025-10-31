@@ -8,14 +8,14 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **ImportedAPIStatusFAILED** |  |  |
-|**matchedCount** | **Double** |  |  |
-|**modifiedCount** | **Double** |  |  |
+|**matchedCount** | **Long** |  |  |
+|**modifiedCount** | **Long** |  |  |
 |**note** | [**NoteEnum**](#NoteEnum) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |
-|**bannedUntil** | **Double** |  |  [optional] |
-|**maxCharacterLength** | **Double** |  |  [optional] |
+|**bannedUntil** | **Long** |  |  [optional] |
+|**maxCharacterLength** | **Integer** |  |  [optional] |
 |**translatedError** | **String** |  |  [optional] |
 |**customConfig** | [**CustomConfigParameters**](CustomConfigParameters.md) |  |  [optional] |
 

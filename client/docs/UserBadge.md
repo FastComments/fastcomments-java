@@ -12,8 +12,8 @@
 |**badgeId** | **String** |  |  |
 |**fromTenantId** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
-|**type** | **Double** |  |  |
-|**threshold** | **Double** |  |  |
+|**type** | **Integer** |  |  |
+|**threshold** | **Long** |  |  |
 |**description** | **String** |  |  |
 |**displayLabel** | **String** |  |  |
 |**displaySrc** | **String** |  |  [optional] |
@@ -21,10 +21,10 @@
 |**borderColor** | **String** |  |  [optional] |
 |**textColor** | **String** |  |  [optional] |
 |**cssClass** | **String** |  |  [optional] |
-|**veteranUserThresholdMillis** | **Double** |  |  |
+|**veteranUserThresholdMillis** | **Long** |  |  |
 |**displayedOnComments** | **Boolean** |  |  |
 |**receivedAt** | **OffsetDateTime** |  |  |
-|**order** | **Double** |  |  [optional] |
+|**order** | **Integer** |  |  [optional] |
 
 
 

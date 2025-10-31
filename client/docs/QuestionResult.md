@@ -13,7 +13,7 @@
 |**anonUserId** | **String** |  |  |
 |**userId** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
-|**value** | **Double** |  |  |
+|**value** | **Integer** |  |  |
 |**commentId** | **String** |  |  [optional] |
 |**questionId** | **String** |  |  |
 |**meta** | [**List&lt;MetaItem&gt;**](MetaItem.md) |  |  [optional] |

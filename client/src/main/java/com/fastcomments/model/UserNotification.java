@@ -158,7 +158,7 @@ public class UserNotification {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)
   @javax.annotation.Nullable
-  private Double count;
+  private Long count;
 
   public static final String SERIALIZED_NAME_RELATED_IDS = "relatedIds";
   @SerializedName(SERIALIZED_NAME_RELATED_IDS)
@@ -558,7 +558,7 @@ public class UserNotification {
   }
 
 
-  public UserNotification count(@javax.annotation.Nullable Double count) {
+  public UserNotification count(@javax.annotation.Nullable Long count) {
     this.count = count;
     return this;
   }
@@ -568,11 +568,11 @@ public class UserNotification {
    * @return count
    */
   @javax.annotation.Nullable
-  public Double getCount() {
+  public Long getCount() {
     return count;
   }
 
-  public void setCount(@javax.annotation.Nullable Double count) {
+  public void setCount(@javax.annotation.Nullable Long count) {
     this.count = count;
   }
 

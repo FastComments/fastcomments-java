@@ -170,7 +170,6 @@ Class | Method | HTTP request | Description
 *DefaultApi* | [**updateComment**](docs/DefaultApi.md#updateComment) | **PATCH** /api/v1/comments/{id} | 
 *DefaultApi* | [**updateFeedPost**](docs/DefaultApi.md#updateFeedPost) | **PATCH** /api/v1/feed-posts/{id} | 
 *DefaultApi* | [**updateUserBadge**](docs/DefaultApi.md#updateUserBadge) | **PUT** /api/v1/user-badges/{id} | 
-*HiddenApi* | [**uploadImageOptions**](docs/HiddenApi.md#uploadImageOptions) | **OPTIONS** /upload-image/{tenantId} | 
 *PublicApi* | [**blockFromCommentPublic**](docs/PublicApi.md#blockFromCommentPublic) | **POST** /block-from-comment/{commentId} | 
 *PublicApi* | [**checkedCommentsForBlocked**](docs/PublicApi.md#checkedCommentsForBlocked) | **GET** /check-blocked-comments | 
 *PublicApi* | [**createCommentPublic**](docs/PublicApi.md#createCommentPublic) | **POST** /comments/{tenantId} | 

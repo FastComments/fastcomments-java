@@ -72,7 +72,7 @@ public class QuestionResultAggregationOverall {
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
   @javax.annotation.Nonnull
-  private Double total;
+  private Long total;
 
   public static final String SERIALIZED_NAME_AVERAGE = "average";
   @SerializedName(SERIALIZED_NAME_AVERAGE)
@@ -168,7 +168,7 @@ public class QuestionResultAggregationOverall {
   }
 
 
-  public QuestionResultAggregationOverall total(@javax.annotation.Nonnull Double total) {
+  public QuestionResultAggregationOverall total(@javax.annotation.Nonnull Long total) {
     this.total = total;
     return this;
   }
@@ -178,11 +178,11 @@ public class QuestionResultAggregationOverall {
    * @return total
    */
   @javax.annotation.Nonnull
-  public Double getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-  public void setTotal(@javax.annotation.Nonnull Double total) {
+  public void setTotal(@javax.annotation.Nonnull Long total) {
     this.total = total;
   }
 

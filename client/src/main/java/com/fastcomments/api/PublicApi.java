@@ -1931,7 +1931,7 @@ public class PublicApi {
     public APIgetCommentTextRequest getCommentText(String tenantId, String commentId) {
         return new APIgetCommentTextRequest(tenantId, commentId);
     }
-    private okhttp3.Call getCommentVoteUserNamesCall(String tenantId, String commentId, Double dir, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentVoteUserNamesCall(String tenantId, String commentId, Integer dir, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1986,7 +1986,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentVoteUserNamesValidateBeforeCall(String tenantId, String commentId, Double dir, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentVoteUserNamesValidateBeforeCall(String tenantId, String commentId, Integer dir, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCommentVoteUserNames(Async)");
@@ -2007,13 +2007,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<GetCommentVoteUserNames200Response> getCommentVoteUserNamesWithHttpInfo(String tenantId, String commentId, Double dir, String sso) throws ApiException {
+    private ApiResponse<GetCommentVoteUserNames200Response> getCommentVoteUserNamesWithHttpInfo(String tenantId, String commentId, Integer dir, String sso) throws ApiException {
         okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, dir, sso, null);
         Type localVarReturnType = new TypeToken<GetCommentVoteUserNames200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentVoteUserNamesAsync(String tenantId, String commentId, Double dir, String sso, final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentVoteUserNamesAsync(String tenantId, String commentId, Integer dir, String sso, final ApiCallback<GetCommentVoteUserNames200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentVoteUserNamesValidateBeforeCall(tenantId, commentId, dir, sso, _callback);
         Type localVarReturnType = new TypeToken<GetCommentVoteUserNames200Response>(){}.getType();
@@ -2024,10 +2024,10 @@ public class PublicApi {
     public class APIgetCommentVoteUserNamesRequest {
         private final String tenantId;
         private final String commentId;
-        private final Double dir;
+        private final Integer dir;
         private String sso;
 
-        private APIgetCommentVoteUserNamesRequest(String tenantId, String commentId, Double dir) {
+        private APIgetCommentVoteUserNamesRequest(String tenantId, String commentId, Integer dir) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.dir = dir;
@@ -2121,7 +2121,7 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Double dir) {
+    public APIgetCommentVoteUserNamesRequest getCommentVoteUserNames(String tenantId, String commentId, Integer dir) {
         return new APIgetCommentVoteUserNamesRequest(tenantId, commentId, dir);
     }
     private okhttp3.Call getCommentsPublicCall(String tenantId, String urlId, Integer page, SortDirections direction, String sso, Integer skip, Integer skipChildren, Integer limit, Integer limitChildren, Boolean countChildren, String fetchPageForCommentId, Boolean includeConfig, Boolean countAll, Boolean includei10n, String locale, String modules, Boolean isCrawler, Boolean includeNotificationCount, Boolean asTree, Integer maxTreeDepth, Boolean useFullTranslationIds, String parentId, String searchText, List<String> hashTags, String userId, String customConfigStr, String afterCommentId, String beforeCommentId, final ApiCallback _callback) throws ApiException {
@@ -3699,7 +3699,7 @@ public class PublicApi {
     public APIgetUserNotificationCountRequest getUserNotificationCount(String tenantId) {
         return new APIgetUserNotificationCountRequest(tenantId);
     }
-    private okhttp3.Call getUserNotificationsCall(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationsCall(String tenantId, Integer pageSize, String afterId, Boolean includeContext, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3784,7 +3784,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserNotificationsValidateBeforeCall(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationsValidateBeforeCall(String tenantId, Integer pageSize, String afterId, Boolean includeContext, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserNotifications(Async)");
@@ -3795,13 +3795,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<GetUserNotifications200Response> getUserNotificationsWithHttpInfo(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso) throws ApiException {
+    private ApiResponse<GetUserNotifications200Response> getUserNotificationsWithHttpInfo(String tenantId, Integer pageSize, String afterId, Boolean includeContext, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso) throws ApiException {
         okhttp3.Call localVarCall = getUserNotificationsValidateBeforeCall(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, null);
         Type localVarReturnType = new TypeToken<GetUserNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserNotificationsAsync(String tenantId, Double pageSize, String afterId, Boolean includeContext, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback<GetUserNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserNotificationsAsync(String tenantId, Integer pageSize, String afterId, Boolean includeContext, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, Boolean includeTranslations, String sso, final ApiCallback<GetUserNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserNotificationsValidateBeforeCall(tenantId, pageSize, afterId, includeContext, afterCreatedAt, unreadOnly, dmOnly, noDm, includeTranslations, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserNotifications200Response>(){}.getType();
@@ -3811,10 +3811,10 @@ public class PublicApi {
 
     public class APIgetUserNotificationsRequest {
         private final String tenantId;
-        private Double pageSize;
+        private Integer pageSize;
         private String afterId;
         private Boolean includeContext;
-        private Double afterCreatedAt;
+        private Long afterCreatedAt;
         private Boolean unreadOnly;
         private Boolean dmOnly;
         private Boolean noDm;
@@ -3827,10 +3827,10 @@ public class PublicApi {
 
         /**
          * Set pageSize
-         * @param pageSize Defaults to 20. (optional)
+         * @param pageSize  (optional)
          * @return APIgetUserNotificationsRequest
          */
-        public APIgetUserNotificationsRequest pageSize(Double pageSize) {
+        public APIgetUserNotificationsRequest pageSize(Integer pageSize) {
             this.pageSize = pageSize;
             return this;
         }
@@ -3860,7 +3860,7 @@ public class PublicApi {
          * @param afterCreatedAt  (optional)
          * @return APIgetUserNotificationsRequest
          */
-        public APIgetUserNotificationsRequest afterCreatedAt(Double afterCreatedAt) {
+        public APIgetUserNotificationsRequest afterCreatedAt(Long afterCreatedAt) {
             this.afterCreatedAt = afterCreatedAt;
             return this;
         }
@@ -5151,7 +5151,7 @@ public class PublicApi {
     public APIresetUserNotificationCountRequest resetUserNotificationCount(String tenantId) {
         return new APIresetUserNotificationCountRequest(tenantId);
     }
-    private okhttp3.Call resetUserNotificationsCall(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationsCall(String tenantId, String afterId, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5224,7 +5224,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call resetUserNotificationsValidateBeforeCall(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationsValidateBeforeCall(String tenantId, String afterId, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling resetUserNotifications(Async)");
@@ -5235,13 +5235,13 @@ public class PublicApi {
     }
 
 
-    private ApiResponse<ResetUserNotifications200Response> resetUserNotificationsWithHttpInfo(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso) throws ApiException {
+    private ApiResponse<ResetUserNotifications200Response> resetUserNotificationsWithHttpInfo(String tenantId, String afterId, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso) throws ApiException {
         okhttp3.Call localVarCall = resetUserNotificationsValidateBeforeCall(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, null);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call resetUserNotificationsAsync(String tenantId, String afterId, Double afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call resetUserNotificationsAsync(String tenantId, String afterId, Long afterCreatedAt, Boolean unreadOnly, Boolean dmOnly, Boolean noDm, String sso, final ApiCallback<ResetUserNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = resetUserNotificationsValidateBeforeCall(tenantId, afterId, afterCreatedAt, unreadOnly, dmOnly, noDm, sso, _callback);
         Type localVarReturnType = new TypeToken<ResetUserNotifications200Response>(){}.getType();
@@ -5252,7 +5252,7 @@ public class PublicApi {
     public class APIresetUserNotificationsRequest {
         private final String tenantId;
         private String afterId;
-        private Double afterCreatedAt;
+        private Long afterCreatedAt;
         private Boolean unreadOnly;
         private Boolean dmOnly;
         private Boolean noDm;
@@ -5277,7 +5277,7 @@ public class PublicApi {
          * @param afterCreatedAt  (optional)
          * @return APIresetUserNotificationsRequest
          */
-        public APIresetUserNotificationsRequest afterCreatedAt(Double afterCreatedAt) {
+        public APIresetUserNotificationsRequest afterCreatedAt(Long afterCreatedAt) {
             this.afterCreatedAt = afterCreatedAt;
             return this;
         }

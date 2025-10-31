@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**type** | **NotificationType** |  |  |
-|**count** | **Double** |  |  |
+|**count** | **Long** |  |  |
 
 
 

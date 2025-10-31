@@ -54,7 +54,7 @@ public class FlagCommentResponse {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
   @javax.annotation.Nullable
-  private Double statusCode;
+  private Integer statusCode;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -79,7 +79,7 @@ public class FlagCommentResponse {
   public FlagCommentResponse() {
   }
 
-  public FlagCommentResponse statusCode(@javax.annotation.Nullable Double statusCode) {
+  public FlagCommentResponse statusCode(@javax.annotation.Nullable Integer statusCode) {
     this.statusCode = statusCode;
     return this;
   }
@@ -89,11 +89,11 @@ public class FlagCommentResponse {
    * @return statusCode
    */
   @javax.annotation.Nullable
-  public Double getStatusCode() {
+  public Integer getStatusCode() {
     return statusCode;
   }
 
-  public void setStatusCode(@javax.annotation.Nullable Double statusCode) {
+  public void setStatusCode(@javax.annotation.Nullable Integer statusCode) {
     this.statusCode = statusCode;
   }
 

@@ -11,9 +11,9 @@
 |**username** | **String** |  |  |
 |**websiteUrl** | **String** |  |  |
 |**email** | **String** |  |  |
-|**signUpDate** | **Double** |  |  |
+|**signUpDate** | **Long** |  |  |
 |**createdFromUrlId** | **String** |  |  |
-|**loginCount** | **Double** |  |  |
+|**loginCount** | **Integer** |  |  |
 |**avatarSrc** | **String** |  |  |
 |**optedInNotifications** | **Boolean** |  |  |
 |**optedInSubscriptionNotifications** | **Boolean** |  |  |

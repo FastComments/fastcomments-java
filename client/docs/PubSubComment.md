@@ -47,7 +47,7 @@
 |**domain** | **String** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
-|**viewCount** | **Double** |  |  [optional] |
+|**viewCount** | **Long** |  |  [optional] |
 |**isLive** | **Boolean** |  |  [optional] |
 |**hidden** | **Boolean** |  |  [optional] |
 

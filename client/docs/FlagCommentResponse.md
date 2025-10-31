@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**statusCode** | **Double** |  |  [optional] |
+|**statusCode** | **Integer** |  |  [optional] |
 |**status** | **APIStatus** |  |  |
 |**code** | **String** |  |  [optional] |
 |**reason** | **String** |  |  [optional] |

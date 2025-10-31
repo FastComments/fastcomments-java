@@ -59,12 +59,12 @@ public class UserNotificationWriteResponse {
   public static final String SERIALIZED_NAME_MATCHED_COUNT = "matchedCount";
   @SerializedName(SERIALIZED_NAME_MATCHED_COUNT)
   @javax.annotation.Nonnull
-  private Double matchedCount;
+  private Long matchedCount;
 
   public static final String SERIALIZED_NAME_MODIFIED_COUNT = "modifiedCount";
   @SerializedName(SERIALIZED_NAME_MODIFIED_COUNT)
   @javax.annotation.Nonnull
-  private Double modifiedCount;
+  private Long modifiedCount;
 
   public UserNotificationWriteResponse() {
   }
@@ -88,7 +88,7 @@ public class UserNotificationWriteResponse {
   }
 
 
-  public UserNotificationWriteResponse matchedCount(@javax.annotation.Nonnull Double matchedCount) {
+  public UserNotificationWriteResponse matchedCount(@javax.annotation.Nonnull Long matchedCount) {
     this.matchedCount = matchedCount;
     return this;
   }
@@ -98,16 +98,16 @@ public class UserNotificationWriteResponse {
    * @return matchedCount
    */
   @javax.annotation.Nonnull
-  public Double getMatchedCount() {
+  public Long getMatchedCount() {
     return matchedCount;
   }
 
-  public void setMatchedCount(@javax.annotation.Nonnull Double matchedCount) {
+  public void setMatchedCount(@javax.annotation.Nonnull Long matchedCount) {
     this.matchedCount = matchedCount;
   }
 
 
-  public UserNotificationWriteResponse modifiedCount(@javax.annotation.Nonnull Double modifiedCount) {
+  public UserNotificationWriteResponse modifiedCount(@javax.annotation.Nonnull Long modifiedCount) {
     this.modifiedCount = modifiedCount;
     return this;
   }
@@ -117,11 +117,11 @@ public class UserNotificationWriteResponse {
    * @return modifiedCount
    */
   @javax.annotation.Nonnull
-  public Double getModifiedCount() {
+  public Long getModifiedCount() {
     return modifiedCount;
   }
 
-  public void setModifiedCount(@javax.annotation.Nonnull Double modifiedCount) {
+  public void setModifiedCount(@javax.annotation.Nonnull Long modifiedCount) {
     this.modifiedCount = modifiedCount;
   }
 
