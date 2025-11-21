@@ -13,11 +13,11 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.APIAuditLog;
 import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GetAuditLogsResponse;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.PickTenantAuditLogTenantAuditLogKeys;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

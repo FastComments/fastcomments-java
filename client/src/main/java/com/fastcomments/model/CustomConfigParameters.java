@@ -328,6 +328,11 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private Boolean readonly;
 
+  public static final String SERIALIZED_NAME_NO_NEW_ROOT_COMMENTS = "noNewRootComments";
+  @SerializedName(SERIALIZED_NAME_NO_NEW_ROOT_COMMENTS)
+  @javax.annotation.Nullable
+  private Boolean noNewRootComments;
+
   public static final String SERIALIZED_NAME_REQUIRE_S_S_O = "requireSSO";
   @SerializedName(SERIALIZED_NAME_REQUIRE_S_S_O)
   @javax.annotation.Nullable
@@ -1427,6 +1432,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters noNewRootComments(@javax.annotation.Nullable Boolean noNewRootComments) {
+    this.noNewRootComments = noNewRootComments;
+    return this;
+  }
+
+  /**
+   * Get noNewRootComments
+   * @return noNewRootComments
+   */
+  @javax.annotation.Nullable
+  public Boolean getNoNewRootComments() {
+    return noNewRootComments;
+  }
+
+  public void setNoNewRootComments(@javax.annotation.Nullable Boolean noNewRootComments) {
+    this.noNewRootComments = noNewRootComments;
+  }
+
+
   public CustomConfigParameters requireSSO(@javax.annotation.Nullable Boolean requireSSO) {
     this.requireSSO = requireSSO;
     return this;
@@ -1893,6 +1917,7 @@ public class CustomConfigParameters {
         Objects.equals(this.noStyles, customConfigParameters.noStyles) &&
         Objects.equals(this.pageSize, customConfigParameters.pageSize) &&
         Objects.equals(this.readonly, customConfigParameters.readonly) &&
+        Objects.equals(this.noNewRootComments, customConfigParameters.noNewRootComments) &&
         Objects.equals(this.requireSSO, customConfigParameters.requireSSO) &&
         Objects.equals(this.enableResizeHandle, customConfigParameters.enableResizeHandle) &&
         Objects.equals(this.restrictedLinkDomains, customConfigParameters.restrictedLinkDomains) &&
@@ -1917,7 +1942,7 @@ public class CustomConfigParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, noImageUploads, noStyles, pageSize, readonly, requireSSO, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap);
+    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, noImageUploads, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap);
   }
 
   @Override
@@ -1976,6 +2001,7 @@ public class CustomConfigParameters {
     sb.append("    noStyles: ").append(toIndentedString(noStyles)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    readonly: ").append(toIndentedString(readonly)).append("\n");
+    sb.append("    noNewRootComments: ").append(toIndentedString(noNewRootComments)).append("\n");
     sb.append("    requireSSO: ").append(toIndentedString(requireSSO)).append("\n");
     sb.append("    enableResizeHandle: ").append(toIndentedString(enableResizeHandle)).append("\n");
     sb.append("    restrictedLinkDomains: ").append(toIndentedString(restrictedLinkDomains)).append("\n");
@@ -2070,6 +2096,7 @@ public class CustomConfigParameters {
     openapiFields.add("noStyles");
     openapiFields.add("pageSize");
     openapiFields.add("readonly");
+    openapiFields.add("noNewRootComments");
     openapiFields.add("requireSSO");
     openapiFields.add("enableResizeHandle");
     openapiFields.add("restrictedLinkDomains");

@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.APIComment;
 import com.fastcomments.model.APIStatus;
-import com.fastcomments.model.PickFCommentAPICommentFieldsKeys;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -62,7 +62,7 @@ public class APIGetCommentsResponse {
   public static final String SERIALIZED_NAME_COMMENTS = "comments";
   @SerializedName(SERIALIZED_NAME_COMMENTS)
   @javax.annotation.Nonnull
-  private List<PickFCommentAPICommentFieldsKeys> comments = new ArrayList<>();
+  private List<APIComment> comments = new ArrayList<>();
 
   public APIGetCommentsResponse() {
   }
@@ -86,12 +86,12 @@ public class APIGetCommentsResponse {
   }
 
 
-  public APIGetCommentsResponse comments(@javax.annotation.Nonnull List<PickFCommentAPICommentFieldsKeys> comments) {
+  public APIGetCommentsResponse comments(@javax.annotation.Nonnull List<APIComment> comments) {
     this.comments = comments;
     return this;
   }
 
-  public APIGetCommentsResponse addCommentsItem(PickFCommentAPICommentFieldsKeys commentsItem) {
+  public APIGetCommentsResponse addCommentsItem(APIComment commentsItem) {
     if (this.comments == null) {
       this.comments = new ArrayList<>();
     }
@@ -104,11 +104,11 @@ public class APIGetCommentsResponse {
    * @return comments
    */
   @javax.annotation.Nonnull
-  public List<PickFCommentAPICommentFieldsKeys> getComments() {
+  public List<APIComment> getComments() {
     return comments;
   }
 
-  public void setComments(@javax.annotation.Nonnull List<PickFCommentAPICommentFieldsKeys> comments) {
+  public void setComments(@javax.annotation.Nonnull List<APIComment> comments) {
     this.comments = comments;
   }
 
@@ -207,7 +207,7 @@ public class APIGetCommentsResponse {
       JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");
       // validate the required field `comments` (array)
       for (int i = 0; i < jsonArraycomments.size(); i++) {
-        PickFCommentAPICommentFieldsKeys.validateJsonElement(jsonArraycomments.get(i));
+        APIComment.validateJsonElement(jsonArraycomments.get(i));
       };
   }
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | [**VoteDeleteResponseStatus**](VoteDeleteResponseStatus.md) |  |  |
+|**status** | **APIStatus** |  |  |
 |**wasPendingVote** | **Boolean** |  |  [optional] |
 
 

@@ -14,8 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.APIStatus;
 
 
 
@@ -64,8 +63,7 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'VoteResponseStatus' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ImportedAPIStatusSUCCESS> adapterImportedAPIStatusSUCCESS = gson.getDelegateAdapter(this, TypeToken.get(ImportedAPIStatusSUCCESS.class));
-            final TypeAdapter<ImportedAPIStatusFAILED> adapterImportedAPIStatusFAILED = gson.getDelegateAdapter(this, TypeToken.get(ImportedAPIStatusFAILED.class));
+            final TypeAdapter<APIStatus> adapterAPIStatus = gson.getDelegateAdapter(this, TypeToken.get(APIStatus.class));
             final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
 
             return (TypeAdapter<T>) new TypeAdapter<VoteResponseStatus>() {
@@ -76,15 +74,9 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `ImportedAPIStatusSUCCESS`
-                    if (value.getActualInstance() instanceof ImportedAPIStatusSUCCESS) {
-                        JsonElement element = adapterImportedAPIStatusSUCCESS.toJsonTree((ImportedAPIStatusSUCCESS)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `ImportedAPIStatusFAILED`
-                    if (value.getActualInstance() instanceof ImportedAPIStatusFAILED) {
-                        JsonElement element = adapterImportedAPIStatusFAILED.toJsonTree((ImportedAPIStatusFAILED)value.getActualInstance());
+                    // check if the actual instance is of the type `APIStatus`
+                    if (value.getActualInstance() instanceof APIStatus) {
+                        JsonElement element = adapterAPIStatus.toJsonTree((APIStatus)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -94,7 +86,7 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
                         elementAdapter.write(out, primitive);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: ImportedAPIStatusFAILED, ImportedAPIStatusSUCCESS, String");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIStatus, String");
                 }
 
                 @Override
@@ -105,31 +97,18 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize ImportedAPIStatusSUCCESS
+                    // deserialize APIStatus
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        ImportedAPIStatusSUCCESS.validateJsonElement(jsonElement);
-                        actualAdapter = adapterImportedAPIStatusSUCCESS;
+                        APIStatus.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPIStatus;
                         VoteResponseStatus ret = new VoteResponseStatus();
                         ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for ImportedAPIStatusSUCCESS failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ImportedAPIStatusSUCCESS'", e);
-                    }
-                    // deserialize ImportedAPIStatusFAILED
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        ImportedAPIStatusFAILED.validateJsonElement(jsonElement);
-                        actualAdapter = adapterImportedAPIStatusFAILED;
-                        VoteResponseStatus ret = new VoteResponseStatus();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for ImportedAPIStatusFAILED failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ImportedAPIStatusFAILED'", e);
+                        errorMessages.add(String.format("Deserialization for APIStatus failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APIStatus'", e);
                     }
                     // deserialize String
                     try {
@@ -166,8 +145,7 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("ImportedAPIStatusSUCCESS", ImportedAPIStatusSUCCESS.class);
-        schemas.put("ImportedAPIStatusFAILED", ImportedAPIStatusFAILED.class);
+        schemas.put("APIStatus", APIStatus.class);
         schemas.put("String", String.class);
     }
 
@@ -179,18 +157,13 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * ImportedAPIStatusFAILED, ImportedAPIStatusSUCCESS, String
+     * APIStatus, String
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof ImportedAPIStatusSUCCESS) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof ImportedAPIStatusFAILED) {
+        if (instance instanceof APIStatus) {
             super.setActualInstance(instance);
             return;
         }
@@ -200,14 +173,14 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be ImportedAPIStatusFAILED, ImportedAPIStatusSUCCESS, String");
+        throw new RuntimeException("Invalid instance type. Must be APIStatus, String");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * ImportedAPIStatusFAILED, ImportedAPIStatusSUCCESS, String
+     * APIStatus, String
      *
-     * @return The actual instance (ImportedAPIStatusFAILED, ImportedAPIStatusSUCCESS, String)
+     * @return The actual instance (APIStatus, String)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -216,25 +189,14 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ImportedAPIStatusSUCCESS`. If the actual instance is not `ImportedAPIStatusSUCCESS`,
+     * Get the actual instance of `APIStatus`. If the actual instance is not `APIStatus`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ImportedAPIStatusSUCCESS`
-     * @throws ClassCastException if the instance is not `ImportedAPIStatusSUCCESS`
+     * @return The actual instance of `APIStatus`
+     * @throws ClassCastException if the instance is not `APIStatus`
      */
-    public ImportedAPIStatusSUCCESS getImportedAPIStatusSUCCESS() throws ClassCastException {
-        return (ImportedAPIStatusSUCCESS)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `ImportedAPIStatusFAILED`. If the actual instance is not `ImportedAPIStatusFAILED`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ImportedAPIStatusFAILED`
-     * @throws ClassCastException if the instance is not `ImportedAPIStatusFAILED`
-     */
-    public ImportedAPIStatusFAILED getImportedAPIStatusFAILED() throws ClassCastException {
-        return (ImportedAPIStatusFAILED)super.getActualInstance();
+    public APIStatus getAPIStatus() throws ClassCastException {
+        return (APIStatus)super.getActualInstance();
     }
 
     /**
@@ -257,20 +219,12 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with ImportedAPIStatusSUCCESS
+        // validate the json string with APIStatus
         try {
-            ImportedAPIStatusSUCCESS.validateJsonElement(jsonElement);
+            APIStatus.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for ImportedAPIStatusSUCCESS failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with ImportedAPIStatusFAILED
-        try {
-            ImportedAPIStatusFAILED.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for ImportedAPIStatusFAILED failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for APIStatus failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with String
@@ -283,7 +237,7 @@ public class VoteResponseStatus extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for VoteResponseStatus with anyOf schemas: ImportedAPIStatusFAILED, ImportedAPIStatusSUCCESS, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for VoteResponseStatus with anyOf schemas: APIStatus, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

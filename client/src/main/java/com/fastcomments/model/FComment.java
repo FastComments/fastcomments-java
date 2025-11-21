@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.CommentLogEntry;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
@@ -390,7 +391,7 @@ public class FComment {
   public static final String SERIALIZED_NAME_LOGS = "logs";
   @SerializedName(SERIALIZED_NAME_LOGS)
   @javax.annotation.Nullable
-  private List<List<Object>> logs;
+  private List<CommentLogEntry> logs;
 
   public static final String SERIALIZED_NAME_GROUP_IDS = "groupIds";
   @SerializedName(SERIALIZED_NAME_GROUP_IDS)
@@ -1709,12 +1710,12 @@ public class FComment {
   }
 
 
-  public FComment logs(@javax.annotation.Nullable List<List<Object>> logs) {
+  public FComment logs(@javax.annotation.Nullable List<CommentLogEntry> logs) {
     this.logs = logs;
     return this;
   }
 
-  public FComment addLogsItem(List<Object> logsItem) {
+  public FComment addLogsItem(CommentLogEntry logsItem) {
     if (this.logs == null) {
       this.logs = new ArrayList<>();
     }
@@ -1727,11 +1728,11 @@ public class FComment {
    * @return logs
    */
   @javax.annotation.Nullable
-  public List<List<Object>> getLogs() {
+  public List<CommentLogEntry> getLogs() {
     return logs;
   }
 
-  public void setLogs(@javax.annotation.Nullable List<List<Object>> logs) {
+  public void setLogs(@javax.annotation.Nullable List<CommentLogEntry> logs) {
     this.logs = logs;
   }
 
@@ -2245,9 +2246,19 @@ public class FComment {
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("logs") != null && !jsonObj.get("logs").isJsonNull() && !jsonObj.get("logs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logs` to be an array in the JSON string but got `%s`", jsonObj.get("logs").toString()));
+      if (jsonObj.get("logs") != null && !jsonObj.get("logs").isJsonNull()) {
+        JsonArray jsonArraylogs = jsonObj.getAsJsonArray("logs");
+        if (jsonArraylogs != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("logs").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `logs` to be an array in the JSON string but got `%s`", jsonObj.get("logs").toString()));
+          }
+
+          // validate the optional field `logs` (array)
+          for (int i = 0; i < jsonArraylogs.size(); i++) {
+            CommentLogEntry.validateJsonElement(jsonArraylogs.get(i));
+          };
+        }
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("groupIds") != null && !jsonObj.get("groupIds").isJsonNull() && !jsonObj.get("groupIds").isJsonArray()) {

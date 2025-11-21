@@ -14,7 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.APIStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,7 +54,7 @@ public class UserNotificationWriteResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusSUCCESS status;
+  private APIStatus status;
 
   public static final String SERIALIZED_NAME_MATCHED_COUNT = "matchedCount";
   @SerializedName(SERIALIZED_NAME_MATCHED_COUNT)
@@ -69,7 +69,7 @@ public class UserNotificationWriteResponse {
   public UserNotificationWriteResponse() {
   }
 
-  public UserNotificationWriteResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public UserNotificationWriteResponse status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -79,11 +79,11 @@ public class UserNotificationWriteResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusSUCCESS getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -215,7 +215,7 @@ public class UserNotificationWriteResponse {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
-      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

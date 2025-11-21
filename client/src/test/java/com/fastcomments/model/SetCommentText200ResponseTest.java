@@ -14,10 +14,10 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.PickFCommentApprovedOrCommentHTML;
 import com.fastcomments.model.PublicAPISetCommentTextResponse;
+import com.fastcomments.model.SetCommentTextResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.APIAuditLog;
 import com.fastcomments.model.APIStatus;
-import com.fastcomments.model.PickTenantAuditLogTenantAuditLogKeys;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -62,7 +62,7 @@ public class GetAuditLogsResponse {
   public static final String SERIALIZED_NAME_AUDIT_LOGS = "auditLogs";
   @SerializedName(SERIALIZED_NAME_AUDIT_LOGS)
   @javax.annotation.Nonnull
-  private List<PickTenantAuditLogTenantAuditLogKeys> auditLogs = new ArrayList<>();
+  private List<APIAuditLog> auditLogs = new ArrayList<>();
 
   public GetAuditLogsResponse() {
   }
@@ -86,12 +86,12 @@ public class GetAuditLogsResponse {
   }
 
 
-  public GetAuditLogsResponse auditLogs(@javax.annotation.Nonnull List<PickTenantAuditLogTenantAuditLogKeys> auditLogs) {
+  public GetAuditLogsResponse auditLogs(@javax.annotation.Nonnull List<APIAuditLog> auditLogs) {
     this.auditLogs = auditLogs;
     return this;
   }
 
-  public GetAuditLogsResponse addAuditLogsItem(PickTenantAuditLogTenantAuditLogKeys auditLogsItem) {
+  public GetAuditLogsResponse addAuditLogsItem(APIAuditLog auditLogsItem) {
     if (this.auditLogs == null) {
       this.auditLogs = new ArrayList<>();
     }
@@ -104,11 +104,11 @@ public class GetAuditLogsResponse {
    * @return auditLogs
    */
   @javax.annotation.Nonnull
-  public List<PickTenantAuditLogTenantAuditLogKeys> getAuditLogs() {
+  public List<APIAuditLog> getAuditLogs() {
     return auditLogs;
   }
 
-  public void setAuditLogs(@javax.annotation.Nonnull List<PickTenantAuditLogTenantAuditLogKeys> auditLogs) {
+  public void setAuditLogs(@javax.annotation.Nonnull List<APIAuditLog> auditLogs) {
     this.auditLogs = auditLogs;
   }
 
@@ -207,7 +207,7 @@ public class GetAuditLogsResponse {
       JsonArray jsonArrayauditLogs = jsonObj.getAsJsonArray("auditLogs");
       // validate the required field `auditLogs` (array)
       for (int i = 0; i < jsonArrayauditLogs.size(); i++) {
-        PickTenantAuditLogTenantAuditLogKeys.validateJsonElement(jsonArrayauditLogs.get(i));
+        APIAuditLog.validateJsonElement(jsonArrayauditLogs.get(i));
       };
   }
 

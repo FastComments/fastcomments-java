@@ -15,10 +15,10 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.DeleteCommentAction;
 import com.fastcomments.model.DeleteCommentResult;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

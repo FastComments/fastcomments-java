@@ -13,8 +13,7 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.APIStatus;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

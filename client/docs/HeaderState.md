@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusSUCCESS** |  |  |
+|**status** | **APIStatus** |  |  |
 |**notificationType** | **Object** |  |  |
 |**userId** | **String** |  |  |
 |**userIdWS** | **String** |  |  |

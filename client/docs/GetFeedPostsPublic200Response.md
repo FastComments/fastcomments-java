@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**myReacts** | **Map&lt;String, Map&lt;String, Boolean&gt;&gt;** |  |  [optional] |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  [optional] |
 |**urlIdWS** | **String** |  |  [optional] |

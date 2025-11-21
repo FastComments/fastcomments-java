@@ -14,7 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.VoteDeleteResponseStatus;
+import com.fastcomments.model.APIStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,7 +54,7 @@ public class VoteDeleteResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private VoteDeleteResponseStatus status;
+  private APIStatus status;
 
   public static final String SERIALIZED_NAME_WAS_PENDING_VOTE = "wasPendingVote";
   @SerializedName(SERIALIZED_NAME_WAS_PENDING_VOTE)
@@ -64,7 +64,7 @@ public class VoteDeleteResponse {
   public VoteDeleteResponse() {
   }
 
-  public VoteDeleteResponse status(@javax.annotation.Nonnull VoteDeleteResponseStatus status) {
+  public VoteDeleteResponse status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -74,11 +74,11 @@ public class VoteDeleteResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public VoteDeleteResponseStatus getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull VoteDeleteResponseStatus status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -186,7 +186,7 @@ public class VoteDeleteResponse {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
-      VoteDeleteResponseStatus.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**users** | [**List&lt;UserSearchResult&gt;**](UserSearchResult.md) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |

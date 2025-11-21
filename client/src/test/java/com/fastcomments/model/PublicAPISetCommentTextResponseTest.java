@@ -13,8 +13,8 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
-import com.fastcomments.model.PickFCommentApprovedOrCommentHTML;
+import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.SetCommentTextResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

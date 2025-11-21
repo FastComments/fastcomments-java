@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
 |**userBadge** | [**UserBadge**](UserBadge.md) |  |  |
+|**notes** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

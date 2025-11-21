@@ -7,34 +7,35 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**date** | **OffsetDateTime** |  |  |
 |**id** | **String** |  |  |
 |**userId** | **String** |  |  [optional] |
-|**anonUserId** | **String** |  |  [optional] |
 |**commenterName** | **String** |  |  |
 |**commenterLink** | **String** |  |  [optional] |
 |**commentHTML** | **String** |  |  |
 |**parentId** | **String** |  |  [optional] |
+|**date** | **OffsetDateTime** |  |  |
 |**votes** | **Integer** |  |  [optional] |
 |**votesUp** | **Integer** |  |  [optional] |
 |**votesDown** | **Integer** |  |  [optional] |
 |**verified** | **Boolean** |  |  |
 |**avatarSrc** | **String** |  |  [optional] |
-|**isSpam** | **Boolean** |  |  [optional] |
 |**hasImages** | **Boolean** |  |  [optional] |
-|**isDeleted** | **Boolean** |  |  [optional] |
-|**isDeletedUser** | **Boolean** |  |  [optional] |
 |**isByAdmin** | **Boolean** |  |  [optional] |
 |**isByModerator** | **Boolean** |  |  [optional] |
 |**isPinned** | **Boolean** |  |  [optional] |
 |**isLocked** | **Boolean** |  |  [optional] |
-|**rating** | **Double** |  |  [optional] |
 |**displayLabel** | **String** |  |  [optional] |
+|**rating** | **Double** |  |  [optional] |
 |**badges** | [**List&lt;CommentUserBadgeInfo&gt;**](CommentUserBadgeInfo.md) |  |  [optional] |
-|**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**viewCount** | **Long** |  |  [optional] |
+|**isDeleted** | **Boolean** |  |  [optional] |
+|**isDeletedUser** | **Boolean** |  |  [optional] |
+|**isSpam** | **Boolean** |  |  [optional] |
+|**anonUserId** | **String** |  |  [optional] |
+|**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**requiresVerification** | **Boolean** |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
+|**approved** | **Boolean** |  |  [optional] |
 |**isUnread** | **Boolean** |  |  [optional] |
 |**myVoteId** | **String** |  |  [optional] |
 |**isVotedDown** | **Boolean** |  |  [optional] |

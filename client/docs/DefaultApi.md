@@ -3363,7 +3363,7 @@ public class Example {
 
 <a id="updateComment"></a>
 # **updateComment**
-> FlagCommentPublic200Response updateComment(tenantId, id, body).contextUserId(contextUserId).doSpamCheck(doSpamCheck).isLive(isLive).execute();
+> FlagCommentPublic200Response updateComment(tenantId, id, updatableCommentParams).contextUserId(contextUserId).doSpamCheck(doSpamCheck).isLive(isLive).execute();
 
 
 
@@ -3391,12 +3391,12 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
-    PickAPICommentUpdatableCommentFields body = new PickAPICommentUpdatableCommentFields(); // PickAPICommentUpdatableCommentFields | 
+    UpdatableCommentParams updatableCommentParams = new UpdatableCommentParams(); // UpdatableCommentParams | 
     String contextUserId = "contextUserId_example"; // String | 
     Boolean doSpamCheck = true; // Boolean | 
     Boolean isLive = true; // Boolean | 
     try {
-      FlagCommentPublic200Response result = apiInstance.updateComment(tenantId, id, body)
+      FlagCommentPublic200Response result = apiInstance.updateComment(tenantId, id, updatableCommentParams)
             .contextUserId(contextUserId)
             .doSpamCheck(doSpamCheck)
             .isLive(isLive)
@@ -3419,7 +3419,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **id** | **String**|  | |
-| **body** | **PickAPICommentUpdatableCommentFields**|  | |
+| **updatableCommentParams** | [**UpdatableCommentParams**](UpdatableCommentParams.md)|  | |
 | **contextUserId** | **String**|  | [optional] |
 | **doSpamCheck** | **Boolean**|  | [optional] |
 | **isLive** | **Boolean**|  | [optional] |

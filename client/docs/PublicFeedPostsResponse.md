@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusSUCCESS** |  |  |
+|**status** | **APIStatus** |  |  |
 |**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  [optional] |
 |**urlIdWS** | **String** |  |  [optional] |

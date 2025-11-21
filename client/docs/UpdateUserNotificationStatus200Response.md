@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**matchedCount** | **Long** |  |  |
 |**modifiedCount** | **Long** |  |  |
 |**note** | [**NoteEnum**](#NoteEnum) |  |  |

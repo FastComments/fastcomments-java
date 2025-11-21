@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**userBadges** | [**List&lt;UserBadge&gt;**](UserBadge.md) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |

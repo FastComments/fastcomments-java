@@ -13,7 +13,7 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.NotificationAndCount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

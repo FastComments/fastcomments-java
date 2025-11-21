@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**data** | [**QuestionResultAggregationOverall**](QuestionResultAggregationOverall.md) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |

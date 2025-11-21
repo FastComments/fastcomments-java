@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
-|**auditLogs** | [**List&lt;PickTenantAuditLogTenantAuditLogKeys&gt;**](PickTenantAuditLogTenantAuditLogKeys.md) |  |  |
+|**status** | **APIStatus** |  |  |
+|**auditLogs** | [**List&lt;APIAuditLog&gt;**](APIAuditLog.md) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

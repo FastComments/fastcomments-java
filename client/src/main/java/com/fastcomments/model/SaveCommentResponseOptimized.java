@@ -14,7 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.PublicComment;
 import com.fastcomments.model.UserSessionInfo;
 import com.google.gson.TypeAdapter;
@@ -58,7 +58,7 @@ public class SaveCommentResponseOptimized {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusSUCCESS status;
+  private APIStatus status;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -78,7 +78,7 @@ public class SaveCommentResponseOptimized {
   public SaveCommentResponseOptimized() {
   }
 
-  public SaveCommentResponseOptimized status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public SaveCommentResponseOptimized status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -88,11 +88,11 @@ public class SaveCommentResponseOptimized {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusSUCCESS getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -254,7 +254,7 @@ public class SaveCommentResponseOptimized {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
-      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
       // validate the required field `comment`
       PublicComment.validateJsonElement(jsonObj.get("comment"));
       // validate the required field `user`

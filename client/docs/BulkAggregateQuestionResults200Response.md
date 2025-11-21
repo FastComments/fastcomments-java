@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**data** | [**Map&lt;String, QuestionResultAggregationOverall&gt;**](QuestionResultAggregationOverall.md) | Construct a type with a set of properties K of type T |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |

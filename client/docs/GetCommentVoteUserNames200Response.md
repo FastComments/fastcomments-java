@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**voteUserNames** | **List&lt;String&gt;** |  |  |
 |**hasMore** | **Boolean** |  |  |
 |**reason** | **String** |  |  |

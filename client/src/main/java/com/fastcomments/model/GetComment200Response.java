@@ -14,11 +14,11 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.APIComment;
 import com.fastcomments.model.APIError;
 import com.fastcomments.model.APIGetCommentResponse;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.PickFCommentAPICommentFieldsKeys;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
