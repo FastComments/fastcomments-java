@@ -61,6 +61,11 @@ public class PatchPageAPIResponse {
   @javax.annotation.Nullable
   private String code;
 
+  public static final String SERIALIZED_NAME_COMMENTS_UPDATED = "commentsUpdated";
+  @SerializedName(SERIALIZED_NAME_COMMENTS_UPDATED)
+  @javax.annotation.Nullable
+  private Long commentsUpdated;
+
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
   @javax.annotation.Nullable
@@ -109,6 +114,25 @@ public class PatchPageAPIResponse {
 
   public void setCode(@javax.annotation.Nullable String code) {
     this.code = code;
+  }
+
+
+  public PatchPageAPIResponse commentsUpdated(@javax.annotation.Nullable Long commentsUpdated) {
+    this.commentsUpdated = commentsUpdated;
+    return this;
+  }
+
+  /**
+   * Get commentsUpdated
+   * @return commentsUpdated
+   */
+  @javax.annotation.Nullable
+  public Long getCommentsUpdated() {
+    return commentsUpdated;
+  }
+
+  public void setCommentsUpdated(@javax.annotation.Nullable Long commentsUpdated) {
+    this.commentsUpdated = commentsUpdated;
   }
 
 
@@ -206,6 +230,7 @@ public class PatchPageAPIResponse {
     PatchPageAPIResponse patchPageAPIResponse = (PatchPageAPIResponse) o;
     return Objects.equals(this.reason, patchPageAPIResponse.reason) &&
         Objects.equals(this.code, patchPageAPIResponse.code) &&
+        Objects.equals(this.commentsUpdated, patchPageAPIResponse.commentsUpdated) &&
         Objects.equals(this.page, patchPageAPIResponse.page) &&
         Objects.equals(this.status, patchPageAPIResponse.status)&&
         Objects.equals(this.additionalProperties, patchPageAPIResponse.additionalProperties);
@@ -213,7 +238,7 @@ public class PatchPageAPIResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(reason, code, page, status, additionalProperties);
+    return Objects.hash(reason, code, commentsUpdated, page, status, additionalProperties);
   }
 
   @Override
@@ -222,6 +247,7 @@ public class PatchPageAPIResponse {
     sb.append("class PatchPageAPIResponse {\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    commentsUpdated: ").append(toIndentedString(commentsUpdated)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -249,6 +275,7 @@ public class PatchPageAPIResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("reason");
     openapiFields.add("code");
+    openapiFields.add("commentsUpdated");
     openapiFields.add("page");
     openapiFields.add("status");
 

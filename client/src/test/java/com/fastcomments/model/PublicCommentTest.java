@@ -42,14 +42,6 @@ public class PublicCommentTest {
     }
 
     /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        // TODO: test date
-    }
-
-    /**
      * Test the property 'id'
      */
     @Test
@@ -63,14 +55,6 @@ public class PublicCommentTest {
     @Test
     public void userIdTest() {
         // TODO: test userId
-    }
-
-    /**
-     * Test the property 'anonUserId'
-     */
-    @Test
-    public void anonUserIdTest() {
-        // TODO: test anonUserId
     }
 
     /**
@@ -103,6 +87,14 @@ public class PublicCommentTest {
     @Test
     public void parentIdTest() {
         // TODO: test parentId
+    }
+
+    /**
+     * Test the property 'date'
+     */
+    @Test
+    public void dateTest() {
+        // TODO: test date
     }
 
     /**
@@ -146,35 +138,11 @@ public class PublicCommentTest {
     }
 
     /**
-     * Test the property 'isSpam'
-     */
-    @Test
-    public void isSpamTest() {
-        // TODO: test isSpam
-    }
-
-    /**
      * Test the property 'hasImages'
      */
     @Test
     public void hasImagesTest() {
         // TODO: test hasImages
-    }
-
-    /**
-     * Test the property 'isDeleted'
-     */
-    @Test
-    public void isDeletedTest() {
-        // TODO: test isDeleted
-    }
-
-    /**
-     * Test the property 'isDeletedUser'
-     */
-    @Test
-    public void isDeletedUserTest() {
-        // TODO: test isDeletedUser
     }
 
     /**
@@ -210,19 +178,19 @@ public class PublicCommentTest {
     }
 
     /**
-     * Test the property 'rating'
-     */
-    @Test
-    public void ratingTest() {
-        // TODO: test rating
-    }
-
-    /**
      * Test the property 'displayLabel'
      */
     @Test
     public void displayLabelTest() {
         // TODO: test displayLabel
+    }
+
+    /**
+     * Test the property 'rating'
+     */
+    @Test
+    public void ratingTest() {
+        // TODO: test rating
     }
 
     /**
@@ -234,19 +202,51 @@ public class PublicCommentTest {
     }
 
     /**
-     * Test the property 'feedbackIds'
-     */
-    @Test
-    public void feedbackIdsTest() {
-        // TODO: test feedbackIds
-    }
-
-    /**
      * Test the property 'viewCount'
      */
     @Test
     public void viewCountTest() {
         // TODO: test viewCount
+    }
+
+    /**
+     * Test the property 'isDeleted'
+     */
+    @Test
+    public void isDeletedTest() {
+        // TODO: test isDeleted
+    }
+
+    /**
+     * Test the property 'isDeletedUser'
+     */
+    @Test
+    public void isDeletedUserTest() {
+        // TODO: test isDeletedUser
+    }
+
+    /**
+     * Test the property 'isSpam'
+     */
+    @Test
+    public void isSpamTest() {
+        // TODO: test isSpam
+    }
+
+    /**
+     * Test the property 'anonUserId'
+     */
+    @Test
+    public void anonUserIdTest() {
+        // TODO: test anonUserId
+    }
+
+    /**
+     * Test the property 'feedbackIds'
+     */
+    @Test
+    public void feedbackIdsTest() {
+        // TODO: test feedbackIds
     }
 
     /**
@@ -263,6 +263,14 @@ public class PublicCommentTest {
     @Test
     public void editKeyTest() {
         // TODO: test editKey
+    }
+
+    /**
+     * Test the property 'approved'
+     */
+    @Test
+    public void approvedTest() {
+        // TODO: test approved
     }
 
     /**

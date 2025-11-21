@@ -64,13 +64,13 @@ import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
 import com.fastcomments.model.PatchPageAPIResponse;
 import com.fastcomments.model.PatchSSOUserAPIResponse;
-import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
 import com.fastcomments.model.PutSSOUserAPIResponse;
 import com.fastcomments.model.SORTDIR;
 import com.fastcomments.model.SaveComment200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
+import com.fastcomments.model.UpdatableCommentParams;
 import com.fastcomments.model.UpdateAPIPageData;
 import com.fastcomments.model.UpdateAPISSOUserData;
 import com.fastcomments.model.UpdateDomainConfigParams;
@@ -781,11 +781,11 @@ public class DefaultApiTest {
     public void updateCommentTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        PickAPICommentUpdatableCommentFields body = null;
+        UpdatableCommentParams updatableCommentParams = null;
         String contextUserId = null;
         Boolean doSpamCheck = null;
         Boolean isLive = null;
-        FlagCommentPublic200Response response = api.updateComment(tenantId, id, body)
+        FlagCommentPublic200Response response = api.updateComment(tenantId, id, updatableCommentParams)
                 .contextUserId(contextUserId)
                 .doSpamCheck(doSpamCheck)
                 .isLive(isLive)

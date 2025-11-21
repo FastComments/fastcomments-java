@@ -77,13 +77,13 @@ import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
 import com.fastcomments.model.PatchPageAPIResponse;
 import com.fastcomments.model.PatchSSOUserAPIResponse;
-import com.fastcomments.model.PickAPICommentUpdatableCommentFields;
 import com.fastcomments.model.PutSSOUserAPIResponse;
 import com.fastcomments.model.SORTDIR;
 import com.fastcomments.model.SaveComment200Response;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
+import com.fastcomments.model.UpdatableCommentParams;
 import com.fastcomments.model.UpdateAPIPageData;
 import com.fastcomments.model.UpdateAPISSOUserData;
 import com.fastcomments.model.UpdateDomainConfigParams;
@@ -8691,7 +8691,7 @@ public class DefaultApi {
     public APIunFlagCommentRequest unFlagComment(String tenantId, String id) {
         return new APIunFlagCommentRequest(tenantId, id);
     }
-    private okhttp3.Call updateCommentCall(String tenantId, String id, PickAPICommentUpdatableCommentFields body, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCommentCall(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8705,7 +8705,7 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = updatableCommentParams;
 
         // create path and map variables
         String localVarPath = "/api/v1/comments/{id}"
@@ -8754,7 +8754,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCommentValidateBeforeCall(String tenantId, String id, PickAPICommentUpdatableCommentFields body, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCommentValidateBeforeCall(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateComment(Async)");
@@ -8765,25 +8765,25 @@ public class DefaultApi {
             throw new ApiException("Missing the required parameter 'id' when calling updateComment(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
-            throw new ApiException("Missing the required parameter 'body' when calling updateComment(Async)");
+        // verify the required parameter 'updatableCommentParams' is set
+        if (updatableCommentParams == null) {
+            throw new ApiException("Missing the required parameter 'updatableCommentParams' when calling updateComment(Async)");
         }
 
-        return updateCommentCall(tenantId, id, body, contextUserId, doSpamCheck, isLive, _callback);
+        return updateCommentCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, _callback);
 
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateCommentWithHttpInfo(String tenantId, String id, PickAPICommentUpdatableCommentFields body, String contextUserId, Boolean doSpamCheck, Boolean isLive) throws ApiException {
-        okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, body, contextUserId, doSpamCheck, isLive, null);
+    private ApiResponse<FlagCommentPublic200Response> updateCommentWithHttpInfo(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive) throws ApiException {
+        okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateCommentAsync(String tenantId, String id, PickAPICommentUpdatableCommentFields body, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateCommentAsync(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, body, contextUserId, doSpamCheck, isLive, _callback);
+        okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8792,15 +8792,15 @@ public class DefaultApi {
     public class APIupdateCommentRequest {
         private final String tenantId;
         private final String id;
-        private final PickAPICommentUpdatableCommentFields body;
+        private final UpdatableCommentParams updatableCommentParams;
         private String contextUserId;
         private Boolean doSpamCheck;
         private Boolean isLive;
 
-        private APIupdateCommentRequest(String tenantId, String id, PickAPICommentUpdatableCommentFields body) {
+        private APIupdateCommentRequest(String tenantId, String id, UpdatableCommentParams updatableCommentParams) {
             this.tenantId = tenantId;
             this.id = id;
-            this.body = body;
+            this.updatableCommentParams = updatableCommentParams;
         }
 
         /**
@@ -8846,7 +8846,7 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return updateCommentCall(tenantId, id, body, contextUserId, doSpamCheck, isLive, _callback);
+            return updateCommentCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, _callback);
         }
 
         /**
@@ -8861,7 +8861,7 @@ public class DefaultApi {
          </table>
          */
         public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateCommentWithHttpInfo(tenantId, id, body, contextUserId, doSpamCheck, isLive);
+            ApiResponse<FlagCommentPublic200Response> localVarResp = updateCommentWithHttpInfo(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive);
             return localVarResp.getData();
         }
 
@@ -8877,7 +8877,7 @@ public class DefaultApi {
          </table>
          */
         public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
-            return updateCommentWithHttpInfo(tenantId, id, body, contextUserId, doSpamCheck, isLive);
+            return updateCommentWithHttpInfo(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive);
         }
 
         /**
@@ -8893,7 +8893,7 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
-            return updateCommentAsync(tenantId, id, body, contextUserId, doSpamCheck, isLive, _callback);
+            return updateCommentAsync(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, _callback);
         }
     }
 
@@ -8902,7 +8902,7 @@ public class DefaultApi {
      * 
      * @param tenantId  (required)
      * @param id  (required)
-     * @param body  (required)
+     * @param updatableCommentParams  (required)
      * @return APIupdateCommentRequest
      * @http.response.details
      <table border="1">
@@ -8911,8 +8911,8 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateCommentRequest updateComment(String tenantId, String id, PickAPICommentUpdatableCommentFields body) {
-        return new APIupdateCommentRequest(tenantId, id, body);
+    public APIupdateCommentRequest updateComment(String tenantId, String id, UpdatableCommentParams updatableCommentParams) {
+        return new APIupdateCommentRequest(tenantId, id, updatableCommentParams);
     }
     private okhttp3.Call updateFeedPostCall(String tenantId, String id, FeedPost feedPost, final ApiCallback _callback) throws ApiException {
         String basePath = null;

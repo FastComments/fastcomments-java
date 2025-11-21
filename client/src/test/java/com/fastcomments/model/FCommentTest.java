@@ -13,6 +13,7 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.CommentLogEntry;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;

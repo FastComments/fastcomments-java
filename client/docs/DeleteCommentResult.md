@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**action** | **DeleteCommentAction** |  |  |
-|**status** | **ImportedAPIStatusSUCCESS** |  |  |
+|**status** | **APIStatus** |  |  |
 
 
 

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusSUCCESS** |  |  |
+|**status** | **APIStatus** |  |  |
 |**users** | [**List&lt;UserSearchResult&gt;**](UserSearchResult.md) |  |  |
 
 

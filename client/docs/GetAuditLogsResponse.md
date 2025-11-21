@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**auditLogs** | [**List&lt;PickTenantAuditLogTenantAuditLogKeys&gt;**](PickTenantAuditLogTenantAuditLogKeys.md) |  |  |
+|**auditLogs** | [**List&lt;APIAuditLog&gt;**](APIAuditLog.md) |  |  |
 
 
 

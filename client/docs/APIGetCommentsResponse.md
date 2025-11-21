@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**comments** | [**List&lt;PickFCommentAPICommentFieldsKeys&gt;**](PickFCommentAPICommentFieldsKeys.md) |  |  |
+|**comments** | [**List&lt;APIComment&gt;**](APIComment.md) |  |  |
 
 
 

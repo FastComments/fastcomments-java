@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
-|**comment** | [**PickFCommentAPICommentFieldsKeys**](PickFCommentAPICommentFieldsKeys.md) |  |  |
+|**status** | **APIStatus** |  |  |
+|**comment** | [**APIComment**](APIComment.md) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

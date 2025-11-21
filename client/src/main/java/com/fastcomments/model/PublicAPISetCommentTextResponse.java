@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
-import com.fastcomments.model.PickFCommentApprovedOrCommentHTML;
+import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.SetCommentTextResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,17 +55,17 @@ public class PublicAPISetCommentTextResponse {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   @javax.annotation.Nonnull
-  private PickFCommentApprovedOrCommentHTML comment;
+  private SetCommentTextResult comment;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusSUCCESS status;
+  private APIStatus status;
 
   public PublicAPISetCommentTextResponse() {
   }
 
-  public PublicAPISetCommentTextResponse comment(@javax.annotation.Nonnull PickFCommentApprovedOrCommentHTML comment) {
+  public PublicAPISetCommentTextResponse comment(@javax.annotation.Nonnull SetCommentTextResult comment) {
     this.comment = comment;
     return this;
   }
@@ -75,16 +75,16 @@ public class PublicAPISetCommentTextResponse {
    * @return comment
    */
   @javax.annotation.Nonnull
-  public PickFCommentApprovedOrCommentHTML getComment() {
+  public SetCommentTextResult getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nonnull PickFCommentApprovedOrCommentHTML comment) {
+  public void setComment(@javax.annotation.Nonnull SetCommentTextResult comment) {
     this.comment = comment;
   }
 
 
-  public PublicAPISetCommentTextResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public PublicAPISetCommentTextResponse status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -94,11 +94,11 @@ public class PublicAPISetCommentTextResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusSUCCESS getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -226,9 +226,9 @@ public class PublicAPISetCommentTextResponse {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `comment`
-      PickFCommentApprovedOrCommentHTML.validateJsonElement(jsonObj.get("comment"));
+      SetCommentTextResult.validateJsonElement(jsonObj.get("comment"));
       // validate the required field `status`
-      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

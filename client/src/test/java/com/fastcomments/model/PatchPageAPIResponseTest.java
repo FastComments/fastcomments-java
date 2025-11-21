@@ -55,6 +55,14 @@ public class PatchPageAPIResponseTest {
     }
 
     /**
+     * Test the property 'commentsUpdated'
+     */
+    @Test
+    public void commentsUpdatedTest() {
+        // TODO: test commentsUpdated
+    }
+
+    /**
      * Test the property 'page'
      */
     @Test

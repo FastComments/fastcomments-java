@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**comment** | [**PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId**](PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.md) |  |  [optional] |
+|**comment** | [**DeletedCommentResultComment**](DeletedCommentResultComment.md) |  |  [optional] |
 |**hardRemoved** | **Boolean** |  |  |
-|**status** | **ImportedAPIStatusSUCCESS** |  |  |
+|**status** | **APIStatus** |  |  |
 
 
 

@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
-import com.fastcomments.model.PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId;
+import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.DeletedCommentResultComment;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ public class PublicAPIDeleteCommentResponse {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   @javax.annotation.Nullable
-  private PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId comment;
+  private DeletedCommentResultComment comment;
 
   public static final String SERIALIZED_NAME_HARD_REMOVED = "hardRemoved";
   @SerializedName(SERIALIZED_NAME_HARD_REMOVED)
@@ -65,12 +65,12 @@ public class PublicAPIDeleteCommentResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusSUCCESS status;
+  private APIStatus status;
 
   public PublicAPIDeleteCommentResponse() {
   }
 
-  public PublicAPIDeleteCommentResponse comment(@javax.annotation.Nullable PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId comment) {
+  public PublicAPIDeleteCommentResponse comment(@javax.annotation.Nullable DeletedCommentResultComment comment) {
     this.comment = comment;
     return this;
   }
@@ -80,11 +80,11 @@ public class PublicAPIDeleteCommentResponse {
    * @return comment
    */
   @javax.annotation.Nullable
-  public PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId getComment() {
+  public DeletedCommentResultComment getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nullable PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId comment) {
+  public void setComment(@javax.annotation.Nullable DeletedCommentResultComment comment) {
     this.comment = comment;
   }
 
@@ -108,7 +108,7 @@ public class PublicAPIDeleteCommentResponse {
   }
 
 
-  public PublicAPIDeleteCommentResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public PublicAPIDeleteCommentResponse status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -118,11 +118,11 @@ public class PublicAPIDeleteCommentResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusSUCCESS getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -254,10 +254,10 @@ public class PublicAPIDeleteCommentResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the optional field `comment`
       if (jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) {
-        PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.validateJsonElement(jsonObj.get("comment"));
+        DeletedCommentResultComment.validateJsonElement(jsonObj.get("comment"));
       }
       // validate the required field `status`
-      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

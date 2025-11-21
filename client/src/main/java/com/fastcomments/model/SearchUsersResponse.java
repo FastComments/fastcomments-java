@@ -14,7 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.UserSearchResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -57,7 +57,7 @@ public class SearchUsersResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusSUCCESS status;
+  private APIStatus status;
 
   public static final String SERIALIZED_NAME_USERS = "users";
   @SerializedName(SERIALIZED_NAME_USERS)
@@ -67,7 +67,7 @@ public class SearchUsersResponse {
   public SearchUsersResponse() {
   }
 
-  public SearchUsersResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public SearchUsersResponse status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -77,11 +77,11 @@ public class SearchUsersResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusSUCCESS getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -236,7 +236,7 @@ public class SearchUsersResponse {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
-      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("users").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));

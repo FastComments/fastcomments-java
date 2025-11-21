@@ -472,6 +472,14 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'noNewRootComments'
+     */
+    @Test
+    public void noNewRootCommentsTest() {
+        // TODO: test noNewRootComments
+    }
+
+    /**
      * Test the property 'requireSSO'
      */
     @Test

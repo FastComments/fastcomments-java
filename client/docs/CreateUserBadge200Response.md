@@ -7,8 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**userBadge** | [**UserBadge**](UserBadge.md) |  |  |
+|**notes** | **List&lt;String&gt;** |  |  [optional] |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

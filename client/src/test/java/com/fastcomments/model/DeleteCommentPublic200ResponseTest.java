@@ -14,9 +14,9 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
-import com.fastcomments.model.PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId;
+import com.fastcomments.model.DeletedCommentResultComment;
 import com.fastcomments.model.PublicAPIDeleteCommentResponse;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

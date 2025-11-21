@@ -14,7 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.ImportedAPIStatusSUCCESS;
+import com.fastcomments.model.APIStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -56,7 +56,7 @@ public class GetCommentVoteUserNamesSuccessResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusSUCCESS status;
+  private APIStatus status;
 
   public static final String SERIALIZED_NAME_VOTE_USER_NAMES = "voteUserNames";
   @SerializedName(SERIALIZED_NAME_VOTE_USER_NAMES)
@@ -71,7 +71,7 @@ public class GetCommentVoteUserNamesSuccessResponse {
   public GetCommentVoteUserNamesSuccessResponse() {
   }
 
-  public GetCommentVoteUserNamesSuccessResponse status(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public GetCommentVoteUserNamesSuccessResponse status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -81,11 +81,11 @@ public class GetCommentVoteUserNamesSuccessResponse {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusSUCCESS getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusSUCCESS status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -225,7 +225,7 @@ public class GetCommentVoteUserNamesSuccessResponse {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
-      ImportedAPIStatusSUCCESS.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the required json array is present
       if (jsonObj.get("voteUserNames") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>0.0.27</version>
+  <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:0.0.27"
+     implementation "com.fastcomments:client:1.0.0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-0.0.27.jar`
+* `target/client-1.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -209,6 +209,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [APIAuditLog](docs/APIAuditLog.md)
+ - [APIComment](docs/APIComment.md)
+ - [APICommentBase](docs/APICommentBase.md)
  - [APICreateUserBadgeResponse](docs/APICreateUserBadgeResponse.md)
  - [APIEmptyResponse](docs/APIEmptyResponse.md)
  - [APIEmptySuccessResponse](docs/APIEmptySuccessResponse.md)
@@ -253,6 +256,9 @@ Class | Method | HTTP request | Description
  - [CombineQuestionResultsWithCommentsResponse](docs/CombineQuestionResultsWithCommentsResponse.md)
  - [CommentData](docs/CommentData.md)
  - [CommentHTMLRenderingMode](docs/CommentHTMLRenderingMode.md)
+ - [CommentLogData](docs/CommentLogData.md)
+ - [CommentLogEntry](docs/CommentLogEntry.md)
+ - [CommentLogType](docs/CommentLogType.md)
  - [CommentQuestionResultsRenderingType](docs/CommentQuestionResultsRenderingType.md)
  - [CommentQuestionsRequired](docs/CommentQuestionsRequired.md)
  - [CommentTextUpdateRequest](docs/CommentTextUpdateRequest.md)
@@ -286,6 +292,7 @@ Class | Method | HTTP request | Description
  - [DeletePageAPIResponse](docs/DeletePageAPIResponse.md)
  - [DeleteSSOUserAPIResponse](docs/DeleteSSOUserAPIResponse.md)
  - [DeleteSubscriptionAPIResponse](docs/DeleteSubscriptionAPIResponse.md)
+ - [DeletedCommentResultComment](docs/DeletedCommentResultComment.md)
  - [EventLogEntry](docs/EventLogEntry.md)
  - [FComment](docs/FComment.md)
  - [FCommentMeta](docs/FCommentMeta.md)
@@ -342,8 +349,6 @@ Class | Method | HTTP request | Description
  - [HeaderState](docs/HeaderState.md)
  - [IgnoredResponse](docs/IgnoredResponse.md)
  - [ImageContentProfanityLevel](docs/ImageContentProfanityLevel.md)
- - [ImportedAPIStatusFAILED](docs/ImportedAPIStatusFAILED.md)
- - [ImportedAPIStatusSUCCESS](docs/ImportedAPIStatusSUCCESS.md)
  - [LiveEvent](docs/LiveEvent.md)
  - [LiveEventExtraInfo](docs/LiveEventExtraInfo.md)
  - [LiveEventType](docs/LiveEventType.md)
@@ -356,22 +361,16 @@ Class | Method | HTTP request | Description
  - [PatchDomainConfigParams](docs/PatchDomainConfigParams.md)
  - [PatchPageAPIResponse](docs/PatchPageAPIResponse.md)
  - [PatchSSOUserAPIResponse](docs/PatchSSOUserAPIResponse.md)
- - [PickAPICommentUpdatableCommentFields](docs/PickAPICommentUpdatableCommentFields.md)
- - [PickFCommentAPICommentFieldsKeys](docs/PickFCommentAPICommentFieldsKeys.md)
- - [PickFCommentAPICommentFieldsKeysMeta](docs/PickFCommentAPICommentFieldsKeysMeta.md)
- - [PickFCommentApprovedOrCommentHTML](docs/PickFCommentApprovedOrCommentHTML.md)
- - [PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId](docs/PickFCommentIsDeletedOrCommentHTMLOrCommenterNameOrUserId.md)
- - [PickFCommentPublicCommentFieldsKeys](docs/PickFCommentPublicCommentFieldsKeys.md)
- - [PickOmitFCommentDatePublicCommentPubSubFieldsKeys](docs/PickOmitFCommentDatePublicCommentPubSubFieldsKeys.md)
- - [PickTenantAuditLogTenantAuditLogKeys](docs/PickTenantAuditLogTenantAuditLogKeys.md)
  - [PinComment200Response](docs/PinComment200Response.md)
  - [PubSubComment](docs/PubSubComment.md)
+ - [PubSubCommentBase](docs/PubSubCommentBase.md)
  - [PubSubVote](docs/PubSubVote.md)
  - [PublicAPIDeleteCommentResponse](docs/PublicAPIDeleteCommentResponse.md)
  - [PublicAPIGetCommentTextResponse](docs/PublicAPIGetCommentTextResponse.md)
  - [PublicAPISetCommentTextResponse](docs/PublicAPISetCommentTextResponse.md)
  - [PublicBlockFromCommentParams](docs/PublicBlockFromCommentParams.md)
  - [PublicComment](docs/PublicComment.md)
+ - [PublicCommentBase](docs/PublicCommentBase.md)
  - [PublicFeedPostsResponse](docs/PublicFeedPostsResponse.md)
  - [PutSSOUserAPIResponse](docs/PutSSOUserAPIResponse.md)
  - [QueryPredicate](docs/QueryPredicate.md)
@@ -388,6 +387,8 @@ Class | Method | HTTP request | Description
  - [RecordStringBeforeStringOrNullAfterStringOrNullValue](docs/RecordStringBeforeStringOrNullAfterStringOrNullValue.md)
  - [RecordStringStringOrNumberValue](docs/RecordStringStringOrNumberValue.md)
  - [RenderableUserNotification](docs/RenderableUserNotification.md)
+ - [RepeatCommentCheckIgnoredReason](docs/RepeatCommentCheckIgnoredReason.md)
+ - [RepeatCommentHandlingAction](docs/RepeatCommentHandlingAction.md)
  - [ResetUserNotifications200Response](docs/ResetUserNotifications200Response.md)
  - [ResetUserNotificationsResponse](docs/ResetUserNotificationsResponse.md)
  - [SORTDIR](docs/SORTDIR.md)
@@ -399,12 +400,14 @@ Class | Method | HTTP request | Description
  - [SearchUsers200Response](docs/SearchUsers200Response.md)
  - [SearchUsersResponse](docs/SearchUsersResponse.md)
  - [SetCommentText200Response](docs/SetCommentText200Response.md)
+ - [SetCommentTextResult](docs/SetCommentTextResult.md)
  - [SizePreset](docs/SizePreset.md)
  - [SortDirections](docs/SortDirections.md)
  - [SpamRule](docs/SpamRule.md)
  - [UnBlockCommentPublic200Response](docs/UnBlockCommentPublic200Response.md)
  - [UnBlockFromCommentParams](docs/UnBlockFromCommentParams.md)
  - [UnblockSuccess](docs/UnblockSuccess.md)
+ - [UpdatableCommentParams](docs/UpdatableCommentParams.md)
  - [UpdateAPIPageData](docs/UpdateAPIPageData.md)
  - [UpdateAPISSOUserData](docs/UpdateAPISSOUserData.md)
  - [UpdateDomainConfigParams](docs/UpdateDomainConfigParams.md)
@@ -424,7 +427,6 @@ Class | Method | HTTP request | Description
  - [VoteBodyParams](docs/VoteBodyParams.md)
  - [VoteComment200Response](docs/VoteComment200Response.md)
  - [VoteDeleteResponse](docs/VoteDeleteResponse.md)
- - [VoteDeleteResponseStatus](docs/VoteDeleteResponseStatus.md)
  - [VoteResponse](docs/VoteResponse.md)
  - [VoteResponseStatus](docs/VoteResponseStatus.md)
  - [VoteResponseUser](docs/VoteResponseUser.md)

@@ -73,7 +73,7 @@
 |**autoplayJobId** | **String** |  |  [optional] |
 |**autoplayDelayMS** | **Long** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
-|**logs** | **List&lt;List&lt;Object&gt;&gt;** |  |  [optional] |
+|**logs** | [**List&lt;CommentLogEntry&gt;**](CommentLogEntry.md) |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**viewCount** | **Long** |  |  [optional] |
 |**requiresVerification** | **Boolean** |  |  [optional] |

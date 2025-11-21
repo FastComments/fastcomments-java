@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.APIComment;
 import com.fastcomments.model.APIStatus;
-import com.fastcomments.model.PickFCommentAPICommentFieldsKeys;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -60,7 +60,7 @@ public class APIGetCommentResponse {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
   @javax.annotation.Nonnull
-  private PickFCommentAPICommentFieldsKeys comment;
+  private APIComment comment;
 
   public APIGetCommentResponse() {
   }
@@ -84,7 +84,7 @@ public class APIGetCommentResponse {
   }
 
 
-  public APIGetCommentResponse comment(@javax.annotation.Nonnull PickFCommentAPICommentFieldsKeys comment) {
+  public APIGetCommentResponse comment(@javax.annotation.Nonnull APIComment comment) {
     this.comment = comment;
     return this;
   }
@@ -94,11 +94,11 @@ public class APIGetCommentResponse {
    * @return comment
    */
   @javax.annotation.Nonnull
-  public PickFCommentAPICommentFieldsKeys getComment() {
+  public APIComment getComment() {
     return comment;
   }
 
-  public void setComment(@javax.annotation.Nonnull PickFCommentAPICommentFieldsKeys comment) {
+  public void setComment(@javax.annotation.Nonnull APIComment comment) {
     this.comment = comment;
   }
 
@@ -190,7 +190,7 @@ public class APIGetCommentResponse {
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // validate the required field `comment`
-      PickFCommentAPICommentFieldsKeys.validateJsonElement(jsonObj.get("comment"));
+      APIComment.validateJsonElement(jsonObj.get("comment"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

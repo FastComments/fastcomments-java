@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**data** | [**FindCommentsByRangeResponse**](FindCommentsByRangeResponse.md) |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |

@@ -15,8 +15,8 @@ package com.fastcomments.model;
 
 import com.fastcomments.model.APICreateUserBadgeResponse;
 import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.fastcomments.model.UserBadge;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -24,7 +24,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -56,6 +58,14 @@ public class CreateUserBadge200ResponseTest {
     @Test
     public void userBadgeTest() {
         // TODO: test userBadge
+    }
+
+    /**
+     * Test the property 'notes'
+     */
+    @Test
+    public void notesTest() {
+        // TODO: test notes
     }
 
     /**

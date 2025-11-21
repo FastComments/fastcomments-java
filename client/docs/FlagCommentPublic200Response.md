@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

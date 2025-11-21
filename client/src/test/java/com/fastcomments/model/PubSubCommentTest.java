@@ -42,14 +42,6 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        // TODO: test date
-    }
-
-    /**
      * Test the property 'id'
      */
     @Test
@@ -66,30 +58,6 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'urlId'
-     */
-    @Test
-    public void urlIdTest() {
-        // TODO: test urlId
-    }
-
-    /**
-     * Test the property 'url'
-     */
-    @Test
-    public void urlTest() {
-        // TODO: test url
-    }
-
-    /**
-     * Test the property 'pageTitle'
-     */
-    @Test
-    public void pageTitleTest() {
-        // TODO: test pageTitle
-    }
-
-    /**
      * Test the property 'userId'
      */
     @Test
@@ -98,11 +66,11 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'anonUserId'
+     * Test the property 'urlId'
      */
     @Test
-    public void anonUserIdTest() {
-        // TODO: test anonUserId
+    public void urlIdTest() {
+        // TODO: test urlId
     }
 
     /**
@@ -122,19 +90,19 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'comment'
-     */
-    @Test
-    public void commentTest() {
-        // TODO: test comment
-    }
-
-    /**
      * Test the property 'commentHTML'
      */
     @Test
     public void commentHTMLTest() {
         // TODO: test commentHTML
+    }
+
+    /**
+     * Test the property 'comment'
+     */
+    @Test
+    public void commentTest() {
+        // TODO: test comment
     }
 
     /**
@@ -170,14 +138,6 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'expireAt'
-     */
-    @Test
-    public void expireAtTest() {
-        // TODO: test expireAt
-    }
-
-    /**
      * Test the property 'verified'
      */
     @Test
@@ -186,27 +146,11 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'reviewed'
-     */
-    @Test
-    public void reviewedTest() {
-        // TODO: test reviewed
-    }
-
-    /**
      * Test the property 'avatarSrc'
      */
     @Test
     public void avatarSrcTest() {
         // TODO: test avatarSrc
-    }
-
-    /**
-     * Test the property 'isSpam'
-     */
-    @Test
-    public void isSpamTest() {
-        // TODO: test isSpam
     }
 
     /**
@@ -223,54 +167,6 @@ public class PubSubCommentTest {
     @Test
     public void hasLinksTest() {
         // TODO: test hasLinks
-    }
-
-    /**
-     * Test the property 'hasCode'
-     */
-    @Test
-    public void hasCodeTest() {
-        // TODO: test hasCode
-    }
-
-    /**
-     * Test the property 'approved'
-     */
-    @Test
-    public void approvedTest() {
-        // TODO: test approved
-    }
-
-    /**
-     * Test the property 'locale'
-     */
-    @Test
-    public void localeTest() {
-        // TODO: test locale
-    }
-
-    /**
-     * Test the property 'isDeleted'
-     */
-    @Test
-    public void isDeletedTest() {
-        // TODO: test isDeleted
-    }
-
-    /**
-     * Test the property 'isDeletedUser'
-     */
-    @Test
-    public void isDeletedUserTest() {
-        // TODO: test isDeletedUser
-    }
-
-    /**
-     * Test the property 'isBannedUser'
-     */
-    @Test
-    public void isBannedUserTest() {
-        // TODO: test isBannedUser
     }
 
     /**
@@ -306,11 +202,11 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'flagCount'
+     * Test the property 'displayLabel'
      */
     @Test
-    public void flagCountTest() {
-        // TODO: test flagCount
+    public void displayLabelTest() {
+        // TODO: test displayLabel
     }
 
     /**
@@ -322,14 +218,6 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'displayLabel'
-     */
-    @Test
-    public void displayLabelTest() {
-        // TODO: test displayLabel
-    }
-
-    /**
      * Test the property 'badges'
      */
     @Test
@@ -338,11 +226,43 @@ public class PubSubCommentTest {
     }
 
     /**
-     * Test the property 'domain'
+     * Test the property 'viewCount'
      */
     @Test
-    public void domainTest() {
-        // TODO: test domain
+    public void viewCountTest() {
+        // TODO: test viewCount
+    }
+
+    /**
+     * Test the property 'isDeleted'
+     */
+    @Test
+    public void isDeletedTest() {
+        // TODO: test isDeleted
+    }
+
+    /**
+     * Test the property 'isDeletedUser'
+     */
+    @Test
+    public void isDeletedUserTest() {
+        // TODO: test isDeletedUser
+    }
+
+    /**
+     * Test the property 'isSpam'
+     */
+    @Test
+    public void isSpamTest() {
+        // TODO: test isSpam
+    }
+
+    /**
+     * Test the property 'anonUserId'
+     */
+    @Test
+    public void anonUserIdTest() {
+        // TODO: test anonUserId
     }
 
     /**
@@ -354,19 +274,91 @@ public class PubSubCommentTest {
     }
 
     /**
+     * Test the property 'flagCount'
+     */
+    @Test
+    public void flagCountTest() {
+        // TODO: test flagCount
+    }
+
+    /**
+     * Test the property 'domain'
+     */
+    @Test
+    public void domainTest() {
+        // TODO: test domain
+    }
+
+    /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
+    }
+
+    /**
+     * Test the property 'pageTitle'
+     */
+    @Test
+    public void pageTitleTest() {
+        // TODO: test pageTitle
+    }
+
+    /**
+     * Test the property 'expireAt'
+     */
+    @Test
+    public void expireAtTest() {
+        // TODO: test expireAt
+    }
+
+    /**
+     * Test the property 'reviewed'
+     */
+    @Test
+    public void reviewedTest() {
+        // TODO: test reviewed
+    }
+
+    /**
+     * Test the property 'hasCode'
+     */
+    @Test
+    public void hasCodeTest() {
+        // TODO: test hasCode
+    }
+
+    /**
+     * Test the property 'approved'
+     */
+    @Test
+    public void approvedTest() {
+        // TODO: test approved
+    }
+
+    /**
+     * Test the property 'locale'
+     */
+    @Test
+    public void localeTest() {
+        // TODO: test locale
+    }
+
+    /**
+     * Test the property 'isBannedUser'
+     */
+    @Test
+    public void isBannedUserTest() {
+        // TODO: test isBannedUser
+    }
+
+    /**
      * Test the property 'groupIds'
      */
     @Test
     public void groupIdsTest() {
         // TODO: test groupIds
-    }
-
-    /**
-     * Test the property 'viewCount'
-     */
-    @Test
-    public void viewCountTest() {
-        // TODO: test viewCount
     }
 
     /**
@@ -383,6 +375,14 @@ public class PubSubCommentTest {
     @Test
     public void hiddenTest() {
         // TODO: test hidden
+    }
+
+    /**
+     * Test the property 'date'
+     */
+    @Test
+    public void dateTest() {
+        // TODO: test date
     }
 
 }

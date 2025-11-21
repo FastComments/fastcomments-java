@@ -11,7 +11,7 @@
 |**isSubscribed** | **Boolean** |  |  |
 |**hasMore** | **Boolean** |  |  |
 |**notifications** | [**List&lt;RenderableUserNotification&gt;**](RenderableUserNotification.md) |  |  |
-|**status** | **ImportedAPIStatusFAILED** |  |  |
+|**status** | **APIStatus** |  |  |
 |**reason** | **String** |  |  |
 |**code** | **String** |  |  |
 |**secondaryCode** | **String** |  |  [optional] |

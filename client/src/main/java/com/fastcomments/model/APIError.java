@@ -14,8 +14,8 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ public class APIError {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   @javax.annotation.Nonnull
-  private ImportedAPIStatusFAILED status;
+  private APIStatus status;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -95,7 +95,7 @@ public class APIError {
   public APIError() {
   }
 
-  public APIError status(@javax.annotation.Nonnull ImportedAPIStatusFAILED status) {
+  public APIError status(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
     return this;
   }
@@ -105,11 +105,11 @@ public class APIError {
    * @return status
    */
   @javax.annotation.Nonnull
-  public ImportedAPIStatusFAILED getStatus() {
+  public APIStatus getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nonnull ImportedAPIStatusFAILED status) {
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
     this.status = status;
   }
 
@@ -351,7 +351,7 @@ public class APIError {
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
-      ImportedAPIStatusFAILED.validateJsonElement(jsonObj.get("status"));
+      APIStatus.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }

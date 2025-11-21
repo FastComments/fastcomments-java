@@ -16,8 +16,8 @@ package com.fastcomments.model;
 import java.util.Objects;
 import com.fastcomments.model.APICreateUserBadgeResponse;
 import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.ImportedAPIStatusFAILED;
 import com.fastcomments.model.UserBadge;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -25,7 +25,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 

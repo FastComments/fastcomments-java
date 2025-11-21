@@ -3930,10 +3930,6 @@ components:
       - name
       - type
       type: object
-    ImportedAPIStatus.SUCCESS:
-      enum:
-      - success
-      type: string
     SearchUsersResponse:
       example:
         users:
@@ -3950,7 +3946,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         users:
           items:
             $ref: '#/components/schemas/UserSearchResult'
@@ -3959,10 +3955,6 @@ components:
       - status
       - users
       type: object
-    ImportedAPIStatus.FAILED:
-      enum:
-      - failed
-      type: string
     CommentHTMLRenderingMode:
       enum:
       - 0
@@ -4142,6 +4134,7 @@ components:
         hideAvatars: true
         defaultAvatarSrc: defaultAvatarSrc
         commentHTMLRenderingMode: 1.4658129805029452
+        noNewRootComments: true
         maxCommentCharacterLength: 5
         useSingleLineCommentInput: true
         allowedLanguages:
@@ -4281,6 +4274,8 @@ components:
           type: integer
         readonly:
           type: boolean
+        noNewRootComments:
+          type: boolean
         requireSSO:
           type: boolean
         enableResizeHandle:
@@ -4409,6 +4404,7 @@ components:
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
           commentHTMLRenderingMode: 1.4658129805029452
+          noNewRootComments: true
           maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
           allowedLanguages:
@@ -4423,10 +4419,10 @@ components:
         translatedError: translatedError
         secondaryCode: secondaryCode
         maxCharacterLength: 6
-        status: failed
+        status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
+          $ref: '#/components/schemas/APIStatus'
         reason:
           type: string
         code:
@@ -4461,7 +4457,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         userIdsOnline:
           additionalProperties:
             type: boolean
@@ -4668,7 +4664,7 @@ components:
             $ref: '#/components/schemas/RenderableUserNotification'
           type: array
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - hasMore
       - isSubscribed
@@ -4682,7 +4678,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         code:
           enum:
           - ignored-since-impersonated
@@ -4698,7 +4694,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         count:
           format: int64
           type: integer
@@ -4725,7 +4721,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         NotificationType:
           properties: {}
           type: object
@@ -4752,7 +4748,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         matchedCount:
           format: int64
           type: integer
@@ -4768,7 +4764,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         note:
           enum:
           - ignored-since-impersonated
@@ -4838,7 +4834,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - status
       type: object
@@ -5100,7 +5096,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         feedPosts:
           items:
             $ref: '#/components/schemas/FeedPost'
@@ -5573,7 +5569,7 @@ components:
             $ref: '#/components/schemas/EventLogEntry'
           type: array
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - events
       - status
@@ -5716,110 +5712,134 @@ components:
       - urlIdRaw
       - verificationId
       type: object
-    Pick_Omit_FComment.date_.PublicCommentPubSubFieldsKeys_:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    UserId:
+      type: string
+    FDomain:
+      type: string
+    PubSubCommentBase:
+      additionalProperties: false
       properties:
-        date: {}
         _id:
           type: string
         tenantId:
           type: string
-        urlId:
-          type: string
-        url:
-          type: string
-        pageTitle:
-          type: string
         userId:
-          type: string
-        anonUserId:
+          allOf:
+          - $ref: '#/components/schemas/UserId'
+          nullable: true
+        urlId:
           type: string
         commenterName:
           type: string
         commenterLink:
-          type: string
-        comment:
+          nullable: true
           type: string
         commentHTML:
           type: string
+        comment:
+          type: string
         parentId:
+          nullable: true
           type: string
         votes:
           format: int32
+          nullable: true
           type: integer
         votesUp:
           format: int32
+          nullable: true
           type: integer
         votesDown:
           format: int32
+          nullable: true
           type: integer
-        expireAt:
-          format: date-time
-          type: string
         verified:
           type: boolean
-        reviewed:
-          type: boolean
         avatarSrc:
+          nullable: true
           type: string
-        isSpam:
-          type: boolean
         hasImages:
           type: boolean
         hasLinks:
-          type: boolean
-        hasCode:
-          type: boolean
-        approved:
-          type: boolean
-        locale:
-          type: string
-        isDeleted:
-          type: boolean
-        isDeletedUser:
-          type: boolean
-        isBannedUser:
           type: boolean
         isByAdmin:
           type: boolean
         isByModerator:
           type: boolean
         isPinned:
+          nullable: true
           type: boolean
         isLocked:
+          nullable: true
           type: boolean
-        flagCount:
-          format: int32
-          type: integer
+        displayLabel:
+          nullable: true
+          type: string
         rating:
           format: double
+          nullable: true
           type: number
-        displayLabel:
-          type: string
         badges:
           items:
             $ref: '#/components/schemas/CommentUserBadgeInfo'
+          nullable: true
           type: array
-        domain:
+        viewCount:
+          format: int64
+          nullable: true
+          type: integer
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isSpam:
+          type: boolean
+        anonUserId:
+          nullable: true
           type: string
         feedbackIds:
           items:
             type: string
           type: array
+        flagCount:
+          format: int32
+          nullable: true
+          type: integer
+        domain:
+          allOf:
+          - $ref: '#/components/schemas/FDomain'
+          nullable: true
+        url:
+          type: string
+        pageTitle:
+          nullable: true
+          type: string
+        expireAt:
+          format: date-time
+          nullable: true
+          type: string
+        reviewed:
+          type: boolean
+        hasCode:
+          type: boolean
+        approved:
+          type: boolean
+        locale:
+          nullable: true
+          type: string
+        isBannedUser:
+          type: boolean
         groupIds:
           items:
             type: string
+          nullable: true
           type: array
-        viewCount:
-          format: int64
-          type: integer
       required:
       - _id
       - approved
       - comment
       - commentHTML
       - commenterName
-      - date
       - locale
       - tenantId
       - url
@@ -5828,7 +5848,7 @@ components:
       type: object
     PubSubComment:
       allOf:
-      - $ref: '#/components/schemas/Pick_Omit_FComment.date_.PublicCommentPubSubFieldsKeys_'
+      - $ref: '#/components/schemas/PubSubCommentBase'
       - properties:
           isLive:
             type: boolean
@@ -5905,7 +5925,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         commentText:
           type: string
         sanitizedCommentText:
@@ -5915,16 +5935,16 @@ components:
       - sanitizedCommentText
       - status
       type: object
-    Pick_FComment.approved-or-commentHTML_:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    SetCommentTextResult:
+      additionalProperties: false
       example:
         commentHTML: commentHTML
         approved: true
       properties:
-        commentHTML:
-          type: string
         approved:
           type: boolean
+        commentHTML:
+          type: string
       required:
       - approved
       - commentHTML
@@ -5937,9 +5957,9 @@ components:
         status: success
       properties:
         comment:
-          $ref: '#/components/schemas/Pick_FComment.approved-or-commentHTML_'
+          $ref: '#/components/schemas/SetCommentTextResult'
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - comment
       - status
@@ -6065,7 +6085,7 @@ components:
           isBlocked:
             type: boolean
         type: object
-      - $ref: '#/components/schemas/Pick_FComment.PublicCommentFieldsKeys_'
+      - $ref: '#/components/schemas/PublicCommentBase'
       example:
         date: 2000-01-23T04:56:07.000+00:00
         editKey: editKey
@@ -6078,6 +6098,7 @@ components:
         commenterLink: commenterLink
         isVotedDown: true
         commentHTML: commentHTML
+        approved: true
         isDeleted: true
         children:
         - null
@@ -6096,7 +6117,7 @@ components:
         - feedbackIds
         anonUserId: anonUserId
         childCount: 1
-        userId: userId
+        userId: ""
         isUnread: true
         parentId: parentId
         isFlagged: true
@@ -6127,75 +6148,93 @@ components:
         _id: _id
         isSpam: true
         isByAdmin: true
-    Pick_FComment.PublicCommentFieldsKeys_:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    PublicCommentBase:
+      additionalProperties: false
       properties:
-        date:
-          format: date-time
-          type: string
         _id:
           type: string
         userId:
-          type: string
-        anonUserId:
-          type: string
+          allOf:
+          - $ref: '#/components/schemas/UserId'
+          nullable: true
         commenterName:
           type: string
         commenterLink:
+          nullable: true
           type: string
         commentHTML:
           type: string
         parentId:
+          nullable: true
+          type: string
+        date:
+          format: date-time
+          nullable: true
           type: string
         votes:
           format: int32
+          nullable: true
           type: integer
         votesUp:
           format: int32
+          nullable: true
           type: integer
         votesDown:
           format: int32
+          nullable: true
           type: integer
         verified:
           type: boolean
         avatarSrc:
+          nullable: true
           type: string
-        isSpam:
-          type: boolean
         hasImages:
-          type: boolean
-        isDeleted:
-          type: boolean
-        isDeletedUser:
           type: boolean
         isByAdmin:
           type: boolean
         isByModerator:
           type: boolean
         isPinned:
+          nullable: true
           type: boolean
         isLocked:
+          nullable: true
           type: boolean
+        displayLabel:
+          nullable: true
+          type: string
         rating:
           format: double
+          nullable: true
           type: number
-        displayLabel:
-          type: string
         badges:
           items:
             $ref: '#/components/schemas/CommentUserBadgeInfo'
+          nullable: true
           type: array
+        viewCount:
+          format: int64
+          nullable: true
+          type: integer
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isSpam:
+          type: boolean
+        anonUserId:
+          nullable: true
+          type: string
         feedbackIds:
           items:
             type: string
           type: array
-        viewCount:
-          format: int64
-          type: integer
         requiresVerification:
           type: boolean
         editKey:
           type: string
+        approved:
+          type: boolean
       required:
       - _id
       - commentHTML
@@ -6370,6 +6409,7 @@ components:
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
           commentHTMLRenderingMode: 1.4658129805029452
+          noNewRootComments: true
           maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
           allowedLanguages:
@@ -6396,6 +6436,7 @@ components:
           commenterLink: commenterLink
           isVotedDown: true
           commentHTML: commentHTML
+          approved: true
           isDeleted: true
           children:
           - null
@@ -6414,7 +6455,7 @@ components:
           - feedbackIds
           anonUserId: anonUserId
           childCount: 1
-          userId: userId
+          userId: ""
           isUnread: true
           parentId: parentId
           isFlagged: true
@@ -6456,6 +6497,7 @@ components:
           commenterLink: commenterLink
           isVotedDown: true
           commentHTML: commentHTML
+          approved: true
           isDeleted: true
           children:
           - null
@@ -6474,7 +6516,7 @@ components:
           - feedbackIds
           anonUserId: anonUserId
           childCount: 1
-          userId: userId
+          userId: ""
           isUnread: true
           parentId: parentId
           isFlagged: true
@@ -6524,7 +6566,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         comment:
           $ref: '#/components/schemas/PublicComment'
         user:
@@ -6561,6 +6603,7 @@ components:
           commenterLink: commenterLink
           isVotedDown: true
           commentHTML: commentHTML
+          approved: true
           isDeleted: true
           children:
           - null
@@ -6579,7 +6622,7 @@ components:
           - feedbackIds
           anonUserId: anonUserId
           childCount: 1
-          userId: userId
+          userId: ""
           isUnread: true
           parentId: parentId
           isFlagged: true
@@ -6749,22 +6792,23 @@ components:
       - url
       - urlId
       type: object
-    Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    DeletedCommentResultComment:
+      additionalProperties: false
       example:
         commentHTML: commentHTML
         isDeleted: true
         commenterName: commenterName
         userId: userId
       properties:
-        userId:
+        isDeleted:
+          type: boolean
+        commentHTML:
           type: string
         commenterName:
           type: string
-        commentHTML:
+        userId:
+          nullable: true
           type: string
-        isDeleted:
-          type: boolean
       required:
       - commentHTML
       - commenterName
@@ -6780,11 +6824,11 @@ components:
         status: success
       properties:
         comment:
-          $ref: '#/components/schemas/Pick_FComment.isDeleted-or-commentHTML-or-commenterName-or-userId_'
+          $ref: '#/components/schemas/DeletedCommentResultComment'
         hardRemoved:
           type: boolean
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - hardRemoved
       - status
@@ -6802,7 +6846,7 @@ components:
           properties: {}
           type: object
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - commentStatuses
       - status
@@ -6874,7 +6918,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/VoteDeleteResponse_status'
+          $ref: '#/components/schemas/APIStatus'
         wasPendingVote:
           type: boolean
       required:
@@ -6890,7 +6934,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         voteUserNames:
           items:
             type: string
@@ -6917,7 +6961,7 @@ components:
           properties: {}
           type: object
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - commentPositions
       - status
@@ -6930,7 +6974,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         commentStatuses:
           additionalProperties:
             type: boolean
@@ -6966,7 +7010,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         commentStatuses:
           additionalProperties:
             type: boolean
@@ -7731,6 +7775,7 @@ components:
       example:
         reason: reason
         code: code
+        commentsUpdated: 0
         page:
           createdAt: 2000-01-23T04:56:07.000+00:00
           isClosed: true
@@ -7749,6 +7794,9 @@ components:
           type: string
         code:
           type: string
+        commentsUpdated:
+          format: int64
+          type: integer
         page:
           $ref: '#/components/schemas/APIPage'
         status:
@@ -7983,12 +8031,19 @@ components:
           fromTenantId: fromTenantId
           displaySrc: displaySrc
           order: 5
+        notes:
+        - notes
+        - notes
         status: success
       properties:
         status:
           $ref: '#/components/schemas/APIStatus'
         userBadge:
           $ref: '#/components/schemas/UserBadge'
+        notes:
+          items:
+            type: string
+          type: array
       required:
       - status
       - userBadge
@@ -8354,13 +8409,309 @@ components:
       required:
       - aggregations
       type: object
-    UserId:
-      type: string
-    FDomain:
-      type: string
-    CommentLog:
-      items: {}
-      type: array
+    CommentLogType:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+      - 37
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+      - 54
+      type: number
+    RepeatCommentHandlingAction:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: number
+    RepeatCommentCheckIgnoredReason:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      type: number
+    CommentLogData:
+      additionalProperties: false
+      example:
+        votesDownAfter: 9.369310271410669
+        repeatAction: 6.683562403749608
+        reason: 8.762042012749001
+        votesUpBefore: 1.1730742509559433
+        tenantBadgeId: tenantBadgeId
+        badgeId: badgeId
+        reviewedBefore: true
+        reviewedAfter: true
+        trustFactorBefore: 6.438423552598547
+        trustFactor: 1.0246457001441578
+        engineTokens: 1.2315135367772556
+        rule:
+          commentContains: commentContains
+          actions:
+          - spam
+          - spam
+        expireBefore: 2000-01-23T04:56:07.000+00:00
+        textBefore: textBefore
+        locale: locale
+        spamBefore: true
+        votesBefore: 7.457744773683766
+        votesDownBefore: 4.965218492984954
+        spamAfter: true
+        foundUser: true
+        textAfter: textAfter
+        engine: engine
+        engineResponse: engineResponse
+        trustFactorAfter: 3.5571952270680973
+        approvedBefore: true
+        notificationCount: 6.84685269835264
+        subscribers: 1.4894159098541704
+        otherData: ""
+        clearContent: true
+        verified: true
+        expireAfter: 2000-01-23T04:56:07.000+00:00
+        flagCountBefore: 9.018348186070783
+        userId: userId
+        approvedAfter: true
+        phrase: phrase
+        isDeletedUser: true
+        votesAfter: 5.025004791520295
+        votesUpAfter: 9.965781217890562
+        permanentFlag: permanent
+        wasLoggedIn: true
+        badWord: badWord
+        word: word
+        referencedCommentId: referencedCommentId
+      properties:
+        clearContent:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        phrase:
+          type: string
+        badWord:
+          type: string
+        word:
+          type: string
+        locale:
+          type: string
+        tenantBadgeId:
+          type: string
+        badgeId:
+          type: string
+        wasLoggedIn:
+          type: boolean
+        foundUser:
+          type: boolean
+        verified:
+          type: boolean
+        engine:
+          type: string
+        engineResponse:
+          type: string
+        engineTokens:
+          format: double
+          type: number
+        trustFactor:
+          format: double
+          type: number
+        rule:
+          $ref: '#/components/schemas/SpamRule'
+        userId:
+          type: string
+        subscribers:
+          format: double
+          type: number
+        notificationCount:
+          format: double
+          type: number
+        votesBefore:
+          format: double
+          nullable: true
+          type: number
+        votesUpBefore:
+          format: double
+          nullable: true
+          type: number
+        votesDownBefore:
+          format: double
+          nullable: true
+          type: number
+        votesAfter:
+          format: double
+          nullable: true
+          type: number
+        votesUpAfter:
+          format: double
+          nullable: true
+          type: number
+        votesDownAfter:
+          format: double
+          nullable: true
+          type: number
+        repeatAction:
+          $ref: '#/components/schemas/RepeatCommentHandlingAction'
+        reason:
+          $ref: '#/components/schemas/RepeatCommentCheckIgnoredReason'
+        otherData: {}
+        spamBefore:
+          type: boolean
+        spamAfter:
+          type: boolean
+        permanentFlag:
+          enum:
+          - permanent
+          nullable: false
+          type: string
+        approvedBefore:
+          type: boolean
+        approvedAfter:
+          type: boolean
+        reviewedBefore:
+          type: boolean
+        reviewedAfter:
+          type: boolean
+        textBefore:
+          type: string
+        textAfter:
+          type: string
+        expireBefore:
+          format: date-time
+          nullable: true
+          type: string
+        expireAfter:
+          format: date-time
+          nullable: true
+          type: string
+        flagCountBefore:
+          format: double
+          nullable: true
+          type: number
+        trustFactorBefore:
+          format: double
+          type: number
+        trustFactorAfter:
+          format: double
+          type: number
+        referencedCommentId:
+          type: string
+      type: object
+    CommentLogEntry:
+      additionalProperties: false
+      example:
+        d: 2000-01-23T04:56:07.000+00:00
+        t: 7.386281948385884
+        da:
+          votesDownAfter: 9.369310271410669
+          repeatAction: 6.683562403749608
+          reason: 8.762042012749001
+          votesUpBefore: 1.1730742509559433
+          tenantBadgeId: tenantBadgeId
+          badgeId: badgeId
+          reviewedBefore: true
+          reviewedAfter: true
+          trustFactorBefore: 6.438423552598547
+          trustFactor: 1.0246457001441578
+          engineTokens: 1.2315135367772556
+          rule:
+            commentContains: commentContains
+            actions:
+            - spam
+            - spam
+          expireBefore: 2000-01-23T04:56:07.000+00:00
+          textBefore: textBefore
+          locale: locale
+          spamBefore: true
+          votesBefore: 7.457744773683766
+          votesDownBefore: 4.965218492984954
+          spamAfter: true
+          foundUser: true
+          textAfter: textAfter
+          engine: engine
+          engineResponse: engineResponse
+          trustFactorAfter: 3.5571952270680973
+          approvedBefore: true
+          notificationCount: 6.84685269835264
+          subscribers: 1.4894159098541704
+          otherData: ""
+          clearContent: true
+          verified: true
+          expireAfter: 2000-01-23T04:56:07.000+00:00
+          flagCountBefore: 9.018348186070783
+          userId: userId
+          approvedAfter: true
+          phrase: phrase
+          isDeletedUser: true
+          votesAfter: 5.025004791520295
+          votesUpAfter: 9.965781217890562
+          permanentFlag: permanent
+          wasLoggedIn: true
+          badWord: badWord
+          word: word
+          referencedCommentId: referencedCommentId
+      properties:
+        d:
+          format: date-time
+          type: string
+        t:
+          $ref: '#/components/schemas/CommentLogType'
+        da:
+          $ref: '#/components/schemas/CommentLogData'
+      required:
+      - d
+      - t
+      type: object
     FComment:
       additionalProperties: false
       example:
@@ -8389,10 +8740,106 @@ components:
         aiDeterminedSpam: true
         reviewed: true
         logs:
-        - - ""
-          - ""
-        - - ""
-          - ""
+        - d: 2000-01-23T04:56:07.000+00:00
+          t: 7.386281948385884
+          da:
+            votesDownAfter: 9.369310271410669
+            repeatAction: 6.683562403749608
+            reason: 8.762042012749001
+            votesUpBefore: 1.1730742509559433
+            tenantBadgeId: tenantBadgeId
+            badgeId: badgeId
+            reviewedBefore: true
+            reviewedAfter: true
+            trustFactorBefore: 6.438423552598547
+            trustFactor: 1.0246457001441578
+            engineTokens: 1.2315135367772556
+            rule:
+              commentContains: commentContains
+              actions:
+              - spam
+              - spam
+            expireBefore: 2000-01-23T04:56:07.000+00:00
+            textBefore: textBefore
+            locale: locale
+            spamBefore: true
+            votesBefore: 7.457744773683766
+            votesDownBefore: 4.965218492984954
+            spamAfter: true
+            foundUser: true
+            textAfter: textAfter
+            engine: engine
+            engineResponse: engineResponse
+            trustFactorAfter: 3.5571952270680973
+            approvedBefore: true
+            notificationCount: 6.84685269835264
+            subscribers: 1.4894159098541704
+            otherData: ""
+            clearContent: true
+            verified: true
+            expireAfter: 2000-01-23T04:56:07.000+00:00
+            flagCountBefore: 9.018348186070783
+            userId: userId
+            approvedAfter: true
+            phrase: phrase
+            isDeletedUser: true
+            votesAfter: 5.025004791520295
+            votesUpAfter: 9.965781217890562
+            permanentFlag: permanent
+            wasLoggedIn: true
+            badWord: badWord
+            word: word
+            referencedCommentId: referencedCommentId
+        - d: 2000-01-23T04:56:07.000+00:00
+          t: 7.386281948385884
+          da:
+            votesDownAfter: 9.369310271410669
+            repeatAction: 6.683562403749608
+            reason: 8.762042012749001
+            votesUpBefore: 1.1730742509559433
+            tenantBadgeId: tenantBadgeId
+            badgeId: badgeId
+            reviewedBefore: true
+            reviewedAfter: true
+            trustFactorBefore: 6.438423552598547
+            trustFactor: 1.0246457001441578
+            engineTokens: 1.2315135367772556
+            rule:
+              commentContains: commentContains
+              actions:
+              - spam
+              - spam
+            expireBefore: 2000-01-23T04:56:07.000+00:00
+            textBefore: textBefore
+            locale: locale
+            spamBefore: true
+            votesBefore: 7.457744773683766
+            votesDownBefore: 4.965218492984954
+            spamAfter: true
+            foundUser: true
+            textAfter: textAfter
+            engine: engine
+            engineResponse: engineResponse
+            trustFactorAfter: 3.5571952270680973
+            approvedBefore: true
+            notificationCount: 6.84685269835264
+            subscribers: 1.4894159098541704
+            otherData: ""
+            clearContent: true
+            verified: true
+            expireAfter: 2000-01-23T04:56:07.000+00:00
+            flagCountBefore: 9.018348186070783
+            userId: userId
+            approvedAfter: true
+            phrase: phrase
+            isDeletedUser: true
+            votesAfter: 5.025004791520295
+            votesUpAfter: 9.965781217890562
+            permanentFlag: permanent
+            wasLoggedIn: true
+            badWord: badWord
+            word: word
+            referencedCommentId: referencedCommentId
         fromProductId: 2
         flagCount: 9
         pageNumberNF: 7
@@ -8441,7 +8888,7 @@ components:
         permNotSpam: true
         pageNumberOF: 2
         localDateHours: 0
-        viewCount: 7
+        viewCount: 6
         votesUp: 1
         displayLabel: displayLabel
         requiresVerification: true
@@ -8673,7 +9120,7 @@ components:
           type: array
         logs:
           items:
-            $ref: '#/components/schemas/CommentLog'
+            $ref: '#/components/schemas/CommentLogEntry'
           nullable: true
           type: array
         groupIds:
@@ -9199,12 +9646,190 @@ components:
           properties: {}
           type: object
       type: object
-    Pick_FComment.APICommentFieldsKeys_:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    APICommentBase:
+      additionalProperties: false
+      properties:
+        _id:
+          type: string
+        aiDeterminedSpam:
+          type: boolean
+        anonUserId:
+          nullable: true
+          type: string
+        approved:
+          type: boolean
+        avatarSrc:
+          nullable: true
+          type: string
+        badges:
+          items:
+            $ref: '#/components/schemas/CommentUserBadgeInfo'
+          nullable: true
+          type: array
+        comment:
+          type: string
+        commentHTML:
+          type: string
+        commenterEmail:
+          nullable: true
+          type: string
+        commenterLink:
+          nullable: true
+          type: string
+        commenterName:
+          type: string
+        date:
+          format: date-time
+          nullable: true
+          type: string
+        displayLabel:
+          nullable: true
+          type: string
+        domain:
+          allOf:
+          - $ref: '#/components/schemas/FDomain'
+          nullable: true
+        externalId:
+          type: string
+        externalParentId:
+          nullable: true
+          type: string
+        expireAt:
+          format: date-time
+          nullable: true
+          type: string
+        feedbackIds:
+          items:
+            type: string
+          type: array
+        flagCount:
+          format: int32
+          nullable: true
+          type: integer
+        fromProductId:
+          format: int32
+          type: integer
+        hasCode:
+          type: boolean
+        hasImages:
+          type: boolean
+        hasLinks:
+          type: boolean
+        hashTags:
+          items:
+            $ref: '#/components/schemas/CommentUserHashTagInfo'
+          type: array
+        isByAdmin:
+          type: boolean
+        isByModerator:
+          type: boolean
+        isDeleted:
+          type: boolean
+        isDeletedUser:
+          type: boolean
+        isPinned:
+          nullable: true
+          type: boolean
+        isLocked:
+          nullable: true
+          type: boolean
+        isSpam:
+          type: boolean
+        localDateHours:
+          format: int32
+          nullable: true
+          type: integer
+        localDateString:
+          nullable: true
+          type: string
+        locale:
+          nullable: true
+          type: string
+        mentions:
+          items:
+            $ref: '#/components/schemas/CommentUserMentionInfo'
+          type: array
+        meta:
+          $ref: '#/components/schemas/FComment_meta'
+        moderationGroupIds:
+          items:
+            type: string
+          nullable: true
+          type: array
+        notificationSentForParent:
+          type: boolean
+        notificationSentForParentTenant:
+          type: boolean
+        pageTitle:
+          nullable: true
+          type: string
+        parentId:
+          nullable: true
+          type: string
+        rating:
+          format: double
+          nullable: true
+          type: number
+        reviewed:
+          type: boolean
+        tenantId:
+          type: string
+        url:
+          type: string
+        urlId:
+          type: string
+        urlIdRaw:
+          type: string
+        userId:
+          allOf:
+          - $ref: '#/components/schemas/UserId'
+          nullable: true
+        verified:
+          type: boolean
+        verifiedDate:
+          format: date-time
+          nullable: true
+          type: string
+        votes:
+          format: int32
+          nullable: true
+          type: integer
+        votesDown:
+          format: int32
+          nullable: true
+          type: integer
+        votesUp:
+          format: int32
+          nullable: true
+          type: integer
+      required:
+      - _id
+      - approved
+      - comment
+      - commentHTML
+      - commenterName
+      - date
+      - locale
+      - tenantId
+      - url
+      - urlId
+      - verified
+      type: object
+    APIComment:
+      allOf:
+      - $ref: '#/components/schemas/APICommentBase'
+      - properties:
+          date:
+            format: double
+            nullable: true
+            type: number
+        required:
+        - date
+        type: object
       example:
-        date: 2000-01-23T04:56:07.000+00:00
+        date: 9.301444243932576
         pageTitle: pageTitle
-        rating: 2.3021358869347655
+        rating: 5.962133916683182
         approved: true
         hashTags:
         - retain: true
@@ -9221,8 +9846,8 @@ components:
         isLocked: true
         aiDeterminedSpam: true
         reviewed: true
-        fromProductId: 7
-        flagCount: 5
+        fromProductId: 6
+        flagCount: 0
         hasCode: true
         feedbackIds:
         - feedbackIds
@@ -9235,6 +9860,7 @@ components:
         meta:
           wpUserId: wpUserId
           wpPostId: wpPostId
+        domain: ""
         mentions:
         - rawTag: rawTag
           id: id
@@ -9246,21 +9872,20 @@ components:
           tag: tag
           type: user
           sent: true
-        domain: domain
         avatarSrc: avatarSrc
         _id: _id
         isSpam: true
         externalParentId: externalParentId
-        votesDown: 5
+        votesDown: 2
         commenterName: commenterName
         isByModerator: true
         commenterLink: commenterLink
-        urlId: urlId
         locale: locale
+        urlId: urlId
         commentHTML: commentHTML
         isDeleted: true
-        localDateHours: 0
-        votesUp: 1
+        localDateHours: 1
+        votesUp: 7
         displayLabel: displayLabel
         isPinned: true
         verified: true
@@ -9268,9 +9893,9 @@ components:
         externalId: externalId
         hasLinks: true
         expireAt: 2000-01-23T04:56:07.000+00:00
-        userId: userId
-        url: url
+        userId: ""
         parentId: parentId
+        url: url
         commenterEmail: commenterEmail
         badges:
         - displayLabel: displayLabel
@@ -9295,157 +9920,15 @@ components:
         tenantId: tenantId
         hasImages: true
         comment: comment
-        votes: 6
+        votes: 5
         isByAdmin: true
-      properties:
-        date:
-          format: date-time
-          type: string
-        _id:
-          type: string
-        tenantId:
-          type: string
-        urlId:
-          type: string
-        urlIdRaw:
-          type: string
-        url:
-          type: string
-        pageTitle:
-          type: string
-        userId:
-          type: string
-        anonUserId:
-          type: string
-        commenterEmail:
-          type: string
-        commenterName:
-          type: string
-        commenterLink:
-          type: string
-        comment:
-          type: string
-        commentHTML:
-          type: string
-        parentId:
-          type: string
-        localDateString:
-          type: string
-        localDateHours:
-          format: int32
-          type: integer
-        votes:
-          format: int32
-          type: integer
-        votesUp:
-          format: int32
-          type: integer
-        votesDown:
-          format: int32
-          type: integer
-        expireAt:
-          format: date-time
-          type: string
-        verified:
-          type: boolean
-        verifiedDate:
-          format: date-time
-          type: string
-        notificationSentForParent:
-          type: boolean
-        notificationSentForParentTenant:
-          type: boolean
-        reviewed:
-          type: boolean
-        externalId:
-          type: string
-        externalParentId:
-          type: string
-        avatarSrc:
-          type: string
-        isSpam:
-          type: boolean
-        aiDeterminedSpam:
-          type: boolean
-        hasImages:
-          type: boolean
-        hasLinks:
-          type: boolean
-        hasCode:
-          type: boolean
-        approved:
-          type: boolean
-        locale:
-          type: string
-        isDeleted:
-          type: boolean
-        isDeletedUser:
-          type: boolean
-        isByAdmin:
-          type: boolean
-        isByModerator:
-          type: boolean
-        isPinned:
-          type: boolean
-        isLocked:
-          type: boolean
-        flagCount:
-          format: int32
-          type: integer
-        rating:
-          format: double
-          type: number
-        displayLabel:
-          type: string
-        fromProductId:
-          format: int32
-          type: integer
-        meta:
-          $ref: '#/components/schemas/Pick_FComment_APICommentFieldsKeys__meta'
-        mentions:
-          items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
-          type: array
-        hashTags:
-          items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
-          type: array
-        badges:
-          items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
-          type: array
-        domain:
-          type: string
-        moderationGroupIds:
-          items:
-            type: string
-          type: array
-        feedbackIds:
-          items:
-            type: string
-          type: array
-      required:
-      - _id
-      - approved
-      - comment
-      - commentHTML
-      - commenterName
-      - date
-      - locale
-      - tenantId
-      - url
-      - urlId
-      - verified
-      type: object
-    APIComment:
-      $ref: '#/components/schemas/Pick_FComment.APICommentFieldsKeys_'
     APIGetCommentResponse:
       additionalProperties: false
       example:
         comment:
-          date: 2000-01-23T04:56:07.000+00:00
+          date: 9.301444243932576
           pageTitle: pageTitle
-          rating: 2.3021358869347655
+          rating: 5.962133916683182
           approved: true
           hashTags:
           - retain: true
@@ -9462,8 +9945,8 @@ components:
           isLocked: true
           aiDeterminedSpam: true
           reviewed: true
-          fromProductId: 7
-          flagCount: 5
+          fromProductId: 6
+          flagCount: 0
           hasCode: true
           feedbackIds:
           - feedbackIds
@@ -9476,6 +9959,7 @@ components:
           meta:
             wpUserId: wpUserId
             wpPostId: wpPostId
+          domain: ""
           mentions:
           - rawTag: rawTag
             id: id
@@ -9487,21 +9971,20 @@ components:
             tag: tag
             type: user
             sent: true
-          domain: domain
           avatarSrc: avatarSrc
           _id: _id
           isSpam: true
           externalParentId: externalParentId
-          votesDown: 5
+          votesDown: 2
           commenterName: commenterName
           isByModerator: true
           commenterLink: commenterLink
-          urlId: urlId
           locale: locale
+          urlId: urlId
           commentHTML: commentHTML
           isDeleted: true
-          localDateHours: 0
-          votesUp: 1
+          localDateHours: 1
+          votesUp: 7
           displayLabel: displayLabel
           isPinned: true
           verified: true
@@ -9509,9 +9992,9 @@ components:
           externalId: externalId
           hasLinks: true
           expireAt: 2000-01-23T04:56:07.000+00:00
-          userId: userId
-          url: url
+          userId: ""
           parentId: parentId
+          url: url
           commenterEmail: commenterEmail
           badges:
           - displayLabel: displayLabel
@@ -9536,14 +10019,14 @@ components:
           tenantId: tenantId
           hasImages: true
           comment: comment
-          votes: 6
+          votes: 5
           isByAdmin: true
         status: success
       properties:
         status:
           $ref: '#/components/schemas/APIStatus'
         comment:
-          $ref: '#/components/schemas/Pick_FComment.APICommentFieldsKeys_'
+          $ref: '#/components/schemas/APIComment'
       required:
       - comment
       - status
@@ -9552,8 +10035,196 @@ components:
       additionalProperties: false
       example:
         comments:
-        - null
-        - null
+        - date: 9.301444243932576
+          pageTitle: pageTitle
+          rating: 5.962133916683182
+          approved: true
+          hashTags:
+          - retain: true
+            id: id
+            tag: tag
+            url: url
+          - retain: true
+            id: id
+            tag: tag
+            url: url
+          localDateString: localDateString
+          notificationSentForParentTenant: true
+          verifiedDate: 2000-01-23T04:56:07.000+00:00
+          isLocked: true
+          aiDeterminedSpam: true
+          reviewed: true
+          fromProductId: 6
+          flagCount: 0
+          hasCode: true
+          feedbackIds:
+          - feedbackIds
+          - feedbackIds
+          urlIdRaw: urlIdRaw
+          moderationGroupIds:
+          - moderationGroupIds
+          - moderationGroupIds
+          isDeletedUser: true
+          meta:
+            wpUserId: wpUserId
+            wpPostId: wpPostId
+          domain: ""
+          mentions:
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          avatarSrc: avatarSrc
+          _id: _id
+          isSpam: true
+          externalParentId: externalParentId
+          votesDown: 2
+          commenterName: commenterName
+          isByModerator: true
+          commenterLink: commenterLink
+          locale: locale
+          urlId: urlId
+          commentHTML: commentHTML
+          isDeleted: true
+          localDateHours: 1
+          votesUp: 7
+          displayLabel: displayLabel
+          isPinned: true
+          verified: true
+          anonUserId: anonUserId
+          externalId: externalId
+          hasLinks: true
+          expireAt: 2000-01-23T04:56:07.000+00:00
+          userId: ""
+          parentId: parentId
+          url: url
+          commenterEmail: commenterEmail
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9
+            textColor: textColor
+            displaySrc: displaySrc
+          notificationSentForParent: true
+          tenantId: tenantId
+          hasImages: true
+          comment: comment
+          votes: 5
+          isByAdmin: true
+        - date: 9.301444243932576
+          pageTitle: pageTitle
+          rating: 5.962133916683182
+          approved: true
+          hashTags:
+          - retain: true
+            id: id
+            tag: tag
+            url: url
+          - retain: true
+            id: id
+            tag: tag
+            url: url
+          localDateString: localDateString
+          notificationSentForParentTenant: true
+          verifiedDate: 2000-01-23T04:56:07.000+00:00
+          isLocked: true
+          aiDeterminedSpam: true
+          reviewed: true
+          fromProductId: 6
+          flagCount: 0
+          hasCode: true
+          feedbackIds:
+          - feedbackIds
+          - feedbackIds
+          urlIdRaw: urlIdRaw
+          moderationGroupIds:
+          - moderationGroupIds
+          - moderationGroupIds
+          isDeletedUser: true
+          meta:
+            wpUserId: wpUserId
+            wpPostId: wpPostId
+          domain: ""
+          mentions:
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          avatarSrc: avatarSrc
+          _id: _id
+          isSpam: true
+          externalParentId: externalParentId
+          votesDown: 2
+          commenterName: commenterName
+          isByModerator: true
+          commenterLink: commenterLink
+          locale: locale
+          urlId: urlId
+          commentHTML: commentHTML
+          isDeleted: true
+          localDateHours: 1
+          votesUp: 7
+          displayLabel: displayLabel
+          isPinned: true
+          verified: true
+          anonUserId: anonUserId
+          externalId: externalId
+          hasLinks: true
+          expireAt: 2000-01-23T04:56:07.000+00:00
+          userId: ""
+          parentId: parentId
+          url: url
+          commenterEmail: commenterEmail
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 9
+            textColor: textColor
+            displaySrc: displaySrc
+          notificationSentForParent: true
+          tenantId: tenantId
+          hasImages: true
+          comment: comment
+          votes: 5
+          isByAdmin: true
         status: success
       properties:
         status:
@@ -9566,12 +10237,55 @@ components:
       - comments
       - status
       type: object
-    Pick_APIComment.UpdatableCommentFields_:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    UpdatableCommentParams:
+      additionalProperties: false
+      example:
+        date: 0.8008281904610115
+        externalParentId: externalParentId
+        votesDown: 5
+        pageTitle: pageTitle
+        commenterName: commenterName
+        isByModerator: true
+        commenterLink: commenterLink
+        urlId: urlId
+        commentHTML: commentHTML
+        approved: true
+        localDateString: localDateString
+        notificationSentForParentTenant: true
+        isDeleted: true
+        verifiedDate: 2000-01-23T04:56:07.000+00:00
+        isLocked: true
+        reviewed: true
+        localDateHours: 6
+        votesUp: 5
+        displayLabel: displayLabel
+        flagCount: 2
+        isPinned: true
+        verified: true
+        feedbackIds:
+        - feedbackIds
+        - feedbackIds
+        externalId: externalId
+        expireAt: 2000-01-23T04:56:07.000+00:00
+        userId: ""
+        url: url
+        parentId: parentId
+        commenterEmail: commenterEmail
+        urlIdRaw: urlIdRaw
+        moderationGroupIds:
+        - moderationGroupIds
+        - moderationGroupIds
+        isDeletedUser: true
+        meta:
+          wpUserId: wpUserId
+          wpPostId: wpPostId
+        notificationSentForParent: true
+        avatarSrc: avatarSrc
+        comment: comment
+        votes: 1
+        isSpam: true
+        isByAdmin: true
       properties:
-        date:
-          format: date-time
-          type: string
         urlId:
           type: string
         urlIdRaw:
@@ -9579,42 +10293,59 @@ components:
         url:
           type: string
         pageTitle:
+          nullable: true
           type: string
         userId:
-          type: string
+          allOf:
+          - $ref: '#/components/schemas/UserId'
+          nullable: true
         commenterEmail:
+          nullable: true
           type: string
         commenterName:
           type: string
         commenterLink:
+          nullable: true
           type: string
         comment:
           type: string
         commentHTML:
           type: string
         parentId:
+          nullable: true
           type: string
+        date:
+          format: double
+          nullable: true
+          type: number
         localDateString:
+          nullable: true
           type: string
         localDateHours:
           format: int32
+          nullable: true
           type: integer
         votes:
           format: int32
+          nullable: true
           type: integer
         votesUp:
           format: int32
+          nullable: true
           type: integer
         votesDown:
           format: int32
+          nullable: true
           type: integer
         expireAt:
           format: date-time
+          nullable: true
           type: string
         verified:
           type: boolean
         verifiedDate:
           format: date-time
+          nullable: true
           type: string
         notificationSentForParent:
           type: boolean
@@ -9625,8 +10356,10 @@ components:
         externalId:
           type: string
         externalParentId:
+          nullable: true
           type: string
         avatarSrc:
+          nullable: true
           type: string
         isSpam:
           type: boolean
@@ -9641,36 +10374,30 @@ components:
         isByModerator:
           type: boolean
         isPinned:
+          nullable: true
           type: boolean
         isLocked:
+          nullable: true
           type: boolean
         flagCount:
           format: int32
+          nullable: true
           type: integer
         displayLabel:
+          nullable: true
           type: string
         meta:
-          $ref: '#/components/schemas/Pick_FComment_APICommentFieldsKeys__meta'
+          $ref: '#/components/schemas/FComment_meta'
         moderationGroupIds:
           items:
             type: string
+          nullable: true
           type: array
         feedbackIds:
           items:
             type: string
           type: array
-      required:
-      - approved
-      - comment
-      - commentHTML
-      - commenterName
-      - date
-      - url
-      - urlId
-      - verified
       type: object
-    UpdatableCommentParams:
-      $ref: '#/components/schemas/Pick_APIComment.UpdatableCommentFields_'
     DeleteCommentAction:
       enum:
       - already-deleted
@@ -9685,7 +10412,7 @@ components:
         action:
           $ref: '#/components/schemas/DeleteCommentAction'
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
       required:
       - action
       - status
@@ -9719,10 +10446,106 @@ components:
           aiDeterminedSpam: true
           reviewed: true
           logs:
-          - - ""
-            - ""
-          - - ""
-            - ""
+          - d: 2000-01-23T04:56:07.000+00:00
+            t: 7.386281948385884
+            da:
+              votesDownAfter: 9.369310271410669
+              repeatAction: 6.683562403749608
+              reason: 8.762042012749001
+              votesUpBefore: 1.1730742509559433
+              tenantBadgeId: tenantBadgeId
+              badgeId: badgeId
+              reviewedBefore: true
+              reviewedAfter: true
+              trustFactorBefore: 6.438423552598547
+              trustFactor: 1.0246457001441578
+              engineTokens: 1.2315135367772556
+              rule:
+                commentContains: commentContains
+                actions:
+                - spam
+                - spam
+              expireBefore: 2000-01-23T04:56:07.000+00:00
+              textBefore: textBefore
+              locale: locale
+              spamBefore: true
+              votesBefore: 7.457744773683766
+              votesDownBefore: 4.965218492984954
+              spamAfter: true
+              foundUser: true
+              textAfter: textAfter
+              engine: engine
+              engineResponse: engineResponse
+              trustFactorAfter: 3.5571952270680973
+              approvedBefore: true
+              notificationCount: 6.84685269835264
+              subscribers: 1.4894159098541704
+              otherData: ""
+              clearContent: true
+              verified: true
+              expireAfter: 2000-01-23T04:56:07.000+00:00
+              flagCountBefore: 9.018348186070783
+              userId: userId
+              approvedAfter: true
+              phrase: phrase
+              isDeletedUser: true
+              votesAfter: 5.025004791520295
+              votesUpAfter: 9.965781217890562
+              permanentFlag: permanent
+              wasLoggedIn: true
+              badWord: badWord
+              word: word
+              referencedCommentId: referencedCommentId
+          - d: 2000-01-23T04:56:07.000+00:00
+            t: 7.386281948385884
+            da:
+              votesDownAfter: 9.369310271410669
+              repeatAction: 6.683562403749608
+              reason: 8.762042012749001
+              votesUpBefore: 1.1730742509559433
+              tenantBadgeId: tenantBadgeId
+              badgeId: badgeId
+              reviewedBefore: true
+              reviewedAfter: true
+              trustFactorBefore: 6.438423552598547
+              trustFactor: 1.0246457001441578
+              engineTokens: 1.2315135367772556
+              rule:
+                commentContains: commentContains
+                actions:
+                - spam
+                - spam
+              expireBefore: 2000-01-23T04:56:07.000+00:00
+              textBefore: textBefore
+              locale: locale
+              spamBefore: true
+              votesBefore: 7.457744773683766
+              votesDownBefore: 4.965218492984954
+              spamAfter: true
+              foundUser: true
+              textAfter: textAfter
+              engine: engine
+              engineResponse: engineResponse
+              trustFactorAfter: 3.5571952270680973
+              approvedBefore: true
+              notificationCount: 6.84685269835264
+              subscribers: 1.4894159098541704
+              otherData: ""
+              clearContent: true
+              verified: true
+              expireAfter: 2000-01-23T04:56:07.000+00:00
+              flagCountBefore: 9.018348186070783
+              userId: userId
+              approvedAfter: true
+              phrase: phrase
+              isDeletedUser: true
+              votesAfter: 5.025004791520295
+              votesUpAfter: 9.965781217890562
+              permanentFlag: permanent
+              wasLoggedIn: true
+              badWord: badWord
+              word: word
+              referencedCommentId: referencedCommentId
           fromProductId: 2
           flagCount: 9
           pageNumberNF: 7
@@ -9771,7 +10594,7 @@ components:
           permNotSpam: true
           pageNumberOF: 2
           localDateHours: 0
-          viewCount: 7
+          viewCount: 6
           votesUp: 1
           displayLabel: displayLabel
           requiresVerification: true
@@ -9819,7 +10642,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
+          $ref: '#/components/schemas/APIStatus'
         comment:
           $ref: '#/components/schemas/FComment'
         user:
@@ -10046,12 +10869,23 @@ components:
             type: string
           type: array
       type: object
-    Pick_TenantAuditLog.TenantAuditLogKeys_:
-      description: "From T, pick a set of properties whose keys are in the union K"
+    APIAuditLog:
+      additionalProperties: false
+      example:
+        crudType: c
+        serverStartDate: 2000-01-23T04:56:07.000+00:00
+        ip: ip
+        description: description
+        resourceName: resourceName
+        from: ui
+        _id: _id
+        userId: userId
+        when: 2000-01-23T04:56:07.000+00:00
+        url: url
+        objectDetails: ""
+        username: username
       properties:
         _id:
-          type: string
-        url:
           type: string
         userId:
           type: string
@@ -10073,7 +10907,11 @@ components:
           - api
           - cron
           type: string
+        url:
+          nullable: true
+          type: string
         ip:
+          nullable: true
           type: string
         when:
           format: date-time
@@ -10084,23 +10922,42 @@ components:
           format: date-time
           type: string
         objectDetails:
-          additionalProperties: {}
-          description: Construct a type with a set of properties K of type T
-          properties: {}
-          type: object
+          allOf:
+          - $ref: '#/components/schemas/Record_string.any_'
+          nullable: true
       required:
       - _id
       - crudType
       - resourceName
       type: object
-    APIAuditLog:
-      $ref: '#/components/schemas/Pick_TenantAuditLog.TenantAuditLogKeys_'
     GetAuditLogsResponse:
       additionalProperties: false
       example:
         auditLogs:
-        - null
-        - null
+        - crudType: c
+          serverStartDate: 2000-01-23T04:56:07.000+00:00
+          ip: ip
+          description: description
+          resourceName: resourceName
+          from: ui
+          _id: _id
+          userId: userId
+          when: 2000-01-23T04:56:07.000+00:00
+          url: url
+          objectDetails: ""
+          username: username
+        - crudType: c
+          serverStartDate: 2000-01-23T04:56:07.000+00:00
+          ip: ip
+          description: description
+          resourceName: resourceName
+          from: ui
+          _id: _id
+          userId: userId
+          when: 2000-01-23T04:56:07.000+00:00
+          url: url
+          objectDetails: ""
+          username: username
         status: success
       properties:
         status:
@@ -10634,32 +11491,16 @@ components:
         type: number
     VoteResponse_status:
       anyOf:
-      - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      - $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
+      - $ref: '#/components/schemas/APIStatus'
       - enum:
         - pending-verification
         type: string
-    VoteDeleteResponse_status:
-      anyOf:
-      - $ref: '#/components/schemas/ImportedAPIStatus.SUCCESS'
-      - $ref: '#/components/schemas/ImportedAPIStatus.FAILED'
     FComment_meta:
       additionalProperties: {}
       example:
         wpUserId: wpUserId
         wpPostId: wpPostId
       nullable: true
-      properties:
-        wpUserId:
-          type: string
-        wpPostId:
-          type: string
-      type: object
-    Pick_FComment_APICommentFieldsKeys__meta:
-      additionalProperties: {}
-      example:
-        wpUserId: wpUserId
-        wpPostId: wpPostId
       properties:
         wpUserId:
           type: string

@@ -22,7 +22,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -61,6 +63,11 @@ public class APICreateUserBadgeResponse {
   @SerializedName(SERIALIZED_NAME_USER_BADGE)
   @javax.annotation.Nonnull
   private UserBadge userBadge;
+
+  public static final String SERIALIZED_NAME_NOTES = "notes";
+  @SerializedName(SERIALIZED_NAME_NOTES)
+  @javax.annotation.Nullable
+  private List<String> notes = new ArrayList<>();
 
   public APICreateUserBadgeResponse() {
   }
@@ -103,6 +110,33 @@ public class APICreateUserBadgeResponse {
   }
 
 
+  public APICreateUserBadgeResponse notes(@javax.annotation.Nullable List<String> notes) {
+    this.notes = notes;
+    return this;
+  }
+
+  public APICreateUserBadgeResponse addNotesItem(String notesItem) {
+    if (this.notes == null) {
+      this.notes = new ArrayList<>();
+    }
+    this.notes.add(notesItem);
+    return this;
+  }
+
+  /**
+   * Get notes
+   * @return notes
+   */
+  @javax.annotation.Nullable
+  public List<String> getNotes() {
+    return notes;
+  }
+
+  public void setNotes(@javax.annotation.Nullable List<String> notes) {
+    this.notes = notes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -114,12 +148,13 @@ public class APICreateUserBadgeResponse {
     }
     APICreateUserBadgeResponse apICreateUserBadgeResponse = (APICreateUserBadgeResponse) o;
     return Objects.equals(this.status, apICreateUserBadgeResponse.status) &&
-        Objects.equals(this.userBadge, apICreateUserBadgeResponse.userBadge);
+        Objects.equals(this.userBadge, apICreateUserBadgeResponse.userBadge) &&
+        Objects.equals(this.notes, apICreateUserBadgeResponse.notes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, userBadge);
+    return Objects.hash(status, userBadge, notes);
   }
 
   @Override
@@ -128,6 +163,7 @@ public class APICreateUserBadgeResponse {
     sb.append("class APICreateUserBadgeResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    userBadge: ").append(toIndentedString(userBadge)).append("\n");
+    sb.append("    notes: ").append(toIndentedString(notes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -152,6 +188,7 @@ public class APICreateUserBadgeResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("status");
     openapiFields.add("userBadge");
+    openapiFields.add("notes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -191,6 +228,10 @@ public class APICreateUserBadgeResponse {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // validate the required field `userBadge`
       UserBadge.validateJsonElement(jsonObj.get("userBadge"));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonNull() && !jsonObj.get("notes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
