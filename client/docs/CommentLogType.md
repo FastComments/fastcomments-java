@@ -115,5 +115,7 @@
 
 * `NUMBER_54` (value: `new BigDecimal("54")`)
 
+* `NUMBER_55` (value: `new BigDecimal("55")`)
+
 
 

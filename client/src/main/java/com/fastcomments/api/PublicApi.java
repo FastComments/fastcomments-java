@@ -5474,11 +5474,6 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling searchUsers(Async)");
         }
 
-        // verify the required parameter 'usernameStartsWith' is set
-        if (usernameStartsWith == null) {
-            throw new ApiException("Missing the required parameter 'usernameStartsWith' when calling searchUsers(Async)");
-        }
-
         return searchUsersCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
 
     }
@@ -5501,14 +5496,23 @@ public class PublicApi {
     public class APIsearchUsersRequest {
         private final String tenantId;
         private final String urlId;
-        private final String usernameStartsWith;
+        private String usernameStartsWith;
         private List<String> mentionGroupIds;
         private String sso;
 
-        private APIsearchUsersRequest(String tenantId, String urlId, String usernameStartsWith) {
+        private APIsearchUsersRequest(String tenantId, String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
+        }
+
+        /**
+         * Set usernameStartsWith
+         * @param usernameStartsWith  (optional)
+         * @return APIsearchUsersRequest
+         */
+        public APIsearchUsersRequest usernameStartsWith(String usernameStartsWith) {
             this.usernameStartsWith = usernameStartsWith;
+            return this;
         }
 
         /**
@@ -5600,7 +5604,6 @@ public class PublicApi {
      * 
      * @param tenantId  (required)
      * @param urlId  (required)
-     * @param usernameStartsWith  (required)
      * @return APIsearchUsersRequest
      * @http.response.details
      <table border="1">
@@ -5609,8 +5612,8 @@ public class PublicApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIsearchUsersRequest searchUsers(String tenantId, String urlId, String usernameStartsWith) {
-        return new APIsearchUsersRequest(tenantId, urlId, usernameStartsWith);
+    public APIsearchUsersRequest searchUsers(String tenantId, String urlId) {
+        return new APIsearchUsersRequest(tenantId, urlId);
     }
     private okhttp3.Call setCommentTextCall(String tenantId, String commentId, String broadcastId, CommentTextUpdateRequest commentTextUpdateRequest, String editKey, String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

@@ -1810,7 +1810,7 @@ No authorization required
 
 <a id="searchUsers"></a>
 # **searchUsers**
-> SearchUsers200Response searchUsers(tenantId, urlId, usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).execute();
+> SearchUsers200Response searchUsers(tenantId, urlId).usernameStartsWith(usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).execute();
 
 
 
@@ -1835,7 +1835,8 @@ public class Example {
     List<String> mentionGroupIds = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
     try {
-      SearchUsers200Response result = apiInstance.searchUsers(tenantId, urlId, usernameStartsWith)
+      SearchUsers200Response result = apiInstance.searchUsers(tenantId, urlId)
+            .usernameStartsWith(usernameStartsWith)
             .mentionGroupIds(mentionGroupIds)
             .sso(sso)
             .execute();
@@ -1857,7 +1858,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
-| **usernameStartsWith** | **String**|  | |
+| **usernameStartsWith** | **String**|  | [optional] |
 | **mentionGroupIds** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **sso** | **String**|  | [optional] |
 

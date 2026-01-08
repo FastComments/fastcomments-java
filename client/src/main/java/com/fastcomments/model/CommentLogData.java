@@ -319,6 +319,21 @@ public class CommentLogData {
   @javax.annotation.Nullable
   private String referencedCommentId;
 
+  public static final String SERIALIZED_NAME_INVALID_LOCALE = "invalidLocale";
+  @SerializedName(SERIALIZED_NAME_INVALID_LOCALE)
+  @javax.annotation.Nullable
+  private String invalidLocale;
+
+  public static final String SERIALIZED_NAME_DETECTED_LOCALE = "detectedLocale";
+  @SerializedName(SERIALIZED_NAME_DETECTED_LOCALE)
+  @javax.annotation.Nullable
+  private String detectedLocale;
+
+  public static final String SERIALIZED_NAME_DETECTED_LANGUAGE = "detectedLanguage";
+  @SerializedName(SERIALIZED_NAME_DETECTED_LANGUAGE)
+  @javax.annotation.Nullable
+  private String detectedLanguage;
+
   public CommentLogData() {
   }
 
@@ -1139,6 +1154,63 @@ public class CommentLogData {
   }
 
 
+  public CommentLogData invalidLocale(@javax.annotation.Nullable String invalidLocale) {
+    this.invalidLocale = invalidLocale;
+    return this;
+  }
+
+  /**
+   * Get invalidLocale
+   * @return invalidLocale
+   */
+  @javax.annotation.Nullable
+  public String getInvalidLocale() {
+    return invalidLocale;
+  }
+
+  public void setInvalidLocale(@javax.annotation.Nullable String invalidLocale) {
+    this.invalidLocale = invalidLocale;
+  }
+
+
+  public CommentLogData detectedLocale(@javax.annotation.Nullable String detectedLocale) {
+    this.detectedLocale = detectedLocale;
+    return this;
+  }
+
+  /**
+   * Get detectedLocale
+   * @return detectedLocale
+   */
+  @javax.annotation.Nullable
+  public String getDetectedLocale() {
+    return detectedLocale;
+  }
+
+  public void setDetectedLocale(@javax.annotation.Nullable String detectedLocale) {
+    this.detectedLocale = detectedLocale;
+  }
+
+
+  public CommentLogData detectedLanguage(@javax.annotation.Nullable String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
+    return this;
+  }
+
+  /**
+   * Get detectedLanguage
+   * @return detectedLanguage
+   */
+  @javax.annotation.Nullable
+  public String getDetectedLanguage() {
+    return detectedLanguage;
+  }
+
+  public void setDetectedLanguage(@javax.annotation.Nullable String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1191,12 +1263,15 @@ public class CommentLogData {
         Objects.equals(this.flagCountBefore, commentLogData.flagCountBefore) &&
         Objects.equals(this.trustFactorBefore, commentLogData.trustFactorBefore) &&
         Objects.equals(this.trustFactorAfter, commentLogData.trustFactorAfter) &&
-        Objects.equals(this.referencedCommentId, commentLogData.referencedCommentId);
+        Objects.equals(this.referencedCommentId, commentLogData.referencedCommentId) &&
+        Objects.equals(this.invalidLocale, commentLogData.invalidLocale) &&
+        Objects.equals(this.detectedLocale, commentLogData.detectedLocale) &&
+        Objects.equals(this.detectedLanguage, commentLogData.detectedLanguage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clearContent, isDeletedUser, phrase, badWord, word, locale, tenantBadgeId, badgeId, wasLoggedIn, foundUser, verified, engine, engineResponse, engineTokens, trustFactor, rule, userId, subscribers, notificationCount, votesBefore, votesUpBefore, votesDownBefore, votesAfter, votesUpAfter, votesDownAfter, repeatAction, reason, otherData, spamBefore, spamAfter, permanentFlag, approvedBefore, approvedAfter, reviewedBefore, reviewedAfter, textBefore, textAfter, expireBefore, expireAfter, flagCountBefore, trustFactorBefore, trustFactorAfter, referencedCommentId);
+    return Objects.hash(clearContent, isDeletedUser, phrase, badWord, word, locale, tenantBadgeId, badgeId, wasLoggedIn, foundUser, verified, engine, engineResponse, engineTokens, trustFactor, rule, userId, subscribers, notificationCount, votesBefore, votesUpBefore, votesDownBefore, votesAfter, votesUpAfter, votesDownAfter, repeatAction, reason, otherData, spamBefore, spamAfter, permanentFlag, approvedBefore, approvedAfter, reviewedBefore, reviewedAfter, textBefore, textAfter, expireBefore, expireAfter, flagCountBefore, trustFactorBefore, trustFactorAfter, referencedCommentId, invalidLocale, detectedLocale, detectedLanguage);
   }
 
   @Override
@@ -1246,6 +1321,9 @@ public class CommentLogData {
     sb.append("    trustFactorBefore: ").append(toIndentedString(trustFactorBefore)).append("\n");
     sb.append("    trustFactorAfter: ").append(toIndentedString(trustFactorAfter)).append("\n");
     sb.append("    referencedCommentId: ").append(toIndentedString(referencedCommentId)).append("\n");
+    sb.append("    invalidLocale: ").append(toIndentedString(invalidLocale)).append("\n");
+    sb.append("    detectedLocale: ").append(toIndentedString(detectedLocale)).append("\n");
+    sb.append("    detectedLanguage: ").append(toIndentedString(detectedLanguage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1311,6 +1389,9 @@ public class CommentLogData {
     openapiFields.add("trustFactorBefore");
     openapiFields.add("trustFactorAfter");
     openapiFields.add("referencedCommentId");
+    openapiFields.add("invalidLocale");
+    openapiFields.add("detectedLocale");
+    openapiFields.add("detectedLanguage");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1391,6 +1472,15 @@ public class CommentLogData {
       }
       if ((jsonObj.get("referencedCommentId") != null && !jsonObj.get("referencedCommentId").isJsonNull()) && !jsonObj.get("referencedCommentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `referencedCommentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referencedCommentId").toString()));
+      }
+      if ((jsonObj.get("invalidLocale") != null && !jsonObj.get("invalidLocale").isJsonNull()) && !jsonObj.get("invalidLocale").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `invalidLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invalidLocale").toString()));
+      }
+      if ((jsonObj.get("detectedLocale") != null && !jsonObj.get("detectedLocale").isJsonNull()) && !jsonObj.get("detectedLocale").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `detectedLocale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detectedLocale").toString()));
+      }
+      if ((jsonObj.get("detectedLanguage") != null && !jsonObj.get("detectedLanguage").isJsonNull()) && !jsonObj.get("detectedLanguage").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `detectedLanguage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detectedLanguage").toString()));
       }
   }
 
