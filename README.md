@@ -25,21 +25,21 @@ Then add the dependencies you need:
     <dependency>
         <groupId>com.fastcomments</groupId>
         <artifactId>client</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
     </dependency>
     
     <!-- Core Library (includes SSO) -->
     <dependency>
         <groupId>com.fastcomments</groupId>
         <artifactId>core</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
     </dependency>
     
     <!-- PubSub Library (for live events) -->
     <dependency>
         <groupId>com.fastcomments</groupId>
         <artifactId>pubsub</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
     </dependency>
 </dependencies>
 ```
@@ -58,13 +58,13 @@ repositories {
 
 dependencies {
     // API Client
-    implementation "com.fastcomments:client:1.0.0"
+    implementation "com.fastcomments:client:1.1.0"
     
     // Core Library (includes SSO)
-    implementation "com.fastcomments:core:1.0.0"
+    implementation "com.fastcomments:core:1.1.0"
     
     // PubSub Library (for live events)
-    implementation "com.fastcomments:pubsub:1.0.0"
+    implementation "com.fastcomments:pubsub:1.1.0"
 }
 ```
 

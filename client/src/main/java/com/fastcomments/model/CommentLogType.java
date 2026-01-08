@@ -138,7 +138,9 @@ public enum CommentLogType {
   
   NUMBER_53(new BigDecimal("53")),
   
-  NUMBER_54(new BigDecimal("54"));
+  NUMBER_54(new BigDecimal("54")),
+  
+  NUMBER_55(new BigDecimal("55"));
 
   private BigDecimal value;
 

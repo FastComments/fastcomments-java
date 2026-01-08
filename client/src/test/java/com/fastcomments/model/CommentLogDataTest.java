@@ -385,4 +385,28 @@ public class CommentLogDataTest {
         // TODO: test referencedCommentId
     }
 
+    /**
+     * Test the property 'invalidLocale'
+     */
+    @Test
+    public void invalidLocaleTest() {
+        // TODO: test invalidLocale
+    }
+
+    /**
+     * Test the property 'detectedLocale'
+     */
+    @Test
+    public void detectedLocaleTest() {
+        // TODO: test detectedLocale
+    }
+
+    /**
+     * Test the property 'detectedLanguage'
+     */
+    @Test
+    public void detectedLanguageTest() {
+        // TODO: test detectedLanguage
+    }
+
 }

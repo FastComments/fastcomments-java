@@ -50,6 +50,9 @@
 |**trustFactorBefore** | **Double** |  |  [optional] |
 |**trustFactorAfter** | **Double** |  |  [optional] |
 |**referencedCommentId** | **String** |  |  [optional] |
+|**invalidLocale** | **String** |  |  [optional] |
+|**detectedLocale** | **String** |  |  [optional] |
+|**detectedLanguage** | **String** |  |  [optional] |
 
 
 
