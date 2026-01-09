@@ -2504,7 +2504,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateVote_200_response'
+                $ref: '#/components/schemas/VoteComment_200_response'
           description: Ok
       security:
       - api_key: []
@@ -2583,7 +2583,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteVote_200_response'
+                $ref: '#/components/schemas/DeleteCommentVote_200_response'
           description: Ok
       security:
       - api_key: []
@@ -10232,26 +10232,6 @@ components:
       - appliedAnonymousVotes
       - appliedAuthorizedVotes
       - pendingVotes
-      - status
-      type: object
-    CreateVoteResponse:
-      additionalProperties: {}
-      example:
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-      required:
-      - status
-      type: object
-    DeleteVoteResponse:
-      additionalProperties: {}
-      example:
-        status: success
-      properties:
-        status:
-          $ref: '#/components/schemas/APIStatus'
-      required:
       - status
       type: object
     DigestEmailFrequency:
@@ -18897,17 +18877,9 @@ components:
       anyOf:
       - $ref: '#/components/schemas/GetVotesResponse'
       - $ref: '#/components/schemas/APIError'
-    CreateVote_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/CreateVoteResponse'
-      - $ref: '#/components/schemas/APIError'
     GetVotesForUser_200_response:
       anyOf:
       - $ref: '#/components/schemas/GetVotesForUserResponse'
-      - $ref: '#/components/schemas/APIError'
-    DeleteVote_200_response:
-      anyOf:
-      - $ref: '#/components/schemas/DeleteVoteResponse'
       - $ref: '#/components/schemas/APIError'
     GetUser_200_response:
       anyOf:

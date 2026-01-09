@@ -67,14 +67,13 @@ import com.fastcomments.model.CreateTenantUser200Response;
 import com.fastcomments.model.CreateTenantUserBody;
 import com.fastcomments.model.CreateUserBadge200Response;
 import com.fastcomments.model.CreateUserBadgeParams;
-import com.fastcomments.model.CreateVote200Response;
 import com.fastcomments.model.DeleteComment200Response;
+import com.fastcomments.model.DeleteCommentVote200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
 import com.fastcomments.model.DeleteHashTagRequest;
 import com.fastcomments.model.DeletePageAPIResponse;
 import com.fastcomments.model.DeleteSSOUserAPIResponse;
 import com.fastcomments.model.DeleteSubscriptionAPIResponse;
-import com.fastcomments.model.DeleteVote200Response;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.FlagCommentPublic200Response;
@@ -150,6 +149,7 @@ import com.fastcomments.model.UpdateTenantPackageBody;
 import com.fastcomments.model.UpdateTenantUserBody;
 import com.fastcomments.model.UpdateUserBadge200Response;
 import com.fastcomments.model.UpdateUserBadgeParams;
+import com.fastcomments.model.VoteComment200Response;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -4008,16 +4008,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateVote200Response> createVoteWithHttpInfo(String tenantId, String commentId, String direction, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<VoteComment200Response> createVoteWithHttpInfo(String tenantId, String commentId, String direction, String userId, String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = createVoteValidateBeforeCall(tenantId, commentId, direction, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<CreateVote200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createVoteAsync(String tenantId, String commentId, String direction, String userId, String anonUserId, final ApiCallback<CreateVote200Response> _callback) throws ApiException {
+    private okhttp3.Call createVoteAsync(String tenantId, String commentId, String direction, String userId, String anonUserId, final ApiCallback<VoteComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createVoteValidateBeforeCall(tenantId, commentId, direction, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<CreateVote200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4073,7 +4073,7 @@ public class DefaultApi {
 
         /**
          * Execute createVote request
-         * @return CreateVote200Response
+         * @return VoteComment200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -4082,14 +4082,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public CreateVote200Response execute() throws ApiException {
-            ApiResponse<CreateVote200Response> localVarResp = createVoteWithHttpInfo(tenantId, commentId, direction, userId, anonUserId);
+        public VoteComment200Response execute() throws ApiException {
+            ApiResponse<VoteComment200Response> localVarResp = createVoteWithHttpInfo(tenantId, commentId, direction, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute createVote request with HTTP info returned
-         * @return ApiResponse&lt;CreateVote200Response&gt;
+         * @return ApiResponse&lt;VoteComment200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -4098,7 +4098,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateVote200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<VoteComment200Response> executeWithHttpInfo() throws ApiException {
             return createVoteWithHttpInfo(tenantId, commentId, direction, userId, anonUserId);
         }
 
@@ -4114,7 +4114,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateVote200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<VoteComment200Response> _callback) throws ApiException {
             return createVoteAsync(tenantId, commentId, direction, userId, anonUserId, _callback);
         }
     }
@@ -7238,16 +7238,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteVote200Response> deleteVoteWithHttpInfo(String tenantId, String id, String editKey) throws ApiException {
+    private ApiResponse<DeleteCommentVote200Response> deleteVoteWithHttpInfo(String tenantId, String id, String editKey) throws ApiException {
         okhttp3.Call localVarCall = deleteVoteValidateBeforeCall(tenantId, id, editKey, null);
-        Type localVarReturnType = new TypeToken<DeleteVote200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteVoteAsync(String tenantId, String id, String editKey, final ApiCallback<DeleteVote200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteVoteAsync(String tenantId, String id, String editKey, final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteVoteValidateBeforeCall(tenantId, id, editKey, _callback);
-        Type localVarReturnType = new TypeToken<DeleteVote200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7290,7 +7290,7 @@ public class DefaultApi {
 
         /**
          * Execute deleteVote request
-         * @return DeleteVote200Response
+         * @return DeleteCommentVote200Response
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -7299,14 +7299,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public DeleteVote200Response execute() throws ApiException {
-            ApiResponse<DeleteVote200Response> localVarResp = deleteVoteWithHttpInfo(tenantId, id, editKey);
+        public DeleteCommentVote200Response execute() throws ApiException {
+            ApiResponse<DeleteCommentVote200Response> localVarResp = deleteVoteWithHttpInfo(tenantId, id, editKey);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteVote request with HTTP info returned
-         * @return ApiResponse&lt;DeleteVote200Response&gt;
+         * @return ApiResponse&lt;DeleteCommentVote200Response&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -7315,7 +7315,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<DeleteVote200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<DeleteCommentVote200Response> executeWithHttpInfo() throws ApiException {
             return deleteVoteWithHttpInfo(tenantId, id, editKey);
         }
 
@@ -7331,7 +7331,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<DeleteVote200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
             return deleteVoteAsync(tenantId, id, editKey, _callback);
         }
     }
