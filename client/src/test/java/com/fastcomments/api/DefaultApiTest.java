@@ -54,14 +54,13 @@ import com.fastcomments.model.CreateTenantUser200Response;
 import com.fastcomments.model.CreateTenantUserBody;
 import com.fastcomments.model.CreateUserBadge200Response;
 import com.fastcomments.model.CreateUserBadgeParams;
-import com.fastcomments.model.CreateVote200Response;
 import com.fastcomments.model.DeleteComment200Response;
+import com.fastcomments.model.DeleteCommentVote200Response;
 import com.fastcomments.model.DeleteDomainConfig200Response;
 import com.fastcomments.model.DeleteHashTagRequest;
 import com.fastcomments.model.DeletePageAPIResponse;
 import com.fastcomments.model.DeleteSSOUserAPIResponse;
 import com.fastcomments.model.DeleteSubscriptionAPIResponse;
-import com.fastcomments.model.DeleteVote200Response;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.FlagComment200Response;
 import com.fastcomments.model.FlagCommentPublic200Response;
@@ -137,6 +136,7 @@ import com.fastcomments.model.UpdateTenantPackageBody;
 import com.fastcomments.model.UpdateTenantUserBody;
 import com.fastcomments.model.UpdateUserBadge200Response;
 import com.fastcomments.model.UpdateUserBadgeParams;
+import com.fastcomments.model.VoteComment200Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -454,7 +454,7 @@ public class DefaultApiTest {
         String direction = null;
         String userId = null;
         String anonUserId = null;
-        CreateVote200Response response = api.createVote(tenantId, commentId, direction)
+        VoteComment200Response response = api.createVote(tenantId, commentId, direction)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -695,7 +695,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String editKey = null;
-        DeleteVote200Response response = api.deleteVote(tenantId, id)
+        DeleteCommentVote200Response response = api.deleteVote(tenantId, id)
                 .editKey(editKey)
                 .execute();
         // TODO: test validations

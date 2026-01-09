@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:1.1.0"
+     implementation "com.fastcomments:client:1.2.0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-1.1.0.jar`
+* `target/client-1.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -374,8 +374,6 @@ Class | Method | HTTP request | Description
  - [CreateTenantUserResponse](docs/CreateTenantUserResponse.md)
  - [CreateUserBadge200Response](docs/CreateUserBadge200Response.md)
  - [CreateUserBadgeParams](docs/CreateUserBadgeParams.md)
- - [CreateVote200Response](docs/CreateVote200Response.md)
- - [CreateVoteResponse](docs/CreateVoteResponse.md)
  - [CustomConfigParameters](docs/CustomConfigParameters.md)
  - [CustomEmailTemplate](docs/CustomEmailTemplate.md)
  - [DeleteComment200Response](docs/DeleteComment200Response.md)
@@ -390,8 +388,6 @@ Class | Method | HTTP request | Description
  - [DeletePageAPIResponse](docs/DeletePageAPIResponse.md)
  - [DeleteSSOUserAPIResponse](docs/DeleteSSOUserAPIResponse.md)
  - [DeleteSubscriptionAPIResponse](docs/DeleteSubscriptionAPIResponse.md)
- - [DeleteVote200Response](docs/DeleteVote200Response.md)
- - [DeleteVoteResponse](docs/DeleteVoteResponse.md)
  - [DeletedCommentResultComment](docs/DeletedCommentResultComment.md)
  - [DigestEmailFrequency](docs/DigestEmailFrequency.md)
  - [EmailTemplateDefinition](docs/EmailTemplateDefinition.md)

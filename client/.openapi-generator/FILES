@@ -108,8 +108,6 @@ docs/CreateTenantUserBody.md
 docs/CreateTenantUserResponse.md
 docs/CreateUserBadge200Response.md
 docs/CreateUserBadgeParams.md
-docs/CreateVote200Response.md
-docs/CreateVoteResponse.md
 docs/CustomConfigParameters.md
 docs/CustomEmailTemplate.md
 docs/DefaultApi.md
@@ -125,8 +123,6 @@ docs/DeleteHashTagRequest.md
 docs/DeletePageAPIResponse.md
 docs/DeleteSSOUserAPIResponse.md
 docs/DeleteSubscriptionAPIResponse.md
-docs/DeleteVote200Response.md
-docs/DeleteVoteResponse.md
 docs/DeletedCommentResultComment.md
 docs/DigestEmailFrequency.md
 docs/EmailTemplateDefinition.md
@@ -480,8 +476,6 @@ src/main/java/com/fastcomments/model/CreateTenantUserBody.java
 src/main/java/com/fastcomments/model/CreateTenantUserResponse.java
 src/main/java/com/fastcomments/model/CreateUserBadge200Response.java
 src/main/java/com/fastcomments/model/CreateUserBadgeParams.java
-src/main/java/com/fastcomments/model/CreateVote200Response.java
-src/main/java/com/fastcomments/model/CreateVoteResponse.java
 src/main/java/com/fastcomments/model/CustomConfigParameters.java
 src/main/java/com/fastcomments/model/CustomEmailTemplate.java
 src/main/java/com/fastcomments/model/DeleteComment200Response.java
@@ -496,8 +490,6 @@ src/main/java/com/fastcomments/model/DeleteHashTagRequest.java
 src/main/java/com/fastcomments/model/DeletePageAPIResponse.java
 src/main/java/com/fastcomments/model/DeleteSSOUserAPIResponse.java
 src/main/java/com/fastcomments/model/DeleteSubscriptionAPIResponse.java
-src/main/java/com/fastcomments/model/DeleteVote200Response.java
-src/main/java/com/fastcomments/model/DeleteVoteResponse.java
 src/main/java/com/fastcomments/model/DeletedCommentResultComment.java
 src/main/java/com/fastcomments/model/DigestEmailFrequency.java
 src/main/java/com/fastcomments/model/EmailTemplateDefinition.java
@@ -823,8 +815,6 @@ src/test/java/com/fastcomments/model/CreateTenantUserBodyTest.java
 src/test/java/com/fastcomments/model/CreateTenantUserResponseTest.java
 src/test/java/com/fastcomments/model/CreateUserBadge200ResponseTest.java
 src/test/java/com/fastcomments/model/CreateUserBadgeParamsTest.java
-src/test/java/com/fastcomments/model/CreateVote200ResponseTest.java
-src/test/java/com/fastcomments/model/CreateVoteResponseTest.java
 src/test/java/com/fastcomments/model/CustomConfigParametersTest.java
 src/test/java/com/fastcomments/model/CustomEmailTemplateTest.java
 src/test/java/com/fastcomments/model/DeleteComment200ResponseTest.java
@@ -839,8 +829,6 @@ src/test/java/com/fastcomments/model/DeleteHashTagRequestTest.java
 src/test/java/com/fastcomments/model/DeletePageAPIResponseTest.java
 src/test/java/com/fastcomments/model/DeleteSSOUserAPIResponseTest.java
 src/test/java/com/fastcomments/model/DeleteSubscriptionAPIResponseTest.java
-src/test/java/com/fastcomments/model/DeleteVote200ResponseTest.java
-src/test/java/com/fastcomments/model/DeleteVoteResponseTest.java
 src/test/java/com/fastcomments/model/DeletedCommentResultCommentTest.java
 src/test/java/com/fastcomments/model/DigestEmailFrequencyTest.java
 src/test/java/com/fastcomments/model/EmailTemplateDefinitionTest.java

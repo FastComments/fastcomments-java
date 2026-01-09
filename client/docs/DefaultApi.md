@@ -1591,7 +1591,7 @@ public class Example {
 
 <a id="createVote"></a>
 # **createVote**
-> CreateVote200Response createVote(tenantId, commentId, direction).userId(userId).anonUserId(anonUserId).execute();
+> VoteComment200Response createVote(tenantId, commentId, direction).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -1623,7 +1623,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      CreateVote200Response result = apiInstance.createVote(tenantId, commentId, direction)
+      VoteComment200Response result = apiInstance.createVote(tenantId, commentId, direction)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -1651,7 +1651,7 @@ public class Example {
 
 ### Return type
 
-[**CreateVote200Response**](CreateVote200Response.md)
+[**VoteComment200Response**](VoteComment200Response.md)
 
 ### Authorization
 
@@ -2892,7 +2892,7 @@ public class Example {
 
 <a id="deleteVote"></a>
 # **deleteVote**
-> DeleteVote200Response deleteVote(tenantId, id).editKey(editKey).execute();
+> DeleteCommentVote200Response deleteVote(tenantId, id).editKey(editKey).execute();
 
 
 
@@ -2922,7 +2922,7 @@ public class Example {
     String id = "id_example"; // String | 
     String editKey = "editKey_example"; // String | 
     try {
-      DeleteVote200Response result = apiInstance.deleteVote(tenantId, id)
+      DeleteCommentVote200Response result = apiInstance.deleteVote(tenantId, id)
             .editKey(editKey)
             .execute();
       System.out.println(result);
@@ -2947,7 +2947,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteVote200Response**](DeleteVote200Response.md)
+[**DeleteCommentVote200Response**](DeleteCommentVote200Response.md)
 
 ### Authorization
 

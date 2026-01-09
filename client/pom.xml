@@ -5,7 +5,7 @@
     <artifactId>client</artifactId>
     <packaging>jar</packaging>
     <name>client</name>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <url>https://fastcomments.com</url>
     <description>FastComments API Client - A SDK for interacting with the FastComments API</description>
     <scm>
