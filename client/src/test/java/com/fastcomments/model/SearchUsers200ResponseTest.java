@@ -17,7 +17,9 @@ import com.fastcomments.model.APIError;
 import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.SearchUsersResponse;
+import com.fastcomments.model.SearchUsersSectionedResponse;
 import com.fastcomments.model.UserSearchResult;
+import com.fastcomments.model.UserSearchSectionResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,6 +52,14 @@ public class SearchUsers200ResponseTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'sections'
+     */
+    @Test
+    public void sectionsTest() {
+        // TODO: test sections
     }
 
     /**

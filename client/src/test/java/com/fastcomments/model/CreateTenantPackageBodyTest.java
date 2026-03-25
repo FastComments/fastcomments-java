@@ -168,6 +168,14 @@ public class CreateTenantPackageBodyTest {
     }
 
     /**
+     * Test the property 'maxCustomCollectionSize'
+     */
+    @Test
+    public void maxCustomCollectionSizeTest() {
+        // TODO: test maxCustomCollectionSize
+    }
+
+    /**
      * Test the property 'hasWhiteLabeling'
      */
     @Test

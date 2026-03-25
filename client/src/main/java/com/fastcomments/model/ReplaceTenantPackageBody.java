@@ -107,6 +107,11 @@ public class ReplaceTenantPackageBody {
   @javax.annotation.Nonnull
   private Double maxDomains;
 
+  public static final String SERIALIZED_NAME_MAX_CUSTOM_COLLECTION_SIZE = "maxCustomCollectionSize";
+  @SerializedName(SERIALIZED_NAME_MAX_CUSTOM_COLLECTION_SIZE)
+  @javax.annotation.Nullable
+  private Double maxCustomCollectionSize;
+
   public static final String SERIALIZED_NAME_HAS_DEBRANDING = "hasDebranding";
   @SerializedName(SERIALIZED_NAME_HAS_DEBRANDING)
   @javax.annotation.Nonnull
@@ -411,6 +416,25 @@ public class ReplaceTenantPackageBody {
 
   public void setMaxDomains(@javax.annotation.Nonnull Double maxDomains) {
     this.maxDomains = maxDomains;
+  }
+
+
+  public ReplaceTenantPackageBody maxCustomCollectionSize(@javax.annotation.Nullable Double maxCustomCollectionSize) {
+    this.maxCustomCollectionSize = maxCustomCollectionSize;
+    return this;
+  }
+
+  /**
+   * Get maxCustomCollectionSize
+   * @return maxCustomCollectionSize
+   */
+  @javax.annotation.Nullable
+  public Double getMaxCustomCollectionSize() {
+    return maxCustomCollectionSize;
+  }
+
+  public void setMaxCustomCollectionSize(@javax.annotation.Nullable Double maxCustomCollectionSize) {
+    this.maxCustomCollectionSize = maxCustomCollectionSize;
   }
 
 
@@ -804,6 +828,7 @@ public class ReplaceTenantPackageBody {
         Objects.equals(this.maxSSOUsers, replaceTenantPackageBody.maxSSOUsers) &&
         Objects.equals(this.maxModerators, replaceTenantPackageBody.maxModerators) &&
         Objects.equals(this.maxDomains, replaceTenantPackageBody.maxDomains) &&
+        Objects.equals(this.maxCustomCollectionSize, replaceTenantPackageBody.maxCustomCollectionSize) &&
         Objects.equals(this.hasDebranding, replaceTenantPackageBody.hasDebranding) &&
         Objects.equals(this.forWhoText, replaceTenantPackageBody.forWhoText) &&
         Objects.equals(this.featureTaglines, replaceTenantPackageBody.featureTaglines) &&
@@ -827,7 +852,7 @@ public class ReplaceTenantPackageBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, monthlyCostUSD, yearlyCostUSD, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, hasDebranding, forWhoText, featureTaglines, hasFlexPricing, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexMinimumCostCents);
+    return Objects.hash(name, monthlyCostUSD, yearlyCostUSD, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxCustomCollectionSize, hasDebranding, forWhoText, featureTaglines, hasFlexPricing, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexMinimumCostCents);
   }
 
   @Override
@@ -845,6 +870,7 @@ public class ReplaceTenantPackageBody {
     sb.append("    maxSSOUsers: ").append(toIndentedString(maxSSOUsers)).append("\n");
     sb.append("    maxModerators: ").append(toIndentedString(maxModerators)).append("\n");
     sb.append("    maxDomains: ").append(toIndentedString(maxDomains)).append("\n");
+    sb.append("    maxCustomCollectionSize: ").append(toIndentedString(maxCustomCollectionSize)).append("\n");
     sb.append("    hasDebranding: ").append(toIndentedString(hasDebranding)).append("\n");
     sb.append("    forWhoText: ").append(toIndentedString(forWhoText)).append("\n");
     sb.append("    featureTaglines: ").append(toIndentedString(featureTaglines)).append("\n");
@@ -897,6 +923,7 @@ public class ReplaceTenantPackageBody {
     openapiFields.add("maxSSOUsers");
     openapiFields.add("maxModerators");
     openapiFields.add("maxDomains");
+    openapiFields.add("maxCustomCollectionSize");
     openapiFields.add("hasDebranding");
     openapiFields.add("forWhoText");
     openapiFields.add("featureTaglines");

@@ -141,6 +141,11 @@ public class UserBadge {
   @javax.annotation.Nullable
   private Integer order;
 
+  public static final String SERIALIZED_NAME_URL_ID = "urlId";
+  @SerializedName(SERIALIZED_NAME_URL_ID)
+  @javax.annotation.Nullable
+  private String urlId;
+
   public UserBadge() {
   }
 
@@ -486,6 +491,25 @@ public class UserBadge {
   }
 
 
+  public UserBadge urlId(@javax.annotation.Nullable String urlId) {
+    this.urlId = urlId;
+    return this;
+  }
+
+  /**
+   * Get urlId
+   * @return urlId
+   */
+  @javax.annotation.Nullable
+  public String getUrlId() {
+    return urlId;
+  }
+
+  public void setUrlId(@javax.annotation.Nullable String urlId) {
+    this.urlId = urlId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -513,12 +537,13 @@ public class UserBadge {
         Objects.equals(this.veteranUserThresholdMillis, userBadge.veteranUserThresholdMillis) &&
         Objects.equals(this.displayedOnComments, userBadge.displayedOnComments) &&
         Objects.equals(this.receivedAt, userBadge.receivedAt) &&
-        Objects.equals(this.order, userBadge.order);
+        Objects.equals(this.order, userBadge.order) &&
+        Objects.equals(this.urlId, userBadge.urlId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, badgeId, fromTenantId, createdAt, type, threshold, description, displayLabel, displaySrc, backgroundColor, borderColor, textColor, cssClass, veteranUserThresholdMillis, displayedOnComments, receivedAt, order);
+    return Objects.hash(id, userId, badgeId, fromTenantId, createdAt, type, threshold, description, displayLabel, displaySrc, backgroundColor, borderColor, textColor, cssClass, veteranUserThresholdMillis, displayedOnComments, receivedAt, order, urlId);
   }
 
   @Override
@@ -543,6 +568,7 @@ public class UserBadge {
     sb.append("    displayedOnComments: ").append(toIndentedString(displayedOnComments)).append("\n");
     sb.append("    receivedAt: ").append(toIndentedString(receivedAt)).append("\n");
     sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -583,6 +609,7 @@ public class UserBadge {
     openapiFields.add("displayedOnComments");
     openapiFields.add("receivedAt");
     openapiFields.add("order");
+    openapiFields.add("urlId");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -660,6 +687,9 @@ public class UserBadge {
       }
       if ((jsonObj.get("cssClass") != null && !jsonObj.get("cssClass").isJsonNull()) && !jsonObj.get("cssClass").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cssClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cssClass").toString()));
+      }
+      if ((jsonObj.get("urlId") != null && !jsonObj.get("urlId").isJsonNull()) && !jsonObj.get("urlId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
       }
   }
 

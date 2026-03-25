@@ -237,6 +237,14 @@ public class CreateCommentParamsTest {
     }
 
     /**
+     * Test the property 'tos'
+     */
+    @Test
+    public void tosTest() {
+        // TODO: test tos
+    }
+
+    /**
      * Test the property 'approved'
      */
     @Test

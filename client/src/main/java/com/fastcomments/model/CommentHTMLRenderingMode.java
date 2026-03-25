@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,17 +29,17 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(CommentHTMLRenderingMode.Adapter.class)
 public enum CommentHTMLRenderingMode {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1"));
+  NUMBER_1(1);
 
-  private BigDecimal value;
+  private Integer value;
 
-  CommentHTMLRenderingMode(BigDecimal value) {
+  CommentHTMLRenderingMode(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -49,7 +48,7 @@ public enum CommentHTMLRenderingMode {
     return String.valueOf(value);
   }
 
-  public static CommentHTMLRenderingMode fromValue(BigDecimal value) {
+  public static CommentHTMLRenderingMode fromValue(Integer value) {
     for (CommentHTMLRenderingMode b : CommentHTMLRenderingMode.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -66,14 +65,14 @@ public enum CommentHTMLRenderingMode {
 
     @Override
     public CommentHTMLRenderingMode read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return CommentHTMLRenderingMode.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return CommentHTMLRenderingMode.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    CommentHTMLRenderingMode.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    CommentHTMLRenderingMode.fromValue(value);
   }
 }
 

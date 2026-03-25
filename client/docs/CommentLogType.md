@@ -5,117 +5,117 @@
 ## Enum
 
 
-* `NUMBER_0` (value: `new BigDecimal("0")`)
+* `NUMBER_0` (value: `0`)
 
-* `NUMBER_1` (value: `new BigDecimal("1")`)
+* `NUMBER_1` (value: `1`)
 
-* `NUMBER_2` (value: `new BigDecimal("2")`)
+* `NUMBER_2` (value: `2`)
 
-* `NUMBER_3` (value: `new BigDecimal("3")`)
+* `NUMBER_3` (value: `3`)
 
-* `NUMBER_4` (value: `new BigDecimal("4")`)
+* `NUMBER_4` (value: `4`)
 
-* `NUMBER_5` (value: `new BigDecimal("5")`)
+* `NUMBER_5` (value: `5`)
 
-* `NUMBER_6` (value: `new BigDecimal("6")`)
+* `NUMBER_6` (value: `6`)
 
-* `NUMBER_7` (value: `new BigDecimal("7")`)
+* `NUMBER_7` (value: `7`)
 
-* `NUMBER_8` (value: `new BigDecimal("8")`)
+* `NUMBER_8` (value: `8`)
 
-* `NUMBER_9` (value: `new BigDecimal("9")`)
+* `NUMBER_9` (value: `9`)
 
-* `NUMBER_10` (value: `new BigDecimal("10")`)
+* `NUMBER_10` (value: `10`)
 
-* `NUMBER_11` (value: `new BigDecimal("11")`)
+* `NUMBER_11` (value: `11`)
 
-* `NUMBER_12` (value: `new BigDecimal("12")`)
+* `NUMBER_12` (value: `12`)
 
-* `NUMBER_13` (value: `new BigDecimal("13")`)
+* `NUMBER_13` (value: `13`)
 
-* `NUMBER_14` (value: `new BigDecimal("14")`)
+* `NUMBER_14` (value: `14`)
 
-* `NUMBER_15` (value: `new BigDecimal("15")`)
+* `NUMBER_15` (value: `15`)
 
-* `NUMBER_16` (value: `new BigDecimal("16")`)
+* `NUMBER_16` (value: `16`)
 
-* `NUMBER_17` (value: `new BigDecimal("17")`)
+* `NUMBER_17` (value: `17`)
 
-* `NUMBER_18` (value: `new BigDecimal("18")`)
+* `NUMBER_18` (value: `18`)
 
-* `NUMBER_19` (value: `new BigDecimal("19")`)
+* `NUMBER_19` (value: `19`)
 
-* `NUMBER_20` (value: `new BigDecimal("20")`)
+* `NUMBER_20` (value: `20`)
 
-* `NUMBER_21` (value: `new BigDecimal("21")`)
+* `NUMBER_21` (value: `21`)
 
-* `NUMBER_22` (value: `new BigDecimal("22")`)
+* `NUMBER_22` (value: `22`)
 
-* `NUMBER_23` (value: `new BigDecimal("23")`)
+* `NUMBER_23` (value: `23`)
 
-* `NUMBER_24` (value: `new BigDecimal("24")`)
+* `NUMBER_24` (value: `24`)
 
-* `NUMBER_25` (value: `new BigDecimal("25")`)
+* `NUMBER_25` (value: `25`)
 
-* `NUMBER_26` (value: `new BigDecimal("26")`)
+* `NUMBER_26` (value: `26`)
 
-* `NUMBER_27` (value: `new BigDecimal("27")`)
+* `NUMBER_27` (value: `27`)
 
-* `NUMBER_28` (value: `new BigDecimal("28")`)
+* `NUMBER_28` (value: `28`)
 
-* `NUMBER_29` (value: `new BigDecimal("29")`)
+* `NUMBER_29` (value: `29`)
 
-* `NUMBER_30` (value: `new BigDecimal("30")`)
+* `NUMBER_30` (value: `30`)
 
-* `NUMBER_31` (value: `new BigDecimal("31")`)
+* `NUMBER_31` (value: `31`)
 
-* `NUMBER_32` (value: `new BigDecimal("32")`)
+* `NUMBER_32` (value: `32`)
 
-* `NUMBER_33` (value: `new BigDecimal("33")`)
+* `NUMBER_33` (value: `33`)
 
-* `NUMBER_34` (value: `new BigDecimal("34")`)
+* `NUMBER_34` (value: `34`)
 
-* `NUMBER_35` (value: `new BigDecimal("35")`)
+* `NUMBER_35` (value: `35`)
 
-* `NUMBER_36` (value: `new BigDecimal("36")`)
+* `NUMBER_36` (value: `36`)
 
-* `NUMBER_37` (value: `new BigDecimal("37")`)
+* `NUMBER_37` (value: `37`)
 
-* `NUMBER_38` (value: `new BigDecimal("38")`)
+* `NUMBER_38` (value: `38`)
 
-* `NUMBER_39` (value: `new BigDecimal("39")`)
+* `NUMBER_39` (value: `39`)
 
-* `NUMBER_40` (value: `new BigDecimal("40")`)
+* `NUMBER_40` (value: `40`)
 
-* `NUMBER_41` (value: `new BigDecimal("41")`)
+* `NUMBER_41` (value: `41`)
 
-* `NUMBER_42` (value: `new BigDecimal("42")`)
+* `NUMBER_42` (value: `42`)
 
-* `NUMBER_43` (value: `new BigDecimal("43")`)
+* `NUMBER_43` (value: `43`)
 
-* `NUMBER_44` (value: `new BigDecimal("44")`)
+* `NUMBER_44` (value: `44`)
 
-* `NUMBER_45` (value: `new BigDecimal("45")`)
+* `NUMBER_45` (value: `45`)
 
-* `NUMBER_46` (value: `new BigDecimal("46")`)
+* `NUMBER_46` (value: `46`)
 
-* `NUMBER_47` (value: `new BigDecimal("47")`)
+* `NUMBER_47` (value: `47`)
 
-* `NUMBER_48` (value: `new BigDecimal("48")`)
+* `NUMBER_48` (value: `48`)
 
-* `NUMBER_49` (value: `new BigDecimal("49")`)
+* `NUMBER_49` (value: `49`)
 
-* `NUMBER_50` (value: `new BigDecimal("50")`)
+* `NUMBER_50` (value: `50`)
 
-* `NUMBER_51` (value: `new BigDecimal("51")`)
+* `NUMBER_51` (value: `51`)
 
-* `NUMBER_52` (value: `new BigDecimal("52")`)
+* `NUMBER_52` (value: `52`)
 
-* `NUMBER_53` (value: `new BigDecimal("53")`)
+* `NUMBER_53` (value: `53`)
 
-* `NUMBER_54` (value: `new BigDecimal("54")`)
+* `NUMBER_54` (value: `54`)
 
-* `NUMBER_55` (value: `new BigDecimal("55")`)
+* `NUMBER_55` (value: `55`)
 
 
 

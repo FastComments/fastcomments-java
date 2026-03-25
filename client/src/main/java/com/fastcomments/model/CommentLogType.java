@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,125 +29,125 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(CommentLogType.Adapter.class)
 public enum CommentLogType {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2")),
+  NUMBER_2(2),
   
-  NUMBER_3(new BigDecimal("3")),
+  NUMBER_3(3),
   
-  NUMBER_4(new BigDecimal("4")),
+  NUMBER_4(4),
   
-  NUMBER_5(new BigDecimal("5")),
+  NUMBER_5(5),
   
-  NUMBER_6(new BigDecimal("6")),
+  NUMBER_6(6),
   
-  NUMBER_7(new BigDecimal("7")),
+  NUMBER_7(7),
   
-  NUMBER_8(new BigDecimal("8")),
+  NUMBER_8(8),
   
-  NUMBER_9(new BigDecimal("9")),
+  NUMBER_9(9),
   
-  NUMBER_10(new BigDecimal("10")),
+  NUMBER_10(10),
   
-  NUMBER_11(new BigDecimal("11")),
+  NUMBER_11(11),
   
-  NUMBER_12(new BigDecimal("12")),
+  NUMBER_12(12),
   
-  NUMBER_13(new BigDecimal("13")),
+  NUMBER_13(13),
   
-  NUMBER_14(new BigDecimal("14")),
+  NUMBER_14(14),
   
-  NUMBER_15(new BigDecimal("15")),
+  NUMBER_15(15),
   
-  NUMBER_16(new BigDecimal("16")),
+  NUMBER_16(16),
   
-  NUMBER_17(new BigDecimal("17")),
+  NUMBER_17(17),
   
-  NUMBER_18(new BigDecimal("18")),
+  NUMBER_18(18),
   
-  NUMBER_19(new BigDecimal("19")),
+  NUMBER_19(19),
   
-  NUMBER_20(new BigDecimal("20")),
+  NUMBER_20(20),
   
-  NUMBER_21(new BigDecimal("21")),
+  NUMBER_21(21),
   
-  NUMBER_22(new BigDecimal("22")),
+  NUMBER_22(22),
   
-  NUMBER_23(new BigDecimal("23")),
+  NUMBER_23(23),
   
-  NUMBER_24(new BigDecimal("24")),
+  NUMBER_24(24),
   
-  NUMBER_25(new BigDecimal("25")),
+  NUMBER_25(25),
   
-  NUMBER_26(new BigDecimal("26")),
+  NUMBER_26(26),
   
-  NUMBER_27(new BigDecimal("27")),
+  NUMBER_27(27),
   
-  NUMBER_28(new BigDecimal("28")),
+  NUMBER_28(28),
   
-  NUMBER_29(new BigDecimal("29")),
+  NUMBER_29(29),
   
-  NUMBER_30(new BigDecimal("30")),
+  NUMBER_30(30),
   
-  NUMBER_31(new BigDecimal("31")),
+  NUMBER_31(31),
   
-  NUMBER_32(new BigDecimal("32")),
+  NUMBER_32(32),
   
-  NUMBER_33(new BigDecimal("33")),
+  NUMBER_33(33),
   
-  NUMBER_34(new BigDecimal("34")),
+  NUMBER_34(34),
   
-  NUMBER_35(new BigDecimal("35")),
+  NUMBER_35(35),
   
-  NUMBER_36(new BigDecimal("36")),
+  NUMBER_36(36),
   
-  NUMBER_37(new BigDecimal("37")),
+  NUMBER_37(37),
   
-  NUMBER_38(new BigDecimal("38")),
+  NUMBER_38(38),
   
-  NUMBER_39(new BigDecimal("39")),
+  NUMBER_39(39),
   
-  NUMBER_40(new BigDecimal("40")),
+  NUMBER_40(40),
   
-  NUMBER_41(new BigDecimal("41")),
+  NUMBER_41(41),
   
-  NUMBER_42(new BigDecimal("42")),
+  NUMBER_42(42),
   
-  NUMBER_43(new BigDecimal("43")),
+  NUMBER_43(43),
   
-  NUMBER_44(new BigDecimal("44")),
+  NUMBER_44(44),
   
-  NUMBER_45(new BigDecimal("45")),
+  NUMBER_45(45),
   
-  NUMBER_46(new BigDecimal("46")),
+  NUMBER_46(46),
   
-  NUMBER_47(new BigDecimal("47")),
+  NUMBER_47(47),
   
-  NUMBER_48(new BigDecimal("48")),
+  NUMBER_48(48),
   
-  NUMBER_49(new BigDecimal("49")),
+  NUMBER_49(49),
   
-  NUMBER_50(new BigDecimal("50")),
+  NUMBER_50(50),
   
-  NUMBER_51(new BigDecimal("51")),
+  NUMBER_51(51),
   
-  NUMBER_52(new BigDecimal("52")),
+  NUMBER_52(52),
   
-  NUMBER_53(new BigDecimal("53")),
+  NUMBER_53(53),
   
-  NUMBER_54(new BigDecimal("54")),
+  NUMBER_54(54),
   
-  NUMBER_55(new BigDecimal("55"));
+  NUMBER_55(55);
 
-  private BigDecimal value;
+  private Integer value;
 
-  CommentLogType(BigDecimal value) {
+  CommentLogType(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -157,7 +156,7 @@ public enum CommentLogType {
     return String.valueOf(value);
   }
 
-  public static CommentLogType fromValue(BigDecimal value) {
+  public static CommentLogType fromValue(Integer value) {
     for (CommentLogType b : CommentLogType.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -174,14 +173,14 @@ public enum CommentLogType {
 
     @Override
     public CommentLogType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return CommentLogType.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return CommentLogType.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    CommentLogType.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    CommentLogType.fromValue(value);
   }
 }
 

@@ -18,6 +18,7 @@
 |**maxSSOUsers** | **Double** |  |  [optional] |
 |**maxModerators** | **Double** |  |  [optional] |
 |**maxDomains** | **Double** |  |  [optional] |
+|**maxCustomCollectionSize** | **Double** |  |  [optional] |
 |**hasDebranding** | **Boolean** |  |  [optional] |
 |**hasWhiteLabeling** | **Boolean** |  |  [optional] |
 |**forWhoText** | **String** |  |  [optional] |

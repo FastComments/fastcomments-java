@@ -20,12 +20,14 @@ import com.fastcomments.model.CommentThreadDeletionMode;
 import com.fastcomments.model.CommenterNameFormats;
 import com.fastcomments.model.GifRating;
 import com.fastcomments.model.ImageContentProfanityLevel;
+import com.fastcomments.model.MentionAutoCompleteMode;
 import com.fastcomments.model.QuestionRenderingType;
 import com.fastcomments.model.QuestionSubQuestionVisibility;
 import com.fastcomments.model.QuestionWhenSave;
 import com.fastcomments.model.SSOSecurityLevel;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.SpamRule;
+import com.fastcomments.model.TOSConfig;
 import com.fastcomments.model.VoteStyle;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -248,6 +250,22 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'disableProfileComments'
+     */
+    @Test
+    public void disableProfileCommentsTest() {
+        // TODO: test disableProfileComments
+    }
+
+    /**
+     * Test the property 'disableProfileDirectMessages'
+     */
+    @Test
+    public void disableProfileDirectMessagesTest() {
+        // TODO: test disableProfileDirectMessages
+    }
+
+    /**
      * Test the property 'disableProfiles'
      */
     @Test
@@ -440,6 +458,14 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'mentionAutoCompleteMode'
+     */
+    @Test
+    public void mentionAutoCompleteModeTest() {
+        // TODO: test mentionAutoCompleteMode
+    }
+
+    /**
      * Test the property 'noImageUploads'
      */
     @Test
@@ -600,6 +626,14 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'widgetQuestionShowBreakdown'
+     */
+    @Test
+    public void widgetQuestionShowBreakdownTest() {
+        // TODO: test widgetQuestionShowBreakdown
+    }
+
+    /**
      * Test the property 'widgetQuestionStyle'
      */
     @Test
@@ -637,6 +671,54 @@ public class CustomConfigParametersTest {
     @Test
     public void wrapTest() {
         // TODO: test wrap
+    }
+
+    /**
+     * Test the property 'ticketBaseUrl'
+     */
+    @Test
+    public void ticketBaseUrlTest() {
+        // TODO: test ticketBaseUrl
+    }
+
+    /**
+     * Test the property 'ticketKBSearchEndpoint'
+     */
+    @Test
+    public void ticketKBSearchEndpointTest() {
+        // TODO: test ticketKBSearchEndpoint
+    }
+
+    /**
+     * Test the property 'ticketFileUploadsEnabled'
+     */
+    @Test
+    public void ticketFileUploadsEnabledTest() {
+        // TODO: test ticketFileUploadsEnabled
+    }
+
+    /**
+     * Test the property 'ticketMaxFileSize'
+     */
+    @Test
+    public void ticketMaxFileSizeTest() {
+        // TODO: test ticketMaxFileSize
+    }
+
+    /**
+     * Test the property 'ticketAutoAssignUserIds'
+     */
+    @Test
+    public void ticketAutoAssignUserIdsTest() {
+        // TODO: test ticketAutoAssignUserIds
+    }
+
+    /**
+     * Test the property 'tos'
+     */
+    @Test
+    public void tosTest() {
+        // TODO: test tos
     }
 
 }

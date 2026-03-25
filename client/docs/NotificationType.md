@@ -5,31 +5,31 @@
 ## Enum
 
 
-* `NUMBER_0` (value: `new BigDecimal("0")`)
+* `NUMBER_0` (value: `0`)
 
-* `NUMBER_1` (value: `new BigDecimal("1")`)
+* `NUMBER_1` (value: `1`)
 
-* `NUMBER_2` (value: `new BigDecimal("2")`)
+* `NUMBER_2` (value: `2`)
 
-* `NUMBER_3` (value: `new BigDecimal("3")`)
+* `NUMBER_3` (value: `3`)
 
-* `NUMBER_4` (value: `new BigDecimal("4")`)
+* `NUMBER_4` (value: `4`)
 
-* `NUMBER_5` (value: `new BigDecimal("5")`)
+* `NUMBER_5` (value: `5`)
 
-* `NUMBER_6` (value: `new BigDecimal("6")`)
+* `NUMBER_6` (value: `6`)
 
-* `NUMBER_7` (value: `new BigDecimal("7")`)
+* `NUMBER_7` (value: `7`)
 
-* `NUMBER_8` (value: `new BigDecimal("8")`)
+* `NUMBER_8` (value: `8`)
 
-* `NUMBER_81` (value: `new BigDecimal("81")`)
+* `NUMBER_81` (value: `81`)
 
-* `NUMBER_82` (value: `new BigDecimal("82")`)
+* `NUMBER_82` (value: `82`)
 
-* `NUMBER_9` (value: `new BigDecimal("9")`)
+* `NUMBER_9` (value: `9`)
 
-* `NUMBER_10` (value: `new BigDecimal("10")`)
+* `NUMBER_10` (value: `10`)
 
 
 

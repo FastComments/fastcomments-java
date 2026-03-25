@@ -132,6 +132,11 @@ public class CreateTenantPackageBody {
   @javax.annotation.Nullable
   private Double maxMonthlyEventLogRequests;
 
+  public static final String SERIALIZED_NAME_MAX_CUSTOM_COLLECTION_SIZE = "maxCustomCollectionSize";
+  @SerializedName(SERIALIZED_NAME_MAX_CUSTOM_COLLECTION_SIZE)
+  @javax.annotation.Nullable
+  private Double maxCustomCollectionSize;
+
   public static final String SERIALIZED_NAME_HAS_WHITE_LABELING = "hasWhiteLabeling";
   @SerializedName(SERIALIZED_NAME_HAS_WHITE_LABELING)
   @javax.annotation.Nullable
@@ -596,6 +601,25 @@ public class CreateTenantPackageBody {
 
   public void setMaxMonthlyEventLogRequests(@javax.annotation.Nullable Double maxMonthlyEventLogRequests) {
     this.maxMonthlyEventLogRequests = maxMonthlyEventLogRequests;
+  }
+
+
+  public CreateTenantPackageBody maxCustomCollectionSize(@javax.annotation.Nullable Double maxCustomCollectionSize) {
+    this.maxCustomCollectionSize = maxCustomCollectionSize;
+    return this;
+  }
+
+  /**
+   * Get maxCustomCollectionSize
+   * @return maxCustomCollectionSize
+   */
+  @javax.annotation.Nullable
+  public Double getMaxCustomCollectionSize() {
+    return maxCustomCollectionSize;
+  }
+
+  public void setMaxCustomCollectionSize(@javax.annotation.Nullable Double maxCustomCollectionSize) {
+    this.maxCustomCollectionSize = maxCustomCollectionSize;
   }
 
 
@@ -1241,6 +1265,7 @@ public class CreateTenantPackageBody {
         Objects.equals(this.maxDomains, createTenantPackageBody.maxDomains) &&
         Objects.equals(this.maxWhiteLabeledTenants, createTenantPackageBody.maxWhiteLabeledTenants) &&
         Objects.equals(this.maxMonthlyEventLogRequests, createTenantPackageBody.maxMonthlyEventLogRequests) &&
+        Objects.equals(this.maxCustomCollectionSize, createTenantPackageBody.maxCustomCollectionSize) &&
         Objects.equals(this.hasWhiteLabeling, createTenantPackageBody.hasWhiteLabeling) &&
         Objects.equals(this.hasDebranding, createTenantPackageBody.hasDebranding) &&
         Objects.equals(this.hasLLMSpamDetection, createTenantPackageBody.hasLLMSpamDetection) &&
@@ -1277,7 +1302,7 @@ public class CreateTenantPackageBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit);
+    return Objects.hash(name, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit);
   }
 
   @Override
@@ -1300,6 +1325,7 @@ public class CreateTenantPackageBody {
     sb.append("    maxDomains: ").append(toIndentedString(maxDomains)).append("\n");
     sb.append("    maxWhiteLabeledTenants: ").append(toIndentedString(maxWhiteLabeledTenants)).append("\n");
     sb.append("    maxMonthlyEventLogRequests: ").append(toIndentedString(maxMonthlyEventLogRequests)).append("\n");
+    sb.append("    maxCustomCollectionSize: ").append(toIndentedString(maxCustomCollectionSize)).append("\n");
     sb.append("    hasWhiteLabeling: ").append(toIndentedString(hasWhiteLabeling)).append("\n");
     sb.append("    hasDebranding: ").append(toIndentedString(hasDebranding)).append("\n");
     sb.append("    hasLLMSpamDetection: ").append(toIndentedString(hasLLMSpamDetection)).append("\n");
@@ -1370,6 +1396,7 @@ public class CreateTenantPackageBody {
     openapiFields.add("maxDomains");
     openapiFields.add("maxWhiteLabeledTenants");
     openapiFields.add("maxMonthlyEventLogRequests");
+    openapiFields.add("maxCustomCollectionSize");
     openapiFields.add("hasWhiteLabeling");
     openapiFields.add("hasDebranding");
     openapiFields.add("hasLLMSpamDetection");

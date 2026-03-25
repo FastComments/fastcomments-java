@@ -93,6 +93,11 @@ public class UserBadgeProgress {
   @javax.annotation.Nonnull
   private Map<String, Double> progress = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_TOS_ACCEPTED_AT = "tosAcceptedAt";
+  @SerializedName(SERIALIZED_NAME_TOS_ACCEPTED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime tosAcceptedAt;
+
   public UserBadgeProgress() {
   }
 
@@ -256,6 +261,25 @@ public class UserBadgeProgress {
   }
 
 
+  public UserBadgeProgress tosAcceptedAt(@javax.annotation.Nullable OffsetDateTime tosAcceptedAt) {
+    this.tosAcceptedAt = tosAcceptedAt;
+    return this;
+  }
+
+  /**
+   * Get tosAcceptedAt
+   * @return tosAcceptedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTosAcceptedAt() {
+    return tosAcceptedAt;
+  }
+
+  public void setTosAcceptedAt(@javax.annotation.Nullable OffsetDateTime tosAcceptedAt) {
+    this.tosAcceptedAt = tosAcceptedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -273,12 +297,13 @@ public class UserBadgeProgress {
         Objects.equals(this.firstCommentDate, userBadgeProgress.firstCommentDate) &&
         Objects.equals(this.autoTrustFactor, userBadgeProgress.autoTrustFactor) &&
         Objects.equals(this.manualTrustFactor, userBadgeProgress.manualTrustFactor) &&
-        Objects.equals(this.progress, userBadgeProgress.progress);
+        Objects.equals(this.progress, userBadgeProgress.progress) &&
+        Objects.equals(this.tosAcceptedAt, userBadgeProgress.tosAcceptedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, userId, firstCommentId, firstCommentDate, autoTrustFactor, manualTrustFactor, progress);
+    return Objects.hash(id, tenantId, userId, firstCommentId, firstCommentDate, autoTrustFactor, manualTrustFactor, progress, tosAcceptedAt);
   }
 
   @Override
@@ -293,6 +318,7 @@ public class UserBadgeProgress {
     sb.append("    autoTrustFactor: ").append(toIndentedString(autoTrustFactor)).append("\n");
     sb.append("    manualTrustFactor: ").append(toIndentedString(manualTrustFactor)).append("\n");
     sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
+    sb.append("    tosAcceptedAt: ").append(toIndentedString(tosAcceptedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -323,6 +349,7 @@ public class UserBadgeProgress {
     openapiFields.add("autoTrustFactor");
     openapiFields.add("manualTrustFactor");
     openapiFields.add("progress");
+    openapiFields.add("tosAcceptedAt");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

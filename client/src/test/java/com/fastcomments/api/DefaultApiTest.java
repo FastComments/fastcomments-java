@@ -29,6 +29,8 @@ import com.fastcomments.model.BlockFromCommentPublic200Response;
 import com.fastcomments.model.BulkAggregateQuestionResults200Response;
 import com.fastcomments.model.BulkAggregateQuestionResultsRequest;
 import com.fastcomments.model.BulkCreateHashTagsBody;
+import com.fastcomments.model.ChangeTicketState200Response;
+import com.fastcomments.model.ChangeTicketStateBody;
 import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
 import com.fastcomments.model.CreateAPIPageData;
 import com.fastcomments.model.CreateAPISSOUserData;
@@ -52,6 +54,8 @@ import com.fastcomments.model.CreateTenantPackage200Response;
 import com.fastcomments.model.CreateTenantPackageBody;
 import com.fastcomments.model.CreateTenantUser200Response;
 import com.fastcomments.model.CreateTenantUserBody;
+import com.fastcomments.model.CreateTicket200Response;
+import com.fastcomments.model.CreateTicketBody;
 import com.fastcomments.model.CreateUserBadge200Response;
 import com.fastcomments.model.CreateUserBadgeParams;
 import com.fastcomments.model.DeleteComment200Response;
@@ -99,6 +103,8 @@ import com.fastcomments.model.GetTenantPackages200Response;
 import com.fastcomments.model.GetTenantUser200Response;
 import com.fastcomments.model.GetTenantUsers200Response;
 import com.fastcomments.model.GetTenants200Response;
+import com.fastcomments.model.GetTicket200Response;
+import com.fastcomments.model.GetTickets200Response;
 import com.fastcomments.model.GetUser200Response;
 import com.fastcomments.model.GetUserBadge200Response;
 import com.fastcomments.model.GetUserBadgeProgressById200Response;
@@ -124,6 +130,7 @@ import com.fastcomments.model.UnBlockFromCommentParams;
 import com.fastcomments.model.UpdatableCommentParams;
 import com.fastcomments.model.UpdateAPIPageData;
 import com.fastcomments.model.UpdateAPISSOUserData;
+import com.fastcomments.model.UpdateAPIUserSubscriptionData;
 import com.fastcomments.model.UpdateDomainConfigParams;
 import com.fastcomments.model.UpdateEmailTemplateBody;
 import com.fastcomments.model.UpdateHashTagBody;
@@ -131,6 +138,7 @@ import com.fastcomments.model.UpdateModeratorBody;
 import com.fastcomments.model.UpdateNotificationBody;
 import com.fastcomments.model.UpdateQuestionConfigBody;
 import com.fastcomments.model.UpdateQuestionResultBody;
+import com.fastcomments.model.UpdateSubscriptionAPIResponse;
 import com.fastcomments.model.UpdateTenantBody;
 import com.fastcomments.model.UpdateTenantPackageBody;
 import com.fastcomments.model.UpdateTenantUserBody;
@@ -293,6 +301,20 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void changeTicketStateTest() throws ApiException {
+        String tenantId = null;
+        String userId = null;
+        String id = null;
+        ChangeTicketStateBody changeTicketStateBody = null;
+        ChangeTicketState200Response response = api.changeTicketState(tenantId, userId, id, changeTicketStateBody)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void combineCommentsWithQuestionResultsTest() throws ApiException {
         String tenantId = null;
         String questionId = null;
@@ -428,6 +450,19 @@ public class DefaultApiTest {
         String tenantId = null;
         CreateTenantUserBody createTenantUserBody = null;
         CreateTenantUser200Response response = api.createTenantUser(tenantId, createTenantUserBody)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createTicketTest() throws ApiException {
+        String tenantId = null;
+        String userId = null;
+        CreateTicketBody createTicketBody = null;
+        CreateTicket200Response response = api.createTicket(tenantId, userId, createTicketBody)
                 .execute();
         // TODO: test validations
     }
@@ -1256,6 +1291,39 @@ public class DefaultApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
+    public void getTicketTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        String userId = null;
+        GetTicket200Response response = api.getTicket(tenantId, id)
+                .userId(userId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTicketsTest() throws ApiException {
+        String tenantId = null;
+        String userId = null;
+        Double state = null;
+        Double skip = null;
+        Double limit = null;
+        GetTickets200Response response = api.getTickets(tenantId)
+                .userId(userId)
+                .state(state)
+                .skip(skip)
+                .limit(limit)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
     public void getUserTest() throws ApiException {
         String tenantId = null;
         String id = null;
@@ -1689,6 +1757,21 @@ public class DefaultApiTest {
         String id = null;
         UpdateQuestionResultBody updateQuestionResultBody = null;
         FlagCommentPublic200Response response = api.updateQuestionResult(tenantId, id, updateQuestionResultBody)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateSubscriptionTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData = null;
+        String userId = null;
+        UpdateSubscriptionAPIResponse response = api.updateSubscription(tenantId, id, updateAPIUserSubscriptionData)
+                .userId(userId)
                 .execute();
         // TODO: test validations
     }

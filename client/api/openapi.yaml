@@ -48,6 +48,16 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: searchSection
+        required: false
+        schema:
+          enum:
+          - fast
+          - site
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2043,6 +2053,48 @@ paths:
       - api_key: []
       x-accepts:
       - application/json
+    patch:
+      operationId: UpdateSubscription
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAPIUserSubscriptionData'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateSubscriptionAPIResponse'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /api/v1/sso-users:
     get:
       operationId: GetSSOUsers
@@ -2906,6 +2958,173 @@ paths:
           description: Ok
       security:
       - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/tickets:
+    get:
+      operationId: GetTickets
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: state
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTickets_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    post:
+      operationId: CreateTicket
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTicketBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateTicket_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/tickets/{id}:
+    get:
+      operationId: GetTicket
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: userId
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTicket_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/tickets/{id}/state:
+    patch:
+      operationId: ChangeTicketState
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: userId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeTicketStateBody'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChangeTicketState_200_response'
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
       x-accepts:
       - application/json
   /api/v1/tenants/{id}:
@@ -6099,6 +6318,12 @@ components:
       - success
       - failed
       type: string
+    UserSearchSection:
+      enum:
+      - moderators
+      - onThisPage
+      - onThisSite
+      type: string
     UserSearchResult:
       additionalProperties: false
       example:
@@ -6127,8 +6352,10 @@ components:
       - name
       - type
       type: object
-    SearchUsersResponse:
+    UserSearchSectionResult:
+      additionalProperties: false
       example:
+        section: moderators
         users:
         - displayName: displayName
           name: name
@@ -6140,7 +6367,57 @@ components:
           avatarSrc: avatarSrc
           id: id
           type: user
+      properties:
+        section:
+          $ref: '#/components/schemas/UserSearchSection'
+        users:
+          items:
+            $ref: '#/components/schemas/UserSearchResult'
+          type: array
+      required:
+      - section
+      - users
+      type: object
+    SearchUsersSectionedResponse:
+      example:
+        sections:
+        - section: moderators
+          users:
+          - displayName: displayName
+            name: name
+            avatarSrc: avatarSrc
+            id: id
+            type: user
+          - displayName: displayName
+            name: name
+            avatarSrc: avatarSrc
+            id: id
+            type: user
+        - section: moderators
+          users:
+          - displayName: displayName
+            name: name
+            avatarSrc: avatarSrc
+            id: id
+            type: user
+          - displayName: displayName
+            name: name
+            avatarSrc: avatarSrc
+            id: id
+            type: user
         status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        sections:
+          items:
+            $ref: '#/components/schemas/UserSearchSectionResult'
+          type: array
+      required:
+      - sections
+      - status
+      type: object
+    SearchUsersResponse:
       properties:
         status:
           $ref: '#/components/schemas/APIStatus'
@@ -6156,14 +6433,14 @@ components:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
     CommentThreadDeletionMode:
       enum:
       - 0
       - 1
       - 2
       - 3
-      type: number
+      type: integer
     CommenterNameFormats:
       enum:
       - 0
@@ -6171,7 +6448,7 @@ components:
       - 2
       - 3
       - 4
-      type: number
+      type: integer
     SortDirections:
       enum:
       - OF
@@ -6192,6 +6469,12 @@ components:
       - medium
       - high
       type: string
+    MentionAutoCompleteMode:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: integer
     SpamRule:
       additionalProperties: false
       example:
@@ -6217,7 +6500,7 @@ components:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
     Record_string.string_:
       additionalProperties:
         type: string
@@ -6229,33 +6512,54 @@ components:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
     CommentQuestionResultsRenderingType:
       enum:
       - 0
       - 1
       - 2
-      type: number
+      type: integer
     QuestionRenderingType:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
     QuestionWhenSave:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
     CommentQuestionsRequired:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
     QuestionSubQuestionVisibility:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
+    TOSConfig:
+      additionalProperties: false
+      example:
+        lastUpdated: 2000-01-23T04:56:07.000+00:00
+        textByLocale:
+          key: textByLocale
+        enabled: true
+      properties:
+        enabled:
+          type: boolean
+        textByLocale:
+          additionalProperties:
+            type: string
+          description: Construct a type with a set of properties K of type T
+          example: {}
+          properties: {}
+          type: object
+        lastUpdated:
+          format: date-time
+          type: string
+      type: object
     CustomConfigParameters:
       additionalProperties: false
       example:
@@ -6283,23 +6587,28 @@ components:
         translations: ""
         widgetQuestionId: widgetQuestionId
         disableLiveCommenting: true
-        ssoSecLvl: 9.301444243932576
+        ssoSecLvl: 9
         defaultSortDirection: ""
         disableVoting: true
         noCustomConfig: true
         gifRating: g
+        ticketAutoAssignUserIds:
+        - ticketAutoAssignUserIds
+        - ticketAutoAssignUserIds
         enableSearch: true
         requireSSO: true
         disableToolbar: true
         hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
         maxCommentCreatedCountPUPM: 2
+        disableProfileDirectMessages: true
         disableBlocking: true
         disableEmailInputs: true
-        widgetQuestionWhenToSave: 7.386281948385884
+        widgetQuestionWhenToSave: 7
         allowAnonFlag: true
-        widgetSubQuestionVisibility: 1.0246457001441578
+        ticketKBSearchEndpoint: ticketKBSearchEndpoint
+        widgetSubQuestionVisibility: 1
         showBadgesInTopBar: true
-        widgetQuestionStyle: 4.145608029883936
+        widgetQuestionStyle: 4
         restrictedLinkDomains:
         - restrictedLinkDomains
         - restrictedLinkDomains
@@ -6309,11 +6618,13 @@ components:
         commentThreadDeleteMode: ""
         commentCountFormat: commentCountFormat
         disableNotificationBell: true
-        voteStyle: 3.616076749251911
+        voteStyle: 3
         disableAutoAdminMigration: true
+        disableProfileComments: true
         absoluteAndRelativeDates: true
         commenterNameFormat: ""
         enableThirdPartyCookieBypass: true
+        ticketMaxFileSize: 1
         locale: locale
         showCommentSaveSuccess: true
         disableCommenterCommentEdit: true
@@ -6326,24 +6637,33 @@ components:
         absoluteDates: true
         limitCommentsByGroups: true
         enableWYSIWYG: true
+        tos:
+          lastUpdated: 2000-01-23T04:56:07.000+00:00
+          textByLocale:
+            key: textByLocale
+          enabled: true
+        widgetQuestionShowBreakdown: true
+        mentionAutoCompleteMode: ""
         customCSS: customCSS
         enableViewCounts: true
         headerHTML: headerHTML
         hideAvatars: true
         defaultAvatarSrc: defaultAvatarSrc
-        commentHTMLRenderingMode: 1.4658129805029452
+        commentHTMLRenderingMode: 1
         noNewRootComments: true
+        ticketFileUploadsEnabled: true
         maxCommentCharacterLength: 5
         useSingleLineCommentInput: true
         allowedLanguages:
         - allowedLanguages
         - allowedLanguages
         defaultUsername: defaultUsername
-        widgetQuestionResultsStyle: 2.027123023002322
+        widgetQuestionResultsStyle: 2
         showLiveRightAway: true
-        widgetQuestionsRequired: 1.2315135367772556
+        widgetQuestionsRequired: 1
         hasDarkBackground: true
         wrap: true
+        ticketBaseUrl: ticketBaseUrl
       properties:
         absoluteAndRelativeDates:
           type: boolean
@@ -6407,6 +6727,10 @@ components:
           type: boolean
         disableNotificationBell:
           type: boolean
+        disableProfileComments:
+          type: boolean
+        disableProfileDirectMessages:
+          type: boolean
         disableProfiles:
           type: boolean
         disableSuccessMessage:
@@ -6462,6 +6786,10 @@ components:
           type: integer
         noCustomConfig:
           type: boolean
+        mentionAutoCompleteMode:
+          allOf:
+          - $ref: '#/components/schemas/MentionAutoCompleteMode'
+          nullable: true
         noImageUploads:
           type: boolean
         noStyles:
@@ -6511,6 +6839,8 @@ components:
           type: string
         widgetQuestionResultsStyle:
           $ref: '#/components/schemas/CommentQuestionResultsRenderingType'
+        widgetQuestionShowBreakdown:
+          type: boolean
         widgetQuestionStyle:
           $ref: '#/components/schemas/QuestionRenderingType'
         widgetQuestionWhenToSave:
@@ -6521,6 +6851,21 @@ components:
           $ref: '#/components/schemas/QuestionSubQuestionVisibility'
         wrap:
           type: boolean
+        ticketBaseUrl:
+          type: string
+        ticketKBSearchEndpoint:
+          type: string
+        ticketFileUploadsEnabled:
+          type: boolean
+        ticketMaxFileSize:
+          format: int32
+          type: integer
+        ticketAutoAssignUserIds:
+          items:
+            type: string
+          type: array
+        tos:
+          $ref: '#/components/schemas/TOSConfig'
       type: object
     APIError:
       additionalProperties: false
@@ -6553,23 +6898,28 @@ components:
           translations: ""
           widgetQuestionId: widgetQuestionId
           disableLiveCommenting: true
-          ssoSecLvl: 9.301444243932576
+          ssoSecLvl: 9
           defaultSortDirection: ""
           disableVoting: true
           noCustomConfig: true
           gifRating: g
+          ticketAutoAssignUserIds:
+          - ticketAutoAssignUserIds
+          - ticketAutoAssignUserIds
           enableSearch: true
           requireSSO: true
           disableToolbar: true
           hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
           maxCommentCreatedCountPUPM: 2
+          disableProfileDirectMessages: true
           disableBlocking: true
           disableEmailInputs: true
-          widgetQuestionWhenToSave: 7.386281948385884
+          widgetQuestionWhenToSave: 7
           allowAnonFlag: true
-          widgetSubQuestionVisibility: 1.0246457001441578
+          ticketKBSearchEndpoint: ticketKBSearchEndpoint
+          widgetSubQuestionVisibility: 1
           showBadgesInTopBar: true
-          widgetQuestionStyle: 4.145608029883936
+          widgetQuestionStyle: 4
           restrictedLinkDomains:
           - restrictedLinkDomains
           - restrictedLinkDomains
@@ -6579,11 +6929,13 @@ components:
           commentThreadDeleteMode: ""
           commentCountFormat: commentCountFormat
           disableNotificationBell: true
-          voteStyle: 3.616076749251911
+          voteStyle: 3
           disableAutoAdminMigration: true
+          disableProfileComments: true
           absoluteAndRelativeDates: true
           commenterNameFormat: ""
           enableThirdPartyCookieBypass: true
+          ticketMaxFileSize: 1
           locale: locale
           showCommentSaveSuccess: true
           disableCommenterCommentEdit: true
@@ -6596,24 +6948,33 @@ components:
           absoluteDates: true
           limitCommentsByGroups: true
           enableWYSIWYG: true
+          tos:
+            lastUpdated: 2000-01-23T04:56:07.000+00:00
+            textByLocale:
+              key: textByLocale
+            enabled: true
+          widgetQuestionShowBreakdown: true
+          mentionAutoCompleteMode: ""
           customCSS: customCSS
           enableViewCounts: true
           headerHTML: headerHTML
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
-          commentHTMLRenderingMode: 1.4658129805029452
+          commentHTMLRenderingMode: 1
           noNewRootComments: true
+          ticketFileUploadsEnabled: true
           maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
           allowedLanguages:
           - allowedLanguages
           - allowedLanguages
           defaultUsername: defaultUsername
-          widgetQuestionResultsStyle: 2.027123023002322
+          widgetQuestionResultsStyle: 2
           showLiveRightAway: true
-          widgetQuestionsRequired: 1.2315135367772556
+          widgetQuestionsRequired: 1
           hasDarkBackground: true
           wrap: true
+          ticketBaseUrl: ticketBaseUrl
         translatedError: translatedError
         secondaryCode: secondaryCode
         maxCharacterLength: 6
@@ -6671,7 +7032,7 @@ components:
       - 0
       - 1
       - 2
-      type: number
+      type: integer
     NotificationType:
       enum:
       - 0
@@ -6687,7 +7048,7 @@ components:
       - 82
       - 9
       - 10
-      type: number
+      type: integer
     RenderableUserNotification:
       example:
         fromUserAvatarSrc: fromUserAvatarSrc
@@ -6701,7 +7062,7 @@ components:
         fromUserId: fromUserId
         pageTitle: pageTitle
         count: 0
-        type: 6.027456183070403
+        type: 6
         urlId: urlId
         sent: sent
         url: url
@@ -6715,7 +7076,7 @@ components:
         - relatedIds
         - relatedIds
         viewed: viewed
-        relatedObjectType: 1.4658129805029452
+        relatedObjectType: 1
         _id: _id
       properties:
         conversationId:
@@ -6802,7 +7163,7 @@ components:
           fromUserId: fromUserId
           pageTitle: pageTitle
           count: 0
-          type: 6.027456183070403
+          type: 6
           urlId: urlId
           sent: sent
           url: url
@@ -6816,7 +7177,7 @@ components:
           - relatedIds
           - relatedIds
           viewed: viewed
-          relatedObjectType: 1.4658129805029452
+          relatedObjectType: 1
           _id: _id
         - fromUserAvatarSrc: fromUserAvatarSrc
           contextHTML: contextHTML
@@ -6829,7 +7190,7 @@ components:
           fromUserId: fromUserId
           pageTitle: pageTitle
           count: 0
-          type: 6.027456183070403
+          type: 6
           urlId: urlId
           sent: sent
           url: url
@@ -6843,7 +7204,7 @@ components:
           - relatedIds
           - relatedIds
           viewed: viewed
-          relatedObjectType: 1.4658129805029452
+          relatedObjectType: 1
           _id: _id
         status: success
       properties:
@@ -6916,6 +7277,45 @@ components:
       - count
       - type
       type: object
+    HeaderAccountNotification:
+      additionalProperties: false
+      properties:
+        _id:
+          type: string
+        title:
+          type: string
+        message:
+          type: string
+        messagesByLocale:
+          allOf:
+          - $ref: '#/components/schemas/Record_string.string_'
+          nullable: true
+        dates:
+          allOf:
+          - $ref: '#/components/schemas/Record_string.string_'
+          nullable: true
+        severity:
+          type: string
+        linkUrl:
+          nullable: true
+          type: string
+        linkText:
+          nullable: true
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+      required:
+      - _id
+      - createdAt
+      - dates
+      - linkText
+      - linkUrl
+      - message
+      - messagesByLocale
+      - severity
+      - title
+      type: object
     HeaderState:
       additionalProperties: false
       properties:
@@ -6932,8 +7332,13 @@ components:
           items:
             $ref: '#/components/schemas/NotificationAndCount'
           type: array
+        accountNotifications:
+          items:
+            $ref: '#/components/schemas/HeaderAccountNotification'
+          type: array
       required:
       - NotificationType
+      - accountNotifications
       - notificationCounts
       - status
       - userId
@@ -7283,6 +7688,8 @@ components:
         hasBlockedUsers:
           type: boolean
         isAnonSession:
+          type: boolean
+        needsTOS:
           type: boolean
         sessionId:
           nullable: true
@@ -7813,7 +8220,7 @@ components:
         count: 1
         anonUserId: anonUserId
         urlId: urlId
-        type: 6.027456183070403
+        type: 6
         userId: userId
         sent: true
         url: url
@@ -7830,7 +8237,7 @@ components:
         viewed: true
         tenantId: tenantId
         _id: _id
-        relatedObjectType: 0.8008281904610115
+        relatedObjectType: 0
       properties:
         _id:
           type: string
@@ -8593,23 +9000,28 @@ components:
           translations: ""
           widgetQuestionId: widgetQuestionId
           disableLiveCommenting: true
-          ssoSecLvl: 9.301444243932576
+          ssoSecLvl: 9
           defaultSortDirection: ""
           disableVoting: true
           noCustomConfig: true
           gifRating: g
+          ticketAutoAssignUserIds:
+          - ticketAutoAssignUserIds
+          - ticketAutoAssignUserIds
           enableSearch: true
           requireSSO: true
           disableToolbar: true
           hideCommentsUnderCountTextFormat: hideCommentsUnderCountTextFormat
           maxCommentCreatedCountPUPM: 2
+          disableProfileDirectMessages: true
           disableBlocking: true
           disableEmailInputs: true
-          widgetQuestionWhenToSave: 7.386281948385884
+          widgetQuestionWhenToSave: 7
           allowAnonFlag: true
-          widgetSubQuestionVisibility: 1.0246457001441578
+          ticketKBSearchEndpoint: ticketKBSearchEndpoint
+          widgetSubQuestionVisibility: 1
           showBadgesInTopBar: true
-          widgetQuestionStyle: 4.145608029883936
+          widgetQuestionStyle: 4
           restrictedLinkDomains:
           - restrictedLinkDomains
           - restrictedLinkDomains
@@ -8619,11 +9031,13 @@ components:
           commentThreadDeleteMode: ""
           commentCountFormat: commentCountFormat
           disableNotificationBell: true
-          voteStyle: 3.616076749251911
+          voteStyle: 3
           disableAutoAdminMigration: true
+          disableProfileComments: true
           absoluteAndRelativeDates: true
           commenterNameFormat: ""
           enableThirdPartyCookieBypass: true
+          ticketMaxFileSize: 1
           locale: locale
           showCommentSaveSuccess: true
           disableCommenterCommentEdit: true
@@ -8636,24 +9050,33 @@ components:
           absoluteDates: true
           limitCommentsByGroups: true
           enableWYSIWYG: true
+          tos:
+            lastUpdated: 2000-01-23T04:56:07.000+00:00
+            textByLocale:
+              key: textByLocale
+            enabled: true
+          widgetQuestionShowBreakdown: true
+          mentionAutoCompleteMode: ""
           customCSS: customCSS
           enableViewCounts: true
           headerHTML: headerHTML
           hideAvatars: true
           defaultAvatarSrc: defaultAvatarSrc
-          commentHTMLRenderingMode: 1.4658129805029452
+          commentHTMLRenderingMode: 1
           noNewRootComments: true
+          ticketFileUploadsEnabled: true
           maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
           allowedLanguages:
           - allowedLanguages
           - allowedLanguages
           defaultUsername: defaultUsername
-          widgetQuestionResultsStyle: 2.027123023002322
+          widgetQuestionResultsStyle: 2
           showLiveRightAway: true
-          widgetQuestionsRequired: 1.2315135367772556
+          widgetQuestionsRequired: 1
           hasDarkBackground: true
           wrap: true
+          ticketBaseUrl: ticketBaseUrl
         hasBillingIssue: true
         isCrawler: true
         lastGenDate: 2
@@ -8901,24 +9324,11 @@ components:
       additionalProperties: false
       example:
         date: 0
-        productId: 1
-        questionValues:
-          key: Record_string_string_or_number__value
         pageTitle: pageTitle
         commenterName: commenterName
         rating: 5.962133916683182
-        feedbackIds:
-        - feedbackIds
-        - feedbackIds
         commenterLink: commenterLink
-        autoplayDelayMS: 5
         urlId: urlId
-        userId: userId
-        parentId: parentId
-        url: url
-        commenterEmail: commenterEmail
-        fromOfflineRestore: true
-        isFromMyAccountPage: true
         hashTags:
         - retain: true
           id: id
@@ -8928,10 +9338,25 @@ components:
           id: id
           tag: tag
           url: url
+        localDateString: localDateString
+        tos: true
+        localDateHours: 6
+        productId: 1
+        questionValues:
+          key: Record_string_string_or_number__value
+        feedbackIds:
+        - feedbackIds
+        - feedbackIds
+        autoplayDelayMS: 5
+        userId: userId
+        parentId: parentId
+        url: url
+        commenterEmail: commenterEmail
+        fromOfflineRestore: true
+        isFromMyAccountPage: true
         moderationGroupIds:
         - moderationGroupIds
         - moderationGroupIds
-        localDateString: localDateString
         meta: "{}"
         mentions:
         - rawTag: rawTag
@@ -8946,7 +9371,6 @@ components:
           sent: true
         avatarSrc: avatarSrc
         comment: comment
-        localDateHours: 6
       properties:
         date:
           format: int64
@@ -9019,6 +9443,8 @@ components:
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
+        tos:
+          type: boolean
       required:
       - comment
       - commenterName
@@ -9263,7 +9689,11 @@ components:
         urlId: urlId
         userId: userId
         url: url
+        notificationFrequency: 0.8008281904610115
       properties:
+        notificationFrequency:
+          format: double
+          type: number
         createdAt:
           format: date-time
           type: string
@@ -9295,6 +9725,7 @@ components:
           urlId: urlId
           userId: userId
           url: url
+          notificationFrequency: 0.8008281904610115
         - createdAt: 2000-01-23T04:56:07.000+00:00
           pageTitle: pageTitle
           anonUserId: anonUserId
@@ -9302,6 +9733,7 @@ components:
           urlId: urlId
           userId: userId
           url: url
+          notificationFrequency: 0.8008281904610115
         code: code
         status: status
       properties:
@@ -9330,6 +9762,7 @@ components:
           urlId: urlId
           userId: userId
           url: url
+          notificationFrequency: 0.8008281904610115
         status: status
       properties:
         reason:
@@ -9350,7 +9783,11 @@ components:
         urlId: urlId
         userId: userId
         url: url
+        notificationFrequency: 0.8008281904610115
       properties:
+        notificationFrequency:
+          format: double
+          type: number
         pageTitle:
           type: string
         url:
@@ -9363,6 +9800,40 @@ components:
           type: string
       required:
       - urlId
+      type: object
+    UpdateSubscriptionAPIResponse:
+      example:
+        reason: reason
+        code: code
+        subscription:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          pageTitle: pageTitle
+          anonUserId: anonUserId
+          id: id
+          urlId: urlId
+          userId: userId
+          url: url
+          notificationFrequency: 0.8008281904610115
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        subscription:
+          $ref: '#/components/schemas/APIUserSubscription'
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    UpdateAPIUserSubscriptionData:
+      example:
+        notificationFrequency: 0.8008281904610115
+      properties:
+        notificationFrequency:
+          format: double
+          type: number
       type: object
     DeleteSubscriptionAPIResponse:
       example:
@@ -10240,7 +10711,7 @@ components:
       - 0
       - 1
       - 2
-      type: number
+      type: integer
     User:
       additionalProperties: false
       example:
@@ -10248,12 +10719,14 @@ components:
         - socialLinks
         - socialLinks
         loginId: loginId
+        lastTenantNotificationSentDate: 2000-01-23T04:56:07.000+00:00
         bio: bio
         pendingEmail: pendingEmail
         isProfileCommentsPrivate: true
         passwordHash: passwordHash
         isCouponManager: true
         isAccountOwner: true
+        isEmailSuppressed: true
         isManageDataAdmin: true
         createdFromTenantId: createdFromTenantId
         isCommentModeratorAdmin: true
@@ -10261,10 +10734,13 @@ components:
         moderatorIds:
         - moderatorIds
         - moderatorIds
-        digestEmailFrequency: 5.962133916683182
+        backupEmail: backupEmail
+        digestEmailFrequency: 5
         avatarSrc: avatarSrc
         createdFromUrlId: createdFromUrlId
         _id: _id
+        adminNotificationFrequency: 2.3021358869347655
+        notificationFrequency: 5.637376656633329
         isHelpRequestAdmin: true
         displayName: displayName
         isBillingAdmin: true
@@ -10272,6 +10748,7 @@ components:
         lastLoginDate: 2000-01-23T04:56:07.000+00:00
         isImpersonator: true
         locale: locale
+        pendingBackupEmail: pendingBackupEmail
         isProfileActivityPrivate: true
         isAPIAdmin: true
         websiteUrl: websiteUrl
@@ -10280,20 +10757,22 @@ components:
         isAnalyticsAdmin: true
         email: email
         displayLabel: displayLabel
-        karma: 2.3021358869347655
-        averageTicketAckTimeMS: 7.061401241503109
+        lastReplyNotificationSentDate: 2000-01-23T04:56:07.000+00:00
+        karma: 9.301444243932576
+        averageTicketAckTimeMS: 3.616076749251911
         verified: true
         isFastCommentsHelpRequestAdmin: true
         signUpDate: 0
         loginIdDate: 6
         loginCount: 1
-        profileCommentApprovalMode: 5.637376656633329
+        profileCommentApprovalMode: 7.061401241503109
         optedInNotifications: true
         tenantId: tenantId
         createdFromIpHashed: createdFromIpHashed
         optedInTenantNotifications: true
         hideAccountCode: true
         headerBackgroundSrc: headerBackgroundSrc
+        isSiteAdmin: true
         isProfileDMDisabled: true
         hasTwoFactor: true
         username: username
@@ -10316,6 +10795,10 @@ components:
           nullable: true
           type: string
         pendingEmail:
+          type: string
+        backupEmail:
+          type: string
+        pendingBackupEmail:
           type: string
         signUpDate:
           format: int64
@@ -10367,6 +10850,8 @@ components:
           type: boolean
         isAPIAdmin:
           type: boolean
+        isSiteAdmin:
+          type: boolean
         moderatorIds:
           items:
             type: string
@@ -10379,6 +10864,18 @@ components:
           type: string
         digestEmailFrequency:
           $ref: '#/components/schemas/DigestEmailFrequency'
+        notificationFrequency:
+          format: double
+          type: number
+        adminNotificationFrequency:
+          format: double
+          type: number
+        lastTenantNotificationSentDate:
+          format: date-time
+          type: string
+        lastReplyNotificationSentDate:
+          format: date-time
+          type: string
         ignoredAddToMySiteMessages:
           type: boolean
         lastLoginDate:
@@ -10420,6 +10917,8 @@ components:
           type: array
         hasTwoFactor:
           type: boolean
+        isEmailSuppressed:
+          type: boolean
       required:
       - _id
       - createdFromIpHashed
@@ -10439,12 +10938,14 @@ components:
           - socialLinks
           - socialLinks
           loginId: loginId
+          lastTenantNotificationSentDate: 2000-01-23T04:56:07.000+00:00
           bio: bio
           pendingEmail: pendingEmail
           isProfileCommentsPrivate: true
           passwordHash: passwordHash
           isCouponManager: true
           isAccountOwner: true
+          isEmailSuppressed: true
           isManageDataAdmin: true
           createdFromTenantId: createdFromTenantId
           isCommentModeratorAdmin: true
@@ -10452,10 +10953,13 @@ components:
           moderatorIds:
           - moderatorIds
           - moderatorIds
-          digestEmailFrequency: 5.962133916683182
+          backupEmail: backupEmail
+          digestEmailFrequency: 5
           avatarSrc: avatarSrc
           createdFromUrlId: createdFromUrlId
           _id: _id
+          adminNotificationFrequency: 2.3021358869347655
+          notificationFrequency: 5.637376656633329
           isHelpRequestAdmin: true
           displayName: displayName
           isBillingAdmin: true
@@ -10463,6 +10967,7 @@ components:
           lastLoginDate: 2000-01-23T04:56:07.000+00:00
           isImpersonator: true
           locale: locale
+          pendingBackupEmail: pendingBackupEmail
           isProfileActivityPrivate: true
           isAPIAdmin: true
           websiteUrl: websiteUrl
@@ -10471,20 +10976,22 @@ components:
           isAnalyticsAdmin: true
           email: email
           displayLabel: displayLabel
-          karma: 2.3021358869347655
-          averageTicketAckTimeMS: 7.061401241503109
+          lastReplyNotificationSentDate: 2000-01-23T04:56:07.000+00:00
+          karma: 9.301444243932576
+          averageTicketAckTimeMS: 3.616076749251911
           verified: true
           isFastCommentsHelpRequestAdmin: true
           signUpDate: 0
           loginIdDate: 6
           loginCount: 1
-          profileCommentApprovalMode: 5.637376656633329
+          profileCommentApprovalMode: 7.061401241503109
           optedInNotifications: true
           tenantId: tenantId
           createdFromIpHashed: createdFromIpHashed
           optedInTenantNotifications: true
           hideAccountCode: true
           headerBackgroundSrc: headerBackgroundSrc
+          isSiteAdmin: true
           isProfileDMDisabled: true
           hasTwoFactor: true
           username: username
@@ -10511,6 +11018,7 @@ components:
         threshold: 6
         type: 0
         receivedAt: 2000-01-23T04:56:07.000+00:00
+        urlId: urlId
         userId: userId
         textColor: textColor
         displayedOnComments: true
@@ -10569,6 +11077,9 @@ components:
         order:
           format: int32
           type: integer
+        urlId:
+          nullable: true
+          type: string
       required:
       - _id
       - badgeId
@@ -10595,6 +11106,7 @@ components:
           threshold: 6
           type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
+          urlId: urlId
           userId: userId
           textColor: textColor
           displayedOnComments: true
@@ -10627,6 +11139,7 @@ components:
           threshold: 6
           type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
+          urlId: urlId
           userId: userId
           textColor: textColor
           displayedOnComments: true
@@ -10645,6 +11158,7 @@ components:
           threshold: 6
           type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
+          urlId: urlId
           userId: userId
           textColor: textColor
           displayedOnComments: true
@@ -10679,6 +11193,7 @@ components:
           threshold: 6
           type: 0
           receivedAt: 2000-01-23T04:56:07.000+00:00
+          urlId: urlId
           userId: userId
           textColor: textColor
           displayedOnComments: true
@@ -10758,6 +11273,7 @@ components:
           key: 1.4658129805029452
         _id: _id
         firstCommentId: firstCommentId
+        tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
         manualTrustFactor: 6.027456183070403
         userId: userId
       properties:
@@ -10785,6 +11301,9 @@ components:
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
+        tosAcceptedAt:
+          format: date-time
+          type: string
       required:
       - _id
       - firstCommentDate
@@ -10804,6 +11323,7 @@ components:
             key: 1.4658129805029452
           _id: _id
           firstCommentId: firstCommentId
+          tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
           manualTrustFactor: 6.027456183070403
           userId: userId
         status: success
@@ -10828,6 +11348,7 @@ components:
             key: 1.4658129805029452
           _id: _id
           firstCommentId: firstCommentId
+          tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
           manualTrustFactor: 6.027456183070403
           userId: userId
         - firstCommentDate: 2000-01-23T04:56:07.000+00:00
@@ -10837,6 +11358,7 @@ components:
             key: 1.4658129805029452
           _id: _id
           firstCommentId: firstCommentId
+          tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
           manualTrustFactor: 6.027456183070403
           userId: userId
       properties:
@@ -10850,11 +11372,358 @@ components:
       - status
       - userBadgeProgresses
       type: object
+    APITicket:
+      additionalProperties: false
+      example:
+        createdAt: createdAt
+        subject: subject
+        managedByTenantId: managedByTenantId
+        assignedUserIds:
+        - assignedUserIds
+        - assignedUserIds
+        _id: _id
+        state: 0
+        urlId: urlId
+        userId: userId
+        fileCount: 6
+      properties:
+        _id:
+          type: string
+        urlId:
+          type: string
+        userId:
+          type: string
+        managedByTenantId:
+          type: string
+        assignedUserIds:
+          items:
+            type: string
+          type: array
+        subject:
+          type: string
+        createdAt:
+          type: string
+        state:
+          format: int32
+          type: integer
+        fileCount:
+          format: int32
+          type: integer
+      required:
+      - _id
+      - assignedUserIds
+      - createdAt
+      - fileCount
+      - managedByTenantId
+      - state
+      - subject
+      - urlId
+      - userId
+      type: object
+    GetTicketsResponse:
+      additionalProperties: false
+      example:
+        tickets:
+        - createdAt: createdAt
+          subject: subject
+          managedByTenantId: managedByTenantId
+          assignedUserIds:
+          - assignedUserIds
+          - assignedUserIds
+          _id: _id
+          state: 0
+          urlId: urlId
+          userId: userId
+          fileCount: 6
+        - createdAt: createdAt
+          subject: subject
+          managedByTenantId: managedByTenantId
+          assignedUserIds:
+          - assignedUserIds
+          - assignedUserIds
+          _id: _id
+          state: 0
+          urlId: urlId
+          userId: userId
+          fileCount: 6
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        tickets:
+          items:
+            $ref: '#/components/schemas/APITicket'
+          type: array
+      required:
+      - status
+      - tickets
+      type: object
+    CreateTicketResponse:
+      additionalProperties: false
+      example:
+        ticket:
+          createdAt: createdAt
+          subject: subject
+          managedByTenantId: managedByTenantId
+          assignedUserIds:
+          - assignedUserIds
+          - assignedUserIds
+          _id: _id
+          state: 0
+          urlId: urlId
+          userId: userId
+          fileCount: 6
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        ticket:
+          $ref: '#/components/schemas/APITicket'
+      required:
+      - status
+      - ticket
+      type: object
+    CreateTicketBody:
+      additionalProperties: false
+      example:
+        subject: subject
+      properties:
+        subject:
+          type: string
+      required:
+      - subject
+      type: object
+    APITicketFile:
+      additionalProperties: false
+      example:
+        originalFileName: originalFileName
+        s3Key: s3Key
+        expired: true
+        uploadedAt: uploadedAt
+        id: id
+        contentType: contentType
+        uploadedByUserId: uploadedByUserId
+        url: url
+        expiresAt: expiresAt
+        sizeBytes: 1
+      properties:
+        id:
+          type: string
+        s3Key:
+          type: string
+        originalFileName:
+          type: string
+        sizeBytes:
+          format: int32
+          type: integer
+        contentType:
+          type: string
+        uploadedByUserId:
+          type: string
+        uploadedAt:
+          type: string
+        url:
+          type: string
+        expiresAt:
+          type: string
+        expired:
+          type: boolean
+      required:
+      - contentType
+      - expiresAt
+      - id
+      - originalFileName
+      - s3Key
+      - sizeBytes
+      - uploadedAt
+      - uploadedByUserId
+      - url
+      type: object
+    APITicketDetail:
+      additionalProperties: false
+      example:
+        resolvedAt: resolvedAt
+        subject: subject
+        assignedUserIds:
+        - assignedUserIds
+        - assignedUserIds
+        reopenedAt: reopenedAt
+        urlId: urlId
+        userId: userId
+        fileCount: 6
+        createdAt: createdAt
+        managedByTenantId: managedByTenantId
+        files:
+        - originalFileName: originalFileName
+          s3Key: s3Key
+          expired: true
+          uploadedAt: uploadedAt
+          id: id
+          contentType: contentType
+          uploadedByUserId: uploadedByUserId
+          url: url
+          expiresAt: expiresAt
+          sizeBytes: 1
+        - originalFileName: originalFileName
+          s3Key: s3Key
+          expired: true
+          uploadedAt: uploadedAt
+          id: id
+          contentType: contentType
+          uploadedByUserId: uploadedByUserId
+          url: url
+          expiresAt: expiresAt
+          sizeBytes: 1
+        ackAt: ackAt
+        _id: _id
+        state: 0
+      properties:
+        _id:
+          type: string
+        urlId:
+          type: string
+        userId:
+          type: string
+        managedByTenantId:
+          type: string
+        assignedUserIds:
+          items:
+            type: string
+          type: array
+        subject:
+          type: string
+        createdAt:
+          type: string
+        state:
+          format: int32
+          type: integer
+        fileCount:
+          format: int32
+          type: integer
+        files:
+          items:
+            $ref: '#/components/schemas/APITicketFile'
+          type: array
+        reopenedAt:
+          nullable: true
+          type: string
+        resolvedAt:
+          nullable: true
+          type: string
+        ackAt:
+          nullable: true
+          type: string
+      required:
+      - _id
+      - assignedUserIds
+      - createdAt
+      - fileCount
+      - files
+      - managedByTenantId
+      - state
+      - subject
+      - urlId
+      - userId
+      type: object
+    GetTicketResponse:
+      additionalProperties: false
+      example:
+        availableStates:
+        - 5.962133916683182
+        - 5.962133916683182
+        ticket:
+          resolvedAt: resolvedAt
+          subject: subject
+          assignedUserIds:
+          - assignedUserIds
+          - assignedUserIds
+          reopenedAt: reopenedAt
+          urlId: urlId
+          userId: userId
+          fileCount: 6
+          createdAt: createdAt
+          managedByTenantId: managedByTenantId
+          files:
+          - originalFileName: originalFileName
+            s3Key: s3Key
+            expired: true
+            uploadedAt: uploadedAt
+            id: id
+            contentType: contentType
+            uploadedByUserId: uploadedByUserId
+            url: url
+            expiresAt: expiresAt
+            sizeBytes: 1
+          - originalFileName: originalFileName
+            s3Key: s3Key
+            expired: true
+            uploadedAt: uploadedAt
+            id: id
+            contentType: contentType
+            uploadedByUserId: uploadedByUserId
+            url: url
+            expiresAt: expiresAt
+            sizeBytes: 1
+          ackAt: ackAt
+          _id: _id
+          state: 0
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        ticket:
+          $ref: '#/components/schemas/APITicketDetail'
+        availableStates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - availableStates
+      - status
+      - ticket
+      type: object
+    ChangeTicketStateResponse:
+      additionalProperties: false
+      example:
+        ticket:
+          createdAt: createdAt
+          subject: subject
+          managedByTenantId: managedByTenantId
+          assignedUserIds:
+          - assignedUserIds
+          - assignedUserIds
+          _id: _id
+          state: 0
+          urlId: urlId
+          userId: userId
+          fileCount: 6
+        status: success
+      properties:
+        status:
+          $ref: '#/components/schemas/APIStatus'
+        ticket:
+          $ref: '#/components/schemas/APITicket'
+      required:
+      - status
+      - ticket
+      type: object
+    ChangeTicketStateBody:
+      additionalProperties: false
+      example:
+        state: 0
+      properties:
+        state:
+          format: int32
+          type: integer
+      required:
+      - state
+      type: object
     ImportedSiteType:
       enum:
       - 0
       - 1
-      type: number
+      type: integer
     SiteType:
       $ref: '#/components/schemas/ImportedSiteType'
     APIDomainConfiguration:
@@ -10875,7 +11744,7 @@ components:
         wpURL: wpURL
         wpSyncToken: wpSyncToken
         id: id
-        siteType: 1.4658129805029452
+        siteType: 1
       properties:
         id:
           type: string
@@ -10989,7 +11858,7 @@ components:
           wpURL: wpURL
           wpSyncToken: wpSyncToken
           id: id
-          siteType: 1.4658129805029452
+          siteType: 1
         - emailFromEmail: emailFromEmail
           footerUnsubscribeURL: footerUnsubscribeURL
           disableUnsubscribeLinks: true
@@ -11005,7 +11874,7 @@ components:
           wpURL: wpURL
           wpSyncToken: wpSyncToken
           id: id
-          siteType: 1.4658129805029452
+          siteType: 1
         id: id
         billingInfoValid: true
         hasFlexPricing: true
@@ -11146,7 +12015,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           - emailFromEmail: emailFromEmail
             footerUnsubscribeURL: footerUnsubscribeURL
             disableUnsubscribeLinks: true
@@ -11162,7 +12031,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           id: id
           billingInfoValid: true
           hasFlexPricing: true
@@ -11229,7 +12098,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           - emailFromEmail: emailFromEmail
             footerUnsubscribeURL: footerUnsubscribeURL
             disableUnsubscribeLinks: true
@@ -11245,7 +12114,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           id: id
           billingInfoValid: true
           hasFlexPricing: true
@@ -11298,7 +12167,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           - emailFromEmail: emailFromEmail
             footerUnsubscribeURL: footerUnsubscribeURL
             disableUnsubscribeLinks: true
@@ -11314,7 +12183,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           id: id
           billingInfoValid: true
           hasFlexPricing: true
@@ -11383,7 +12252,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           - emailFromEmail: emailFromEmail
             footerUnsubscribeURL: footerUnsubscribeURL
             disableUnsubscribeLinks: true
@@ -11399,7 +12268,7 @@ components:
             wpURL: wpURL
             wpSyncToken: wpSyncToken
             id: id
-            siteType: 1.4658129805029452
+            siteType: 1
           id: id
           billingInfoValid: true
           hasFlexPricing: true
@@ -11482,7 +12351,7 @@ components:
           wpURL: wpURL
           wpSyncToken: wpSyncToken
           id: id
-          siteType: 1.4658129805029452
+          siteType: 1
         - emailFromEmail: emailFromEmail
           footerUnsubscribeURL: footerUnsubscribeURL
           disableUnsubscribeLinks: true
@@ -11498,7 +12367,7 @@ components:
           wpURL: wpURL
           wpSyncToken: wpSyncToken
           id: id
-          siteType: 1.4658129805029452
+          siteType: 1
         name: name
         billingInfoValid: true
         stripeCustomerId: stripeCustomerId
@@ -11611,7 +12480,7 @@ components:
           wpURL: wpURL
           wpSyncToken: wpSyncToken
           id: id
-          siteType: 1.4658129805029452
+          siteType: 1
         - emailFromEmail: emailFromEmail
           footerUnsubscribeURL: footerUnsubscribeURL
           disableUnsubscribeLinks: true
@@ -11627,7 +12496,7 @@ components:
           wpURL: wpURL
           wpSyncToken: wpSyncToken
           id: id
-          siteType: 1.4658129805029452
+          siteType: 1
         managedByTenantId: managedByTenantId
         name: name
         billingInfoValid: true
@@ -11706,12 +12575,14 @@ components:
           - socialLinks
           - socialLinks
           loginId: loginId
+          lastTenantNotificationSentDate: 2000-01-23T04:56:07.000+00:00
           bio: bio
           pendingEmail: pendingEmail
           isProfileCommentsPrivate: true
           passwordHash: passwordHash
           isCouponManager: true
           isAccountOwner: true
+          isEmailSuppressed: true
           isManageDataAdmin: true
           createdFromTenantId: createdFromTenantId
           isCommentModeratorAdmin: true
@@ -11719,10 +12590,13 @@ components:
           moderatorIds:
           - moderatorIds
           - moderatorIds
-          digestEmailFrequency: 5.962133916683182
+          backupEmail: backupEmail
+          digestEmailFrequency: 5
           avatarSrc: avatarSrc
           createdFromUrlId: createdFromUrlId
           _id: _id
+          adminNotificationFrequency: 2.3021358869347655
+          notificationFrequency: 5.637376656633329
           isHelpRequestAdmin: true
           displayName: displayName
           isBillingAdmin: true
@@ -11730,6 +12604,7 @@ components:
           lastLoginDate: 2000-01-23T04:56:07.000+00:00
           isImpersonator: true
           locale: locale
+          pendingBackupEmail: pendingBackupEmail
           isProfileActivityPrivate: true
           isAPIAdmin: true
           websiteUrl: websiteUrl
@@ -11738,20 +12613,22 @@ components:
           isAnalyticsAdmin: true
           email: email
           displayLabel: displayLabel
-          karma: 2.3021358869347655
-          averageTicketAckTimeMS: 7.061401241503109
+          lastReplyNotificationSentDate: 2000-01-23T04:56:07.000+00:00
+          karma: 9.301444243932576
+          averageTicketAckTimeMS: 3.616076749251911
           verified: true
           isFastCommentsHelpRequestAdmin: true
           signUpDate: 0
           loginIdDate: 6
           loginCount: 1
-          profileCommentApprovalMode: 5.637376656633329
+          profileCommentApprovalMode: 7.061401241503109
           optedInNotifications: true
           tenantId: tenantId
           createdFromIpHashed: createdFromIpHashed
           optedInTenantNotifications: true
           hideAccountCode: true
           headerBackgroundSrc: headerBackgroundSrc
+          isSiteAdmin: true
           isProfileDMDisabled: true
           hasTwoFactor: true
           username: username
@@ -11775,12 +12652,14 @@ components:
           - socialLinks
           - socialLinks
           loginId: loginId
+          lastTenantNotificationSentDate: 2000-01-23T04:56:07.000+00:00
           bio: bio
           pendingEmail: pendingEmail
           isProfileCommentsPrivate: true
           passwordHash: passwordHash
           isCouponManager: true
           isAccountOwner: true
+          isEmailSuppressed: true
           isManageDataAdmin: true
           createdFromTenantId: createdFromTenantId
           isCommentModeratorAdmin: true
@@ -11788,10 +12667,13 @@ components:
           moderatorIds:
           - moderatorIds
           - moderatorIds
-          digestEmailFrequency: 5.962133916683182
+          backupEmail: backupEmail
+          digestEmailFrequency: 5
           avatarSrc: avatarSrc
           createdFromUrlId: createdFromUrlId
           _id: _id
+          adminNotificationFrequency: 2.3021358869347655
+          notificationFrequency: 5.637376656633329
           isHelpRequestAdmin: true
           displayName: displayName
           isBillingAdmin: true
@@ -11799,6 +12681,7 @@ components:
           lastLoginDate: 2000-01-23T04:56:07.000+00:00
           isImpersonator: true
           locale: locale
+          pendingBackupEmail: pendingBackupEmail
           isProfileActivityPrivate: true
           isAPIAdmin: true
           websiteUrl: websiteUrl
@@ -11807,20 +12690,22 @@ components:
           isAnalyticsAdmin: true
           email: email
           displayLabel: displayLabel
-          karma: 2.3021358869347655
-          averageTicketAckTimeMS: 7.061401241503109
+          lastReplyNotificationSentDate: 2000-01-23T04:56:07.000+00:00
+          karma: 9.301444243932576
+          averageTicketAckTimeMS: 3.616076749251911
           verified: true
           isFastCommentsHelpRequestAdmin: true
           signUpDate: 0
           loginIdDate: 6
           loginCount: 1
-          profileCommentApprovalMode: 5.637376656633329
+          profileCommentApprovalMode: 7.061401241503109
           optedInNotifications: true
           tenantId: tenantId
           createdFromIpHashed: createdFromIpHashed
           optedInTenantNotifications: true
           hideAccountCode: true
           headerBackgroundSrc: headerBackgroundSrc
+          isSiteAdmin: true
           isProfileDMDisabled: true
           hasTwoFactor: true
           username: username
@@ -11830,12 +12715,14 @@ components:
           - socialLinks
           - socialLinks
           loginId: loginId
+          lastTenantNotificationSentDate: 2000-01-23T04:56:07.000+00:00
           bio: bio
           pendingEmail: pendingEmail
           isProfileCommentsPrivate: true
           passwordHash: passwordHash
           isCouponManager: true
           isAccountOwner: true
+          isEmailSuppressed: true
           isManageDataAdmin: true
           createdFromTenantId: createdFromTenantId
           isCommentModeratorAdmin: true
@@ -11843,10 +12730,13 @@ components:
           moderatorIds:
           - moderatorIds
           - moderatorIds
-          digestEmailFrequency: 5.962133916683182
+          backupEmail: backupEmail
+          digestEmailFrequency: 5
           avatarSrc: avatarSrc
           createdFromUrlId: createdFromUrlId
           _id: _id
+          adminNotificationFrequency: 2.3021358869347655
+          notificationFrequency: 5.637376656633329
           isHelpRequestAdmin: true
           displayName: displayName
           isBillingAdmin: true
@@ -11854,6 +12744,7 @@ components:
           lastLoginDate: 2000-01-23T04:56:07.000+00:00
           isImpersonator: true
           locale: locale
+          pendingBackupEmail: pendingBackupEmail
           isProfileActivityPrivate: true
           isAPIAdmin: true
           websiteUrl: websiteUrl
@@ -11862,20 +12753,22 @@ components:
           isAnalyticsAdmin: true
           email: email
           displayLabel: displayLabel
-          karma: 2.3021358869347655
-          averageTicketAckTimeMS: 7.061401241503109
+          lastReplyNotificationSentDate: 2000-01-23T04:56:07.000+00:00
+          karma: 9.301444243932576
+          averageTicketAckTimeMS: 3.616076749251911
           verified: true
           isFastCommentsHelpRequestAdmin: true
           signUpDate: 0
           loginIdDate: 6
           loginCount: 1
-          profileCommentApprovalMode: 5.637376656633329
+          profileCommentApprovalMode: 7.061401241503109
           optedInNotifications: true
           tenantId: tenantId
           createdFromIpHashed: createdFromIpHashed
           optedInTenantNotifications: true
           hideAccountCode: true
           headerBackgroundSrc: headerBackgroundSrc
+          isSiteAdmin: true
           isProfileDMDisabled: true
           hasTwoFactor: true
           username: username
@@ -11901,12 +12794,14 @@ components:
           - socialLinks
           - socialLinks
           loginId: loginId
+          lastTenantNotificationSentDate: 2000-01-23T04:56:07.000+00:00
           bio: bio
           pendingEmail: pendingEmail
           isProfileCommentsPrivate: true
           passwordHash: passwordHash
           isCouponManager: true
           isAccountOwner: true
+          isEmailSuppressed: true
           isManageDataAdmin: true
           createdFromTenantId: createdFromTenantId
           isCommentModeratorAdmin: true
@@ -11914,10 +12809,13 @@ components:
           moderatorIds:
           - moderatorIds
           - moderatorIds
-          digestEmailFrequency: 5.962133916683182
+          backupEmail: backupEmail
+          digestEmailFrequency: 5
           avatarSrc: avatarSrc
           createdFromUrlId: createdFromUrlId
           _id: _id
+          adminNotificationFrequency: 2.3021358869347655
+          notificationFrequency: 5.637376656633329
           isHelpRequestAdmin: true
           displayName: displayName
           isBillingAdmin: true
@@ -11925,6 +12823,7 @@ components:
           lastLoginDate: 2000-01-23T04:56:07.000+00:00
           isImpersonator: true
           locale: locale
+          pendingBackupEmail: pendingBackupEmail
           isProfileActivityPrivate: true
           isAPIAdmin: true
           websiteUrl: websiteUrl
@@ -11933,20 +12832,22 @@ components:
           isAnalyticsAdmin: true
           email: email
           displayLabel: displayLabel
-          karma: 2.3021358869347655
-          averageTicketAckTimeMS: 7.061401241503109
+          lastReplyNotificationSentDate: 2000-01-23T04:56:07.000+00:00
+          karma: 9.301444243932576
+          averageTicketAckTimeMS: 3.616076749251911
           verified: true
           isFastCommentsHelpRequestAdmin: true
           signUpDate: 0
           loginIdDate: 6
           loginCount: 1
-          profileCommentApprovalMode: 5.637376656633329
+          profileCommentApprovalMode: 7.061401241503109
           optedInNotifications: true
           tenantId: tenantId
           createdFromIpHashed: createdFromIpHashed
           optedInTenantNotifications: true
           hideAccountCode: true
           headerBackgroundSrc: headerBackgroundSrc
+          isSiteAdmin: true
           isProfileDMDisabled: true
           hasTwoFactor: true
           username: username
@@ -12238,42 +13139,44 @@ components:
       additionalProperties: false
       example:
         maxMonthlySmallWidgetsCredits: 5.637376656633329
-        flexAPICreditCostCents: 5.025004791520295
-        flexMinimumCostCents: 6.878052220127876
-        flexCommentUnit: 7.457744773683766
+        flexAPICreditCostCents: 9.965781217890562
+        flexMinimumCostCents: 5.944895607614016
+        flexCommentUnit: 1.1730742509559433
         maxMonthlyAPICredits: 5.962133916683182
         createdAt: 2000-01-23T04:56:07.000+00:00
-        flexManagedTenantCostCents: 5.944895607614016
-        flexSmallWidgetsCreditUnit: 6.683562403749608
+        flexManagedTenantCostCents: 6.704019297950036
+        flexSmallWidgetsCreditUnit: 8.762042012749001
         yearlyStripePlanId: yearlyStripePlanId
         maxSSOUsers: 3.616076749251911
         hasFlexPricing: true
-        flexSSOModeratorCostCents: 3.0937452626664474
+        flexSSOModeratorCostCents: 7.143538047012306
         monthlyCostUSD: 0.8008281904610115
         maxTenantUsers: 9.301444243932576
+        maxCustomCollectionSize: 1.0246457001441578
         enableSAML: true
+        enableCanvasLTI: true
         forWhoText: forWhoText
-        flexAPICreditUnit: 9.965781217890562
-        flexAdminCostCents: 6.438423552598547
+        flexAPICreditUnit: 9.369310271410669
+        flexAdminCostCents: 3.5571952270680973
         maxConcurrentUsers: 7.061401241503109
         name: name
         _id: _id
-        flexModeratorUnit: 9.018348186070783
-        flexChatGPTCostCents: 2.8841621266687802
-        flexSSOAdminCostCents: 6.704019297950036
-        flexSSOUserCostCents: 1.1730742509559433
-        flexSSOModeratorUnit: 7.143538047012306
+        flexModeratorUnit: 6.438423552598547
+        flexChatGPTCostCents: 6.778324963048013
+        flexSSOAdminCostCents: 3.353193347011243
+        flexSSOUserCostCents: 4.965218492984954
+        flexSSOModeratorUnit: 0.8851374739011653
         maxDomains: 4.145608029883936
         maxMonthlyEventLogRequests: 1.2315135367772556
-        flexDomainUnit: 1.284659006116532
+        flexDomainUnit: 2.8841621266687802
         hasWhiteLabeling: true
-        flexChatGPTUnit: 6.778324963048013
+        flexChatGPTUnit: 6.878052220127876
         maxMonthlyComments: 2.3021358869347655
         maxModerators: 2.027123023002322
         hasAuditing: true
-        flexSSOUserUnit: 4.965218492984954
+        flexSSOUserUnit: 5.025004791520295
         maxMonthlyPageLoads: 1.4658129805029452
-        flexDomainCostCents: 6.965117697638846
+        flexDomainCostCents: 1.284659006116532
         hasLLMSpamDetection: true
         isSSOBillingMonthlyActiveUsers: true
         featureTaglines:
@@ -12281,16 +13184,16 @@ components:
         - featureTaglines
         yearlyCostUSD: 6.027456183070403
         hasDebranding: true
-        flexPageLoadCostCents: 1.0246457001441578
-        flexAdminUnit: 3.5571952270680973
+        flexPageLoadCostCents: 1.4894159098541704
+        flexAdminUnit: 6.965117697638846
         maxWhiteLabeledTenants: 7.386281948385884
-        flexSmallWidgetsCreditCostCents: 9.369310271410669
+        flexSmallWidgetsCreditCostCents: 6.683562403749608
         tenantId: tenantId
-        flexCommentCostCents: 6.84685269835264
-        flexModeratorCostCents: 8.762042012749001
-        flexPageLoadUnit: 1.4894159098541704
+        flexCommentCostCents: 7.457744773683766
+        flexModeratorCostCents: 9.018348186070783
+        flexPageLoadUnit: 6.84685269835264
         monthlyStripePlanId: monthlyStripePlanId
-        flexSSOAdminUnit: 3.353193347011243
+        flexSSOAdminUnit: 3.0937452626664474
       properties:
         _id:
           type: string
@@ -12348,6 +13251,9 @@ components:
         maxMonthlyEventLogRequests:
           format: double
           type: number
+        maxCustomCollectionSize:
+          format: double
+          type: number
         hasWhiteLabeling:
           type: boolean
         hasDebranding:
@@ -12365,6 +13271,8 @@ components:
         hasFlexPricing:
           type: boolean
         enableSAML:
+          type: boolean
+        enableCanvasLTI:
           type: boolean
         flexPageLoadCostCents:
           format: double
@@ -12451,6 +13359,7 @@ components:
       - hasLLMSpamDetection
       - hasWhiteLabeling
       - maxConcurrentUsers
+      - maxCustomCollectionSize
       - maxDomains
       - maxModerators
       - maxMonthlyAPICredits
@@ -12473,42 +13382,44 @@ components:
       example:
         tenantPackage:
           maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 5.025004791520295
-          flexMinimumCostCents: 6.878052220127876
-          flexCommentUnit: 7.457744773683766
+          flexAPICreditCostCents: 9.965781217890562
+          flexMinimumCostCents: 5.944895607614016
+          flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 5.944895607614016
-          flexSmallWidgetsCreditUnit: 6.683562403749608
+          flexManagedTenantCostCents: 6.704019297950036
+          flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 3.0937452626664474
+          flexSSOModeratorCostCents: 7.143538047012306
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
+          maxCustomCollectionSize: 1.0246457001441578
           enableSAML: true
+          enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.965781217890562
-          flexAdminCostCents: 6.438423552598547
+          flexAPICreditUnit: 9.369310271410669
+          flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
           name: name
           _id: _id
-          flexModeratorUnit: 9.018348186070783
-          flexChatGPTCostCents: 2.8841621266687802
-          flexSSOAdminCostCents: 6.704019297950036
-          flexSSOUserCostCents: 1.1730742509559433
-          flexSSOModeratorUnit: 7.143538047012306
+          flexModeratorUnit: 6.438423552598547
+          flexChatGPTCostCents: 6.778324963048013
+          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOUserCostCents: 4.965218492984954
+          flexSSOModeratorUnit: 0.8851374739011653
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          flexDomainUnit: 1.284659006116532
+          flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.778324963048013
+          flexChatGPTUnit: 6.878052220127876
           maxMonthlyComments: 2.3021358869347655
           maxModerators: 2.027123023002322
           hasAuditing: true
-          flexSSOUserUnit: 4.965218492984954
+          flexSSOUserUnit: 5.025004791520295
           maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 6.965117697638846
+          flexDomainCostCents: 1.284659006116532
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -12516,16 +13427,16 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.0246457001441578
-          flexAdminUnit: 3.5571952270680973
+          flexPageLoadCostCents: 1.4894159098541704
+          flexAdminUnit: 6.965117697638846
           maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 9.369310271410669
+          flexSmallWidgetsCreditCostCents: 6.683562403749608
           tenantId: tenantId
-          flexCommentCostCents: 6.84685269835264
-          flexModeratorCostCents: 8.762042012749001
-          flexPageLoadUnit: 1.4894159098541704
+          flexCommentCostCents: 7.457744773683766
+          flexModeratorCostCents: 9.018348186070783
+          flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.353193347011243
+          flexSSOAdminUnit: 3.0937452626664474
         status: success
       properties:
         status:
@@ -12541,42 +13452,44 @@ components:
       example:
         tenantPackages:
         - maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 5.025004791520295
-          flexMinimumCostCents: 6.878052220127876
-          flexCommentUnit: 7.457744773683766
+          flexAPICreditCostCents: 9.965781217890562
+          flexMinimumCostCents: 5.944895607614016
+          flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 5.944895607614016
-          flexSmallWidgetsCreditUnit: 6.683562403749608
+          flexManagedTenantCostCents: 6.704019297950036
+          flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 3.0937452626664474
+          flexSSOModeratorCostCents: 7.143538047012306
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
+          maxCustomCollectionSize: 1.0246457001441578
           enableSAML: true
+          enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.965781217890562
-          flexAdminCostCents: 6.438423552598547
+          flexAPICreditUnit: 9.369310271410669
+          flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
           name: name
           _id: _id
-          flexModeratorUnit: 9.018348186070783
-          flexChatGPTCostCents: 2.8841621266687802
-          flexSSOAdminCostCents: 6.704019297950036
-          flexSSOUserCostCents: 1.1730742509559433
-          flexSSOModeratorUnit: 7.143538047012306
+          flexModeratorUnit: 6.438423552598547
+          flexChatGPTCostCents: 6.778324963048013
+          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOUserCostCents: 4.965218492984954
+          flexSSOModeratorUnit: 0.8851374739011653
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          flexDomainUnit: 1.284659006116532
+          flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.778324963048013
+          flexChatGPTUnit: 6.878052220127876
           maxMonthlyComments: 2.3021358869347655
           maxModerators: 2.027123023002322
           hasAuditing: true
-          flexSSOUserUnit: 4.965218492984954
+          flexSSOUserUnit: 5.025004791520295
           maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 6.965117697638846
+          flexDomainCostCents: 1.284659006116532
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -12584,53 +13497,55 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.0246457001441578
-          flexAdminUnit: 3.5571952270680973
+          flexPageLoadCostCents: 1.4894159098541704
+          flexAdminUnit: 6.965117697638846
           maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 9.369310271410669
+          flexSmallWidgetsCreditCostCents: 6.683562403749608
           tenantId: tenantId
-          flexCommentCostCents: 6.84685269835264
-          flexModeratorCostCents: 8.762042012749001
-          flexPageLoadUnit: 1.4894159098541704
+          flexCommentCostCents: 7.457744773683766
+          flexModeratorCostCents: 9.018348186070783
+          flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.353193347011243
+          flexSSOAdminUnit: 3.0937452626664474
         - maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 5.025004791520295
-          flexMinimumCostCents: 6.878052220127876
-          flexCommentUnit: 7.457744773683766
+          flexAPICreditCostCents: 9.965781217890562
+          flexMinimumCostCents: 5.944895607614016
+          flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 5.944895607614016
-          flexSmallWidgetsCreditUnit: 6.683562403749608
+          flexManagedTenantCostCents: 6.704019297950036
+          flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 3.0937452626664474
+          flexSSOModeratorCostCents: 7.143538047012306
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
+          maxCustomCollectionSize: 1.0246457001441578
           enableSAML: true
+          enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.965781217890562
-          flexAdminCostCents: 6.438423552598547
+          flexAPICreditUnit: 9.369310271410669
+          flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
           name: name
           _id: _id
-          flexModeratorUnit: 9.018348186070783
-          flexChatGPTCostCents: 2.8841621266687802
-          flexSSOAdminCostCents: 6.704019297950036
-          flexSSOUserCostCents: 1.1730742509559433
-          flexSSOModeratorUnit: 7.143538047012306
+          flexModeratorUnit: 6.438423552598547
+          flexChatGPTCostCents: 6.778324963048013
+          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOUserCostCents: 4.965218492984954
+          flexSSOModeratorUnit: 0.8851374739011653
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          flexDomainUnit: 1.284659006116532
+          flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.778324963048013
+          flexChatGPTUnit: 6.878052220127876
           maxMonthlyComments: 2.3021358869347655
           maxModerators: 2.027123023002322
           hasAuditing: true
-          flexSSOUserUnit: 4.965218492984954
+          flexSSOUserUnit: 5.025004791520295
           maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 6.965117697638846
+          flexDomainCostCents: 1.284659006116532
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -12638,16 +13553,16 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.0246457001441578
-          flexAdminUnit: 3.5571952270680973
+          flexPageLoadCostCents: 1.4894159098541704
+          flexAdminUnit: 6.965117697638846
           maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 9.369310271410669
+          flexSmallWidgetsCreditCostCents: 6.683562403749608
           tenantId: tenantId
-          flexCommentCostCents: 6.84685269835264
-          flexModeratorCostCents: 8.762042012749001
-          flexPageLoadUnit: 1.4894159098541704
+          flexCommentCostCents: 7.457744773683766
+          flexModeratorCostCents: 9.018348186070783
+          flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.353193347011243
+          flexSSOAdminUnit: 3.0937452626664474
         status: success
       properties:
         status:
@@ -12665,42 +13580,44 @@ components:
       example:
         tenantPackage:
           maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 5.025004791520295
-          flexMinimumCostCents: 6.878052220127876
-          flexCommentUnit: 7.457744773683766
+          flexAPICreditCostCents: 9.965781217890562
+          flexMinimumCostCents: 5.944895607614016
+          flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 5.944895607614016
-          flexSmallWidgetsCreditUnit: 6.683562403749608
+          flexManagedTenantCostCents: 6.704019297950036
+          flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 3.0937452626664474
+          flexSSOModeratorCostCents: 7.143538047012306
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
+          maxCustomCollectionSize: 1.0246457001441578
           enableSAML: true
+          enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.965781217890562
-          flexAdminCostCents: 6.438423552598547
+          flexAPICreditUnit: 9.369310271410669
+          flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
           name: name
           _id: _id
-          flexModeratorUnit: 9.018348186070783
-          flexChatGPTCostCents: 2.8841621266687802
-          flexSSOAdminCostCents: 6.704019297950036
-          flexSSOUserCostCents: 1.1730742509559433
-          flexSSOModeratorUnit: 7.143538047012306
+          flexModeratorUnit: 6.438423552598547
+          flexChatGPTCostCents: 6.778324963048013
+          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOUserCostCents: 4.965218492984954
+          flexSSOModeratorUnit: 0.8851374739011653
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          flexDomainUnit: 1.284659006116532
+          flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.778324963048013
+          flexChatGPTUnit: 6.878052220127876
           maxMonthlyComments: 2.3021358869347655
           maxModerators: 2.027123023002322
           hasAuditing: true
-          flexSSOUserUnit: 4.965218492984954
+          flexSSOUserUnit: 5.025004791520295
           maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 6.965117697638846
+          flexDomainCostCents: 1.284659006116532
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -12708,16 +13625,16 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.0246457001441578
-          flexAdminUnit: 3.5571952270680973
+          flexPageLoadCostCents: 1.4894159098541704
+          flexAdminUnit: 6.965117697638846
           maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 9.369310271410669
+          flexSmallWidgetsCreditCostCents: 6.683562403749608
           tenantId: tenantId
-          flexCommentCostCents: 6.84685269835264
-          flexModeratorCostCents: 8.762042012749001
-          flexPageLoadUnit: 1.4894159098541704
+          flexCommentCostCents: 7.457744773683766
+          flexModeratorCostCents: 9.018348186070783
+          flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.353193347011243
+          flexSSOAdminUnit: 3.0937452626664474
         status: success
       properties:
         status:
@@ -12732,55 +13649,56 @@ components:
       additionalProperties: false
       example:
         maxMonthlySmallWidgetsCredits: 5.637376656633329
-        flexAPICreditCostCents: 5.025004791520295
-        flexMinimumCostCents: 6.878052220127876
-        flexModeratorUnit: 9.018348186070783
-        flexChatGPTCostCents: 2.8841621266687802
-        flexCommentUnit: 7.457744773683766
+        flexAPICreditCostCents: 9.965781217890562
+        flexMinimumCostCents: 5.944895607614016
+        flexCommentUnit: 1.1730742509559433
         maxMonthlyAPICredits: 5.962133916683182
-        flexSSOAdminCostCents: 6.704019297950036
-        flexSSOUserCostCents: 1.1730742509559433
-        flexManagedTenantCostCents: 5.944895607614016
-        flexSmallWidgetsCreditUnit: 6.683562403749608
-        flexSSOModeratorUnit: 7.143538047012306
-        maxDomains: 4.145608029883936
-        maxMonthlyEventLogRequests: 1.2315135367772556
+        flexManagedTenantCostCents: 6.704019297950036
+        flexSmallWidgetsCreditUnit: 8.762042012749001
         yearlyStripePlanId: yearlyStripePlanId
         maxSSOUsers: 3.616076749251911
         hasFlexPricing: true
-        flexDomainUnit: 1.284659006116532
-        hasWhiteLabeling: true
-        flexChatGPTUnit: 6.778324963048013
-        flexSSOModeratorCostCents: 3.0937452626664474
+        flexSSOModeratorCostCents: 7.143538047012306
         monthlyCostUSD: 0.8008281904610115
         maxTenantUsers: 9.301444243932576
+        maxCustomCollectionSize: 1.0246457001441578
+        enableSAML: true
+        forWhoText: forWhoText
+        flexAPICreditUnit: 9.369310271410669
+        flexAdminCostCents: 3.5571952270680973
+        maxConcurrentUsers: 7.061401241503109
+        name: name
+        flexModeratorUnit: 6.438423552598547
+        flexChatGPTCostCents: 6.778324963048013
+        flexSSOAdminCostCents: 3.353193347011243
+        flexSSOUserCostCents: 4.965218492984954
+        flexSSOModeratorUnit: 0.8851374739011653
+        maxDomains: 4.145608029883936
+        maxMonthlyEventLogRequests: 1.2315135367772556
+        flexDomainUnit: 2.8841621266687802
+        hasWhiteLabeling: true
+        flexChatGPTUnit: 6.878052220127876
         maxMonthlyComments: 2.3021358869347655
         maxModerators: 2.027123023002322
         hasAuditing: true
-        flexSSOUserUnit: 4.965218492984954
+        flexSSOUserUnit: 5.025004791520295
         maxMonthlyPageLoads: 1.4658129805029452
-        flexDomainCostCents: 6.965117697638846
+        flexDomainCostCents: 1.284659006116532
         hasLLMSpamDetection: true
-        enableSAML: true
         featureTaglines:
         - featureTaglines
         - featureTaglines
         yearlyCostUSD: 6.027456183070403
-        forWhoText: forWhoText
-        flexAPICreditUnit: 9.965781217890562
-        flexAdminCostCents: 6.438423552598547
-        maxConcurrentUsers: 7.061401241503109
         hasDebranding: true
-        flexPageLoadCostCents: 1.0246457001441578
-        flexAdminUnit: 3.5571952270680973
+        flexPageLoadCostCents: 1.4894159098541704
+        flexAdminUnit: 6.965117697638846
         maxWhiteLabeledTenants: 7.386281948385884
-        flexSmallWidgetsCreditCostCents: 9.369310271410669
-        name: name
-        flexCommentCostCents: 6.84685269835264
-        flexModeratorCostCents: 8.762042012749001
-        flexPageLoadUnit: 1.4894159098541704
+        flexSmallWidgetsCreditCostCents: 6.683562403749608
+        flexCommentCostCents: 7.457744773683766
+        flexModeratorCostCents: 9.018348186070783
+        flexPageLoadUnit: 6.84685269835264
         monthlyStripePlanId: monthlyStripePlanId
-        flexSSOAdminUnit: 3.353193347011243
+        flexSSOAdminUnit: 3.0937452626664474
       properties:
         name:
           type: string
@@ -12829,6 +13747,9 @@ components:
           format: double
           type: number
         maxMonthlyEventLogRequests:
+          format: double
+          type: number
+        maxCustomCollectionSize:
           format: double
           type: number
         hasWhiteLabeling:
@@ -12939,38 +13860,39 @@ components:
     ReplaceTenantPackageBody:
       additionalProperties: false
       example:
-        flexAPICreditCostCents: 7.457744773683766
-        flexMinimumCostCents: 9.018348186070783
-        flexModeratorUnit: 5.025004791520295
-        flexCommentUnit: 1.0246457001441578
+        flexAPICreditCostCents: 1.1730742509559433
+        flexMinimumCostCents: 6.438423552598547
+        flexModeratorUnit: 9.965781217890562
+        flexCommentUnit: 1.4894159098541704
         maxMonthlyAPICredits: 5.962133916683182
-        flexSSOUserCostCents: 1.4894159098541704
+        flexSSOUserCostCents: 6.84685269835264
         maxDomains: 2.027123023002322
         maxSSOUsers: 9.301444243932576
         hasFlexPricing: true
-        flexDomainUnit: 8.762042012749001
+        flexDomainUnit: 9.018348186070783
         monthlyCostUSD: 0.8008281904610115
         maxTenantUsers: 7.061401241503109
         maxMonthlyComments: 5.637376656633329
         maxModerators: 3.616076749251911
-        flexSSOUserUnit: 6.84685269835264
+        flexSSOUserUnit: 7.457744773683766
         maxMonthlyPageLoads: 1.4658129805029452
-        flexDomainCostCents: 6.683562403749608
+        flexDomainCostCents: 8.762042012749001
+        maxCustomCollectionSize: 4.145608029883936
         featureTaglines:
         - featureTaglines
         - featureTaglines
         yearlyCostUSD: 6.027456183070403
         forWhoText: forWhoText
-        flexAPICreditUnit: 1.1730742509559433
-        flexAdminCostCents: 9.965781217890562
+        flexAPICreditUnit: 4.965218492984954
+        flexAdminCostCents: 9.369310271410669
         maxConcurrentUsers: 2.3021358869347655
         hasDebranding: true
-        flexPageLoadCostCents: 4.145608029883936
-        flexAdminUnit: 9.369310271410669
+        flexPageLoadCostCents: 7.386281948385884
+        flexAdminUnit: 6.683562403749608
         name: name
-        flexCommentCostCents: 1.2315135367772556
-        flexModeratorCostCents: 4.965218492984954
-        flexPageLoadUnit: 7.386281948385884
+        flexCommentCostCents: 1.0246457001441578
+        flexModeratorCostCents: 5.025004791520295
+        flexPageLoadUnit: 1.2315135367772556
       properties:
         name:
           type: string
@@ -13002,6 +13924,9 @@ components:
           format: double
           type: number
         maxDomains:
+          format: double
+          type: number
+        maxCustomCollectionSize:
           format: double
           type: number
         hasDebranding:
@@ -13079,39 +14004,40 @@ components:
     UpdateTenantPackageBody:
       additionalProperties: false
       example:
-        flexAPICreditCostCents: 7.457744773683766
-        flexMinimumCostCents: 9.018348186070783
-        flexModeratorUnit: 5.025004791520295
-        flexCommentUnit: 1.0246457001441578
+        flexAPICreditCostCents: 1.1730742509559433
+        flexMinimumCostCents: 6.438423552598547
+        flexModeratorUnit: 9.965781217890562
+        flexCommentUnit: 1.4894159098541704
         maxMonthlyAPICredits: 5.962133916683182
-        flexSSOUserCostCents: 1.4894159098541704
+        flexSSOUserCostCents: 6.84685269835264
         maxDomains: 2.027123023002322
         maxSSOUsers: 9.301444243932576
         hasFlexPricing: true
-        flexDomainUnit: 8.762042012749001
+        flexDomainUnit: 9.018348186070783
         hasWhiteLabeling: true
         monthlyCostUSD: 0.8008281904610115
         maxTenantUsers: 7.061401241503109
         maxMonthlyComments: 5.637376656633329
         maxModerators: 3.616076749251911
-        flexSSOUserUnit: 6.84685269835264
+        flexSSOUserUnit: 7.457744773683766
         maxMonthlyPageLoads: 1.4658129805029452
-        flexDomainCostCents: 6.683562403749608
+        flexDomainCostCents: 8.762042012749001
+        maxCustomCollectionSize: 4.145608029883936
         featureTaglines:
         - featureTaglines
         - featureTaglines
         yearlyCostUSD: 6.027456183070403
         forWhoText: forWhoText
-        flexAPICreditUnit: 1.1730742509559433
-        flexAdminCostCents: 9.965781217890562
+        flexAPICreditUnit: 4.965218492984954
+        flexAdminCostCents: 9.369310271410669
         maxConcurrentUsers: 2.3021358869347655
         hasDebranding: true
-        flexPageLoadCostCents: 4.145608029883936
-        flexAdminUnit: 9.369310271410669
+        flexPageLoadCostCents: 7.386281948385884
+        flexAdminUnit: 6.683562403749608
         name: name
-        flexCommentCostCents: 1.2315135367772556
-        flexModeratorCostCents: 4.965218492984954
-        flexPageLoadUnit: 7.386281948385884
+        flexCommentCostCents: 1.0246457001441578
+        flexModeratorCostCents: 5.025004791520295
+        flexPageLoadUnit: 1.2315135367772556
       properties:
         name:
           type: string
@@ -13143,6 +14069,9 @@ components:
           format: double
           type: number
         maxDomains:
+          format: double
+          type: number
+        maxCustomCollectionSize:
           format: double
           type: number
         hasDebranding:
@@ -13909,13 +14838,13 @@ components:
       - 53
       - 54
       - 55
-      type: number
+      type: integer
     RepeatCommentHandlingAction:
       enum:
       - 0
       - 1
       - 2
-      type: number
+      type: integer
     RepeatCommentCheckIgnoredReason:
       enum:
       - 0
@@ -13925,13 +14854,13 @@ components:
       - 4
       - 5
       - 6
-      type: number
+      type: integer
     CommentLogData:
       additionalProperties: false
       example:
         votesDownAfter: 9.369310271410669
-        repeatAction: 6.683562403749608
-        reason: 8.762042012749001
+        repeatAction: 6
+        reason: 8
         votesUpBefore: 1.1730742509559433
         tenantBadgeId: tenantBadgeId
         badgeId: badgeId
@@ -14103,11 +15032,11 @@ components:
       additionalProperties: false
       example:
         d: 2000-01-23T04:56:07.000+00:00
-        t: 7.386281948385884
+        t: 7
         da:
           votesDownAfter: 9.369310271410669
-          repeatAction: 6.683562403749608
-          reason: 8.762042012749001
+          repeatAction: 6
+          reason: 8
           votesUpBefore: 1.1730742509559433
           tenantBadgeId: tenantBadgeId
           badgeId: badgeId
@@ -14196,11 +15125,11 @@ components:
         reviewed: true
         logs:
         - d: 2000-01-23T04:56:07.000+00:00
-          t: 7.386281948385884
+          t: 7
           da:
             votesDownAfter: 9.369310271410669
-            repeatAction: 6.683562403749608
-            reason: 8.762042012749001
+            repeatAction: 6
+            reason: 8
             votesUpBefore: 1.1730742509559433
             tenantBadgeId: tenantBadgeId
             badgeId: badgeId
@@ -14249,11 +15178,11 @@ components:
             word: word
             referencedCommentId: referencedCommentId
         - d: 2000-01-23T04:56:07.000+00:00
-          t: 7.386281948385884
+          t: 7
           da:
             votesDownAfter: 9.369310271410669
-            repeatAction: 6.683562403749608
-            reason: 8.762042012749001
+            repeatAction: 6
+            reason: 8
             votesUpBefore: 1.1730742509559433
             tenantBadgeId: tenantBadgeId
             badgeId: badgeId
@@ -14318,6 +15247,7 @@ components:
         didProcessBadges: true
         isDeletedUser: true
         meta:
+          wpId: wpId
           wpUserId: wpUserId
           wpPostId: wpPostId
         mentions:
@@ -14359,6 +15289,7 @@ components:
         externalId: externalId
         hasLinks: true
         autoplayDelayMS: 4
+        tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
         expireAt: 2000-01-23T04:56:07.000+00:00
         userId: ""
         url: url
@@ -14596,6 +15527,9 @@ components:
         requiresVerification:
           type: boolean
         editKey:
+          type: string
+        tosAcceptedAt:
+          format: date-time
           type: string
       required:
       - _id
@@ -15191,11 +16125,11 @@ components:
           reviewed: true
           logs:
           - d: 2000-01-23T04:56:07.000+00:00
-            t: 7.386281948385884
+            t: 7
             da:
               votesDownAfter: 9.369310271410669
-              repeatAction: 6.683562403749608
-              reason: 8.762042012749001
+              repeatAction: 6
+              reason: 8
               votesUpBefore: 1.1730742509559433
               tenantBadgeId: tenantBadgeId
               badgeId: badgeId
@@ -15244,11 +16178,11 @@ components:
               word: word
               referencedCommentId: referencedCommentId
           - d: 2000-01-23T04:56:07.000+00:00
-            t: 7.386281948385884
+            t: 7
             da:
               votesDownAfter: 9.369310271410669
-              repeatAction: 6.683562403749608
-              reason: 8.762042012749001
+              repeatAction: 6
+              reason: 8
               votesUpBefore: 1.1730742509559433
               tenantBadgeId: tenantBadgeId
               badgeId: badgeId
@@ -15313,6 +16247,7 @@ components:
           didProcessBadges: true
           isDeletedUser: true
           meta:
+            wpId: wpId
             wpUserId: wpUserId
             wpPostId: wpPostId
           mentions:
@@ -15354,6 +16289,7 @@ components:
           externalId: externalId
           hasLinks: true
           autoplayDelayMS: 4
+          tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
           expireAt: 2000-01-23T04:56:07.000+00:00
           userId: ""
           url: url
@@ -15476,11 +16412,11 @@ components:
             reviewed: true
             logs:
             - d: 2000-01-23T04:56:07.000+00:00
-              t: 7.386281948385884
+              t: 7
               da:
                 votesDownAfter: 9.369310271410669
-                repeatAction: 6.683562403749608
-                reason: 8.762042012749001
+                repeatAction: 6
+                reason: 8
                 votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
                 badgeId: badgeId
@@ -15529,11 +16465,11 @@ components:
                 word: word
                 referencedCommentId: referencedCommentId
             - d: 2000-01-23T04:56:07.000+00:00
-              t: 7.386281948385884
+              t: 7
               da:
                 votesDownAfter: 9.369310271410669
-                repeatAction: 6.683562403749608
-                reason: 8.762042012749001
+                repeatAction: 6
+                reason: 8
                 votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
                 badgeId: badgeId
@@ -15598,6 +16534,7 @@ components:
             didProcessBadges: true
             isDeletedUser: true
             meta:
+              wpId: wpId
               wpUserId: wpUserId
               wpPostId: wpPostId
             mentions:
@@ -15639,6 +16576,7 @@ components:
             externalId: externalId
             hasLinks: true
             autoplayDelayMS: 4
+            tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
             expireAt: 2000-01-23T04:56:07.000+00:00
             userId: ""
             url: url
@@ -15710,11 +16648,11 @@ components:
             reviewed: true
             logs:
             - d: 2000-01-23T04:56:07.000+00:00
-              t: 7.386281948385884
+              t: 7
               da:
                 votesDownAfter: 9.369310271410669
-                repeatAction: 6.683562403749608
-                reason: 8.762042012749001
+                repeatAction: 6
+                reason: 8
                 votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
                 badgeId: badgeId
@@ -15763,11 +16701,11 @@ components:
                 word: word
                 referencedCommentId: referencedCommentId
             - d: 2000-01-23T04:56:07.000+00:00
-              t: 7.386281948385884
+              t: 7
               da:
                 votesDownAfter: 9.369310271410669
-                repeatAction: 6.683562403749608
-                reason: 8.762042012749001
+                repeatAction: 6
+                reason: 8
                 votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
                 badgeId: badgeId
@@ -15832,6 +16770,7 @@ components:
             didProcessBadges: true
             isDeletedUser: true
             meta:
+              wpId: wpId
               wpUserId: wpUserId
               wpPostId: wpPostId
             mentions:
@@ -15873,6 +16812,7 @@ components:
             externalId: externalId
             hasLinks: true
             autoplayDelayMS: 4
+            tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
             expireAt: 2000-01-23T04:56:07.000+00:00
             userId: ""
             url: url
@@ -15949,7 +16889,7 @@ components:
           count: 1
           anonUserId: anonUserId
           urlId: urlId
-          type: 6.027456183070403
+          type: 6
           userId: userId
           sent: true
           url: url
@@ -15966,7 +16906,7 @@ components:
           viewed: true
           tenantId: tenantId
           _id: _id
-          relatedObjectType: 0.8008281904610115
+          relatedObjectType: 0
         - isUnreadMessage: true
           fromUserAvatarSrc: fromUserAvatarSrc
           relatedObjectId: relatedObjectId
@@ -15979,7 +16919,7 @@ components:
           count: 1
           anonUserId: anonUserId
           urlId: urlId
-          type: 6.027456183070403
+          type: 6
           userId: userId
           sent: true
           url: url
@@ -15996,7 +16936,7 @@ components:
           viewed: true
           tenantId: tenantId
           _id: _id
-          relatedObjectType: 0.8008281904610115
+          relatedObjectType: 0
         status: success
       properties:
         status:
@@ -16082,6 +17022,7 @@ components:
       additionalProperties: false
       example:
         unFlaggedCount: 3.616076749251911
+        isEmailSuppressed: true
         editedCount: 7.061401241503109
         markedNotSpamCount: 5.962133916683182
         markReviewedCount: 0.8008281904610115
@@ -16155,6 +17096,8 @@ components:
             type: string
           nullable: true
           type: array
+        isEmailSuppressed:
+          type: boolean
       required:
       - _id
       - acceptedInvite
@@ -16180,6 +17123,7 @@ components:
       example:
         moderator:
           unFlaggedCount: 3.616076749251911
+          isEmailSuppressed: true
           editedCount: 7.061401241503109
           markedNotSpamCount: 5.962133916683182
           markReviewedCount: 0.8008281904610115
@@ -16215,6 +17159,7 @@ components:
         status: success
         moderators:
         - unFlaggedCount: 3.616076749251911
+          isEmailSuppressed: true
           editedCount: 7.061401241503109
           markedNotSpamCount: 5.962133916683182
           markReviewedCount: 0.8008281904610115
@@ -16235,6 +17180,7 @@ components:
           email: email
           verificationId: verificationId
         - unFlaggedCount: 3.616076749251911
+          isEmailSuppressed: true
           editedCount: 7.061401241503109
           markedNotSpamCount: 5.962133916683182
           markReviewedCount: 0.8008281904610115
@@ -16270,6 +17216,7 @@ components:
       example:
         moderator:
           unFlaggedCount: 3.616076749251911
+          isEmailSuppressed: true
           editedCount: 7.061401241503109
           markedNotSpamCount: 5.962133916683182
           markReviewedCount: 0.8008281904610115
@@ -17280,7 +18227,7 @@ components:
             $ref: '#/components/schemas/CommentUserMentionInfo'
           type: array
         meta:
-          $ref: '#/components/schemas/FComment_meta'
+          $ref: '#/components/schemas/APICommentBase_meta'
         moderationGroupIds:
           items:
             type: string
@@ -17917,7 +18864,7 @@ components:
           nullable: true
           type: string
         meta:
-          $ref: '#/components/schemas/FComment_meta'
+          $ref: '#/components/schemas/APICommentBase_meta'
         moderationGroupIds:
           items:
             type: string
@@ -17977,11 +18924,11 @@ components:
           reviewed: true
           logs:
           - d: 2000-01-23T04:56:07.000+00:00
-            t: 7.386281948385884
+            t: 7
             da:
               votesDownAfter: 9.369310271410669
-              repeatAction: 6.683562403749608
-              reason: 8.762042012749001
+              repeatAction: 6
+              reason: 8
               votesUpBefore: 1.1730742509559433
               tenantBadgeId: tenantBadgeId
               badgeId: badgeId
@@ -18030,11 +18977,11 @@ components:
               word: word
               referencedCommentId: referencedCommentId
           - d: 2000-01-23T04:56:07.000+00:00
-            t: 7.386281948385884
+            t: 7
             da:
               votesDownAfter: 9.369310271410669
-              repeatAction: 6.683562403749608
-              reason: 8.762042012749001
+              repeatAction: 6
+              reason: 8
               votesUpBefore: 1.1730742509559433
               tenantBadgeId: tenantBadgeId
               badgeId: badgeId
@@ -18099,6 +19046,7 @@ components:
           didProcessBadges: true
           isDeletedUser: true
           meta:
+            wpId: wpId
             wpUserId: wpUserId
             wpPostId: wpPostId
           mentions:
@@ -18140,6 +19088,7 @@ components:
           externalId: externalId
           hasLinks: true
           autoplayDelayMS: 4
+          tosAcceptedAt: 2000-01-23T04:56:07.000+00:00
           expireAt: 2000-01-23T04:56:07.000+00:00
           userId: ""
           url: url
@@ -18217,6 +19166,7 @@ components:
           url: url
         approved: true
         localDateString: localDateString
+        tos: true
         reviewed: true
         localDateHours: 6
         votesUp: 9
@@ -18327,6 +19277,8 @@ components:
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
+        tos:
+          type: boolean
         approved:
           type: boolean
         domain:
@@ -18690,6 +19642,7 @@ components:
       type: object
     SearchUsers_200_response:
       anyOf:
+      - $ref: '#/components/schemas/SearchUsersSectionedResponse'
       - $ref: '#/components/schemas/SearchUsersResponse'
       - $ref: '#/components/schemas/APIError'
     GetUserPresenceStatuses_200_response:
@@ -18908,6 +19861,22 @@ components:
     GetUserBadgeProgressList_200_response:
       anyOf:
       - $ref: '#/components/schemas/APIGetUserBadgeProgressListResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetTickets_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetTicketsResponse'
+      - $ref: '#/components/schemas/APIError'
+    CreateTicket_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/CreateTicketResponse'
+      - $ref: '#/components/schemas/APIError'
+    GetTicket_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/GetTicketResponse'
+      - $ref: '#/components/schemas/APIError'
+    ChangeTicketState_200_response:
+      anyOf:
+      - $ref: '#/components/schemas/ChangeTicketStateResponse'
       - $ref: '#/components/schemas/APIError'
     GetTenant_200_response:
       anyOf:
@@ -19188,10 +20157,13 @@ components:
     FComment_meta:
       additionalProperties: {}
       example:
+        wpId: wpId
         wpUserId: wpUserId
         wpPostId: wpPostId
       nullable: true
       properties:
+        wpId:
+          type: string
         wpUserId:
           type: string
         wpPostId:
@@ -19221,6 +20193,18 @@ components:
           type: string
       required:
       - tag
+      type: object
+    APICommentBase_meta:
+      additionalProperties: {}
+      example:
+        wpUserId: wpUserId
+        wpPostId: wpPostId
+      nullable: true
+      properties:
+        wpUserId:
+          type: string
+        wpPostId:
+          type: string
       type: object
     AggregationResponse_stats:
       example:

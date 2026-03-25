@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,17 +29,17 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(ImportedSiteType.Adapter.class)
 public enum ImportedSiteType {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1"));
+  NUMBER_1(1);
 
-  private BigDecimal value;
+  private Integer value;
 
-  ImportedSiteType(BigDecimal value) {
+  ImportedSiteType(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -49,7 +48,7 @@ public enum ImportedSiteType {
     return String.valueOf(value);
   }
 
-  public static ImportedSiteType fromValue(BigDecimal value) {
+  public static ImportedSiteType fromValue(Integer value) {
     for (ImportedSiteType b : ImportedSiteType.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -66,14 +65,14 @@ public enum ImportedSiteType {
 
     @Override
     public ImportedSiteType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ImportedSiteType.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return ImportedSiteType.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    ImportedSiteType.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    ImportedSiteType.fromValue(value);
   }
 }
 

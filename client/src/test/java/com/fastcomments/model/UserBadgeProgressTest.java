@@ -104,4 +104,12 @@ public class UserBadgeProgressTest {
         // TODO: test progress
     }
 
+    /**
+     * Test the property 'tosAcceptedAt'
+     */
+    @Test
+    public void tosAcceptedAtTest() {
+        // TODO: test tosAcceptedAt
+    }
+
 }

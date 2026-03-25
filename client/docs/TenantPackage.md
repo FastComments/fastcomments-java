@@ -26,6 +26,7 @@
 |**maxDomains** | **Double** |  |  |
 |**maxWhiteLabeledTenants** | **Double** |  |  |
 |**maxMonthlyEventLogRequests** | **Double** |  |  |
+|**maxCustomCollectionSize** | **Double** |  |  |
 |**hasWhiteLabeling** | **Boolean** |  |  |
 |**hasDebranding** | **Boolean** |  |  |
 |**hasLLMSpamDetection** | **Boolean** |  |  |
@@ -34,6 +35,7 @@
 |**hasAuditing** | **Boolean** |  |  |
 |**hasFlexPricing** | **Boolean** |  |  |
 |**enableSAML** | **Boolean** |  |  [optional] |
+|**enableCanvasLTI** | **Boolean** |  |  [optional] |
 |**flexPageLoadCostCents** | **Double** |  |  [optional] |
 |**flexPageLoadUnit** | **Double** |  |  [optional] |
 |**flexCommentCostCents** | **Double** |  |  [optional] |

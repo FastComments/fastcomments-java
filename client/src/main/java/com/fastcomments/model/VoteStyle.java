@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,17 +29,17 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(VoteStyle.Adapter.class)
 public enum VoteStyle {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1"));
+  NUMBER_1(1);
 
-  private BigDecimal value;
+  private Integer value;
 
-  VoteStyle(BigDecimal value) {
+  VoteStyle(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -49,7 +48,7 @@ public enum VoteStyle {
     return String.valueOf(value);
   }
 
-  public static VoteStyle fromValue(BigDecimal value) {
+  public static VoteStyle fromValue(Integer value) {
     for (VoteStyle b : VoteStyle.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -66,14 +65,14 @@ public enum VoteStyle {
 
     @Override
     public VoteStyle read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return VoteStyle.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return VoteStyle.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    VoteStyle.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    VoteStyle.fromValue(value);
   }
 }
 

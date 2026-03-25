@@ -78,6 +78,7 @@
 |**viewCount** | **Long** |  |  [optional] |
 |**requiresVerification** | **Boolean** |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
+|**tosAcceptedAt** | **OffsetDateTime** |  |  [optional] |
 
 
 

@@ -148,6 +148,11 @@ public class TenantPackage {
   @javax.annotation.Nonnull
   private Double maxMonthlyEventLogRequests;
 
+  public static final String SERIALIZED_NAME_MAX_CUSTOM_COLLECTION_SIZE = "maxCustomCollectionSize";
+  @SerializedName(SERIALIZED_NAME_MAX_CUSTOM_COLLECTION_SIZE)
+  @javax.annotation.Nonnull
+  private Double maxCustomCollectionSize;
+
   public static final String SERIALIZED_NAME_HAS_WHITE_LABELING = "hasWhiteLabeling";
   @SerializedName(SERIALIZED_NAME_HAS_WHITE_LABELING)
   @javax.annotation.Nonnull
@@ -187,6 +192,11 @@ public class TenantPackage {
   @SerializedName(SERIALIZED_NAME_ENABLE_S_A_M_L)
   @javax.annotation.Nullable
   private Boolean enableSAML;
+
+  public static final String SERIALIZED_NAME_ENABLE_CANVAS_L_T_I = "enableCanvasLTI";
+  @SerializedName(SERIALIZED_NAME_ENABLE_CANVAS_L_T_I)
+  @javax.annotation.Nullable
+  private Boolean enableCanvasLTI;
 
   public static final String SERIALIZED_NAME_FLEX_PAGE_LOAD_COST_CENTS = "flexPageLoadCostCents";
   @SerializedName(SERIALIZED_NAME_FLEX_PAGE_LOAD_COST_CENTS)
@@ -677,6 +687,25 @@ public class TenantPackage {
   }
 
 
+  public TenantPackage maxCustomCollectionSize(@javax.annotation.Nonnull Double maxCustomCollectionSize) {
+    this.maxCustomCollectionSize = maxCustomCollectionSize;
+    return this;
+  }
+
+  /**
+   * Get maxCustomCollectionSize
+   * @return maxCustomCollectionSize
+   */
+  @javax.annotation.Nonnull
+  public Double getMaxCustomCollectionSize() {
+    return maxCustomCollectionSize;
+  }
+
+  public void setMaxCustomCollectionSize(@javax.annotation.Nonnull Double maxCustomCollectionSize) {
+    this.maxCustomCollectionSize = maxCustomCollectionSize;
+  }
+
+
   public TenantPackage hasWhiteLabeling(@javax.annotation.Nonnull Boolean hasWhiteLabeling) {
     this.hasWhiteLabeling = hasWhiteLabeling;
     return this;
@@ -834,6 +863,25 @@ public class TenantPackage {
 
   public void setEnableSAML(@javax.annotation.Nullable Boolean enableSAML) {
     this.enableSAML = enableSAML;
+  }
+
+
+  public TenantPackage enableCanvasLTI(@javax.annotation.Nullable Boolean enableCanvasLTI) {
+    this.enableCanvasLTI = enableCanvasLTI;
+    return this;
+  }
+
+  /**
+   * Get enableCanvasLTI
+   * @return enableCanvasLTI
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableCanvasLTI() {
+    return enableCanvasLTI;
+  }
+
+  public void setEnableCanvasLTI(@javax.annotation.Nullable Boolean enableCanvasLTI) {
+    this.enableCanvasLTI = enableCanvasLTI;
   }
 
 
@@ -1341,6 +1389,7 @@ public class TenantPackage {
         Objects.equals(this.maxDomains, tenantPackage.maxDomains) &&
         Objects.equals(this.maxWhiteLabeledTenants, tenantPackage.maxWhiteLabeledTenants) &&
         Objects.equals(this.maxMonthlyEventLogRequests, tenantPackage.maxMonthlyEventLogRequests) &&
+        Objects.equals(this.maxCustomCollectionSize, tenantPackage.maxCustomCollectionSize) &&
         Objects.equals(this.hasWhiteLabeling, tenantPackage.hasWhiteLabeling) &&
         Objects.equals(this.hasDebranding, tenantPackage.hasDebranding) &&
         Objects.equals(this.hasLLMSpamDetection, tenantPackage.hasLLMSpamDetection) &&
@@ -1349,6 +1398,7 @@ public class TenantPackage {
         Objects.equals(this.hasAuditing, tenantPackage.hasAuditing) &&
         Objects.equals(this.hasFlexPricing, tenantPackage.hasFlexPricing) &&
         Objects.equals(this.enableSAML, tenantPackage.enableSAML) &&
+        Objects.equals(this.enableCanvasLTI, tenantPackage.enableCanvasLTI) &&
         Objects.equals(this.flexPageLoadCostCents, tenantPackage.flexPageLoadCostCents) &&
         Objects.equals(this.flexPageLoadUnit, tenantPackage.flexPageLoadUnit) &&
         Objects.equals(this.flexCommentCostCents, tenantPackage.flexCommentCostCents) &&
@@ -1378,7 +1428,7 @@ public class TenantPackage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, tenantId, createdAt, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, isSSOBillingMonthlyActiveUsers);
+    return Objects.hash(id, name, tenantId, createdAt, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, isSSOBillingMonthlyActiveUsers);
   }
 
   @Override
@@ -1404,6 +1454,7 @@ public class TenantPackage {
     sb.append("    maxDomains: ").append(toIndentedString(maxDomains)).append("\n");
     sb.append("    maxWhiteLabeledTenants: ").append(toIndentedString(maxWhiteLabeledTenants)).append("\n");
     sb.append("    maxMonthlyEventLogRequests: ").append(toIndentedString(maxMonthlyEventLogRequests)).append("\n");
+    sb.append("    maxCustomCollectionSize: ").append(toIndentedString(maxCustomCollectionSize)).append("\n");
     sb.append("    hasWhiteLabeling: ").append(toIndentedString(hasWhiteLabeling)).append("\n");
     sb.append("    hasDebranding: ").append(toIndentedString(hasDebranding)).append("\n");
     sb.append("    hasLLMSpamDetection: ").append(toIndentedString(hasLLMSpamDetection)).append("\n");
@@ -1412,6 +1463,7 @@ public class TenantPackage {
     sb.append("    hasAuditing: ").append(toIndentedString(hasAuditing)).append("\n");
     sb.append("    hasFlexPricing: ").append(toIndentedString(hasFlexPricing)).append("\n");
     sb.append("    enableSAML: ").append(toIndentedString(enableSAML)).append("\n");
+    sb.append("    enableCanvasLTI: ").append(toIndentedString(enableCanvasLTI)).append("\n");
     sb.append("    flexPageLoadCostCents: ").append(toIndentedString(flexPageLoadCostCents)).append("\n");
     sb.append("    flexPageLoadUnit: ").append(toIndentedString(flexPageLoadUnit)).append("\n");
     sb.append("    flexCommentCostCents: ").append(toIndentedString(flexCommentCostCents)).append("\n");
@@ -1478,6 +1530,7 @@ public class TenantPackage {
     openapiFields.add("maxDomains");
     openapiFields.add("maxWhiteLabeledTenants");
     openapiFields.add("maxMonthlyEventLogRequests");
+    openapiFields.add("maxCustomCollectionSize");
     openapiFields.add("hasWhiteLabeling");
     openapiFields.add("hasDebranding");
     openapiFields.add("hasLLMSpamDetection");
@@ -1486,6 +1539,7 @@ public class TenantPackage {
     openapiFields.add("hasAuditing");
     openapiFields.add("hasFlexPricing");
     openapiFields.add("enableSAML");
+    openapiFields.add("enableCanvasLTI");
     openapiFields.add("flexPageLoadCostCents");
     openapiFields.add("flexPageLoadUnit");
     openapiFields.add("flexCommentCostCents");
@@ -1533,6 +1587,7 @@ public class TenantPackage {
     openapiRequiredFields.add("maxDomains");
     openapiRequiredFields.add("maxWhiteLabeledTenants");
     openapiRequiredFields.add("maxMonthlyEventLogRequests");
+    openapiRequiredFields.add("maxCustomCollectionSize");
     openapiRequiredFields.add("hasWhiteLabeling");
     openapiRequiredFields.add("hasDebranding");
     openapiRequiredFields.add("hasLLMSpamDetection");

@@ -121,6 +121,14 @@ public class UserSessionInfoTest {
     }
 
     /**
+     * Test the property 'needsTOS'
+     */
+    @Test
+    public void needsTOSTest() {
+        // TODO: test needsTOS
+    }
+
+    /**
      * Test the property 'sessionId'
      */
     @Test

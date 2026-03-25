@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,21 +29,21 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(DigestEmailFrequency.Adapter.class)
 public enum DigestEmailFrequency {
   
-  NUMBER_MINUS_1(new BigDecimal("-1")),
+  NUMBER_MINUS_1(-1),
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2"));
+  NUMBER_2(2);
 
-  private BigDecimal value;
+  private Integer value;
 
-  DigestEmailFrequency(BigDecimal value) {
+  DigestEmailFrequency(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -53,7 +52,7 @@ public enum DigestEmailFrequency {
     return String.valueOf(value);
   }
 
-  public static DigestEmailFrequency fromValue(BigDecimal value) {
+  public static DigestEmailFrequency fromValue(Integer value) {
     for (DigestEmailFrequency b : DigestEmailFrequency.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -70,14 +69,14 @@ public enum DigestEmailFrequency {
 
     @Override
     public DigestEmailFrequency read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return DigestEmailFrequency.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return DigestEmailFrequency.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    DigestEmailFrequency.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    DigestEmailFrequency.fromValue(value);
   }
 }
 

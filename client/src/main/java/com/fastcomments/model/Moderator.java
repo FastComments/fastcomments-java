@@ -143,6 +143,11 @@ public class Moderator {
   @javax.annotation.Nullable
   private List<String> moderationGroupIds;
 
+  public static final String SERIALIZED_NAME_IS_EMAIL_SUPPRESSED = "isEmailSuppressed";
+  @SerializedName(SERIALIZED_NAME_IS_EMAIL_SUPPRESSED)
+  @javax.annotation.Nullable
+  private Boolean isEmailSuppressed;
+
   public Moderator() {
   }
 
@@ -496,6 +501,25 @@ public class Moderator {
   }
 
 
+  public Moderator isEmailSuppressed(@javax.annotation.Nullable Boolean isEmailSuppressed) {
+    this.isEmailSuppressed = isEmailSuppressed;
+    return this;
+  }
+
+  /**
+   * Get isEmailSuppressed
+   * @return isEmailSuppressed
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsEmailSuppressed() {
+    return isEmailSuppressed;
+  }
+
+  public void setIsEmailSuppressed(@javax.annotation.Nullable Boolean isEmailSuppressed) {
+    this.isEmailSuppressed = isEmailSuppressed;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -523,12 +547,13 @@ public class Moderator {
         Objects.equals(this.unFlaggedCount, moderator.unFlaggedCount) &&
         Objects.equals(this.verificationId, moderator.verificationId) &&
         Objects.equals(this.createdAt, moderator.createdAt) &&
-        Objects.equals(this.moderationGroupIds, moderator.moderationGroupIds);
+        Objects.equals(this.moderationGroupIds, moderator.moderationGroupIds) &&
+        Objects.equals(this.isEmailSuppressed, moderator.isEmailSuppressed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, name, userId, acceptedInvite, email, markReviewedCount, deletedCount, markedSpamCount, markedNotSpamCount, approvedCount, unApprovedCount, editedCount, bannedCount, unFlaggedCount, verificationId, createdAt, moderationGroupIds);
+    return Objects.hash(id, tenantId, name, userId, acceptedInvite, email, markReviewedCount, deletedCount, markedSpamCount, markedNotSpamCount, approvedCount, unApprovedCount, editedCount, bannedCount, unFlaggedCount, verificationId, createdAt, moderationGroupIds, isEmailSuppressed);
   }
 
   @Override
@@ -553,6 +578,7 @@ public class Moderator {
     sb.append("    verificationId: ").append(toIndentedString(verificationId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    moderationGroupIds: ").append(toIndentedString(moderationGroupIds)).append("\n");
+    sb.append("    isEmailSuppressed: ").append(toIndentedString(isEmailSuppressed)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -593,6 +619,7 @@ public class Moderator {
     openapiFields.add("verificationId");
     openapiFields.add("createdAt");
     openapiFields.add("moderationGroupIds");
+    openapiFields.add("isEmailSuppressed");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

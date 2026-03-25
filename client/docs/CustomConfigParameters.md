@@ -31,6 +31,8 @@
 |**disableEmailInputs** | **Boolean** |  |  [optional] |
 |**disableLiveCommenting** | **Boolean** |  |  [optional] |
 |**disableNotificationBell** | **Boolean** |  |  [optional] |
+|**disableProfileComments** | **Boolean** |  |  [optional] |
+|**disableProfileDirectMessages** | **Boolean** |  |  [optional] |
 |**disableProfiles** | **Boolean** |  |  [optional] |
 |**disableSuccessMessage** | **Boolean** |  |  [optional] |
 |**disableToolbar** | **Boolean** |  |  [optional] |
@@ -55,6 +57,7 @@
 |**maxCommentCharacterLength** | **Integer** |  |  [optional] |
 |**maxCommentCreatedCountPUPM** | **Integer** |  |  [optional] |
 |**noCustomConfig** | **Boolean** |  |  [optional] |
+|**mentionAutoCompleteMode** | **MentionAutoCompleteMode** |  |  [optional] |
 |**noImageUploads** | **Boolean** |  |  [optional] |
 |**noStyles** | **Boolean** |  |  [optional] |
 |**pageSize** | **Integer** |  |  [optional] |
@@ -75,11 +78,18 @@
 |**voteStyle** | **VoteStyle** |  |  [optional] |
 |**widgetQuestionId** | **String** |  |  [optional] |
 |**widgetQuestionResultsStyle** | **CommentQuestionResultsRenderingType** |  |  [optional] |
+|**widgetQuestionShowBreakdown** | **Boolean** |  |  [optional] |
 |**widgetQuestionStyle** | **QuestionRenderingType** |  |  [optional] |
 |**widgetQuestionWhenToSave** | **QuestionWhenSave** |  |  [optional] |
 |**widgetQuestionsRequired** | **CommentQuestionsRequired** |  |  [optional] |
 |**widgetSubQuestionVisibility** | **QuestionSubQuestionVisibility** |  |  [optional] |
 |**wrap** | **Boolean** |  |  [optional] |
+|**ticketBaseUrl** | **String** |  |  [optional] |
+|**ticketKBSearchEndpoint** | **String** |  |  [optional] |
+|**ticketFileUploadsEnabled** | **Boolean** |  |  [optional] |
+|**ticketMaxFileSize** | **Integer** |  |  [optional] |
+|**ticketAutoAssignUserIds** | **List&lt;String&gt;** |  |  [optional] |
+|**tos** | [**TOSConfig**](TOSConfig.md) |  |  [optional] |
 
 
 

@@ -128,6 +128,14 @@ public class UpdateTenantPackageBodyTest {
     }
 
     /**
+     * Test the property 'maxCustomCollectionSize'
+     */
+    @Test
+    public void maxCustomCollectionSizeTest() {
+        // TODO: test maxCustomCollectionSize
+    }
+
+    /**
      * Test the property 'hasDebranding'
      */
     @Test

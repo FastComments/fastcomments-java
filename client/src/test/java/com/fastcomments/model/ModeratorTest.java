@@ -184,4 +184,12 @@ public class ModeratorTest {
         // TODO: test moderationGroupIds
     }
 
+    /**
+     * Test the property 'isEmailSuppressed'
+     */
+    @Test
+    public void isEmailSuppressedTest() {
+        // TODO: test isEmailSuppressed
+    }
+
 }

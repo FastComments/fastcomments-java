@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,27 +29,27 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(RepeatCommentCheckIgnoredReason.Adapter.class)
 public enum RepeatCommentCheckIgnoredReason {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2")),
+  NUMBER_2(2),
   
-  NUMBER_3(new BigDecimal("3")),
+  NUMBER_3(3),
   
-  NUMBER_4(new BigDecimal("4")),
+  NUMBER_4(4),
   
-  NUMBER_5(new BigDecimal("5")),
+  NUMBER_5(5),
   
-  NUMBER_6(new BigDecimal("6"));
+  NUMBER_6(6);
 
-  private BigDecimal value;
+  private Integer value;
 
-  RepeatCommentCheckIgnoredReason(BigDecimal value) {
+  RepeatCommentCheckIgnoredReason(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -59,7 +58,7 @@ public enum RepeatCommentCheckIgnoredReason {
     return String.valueOf(value);
   }
 
-  public static RepeatCommentCheckIgnoredReason fromValue(BigDecimal value) {
+  public static RepeatCommentCheckIgnoredReason fromValue(Integer value) {
     for (RepeatCommentCheckIgnoredReason b : RepeatCommentCheckIgnoredReason.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -76,14 +75,14 @@ public enum RepeatCommentCheckIgnoredReason {
 
     @Override
     public RepeatCommentCheckIgnoredReason read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return RepeatCommentCheckIgnoredReason.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return RepeatCommentCheckIgnoredReason.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    RepeatCommentCheckIgnoredReason.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    RepeatCommentCheckIgnoredReason.fromValue(value);
   }
 }
 

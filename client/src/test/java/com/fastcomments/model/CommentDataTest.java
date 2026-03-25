@@ -236,4 +236,12 @@ public class CommentDataTest {
         // TODO: test questionValues
     }
 
+    /**
+     * Test the property 'tos'
+     */
+    @Test
+    public void tosTest() {
+        // TODO: test tos
+    }
+
 }

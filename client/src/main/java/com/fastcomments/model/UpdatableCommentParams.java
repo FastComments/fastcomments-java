@@ -14,7 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.FCommentMeta;
+import com.fastcomments.model.APICommentBaseMeta;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -237,7 +237,7 @@ public class UpdatableCommentParams {
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
-  private FCommentMeta meta;
+  private APICommentBaseMeta meta;
 
   public static final String SERIALIZED_NAME_MODERATION_GROUP_IDS = "moderationGroupIds";
   @SerializedName(SERIALIZED_NAME_MODERATION_GROUP_IDS)
@@ -936,7 +936,7 @@ public class UpdatableCommentParams {
   }
 
 
-  public UpdatableCommentParams meta(@javax.annotation.Nullable FCommentMeta meta) {
+  public UpdatableCommentParams meta(@javax.annotation.Nullable APICommentBaseMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -946,11 +946,11 @@ public class UpdatableCommentParams {
    * @return meta
    */
   @javax.annotation.Nullable
-  public FCommentMeta getMeta() {
+  public APICommentBaseMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(@javax.annotation.Nullable FCommentMeta meta) {
+  public void setMeta(@javax.annotation.Nullable APICommentBaseMeta meta) {
     this.meta = meta;
   }
 

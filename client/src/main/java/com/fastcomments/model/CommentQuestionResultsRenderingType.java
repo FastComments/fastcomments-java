@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,19 +29,19 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(CommentQuestionResultsRenderingType.Adapter.class)
 public enum CommentQuestionResultsRenderingType {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2"));
+  NUMBER_2(2);
 
-  private BigDecimal value;
+  private Integer value;
 
-  CommentQuestionResultsRenderingType(BigDecimal value) {
+  CommentQuestionResultsRenderingType(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -51,7 +50,7 @@ public enum CommentQuestionResultsRenderingType {
     return String.valueOf(value);
   }
 
-  public static CommentQuestionResultsRenderingType fromValue(BigDecimal value) {
+  public static CommentQuestionResultsRenderingType fromValue(Integer value) {
     for (CommentQuestionResultsRenderingType b : CommentQuestionResultsRenderingType.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -68,14 +67,14 @@ public enum CommentQuestionResultsRenderingType {
 
     @Override
     public CommentQuestionResultsRenderingType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return CommentQuestionResultsRenderingType.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return CommentQuestionResultsRenderingType.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    CommentQuestionResultsRenderingType.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    CommentQuestionResultsRenderingType.fromValue(value);
   }
 }
 

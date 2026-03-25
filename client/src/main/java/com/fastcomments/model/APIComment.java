@@ -14,10 +14,10 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.APICommentBaseMeta;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.FCommentMeta;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -235,7 +235,7 @@ public class APIComment {
   public static final String SERIALIZED_NAME_META = "meta";
   @SerializedName(SERIALIZED_NAME_META)
   @javax.annotation.Nullable
-  private FCommentMeta meta;
+  private APICommentBaseMeta meta;
 
   public static final String SERIALIZED_NAME_MODERATION_GROUP_IDS = "moderationGroupIds";
   @SerializedName(SERIALIZED_NAME_MODERATION_GROUP_IDS)
@@ -1022,7 +1022,7 @@ public class APIComment {
   }
 
 
-  public APIComment meta(@javax.annotation.Nullable FCommentMeta meta) {
+  public APIComment meta(@javax.annotation.Nullable APICommentBaseMeta meta) {
     this.meta = meta;
     return this;
   }
@@ -1032,11 +1032,11 @@ public class APIComment {
    * @return meta
    */
   @javax.annotation.Nullable
-  public FCommentMeta getMeta() {
+  public APICommentBaseMeta getMeta() {
     return meta;
   }
 
-  public void setMeta(@javax.annotation.Nullable FCommentMeta meta) {
+  public void setMeta(@javax.annotation.Nullable APICommentBaseMeta meta) {
     this.meta = meta;
   }
 

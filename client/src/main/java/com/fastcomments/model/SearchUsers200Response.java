@@ -18,7 +18,9 @@ import com.fastcomments.model.APIError;
 import com.fastcomments.model.APIStatus;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.SearchUsersResponse;
+import com.fastcomments.model.SearchUsersSectionedResponse;
 import com.fastcomments.model.UserSearchResult;
+import com.fastcomments.model.UserSearchSectionResult;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -76,6 +78,7 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'SearchUsers200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<SearchUsersSectionedResponse> adapterSearchUsersSectionedResponse = gson.getDelegateAdapter(this, TypeToken.get(SearchUsersSectionedResponse.class));
             final TypeAdapter<SearchUsersResponse> adapterSearchUsersResponse = gson.getDelegateAdapter(this, TypeToken.get(SearchUsersResponse.class));
             final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
@@ -87,6 +90,12 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
                         return;
                     }
 
+                    // check if the actual instance is of the type `SearchUsersSectionedResponse`
+                    if (value.getActualInstance() instanceof SearchUsersSectionedResponse) {
+                        JsonElement element = adapterSearchUsersSectionedResponse.toJsonTree((SearchUsersSectionedResponse)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
                     // check if the actual instance is of the type `SearchUsersResponse`
                     if (value.getActualInstance() instanceof SearchUsersResponse) {
                         JsonElement element = adapterSearchUsersResponse.toJsonTree((SearchUsersResponse)value.getActualInstance());
@@ -99,7 +108,7 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, SearchUsersResponse");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, SearchUsersResponse, SearchUsersSectionedResponse");
                 }
 
                 @Override
@@ -110,6 +119,19 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
+                    // deserialize SearchUsersSectionedResponse
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        SearchUsersSectionedResponse.validateJsonElement(jsonElement);
+                        actualAdapter = adapterSearchUsersSectionedResponse;
+                        SearchUsers200Response ret = new SearchUsers200Response();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for SearchUsersSectionedResponse failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'SearchUsersSectionedResponse'", e);
+                    }
                     // deserialize SearchUsersResponse
                     try {
                         // validate the JSON object to see if any exception is thrown
@@ -156,6 +178,7 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
     }
 
     static {
+        schemas.put("SearchUsersSectionedResponse", SearchUsersSectionedResponse.class);
         schemas.put("SearchUsersResponse", SearchUsersResponse.class);
         schemas.put("APIError", APIError.class);
     }
@@ -168,12 +191,17 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, SearchUsersResponse
+     * APIError, SearchUsersResponse, SearchUsersSectionedResponse
      *
      * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
+        if (instance instanceof SearchUsersSectionedResponse) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof SearchUsersResponse) {
             super.setActualInstance(instance);
             return;
@@ -184,19 +212,30 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be APIError, SearchUsersResponse");
+        throw new RuntimeException("Invalid instance type. Must be APIError, SearchUsersResponse, SearchUsersSectionedResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, SearchUsersResponse
+     * APIError, SearchUsersResponse, SearchUsersSectionedResponse
      *
-     * @return The actual instance (APIError, SearchUsersResponse)
+     * @return The actual instance (APIError, SearchUsersResponse, SearchUsersSectionedResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
     public Object getActualInstance() {
         return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `SearchUsersSectionedResponse`. If the actual instance is not `SearchUsersSectionedResponse`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `SearchUsersSectionedResponse`
+     * @throws ClassCastException if the instance is not `SearchUsersSectionedResponse`
+     */
+    public SearchUsersSectionedResponse getSearchUsersSectionedResponse() throws ClassCastException {
+        return (SearchUsersSectionedResponse)super.getActualInstance();
     }
 
     /**
@@ -230,6 +269,14 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with SearchUsersSectionedResponse
+        try {
+            SearchUsersSectionedResponse.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for SearchUsersSectionedResponse failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with SearchUsersResponse
         try {
             SearchUsersResponse.validateJsonElement(jsonElement);
@@ -246,7 +293,7 @@ public class SearchUsers200Response extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for SearchUsers200Response with anyOf schemas: APIError, SearchUsersResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format("The JSON string is invalid for SearchUsers200Response with anyOf schemas: APIError, SearchUsersResponse, SearchUsersSectionedResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

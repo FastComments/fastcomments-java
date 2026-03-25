@@ -98,6 +98,22 @@ public class UserTest {
     }
 
     /**
+     * Test the property 'backupEmail'
+     */
+    @Test
+    public void backupEmailTest() {
+        // TODO: test backupEmail
+    }
+
+    /**
+     * Test the property 'pendingBackupEmail'
+     */
+    @Test
+    public void pendingBackupEmailTest() {
+        // TODO: test pendingBackupEmail
+    }
+
+    /**
      * Test the property 'signUpDate'
      */
     @Test
@@ -274,6 +290,14 @@ public class UserTest {
     }
 
     /**
+     * Test the property 'isSiteAdmin'
+     */
+    @Test
+    public void isSiteAdminTest() {
+        // TODO: test isSiteAdmin
+    }
+
+    /**
      * Test the property 'moderatorIds'
      */
     @Test
@@ -311,6 +335,38 @@ public class UserTest {
     @Test
     public void digestEmailFrequencyTest() {
         // TODO: test digestEmailFrequency
+    }
+
+    /**
+     * Test the property 'notificationFrequency'
+     */
+    @Test
+    public void notificationFrequencyTest() {
+        // TODO: test notificationFrequency
+    }
+
+    /**
+     * Test the property 'adminNotificationFrequency'
+     */
+    @Test
+    public void adminNotificationFrequencyTest() {
+        // TODO: test adminNotificationFrequency
+    }
+
+    /**
+     * Test the property 'lastTenantNotificationSentDate'
+     */
+    @Test
+    public void lastTenantNotificationSentDateTest() {
+        // TODO: test lastTenantNotificationSentDate
+    }
+
+    /**
+     * Test the property 'lastReplyNotificationSentDate'
+     */
+    @Test
+    public void lastReplyNotificationSentDateTest() {
+        // TODO: test lastReplyNotificationSentDate
     }
 
     /**
@@ -447,6 +503,14 @@ public class UserTest {
     @Test
     public void hasTwoFactorTest() {
         // TODO: test hasTwoFactor
+    }
+
+    /**
+     * Test the property 'isEmailSuppressed'
+     */
+    @Test
+    public void isEmailSuppressedTest() {
+        // TODO: test isEmailSuppressed
     }
 
 }

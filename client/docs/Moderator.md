@@ -25,6 +25,7 @@
 |**verificationId** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**moderationGroupIds** | **List&lt;String&gt;** |  |  |
+|**isEmailSuppressed** | **Boolean** |  |  [optional] |
 
 
 

@@ -14,6 +14,8 @@
 |**websiteUrl** | **String** |  |  [optional] |
 |**email** | **String** |  |  |
 |**pendingEmail** | **String** |  |  [optional] |
+|**backupEmail** | **String** |  |  [optional] |
+|**pendingBackupEmail** | **String** |  |  [optional] |
 |**signUpDate** | **Long** |  |  |
 |**createdFromUrlId** | **String** |  |  [optional] |
 |**createdFromTenantId** | **String** |  |  |
@@ -36,11 +38,16 @@
 |**isManageDataAdmin** | **Boolean** |  |  [optional] |
 |**isCommentModeratorAdmin** | **Boolean** |  |  [optional] |
 |**isAPIAdmin** | **Boolean** |  |  [optional] |
+|**isSiteAdmin** | **Boolean** |  |  [optional] |
 |**moderatorIds** | **List&lt;String&gt;** |  |  [optional] |
 |**isImpersonator** | **Boolean** |  |  [optional] |
 |**isCouponManager** | **Boolean** |  |  [optional] |
 |**locale** | **String** |  |  [optional] |
 |**digestEmailFrequency** | **DigestEmailFrequency** |  |  [optional] |
+|**notificationFrequency** | **Double** |  |  [optional] |
+|**adminNotificationFrequency** | **Double** |  |  [optional] |
+|**lastTenantNotificationSentDate** | **OffsetDateTime** |  |  [optional] |
+|**lastReplyNotificationSentDate** | **OffsetDateTime** |  |  [optional] |
 |**ignoredAddToMySiteMessages** | **Boolean** |  |  [optional] |
 |**lastLoginDate** | **OffsetDateTime** |  |  [optional] |
 |**displayLabel** | **String** |  |  [optional] |
@@ -58,6 +65,7 @@
 |**countryFlag** | **String** |  |  [optional] |
 |**socialLinks** | **List&lt;String&gt;** |  |  [optional] |
 |**hasTwoFactor** | **Boolean** |  |  [optional] |
+|**isEmailSuppressed** | **Boolean** |  |  [optional] |
 
 
 

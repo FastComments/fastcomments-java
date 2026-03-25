@@ -1810,7 +1810,7 @@ No authorization required
 
 <a id="searchUsers"></a>
 # **searchUsers**
-> SearchUsers200Response searchUsers(tenantId, urlId).usernameStartsWith(usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).execute();
+> SearchUsers200Response searchUsers(tenantId, urlId).usernameStartsWith(usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).searchSection(searchSection).execute();
 
 
 
@@ -1834,11 +1834,13 @@ public class Example {
     String usernameStartsWith = "usernameStartsWith_example"; // String | 
     List<String> mentionGroupIds = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
+    String searchSection = "fast"; // String | 
     try {
       SearchUsers200Response result = apiInstance.searchUsers(tenantId, urlId)
             .usernameStartsWith(usernameStartsWith)
             .mentionGroupIds(mentionGroupIds)
             .sso(sso)
+            .searchSection(searchSection)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1861,6 +1863,7 @@ public class Example {
 | **usernameStartsWith** | **String**|  | [optional] |
 | **mentionGroupIds** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **sso** | **String**|  | [optional] |
+| **searchSection** | **String**|  | [optional] [enum: fast, site] |
 
 ### Return type
 

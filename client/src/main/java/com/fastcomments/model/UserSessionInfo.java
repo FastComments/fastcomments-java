@@ -103,6 +103,11 @@ public class UserSessionInfo {
   @javax.annotation.Nullable
   private Boolean isAnonSession;
 
+  public static final String SERIALIZED_NAME_NEEDS_T_O_S = "needsTOS";
+  @SerializedName(SERIALIZED_NAME_NEEDS_T_O_S)
+  @javax.annotation.Nullable
+  private Boolean needsTOS;
+
   public static final String SERIALIZED_NAME_SESSION_ID = "sessionId";
   @SerializedName(SERIALIZED_NAME_SESSION_ID)
   @javax.annotation.Nullable
@@ -327,6 +332,25 @@ public class UserSessionInfo {
   }
 
 
+  public UserSessionInfo needsTOS(@javax.annotation.Nullable Boolean needsTOS) {
+    this.needsTOS = needsTOS;
+    return this;
+  }
+
+  /**
+   * Get needsTOS
+   * @return needsTOS
+   */
+  @javax.annotation.Nullable
+  public Boolean getNeedsTOS() {
+    return needsTOS;
+  }
+
+  public void setNeedsTOS(@javax.annotation.Nullable Boolean needsTOS) {
+    this.needsTOS = needsTOS;
+  }
+
+
   public UserSessionInfo sessionId(@javax.annotation.Nullable String sessionId) {
     this.sessionId = sessionId;
     return this;
@@ -404,6 +428,7 @@ public class UserSessionInfo {
         Objects.equals(this.groupIds, userSessionInfo.groupIds) &&
         Objects.equals(this.hasBlockedUsers, userSessionInfo.hasBlockedUsers) &&
         Objects.equals(this.isAnonSession, userSessionInfo.isAnonSession) &&
+        Objects.equals(this.needsTOS, userSessionInfo.needsTOS) &&
         Objects.equals(this.sessionId, userSessionInfo.sessionId) &&
         Objects.equals(this.username, userSessionInfo.username) &&
         Objects.equals(this.websiteUrl, userSessionInfo.websiteUrl);
@@ -411,7 +436,7 @@ public class UserSessionInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, authorized, avatarSrc, badges, displayLabel, displayName, email, groupIds, hasBlockedUsers, isAnonSession, sessionId, username, websiteUrl);
+    return Objects.hash(id, authorized, avatarSrc, badges, displayLabel, displayName, email, groupIds, hasBlockedUsers, isAnonSession, needsTOS, sessionId, username, websiteUrl);
   }
 
   @Override
@@ -428,6 +453,7 @@ public class UserSessionInfo {
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    hasBlockedUsers: ").append(toIndentedString(hasBlockedUsers)).append("\n");
     sb.append("    isAnonSession: ").append(toIndentedString(isAnonSession)).append("\n");
+    sb.append("    needsTOS: ").append(toIndentedString(needsTOS)).append("\n");
     sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
@@ -463,6 +489,7 @@ public class UserSessionInfo {
     openapiFields.add("groupIds");
     openapiFields.add("hasBlockedUsers");
     openapiFields.add("isAnonSession");
+    openapiFields.add("needsTOS");
     openapiFields.add("sessionId");
     openapiFields.add("username");
     openapiFields.add("websiteUrl");

@@ -23,6 +23,7 @@
 |**maxDomains** | **Double** |  |  |
 |**maxWhiteLabeledTenants** | **Double** |  |  [optional] |
 |**maxMonthlyEventLogRequests** | **Double** |  |  [optional] |
+|**maxCustomCollectionSize** | **Double** |  |  [optional] |
 |**hasWhiteLabeling** | **Boolean** |  |  [optional] |
 |**hasDebranding** | **Boolean** |  |  |
 |**hasLLMSpamDetection** | **Boolean** |  |  [optional] |

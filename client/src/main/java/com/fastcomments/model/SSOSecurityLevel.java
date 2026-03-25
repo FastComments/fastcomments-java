@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,17 +29,17 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(SSOSecurityLevel.Adapter.class)
 public enum SSOSecurityLevel {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1"));
+  NUMBER_1(1);
 
-  private BigDecimal value;
+  private Integer value;
 
-  SSOSecurityLevel(BigDecimal value) {
+  SSOSecurityLevel(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -49,7 +48,7 @@ public enum SSOSecurityLevel {
     return String.valueOf(value);
   }
 
-  public static SSOSecurityLevel fromValue(BigDecimal value) {
+  public static SSOSecurityLevel fromValue(Integer value) {
     for (SSOSecurityLevel b : SSOSecurityLevel.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -66,14 +65,14 @@ public enum SSOSecurityLevel {
 
     @Override
     public SSOSecurityLevel read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return SSOSecurityLevel.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return SSOSecurityLevel.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    SSOSecurityLevel.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    SSOSecurityLevel.fromValue(value);
   }
 }
 

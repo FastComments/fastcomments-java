@@ -13,7 +13,6 @@
 
 package com.fastcomments.model;
 
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

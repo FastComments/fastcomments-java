@@ -413,6 +413,11 @@ public class FComment {
   @javax.annotation.Nullable
   private String editKey;
 
+  public static final String SERIALIZED_NAME_TOS_ACCEPTED_AT = "tosAcceptedAt";
+  @SerializedName(SERIALIZED_NAME_TOS_ACCEPTED_AT)
+  @javax.annotation.Nullable
+  private OffsetDateTime tosAcceptedAt;
+
   public FComment() {
   }
 
@@ -1821,6 +1826,25 @@ public class FComment {
   }
 
 
+  public FComment tosAcceptedAt(@javax.annotation.Nullable OffsetDateTime tosAcceptedAt) {
+    this.tosAcceptedAt = tosAcceptedAt;
+    return this;
+  }
+
+  /**
+   * Get tosAcceptedAt
+   * @return tosAcceptedAt
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTosAcceptedAt() {
+    return tosAcceptedAt;
+  }
+
+  public void setTosAcceptedAt(@javax.annotation.Nullable OffsetDateTime tosAcceptedAt) {
+    this.tosAcceptedAt = tosAcceptedAt;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1901,12 +1925,13 @@ public class FComment {
         Objects.equals(this.groupIds, fcomment.groupIds) &&
         Objects.equals(this.viewCount, fcomment.viewCount) &&
         Objects.equals(this.requiresVerification, fcomment.requiresVerification) &&
-        Objects.equals(this.editKey, fcomment.editKey);
+        Objects.equals(this.editKey, fcomment.editKey) &&
+        Objects.equals(this.tosAcceptedAt, fcomment.tosAcceptedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, permNotSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey);
+    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, permNotSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey, tosAcceptedAt);
   }
 
   @Override
@@ -1984,6 +2009,7 @@ public class FComment {
     sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
     sb.append("    requiresVerification: ").append(toIndentedString(requiresVerification)).append("\n");
     sb.append("    editKey: ").append(toIndentedString(editKey)).append("\n");
+    sb.append("    tosAcceptedAt: ").append(toIndentedString(tosAcceptedAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2077,6 +2103,7 @@ public class FComment {
     openapiFields.add("viewCount");
     openapiFields.add("requiresVerification");
     openapiFields.add("editKey");
+    openapiFields.add("tosAcceptedAt");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

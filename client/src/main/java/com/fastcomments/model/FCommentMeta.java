@@ -50,6 +50,11 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class FCommentMeta {
+  public static final String SERIALIZED_NAME_WP_ID = "wpId";
+  @SerializedName(SERIALIZED_NAME_WP_ID)
+  @javax.annotation.Nullable
+  private String wpId;
+
   public static final String SERIALIZED_NAME_WP_USER_ID = "wpUserId";
   @SerializedName(SERIALIZED_NAME_WP_USER_ID)
   @javax.annotation.Nullable
@@ -62,6 +67,25 @@ public class FCommentMeta {
 
   public FCommentMeta() {
   }
+
+  public FCommentMeta wpId(@javax.annotation.Nullable String wpId) {
+    this.wpId = wpId;
+    return this;
+  }
+
+  /**
+   * Get wpId
+   * @return wpId
+   */
+  @javax.annotation.Nullable
+  public String getWpId() {
+    return wpId;
+  }
+
+  public void setWpId(@javax.annotation.Nullable String wpId) {
+    this.wpId = wpId;
+  }
+
 
   public FCommentMeta wpUserId(@javax.annotation.Nullable String wpUserId) {
     this.wpUserId = wpUserId;
@@ -155,20 +179,22 @@ public class FCommentMeta {
       return false;
     }
     FCommentMeta fcommentMeta = (FCommentMeta) o;
-    return Objects.equals(this.wpUserId, fcommentMeta.wpUserId) &&
+    return Objects.equals(this.wpId, fcommentMeta.wpId) &&
+        Objects.equals(this.wpUserId, fcommentMeta.wpUserId) &&
         Objects.equals(this.wpPostId, fcommentMeta.wpPostId)&&
         Objects.equals(this.additionalProperties, fcommentMeta.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(wpUserId, wpPostId, additionalProperties);
+    return Objects.hash(wpId, wpUserId, wpPostId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FCommentMeta {\n");
+    sb.append("    wpId: ").append(toIndentedString(wpId)).append("\n");
     sb.append("    wpUserId: ").append(toIndentedString(wpUserId)).append("\n");
     sb.append("    wpPostId: ").append(toIndentedString(wpPostId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -194,6 +220,7 @@ public class FCommentMeta {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("wpId");
     openapiFields.add("wpUserId");
     openapiFields.add("wpPostId");
 
@@ -214,6 +241,9 @@ public class FCommentMeta {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("wpId") != null && !jsonObj.get("wpId").isJsonNull()) && !jsonObj.get("wpId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wpId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpId").toString()));
+      }
       if ((jsonObj.get("wpUserId") != null && !jsonObj.get("wpUserId").isJsonNull()) && !jsonObj.get("wpUserId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wpUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpUserId").toString()));
       }

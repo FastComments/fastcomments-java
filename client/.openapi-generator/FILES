@@ -8,6 +8,7 @@ build.sbt
 docs/APIAuditLog.md
 docs/APIComment.md
 docs/APICommentBase.md
+docs/APICommentBaseMeta.md
 docs/APICreateUserBadgeResponse.md
 docs/APIDomainConfiguration.md
 docs/APIEmptyResponse.md
@@ -24,6 +25,9 @@ docs/APISSOUser.md
 docs/APIStatus.md
 docs/APITenant.md
 docs/APITenantDailyUsage.md
+docs/APITicket.md
+docs/APITicketDetail.md
+docs/APITicketFile.md
 docs/APIUserSubscription.md
 docs/AddDomainConfig200Response.md
 docs/AddDomainConfig200ResponseAnyOf.md
@@ -55,6 +59,9 @@ docs/BulkCreateHashTagsBody.md
 docs/BulkCreateHashTagsBodyTagsInner.md
 docs/BulkCreateHashTagsResponse.md
 docs/ChangeCommentPinStatusResponse.md
+docs/ChangeTicketState200Response.md
+docs/ChangeTicketStateBody.md
+docs/ChangeTicketStateResponse.md
 docs/CheckBlockedCommentsResponse.md
 docs/CheckedCommentsForBlocked200Response.md
 docs/CombineCommentsWithQuestionResults200Response.md
@@ -106,6 +113,9 @@ docs/CreateTenantResponse.md
 docs/CreateTenantUser200Response.md
 docs/CreateTenantUserBody.md
 docs/CreateTenantUserResponse.md
+docs/CreateTicket200Response.md
+docs/CreateTicketBody.md
+docs/CreateTicketResponse.md
 docs/CreateUserBadge200Response.md
 docs/CreateUserBadgeParams.md
 docs/CustomConfigParameters.md
@@ -215,6 +225,10 @@ docs/GetTenantUsers200Response.md
 docs/GetTenantUsersResponse.md
 docs/GetTenants200Response.md
 docs/GetTenantsResponse.md
+docs/GetTicket200Response.md
+docs/GetTicketResponse.md
+docs/GetTickets200Response.md
+docs/GetTicketsResponse.md
 docs/GetUser200Response.md
 docs/GetUserBadge200Response.md
 docs/GetUserBadgeProgressById200Response.md
@@ -232,6 +246,7 @@ docs/GetVotesForUser200Response.md
 docs/GetVotesForUserResponse.md
 docs/GetVotesResponse.md
 docs/GifRating.md
+docs/HeaderAccountNotification.md
 docs/HeaderState.md
 docs/IgnoredResponse.md
 docs/ImageContentProfanityLevel.md
@@ -241,6 +256,7 @@ docs/LiveEventExtraInfo.md
 docs/LiveEventType.md
 docs/LockComment200Response.md
 docs/MediaAsset.md
+docs/MentionAutoCompleteMode.md
 docs/MetaItem.md
 docs/Moderator.md
 docs/NotificationAndCount.md
@@ -298,11 +314,13 @@ docs/SaveCommentResponseOptimized.md
 docs/SaveCommentsResponseWithPresence.md
 docs/SearchUsers200Response.md
 docs/SearchUsersResponse.md
+docs/SearchUsersSectionedResponse.md
 docs/SetCommentText200Response.md
 docs/SetCommentTextResult.md
 docs/SizePreset.md
 docs/SortDirections.md
 docs/SpamRule.md
+docs/TOSConfig.md
 docs/TenantHashTag.md
 docs/TenantPackage.md
 docs/UnBlockCommentPublic200Response.md
@@ -311,6 +329,7 @@ docs/UnblockSuccess.md
 docs/UpdatableCommentParams.md
 docs/UpdateAPIPageData.md
 docs/UpdateAPISSOUserData.md
+docs/UpdateAPIUserSubscriptionData.md
 docs/UpdateDomainConfigParams.md
 docs/UpdateEmailTemplateBody.md
 docs/UpdateFeedPostParams.md
@@ -320,6 +339,7 @@ docs/UpdateModeratorBody.md
 docs/UpdateNotificationBody.md
 docs/UpdateQuestionConfigBody.md
 docs/UpdateQuestionResultBody.md
+docs/UpdateSubscriptionAPIResponse.md
 docs/UpdateTenantBody.md
 docs/UpdateTenantPackageBody.md
 docs/UpdateTenantUserBody.md
@@ -336,6 +356,8 @@ docs/UserNotificationWriteResponse.md
 docs/UserPresenceData.md
 docs/UserReactsResponse.md
 docs/UserSearchResult.md
+docs/UserSearchSection.md
+docs/UserSearchSectionResult.md
 docs/UserSessionInfo.md
 docs/VoteBodyParams.md
 docs/VoteComment200Response.md
@@ -375,6 +397,7 @@ src/main/java/com/fastcomments/invoker/auth/HttpBearerAuth.java
 src/main/java/com/fastcomments/model/APIAuditLog.java
 src/main/java/com/fastcomments/model/APIComment.java
 src/main/java/com/fastcomments/model/APICommentBase.java
+src/main/java/com/fastcomments/model/APICommentBaseMeta.java
 src/main/java/com/fastcomments/model/APICreateUserBadgeResponse.java
 src/main/java/com/fastcomments/model/APIDomainConfiguration.java
 src/main/java/com/fastcomments/model/APIEmptyResponse.java
@@ -391,6 +414,9 @@ src/main/java/com/fastcomments/model/APISSOUser.java
 src/main/java/com/fastcomments/model/APIStatus.java
 src/main/java/com/fastcomments/model/APITenant.java
 src/main/java/com/fastcomments/model/APITenantDailyUsage.java
+src/main/java/com/fastcomments/model/APITicket.java
+src/main/java/com/fastcomments/model/APITicketDetail.java
+src/main/java/com/fastcomments/model/APITicketFile.java
 src/main/java/com/fastcomments/model/APIUserSubscription.java
 src/main/java/com/fastcomments/model/AbstractOpenApiSchema.java
 src/main/java/com/fastcomments/model/AddDomainConfig200Response.java
@@ -423,6 +449,9 @@ src/main/java/com/fastcomments/model/BulkCreateHashTagsBody.java
 src/main/java/com/fastcomments/model/BulkCreateHashTagsBodyTagsInner.java
 src/main/java/com/fastcomments/model/BulkCreateHashTagsResponse.java
 src/main/java/com/fastcomments/model/ChangeCommentPinStatusResponse.java
+src/main/java/com/fastcomments/model/ChangeTicketState200Response.java
+src/main/java/com/fastcomments/model/ChangeTicketStateBody.java
+src/main/java/com/fastcomments/model/ChangeTicketStateResponse.java
 src/main/java/com/fastcomments/model/CheckBlockedCommentsResponse.java
 src/main/java/com/fastcomments/model/CheckedCommentsForBlocked200Response.java
 src/main/java/com/fastcomments/model/CombineCommentsWithQuestionResults200Response.java
@@ -474,6 +503,9 @@ src/main/java/com/fastcomments/model/CreateTenantResponse.java
 src/main/java/com/fastcomments/model/CreateTenantUser200Response.java
 src/main/java/com/fastcomments/model/CreateTenantUserBody.java
 src/main/java/com/fastcomments/model/CreateTenantUserResponse.java
+src/main/java/com/fastcomments/model/CreateTicket200Response.java
+src/main/java/com/fastcomments/model/CreateTicketBody.java
+src/main/java/com/fastcomments/model/CreateTicketResponse.java
 src/main/java/com/fastcomments/model/CreateUserBadge200Response.java
 src/main/java/com/fastcomments/model/CreateUserBadgeParams.java
 src/main/java/com/fastcomments/model/CustomConfigParameters.java
@@ -582,6 +614,10 @@ src/main/java/com/fastcomments/model/GetTenantUsers200Response.java
 src/main/java/com/fastcomments/model/GetTenantUsersResponse.java
 src/main/java/com/fastcomments/model/GetTenants200Response.java
 src/main/java/com/fastcomments/model/GetTenantsResponse.java
+src/main/java/com/fastcomments/model/GetTicket200Response.java
+src/main/java/com/fastcomments/model/GetTicketResponse.java
+src/main/java/com/fastcomments/model/GetTickets200Response.java
+src/main/java/com/fastcomments/model/GetTicketsResponse.java
 src/main/java/com/fastcomments/model/GetUser200Response.java
 src/main/java/com/fastcomments/model/GetUserBadge200Response.java
 src/main/java/com/fastcomments/model/GetUserBadgeProgressById200Response.java
@@ -599,6 +635,7 @@ src/main/java/com/fastcomments/model/GetVotesForUser200Response.java
 src/main/java/com/fastcomments/model/GetVotesForUserResponse.java
 src/main/java/com/fastcomments/model/GetVotesResponse.java
 src/main/java/com/fastcomments/model/GifRating.java
+src/main/java/com/fastcomments/model/HeaderAccountNotification.java
 src/main/java/com/fastcomments/model/HeaderState.java
 src/main/java/com/fastcomments/model/IgnoredResponse.java
 src/main/java/com/fastcomments/model/ImageContentProfanityLevel.java
@@ -608,6 +645,7 @@ src/main/java/com/fastcomments/model/LiveEventExtraInfo.java
 src/main/java/com/fastcomments/model/LiveEventType.java
 src/main/java/com/fastcomments/model/LockComment200Response.java
 src/main/java/com/fastcomments/model/MediaAsset.java
+src/main/java/com/fastcomments/model/MentionAutoCompleteMode.java
 src/main/java/com/fastcomments/model/MetaItem.java
 src/main/java/com/fastcomments/model/Moderator.java
 src/main/java/com/fastcomments/model/NotificationAndCount.java
@@ -664,11 +702,13 @@ src/main/java/com/fastcomments/model/SaveCommentResponseOptimized.java
 src/main/java/com/fastcomments/model/SaveCommentsResponseWithPresence.java
 src/main/java/com/fastcomments/model/SearchUsers200Response.java
 src/main/java/com/fastcomments/model/SearchUsersResponse.java
+src/main/java/com/fastcomments/model/SearchUsersSectionedResponse.java
 src/main/java/com/fastcomments/model/SetCommentText200Response.java
 src/main/java/com/fastcomments/model/SetCommentTextResult.java
 src/main/java/com/fastcomments/model/SizePreset.java
 src/main/java/com/fastcomments/model/SortDirections.java
 src/main/java/com/fastcomments/model/SpamRule.java
+src/main/java/com/fastcomments/model/TOSConfig.java
 src/main/java/com/fastcomments/model/TenantHashTag.java
 src/main/java/com/fastcomments/model/TenantPackage.java
 src/main/java/com/fastcomments/model/UnBlockCommentPublic200Response.java
@@ -677,6 +717,7 @@ src/main/java/com/fastcomments/model/UnblockSuccess.java
 src/main/java/com/fastcomments/model/UpdatableCommentParams.java
 src/main/java/com/fastcomments/model/UpdateAPIPageData.java
 src/main/java/com/fastcomments/model/UpdateAPISSOUserData.java
+src/main/java/com/fastcomments/model/UpdateAPIUserSubscriptionData.java
 src/main/java/com/fastcomments/model/UpdateDomainConfigParams.java
 src/main/java/com/fastcomments/model/UpdateEmailTemplateBody.java
 src/main/java/com/fastcomments/model/UpdateFeedPostParams.java
@@ -686,6 +727,7 @@ src/main/java/com/fastcomments/model/UpdateModeratorBody.java
 src/main/java/com/fastcomments/model/UpdateNotificationBody.java
 src/main/java/com/fastcomments/model/UpdateQuestionConfigBody.java
 src/main/java/com/fastcomments/model/UpdateQuestionResultBody.java
+src/main/java/com/fastcomments/model/UpdateSubscriptionAPIResponse.java
 src/main/java/com/fastcomments/model/UpdateTenantBody.java
 src/main/java/com/fastcomments/model/UpdateTenantPackageBody.java
 src/main/java/com/fastcomments/model/UpdateTenantUserBody.java
@@ -702,6 +744,8 @@ src/main/java/com/fastcomments/model/UserNotificationWriteResponse.java
 src/main/java/com/fastcomments/model/UserPresenceData.java
 src/main/java/com/fastcomments/model/UserReactsResponse.java
 src/main/java/com/fastcomments/model/UserSearchResult.java
+src/main/java/com/fastcomments/model/UserSearchSection.java
+src/main/java/com/fastcomments/model/UserSearchSectionResult.java
 src/main/java/com/fastcomments/model/UserSessionInfo.java
 src/main/java/com/fastcomments/model/VoteBodyParams.java
 src/main/java/com/fastcomments/model/VoteComment200Response.java
@@ -713,6 +757,7 @@ src/main/java/com/fastcomments/model/VoteStyle.java
 src/test/java/com/fastcomments/api/DefaultApiTest.java
 src/test/java/com/fastcomments/api/PublicApiTest.java
 src/test/java/com/fastcomments/model/APIAuditLogTest.java
+src/test/java/com/fastcomments/model/APICommentBaseMetaTest.java
 src/test/java/com/fastcomments/model/APICommentBaseTest.java
 src/test/java/com/fastcomments/model/APICommentTest.java
 src/test/java/com/fastcomments/model/APICreateUserBadgeResponseTest.java
@@ -731,6 +776,9 @@ src/test/java/com/fastcomments/model/APISSOUserTest.java
 src/test/java/com/fastcomments/model/APIStatusTest.java
 src/test/java/com/fastcomments/model/APITenantDailyUsageTest.java
 src/test/java/com/fastcomments/model/APITenantTest.java
+src/test/java/com/fastcomments/model/APITicketDetailTest.java
+src/test/java/com/fastcomments/model/APITicketFileTest.java
+src/test/java/com/fastcomments/model/APITicketTest.java
 src/test/java/com/fastcomments/model/APIUserSubscriptionTest.java
 src/test/java/com/fastcomments/model/AddDomainConfig200ResponseAnyOfTest.java
 src/test/java/com/fastcomments/model/AddDomainConfig200ResponseTest.java
@@ -762,6 +810,9 @@ src/test/java/com/fastcomments/model/BulkCreateHashTagsBodyTagsInnerTest.java
 src/test/java/com/fastcomments/model/BulkCreateHashTagsBodyTest.java
 src/test/java/com/fastcomments/model/BulkCreateHashTagsResponseTest.java
 src/test/java/com/fastcomments/model/ChangeCommentPinStatusResponseTest.java
+src/test/java/com/fastcomments/model/ChangeTicketState200ResponseTest.java
+src/test/java/com/fastcomments/model/ChangeTicketStateBodyTest.java
+src/test/java/com/fastcomments/model/ChangeTicketStateResponseTest.java
 src/test/java/com/fastcomments/model/CheckBlockedCommentsResponseTest.java
 src/test/java/com/fastcomments/model/CheckedCommentsForBlocked200ResponseTest.java
 src/test/java/com/fastcomments/model/CombineCommentsWithQuestionResults200ResponseTest.java
@@ -813,6 +864,9 @@ src/test/java/com/fastcomments/model/CreateTenantResponseTest.java
 src/test/java/com/fastcomments/model/CreateTenantUser200ResponseTest.java
 src/test/java/com/fastcomments/model/CreateTenantUserBodyTest.java
 src/test/java/com/fastcomments/model/CreateTenantUserResponseTest.java
+src/test/java/com/fastcomments/model/CreateTicket200ResponseTest.java
+src/test/java/com/fastcomments/model/CreateTicketBodyTest.java
+src/test/java/com/fastcomments/model/CreateTicketResponseTest.java
 src/test/java/com/fastcomments/model/CreateUserBadge200ResponseTest.java
 src/test/java/com/fastcomments/model/CreateUserBadgeParamsTest.java
 src/test/java/com/fastcomments/model/CustomConfigParametersTest.java
@@ -921,6 +975,10 @@ src/test/java/com/fastcomments/model/GetTenantUsers200ResponseTest.java
 src/test/java/com/fastcomments/model/GetTenantUsersResponseTest.java
 src/test/java/com/fastcomments/model/GetTenants200ResponseTest.java
 src/test/java/com/fastcomments/model/GetTenantsResponseTest.java
+src/test/java/com/fastcomments/model/GetTicket200ResponseTest.java
+src/test/java/com/fastcomments/model/GetTicketResponseTest.java
+src/test/java/com/fastcomments/model/GetTickets200ResponseTest.java
+src/test/java/com/fastcomments/model/GetTicketsResponseTest.java
 src/test/java/com/fastcomments/model/GetUser200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserBadge200ResponseTest.java
 src/test/java/com/fastcomments/model/GetUserBadgeProgressById200ResponseTest.java
@@ -938,6 +996,7 @@ src/test/java/com/fastcomments/model/GetVotesForUser200ResponseTest.java
 src/test/java/com/fastcomments/model/GetVotesForUserResponseTest.java
 src/test/java/com/fastcomments/model/GetVotesResponseTest.java
 src/test/java/com/fastcomments/model/GifRatingTest.java
+src/test/java/com/fastcomments/model/HeaderAccountNotificationTest.java
 src/test/java/com/fastcomments/model/HeaderStateTest.java
 src/test/java/com/fastcomments/model/IgnoredResponseTest.java
 src/test/java/com/fastcomments/model/ImageContentProfanityLevelTest.java
@@ -947,6 +1006,7 @@ src/test/java/com/fastcomments/model/LiveEventTest.java
 src/test/java/com/fastcomments/model/LiveEventTypeTest.java
 src/test/java/com/fastcomments/model/LockComment200ResponseTest.java
 src/test/java/com/fastcomments/model/MediaAssetTest.java
+src/test/java/com/fastcomments/model/MentionAutoCompleteModeTest.java
 src/test/java/com/fastcomments/model/MetaItemTest.java
 src/test/java/com/fastcomments/model/ModeratorTest.java
 src/test/java/com/fastcomments/model/NotificationAndCountTest.java
@@ -1003,11 +1063,13 @@ src/test/java/com/fastcomments/model/SaveCommentResponseTest.java
 src/test/java/com/fastcomments/model/SaveCommentsResponseWithPresenceTest.java
 src/test/java/com/fastcomments/model/SearchUsers200ResponseTest.java
 src/test/java/com/fastcomments/model/SearchUsersResponseTest.java
+src/test/java/com/fastcomments/model/SearchUsersSectionedResponseTest.java
 src/test/java/com/fastcomments/model/SetCommentText200ResponseTest.java
 src/test/java/com/fastcomments/model/SetCommentTextResultTest.java
 src/test/java/com/fastcomments/model/SizePresetTest.java
 src/test/java/com/fastcomments/model/SortDirectionsTest.java
 src/test/java/com/fastcomments/model/SpamRuleTest.java
+src/test/java/com/fastcomments/model/TOSConfigTest.java
 src/test/java/com/fastcomments/model/TenantHashTagTest.java
 src/test/java/com/fastcomments/model/TenantPackageTest.java
 src/test/java/com/fastcomments/model/UnBlockCommentPublic200ResponseTest.java
@@ -1016,6 +1078,7 @@ src/test/java/com/fastcomments/model/UnblockSuccessTest.java
 src/test/java/com/fastcomments/model/UpdatableCommentParamsTest.java
 src/test/java/com/fastcomments/model/UpdateAPIPageDataTest.java
 src/test/java/com/fastcomments/model/UpdateAPISSOUserDataTest.java
+src/test/java/com/fastcomments/model/UpdateAPIUserSubscriptionDataTest.java
 src/test/java/com/fastcomments/model/UpdateDomainConfigParamsTest.java
 src/test/java/com/fastcomments/model/UpdateEmailTemplateBodyTest.java
 src/test/java/com/fastcomments/model/UpdateFeedPostParamsTest.java
@@ -1025,6 +1088,7 @@ src/test/java/com/fastcomments/model/UpdateModeratorBodyTest.java
 src/test/java/com/fastcomments/model/UpdateNotificationBodyTest.java
 src/test/java/com/fastcomments/model/UpdateQuestionConfigBodyTest.java
 src/test/java/com/fastcomments/model/UpdateQuestionResultBodyTest.java
+src/test/java/com/fastcomments/model/UpdateSubscriptionAPIResponseTest.java
 src/test/java/com/fastcomments/model/UpdateTenantBodyTest.java
 src/test/java/com/fastcomments/model/UpdateTenantPackageBodyTest.java
 src/test/java/com/fastcomments/model/UpdateTenantUserBodyTest.java
@@ -1040,6 +1104,8 @@ src/test/java/com/fastcomments/model/UserNotificationWriteResponseTest.java
 src/test/java/com/fastcomments/model/UserPresenceDataTest.java
 src/test/java/com/fastcomments/model/UserReactsResponseTest.java
 src/test/java/com/fastcomments/model/UserSearchResultTest.java
+src/test/java/com/fastcomments/model/UserSearchSectionResultTest.java
+src/test/java/com/fastcomments/model/UserSearchSectionTest.java
 src/test/java/com/fastcomments/model/UserSessionInfoTest.java
 src/test/java/com/fastcomments/model/UserTest.java
 src/test/java/com/fastcomments/model/VoteBodyParamsTest.java

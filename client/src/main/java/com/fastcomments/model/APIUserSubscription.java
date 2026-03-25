@@ -51,6 +51,11 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class APIUserSubscription {
+  public static final String SERIALIZED_NAME_NOTIFICATION_FREQUENCY = "notificationFrequency";
+  @SerializedName(SERIALIZED_NAME_NOTIFICATION_FREQUENCY)
+  @javax.annotation.Nullable
+  private Double notificationFrequency;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
@@ -88,6 +93,25 @@ public class APIUserSubscription {
 
   public APIUserSubscription() {
   }
+
+  public APIUserSubscription notificationFrequency(@javax.annotation.Nullable Double notificationFrequency) {
+    this.notificationFrequency = notificationFrequency;
+    return this;
+  }
+
+  /**
+   * Get notificationFrequency
+   * @return notificationFrequency
+   */
+  @javax.annotation.Nullable
+  public Double getNotificationFrequency() {
+    return notificationFrequency;
+  }
+
+  public void setNotificationFrequency(@javax.annotation.Nullable Double notificationFrequency) {
+    this.notificationFrequency = notificationFrequency;
+  }
+
 
   public APIUserSubscription createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
@@ -276,7 +300,8 @@ public class APIUserSubscription {
       return false;
     }
     APIUserSubscription apIUserSubscription = (APIUserSubscription) o;
-    return Objects.equals(this.createdAt, apIUserSubscription.createdAt) &&
+    return Objects.equals(this.notificationFrequency, apIUserSubscription.notificationFrequency) &&
+        Objects.equals(this.createdAt, apIUserSubscription.createdAt) &&
         Objects.equals(this.pageTitle, apIUserSubscription.pageTitle) &&
         Objects.equals(this.url, apIUserSubscription.url) &&
         Objects.equals(this.urlId, apIUserSubscription.urlId) &&
@@ -288,13 +313,14 @@ public class APIUserSubscription {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, pageTitle, url, urlId, anonUserId, userId, id, additionalProperties);
+    return Objects.hash(notificationFrequency, createdAt, pageTitle, url, urlId, anonUserId, userId, id, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class APIUserSubscription {\n");
+    sb.append("    notificationFrequency: ").append(toIndentedString(notificationFrequency)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
@@ -325,6 +351,7 @@ public class APIUserSubscription {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("notificationFrequency");
     openapiFields.add("createdAt");
     openapiFields.add("pageTitle");
     openapiFields.add("url");

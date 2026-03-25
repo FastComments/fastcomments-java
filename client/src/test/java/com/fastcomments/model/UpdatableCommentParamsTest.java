@@ -13,7 +13,7 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.FCommentMeta;
+import com.fastcomments.model.APICommentBaseMeta;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

@@ -38,6 +38,14 @@ public class CreateAPIUserSubscriptionDataTest {
     }
 
     /**
+     * Test the property 'notificationFrequency'
+     */
+    @Test
+    public void notificationFrequencyTest() {
+        // TODO: test notificationFrequency
+    }
+
+    /**
      * Test the property 'pageTitle'
      */
     @Test

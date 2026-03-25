@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,21 +29,21 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(CommentThreadDeletionMode.Adapter.class)
 public enum CommentThreadDeletionMode {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2")),
+  NUMBER_2(2),
   
-  NUMBER_3(new BigDecimal("3"));
+  NUMBER_3(3);
 
-  private BigDecimal value;
+  private Integer value;
 
-  CommentThreadDeletionMode(BigDecimal value) {
+  CommentThreadDeletionMode(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -53,7 +52,7 @@ public enum CommentThreadDeletionMode {
     return String.valueOf(value);
   }
 
-  public static CommentThreadDeletionMode fromValue(BigDecimal value) {
+  public static CommentThreadDeletionMode fromValue(Integer value) {
     for (CommentThreadDeletionMode b : CommentThreadDeletionMode.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -70,14 +69,14 @@ public enum CommentThreadDeletionMode {
 
     @Override
     public CommentThreadDeletionMode read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return CommentThreadDeletionMode.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return CommentThreadDeletionMode.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    CommentThreadDeletionMode.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    CommentThreadDeletionMode.fromValue(value);
   }
 }
 

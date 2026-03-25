@@ -43,7 +43,7 @@
 |**isLocked** | **Boolean** |  |  [optional] |
 |**flagCount** | **Integer** |  |  [optional] |
 |**displayLabel** | **String** |  |  [optional] |
-|**meta** | **FCommentMeta** |  |  [optional] |
+|**meta** | **APICommentBaseMeta** |  |  [optional] |
 |**moderationGroupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 

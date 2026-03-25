@@ -12,6 +12,7 @@
 |**userId** | **String** |  |  |
 |**userIdWS** | **String** |  |  |
 |**notificationCounts** | [**List&lt;NotificationAndCount&gt;**](NotificationAndCount.md) |  |  |
+|**accountNotifications** | [**List&lt;HeaderAccountNotification&gt;**](HeaderAccountNotification.md) |  |  |
 
 
 

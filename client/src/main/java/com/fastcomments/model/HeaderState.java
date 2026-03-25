@@ -15,6 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.HeaderAccountNotification;
 import com.fastcomments.model.NotificationAndCount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -78,6 +79,11 @@ public class HeaderState {
   @SerializedName(SERIALIZED_NAME_NOTIFICATION_COUNTS)
   @javax.annotation.Nonnull
   private List<NotificationAndCount> notificationCounts = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_ACCOUNT_NOTIFICATIONS = "accountNotifications";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NOTIFICATIONS)
+  @javax.annotation.Nonnull
+  private List<HeaderAccountNotification> accountNotifications = new ArrayList<>();
 
   public HeaderState() {
   }
@@ -185,6 +191,33 @@ public class HeaderState {
   }
 
 
+  public HeaderState accountNotifications(@javax.annotation.Nonnull List<HeaderAccountNotification> accountNotifications) {
+    this.accountNotifications = accountNotifications;
+    return this;
+  }
+
+  public HeaderState addAccountNotificationsItem(HeaderAccountNotification accountNotificationsItem) {
+    if (this.accountNotifications == null) {
+      this.accountNotifications = new ArrayList<>();
+    }
+    this.accountNotifications.add(accountNotificationsItem);
+    return this;
+  }
+
+  /**
+   * Get accountNotifications
+   * @return accountNotifications
+   */
+  @javax.annotation.Nonnull
+  public List<HeaderAccountNotification> getAccountNotifications() {
+    return accountNotifications;
+  }
+
+  public void setAccountNotifications(@javax.annotation.Nonnull List<HeaderAccountNotification> accountNotifications) {
+    this.accountNotifications = accountNotifications;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -199,12 +232,13 @@ public class HeaderState {
         Objects.equals(this.notificationType, headerState.notificationType) &&
         Objects.equals(this.userId, headerState.userId) &&
         Objects.equals(this.userIdWS, headerState.userIdWS) &&
-        Objects.equals(this.notificationCounts, headerState.notificationCounts);
+        Objects.equals(this.notificationCounts, headerState.notificationCounts) &&
+        Objects.equals(this.accountNotifications, headerState.accountNotifications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, notificationType, userId, userIdWS, notificationCounts);
+    return Objects.hash(status, notificationType, userId, userIdWS, notificationCounts, accountNotifications);
   }
 
   @Override
@@ -216,6 +250,7 @@ public class HeaderState {
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    userIdWS: ").append(toIndentedString(userIdWS)).append("\n");
     sb.append("    notificationCounts: ").append(toIndentedString(notificationCounts)).append("\n");
+    sb.append("    accountNotifications: ").append(toIndentedString(accountNotifications)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -243,6 +278,7 @@ public class HeaderState {
     openapiFields.add("userId");
     openapiFields.add("userIdWS");
     openapiFields.add("notificationCounts");
+    openapiFields.add("accountNotifications");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -251,6 +287,7 @@ public class HeaderState {
     openapiRequiredFields.add("userId");
     openapiRequiredFields.add("userIdWS");
     openapiRequiredFields.add("notificationCounts");
+    openapiRequiredFields.add("accountNotifications");
   }
 
   /**
@@ -298,6 +335,16 @@ public class HeaderState {
       // validate the required field `notificationCounts` (array)
       for (int i = 0; i < jsonArraynotificationCounts.size(); i++) {
         NotificationAndCount.validateJsonElement(jsonArraynotificationCounts.get(i));
+      };
+      // ensure the json data is an array
+      if (!jsonObj.get("accountNotifications").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accountNotifications` to be an array in the JSON string but got `%s`", jsonObj.get("accountNotifications").toString()));
+      }
+
+      JsonArray jsonArrayaccountNotifications = jsonObj.getAsJsonArray("accountNotifications");
+      // validate the required field `accountNotifications` (array)
+      for (int i = 0; i < jsonArrayaccountNotifications.size(); i++) {
+        HeaderAccountNotification.validateJsonElement(jsonArrayaccountNotifications.get(i));
       };
   }
 

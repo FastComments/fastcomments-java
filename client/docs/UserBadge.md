@@ -25,6 +25,7 @@
 |**displayedOnComments** | **Boolean** |  |  |
 |**receivedAt** | **OffsetDateTime** |  |  |
 |**order** | **Integer** |  |  [optional] |
+|**urlId** | **String** |  |  [optional] |
 
 
 

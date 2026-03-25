@@ -177,6 +177,11 @@ public class CreateCommentParams {
   @javax.annotation.Nullable
   private Map<String, RecordStringStringOrNumberValue> questionValues = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_TOS = "tos";
+  @SerializedName(SERIALIZED_NAME_TOS)
+  @javax.annotation.Nullable
+  private Boolean tos;
+
   public static final String SERIALIZED_NAME_APPROVED = "approved";
   @SerializedName(SERIALIZED_NAME_APPROVED)
   @javax.annotation.Nullable
@@ -726,6 +731,25 @@ public class CreateCommentParams {
   }
 
 
+  public CreateCommentParams tos(@javax.annotation.Nullable Boolean tos) {
+    this.tos = tos;
+    return this;
+  }
+
+  /**
+   * Get tos
+   * @return tos
+   */
+  @javax.annotation.Nullable
+  public Boolean getTos() {
+    return tos;
+  }
+
+  public void setTos(@javax.annotation.Nullable Boolean tos) {
+    this.tos = tos;
+  }
+
+
   public CreateCommentParams approved(@javax.annotation.Nullable Boolean approved) {
     this.approved = approved;
     return this;
@@ -950,6 +974,7 @@ public class CreateCommentParams {
         Objects.equals(this.autoplayDelayMS, createCommentParams.autoplayDelayMS) &&
         Objects.equals(this.feedbackIds, createCommentParams.feedbackIds) &&
         Objects.equals(this.questionValues, createCommentParams.questionValues) &&
+        Objects.equals(this.tos, createCommentParams.tos) &&
         Objects.equals(this.approved, createCommentParams.approved) &&
         Objects.equals(this.domain, createCommentParams.domain) &&
         Objects.equals(this.ip, createCommentParams.ip) &&
@@ -964,7 +989,7 @@ public class CreateCommentParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, approved, domain, ip, isPinned, locale, reviewed, verified, votes, votesDown, votesUp);
+    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, tos, approved, domain, ip, isPinned, locale, reviewed, verified, votes, votesDown, votesUp);
   }
 
   @Override
@@ -995,6 +1020,7 @@ public class CreateCommentParams {
     sb.append("    autoplayDelayMS: ").append(toIndentedString(autoplayDelayMS)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
     sb.append("    questionValues: ").append(toIndentedString(questionValues)).append("\n");
+    sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
@@ -1051,6 +1077,7 @@ public class CreateCommentParams {
     openapiFields.add("autoplayDelayMS");
     openapiFields.add("feedbackIds");
     openapiFields.add("questionValues");
+    openapiFields.add("tos");
     openapiFields.add("approved");
     openapiFields.add("domain");
     openapiFields.add("ip");

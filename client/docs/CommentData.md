@@ -31,6 +31,7 @@
 |**autoplayDelayMS** | **Long** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
 |**questionValues** | [**Map&lt;String, RecordStringStringOrNumberValue&gt;**](RecordStringStringOrNumberValue.md) | Construct a type with a set of properties K of type T |  [optional] |
+|**tos** | **Boolean** |  |  [optional] |
 
 
 

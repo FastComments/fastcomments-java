@@ -42,7 +42,7 @@
 |**localDateString** | **String** |  |  [optional] |
 |**locale** | **String** |  |  |
 |**mentions** | [**List&lt;CommentUserMentionInfo&gt;**](CommentUserMentionInfo.md) |  |  [optional] |
-|**meta** | **FCommentMeta** |  |  [optional] |
+|**meta** | **APICommentBaseMeta** |  |  [optional] |
 |**moderationGroupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**notificationSentForParent** | **Boolean** |  |  [optional] |
 |**notificationSentForParentTenant** | **Boolean** |  |  [optional] |

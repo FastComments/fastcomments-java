@@ -5401,7 +5401,7 @@ public class PublicApi {
     public APIresetUserNotificationsRequest resetUserNotifications(String tenantId) {
         return new APIresetUserNotificationsRequest(tenantId);
     }
-    private okhttp3.Call searchUsersCall(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchUsersCall(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, String searchSection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5443,6 +5443,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
         }
 
+        if (searchSection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("searchSection", searchSection));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -5463,7 +5467,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchUsersValidateBeforeCall(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchUsersValidateBeforeCall(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, String searchSection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling searchUsers(Async)");
@@ -5474,20 +5478,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling searchUsers(Async)");
         }
 
-        return searchUsersCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+        return searchUsersCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, searchSection, _callback);
 
     }
 
 
-    private ApiResponse<SearchUsers200Response> searchUsersWithHttpInfo(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso) throws ApiException {
-        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, null);
+    private ApiResponse<SearchUsers200Response> searchUsersWithHttpInfo(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, String searchSection) throws ApiException {
+        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, searchSection, null);
         Type localVarReturnType = new TypeToken<SearchUsers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call searchUsersAsync(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, final ApiCallback<SearchUsers200Response> _callback) throws ApiException {
+    private okhttp3.Call searchUsersAsync(String tenantId, String urlId, String usernameStartsWith, List<String> mentionGroupIds, String sso, String searchSection, final ApiCallback<SearchUsers200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+        okhttp3.Call localVarCall = searchUsersValidateBeforeCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, searchSection, _callback);
         Type localVarReturnType = new TypeToken<SearchUsers200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5499,6 +5503,7 @@ public class PublicApi {
         private String usernameStartsWith;
         private List<String> mentionGroupIds;
         private String sso;
+        private String searchSection;
 
         private APIsearchUsersRequest(String tenantId, String urlId) {
             this.tenantId = tenantId;
@@ -5536,6 +5541,16 @@ public class PublicApi {
         }
 
         /**
+         * Set searchSection
+         * @param searchSection  (optional)
+         * @return APIsearchUsersRequest
+         */
+        public APIsearchUsersRequest searchSection(String searchSection) {
+            this.searchSection = searchSection;
+            return this;
+        }
+
+        /**
          * Build call for searchUsers
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -5548,7 +5563,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return searchUsersCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+            return searchUsersCall(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, searchSection, _callback);
         }
 
         /**
@@ -5563,7 +5578,7 @@ public class PublicApi {
          </table>
          */
         public SearchUsers200Response execute() throws ApiException {
-            ApiResponse<SearchUsers200Response> localVarResp = searchUsersWithHttpInfo(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso);
+            ApiResponse<SearchUsers200Response> localVarResp = searchUsersWithHttpInfo(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, searchSection);
             return localVarResp.getData();
         }
 
@@ -5579,7 +5594,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<SearchUsers200Response> executeWithHttpInfo() throws ApiException {
-            return searchUsersWithHttpInfo(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso);
+            return searchUsersWithHttpInfo(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, searchSection);
         }
 
         /**
@@ -5595,7 +5610,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<SearchUsers200Response> _callback) throws ApiException {
-            return searchUsersAsync(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, _callback);
+            return searchUsersAsync(tenantId, urlId, usernameStartsWith, mentionGroupIds, sso, searchSection, _callback);
         }
     }
 

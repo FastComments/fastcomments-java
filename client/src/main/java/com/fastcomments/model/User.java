@@ -89,6 +89,16 @@ public class User {
   @javax.annotation.Nullable
   private String pendingEmail;
 
+  public static final String SERIALIZED_NAME_BACKUP_EMAIL = "backupEmail";
+  @SerializedName(SERIALIZED_NAME_BACKUP_EMAIL)
+  @javax.annotation.Nullable
+  private String backupEmail;
+
+  public static final String SERIALIZED_NAME_PENDING_BACKUP_EMAIL = "pendingBackupEmail";
+  @SerializedName(SERIALIZED_NAME_PENDING_BACKUP_EMAIL)
+  @javax.annotation.Nullable
+  private String pendingBackupEmail;
+
   public static final String SERIALIZED_NAME_SIGN_UP_DATE = "signUpDate";
   @SerializedName(SERIALIZED_NAME_SIGN_UP_DATE)
   @javax.annotation.Nonnull
@@ -199,6 +209,11 @@ public class User {
   @javax.annotation.Nullable
   private Boolean isAPIAdmin;
 
+  public static final String SERIALIZED_NAME_IS_SITE_ADMIN = "isSiteAdmin";
+  @SerializedName(SERIALIZED_NAME_IS_SITE_ADMIN)
+  @javax.annotation.Nullable
+  private Boolean isSiteAdmin;
+
   public static final String SERIALIZED_NAME_MODERATOR_IDS = "moderatorIds";
   @SerializedName(SERIALIZED_NAME_MODERATOR_IDS)
   @javax.annotation.Nullable
@@ -223,6 +238,26 @@ public class User {
   @SerializedName(SERIALIZED_NAME_DIGEST_EMAIL_FREQUENCY)
   @javax.annotation.Nullable
   private DigestEmailFrequency digestEmailFrequency;
+
+  public static final String SERIALIZED_NAME_NOTIFICATION_FREQUENCY = "notificationFrequency";
+  @SerializedName(SERIALIZED_NAME_NOTIFICATION_FREQUENCY)
+  @javax.annotation.Nullable
+  private Double notificationFrequency;
+
+  public static final String SERIALIZED_NAME_ADMIN_NOTIFICATION_FREQUENCY = "adminNotificationFrequency";
+  @SerializedName(SERIALIZED_NAME_ADMIN_NOTIFICATION_FREQUENCY)
+  @javax.annotation.Nullable
+  private Double adminNotificationFrequency;
+
+  public static final String SERIALIZED_NAME_LAST_TENANT_NOTIFICATION_SENT_DATE = "lastTenantNotificationSentDate";
+  @SerializedName(SERIALIZED_NAME_LAST_TENANT_NOTIFICATION_SENT_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime lastTenantNotificationSentDate;
+
+  public static final String SERIALIZED_NAME_LAST_REPLY_NOTIFICATION_SENT_DATE = "lastReplyNotificationSentDate";
+  @SerializedName(SERIALIZED_NAME_LAST_REPLY_NOTIFICATION_SENT_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime lastReplyNotificationSentDate;
 
   public static final String SERIALIZED_NAME_IGNORED_ADD_TO_MY_SITE_MESSAGES = "ignoredAddToMySiteMessages";
   @SerializedName(SERIALIZED_NAME_IGNORED_ADD_TO_MY_SITE_MESSAGES)
@@ -308,6 +343,11 @@ public class User {
   @SerializedName(SERIALIZED_NAME_HAS_TWO_FACTOR)
   @javax.annotation.Nullable
   private Boolean hasTwoFactor;
+
+  public static final String SERIALIZED_NAME_IS_EMAIL_SUPPRESSED = "isEmailSuppressed";
+  @SerializedName(SERIALIZED_NAME_IS_EMAIL_SUPPRESSED)
+  @javax.annotation.Nullable
+  private Boolean isEmailSuppressed;
 
   public User() {
   }
@@ -442,6 +482,44 @@ public class User {
 
   public void setPendingEmail(@javax.annotation.Nullable String pendingEmail) {
     this.pendingEmail = pendingEmail;
+  }
+
+
+  public User backupEmail(@javax.annotation.Nullable String backupEmail) {
+    this.backupEmail = backupEmail;
+    return this;
+  }
+
+  /**
+   * Get backupEmail
+   * @return backupEmail
+   */
+  @javax.annotation.Nullable
+  public String getBackupEmail() {
+    return backupEmail;
+  }
+
+  public void setBackupEmail(@javax.annotation.Nullable String backupEmail) {
+    this.backupEmail = backupEmail;
+  }
+
+
+  public User pendingBackupEmail(@javax.annotation.Nullable String pendingBackupEmail) {
+    this.pendingBackupEmail = pendingBackupEmail;
+    return this;
+  }
+
+  /**
+   * Get pendingBackupEmail
+   * @return pendingBackupEmail
+   */
+  @javax.annotation.Nullable
+  public String getPendingBackupEmail() {
+    return pendingBackupEmail;
+  }
+
+  public void setPendingBackupEmail(@javax.annotation.Nullable String pendingBackupEmail) {
+    this.pendingBackupEmail = pendingBackupEmail;
   }
 
 
@@ -863,6 +941,25 @@ public class User {
   }
 
 
+  public User isSiteAdmin(@javax.annotation.Nullable Boolean isSiteAdmin) {
+    this.isSiteAdmin = isSiteAdmin;
+    return this;
+  }
+
+  /**
+   * Get isSiteAdmin
+   * @return isSiteAdmin
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsSiteAdmin() {
+    return isSiteAdmin;
+  }
+
+  public void setIsSiteAdmin(@javax.annotation.Nullable Boolean isSiteAdmin) {
+    this.isSiteAdmin = isSiteAdmin;
+  }
+
+
   public User moderatorIds(@javax.annotation.Nullable List<String> moderatorIds) {
     this.moderatorIds = moderatorIds;
     return this;
@@ -963,6 +1060,82 @@ public class User {
 
   public void setDigestEmailFrequency(@javax.annotation.Nullable DigestEmailFrequency digestEmailFrequency) {
     this.digestEmailFrequency = digestEmailFrequency;
+  }
+
+
+  public User notificationFrequency(@javax.annotation.Nullable Double notificationFrequency) {
+    this.notificationFrequency = notificationFrequency;
+    return this;
+  }
+
+  /**
+   * Get notificationFrequency
+   * @return notificationFrequency
+   */
+  @javax.annotation.Nullable
+  public Double getNotificationFrequency() {
+    return notificationFrequency;
+  }
+
+  public void setNotificationFrequency(@javax.annotation.Nullable Double notificationFrequency) {
+    this.notificationFrequency = notificationFrequency;
+  }
+
+
+  public User adminNotificationFrequency(@javax.annotation.Nullable Double adminNotificationFrequency) {
+    this.adminNotificationFrequency = adminNotificationFrequency;
+    return this;
+  }
+
+  /**
+   * Get adminNotificationFrequency
+   * @return adminNotificationFrequency
+   */
+  @javax.annotation.Nullable
+  public Double getAdminNotificationFrequency() {
+    return adminNotificationFrequency;
+  }
+
+  public void setAdminNotificationFrequency(@javax.annotation.Nullable Double adminNotificationFrequency) {
+    this.adminNotificationFrequency = adminNotificationFrequency;
+  }
+
+
+  public User lastTenantNotificationSentDate(@javax.annotation.Nullable OffsetDateTime lastTenantNotificationSentDate) {
+    this.lastTenantNotificationSentDate = lastTenantNotificationSentDate;
+    return this;
+  }
+
+  /**
+   * Get lastTenantNotificationSentDate
+   * @return lastTenantNotificationSentDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getLastTenantNotificationSentDate() {
+    return lastTenantNotificationSentDate;
+  }
+
+  public void setLastTenantNotificationSentDate(@javax.annotation.Nullable OffsetDateTime lastTenantNotificationSentDate) {
+    this.lastTenantNotificationSentDate = lastTenantNotificationSentDate;
+  }
+
+
+  public User lastReplyNotificationSentDate(@javax.annotation.Nullable OffsetDateTime lastReplyNotificationSentDate) {
+    this.lastReplyNotificationSentDate = lastReplyNotificationSentDate;
+    return this;
+  }
+
+  /**
+   * Get lastReplyNotificationSentDate
+   * @return lastReplyNotificationSentDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getLastReplyNotificationSentDate() {
+    return lastReplyNotificationSentDate;
+  }
+
+  public void setLastReplyNotificationSentDate(@javax.annotation.Nullable OffsetDateTime lastReplyNotificationSentDate) {
+    this.lastReplyNotificationSentDate = lastReplyNotificationSentDate;
   }
 
 
@@ -1297,6 +1470,25 @@ public class User {
   }
 
 
+  public User isEmailSuppressed(@javax.annotation.Nullable Boolean isEmailSuppressed) {
+    this.isEmailSuppressed = isEmailSuppressed;
+    return this;
+  }
+
+  /**
+   * Get isEmailSuppressed
+   * @return isEmailSuppressed
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsEmailSuppressed() {
+    return isEmailSuppressed;
+  }
+
+  public void setIsEmailSuppressed(@javax.annotation.Nullable Boolean isEmailSuppressed) {
+    this.isEmailSuppressed = isEmailSuppressed;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1314,6 +1506,8 @@ public class User {
         Objects.equals(this.websiteUrl, user.websiteUrl) &&
         Objects.equals(this.email, user.email) &&
         Objects.equals(this.pendingEmail, user.pendingEmail) &&
+        Objects.equals(this.backupEmail, user.backupEmail) &&
+        Objects.equals(this.pendingBackupEmail, user.pendingBackupEmail) &&
         Objects.equals(this.signUpDate, user.signUpDate) &&
         Objects.equals(this.createdFromUrlId, user.createdFromUrlId) &&
         Objects.equals(this.createdFromTenantId, user.createdFromTenantId) &&
@@ -1336,11 +1530,16 @@ public class User {
         Objects.equals(this.isManageDataAdmin, user.isManageDataAdmin) &&
         Objects.equals(this.isCommentModeratorAdmin, user.isCommentModeratorAdmin) &&
         Objects.equals(this.isAPIAdmin, user.isAPIAdmin) &&
+        Objects.equals(this.isSiteAdmin, user.isSiteAdmin) &&
         Objects.equals(this.moderatorIds, user.moderatorIds) &&
         Objects.equals(this.isImpersonator, user.isImpersonator) &&
         Objects.equals(this.isCouponManager, user.isCouponManager) &&
         Objects.equals(this.locale, user.locale) &&
         Objects.equals(this.digestEmailFrequency, user.digestEmailFrequency) &&
+        Objects.equals(this.notificationFrequency, user.notificationFrequency) &&
+        Objects.equals(this.adminNotificationFrequency, user.adminNotificationFrequency) &&
+        Objects.equals(this.lastTenantNotificationSentDate, user.lastTenantNotificationSentDate) &&
+        Objects.equals(this.lastReplyNotificationSentDate, user.lastReplyNotificationSentDate) &&
         Objects.equals(this.ignoredAddToMySiteMessages, user.ignoredAddToMySiteMessages) &&
         Objects.equals(this.lastLoginDate, user.lastLoginDate) &&
         Objects.equals(this.displayLabel, user.displayLabel) &&
@@ -1357,12 +1556,13 @@ public class User {
         Objects.equals(this.countryCode, user.countryCode) &&
         Objects.equals(this.countryFlag, user.countryFlag) &&
         Objects.equals(this.socialLinks, user.socialLinks) &&
-        Objects.equals(this.hasTwoFactor, user.hasTwoFactor);
+        Objects.equals(this.hasTwoFactor, user.hasTwoFactor) &&
+        Objects.equals(this.isEmailSuppressed, user.isEmailSuppressed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, username, displayName, websiteUrl, email, pendingEmail, signUpDate, createdFromUrlId, createdFromTenantId, createdFromIpHashed, verified, loginId, loginIdDate, loginCount, optedInNotifications, optedInTenantNotifications, hideAccountCode, avatarSrc, isFastCommentsHelpRequestAdmin, isHelpRequestAdmin, isAccountOwner, isAdminAdmin, isBillingAdmin, isAnalyticsAdmin, isCustomizationAdmin, isManageDataAdmin, isCommentModeratorAdmin, isAPIAdmin, moderatorIds, isImpersonator, isCouponManager, locale, digestEmailFrequency, ignoredAddToMySiteMessages, lastLoginDate, displayLabel, isProfileActivityPrivate, isProfileCommentsPrivate, isProfileDMDisabled, profileCommentApprovalMode, karma, passwordHash, averageTicketAckTimeMS, hasBlockedUsers, bio, headerBackgroundSrc, countryCode, countryFlag, socialLinks, hasTwoFactor);
+    return Objects.hash(id, tenantId, username, displayName, websiteUrl, email, pendingEmail, backupEmail, pendingBackupEmail, signUpDate, createdFromUrlId, createdFromTenantId, createdFromIpHashed, verified, loginId, loginIdDate, loginCount, optedInNotifications, optedInTenantNotifications, hideAccountCode, avatarSrc, isFastCommentsHelpRequestAdmin, isHelpRequestAdmin, isAccountOwner, isAdminAdmin, isBillingAdmin, isAnalyticsAdmin, isCustomizationAdmin, isManageDataAdmin, isCommentModeratorAdmin, isAPIAdmin, isSiteAdmin, moderatorIds, isImpersonator, isCouponManager, locale, digestEmailFrequency, notificationFrequency, adminNotificationFrequency, lastTenantNotificationSentDate, lastReplyNotificationSentDate, ignoredAddToMySiteMessages, lastLoginDate, displayLabel, isProfileActivityPrivate, isProfileCommentsPrivate, isProfileDMDisabled, profileCommentApprovalMode, karma, passwordHash, averageTicketAckTimeMS, hasBlockedUsers, bio, headerBackgroundSrc, countryCode, countryFlag, socialLinks, hasTwoFactor, isEmailSuppressed);
   }
 
   @Override
@@ -1376,6 +1576,8 @@ public class User {
     sb.append("    websiteUrl: ").append(toIndentedString(websiteUrl)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    pendingEmail: ").append(toIndentedString(pendingEmail)).append("\n");
+    sb.append("    backupEmail: ").append(toIndentedString(backupEmail)).append("\n");
+    sb.append("    pendingBackupEmail: ").append(toIndentedString(pendingBackupEmail)).append("\n");
     sb.append("    signUpDate: ").append(toIndentedString(signUpDate)).append("\n");
     sb.append("    createdFromUrlId: ").append(toIndentedString(createdFromUrlId)).append("\n");
     sb.append("    createdFromTenantId: ").append(toIndentedString(createdFromTenantId)).append("\n");
@@ -1398,11 +1600,16 @@ public class User {
     sb.append("    isManageDataAdmin: ").append(toIndentedString(isManageDataAdmin)).append("\n");
     sb.append("    isCommentModeratorAdmin: ").append(toIndentedString(isCommentModeratorAdmin)).append("\n");
     sb.append("    isAPIAdmin: ").append(toIndentedString(isAPIAdmin)).append("\n");
+    sb.append("    isSiteAdmin: ").append(toIndentedString(isSiteAdmin)).append("\n");
     sb.append("    moderatorIds: ").append(toIndentedString(moderatorIds)).append("\n");
     sb.append("    isImpersonator: ").append(toIndentedString(isImpersonator)).append("\n");
     sb.append("    isCouponManager: ").append(toIndentedString(isCouponManager)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    digestEmailFrequency: ").append(toIndentedString(digestEmailFrequency)).append("\n");
+    sb.append("    notificationFrequency: ").append(toIndentedString(notificationFrequency)).append("\n");
+    sb.append("    adminNotificationFrequency: ").append(toIndentedString(adminNotificationFrequency)).append("\n");
+    sb.append("    lastTenantNotificationSentDate: ").append(toIndentedString(lastTenantNotificationSentDate)).append("\n");
+    sb.append("    lastReplyNotificationSentDate: ").append(toIndentedString(lastReplyNotificationSentDate)).append("\n");
     sb.append("    ignoredAddToMySiteMessages: ").append(toIndentedString(ignoredAddToMySiteMessages)).append("\n");
     sb.append("    lastLoginDate: ").append(toIndentedString(lastLoginDate)).append("\n");
     sb.append("    displayLabel: ").append(toIndentedString(displayLabel)).append("\n");
@@ -1420,6 +1627,7 @@ public class User {
     sb.append("    countryFlag: ").append(toIndentedString(countryFlag)).append("\n");
     sb.append("    socialLinks: ").append(toIndentedString(socialLinks)).append("\n");
     sb.append("    hasTwoFactor: ").append(toIndentedString(hasTwoFactor)).append("\n");
+    sb.append("    isEmailSuppressed: ").append(toIndentedString(isEmailSuppressed)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1449,6 +1657,8 @@ public class User {
     openapiFields.add("websiteUrl");
     openapiFields.add("email");
     openapiFields.add("pendingEmail");
+    openapiFields.add("backupEmail");
+    openapiFields.add("pendingBackupEmail");
     openapiFields.add("signUpDate");
     openapiFields.add("createdFromUrlId");
     openapiFields.add("createdFromTenantId");
@@ -1471,11 +1681,16 @@ public class User {
     openapiFields.add("isManageDataAdmin");
     openapiFields.add("isCommentModeratorAdmin");
     openapiFields.add("isAPIAdmin");
+    openapiFields.add("isSiteAdmin");
     openapiFields.add("moderatorIds");
     openapiFields.add("isImpersonator");
     openapiFields.add("isCouponManager");
     openapiFields.add("locale");
     openapiFields.add("digestEmailFrequency");
+    openapiFields.add("notificationFrequency");
+    openapiFields.add("adminNotificationFrequency");
+    openapiFields.add("lastTenantNotificationSentDate");
+    openapiFields.add("lastReplyNotificationSentDate");
     openapiFields.add("ignoredAddToMySiteMessages");
     openapiFields.add("lastLoginDate");
     openapiFields.add("displayLabel");
@@ -1493,6 +1708,7 @@ public class User {
     openapiFields.add("countryFlag");
     openapiFields.add("socialLinks");
     openapiFields.add("hasTwoFactor");
+    openapiFields.add("isEmailSuppressed");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1555,6 +1771,12 @@ public class User {
       }
       if ((jsonObj.get("pendingEmail") != null && !jsonObj.get("pendingEmail").isJsonNull()) && !jsonObj.get("pendingEmail").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pendingEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pendingEmail").toString()));
+      }
+      if ((jsonObj.get("backupEmail") != null && !jsonObj.get("backupEmail").isJsonNull()) && !jsonObj.get("backupEmail").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `backupEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backupEmail").toString()));
+      }
+      if ((jsonObj.get("pendingBackupEmail") != null && !jsonObj.get("pendingBackupEmail").isJsonNull()) && !jsonObj.get("pendingBackupEmail").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pendingBackupEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pendingBackupEmail").toString()));
       }
       if ((jsonObj.get("createdFromUrlId") != null && !jsonObj.get("createdFromUrlId").isJsonNull()) && !jsonObj.get("createdFromUrlId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `createdFromUrlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdFromUrlId").toString()));

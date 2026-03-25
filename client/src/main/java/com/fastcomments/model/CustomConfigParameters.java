@@ -21,12 +21,14 @@ import com.fastcomments.model.CommentThreadDeletionMode;
 import com.fastcomments.model.CommenterNameFormats;
 import com.fastcomments.model.GifRating;
 import com.fastcomments.model.ImageContentProfanityLevel;
+import com.fastcomments.model.MentionAutoCompleteMode;
 import com.fastcomments.model.QuestionRenderingType;
 import com.fastcomments.model.QuestionSubQuestionVisibility;
 import com.fastcomments.model.QuestionWhenSave;
 import com.fastcomments.model.SSOSecurityLevel;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.SpamRule;
+import com.fastcomments.model.TOSConfig;
 import com.fastcomments.model.VoteStyle;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -188,6 +190,16 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private Boolean disableNotificationBell;
 
+  public static final String SERIALIZED_NAME_DISABLE_PROFILE_COMMENTS = "disableProfileComments";
+  @SerializedName(SERIALIZED_NAME_DISABLE_PROFILE_COMMENTS)
+  @javax.annotation.Nullable
+  private Boolean disableProfileComments;
+
+  public static final String SERIALIZED_NAME_DISABLE_PROFILE_DIRECT_MESSAGES = "disableProfileDirectMessages";
+  @SerializedName(SERIALIZED_NAME_DISABLE_PROFILE_DIRECT_MESSAGES)
+  @javax.annotation.Nullable
+  private Boolean disableProfileDirectMessages;
+
   public static final String SERIALIZED_NAME_DISABLE_PROFILES = "disableProfiles";
   @SerializedName(SERIALIZED_NAME_DISABLE_PROFILES)
   @javax.annotation.Nullable
@@ -308,6 +320,11 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private Boolean noCustomConfig;
 
+  public static final String SERIALIZED_NAME_MENTION_AUTO_COMPLETE_MODE = "mentionAutoCompleteMode";
+  @SerializedName(SERIALIZED_NAME_MENTION_AUTO_COMPLETE_MODE)
+  @javax.annotation.Nullable
+  private MentionAutoCompleteMode mentionAutoCompleteMode;
+
   public static final String SERIALIZED_NAME_NO_IMAGE_UPLOADS = "noImageUploads";
   @SerializedName(SERIALIZED_NAME_NO_IMAGE_UPLOADS)
   @javax.annotation.Nullable
@@ -408,6 +425,11 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private CommentQuestionResultsRenderingType widgetQuestionResultsStyle;
 
+  public static final String SERIALIZED_NAME_WIDGET_QUESTION_SHOW_BREAKDOWN = "widgetQuestionShowBreakdown";
+  @SerializedName(SERIALIZED_NAME_WIDGET_QUESTION_SHOW_BREAKDOWN)
+  @javax.annotation.Nullable
+  private Boolean widgetQuestionShowBreakdown;
+
   public static final String SERIALIZED_NAME_WIDGET_QUESTION_STYLE = "widgetQuestionStyle";
   @SerializedName(SERIALIZED_NAME_WIDGET_QUESTION_STYLE)
   @javax.annotation.Nullable
@@ -432,6 +454,36 @@ public class CustomConfigParameters {
   @SerializedName(SERIALIZED_NAME_WRAP)
   @javax.annotation.Nullable
   private Boolean wrap;
+
+  public static final String SERIALIZED_NAME_TICKET_BASE_URL = "ticketBaseUrl";
+  @SerializedName(SERIALIZED_NAME_TICKET_BASE_URL)
+  @javax.annotation.Nullable
+  private String ticketBaseUrl;
+
+  public static final String SERIALIZED_NAME_TICKET_K_B_SEARCH_ENDPOINT = "ticketKBSearchEndpoint";
+  @SerializedName(SERIALIZED_NAME_TICKET_K_B_SEARCH_ENDPOINT)
+  @javax.annotation.Nullable
+  private String ticketKBSearchEndpoint;
+
+  public static final String SERIALIZED_NAME_TICKET_FILE_UPLOADS_ENABLED = "ticketFileUploadsEnabled";
+  @SerializedName(SERIALIZED_NAME_TICKET_FILE_UPLOADS_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean ticketFileUploadsEnabled;
+
+  public static final String SERIALIZED_NAME_TICKET_MAX_FILE_SIZE = "ticketMaxFileSize";
+  @SerializedName(SERIALIZED_NAME_TICKET_MAX_FILE_SIZE)
+  @javax.annotation.Nullable
+  private Integer ticketMaxFileSize;
+
+  public static final String SERIALIZED_NAME_TICKET_AUTO_ASSIGN_USER_IDS = "ticketAutoAssignUserIds";
+  @SerializedName(SERIALIZED_NAME_TICKET_AUTO_ASSIGN_USER_IDS)
+  @javax.annotation.Nullable
+  private List<String> ticketAutoAssignUserIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TOS = "tos";
+  @SerializedName(SERIALIZED_NAME_TOS)
+  @javax.annotation.Nullable
+  private TOSConfig tos;
 
   public CustomConfigParameters() {
   }
@@ -900,6 +952,44 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters disableProfileComments(@javax.annotation.Nullable Boolean disableProfileComments) {
+    this.disableProfileComments = disableProfileComments;
+    return this;
+  }
+
+  /**
+   * Get disableProfileComments
+   * @return disableProfileComments
+   */
+  @javax.annotation.Nullable
+  public Boolean getDisableProfileComments() {
+    return disableProfileComments;
+  }
+
+  public void setDisableProfileComments(@javax.annotation.Nullable Boolean disableProfileComments) {
+    this.disableProfileComments = disableProfileComments;
+  }
+
+
+  public CustomConfigParameters disableProfileDirectMessages(@javax.annotation.Nullable Boolean disableProfileDirectMessages) {
+    this.disableProfileDirectMessages = disableProfileDirectMessages;
+    return this;
+  }
+
+  /**
+   * Get disableProfileDirectMessages
+   * @return disableProfileDirectMessages
+   */
+  @javax.annotation.Nullable
+  public Boolean getDisableProfileDirectMessages() {
+    return disableProfileDirectMessages;
+  }
+
+  public void setDisableProfileDirectMessages(@javax.annotation.Nullable Boolean disableProfileDirectMessages) {
+    this.disableProfileDirectMessages = disableProfileDirectMessages;
+  }
+
+
   public CustomConfigParameters disableProfiles(@javax.annotation.Nullable Boolean disableProfiles) {
     this.disableProfiles = disableProfiles;
     return this;
@@ -1356,6 +1446,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters mentionAutoCompleteMode(@javax.annotation.Nullable MentionAutoCompleteMode mentionAutoCompleteMode) {
+    this.mentionAutoCompleteMode = mentionAutoCompleteMode;
+    return this;
+  }
+
+  /**
+   * Get mentionAutoCompleteMode
+   * @return mentionAutoCompleteMode
+   */
+  @javax.annotation.Nullable
+  public MentionAutoCompleteMode getMentionAutoCompleteMode() {
+    return mentionAutoCompleteMode;
+  }
+
+  public void setMentionAutoCompleteMode(@javax.annotation.Nullable MentionAutoCompleteMode mentionAutoCompleteMode) {
+    this.mentionAutoCompleteMode = mentionAutoCompleteMode;
+  }
+
+
   public CustomConfigParameters noImageUploads(@javax.annotation.Nullable Boolean noImageUploads) {
     this.noImageUploads = noImageUploads;
     return this;
@@ -1760,6 +1869,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters widgetQuestionShowBreakdown(@javax.annotation.Nullable Boolean widgetQuestionShowBreakdown) {
+    this.widgetQuestionShowBreakdown = widgetQuestionShowBreakdown;
+    return this;
+  }
+
+  /**
+   * Get widgetQuestionShowBreakdown
+   * @return widgetQuestionShowBreakdown
+   */
+  @javax.annotation.Nullable
+  public Boolean getWidgetQuestionShowBreakdown() {
+    return widgetQuestionShowBreakdown;
+  }
+
+  public void setWidgetQuestionShowBreakdown(@javax.annotation.Nullable Boolean widgetQuestionShowBreakdown) {
+    this.widgetQuestionShowBreakdown = widgetQuestionShowBreakdown;
+  }
+
+
   public CustomConfigParameters widgetQuestionStyle(@javax.annotation.Nullable QuestionRenderingType widgetQuestionStyle) {
     this.widgetQuestionStyle = widgetQuestionStyle;
     return this;
@@ -1855,6 +1983,128 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters ticketBaseUrl(@javax.annotation.Nullable String ticketBaseUrl) {
+    this.ticketBaseUrl = ticketBaseUrl;
+    return this;
+  }
+
+  /**
+   * Get ticketBaseUrl
+   * @return ticketBaseUrl
+   */
+  @javax.annotation.Nullable
+  public String getTicketBaseUrl() {
+    return ticketBaseUrl;
+  }
+
+  public void setTicketBaseUrl(@javax.annotation.Nullable String ticketBaseUrl) {
+    this.ticketBaseUrl = ticketBaseUrl;
+  }
+
+
+  public CustomConfigParameters ticketKBSearchEndpoint(@javax.annotation.Nullable String ticketKBSearchEndpoint) {
+    this.ticketKBSearchEndpoint = ticketKBSearchEndpoint;
+    return this;
+  }
+
+  /**
+   * Get ticketKBSearchEndpoint
+   * @return ticketKBSearchEndpoint
+   */
+  @javax.annotation.Nullable
+  public String getTicketKBSearchEndpoint() {
+    return ticketKBSearchEndpoint;
+  }
+
+  public void setTicketKBSearchEndpoint(@javax.annotation.Nullable String ticketKBSearchEndpoint) {
+    this.ticketKBSearchEndpoint = ticketKBSearchEndpoint;
+  }
+
+
+  public CustomConfigParameters ticketFileUploadsEnabled(@javax.annotation.Nullable Boolean ticketFileUploadsEnabled) {
+    this.ticketFileUploadsEnabled = ticketFileUploadsEnabled;
+    return this;
+  }
+
+  /**
+   * Get ticketFileUploadsEnabled
+   * @return ticketFileUploadsEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getTicketFileUploadsEnabled() {
+    return ticketFileUploadsEnabled;
+  }
+
+  public void setTicketFileUploadsEnabled(@javax.annotation.Nullable Boolean ticketFileUploadsEnabled) {
+    this.ticketFileUploadsEnabled = ticketFileUploadsEnabled;
+  }
+
+
+  public CustomConfigParameters ticketMaxFileSize(@javax.annotation.Nullable Integer ticketMaxFileSize) {
+    this.ticketMaxFileSize = ticketMaxFileSize;
+    return this;
+  }
+
+  /**
+   * Get ticketMaxFileSize
+   * @return ticketMaxFileSize
+   */
+  @javax.annotation.Nullable
+  public Integer getTicketMaxFileSize() {
+    return ticketMaxFileSize;
+  }
+
+  public void setTicketMaxFileSize(@javax.annotation.Nullable Integer ticketMaxFileSize) {
+    this.ticketMaxFileSize = ticketMaxFileSize;
+  }
+
+
+  public CustomConfigParameters ticketAutoAssignUserIds(@javax.annotation.Nullable List<String> ticketAutoAssignUserIds) {
+    this.ticketAutoAssignUserIds = ticketAutoAssignUserIds;
+    return this;
+  }
+
+  public CustomConfigParameters addTicketAutoAssignUserIdsItem(String ticketAutoAssignUserIdsItem) {
+    if (this.ticketAutoAssignUserIds == null) {
+      this.ticketAutoAssignUserIds = new ArrayList<>();
+    }
+    this.ticketAutoAssignUserIds.add(ticketAutoAssignUserIdsItem);
+    return this;
+  }
+
+  /**
+   * Get ticketAutoAssignUserIds
+   * @return ticketAutoAssignUserIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getTicketAutoAssignUserIds() {
+    return ticketAutoAssignUserIds;
+  }
+
+  public void setTicketAutoAssignUserIds(@javax.annotation.Nullable List<String> ticketAutoAssignUserIds) {
+    this.ticketAutoAssignUserIds = ticketAutoAssignUserIds;
+  }
+
+
+  public CustomConfigParameters tos(@javax.annotation.Nullable TOSConfig tos) {
+    this.tos = tos;
+    return this;
+  }
+
+  /**
+   * Get tos
+   * @return tos
+   */
+  @javax.annotation.Nullable
+  public TOSConfig getTos() {
+    return tos;
+  }
+
+  public void setTos(@javax.annotation.Nullable TOSConfig tos) {
+    this.tos = tos;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1889,6 +2139,8 @@ public class CustomConfigParameters {
         Objects.equals(this.disableEmailInputs, customConfigParameters.disableEmailInputs) &&
         Objects.equals(this.disableLiveCommenting, customConfigParameters.disableLiveCommenting) &&
         Objects.equals(this.disableNotificationBell, customConfigParameters.disableNotificationBell) &&
+        Objects.equals(this.disableProfileComments, customConfigParameters.disableProfileComments) &&
+        Objects.equals(this.disableProfileDirectMessages, customConfigParameters.disableProfileDirectMessages) &&
         Objects.equals(this.disableProfiles, customConfigParameters.disableProfiles) &&
         Objects.equals(this.disableSuccessMessage, customConfigParameters.disableSuccessMessage) &&
         Objects.equals(this.disableToolbar, customConfigParameters.disableToolbar) &&
@@ -1913,6 +2165,7 @@ public class CustomConfigParameters {
         Objects.equals(this.maxCommentCharacterLength, customConfigParameters.maxCommentCharacterLength) &&
         Objects.equals(this.maxCommentCreatedCountPUPM, customConfigParameters.maxCommentCreatedCountPUPM) &&
         Objects.equals(this.noCustomConfig, customConfigParameters.noCustomConfig) &&
+        Objects.equals(this.mentionAutoCompleteMode, customConfigParameters.mentionAutoCompleteMode) &&
         Objects.equals(this.noImageUploads, customConfigParameters.noImageUploads) &&
         Objects.equals(this.noStyles, customConfigParameters.noStyles) &&
         Objects.equals(this.pageSize, customConfigParameters.pageSize) &&
@@ -1933,16 +2186,23 @@ public class CustomConfigParameters {
         Objects.equals(this.voteStyle, customConfigParameters.voteStyle) &&
         Objects.equals(this.widgetQuestionId, customConfigParameters.widgetQuestionId) &&
         Objects.equals(this.widgetQuestionResultsStyle, customConfigParameters.widgetQuestionResultsStyle) &&
+        Objects.equals(this.widgetQuestionShowBreakdown, customConfigParameters.widgetQuestionShowBreakdown) &&
         Objects.equals(this.widgetQuestionStyle, customConfigParameters.widgetQuestionStyle) &&
         Objects.equals(this.widgetQuestionWhenToSave, customConfigParameters.widgetQuestionWhenToSave) &&
         Objects.equals(this.widgetQuestionsRequired, customConfigParameters.widgetQuestionsRequired) &&
         Objects.equals(this.widgetSubQuestionVisibility, customConfigParameters.widgetSubQuestionVisibility) &&
-        Objects.equals(this.wrap, customConfigParameters.wrap);
+        Objects.equals(this.wrap, customConfigParameters.wrap) &&
+        Objects.equals(this.ticketBaseUrl, customConfigParameters.ticketBaseUrl) &&
+        Objects.equals(this.ticketKBSearchEndpoint, customConfigParameters.ticketKBSearchEndpoint) &&
+        Objects.equals(this.ticketFileUploadsEnabled, customConfigParameters.ticketFileUploadsEnabled) &&
+        Objects.equals(this.ticketMaxFileSize, customConfigParameters.ticketMaxFileSize) &&
+        Objects.equals(this.ticketAutoAssignUserIds, customConfigParameters.ticketAutoAssignUserIds) &&
+        Objects.equals(this.tos, customConfigParameters.tos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, noImageUploads, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap);
+    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfileComments, disableProfileDirectMessages, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, mentionAutoCompleteMode, noImageUploads, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionShowBreakdown, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap, ticketBaseUrl, ticketKBSearchEndpoint, ticketFileUploadsEnabled, ticketMaxFileSize, ticketAutoAssignUserIds, tos);
   }
 
   @Override
@@ -1973,6 +2233,8 @@ public class CustomConfigParameters {
     sb.append("    disableEmailInputs: ").append(toIndentedString(disableEmailInputs)).append("\n");
     sb.append("    disableLiveCommenting: ").append(toIndentedString(disableLiveCommenting)).append("\n");
     sb.append("    disableNotificationBell: ").append(toIndentedString(disableNotificationBell)).append("\n");
+    sb.append("    disableProfileComments: ").append(toIndentedString(disableProfileComments)).append("\n");
+    sb.append("    disableProfileDirectMessages: ").append(toIndentedString(disableProfileDirectMessages)).append("\n");
     sb.append("    disableProfiles: ").append(toIndentedString(disableProfiles)).append("\n");
     sb.append("    disableSuccessMessage: ").append(toIndentedString(disableSuccessMessage)).append("\n");
     sb.append("    disableToolbar: ").append(toIndentedString(disableToolbar)).append("\n");
@@ -1997,6 +2259,7 @@ public class CustomConfigParameters {
     sb.append("    maxCommentCharacterLength: ").append(toIndentedString(maxCommentCharacterLength)).append("\n");
     sb.append("    maxCommentCreatedCountPUPM: ").append(toIndentedString(maxCommentCreatedCountPUPM)).append("\n");
     sb.append("    noCustomConfig: ").append(toIndentedString(noCustomConfig)).append("\n");
+    sb.append("    mentionAutoCompleteMode: ").append(toIndentedString(mentionAutoCompleteMode)).append("\n");
     sb.append("    noImageUploads: ").append(toIndentedString(noImageUploads)).append("\n");
     sb.append("    noStyles: ").append(toIndentedString(noStyles)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
@@ -2017,11 +2280,18 @@ public class CustomConfigParameters {
     sb.append("    voteStyle: ").append(toIndentedString(voteStyle)).append("\n");
     sb.append("    widgetQuestionId: ").append(toIndentedString(widgetQuestionId)).append("\n");
     sb.append("    widgetQuestionResultsStyle: ").append(toIndentedString(widgetQuestionResultsStyle)).append("\n");
+    sb.append("    widgetQuestionShowBreakdown: ").append(toIndentedString(widgetQuestionShowBreakdown)).append("\n");
     sb.append("    widgetQuestionStyle: ").append(toIndentedString(widgetQuestionStyle)).append("\n");
     sb.append("    widgetQuestionWhenToSave: ").append(toIndentedString(widgetQuestionWhenToSave)).append("\n");
     sb.append("    widgetQuestionsRequired: ").append(toIndentedString(widgetQuestionsRequired)).append("\n");
     sb.append("    widgetSubQuestionVisibility: ").append(toIndentedString(widgetSubQuestionVisibility)).append("\n");
     sb.append("    wrap: ").append(toIndentedString(wrap)).append("\n");
+    sb.append("    ticketBaseUrl: ").append(toIndentedString(ticketBaseUrl)).append("\n");
+    sb.append("    ticketKBSearchEndpoint: ").append(toIndentedString(ticketKBSearchEndpoint)).append("\n");
+    sb.append("    ticketFileUploadsEnabled: ").append(toIndentedString(ticketFileUploadsEnabled)).append("\n");
+    sb.append("    ticketMaxFileSize: ").append(toIndentedString(ticketMaxFileSize)).append("\n");
+    sb.append("    ticketAutoAssignUserIds: ").append(toIndentedString(ticketAutoAssignUserIds)).append("\n");
+    sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2068,6 +2338,8 @@ public class CustomConfigParameters {
     openapiFields.add("disableEmailInputs");
     openapiFields.add("disableLiveCommenting");
     openapiFields.add("disableNotificationBell");
+    openapiFields.add("disableProfileComments");
+    openapiFields.add("disableProfileDirectMessages");
     openapiFields.add("disableProfiles");
     openapiFields.add("disableSuccessMessage");
     openapiFields.add("disableToolbar");
@@ -2092,6 +2364,7 @@ public class CustomConfigParameters {
     openapiFields.add("maxCommentCharacterLength");
     openapiFields.add("maxCommentCreatedCountPUPM");
     openapiFields.add("noCustomConfig");
+    openapiFields.add("mentionAutoCompleteMode");
     openapiFields.add("noImageUploads");
     openapiFields.add("noStyles");
     openapiFields.add("pageSize");
@@ -2112,11 +2385,18 @@ public class CustomConfigParameters {
     openapiFields.add("voteStyle");
     openapiFields.add("widgetQuestionId");
     openapiFields.add("widgetQuestionResultsStyle");
+    openapiFields.add("widgetQuestionShowBreakdown");
     openapiFields.add("widgetQuestionStyle");
     openapiFields.add("widgetQuestionWhenToSave");
     openapiFields.add("widgetQuestionsRequired");
     openapiFields.add("widgetSubQuestionVisibility");
     openapiFields.add("wrap");
+    openapiFields.add("ticketBaseUrl");
+    openapiFields.add("ticketKBSearchEndpoint");
+    openapiFields.add("ticketFileUploadsEnabled");
+    openapiFields.add("ticketMaxFileSize");
+    openapiFields.add("ticketAutoAssignUserIds");
+    openapiFields.add("tos");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -2192,6 +2472,10 @@ public class CustomConfigParameters {
       if ((jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) && !jsonObj.get("locale").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
       }
+      // validate the optional field `mentionAutoCompleteMode`
+      if (jsonObj.get("mentionAutoCompleteMode") != null && !jsonObj.get("mentionAutoCompleteMode").isJsonNull()) {
+        MentionAutoCompleteMode.validateJsonElement(jsonObj.get("mentionAutoCompleteMode"));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("restrictedLinkDomains") != null && !jsonObj.get("restrictedLinkDomains").isJsonNull() && !jsonObj.get("restrictedLinkDomains").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `restrictedLinkDomains` to be an array in the JSON string but got `%s`", jsonObj.get("restrictedLinkDomains").toString()));
@@ -2240,6 +2524,20 @@ public class CustomConfigParameters {
       // validate the optional field `widgetSubQuestionVisibility`
       if (jsonObj.get("widgetSubQuestionVisibility") != null && !jsonObj.get("widgetSubQuestionVisibility").isJsonNull()) {
         QuestionSubQuestionVisibility.validateJsonElement(jsonObj.get("widgetSubQuestionVisibility"));
+      }
+      if ((jsonObj.get("ticketBaseUrl") != null && !jsonObj.get("ticketBaseUrl").isJsonNull()) && !jsonObj.get("ticketBaseUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ticketBaseUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ticketBaseUrl").toString()));
+      }
+      if ((jsonObj.get("ticketKBSearchEndpoint") != null && !jsonObj.get("ticketKBSearchEndpoint").isJsonNull()) && !jsonObj.get("ticketKBSearchEndpoint").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ticketKBSearchEndpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ticketKBSearchEndpoint").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ticketAutoAssignUserIds") != null && !jsonObj.get("ticketAutoAssignUserIds").isJsonNull() && !jsonObj.get("ticketAutoAssignUserIds").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ticketAutoAssignUserIds` to be an array in the JSON string but got `%s`", jsonObj.get("ticketAutoAssignUserIds").toString()));
+      }
+      // validate the optional field `tos`
+      if (jsonObj.get("tos") != null && !jsonObj.get("tos").isJsonNull()) {
+        TOSConfig.validateJsonElement(jsonObj.get("tos"));
       }
   }
 

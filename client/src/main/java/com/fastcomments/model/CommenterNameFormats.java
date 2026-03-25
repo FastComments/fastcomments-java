@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,23 +29,23 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(CommenterNameFormats.Adapter.class)
 public enum CommenterNameFormats {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2")),
+  NUMBER_2(2),
   
-  NUMBER_3(new BigDecimal("3")),
+  NUMBER_3(3),
   
-  NUMBER_4(new BigDecimal("4"));
+  NUMBER_4(4);
 
-  private BigDecimal value;
+  private Integer value;
 
-  CommenterNameFormats(BigDecimal value) {
+  CommenterNameFormats(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -55,7 +54,7 @@ public enum CommenterNameFormats {
     return String.valueOf(value);
   }
 
-  public static CommenterNameFormats fromValue(BigDecimal value) {
+  public static CommenterNameFormats fromValue(Integer value) {
     for (CommenterNameFormats b : CommenterNameFormats.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -72,14 +71,14 @@ public enum CommenterNameFormats {
 
     @Override
     public CommenterNameFormats read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return CommenterNameFormats.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return CommenterNameFormats.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    CommenterNameFormats.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    CommenterNameFormats.fromValue(value);
   }
 }
 

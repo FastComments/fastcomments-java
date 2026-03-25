@@ -5,13 +5,13 @@
 ## Enum
 
 
-* `NUMBER_MINUS_1` (value: `new BigDecimal("-1")`)
+* `NUMBER_MINUS_1` (value: `-1`)
 
-* `NUMBER_0` (value: `new BigDecimal("0")`)
+* `NUMBER_0` (value: `0`)
 
-* `NUMBER_1` (value: `new BigDecimal("1")`)
+* `NUMBER_1` (value: `1`)
 
-* `NUMBER_2` (value: `new BigDecimal("2")`)
+* `NUMBER_2` (value: `2`)
 
 
 

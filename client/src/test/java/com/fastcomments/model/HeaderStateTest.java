@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.HeaderAccountNotification;
 import com.fastcomments.model.NotificationAndCount;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -79,6 +80,14 @@ public class HeaderStateTest {
     @Test
     public void notificationCountsTest() {
         // TODO: test notificationCounts
+    }
+
+    /**
+     * Test the property 'accountNotifications'
+     */
+    @Test
+    public void accountNotificationsTest() {
+        // TODO: test accountNotifications
     }
 
 }

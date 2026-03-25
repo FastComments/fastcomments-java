@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,19 +29,19 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(NotificationObjectType.Adapter.class)
 public enum NotificationObjectType {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2"));
+  NUMBER_2(2);
 
-  private BigDecimal value;
+  private Integer value;
 
-  NotificationObjectType(BigDecimal value) {
+  NotificationObjectType(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -51,7 +50,7 @@ public enum NotificationObjectType {
     return String.valueOf(value);
   }
 
-  public static NotificationObjectType fromValue(BigDecimal value) {
+  public static NotificationObjectType fromValue(Integer value) {
     for (NotificationObjectType b : NotificationObjectType.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -68,14 +67,14 @@ public enum NotificationObjectType {
 
     @Override
     public NotificationObjectType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return NotificationObjectType.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return NotificationObjectType.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    NotificationObjectType.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    NotificationObjectType.fromValue(value);
   }
 }
 

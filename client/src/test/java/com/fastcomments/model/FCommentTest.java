@@ -613,4 +613,12 @@ public class FCommentTest {
         // TODO: test editKey
     }
 
+    /**
+     * Test the property 'tosAcceptedAt'
+     */
+    @Test
+    public void tosAcceptedAtTest() {
+        // TODO: test tosAcceptedAt
+    }
+
 }

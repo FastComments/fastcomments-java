@@ -38,6 +38,14 @@ public class FCommentMetaTest {
     }
 
     /**
+     * Test the property 'wpId'
+     */
+    @Test
+    public void wpIdTest() {
+        // TODO: test wpId
+    }
+
+    /**
      * Test the property 'wpUserId'
      */
     @Test

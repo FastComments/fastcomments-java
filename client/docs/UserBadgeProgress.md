@@ -15,6 +15,7 @@
 |**autoTrustFactor** | **Double** |  |  [optional] |
 |**manualTrustFactor** | **Double** |  |  [optional] |
 |**progress** | **Map&lt;String, Double&gt;** | Construct a type with a set of properties K of type T |  |
+|**tosAcceptedAt** | **OffsetDateTime** |  |  [optional] |
 
 
 

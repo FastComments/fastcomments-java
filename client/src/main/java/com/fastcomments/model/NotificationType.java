@@ -14,7 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import java.math.BigDecimal;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
@@ -30,39 +29,39 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(NotificationType.Adapter.class)
 public enum NotificationType {
   
-  NUMBER_0(new BigDecimal("0")),
+  NUMBER_0(0),
   
-  NUMBER_1(new BigDecimal("1")),
+  NUMBER_1(1),
   
-  NUMBER_2(new BigDecimal("2")),
+  NUMBER_2(2),
   
-  NUMBER_3(new BigDecimal("3")),
+  NUMBER_3(3),
   
-  NUMBER_4(new BigDecimal("4")),
+  NUMBER_4(4),
   
-  NUMBER_5(new BigDecimal("5")),
+  NUMBER_5(5),
   
-  NUMBER_6(new BigDecimal("6")),
+  NUMBER_6(6),
   
-  NUMBER_7(new BigDecimal("7")),
+  NUMBER_7(7),
   
-  NUMBER_8(new BigDecimal("8")),
+  NUMBER_8(8),
   
-  NUMBER_81(new BigDecimal("81")),
+  NUMBER_81(81),
   
-  NUMBER_82(new BigDecimal("82")),
+  NUMBER_82(82),
   
-  NUMBER_9(new BigDecimal("9")),
+  NUMBER_9(9),
   
-  NUMBER_10(new BigDecimal("10"));
+  NUMBER_10(10);
 
-  private BigDecimal value;
+  private Integer value;
 
-  NotificationType(BigDecimal value) {
+  NotificationType(Integer value) {
     this.value = value;
   }
 
-  public BigDecimal getValue() {
+  public Integer getValue() {
     return value;
   }
 
@@ -71,7 +70,7 @@ public enum NotificationType {
     return String.valueOf(value);
   }
 
-  public static NotificationType fromValue(BigDecimal value) {
+  public static NotificationType fromValue(Integer value) {
     for (NotificationType b : NotificationType.values()) {
       if (b.value.equals(value)) {
         return b;
@@ -88,14 +87,14 @@ public enum NotificationType {
 
     @Override
     public NotificationType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return NotificationType.fromValue(new BigDecimal(value));
+      Integer value = jsonReader.nextInt();
+      return NotificationType.fromValue(value);
     }
   }
 
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    String value = jsonElement.getAsString();
-    NotificationType.fromValue(new BigDecimal(value));
+    Integer value = jsonElement.getAsInt();
+    NotificationType.fromValue(value);
   }
 }
 

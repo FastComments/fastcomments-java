@@ -534,10 +534,12 @@ public class PublicApiTest {
         String usernameStartsWith = null;
         List<String> mentionGroupIds = null;
         String sso = null;
+        String searchSection = null;
         SearchUsers200Response response = api.searchUsers(tenantId, urlId)
                 .usernameStartsWith(usernameStartsWith)
                 .mentionGroupIds(mentionGroupIds)
                 .sso(sso)
+                .searchSection(searchSection)
                 .execute();
         // TODO: test validations
     }

@@ -182,4 +182,12 @@ public class UserBadgeTest {
         // TODO: test order
     }
 
+    /**
+     * Test the property 'urlId'
+     */
+    @Test
+    public void urlIdTest() {
+        // TODO: test urlId
+    }
+
 }

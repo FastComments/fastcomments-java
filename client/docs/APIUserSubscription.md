@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**notificationFrequency** | **Double** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**pageTitle** | **String** |  |  [optional] |
 |**url** | **String** |  |  [optional] |

@@ -177,6 +177,11 @@ public class CommentData {
   @javax.annotation.Nullable
   private Map<String, RecordStringStringOrNumberValue> questionValues = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_TOS = "tos";
+  @SerializedName(SERIALIZED_NAME_TOS)
+  @javax.annotation.Nullable
+  private Boolean tos;
+
   public CommentData() {
   }
 
@@ -676,6 +681,25 @@ public class CommentData {
   }
 
 
+  public CommentData tos(@javax.annotation.Nullable Boolean tos) {
+    this.tos = tos;
+    return this;
+  }
+
+  /**
+   * Get tos
+   * @return tos
+   */
+  @javax.annotation.Nullable
+  public Boolean getTos() {
+    return tos;
+  }
+
+  public void setTos(@javax.annotation.Nullable Boolean tos) {
+    this.tos = tos;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -709,12 +733,13 @@ public class CommentData {
         Objects.equals(this.fromOfflineRestore, commentData.fromOfflineRestore) &&
         Objects.equals(this.autoplayDelayMS, commentData.autoplayDelayMS) &&
         Objects.equals(this.feedbackIds, commentData.feedbackIds) &&
-        Objects.equals(this.questionValues, commentData.questionValues);
+        Objects.equals(this.questionValues, commentData.questionValues) &&
+        Objects.equals(this.tos, commentData.tos);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues);
+    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, tos);
   }
 
   @Override
@@ -745,6 +770,7 @@ public class CommentData {
     sb.append("    autoplayDelayMS: ").append(toIndentedString(autoplayDelayMS)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
     sb.append("    questionValues: ").append(toIndentedString(questionValues)).append("\n");
+    sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -791,6 +817,7 @@ public class CommentData {
     openapiFields.add("autoplayDelayMS");
     openapiFields.add("feedbackIds");
     openapiFields.add("questionValues");
+    openapiFields.add("tos");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

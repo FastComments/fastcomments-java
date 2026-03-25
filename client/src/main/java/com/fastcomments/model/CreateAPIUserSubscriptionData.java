@@ -50,6 +50,11 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
 public class CreateAPIUserSubscriptionData {
+  public static final String SERIALIZED_NAME_NOTIFICATION_FREQUENCY = "notificationFrequency";
+  @SerializedName(SERIALIZED_NAME_NOTIFICATION_FREQUENCY)
+  @javax.annotation.Nullable
+  private Double notificationFrequency;
+
   public static final String SERIALIZED_NAME_PAGE_TITLE = "pageTitle";
   @SerializedName(SERIALIZED_NAME_PAGE_TITLE)
   @javax.annotation.Nullable
@@ -77,6 +82,25 @@ public class CreateAPIUserSubscriptionData {
 
   public CreateAPIUserSubscriptionData() {
   }
+
+  public CreateAPIUserSubscriptionData notificationFrequency(@javax.annotation.Nullable Double notificationFrequency) {
+    this.notificationFrequency = notificationFrequency;
+    return this;
+  }
+
+  /**
+   * Get notificationFrequency
+   * @return notificationFrequency
+   */
+  @javax.annotation.Nullable
+  public Double getNotificationFrequency() {
+    return notificationFrequency;
+  }
+
+  public void setNotificationFrequency(@javax.annotation.Nullable Double notificationFrequency) {
+    this.notificationFrequency = notificationFrequency;
+  }
+
 
   public CreateAPIUserSubscriptionData pageTitle(@javax.annotation.Nullable String pageTitle) {
     this.pageTitle = pageTitle;
@@ -227,7 +251,8 @@ public class CreateAPIUserSubscriptionData {
       return false;
     }
     CreateAPIUserSubscriptionData createAPIUserSubscriptionData = (CreateAPIUserSubscriptionData) o;
-    return Objects.equals(this.pageTitle, createAPIUserSubscriptionData.pageTitle) &&
+    return Objects.equals(this.notificationFrequency, createAPIUserSubscriptionData.notificationFrequency) &&
+        Objects.equals(this.pageTitle, createAPIUserSubscriptionData.pageTitle) &&
         Objects.equals(this.url, createAPIUserSubscriptionData.url) &&
         Objects.equals(this.urlId, createAPIUserSubscriptionData.urlId) &&
         Objects.equals(this.anonUserId, createAPIUserSubscriptionData.anonUserId) &&
@@ -237,13 +262,14 @@ public class CreateAPIUserSubscriptionData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageTitle, url, urlId, anonUserId, userId, additionalProperties);
+    return Objects.hash(notificationFrequency, pageTitle, url, urlId, anonUserId, userId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAPIUserSubscriptionData {\n");
+    sb.append("    notificationFrequency: ").append(toIndentedString(notificationFrequency)).append("\n");
     sb.append("    pageTitle: ").append(toIndentedString(pageTitle)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
@@ -272,6 +298,7 @@ public class CreateAPIUserSubscriptionData {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("notificationFrequency");
     openapiFields.add("pageTitle");
     openapiFields.add("url");
     openapiFields.add("urlId");

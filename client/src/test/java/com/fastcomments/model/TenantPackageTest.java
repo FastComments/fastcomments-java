@@ -193,6 +193,14 @@ public class TenantPackageTest {
     }
 
     /**
+     * Test the property 'maxCustomCollectionSize'
+     */
+    @Test
+    public void maxCustomCollectionSizeTest() {
+        // TODO: test maxCustomCollectionSize
+    }
+
+    /**
      * Test the property 'hasWhiteLabeling'
      */
     @Test
@@ -254,6 +262,14 @@ public class TenantPackageTest {
     @Test
     public void enableSAMLTest() {
         // TODO: test enableSAML
+    }
+
+    /**
+     * Test the property 'enableCanvasLTI'
+     */
+    @Test
+    public void enableCanvasLTITest() {
+        // TODO: test enableCanvasLTI
     }
 
     /**

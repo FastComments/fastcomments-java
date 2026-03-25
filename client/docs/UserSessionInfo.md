@@ -17,6 +17,7 @@
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**hasBlockedUsers** | **Boolean** |  |  [optional] |
 |**isAnonSession** | **Boolean** |  |  [optional] |
+|**needsTOS** | **Boolean** |  |  [optional] |
 |**sessionId** | **String** |  |  [optional] |
 |**username** | **String** |  |  [optional] |
 |**websiteUrl** | **String** |  |  [optional] |
