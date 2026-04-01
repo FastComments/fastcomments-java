@@ -8202,6 +8202,10 @@ components:
       - new-feed-post
       - updated-feed-post
       - deleted-feed-post
+      - new-ticket
+      - updated-ticket-state
+      - updated-ticket-assignment
+      - deleted-ticket
       type: string
     TenantId:
       type: string
@@ -13143,16 +13147,16 @@ components:
       example:
         maxMonthlySmallWidgetsCredits: 5.637376656633329
         flexAPICreditCostCents: 9.965781217890562
-        flexMinimumCostCents: 5.944895607614016
+        flexMinimumCostCents: 3.353193347011243
         flexCommentUnit: 1.1730742509559433
         maxMonthlyAPICredits: 5.962133916683182
         createdAt: 2000-01-23T04:56:07.000+00:00
-        flexManagedTenantCostCents: 6.704019297950036
+        flexManagedTenantCostCents: 3.0937452626664474
         flexSmallWidgetsCreditUnit: 8.762042012749001
         yearlyStripePlanId: yearlyStripePlanId
         maxSSOUsers: 3.616076749251911
         hasFlexPricing: true
-        flexSSOModeratorCostCents: 7.143538047012306
+        flexSSOModeratorCostCents: 7.058770351582356
         monthlyCostUSD: 0.8008281904610115
         maxTenantUsers: 9.301444243932576
         maxCustomCollectionSize: 1.0246457001441578
@@ -13162,13 +13166,15 @@ components:
         flexAPICreditUnit: 9.369310271410669
         flexAdminCostCents: 3.5571952270680973
         maxConcurrentUsers: 7.061401241503109
+        flexLLMCostCents: 5.944895607614016
         name: name
         _id: _id
         flexModeratorUnit: 6.438423552598547
         flexChatGPTCostCents: 6.778324963048013
-        flexSSOAdminCostCents: 3.353193347011243
+        flexSSOAdminCostCents: 7.143538047012306
         flexSSOUserCostCents: 4.965218492984954
-        flexSSOModeratorUnit: 0.8851374739011653
+        flexLLMUnit: 6.704019297950036
+        flexSSOModeratorUnit: 6.519180951018382
         maxDomains: 4.145608029883936
         maxMonthlyEventLogRequests: 1.2315135367772556
         flexDomainUnit: 2.8841621266687802
@@ -13196,7 +13202,7 @@ components:
         flexModeratorCostCents: 9.018348186070783
         flexPageLoadUnit: 6.84685269835264
         monthlyStripePlanId: monthlyStripePlanId
-        flexSSOAdminUnit: 3.0937452626664474
+        flexSSOAdminUnit: 0.8851374739011653
       properties:
         _id:
           type: string
@@ -13331,6 +13337,12 @@ components:
         flexChatGPTUnit:
           format: double
           type: number
+        flexLLMCostCents:
+          format: double
+          type: number
+        flexLLMUnit:
+          format: double
+          type: number
         flexMinimumCostCents:
           format: double
           type: number
@@ -13386,16 +13398,16 @@ components:
         tenantPackage:
           maxMonthlySmallWidgetsCredits: 5.637376656633329
           flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 5.944895607614016
+          flexMinimumCostCents: 3.353193347011243
           flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 6.704019297950036
+          flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.143538047012306
+          flexSSOModeratorCostCents: 7.058770351582356
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
           maxCustomCollectionSize: 1.0246457001441578
@@ -13405,13 +13417,15 @@ components:
           flexAPICreditUnit: 9.369310271410669
           flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
+          flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
-          flexSSOModeratorUnit: 0.8851374739011653
+          flexLLMUnit: 6.704019297950036
+          flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
           flexDomainUnit: 2.8841621266687802
@@ -13439,7 +13453,7 @@ components:
           flexModeratorCostCents: 9.018348186070783
           flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.0937452626664474
+          flexSSOAdminUnit: 0.8851374739011653
         status: success
       properties:
         status:
@@ -13456,16 +13470,16 @@ components:
         tenantPackages:
         - maxMonthlySmallWidgetsCredits: 5.637376656633329
           flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 5.944895607614016
+          flexMinimumCostCents: 3.353193347011243
           flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 6.704019297950036
+          flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.143538047012306
+          flexSSOModeratorCostCents: 7.058770351582356
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
           maxCustomCollectionSize: 1.0246457001441578
@@ -13475,13 +13489,15 @@ components:
           flexAPICreditUnit: 9.369310271410669
           flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
+          flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
-          flexSSOModeratorUnit: 0.8851374739011653
+          flexLLMUnit: 6.704019297950036
+          flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
           flexDomainUnit: 2.8841621266687802
@@ -13509,19 +13525,19 @@ components:
           flexModeratorCostCents: 9.018348186070783
           flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.0937452626664474
+          flexSSOAdminUnit: 0.8851374739011653
         - maxMonthlySmallWidgetsCredits: 5.637376656633329
           flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 5.944895607614016
+          flexMinimumCostCents: 3.353193347011243
           flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 6.704019297950036
+          flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.143538047012306
+          flexSSOModeratorCostCents: 7.058770351582356
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
           maxCustomCollectionSize: 1.0246457001441578
@@ -13531,13 +13547,15 @@ components:
           flexAPICreditUnit: 9.369310271410669
           flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
+          flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
-          flexSSOModeratorUnit: 0.8851374739011653
+          flexLLMUnit: 6.704019297950036
+          flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
           flexDomainUnit: 2.8841621266687802
@@ -13565,7 +13583,7 @@ components:
           flexModeratorCostCents: 9.018348186070783
           flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.0937452626664474
+          flexSSOAdminUnit: 0.8851374739011653
         status: success
       properties:
         status:
@@ -13584,16 +13602,16 @@ components:
         tenantPackage:
           maxMonthlySmallWidgetsCredits: 5.637376656633329
           flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 5.944895607614016
+          flexMinimumCostCents: 3.353193347011243
           flexCommentUnit: 1.1730742509559433
           maxMonthlyAPICredits: 5.962133916683182
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 6.704019297950036
+          flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.143538047012306
+          flexSSOModeratorCostCents: 7.058770351582356
           monthlyCostUSD: 0.8008281904610115
           maxTenantUsers: 9.301444243932576
           maxCustomCollectionSize: 1.0246457001441578
@@ -13603,13 +13621,15 @@ components:
           flexAPICreditUnit: 9.369310271410669
           flexAdminCostCents: 3.5571952270680973
           maxConcurrentUsers: 7.061401241503109
+          flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 3.353193347011243
+          flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
-          flexSSOModeratorUnit: 0.8851374739011653
+          flexLLMUnit: 6.704019297950036
+          flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
           flexDomainUnit: 2.8841621266687802
@@ -13637,7 +13657,7 @@ components:
           flexModeratorCostCents: 9.018348186070783
           flexPageLoadUnit: 6.84685269835264
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 3.0937452626664474
+          flexSSOAdminUnit: 0.8851374739011653
         status: success
       properties:
         status:
@@ -13670,17 +13690,17 @@ components:
         flexAPICreditUnit: 9.369310271410669
         flexAdminCostCents: 3.5571952270680973
         maxConcurrentUsers: 7.061401241503109
+        flexLLMCostCents: 6.778324963048013
         name: name
         flexModeratorUnit: 6.438423552598547
-        flexChatGPTCostCents: 6.778324963048013
         flexSSOAdminCostCents: 3.353193347011243
         flexSSOUserCostCents: 4.965218492984954
+        flexLLMUnit: 6.878052220127876
         flexSSOModeratorUnit: 0.8851374739011653
         maxDomains: 4.145608029883936
         maxMonthlyEventLogRequests: 1.2315135367772556
         flexDomainUnit: 2.8841621266687802
         hasWhiteLabeling: true
-        flexChatGPTUnit: 6.878052220127876
         maxMonthlyComments: 2.3021358869347655
         maxModerators: 2.027123023002322
         hasAuditing: true
@@ -13821,10 +13841,10 @@ components:
         flexDomainUnit:
           format: double
           type: number
-        flexChatGPTCostCents:
+        flexLLMCostCents:
           format: double
           type: number
-        flexChatGPTUnit:
+        flexLLMUnit:
           format: double
           type: number
         flexMinimumCostCents:

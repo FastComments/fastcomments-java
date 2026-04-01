@@ -368,19 +368,19 @@ public class CreateTenantPackageBodyTest {
     }
 
     /**
-     * Test the property 'flexChatGPTCostCents'
+     * Test the property 'flexLLMCostCents'
      */
     @Test
-    public void flexChatGPTCostCentsTest() {
-        // TODO: test flexChatGPTCostCents
+    public void flexLLMCostCentsTest() {
+        // TODO: test flexLLMCostCents
     }
 
     /**
-     * Test the property 'flexChatGPTUnit'
+     * Test the property 'flexLLMUnit'
      */
     @Test
-    public void flexChatGPTUnitTest() {
-        // TODO: test flexChatGPTUnit
+    public void flexLLMUnitTest() {
+        // TODO: test flexLLMUnit
     }
 
     /**

@@ -22,6 +22,7 @@
 |**isClosed** | **Boolean** |  |  [optional] |
 |**uj** | **List&lt;String&gt;** |  |  [optional] |
 |**ul** | **List&lt;String&gt;** |  |  [optional] |
+|**sc** | **Integer** |  |  [optional] |
 |**changes** | **Map&lt;String, Integer&gt;** |  |  [optional] |
 
 

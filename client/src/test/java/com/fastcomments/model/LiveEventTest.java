@@ -169,6 +169,14 @@ public class LiveEventTest {
     }
 
     /**
+     * Test the property 'sc'
+     */
+    @Test
+    public void scTest() {
+        // TODO: test sc
+    }
+
+    /**
      * Test the property 'changes'
      */
     @Test

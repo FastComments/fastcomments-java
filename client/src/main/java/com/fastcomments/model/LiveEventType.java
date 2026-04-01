@@ -61,7 +61,15 @@ public enum LiveEventType {
   
   UPDATED_FEED_POST("updated-feed-post"),
   
-  DELETED_FEED_POST("deleted-feed-post");
+  DELETED_FEED_POST("deleted-feed-post"),
+  
+  NEW_TICKET("new-ticket"),
+  
+  UPDATED_TICKET_STATE("updated-ticket-state"),
+  
+  UPDATED_TICKET_ASSIGNMENT("updated-ticket-assignment"),
+  
+  DELETED_TICKET("deleted-ticket");
 
   private String value;
 

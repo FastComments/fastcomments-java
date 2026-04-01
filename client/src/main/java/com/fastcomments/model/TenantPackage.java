@@ -288,6 +288,16 @@ public class TenantPackage {
   @javax.annotation.Nullable
   private Double flexChatGPTUnit;
 
+  public static final String SERIALIZED_NAME_FLEX_L_L_M_COST_CENTS = "flexLLMCostCents";
+  @SerializedName(SERIALIZED_NAME_FLEX_L_L_M_COST_CENTS)
+  @javax.annotation.Nullable
+  private Double flexLLMCostCents;
+
+  public static final String SERIALIZED_NAME_FLEX_L_L_M_UNIT = "flexLLMUnit";
+  @SerializedName(SERIALIZED_NAME_FLEX_L_L_M_UNIT)
+  @javax.annotation.Nullable
+  private Double flexLLMUnit;
+
   public static final String SERIALIZED_NAME_FLEX_MINIMUM_COST_CENTS = "flexMinimumCostCents";
   @SerializedName(SERIALIZED_NAME_FLEX_MINIMUM_COST_CENTS)
   @javax.annotation.Nullable
@@ -1227,6 +1237,44 @@ public class TenantPackage {
   }
 
 
+  public TenantPackage flexLLMCostCents(@javax.annotation.Nullable Double flexLLMCostCents) {
+    this.flexLLMCostCents = flexLLMCostCents;
+    return this;
+  }
+
+  /**
+   * Get flexLLMCostCents
+   * @return flexLLMCostCents
+   */
+  @javax.annotation.Nullable
+  public Double getFlexLLMCostCents() {
+    return flexLLMCostCents;
+  }
+
+  public void setFlexLLMCostCents(@javax.annotation.Nullable Double flexLLMCostCents) {
+    this.flexLLMCostCents = flexLLMCostCents;
+  }
+
+
+  public TenantPackage flexLLMUnit(@javax.annotation.Nullable Double flexLLMUnit) {
+    this.flexLLMUnit = flexLLMUnit;
+    return this;
+  }
+
+  /**
+   * Get flexLLMUnit
+   * @return flexLLMUnit
+   */
+  @javax.annotation.Nullable
+  public Double getFlexLLMUnit() {
+    return flexLLMUnit;
+  }
+
+  public void setFlexLLMUnit(@javax.annotation.Nullable Double flexLLMUnit) {
+    this.flexLLMUnit = flexLLMUnit;
+  }
+
+
   public TenantPackage flexMinimumCostCents(@javax.annotation.Nullable Double flexMinimumCostCents) {
     this.flexMinimumCostCents = flexMinimumCostCents;
     return this;
@@ -1417,6 +1465,8 @@ public class TenantPackage {
         Objects.equals(this.flexDomainUnit, tenantPackage.flexDomainUnit) &&
         Objects.equals(this.flexChatGPTCostCents, tenantPackage.flexChatGPTCostCents) &&
         Objects.equals(this.flexChatGPTUnit, tenantPackage.flexChatGPTUnit) &&
+        Objects.equals(this.flexLLMCostCents, tenantPackage.flexLLMCostCents) &&
+        Objects.equals(this.flexLLMUnit, tenantPackage.flexLLMUnit) &&
         Objects.equals(this.flexMinimumCostCents, tenantPackage.flexMinimumCostCents) &&
         Objects.equals(this.flexManagedTenantCostCents, tenantPackage.flexManagedTenantCostCents) &&
         Objects.equals(this.flexSSOAdminCostCents, tenantPackage.flexSSOAdminCostCents) &&
@@ -1428,7 +1478,7 @@ public class TenantPackage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, tenantId, createdAt, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, isSSOBillingMonthlyActiveUsers);
+    return Objects.hash(id, name, tenantId, createdAt, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, isSSOBillingMonthlyActiveUsers);
   }
 
   @Override
@@ -1482,6 +1532,8 @@ public class TenantPackage {
     sb.append("    flexDomainUnit: ").append(toIndentedString(flexDomainUnit)).append("\n");
     sb.append("    flexChatGPTCostCents: ").append(toIndentedString(flexChatGPTCostCents)).append("\n");
     sb.append("    flexChatGPTUnit: ").append(toIndentedString(flexChatGPTUnit)).append("\n");
+    sb.append("    flexLLMCostCents: ").append(toIndentedString(flexLLMCostCents)).append("\n");
+    sb.append("    flexLLMUnit: ").append(toIndentedString(flexLLMUnit)).append("\n");
     sb.append("    flexMinimumCostCents: ").append(toIndentedString(flexMinimumCostCents)).append("\n");
     sb.append("    flexManagedTenantCostCents: ").append(toIndentedString(flexManagedTenantCostCents)).append("\n");
     sb.append("    flexSSOAdminCostCents: ").append(toIndentedString(flexSSOAdminCostCents)).append("\n");
@@ -1558,6 +1610,8 @@ public class TenantPackage {
     openapiFields.add("flexDomainUnit");
     openapiFields.add("flexChatGPTCostCents");
     openapiFields.add("flexChatGPTUnit");
+    openapiFields.add("flexLLMCostCents");
+    openapiFields.add("flexLLMUnit");
     openapiFields.add("flexMinimumCostCents");
     openapiFields.add("flexManagedTenantCostCents");
     openapiFields.add("flexSSOAdminCostCents");

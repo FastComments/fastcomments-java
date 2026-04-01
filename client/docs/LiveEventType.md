@@ -39,5 +39,13 @@
 
 * `DELETED_FEED_POST` (value: `"deleted-feed-post"`)
 
+* `NEW_TICKET` (value: `"new-ticket"`)
+
+* `UPDATED_TICKET_STATE` (value: `"updated-ticket-state"`)
+
+* `UPDATED_TICKET_ASSIGNMENT` (value: `"updated-ticket-assignment"`)
+
+* `DELETED_TICKET` (value: `"deleted-ticket"`)
+
 
 

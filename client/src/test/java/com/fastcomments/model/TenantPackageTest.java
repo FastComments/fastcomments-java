@@ -417,6 +417,22 @@ public class TenantPackageTest {
     }
 
     /**
+     * Test the property 'flexLLMCostCents'
+     */
+    @Test
+    public void flexLLMCostCentsTest() {
+        // TODO: test flexLLMCostCents
+    }
+
+    /**
+     * Test the property 'flexLLMUnit'
+     */
+    @Test
+    public void flexLLMUnitTest() {
+        // TODO: test flexLLMUnit
+    }
+
+    /**
      * Test the property 'flexMinimumCostCents'
      */
     @Test

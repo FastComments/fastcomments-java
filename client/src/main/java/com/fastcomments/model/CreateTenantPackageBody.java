@@ -257,15 +257,15 @@ public class CreateTenantPackageBody {
   @javax.annotation.Nullable
   private Double flexDomainUnit;
 
-  public static final String SERIALIZED_NAME_FLEX_CHAT_G_P_T_COST_CENTS = "flexChatGPTCostCents";
-  @SerializedName(SERIALIZED_NAME_FLEX_CHAT_G_P_T_COST_CENTS)
+  public static final String SERIALIZED_NAME_FLEX_L_L_M_COST_CENTS = "flexLLMCostCents";
+  @SerializedName(SERIALIZED_NAME_FLEX_L_L_M_COST_CENTS)
   @javax.annotation.Nullable
-  private Double flexChatGPTCostCents;
+  private Double flexLLMCostCents;
 
-  public static final String SERIALIZED_NAME_FLEX_CHAT_G_P_T_UNIT = "flexChatGPTUnit";
-  @SerializedName(SERIALIZED_NAME_FLEX_CHAT_G_P_T_UNIT)
+  public static final String SERIALIZED_NAME_FLEX_L_L_M_UNIT = "flexLLMUnit";
+  @SerializedName(SERIALIZED_NAME_FLEX_L_L_M_UNIT)
   @javax.annotation.Nullable
-  private Double flexChatGPTUnit;
+  private Double flexLLMUnit;
 
   public static final String SERIALIZED_NAME_FLEX_MINIMUM_COST_CENTS = "flexMinimumCostCents";
   @SerializedName(SERIALIZED_NAME_FLEX_MINIMUM_COST_CENTS)
@@ -1087,41 +1087,41 @@ public class CreateTenantPackageBody {
   }
 
 
-  public CreateTenantPackageBody flexChatGPTCostCents(@javax.annotation.Nullable Double flexChatGPTCostCents) {
-    this.flexChatGPTCostCents = flexChatGPTCostCents;
+  public CreateTenantPackageBody flexLLMCostCents(@javax.annotation.Nullable Double flexLLMCostCents) {
+    this.flexLLMCostCents = flexLLMCostCents;
     return this;
   }
 
   /**
-   * Get flexChatGPTCostCents
-   * @return flexChatGPTCostCents
+   * Get flexLLMCostCents
+   * @return flexLLMCostCents
    */
   @javax.annotation.Nullable
-  public Double getFlexChatGPTCostCents() {
-    return flexChatGPTCostCents;
+  public Double getFlexLLMCostCents() {
+    return flexLLMCostCents;
   }
 
-  public void setFlexChatGPTCostCents(@javax.annotation.Nullable Double flexChatGPTCostCents) {
-    this.flexChatGPTCostCents = flexChatGPTCostCents;
+  public void setFlexLLMCostCents(@javax.annotation.Nullable Double flexLLMCostCents) {
+    this.flexLLMCostCents = flexLLMCostCents;
   }
 
 
-  public CreateTenantPackageBody flexChatGPTUnit(@javax.annotation.Nullable Double flexChatGPTUnit) {
-    this.flexChatGPTUnit = flexChatGPTUnit;
+  public CreateTenantPackageBody flexLLMUnit(@javax.annotation.Nullable Double flexLLMUnit) {
+    this.flexLLMUnit = flexLLMUnit;
     return this;
   }
 
   /**
-   * Get flexChatGPTUnit
-   * @return flexChatGPTUnit
+   * Get flexLLMUnit
+   * @return flexLLMUnit
    */
   @javax.annotation.Nullable
-  public Double getFlexChatGPTUnit() {
-    return flexChatGPTUnit;
+  public Double getFlexLLMUnit() {
+    return flexLLMUnit;
   }
 
-  public void setFlexChatGPTUnit(@javax.annotation.Nullable Double flexChatGPTUnit) {
-    this.flexChatGPTUnit = flexChatGPTUnit;
+  public void setFlexLLMUnit(@javax.annotation.Nullable Double flexLLMUnit) {
+    this.flexLLMUnit = flexLLMUnit;
   }
 
 
@@ -1290,8 +1290,8 @@ public class CreateTenantPackageBody {
         Objects.equals(this.flexAdminUnit, createTenantPackageBody.flexAdminUnit) &&
         Objects.equals(this.flexDomainCostCents, createTenantPackageBody.flexDomainCostCents) &&
         Objects.equals(this.flexDomainUnit, createTenantPackageBody.flexDomainUnit) &&
-        Objects.equals(this.flexChatGPTCostCents, createTenantPackageBody.flexChatGPTCostCents) &&
-        Objects.equals(this.flexChatGPTUnit, createTenantPackageBody.flexChatGPTUnit) &&
+        Objects.equals(this.flexLLMCostCents, createTenantPackageBody.flexLLMCostCents) &&
+        Objects.equals(this.flexLLMUnit, createTenantPackageBody.flexLLMUnit) &&
         Objects.equals(this.flexMinimumCostCents, createTenantPackageBody.flexMinimumCostCents) &&
         Objects.equals(this.flexManagedTenantCostCents, createTenantPackageBody.flexManagedTenantCostCents) &&
         Objects.equals(this.flexSSOAdminCostCents, createTenantPackageBody.flexSSOAdminCostCents) &&
@@ -1302,7 +1302,7 @@ public class CreateTenantPackageBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit);
+    return Objects.hash(name, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit);
   }
 
   @Override
@@ -1350,8 +1350,8 @@ public class CreateTenantPackageBody {
     sb.append("    flexAdminUnit: ").append(toIndentedString(flexAdminUnit)).append("\n");
     sb.append("    flexDomainCostCents: ").append(toIndentedString(flexDomainCostCents)).append("\n");
     sb.append("    flexDomainUnit: ").append(toIndentedString(flexDomainUnit)).append("\n");
-    sb.append("    flexChatGPTCostCents: ").append(toIndentedString(flexChatGPTCostCents)).append("\n");
-    sb.append("    flexChatGPTUnit: ").append(toIndentedString(flexChatGPTUnit)).append("\n");
+    sb.append("    flexLLMCostCents: ").append(toIndentedString(flexLLMCostCents)).append("\n");
+    sb.append("    flexLLMUnit: ").append(toIndentedString(flexLLMUnit)).append("\n");
     sb.append("    flexMinimumCostCents: ").append(toIndentedString(flexMinimumCostCents)).append("\n");
     sb.append("    flexManagedTenantCostCents: ").append(toIndentedString(flexManagedTenantCostCents)).append("\n");
     sb.append("    flexSSOAdminCostCents: ").append(toIndentedString(flexSSOAdminCostCents)).append("\n");
@@ -1421,8 +1421,8 @@ public class CreateTenantPackageBody {
     openapiFields.add("flexAdminUnit");
     openapiFields.add("flexDomainCostCents");
     openapiFields.add("flexDomainUnit");
-    openapiFields.add("flexChatGPTCostCents");
-    openapiFields.add("flexChatGPTUnit");
+    openapiFields.add("flexLLMCostCents");
+    openapiFields.add("flexLLMUnit");
     openapiFields.add("flexMinimumCostCents");
     openapiFields.add("flexManagedTenantCostCents");
     openapiFields.add("flexSSOAdminCostCents");

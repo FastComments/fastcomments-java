@@ -1609,7 +1609,11 @@
 					"dfr",
 					"new-feed-post",
 					"updated-feed-post",
-					"deleted-feed-post"
+					"deleted-feed-post",
+					"new-ticket",
+					"updated-ticket-state",
+					"updated-ticket-assignment",
+					"deleted-ticket"
 				],
 				"type": "string"
 			},
@@ -5481,6 +5485,14 @@
 						"type": "number",
 						"format": "double"
 					},
+					"flexLLMCostCents": {
+						"type": "number",
+						"format": "double"
+					},
+					"flexLLMUnit": {
+						"type": "number",
+						"format": "double"
+					},
 					"flexMinimumCostCents": {
 						"type": "number",
 						"format": "double"
@@ -5754,11 +5766,11 @@
 						"type": "number",
 						"format": "double"
 					},
-					"flexChatGPTCostCents": {
+					"flexLLMCostCents": {
 						"type": "number",
 						"format": "double"
 					},
-					"flexChatGPTUnit": {
+					"flexLLMUnit": {
 						"type": "number",
 						"format": "double"
 					},
