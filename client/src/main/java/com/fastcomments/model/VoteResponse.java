@@ -318,8 +318,6 @@ public class VoteResponse {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // validate the required field `status`
-      String.validateJsonElement(jsonObj.get("status"));
-      // validate the required field `status`
       StatusEnum.validateJsonElement(jsonObj.get("status"));
       if ((jsonObj.get("voteId") != null && !jsonObj.get("voteId").isJsonNull()) && !jsonObj.get("voteId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `voteId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("voteId").toString()));
