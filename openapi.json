@@ -2073,6 +2073,10 @@
 						},
 						"type": "array"
 					},
+					"sc": {
+						"type": "integer",
+						"format": "int32"
+					},
 					"changes": {
 						"$ref": "#/components/schemas/Int32Map"
 					}

@@ -136,6 +136,11 @@ public class LiveEvent {
   @javax.annotation.Nullable
   private List<String> ul = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SC = "sc";
+  @SerializedName(SERIALIZED_NAME_SC)
+  @javax.annotation.Nullable
+  private Integer sc;
+
   public static final String SERIALIZED_NAME_CHANGES = "changes";
   @SerializedName(SERIALIZED_NAME_CHANGES)
   @javax.annotation.Nullable
@@ -453,6 +458,25 @@ public class LiveEvent {
   }
 
 
+  public LiveEvent sc(@javax.annotation.Nullable Integer sc) {
+    this.sc = sc;
+    return this;
+  }
+
+  /**
+   * Get sc
+   * @return sc
+   */
+  @javax.annotation.Nullable
+  public Integer getSc() {
+    return sc;
+  }
+
+  public void setSc(@javax.annotation.Nullable Integer sc) {
+    this.sc = sc;
+  }
+
+
   public LiveEvent changes(@javax.annotation.Nullable Map<String, Integer> changes) {
     this.changes = changes;
     return this;
@@ -505,12 +529,13 @@ public class LiveEvent {
         Objects.equals(this.isClosed, liveEvent.isClosed) &&
         Objects.equals(this.uj, liveEvent.uj) &&
         Objects.equals(this.ul, liveEvent.ul) &&
+        Objects.equals(this.sc, liveEvent.sc) &&
         Objects.equals(this.changes, liveEvent.changes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, timestamp, ts, broadcastId, userId, badges, notification, vote, comment, feedPost, extraInfo, config, isClosed, uj, ul, changes);
+    return Objects.hash(type, timestamp, ts, broadcastId, userId, badges, notification, vote, comment, feedPost, extraInfo, config, isClosed, uj, ul, sc, changes);
   }
 
   @Override
@@ -532,6 +557,7 @@ public class LiveEvent {
     sb.append("    isClosed: ").append(toIndentedString(isClosed)).append("\n");
     sb.append("    uj: ").append(toIndentedString(uj)).append("\n");
     sb.append("    ul: ").append(toIndentedString(ul)).append("\n");
+    sb.append("    sc: ").append(toIndentedString(sc)).append("\n");
     sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -570,6 +596,7 @@ public class LiveEvent {
     openapiFields.add("isClosed");
     openapiFields.add("uj");
     openapiFields.add("ul");
+    openapiFields.add("sc");
     openapiFields.add("changes");
 
     // a set of required properties/fields (JSON key names)

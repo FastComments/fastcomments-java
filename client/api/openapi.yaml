@@ -8549,6 +8549,9 @@ components:
           items:
             type: string
           type: array
+        sc:
+          format: int32
+          type: integer
         changes:
           additionalProperties:
             format: int32
