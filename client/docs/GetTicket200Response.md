@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**ticket** | [**APITicketDetail**](APITicketDetail.md) |  |  |
-|**availableStates** | **List&lt;Double&gt;** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**ticket** | [**APITicketDetail**](APITicketDetail.md) |  |  [optional] |
+|**availableStates** | **List&lt;Double&gt;** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

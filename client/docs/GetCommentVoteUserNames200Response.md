@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**voteUserNames** | **List&lt;String&gt;** |  |  |
-|**hasMore** | **Boolean** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**voteUserNames** | **List&lt;String&gt;** |  |  [optional] |
+|**hasMore** | **Boolean** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

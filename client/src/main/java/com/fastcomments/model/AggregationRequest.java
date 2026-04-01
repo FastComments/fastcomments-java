@@ -53,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * The aggregation request accepts a resource, optional grouping keys, an array of operations, and an optional sort
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class AggregationRequest {
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)
@@ -254,17 +254,10 @@ public class AggregationRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("query");
-    openapiFields.add("resourceName");
-    openapiFields.add("groupBy");
-    openapiFields.add("operations");
-    openapiFields.add("sort");
+    openapiFields = new HashSet<String>(Arrays.asList("query", "resourceName", "groupBy", "operations", "sort"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("resourceName");
-    openapiRequiredFields.add("operations");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("resourceName", "operations"));
   }
 
   /**
@@ -276,7 +269,7 @@ public class AggregationRequest {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AggregationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AggregationRequest is not found in the empty JSON string", AggregationRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AggregationRequest is not found in the empty JSON string", AggregationRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -284,14 +277,14 @@ public class AggregationRequest {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AggregationRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AggregationRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AggregationRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AggregationRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -300,7 +293,7 @@ public class AggregationRequest {
         if (jsonArrayquery != null) {
           // ensure the json data is an array
           if (!jsonObj.get("query").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `query` to be an array in the JSON string but got `%s`", jsonObj.get("query").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `query` to be an array in the JSON string but got `%s`", jsonObj.get("query").toString()));
           }
 
           // validate the optional field `query` (array)
@@ -310,15 +303,15 @@ public class AggregationRequest {
         }
       }
       if (!jsonObj.get("resourceName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resourceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resourceName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resourceName").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("groupBy") != null && !jsonObj.get("groupBy").isJsonNull() && !jsonObj.get("groupBy").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `groupBy` to be an array in the JSON string but got `%s`", jsonObj.get("groupBy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `groupBy` to be an array in the JSON string but got `%s`", jsonObj.get("groupBy").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("operations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
       }
 
       JsonArray jsonArrayoperations = jsonObj.getAsJsonArray("operations");

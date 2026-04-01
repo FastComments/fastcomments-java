@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CreateTenantPackageBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class CreateTenantPackageBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -1379,72 +1379,10 @@ public class CreateTenantPackageBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("monthlyCostUSD");
-    openapiFields.add("yearlyCostUSD");
-    openapiFields.add("monthlyStripePlanId");
-    openapiFields.add("yearlyStripePlanId");
-    openapiFields.add("maxMonthlyPageLoads");
-    openapiFields.add("maxMonthlyAPICredits");
-    openapiFields.add("maxMonthlySmallWidgetsCredits");
-    openapiFields.add("maxMonthlyComments");
-    openapiFields.add("maxConcurrentUsers");
-    openapiFields.add("maxTenantUsers");
-    openapiFields.add("maxSSOUsers");
-    openapiFields.add("maxModerators");
-    openapiFields.add("maxDomains");
-    openapiFields.add("maxWhiteLabeledTenants");
-    openapiFields.add("maxMonthlyEventLogRequests");
-    openapiFields.add("maxCustomCollectionSize");
-    openapiFields.add("hasWhiteLabeling");
-    openapiFields.add("hasDebranding");
-    openapiFields.add("hasLLMSpamDetection");
-    openapiFields.add("forWhoText");
-    openapiFields.add("featureTaglines");
-    openapiFields.add("hasAuditing");
-    openapiFields.add("hasFlexPricing");
-    openapiFields.add("enableSAML");
-    openapiFields.add("flexPageLoadCostCents");
-    openapiFields.add("flexPageLoadUnit");
-    openapiFields.add("flexCommentCostCents");
-    openapiFields.add("flexCommentUnit");
-    openapiFields.add("flexSSOUserCostCents");
-    openapiFields.add("flexSSOUserUnit");
-    openapiFields.add("flexAPICreditCostCents");
-    openapiFields.add("flexAPICreditUnit");
-    openapiFields.add("flexSmallWidgetsCreditCostCents");
-    openapiFields.add("flexSmallWidgetsCreditUnit");
-    openapiFields.add("flexModeratorCostCents");
-    openapiFields.add("flexModeratorUnit");
-    openapiFields.add("flexAdminCostCents");
-    openapiFields.add("flexAdminUnit");
-    openapiFields.add("flexDomainCostCents");
-    openapiFields.add("flexDomainUnit");
-    openapiFields.add("flexLLMCostCents");
-    openapiFields.add("flexLLMUnit");
-    openapiFields.add("flexMinimumCostCents");
-    openapiFields.add("flexManagedTenantCostCents");
-    openapiFields.add("flexSSOAdminCostCents");
-    openapiFields.add("flexSSOAdminUnit");
-    openapiFields.add("flexSSOModeratorCostCents");
-    openapiFields.add("flexSSOModeratorUnit");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("maxMonthlyPageLoads");
-    openapiRequiredFields.add("maxMonthlyAPICredits");
-    openapiRequiredFields.add("maxMonthlyComments");
-    openapiRequiredFields.add("maxConcurrentUsers");
-    openapiRequiredFields.add("maxTenantUsers");
-    openapiRequiredFields.add("maxSSOUsers");
-    openapiRequiredFields.add("maxModerators");
-    openapiRequiredFields.add("maxDomains");
-    openapiRequiredFields.add("hasDebranding");
-    openapiRequiredFields.add("forWhoText");
-    openapiRequiredFields.add("featureTaglines");
-    openapiRequiredFields.add("hasFlexPricing");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "hasDebranding", "forWhoText", "featureTaglines", "hasFlexPricing"));
   }
 
   /**
@@ -1456,7 +1394,7 @@ public class CreateTenantPackageBody {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateTenantPackageBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTenantPackageBody is not found in the empty JSON string", CreateTenantPackageBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateTenantPackageBody is not found in the empty JSON string", CreateTenantPackageBody.openapiRequiredFields.toString()));
         }
       }
 
@@ -1464,34 +1402,34 @@ public class CreateTenantPackageBody {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateTenantPackageBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateTenantPackageBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateTenantPackageBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateTenantPackageBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("monthlyStripePlanId") != null && !jsonObj.get("monthlyStripePlanId").isJsonNull()) && !jsonObj.get("monthlyStripePlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `monthlyStripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monthlyStripePlanId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `monthlyStripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monthlyStripePlanId").toString()));
       }
       if ((jsonObj.get("yearlyStripePlanId") != null && !jsonObj.get("yearlyStripePlanId").isJsonNull()) && !jsonObj.get("yearlyStripePlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `yearlyStripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("yearlyStripePlanId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `yearlyStripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("yearlyStripePlanId").toString()));
       }
       if (!jsonObj.get("forWhoText").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `forWhoText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forWhoText").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `forWhoText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forWhoText").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("featureTaglines") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("featureTaglines").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `featureTaglines` to be an array in the JSON string but got `%s`", jsonObj.get("featureTaglines").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `featureTaglines` to be an array in the JSON string but got `%s`", jsonObj.get("featureTaglines").toString()));
       }
   }
 

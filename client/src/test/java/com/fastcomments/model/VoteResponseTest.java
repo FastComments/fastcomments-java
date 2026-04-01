@@ -13,7 +13,6 @@
 
 package com.fastcomments.model;
 
-import com.fastcomments.model.VoteResponseStatus;
 import com.fastcomments.model.VoteResponseUser;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

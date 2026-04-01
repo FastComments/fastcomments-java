@@ -66,7 +66,7 @@ import com.google.gson.JsonParseException;
 
 import com.fastcomments.invoker.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class GetUserNotifications200Response extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(GetUserNotifications200Response.class.getName());
 
@@ -122,7 +122,7 @@ public class GetUserNotifications200Response extends AbstractOpenApiSchema {
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GetMyNotificationsResponse failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for GetMyNotificationsResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'GetMyNotificationsResponse'", e);
                     }
                     // deserialize APIError
@@ -135,11 +135,11 @@ public class GetUserNotifications200Response extends AbstractOpenApiSchema {
                         return ret;
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
                     }
 
-                    throw new IOException(String.format("Failed deserialization for GetUserNotifications200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for GetUserNotifications200Response: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
             }.nullSafe();
         }
@@ -237,7 +237,7 @@ public class GetUserNotifications200Response extends AbstractOpenApiSchema {
             GetMyNotificationsResponse.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for GetMyNotificationsResponse failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for GetMyNotificationsResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with APIError
@@ -245,10 +245,10 @@ public class GetUserNotifications200Response extends AbstractOpenApiSchema {
             APIError.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for APIError failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format("The JSON string is invalid for GetUserNotifications200Response with anyOf schemas: APIError, GetMyNotificationsResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for GetUserNotifications200Response with anyOf schemas: APIError, GetMyNotificationsResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

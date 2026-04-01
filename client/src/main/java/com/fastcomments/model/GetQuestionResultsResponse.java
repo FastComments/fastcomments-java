@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetQuestionResultsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class GetQuestionResultsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -159,14 +159,10 @@ public class GetQuestionResultsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("questionResults");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "questionResults"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("questionResults");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "questionResults"));
   }
 
   /**
@@ -178,7 +174,7 @@ public class GetQuestionResultsResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetQuestionResultsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetQuestionResultsResponse is not found in the empty JSON string", GetQuestionResultsResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetQuestionResultsResponse is not found in the empty JSON string", GetQuestionResultsResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -186,14 +182,14 @@ public class GetQuestionResultsResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetQuestionResultsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetQuestionResultsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetQuestionResultsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetQuestionResultsResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -201,7 +197,7 @@ public class GetQuestionResultsResponse {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("questionResults").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `questionResults` to be an array in the JSON string but got `%s`", jsonObj.get("questionResults").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `questionResults` to be an array in the JSON string but got `%s`", jsonObj.get("questionResults").toString()));
       }
 
       JsonArray jsonArrayquestionResults = jsonObj.getAsJsonArray("questionResults");

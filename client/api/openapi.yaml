@@ -63,7 +63,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchUsers_200_response'
+                $ref: "#/components/schemas/SearchUsers_200_response"
           description: Ok
       security: []
       tags:
@@ -100,13 +100,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserPresenceStatuses_200_response'
+                $ref: "#/components/schemas/GetUserPresenceStatuses_200_response"
           description: Ok
         "422":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIError'
+                $ref: "#/components/schemas/APIError"
           description: Validation Failed
       security: []
       tags:
@@ -194,7 +194,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserNotifications_200_response'
+                $ref: "#/components/schemas/GetUserNotifications_200_response"
           description: Ok
       security: []
       tags:
@@ -260,7 +260,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResetUserNotifications_200_response'
+                $ref: "#/components/schemas/ResetUserNotifications_200_response"
           description: Ok
       security: []
       tags:
@@ -290,7 +290,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserNotificationCount_200_response'
+                $ref: "#/components/schemas/GetUserNotificationCount_200_response"
           description: Ok
       security: []
       tags:
@@ -320,7 +320,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResetUserNotifications_200_response'
+                $ref: "#/components/schemas/ResetUserNotifications_200_response"
           description: Ok
       security: []
       tags:
@@ -367,7 +367,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateUserNotificationStatus_200_response'
+                $ref: "#/components/schemas/UpdateUserNotificationStatus_200_response"
           description: Ok
       security: []
       tags:
@@ -422,7 +422,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateUserNotificationStatus_200_response'
+                $ref: "#/components/schemas/UpdateUserNotificationStatus_200_response"
           description: Ok
       security: []
       tags:
@@ -486,7 +486,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateUserNotificationStatus_200_response'
+                $ref: "#/components/schemas/UpdateUserNotificationStatus_200_response"
           description: Ok
       security: []
       tags:
@@ -512,7 +512,7 @@ paths:
         name: sizePreset
         required: false
         schema:
-          $ref: '#/components/schemas/SizePreset'
+          $ref: "#/components/schemas/SizePreset"
         style: form
       - description: "Page id that upload is happening from, to configure"
         explode: true
@@ -526,14 +526,14 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/UploadImage_request'
+              $ref: "#/components/schemas/UploadImage_request"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UploadImageResponse'
+                $ref: "#/components/schemas/UploadImageResponse"
           description: Ok
       security: []
       tags:
@@ -578,7 +578,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -651,7 +651,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeedPostsPublic_200_response'
+                $ref: "#/components/schemas/GetFeedPostsPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -686,14 +686,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateFeedPostParams'
+              $ref: "#/components/schemas/CreateFeedPostParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateFeedPostPublic_200_response'
+                $ref: "#/components/schemas/CreateFeedPostPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -744,14 +744,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReactBodyParams'
+              $ref: "#/components/schemas/ReactBodyParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ReactFeedPostPublic_200_response'
+                $ref: "#/components/schemas/ReactFeedPostPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -791,7 +791,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserReactsPublic_200_response'
+                $ref: "#/components/schemas/GetUserReactsPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -835,7 +835,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteFeedPostPublic_200_response'
+                $ref: "#/components/schemas/DeleteFeedPostPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -877,14 +877,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateFeedPostParams'
+              $ref: "#/components/schemas/UpdateFeedPostParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateFeedPostPublic_200_response'
+                $ref: "#/components/schemas/CreateFeedPostPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -924,7 +924,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeedPostsStats_200_response'
+                $ref: "#/components/schemas/GetFeedPostsStats_200_response"
           description: Ok
       security: []
       tags:
@@ -983,7 +983,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEventLog_200_response'
+                $ref: "#/components/schemas/GetEventLog_200_response"
           description: Ok
       security: []
       tags:
@@ -1042,7 +1042,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEventLog_200_response'
+                $ref: "#/components/schemas/GetEventLog_200_response"
           description: Ok
       security: []
       tags:
@@ -1086,7 +1086,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCommentText_200_response'
+                $ref: "#/components/schemas/GetCommentText_200_response"
           description: Ok
       security: []
       tags:
@@ -1136,14 +1136,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CommentTextUpdateRequest'
+              $ref: "#/components/schemas/CommentTextUpdateRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SetCommentText_200_response'
+                $ref: "#/components/schemas/SetCommentText_200_response"
           description: Ok
       security: []
       tags:
@@ -1187,7 +1187,7 @@ paths:
         name: direction
         required: false
         schema:
-          $ref: '#/components/schemas/SortDirections'
+          $ref: "#/components/schemas/SortDirections"
         style: form
       - explode: true
         in: query
@@ -1369,7 +1369,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCommentsPublic_200_response'
+                $ref: "#/components/schemas/GetCommentsPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -1418,14 +1418,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CommentData'
+              $ref: "#/components/schemas/CommentData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateCommentPublic_200_response'
+                $ref: "#/components/schemas/CreateCommentPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -1477,7 +1477,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteCommentPublic_200_response'
+                $ref: "#/components/schemas/DeleteCommentPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -1515,7 +1515,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CheckedCommentsForBlocked_200_response'
+                $ref: "#/components/schemas/CheckedCommentsForBlocked_200_response"
           description: Ok
       security: []
       tags:
@@ -1572,14 +1572,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/VoteBodyParams'
+              $ref: "#/components/schemas/VoteBodyParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VoteComment_200_response'
+                $ref: "#/components/schemas/VoteComment_200_response"
           description: Ok
       security: []
       tags:
@@ -1645,7 +1645,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteCommentVote_200_response'
+                $ref: "#/components/schemas/DeleteCommentVote_200_response"
           description: Ok
       security: []
       tags:
@@ -1690,7 +1690,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCommentVoteUserNames_200_response'
+                $ref: "#/components/schemas/GetCommentVoteUserNames_200_response"
           description: Ok
       security: []
       tags:
@@ -1734,7 +1734,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PinComment_200_response'
+                $ref: "#/components/schemas/PinComment_200_response"
           description: Ok
       security: []
       tags:
@@ -1778,7 +1778,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PinComment_200_response'
+                $ref: "#/components/schemas/PinComment_200_response"
           description: Ok
       security: []
       tags:
@@ -1822,7 +1822,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LockComment_200_response'
+                $ref: "#/components/schemas/LockComment_200_response"
           description: Ok
       security: []
       tags:
@@ -1866,7 +1866,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LockComment_200_response'
+                $ref: "#/components/schemas/LockComment_200_response"
           description: Ok
       security: []
       tags:
@@ -1902,14 +1902,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PublicBlockFromCommentParams'
+              $ref: "#/components/schemas/PublicBlockFromCommentParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnBlockCommentPublic_200_response'
+                $ref: "#/components/schemas/UnBlockCommentPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -1945,14 +1945,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PublicBlockFromCommentParams'
+              $ref: "#/components/schemas/PublicBlockFromCommentParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockFromCommentPublic_200_response'
+                $ref: "#/components/schemas/BlockFromCommentPublic_200_response"
           description: Ok
       security: []
       tags:
@@ -1983,7 +1983,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSubscriptionsAPIResponse'
+                $ref: "#/components/schemas/GetSubscriptionsAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2003,14 +2003,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateAPIUserSubscriptionData'
+              $ref: "#/components/schemas/CreateAPIUserSubscriptionData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateSubscriptionAPIResponse'
+                $ref: "#/components/schemas/CreateSubscriptionAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2047,7 +2047,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteSubscriptionAPIResponse'
+                $ref: "#/components/schemas/DeleteSubscriptionAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2081,14 +2081,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateAPIUserSubscriptionData'
+              $ref: "#/components/schemas/UpdateAPIUserSubscriptionData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateSubscriptionAPIResponse'
+                $ref: "#/components/schemas/UpdateSubscriptionAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2119,7 +2119,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSSOUsers_200_response'
+                $ref: "#/components/schemas/GetSSOUsers_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2139,14 +2139,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateAPISSOUserData'
+              $ref: "#/components/schemas/CreateAPISSOUserData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AddSSOUserAPIResponse'
+                $ref: "#/components/schemas/AddSSOUserAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2176,7 +2176,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSSOUserByIdAPIResponse'
+                $ref: "#/components/schemas/GetSSOUserByIdAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2205,7 +2205,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSSOUserByEmailAPIResponse'
+                $ref: "#/components/schemas/GetSSOUserByEmailAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2248,7 +2248,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteSSOUserAPIResponse'
+                $ref: "#/components/schemas/DeleteSSOUserAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2282,14 +2282,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateAPISSOUserData'
+              $ref: "#/components/schemas/UpdateAPISSOUserData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatchSSOUserAPIResponse'
+                $ref: "#/components/schemas/PatchSSOUserAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2324,14 +2324,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateAPISSOUserData'
+              $ref: "#/components/schemas/UpdateAPISSOUserData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PutSSOUserAPIResponse'
+                $ref: "#/components/schemas/PutSSOUserAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2354,7 +2354,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPagesAPIResponse'
+                $ref: "#/components/schemas/GetPagesAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2374,14 +2374,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateAPIPageData'
+              $ref: "#/components/schemas/CreateAPIPageData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AddPageAPIResponse'
+                $ref: "#/components/schemas/AddPageAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2411,7 +2411,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPageByURLIdAPIResponse'
+                $ref: "#/components/schemas/GetPageByURLIdAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2440,7 +2440,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeletePageAPIResponse'
+                $ref: "#/components/schemas/DeletePageAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2467,14 +2467,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateAPIPageData'
+              $ref: "#/components/schemas/UpdateAPIPageData"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatchPageAPIResponse'
+                $ref: "#/components/schemas/PatchPageAPIResponse"
           description: Ok
       security:
       - api_key: []
@@ -2504,7 +2504,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetVotes_200_response'
+                $ref: "#/components/schemas/GetVotes_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2556,7 +2556,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VoteComment_200_response'
+                $ref: "#/components/schemas/VoteComment_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2599,7 +2599,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetVotesForUser_200_response'
+                $ref: "#/components/schemas/GetVotesForUser_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2635,7 +2635,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteCommentVote_200_response'
+                $ref: "#/components/schemas/DeleteCommentVote_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2664,7 +2664,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUser_200_response'
+                $ref: "#/components/schemas/GetUser_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2693,7 +2693,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateUserBadge_200_response'
+                $ref: "#/components/schemas/UpdateUserBadge_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2721,7 +2721,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserBadge_200_response'
+                $ref: "#/components/schemas/GetUserBadge_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2748,14 +2748,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateUserBadgeParams'
+              $ref: "#/components/schemas/UpdateUserBadgeParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateUserBadge_200_response'
+                $ref: "#/components/schemas/UpdateUserBadge_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2823,7 +2823,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserBadges_200_response'
+                $ref: "#/components/schemas/GetUserBadges_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2843,14 +2843,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUserBadgeParams'
+              $ref: "#/components/schemas/CreateUserBadgeParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateUserBadge_200_response'
+                $ref: "#/components/schemas/CreateUserBadge_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2880,7 +2880,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserBadgeProgressById_200_response'
+                $ref: "#/components/schemas/GetUserBadgeProgressById_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2925,7 +2925,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserBadgeProgressList_200_response'
+                $ref: "#/components/schemas/GetUserBadgeProgressList_200_response"
           description: Ok
       security:
       - api_key: []
@@ -2954,7 +2954,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetUserBadgeProgressById_200_response'
+                $ref: "#/components/schemas/GetUserBadgeProgressById_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3007,7 +3007,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTickets_200_response'
+                $ref: "#/components/schemas/GetTickets_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3034,14 +3034,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTicketBody'
+              $ref: "#/components/schemas/CreateTicketBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateTicket_200_response'
+                $ref: "#/components/schemas/CreateTicket_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3078,7 +3078,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTicket_200_response'
+                $ref: "#/components/schemas/GetTicket_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3113,14 +3113,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ChangeTicketStateBody'
+              $ref: "#/components/schemas/ChangeTicketStateBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ChangeTicketState_200_response'
+                $ref: "#/components/schemas/ChangeTicketState_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3157,7 +3157,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3185,7 +3185,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTenant_200_response'
+                $ref: "#/components/schemas/GetTenant_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3212,14 +3212,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateTenantBody'
+              $ref: "#/components/schemas/UpdateTenantBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3257,7 +3257,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTenants_200_response'
+                $ref: "#/components/schemas/GetTenants_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3277,14 +3277,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTenantBody'
+              $ref: "#/components/schemas/CreateTenantBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateTenant_200_response'
+                $ref: "#/components/schemas/CreateTenant_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3328,7 +3328,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3356,7 +3356,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTenantUser_200_response'
+                $ref: "#/components/schemas/GetTenantUser_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3390,14 +3390,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateTenantUserBody'
+              $ref: "#/components/schemas/UpdateTenantUserBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3432,14 +3432,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReplaceTenantUserBody'
+              $ref: "#/components/schemas/ReplaceTenantUserBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3470,7 +3470,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTenantUsers_200_response'
+                $ref: "#/components/schemas/GetTenantUsers_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3490,14 +3490,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTenantUserBody'
+              $ref: "#/components/schemas/CreateTenantUserBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateTenantUser_200_response'
+                $ref: "#/components/schemas/CreateTenantUser_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3534,7 +3534,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3563,7 +3563,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3591,7 +3591,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTenantPackage_200_response'
+                $ref: "#/components/schemas/GetTenantPackage_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3618,14 +3618,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateTenantPackageBody'
+              $ref: "#/components/schemas/UpdateTenantPackageBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3653,14 +3653,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReplaceTenantPackageBody'
+              $ref: "#/components/schemas/ReplaceTenantPackageBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3691,7 +3691,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTenantPackages_200_response'
+                $ref: "#/components/schemas/GetTenantPackages_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3711,14 +3711,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTenantPackageBody'
+              $ref: "#/components/schemas/CreateTenantPackageBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateTenantPackage_200_response'
+                $ref: "#/components/schemas/CreateTenantPackage_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3773,7 +3773,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetTenantDailyUsages_200_response'
+                $ref: "#/components/schemas/GetTenantDailyUsages_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3802,7 +3802,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3830,7 +3830,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetQuestionResult_200_response'
+                $ref: "#/components/schemas/GetQuestionResult_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3857,14 +3857,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateQuestionResultBody'
+              $ref: "#/components/schemas/UpdateQuestionResultBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3930,7 +3930,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetQuestionResults_200_response'
+                $ref: "#/components/schemas/GetQuestionResults_200_response"
           description: Ok
       security:
       - api_key: []
@@ -3950,14 +3950,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateQuestionResultBody'
+              $ref: "#/components/schemas/CreateQuestionResultBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateQuestionResult_200_response'
+                $ref: "#/components/schemas/CreateQuestionResult_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4003,7 +4003,7 @@ paths:
         name: timeBucket
         required: false
         schema:
-          $ref: '#/components/schemas/AggregateTimeBucket'
+          $ref: "#/components/schemas/AggregateTimeBucket"
         style: form
       - explode: true
         in: query
@@ -4025,7 +4025,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AggregateQuestionResults_200_response'
+                $ref: "#/components/schemas/AggregateQuestionResults_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4053,14 +4053,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BulkAggregateQuestionResultsRequest'
+              $ref: "#/components/schemas/BulkAggregateQuestionResultsRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkAggregateQuestionResults_200_response'
+                $ref: "#/components/schemas/BulkAggregateQuestionResults_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4145,7 +4145,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CombineCommentsWithQuestionResults_200_response'
+                $ref: "#/components/schemas/CombineCommentsWithQuestionResults_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4174,7 +4174,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4202,7 +4202,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetQuestionConfig_200_response'
+                $ref: "#/components/schemas/GetQuestionConfig_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4229,14 +4229,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateQuestionConfigBody'
+              $ref: "#/components/schemas/UpdateQuestionConfigBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4267,7 +4267,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetQuestionConfigs_200_response'
+                $ref: "#/components/schemas/GetQuestionConfigs_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4287,14 +4287,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateQuestionConfigBody'
+              $ref: "#/components/schemas/CreateQuestionConfigBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateQuestionConfig_200_response'
+                $ref: "#/components/schemas/CreateQuestionConfig_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4368,7 +4368,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPendingWebhookEvents_200_response'
+                $ref: "#/components/schemas/GetPendingWebhookEvents_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4433,7 +4433,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetPendingWebhookEventCount_200_response'
+                $ref: "#/components/schemas/GetPendingWebhookEventCount_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4462,7 +4462,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4527,7 +4527,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetNotifications_200_response'
+                $ref: "#/components/schemas/GetNotifications_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4584,7 +4584,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetNotificationCount_200_response'
+                $ref: "#/components/schemas/GetNotificationCount_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4619,14 +4619,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateNotificationBody'
+              $ref: "#/components/schemas/UpdateNotificationBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4656,7 +4656,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4684,7 +4684,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetCachedNotificationCount_200_response'
+                $ref: "#/components/schemas/GetCachedNotificationCount_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4720,7 +4720,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4748,7 +4748,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetModerator_200_response'
+                $ref: "#/components/schemas/GetModerator_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4775,14 +4775,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateModeratorBody'
+              $ref: "#/components/schemas/UpdateModeratorBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4813,7 +4813,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetModerators_200_response'
+                $ref: "#/components/schemas/GetModerators_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4833,14 +4833,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateModeratorBody'
+              $ref: "#/components/schemas/CreateModeratorBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateModerator_200_response'
+                $ref: "#/components/schemas/CreateModerator_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4877,7 +4877,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4907,7 +4907,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetHashTags_200_response'
+                $ref: "#/components/schemas/GetHashTags_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4927,14 +4927,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateHashTagBody'
+              $ref: "#/components/schemas/CreateHashTagBody"
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AddHashTag_200_response'
+                $ref: "#/components/schemas/AddHashTag_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4956,14 +4956,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BulkCreateHashTagsBody'
+              $ref: "#/components/schemas/BulkCreateHashTagsBody"
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AddHashTagsBulk_200_response'
+                $ref: "#/components/schemas/AddHashTagsBulk_200_response"
           description: Ok
       security:
       - api_key: []
@@ -4992,14 +4992,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DeleteHashTag_request'
+              $ref: "#/components/schemas/DeleteHashTag_request"
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5027,14 +5027,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateHashTagBody'
+              $ref: "#/components/schemas/UpdateHashTagBody"
         required: false
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PatchHashTag_200_response'
+                $ref: "#/components/schemas/PatchHashTag_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5086,7 +5086,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeedPosts_200_response'
+                $ref: "#/components/schemas/GetFeedPosts_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5134,14 +5134,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateFeedPostParams'
+              $ref: "#/components/schemas/CreateFeedPostParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateFeedPost_200_response'
+                $ref: "#/components/schemas/CreateFeedPost_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5170,14 +5170,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/FeedPost'
+              $ref: "#/components/schemas/FeedPost"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5200,7 +5200,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEmailTemplateDefinitions_200_response'
+                $ref: "#/components/schemas/GetEmailTemplateDefinitions_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5237,7 +5237,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEmailTemplateRenderErrors_200_response'
+                $ref: "#/components/schemas/GetEmailTemplateRenderErrors_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5273,7 +5273,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5302,7 +5302,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5330,7 +5330,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEmailTemplate_200_response'
+                $ref: "#/components/schemas/GetEmailTemplate_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5357,14 +5357,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateEmailTemplateBody'
+              $ref: "#/components/schemas/UpdateEmailTemplateBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5395,7 +5395,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetEmailTemplates_200_response'
+                $ref: "#/components/schemas/GetEmailTemplates_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5415,14 +5415,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateEmailTemplateBody'
+              $ref: "#/components/schemas/CreateEmailTemplateBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateEmailTemplate_200_response'
+                $ref: "#/components/schemas/CreateEmailTemplate_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5451,14 +5451,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RenderEmailTemplateBody'
+              $ref: "#/components/schemas/RenderEmailTemplateBody"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RenderEmailTemplate_200_response'
+                $ref: "#/components/schemas/RenderEmailTemplate_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5481,7 +5481,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDomainConfigs_200_response'
+                $ref: "#/components/schemas/GetDomainConfigs_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5501,14 +5501,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AddDomainConfigParams'
+              $ref: "#/components/schemas/AddDomainConfigParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AddDomainConfig_200_response'
+                $ref: "#/components/schemas/AddDomainConfig_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5538,7 +5538,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteDomainConfig_200_response'
+                $ref: "#/components/schemas/DeleteDomainConfig_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5566,7 +5566,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDomainConfig_200_response'
+                $ref: "#/components/schemas/GetDomainConfig_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5594,14 +5594,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchDomainConfigParams'
+              $ref: "#/components/schemas/PatchDomainConfigParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDomainConfig_200_response'
+                $ref: "#/components/schemas/GetDomainConfig_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5629,14 +5629,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateDomainConfigParams'
+              $ref: "#/components/schemas/UpdateDomainConfigParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetDomainConfig_200_response'
+                $ref: "#/components/schemas/GetDomainConfig_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5680,7 +5680,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteComment_200_response'
+                $ref: "#/components/schemas/DeleteComment_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5708,7 +5708,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetComment_200_response'
+                $ref: "#/components/schemas/GetComment_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5756,14 +5756,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdatableCommentParams'
+              $ref: "#/components/schemas/UpdatableCommentParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagCommentPublic_200_response'
+                $ref: "#/components/schemas/FlagCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5883,14 +5883,14 @@ paths:
         name: direction
         required: false
         schema:
-          $ref: '#/components/schemas/SortDirections'
+          $ref: "#/components/schemas/SortDirections"
         style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetComments_200_response'
+                $ref: "#/components/schemas/GetComments_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5938,14 +5938,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateCommentParams'
+              $ref: "#/components/schemas/CreateCommentParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SaveComment_200_response'
+                $ref: "#/components/schemas/SaveComment_200_response"
           description: Ok
       security:
       - api_key: []
@@ -5996,7 +5996,7 @@ paths:
           application/json:
             schema:
               items:
-                $ref: '#/components/schemas/CreateCommentParams'
+                $ref: "#/components/schemas/CreateCommentParams"
               type: array
         required: true
       responses:
@@ -6005,7 +6005,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/SaveComment_200_response'
+                  $ref: "#/components/schemas/SaveComment_200_response"
                 type: array
           description: Ok
       security:
@@ -6050,7 +6050,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagComment_200_response'
+                $ref: "#/components/schemas/FlagComment_200_response"
           description: Ok
       security:
       - api_key: []
@@ -6093,7 +6093,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FlagComment_200_response'
+                $ref: "#/components/schemas/FlagComment_200_response"
           description: Ok
       security:
       - api_key: []
@@ -6135,14 +6135,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BlockFromCommentParams'
+              $ref: "#/components/schemas/BlockFromCommentParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockFromCommentPublic_200_response'
+                $ref: "#/components/schemas/BlockFromCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -6185,14 +6185,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UnBlockFromCommentParams'
+              $ref: "#/components/schemas/UnBlockFromCommentParams"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UnBlockCommentPublic_200_response'
+                $ref: "#/components/schemas/UnBlockCommentPublic_200_response"
           description: Ok
       security:
       - api_key: []
@@ -6231,7 +6231,7 @@ paths:
         name: order
         required: false
         schema:
-          $ref: '#/components/schemas/SORT_DIR'
+          $ref: "#/components/schemas/SORT_DIR"
         style: form
       - explode: true
         in: query
@@ -6254,7 +6254,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetAuditLogs_200_response'
+                $ref: "#/components/schemas/GetAuditLogs_200_response"
           description: Ok
       security:
       - api_key: []
@@ -6292,14 +6292,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AggregationRequest'
+              $ref: "#/components/schemas/AggregationRequest"
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AggregationResponse'
+                $ref: "#/components/schemas/AggregationResponse"
           description: Ok
       security:
       - api_key: []
@@ -6369,10 +6369,10 @@ components:
           type: user
       properties:
         section:
-          $ref: '#/components/schemas/UserSearchSection'
+          $ref: "#/components/schemas/UserSearchSection"
         users:
           items:
-            $ref: '#/components/schemas/UserSearchResult'
+            $ref: "#/components/schemas/UserSearchResult"
           type: array
       required:
       - section
@@ -6408,10 +6408,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         sections:
           items:
-            $ref: '#/components/schemas/UserSearchSectionResult'
+            $ref: "#/components/schemas/UserSearchSectionResult"
           type: array
       required:
       - sections
@@ -6420,10 +6420,10 @@ components:
     SearchUsersResponse:
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         users:
           items:
-            $ref: '#/components/schemas/UserSearchResult'
+            $ref: "#/components/schemas/UserSearchResult"
           type: array
       required:
       - status
@@ -6686,14 +6686,14 @@ components:
           nullable: true
           type: string
         commentHTMLRenderingMode:
-          $ref: '#/components/schemas/CommentHTMLRenderingMode'
+          $ref: "#/components/schemas/CommentHTMLRenderingMode"
         commentThreadDeleteMode:
           allOf:
-          - $ref: '#/components/schemas/CommentThreadDeletionMode'
+          - $ref: "#/components/schemas/CommentThreadDeletionMode"
           nullable: true
         commenterNameFormat:
           allOf:
-          - $ref: '#/components/schemas/CommenterNameFormats'
+          - $ref: "#/components/schemas/CommenterNameFormats"
           nullable: true
         countAboveToggle:
           format: int32
@@ -6706,7 +6706,7 @@ components:
           type: string
         defaultSortDirection:
           allOf:
-          - $ref: '#/components/schemas/SortDirections'
+          - $ref: "#/components/schemas/SortDirections"
           nullable: true
         defaultUsername:
           nullable: true
@@ -6756,7 +6756,7 @@ components:
         enableWYSIWYG:
           type: boolean
         gifRating:
-          $ref: '#/components/schemas/GifRating'
+          $ref: "#/components/schemas/GifRating"
         hasDarkBackground:
           type: boolean
         headerHTML:
@@ -6768,7 +6768,7 @@ components:
           nullable: true
           type: string
         imageContentProfanityLevel:
-          $ref: '#/components/schemas/ImageContentProfanityLevel'
+          $ref: "#/components/schemas/ImageContentProfanityLevel"
         inputAfterComments:
           type: boolean
         limitCommentsByGroups:
@@ -6788,7 +6788,7 @@ components:
           type: boolean
         mentionAutoCompleteMode:
           allOf:
-          - $ref: '#/components/schemas/MentionAutoCompleteMode'
+          - $ref: "#/components/schemas/MentionAutoCompleteMode"
           nullable: true
         noImageUploads:
           type: boolean
@@ -6821,34 +6821,34 @@ components:
           type: boolean
         spamRules:
           items:
-            $ref: '#/components/schemas/SpamRule'
+            $ref: "#/components/schemas/SpamRule"
           type: array
         ssoSecLvl:
-          $ref: '#/components/schemas/SSOSecurityLevel'
+          $ref: "#/components/schemas/SSOSecurityLevel"
         translations:
           allOf:
-          - $ref: '#/components/schemas/Record_string.string_'
+          - $ref: "#/components/schemas/Record_string.string_"
           nullable: true
         useShowCommentsToggle:
           type: boolean
         useSingleLineCommentInput:
           type: boolean
         voteStyle:
-          $ref: '#/components/schemas/VoteStyle'
+          $ref: "#/components/schemas/VoteStyle"
         widgetQuestionId:
           type: string
         widgetQuestionResultsStyle:
-          $ref: '#/components/schemas/CommentQuestionResultsRenderingType'
+          $ref: "#/components/schemas/CommentQuestionResultsRenderingType"
         widgetQuestionShowBreakdown:
           type: boolean
         widgetQuestionStyle:
-          $ref: '#/components/schemas/QuestionRenderingType'
+          $ref: "#/components/schemas/QuestionRenderingType"
         widgetQuestionWhenToSave:
-          $ref: '#/components/schemas/QuestionWhenSave'
+          $ref: "#/components/schemas/QuestionWhenSave"
         widgetQuestionsRequired:
-          $ref: '#/components/schemas/CommentQuestionsRequired'
+          $ref: "#/components/schemas/CommentQuestionsRequired"
         widgetSubQuestionVisibility:
-          $ref: '#/components/schemas/QuestionSubQuestionVisibility'
+          $ref: "#/components/schemas/QuestionSubQuestionVisibility"
         wrap:
           type: boolean
         ticketBaseUrl:
@@ -6865,7 +6865,7 @@ components:
             type: string
           type: array
         tos:
-          $ref: '#/components/schemas/TOSConfig'
+          $ref: "#/components/schemas/TOSConfig"
       type: object
     APIError:
       additionalProperties: false
@@ -6981,7 +6981,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         reason:
           type: string
         code:
@@ -6997,7 +6997,7 @@ components:
         translatedError:
           type: string
         customConfig:
-          $ref: '#/components/schemas/CustomConfigParameters'
+          $ref: "#/components/schemas/CustomConfigParameters"
       required:
       - code
       - reason
@@ -7016,7 +7016,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         userIdsOnline:
           additionalProperties:
             type: boolean
@@ -7113,7 +7113,7 @@ components:
           nullable: true
           type: string
         type:
-          $ref: '#/components/schemas/NotificationType'
+          $ref: "#/components/schemas/NotificationType"
         createdAt:
           type: string
         sent:
@@ -7123,7 +7123,7 @@ components:
         relatedObjectId:
           type: string
         relatedObjectType:
-          $ref: '#/components/schemas/NotificationObjectType'
+          $ref: "#/components/schemas/NotificationObjectType"
         pageTitle:
           nullable: true
           type: string
@@ -7221,10 +7221,10 @@ components:
           type: boolean
         notifications:
           items:
-            $ref: '#/components/schemas/RenderableUserNotification'
+            $ref: "#/components/schemas/RenderableUserNotification"
           type: array
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - hasMore
       - isSubscribed
@@ -7238,7 +7238,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         code:
           enum:
           - ignored-since-impersonated
@@ -7254,7 +7254,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         count:
           format: int64
           type: integer
@@ -7269,7 +7269,7 @@ components:
       additionalProperties: false
       properties:
         type:
-          $ref: '#/components/schemas/NotificationType'
+          $ref: "#/components/schemas/NotificationType"
         count:
           format: int64
           type: integer
@@ -7288,11 +7288,11 @@ components:
           type: string
         messagesByLocale:
           allOf:
-          - $ref: '#/components/schemas/Record_string.string_'
+          - $ref: "#/components/schemas/Record_string.string_"
           nullable: true
         dates:
           allOf:
-          - $ref: '#/components/schemas/Record_string.string_'
+          - $ref: "#/components/schemas/Record_string.string_"
           nullable: true
         severity:
           type: string
@@ -7320,7 +7320,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         NotificationType:
           properties: {}
           type: object
@@ -7330,11 +7330,11 @@ components:
           type: string
         notificationCounts:
           items:
-            $ref: '#/components/schemas/NotificationAndCount'
+            $ref: "#/components/schemas/NotificationAndCount"
           type: array
         accountNotifications:
           items:
-            $ref: '#/components/schemas/HeaderAccountNotification'
+            $ref: "#/components/schemas/HeaderAccountNotification"
           type: array
       required:
       - NotificationType
@@ -7352,7 +7352,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         matchedCount:
           format: int64
           type: integer
@@ -7368,7 +7368,7 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         note:
           enum:
           - ignored-since-impersonated
@@ -7414,12 +7414,12 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         url:
           type: string
         media:
           items:
-            $ref: '#/components/schemas/MediaAsset'
+            $ref: "#/components/schemas/MediaAsset"
           type: array
         reason:
           type: string
@@ -7438,7 +7438,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - status
       type: object
@@ -7481,7 +7481,7 @@ components:
           type: string
         sizes:
           items:
-            $ref: '#/components/schemas/FeedPostMediaItemAsset'
+            $ref: "#/components/schemas/FeedPostMediaItemAsset"
           type: array
       required:
       - sizes
@@ -7593,11 +7593,11 @@ components:
           type: string
         media:
           items:
-            $ref: '#/components/schemas/FeedPostMediaItem'
+            $ref: "#/components/schemas/FeedPostMediaItem"
           type: array
         links:
           items:
-            $ref: '#/components/schemas/FeedPostLink'
+            $ref: "#/components/schemas/FeedPostLink"
           type: array
         createdAt:
           format: date-time
@@ -7672,7 +7672,7 @@ components:
           type: string
         badges:
           items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
+            $ref: "#/components/schemas/CommentUserBadgeInfo"
           type: array
         displayLabel:
           type: string
@@ -7703,14 +7703,14 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         feedPosts:
           items:
-            $ref: '#/components/schemas/FeedPost'
+            $ref: "#/components/schemas/FeedPost"
           type: array
         user:
           allOf:
-          - $ref: '#/components/schemas/UserSessionInfo'
+          - $ref: "#/components/schemas/UserSessionInfo"
           nullable: true
       required:
       - feedPosts
@@ -7743,8 +7743,8 @@ components:
             properties: {}
             type: object
         type: object
-      - $ref: '#/components/schemas/GetPublicFeedPostsResponse'
-      - $ref: '#/components/schemas/UserPresenceData'
+      - $ref: "#/components/schemas/GetPublicFeedPostsResponse"
+      - $ref: "#/components/schemas/UserPresenceData"
       example:
         urlIdWS: urlIdWS
         feedPosts:
@@ -7855,7 +7855,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         reactType:
           type: string
         isUndo:
@@ -7882,7 +7882,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         reacts:
           additionalProperties:
             additionalProperties:
@@ -7948,9 +7948,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         feedPost:
-          $ref: '#/components/schemas/FeedPost'
+          $ref: "#/components/schemas/FeedPost"
       required:
       - feedPost
       - status
@@ -8002,11 +8002,11 @@ components:
           type: string
         media:
           items:
-            $ref: '#/components/schemas/FeedPostMediaItem'
+            $ref: "#/components/schemas/FeedPostMediaItem"
           type: array
         links:
           items:
-            $ref: '#/components/schemas/FeedPostLink'
+            $ref: "#/components/schemas/FeedPostLink"
           type: array
         fromUserId:
           type: string
@@ -8069,11 +8069,11 @@ components:
           type: string
         media:
           items:
-            $ref: '#/components/schemas/FeedPostMediaItem'
+            $ref: "#/components/schemas/FeedPostMediaItem"
           type: array
         links:
           items:
-            $ref: '#/components/schemas/FeedPostLink'
+            $ref: "#/components/schemas/FeedPostLink"
           type: array
         tags:
           items:
@@ -8115,10 +8115,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         stats:
           additionalProperties:
-            $ref: '#/components/schemas/FeedPostStats'
+            $ref: "#/components/schemas/FeedPostStats"
           properties: {}
           type: object
       required:
@@ -8175,10 +8175,10 @@ components:
       properties:
         events:
           items:
-            $ref: '#/components/schemas/EventLogEntry'
+            $ref: "#/components/schemas/EventLogEntry"
           type: array
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - events
       - status
@@ -8261,7 +8261,7 @@ components:
           nullable: true
           type: string
         relatedObjectType:
-          $ref: '#/components/schemas/NotificationObjectType'
+          $ref: "#/components/schemas/NotificationObjectType"
         relatedObjectId:
           type: string
         viewed:
@@ -8274,7 +8274,7 @@ components:
           format: date-time
           type: string
         type:
-          $ref: '#/components/schemas/NotificationType'
+          $ref: "#/components/schemas/NotificationType"
         fromCommentId:
           nullable: true
           type: string
@@ -8369,7 +8369,7 @@ components:
           type: string
         userId:
           allOf:
-          - $ref: '#/components/schemas/UserId'
+          - $ref: "#/components/schemas/UserId"
           nullable: true
         urlId:
           type: string
@@ -8425,7 +8425,7 @@ components:
           type: number
         badges:
           items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
+            $ref: "#/components/schemas/CommentUserBadgeInfo"
           nullable: true
           type: array
         viewCount:
@@ -8451,7 +8451,7 @@ components:
           type: integer
         domain:
           allOf:
-          - $ref: '#/components/schemas/FDomain'
+          - $ref: "#/components/schemas/FDomain"
           nullable: true
         url:
           type: string
@@ -8492,7 +8492,7 @@ components:
       type: object
     PubSubComment:
       allOf:
-      - $ref: '#/components/schemas/PubSubCommentBase'
+      - $ref: "#/components/schemas/PubSubCommentBase"
       - properties:
           isLive:
             type: boolean
@@ -8505,17 +8505,17 @@ components:
         type: object
     Record_string._before-string-or-null--after-string-or-null__:
       additionalProperties:
-        $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+        $ref: "#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value"
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
     CommentPositions:
-      $ref: '#/components/schemas/Record_string._before-string-or-null--after-string-or-null__'
+      $ref: "#/components/schemas/Record_string._before-string-or-null--after-string-or-null__"
     LiveEvent:
       additionalProperties: false
       properties:
         type:
-          $ref: '#/components/schemas/LiveEventType'
+          $ref: "#/components/schemas/LiveEventType"
         timestamp:
           format: int64
           type: integer
@@ -8528,18 +8528,18 @@ components:
           type: string
         badges:
           items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
+            $ref: "#/components/schemas/CommentUserBadgeInfo"
           type: array
         notification:
-          $ref: '#/components/schemas/UserNotification'
+          $ref: "#/components/schemas/UserNotification"
         vote:
-          $ref: '#/components/schemas/PubSubVote'
+          $ref: "#/components/schemas/PubSubVote"
         comment:
-          $ref: '#/components/schemas/PubSubComment'
+          $ref: "#/components/schemas/PubSubComment"
         feedPost:
-          $ref: '#/components/schemas/FeedPost'
+          $ref: "#/components/schemas/FeedPost"
         extraInfo:
-          $ref: '#/components/schemas/LiveEvent_extraInfo'
+          $ref: "#/components/schemas/LiveEvent_extraInfo"
         config:
           additionalProperties: false
           type: object
@@ -8572,7 +8572,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         commentText:
           type: string
         sanitizedCommentText:
@@ -8604,9 +8604,9 @@ components:
         status: success
       properties:
         comment:
-          $ref: '#/components/schemas/SetCommentTextResult'
+          $ref: "#/components/schemas/SetCommentTextResult"
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - comment
       - status
@@ -8688,11 +8688,11 @@ components:
           type: string
         mentions:
           items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
+            $ref: "#/components/schemas/CommentUserMentionInfo"
           type: array
         hashTags:
           items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
+            $ref: "#/components/schemas/CommentUserHashTagInfo"
           type: array
       required:
       - comment
@@ -8725,14 +8725,14 @@ components:
             type: integer
           children:
             items:
-              $ref: '#/components/schemas/PublicComment'
+              $ref: "#/components/schemas/PublicComment"
             type: array
           isFlagged:
             type: boolean
           isBlocked:
             type: boolean
         type: object
-      - $ref: '#/components/schemas/PublicCommentBase'
+      - $ref: "#/components/schemas/PublicCommentBase"
       example:
         date: 2000-01-23T04:56:07.000+00:00
         editKey: editKey
@@ -8802,7 +8802,7 @@ components:
           type: string
         userId:
           allOf:
-          - $ref: '#/components/schemas/UserId'
+          - $ref: "#/components/schemas/UserId"
           nullable: true
         commenterName:
           type: string
@@ -8856,7 +8856,7 @@ components:
           type: number
         badges:
           items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
+            $ref: "#/components/schemas/CommentUserBadgeInfo"
           nullable: true
           type: array
         viewCount:
@@ -8910,11 +8910,11 @@ components:
           type: string
         comments:
           items:
-            $ref: '#/components/schemas/PublicComment'
+            $ref: "#/components/schemas/PublicComment"
           type: array
         user:
           allOf:
-          - $ref: '#/components/schemas/UserSessionInfo'
+          - $ref: "#/components/schemas/UserSessionInfo"
           nullable: true
         urlIdClean:
           type: string
@@ -8962,7 +8962,7 @@ components:
           format: int32
           type: integer
         customConfig:
-          $ref: '#/components/schemas/CustomConfigParameters'
+          $ref: "#/components/schemas/CustomConfigParameters"
       required:
       - comments
       - pageNumber
@@ -8971,8 +8971,8 @@ components:
       type: object
     GetCommentsResponseWithPresence_PublicComment_:
       allOf:
-      - $ref: '#/components/schemas/GetCommentsResponse_PublicComment_'
-      - $ref: '#/components/schemas/UserPresenceData'
+      - $ref: "#/components/schemas/GetCommentsResponse_PublicComment_"
+      - $ref: "#/components/schemas/UserPresenceData"
       example:
         reason: reason
         code: code
@@ -9229,12 +9229,12 @@ components:
       additionalProperties: false
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         comment:
-          $ref: '#/components/schemas/PublicComment'
+          $ref: "#/components/schemas/PublicComment"
         user:
           allOf:
-          - $ref: '#/components/schemas/UserSessionInfo'
+          - $ref: "#/components/schemas/UserSessionInfo"
           nullable: true
         moduleData:
           additionalProperties: {}
@@ -9248,10 +9248,10 @@ components:
       type: object
     SaveCommentsResponseWithPresence:
       allOf:
-      - $ref: '#/components/schemas/SaveCommentResponseOptimized'
+      - $ref: "#/components/schemas/SaveCommentResponseOptimized"
       - properties:
           userIdWS:
-            $ref: '#/components/schemas/UserIdWS'
+            $ref: "#/components/schemas/UserIdWS"
         type: object
       example:
         comment:
@@ -9323,7 +9323,7 @@ components:
         status: success
     Record_string.string-or-number_:
       additionalProperties:
-        $ref: '#/components/schemas/Record_string_string_or_number__value'
+        $ref: "#/components/schemas/Record_string_string_or_number__value"
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
@@ -9411,11 +9411,11 @@ components:
           type: string
         mentions:
           items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
+            $ref: "#/components/schemas/CommentUserMentionInfo"
           type: array
         hashTags:
           items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
+            $ref: "#/components/schemas/CommentUserHashTagInfo"
           type: array
         pageTitle:
           type: string
@@ -9446,7 +9446,7 @@ components:
           type: array
         questionValues:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string_string_or_number__value'
+            $ref: "#/components/schemas/Record_string_string_or_number__value"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -9490,11 +9490,11 @@ components:
         status: success
       properties:
         comment:
-          $ref: '#/components/schemas/DeletedCommentResultComment'
+          $ref: "#/components/schemas/DeletedCommentResultComment"
         hardRemoved:
           type: boolean
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - hardRemoved
       - status
@@ -9512,7 +9512,7 @@ components:
           properties: {}
           type: object
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - commentStatuses
       - status
@@ -9537,13 +9537,17 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/VoteResponse_status'
+          enum:
+          - success
+          - failed
+          - pending-verification
+          type: string
         voteId:
           type: string
         isVerified:
           type: boolean
         user:
-          $ref: '#/components/schemas/VoteResponseUser'
+          $ref: "#/components/schemas/VoteResponseUser"
         editKey:
           type: string
       required:
@@ -9584,7 +9588,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         wasPendingVote:
           type: boolean
       required:
@@ -9600,7 +9604,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         voteUserNames:
           items:
             type: string
@@ -9622,12 +9626,12 @@ components:
       properties:
         commentPositions:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+            $ref: "#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - commentPositions
       - status
@@ -9640,7 +9644,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         commentStatuses:
           additionalProperties:
             type: boolean
@@ -9676,7 +9680,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         commentStatuses:
           additionalProperties:
             type: boolean
@@ -9750,7 +9754,7 @@ components:
           type: string
         subscriptions:
           items:
-            $ref: '#/components/schemas/APIUserSubscription'
+            $ref: "#/components/schemas/APIUserSubscription"
           type: array
         status:
           type: string
@@ -9777,7 +9781,7 @@ components:
         code:
           type: string
         subscription:
-          $ref: '#/components/schemas/APIUserSubscription'
+          $ref: "#/components/schemas/APIUserSubscription"
         status:
           type: string
       required:
@@ -9828,7 +9832,7 @@ components:
         code:
           type: string
         subscription:
-          $ref: '#/components/schemas/APIUserSubscription'
+          $ref: "#/components/schemas/APIUserSubscription"
         status:
           type: string
       required:
@@ -9975,7 +9979,7 @@ components:
         code:
           type: string
         user:
-          $ref: '#/components/schemas/APISSOUser'
+          $ref: "#/components/schemas/APISSOUser"
         status:
           type: string
       required:
@@ -10015,7 +10019,7 @@ components:
         code:
           type: string
         user:
-          $ref: '#/components/schemas/APISSOUser'
+          $ref: "#/components/schemas/APISSOUser"
         status:
           type: string
       required:
@@ -10055,7 +10059,7 @@ components:
         code:
           type: string
         user:
-          $ref: '#/components/schemas/APISSOUser'
+          $ref: "#/components/schemas/APISSOUser"
         status:
           type: string
       required:
@@ -10095,7 +10099,7 @@ components:
         code:
           type: string
         user:
-          $ref: '#/components/schemas/APISSOUser'
+          $ref: "#/components/schemas/APISSOUser"
         status:
           type: string
       required:
@@ -10184,7 +10188,7 @@ components:
           type: string
         user:
           allOf:
-          - $ref: '#/components/schemas/APISSOUser'
+          - $ref: "#/components/schemas/APISSOUser"
           nullable: true
         status:
           type: string
@@ -10225,7 +10229,7 @@ components:
         code:
           type: string
         user:
-          $ref: '#/components/schemas/APISSOUser'
+          $ref: "#/components/schemas/APISSOUser"
         status:
           type: string
       required:
@@ -10385,7 +10389,7 @@ components:
           type: string
         pages:
           items:
-            $ref: '#/components/schemas/APIPage'
+            $ref: "#/components/schemas/APIPage"
           type: array
         status:
           type: string
@@ -10415,7 +10419,7 @@ components:
         code:
           type: string
         page:
-          $ref: '#/components/schemas/APIPage'
+          $ref: "#/components/schemas/APIPage"
         status:
           type: string
       required:
@@ -10444,7 +10448,7 @@ components:
         code:
           type: string
         page:
-          $ref: '#/components/schemas/APIPage'
+          $ref: "#/components/schemas/APIPage"
         status:
           type: string
       required:
@@ -10509,7 +10513,7 @@ components:
           format: int64
           type: integer
         page:
-          $ref: '#/components/schemas/APIPage'
+          $ref: "#/components/schemas/APIPage"
         status:
           type: string
       required:
@@ -10629,18 +10633,18 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         appliedAuthorizedVotes:
           items:
-            $ref: '#/components/schemas/PublicVote'
+            $ref: "#/components/schemas/PublicVote"
           type: array
         appliedAnonymousVotes:
           items:
-            $ref: '#/components/schemas/PublicVote'
+            $ref: "#/components/schemas/PublicVote"
           type: array
         pendingVotes:
           items:
-            $ref: '#/components/schemas/PublicVote'
+            $ref: "#/components/schemas/PublicVote"
           type: array
       required:
       - appliedAnonymousVotes
@@ -10693,18 +10697,18 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         appliedAuthorizedVotes:
           items:
-            $ref: '#/components/schemas/PublicVote'
+            $ref: "#/components/schemas/PublicVote"
           type: array
         appliedAnonymousVotes:
           items:
-            $ref: '#/components/schemas/PublicVote'
+            $ref: "#/components/schemas/PublicVote"
           type: array
         pendingVotes:
           items:
-            $ref: '#/components/schemas/PublicVote'
+            $ref: "#/components/schemas/PublicVote"
           type: array
       required:
       - appliedAnonymousVotes
@@ -10870,7 +10874,7 @@ components:
         locale:
           type: string
         digestEmailFrequency:
-          $ref: '#/components/schemas/DigestEmailFrequency'
+          $ref: "#/components/schemas/DigestEmailFrequency"
         notificationFrequency:
           format: double
           type: number
@@ -11007,9 +11011,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         user:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
       required:
       - status
       - user
@@ -11127,9 +11131,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         userBadge:
-          $ref: '#/components/schemas/UserBadge'
+          $ref: "#/components/schemas/UserBadge"
       required:
       - status
       - userBadge
@@ -11179,10 +11183,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         userBadges:
           items:
-            $ref: '#/components/schemas/UserBadge'
+            $ref: "#/components/schemas/UserBadge"
           type: array
       required:
       - status
@@ -11217,9 +11221,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         userBadge:
-          $ref: '#/components/schemas/UserBadge'
+          $ref: "#/components/schemas/UserBadge"
         notes:
           items:
             type: string
@@ -11251,7 +11255,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - status
       type: object
@@ -11336,9 +11340,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         userBadgeProgress:
-          $ref: '#/components/schemas/UserBadgeProgress'
+          $ref: "#/components/schemas/UserBadgeProgress"
       required:
       - status
       - userBadgeProgress
@@ -11370,10 +11374,10 @@ components:
           userId: userId
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         userBadgeProgresses:
           items:
-            $ref: '#/components/schemas/UserBadgeProgress'
+            $ref: "#/components/schemas/UserBadgeProgress"
           type: array
       required:
       - status
@@ -11456,10 +11460,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tickets:
           items:
-            $ref: '#/components/schemas/APITicket'
+            $ref: "#/components/schemas/APITicket"
           type: array
       required:
       - status
@@ -11483,9 +11487,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         ticket:
-          $ref: '#/components/schemas/APITicket'
+          $ref: "#/components/schemas/APITicket"
       required:
       - status
       - ticket
@@ -11609,7 +11613,7 @@ components:
           type: integer
         files:
           items:
-            $ref: '#/components/schemas/APITicketFile'
+            $ref: "#/components/schemas/APITicketFile"
           type: array
         reopenedAt:
           nullable: true
@@ -11677,9 +11681,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         ticket:
-          $ref: '#/components/schemas/APITicketDetail'
+          $ref: "#/components/schemas/APITicketDetail"
         availableStates:
           items:
             format: double
@@ -11708,9 +11712,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         ticket:
-          $ref: '#/components/schemas/APITicket'
+          $ref: "#/components/schemas/APITicket"
       required:
       - status
       - ticket
@@ -11732,7 +11736,7 @@ components:
       - 1
       type: integer
     SiteType:
-      $ref: '#/components/schemas/ImportedSiteType'
+      $ref: "#/components/schemas/ImportedSiteType"
     APIDomainConfiguration:
       additionalProperties: false
       example:
@@ -11785,7 +11789,7 @@ components:
           format: date-time
           type: string
         siteType:
-          $ref: '#/components/schemas/ImportedSiteType'
+          $ref: "#/components/schemas/ImportedSiteType"
         logoSrc:
           nullable: true
           type: string
@@ -11937,10 +11941,10 @@ components:
           type: boolean
         domainConfiguration:
           items:
-            $ref: '#/components/schemas/APIDomainConfiguration'
+            $ref: "#/components/schemas/APIDomainConfiguration"
           type: array
         billingInfo:
-          $ref: '#/components/schemas/BillingInfo'
+          $ref: "#/components/schemas/BillingInfo"
         stripeCustomerId:
           type: string
         stripeSubscriptionId:
@@ -12072,9 +12076,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenant:
-          $ref: '#/components/schemas/APITenant'
+          $ref: "#/components/schemas/APITenant"
       required:
       - status
       - tenant
@@ -12224,10 +12228,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenants:
           items:
-            $ref: '#/components/schemas/APITenant'
+            $ref: "#/components/schemas/APITenant"
           type: array
       required:
       - status
@@ -12309,9 +12313,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenant:
-          $ref: '#/components/schemas/APITenant'
+          $ref: "#/components/schemas/APITenant"
       required:
       - status
       - tenant
@@ -12388,7 +12392,7 @@ components:
           type: string
         domainConfiguration:
           items:
-            $ref: '#/components/schemas/APIDomainConfiguration'
+            $ref: "#/components/schemas/APIDomainConfiguration"
           type: array
         email:
           type: string
@@ -12409,7 +12413,7 @@ components:
         isSetup:
           type: boolean
         billingInfo:
-          $ref: '#/components/schemas/BillingInfo'
+          $ref: "#/components/schemas/BillingInfo"
         stripeCustomerId:
           type: string
         stripeSubscriptionId:
@@ -12536,10 +12540,10 @@ components:
           type: boolean
         domainConfiguration:
           items:
-            $ref: '#/components/schemas/APIDomainConfiguration'
+            $ref: "#/components/schemas/APIDomainConfiguration"
           type: array
         billingInfo:
-          $ref: '#/components/schemas/BillingInfo'
+          $ref: "#/components/schemas/BillingInfo"
         stripeCustomerId:
           type: string
         stripeSubscriptionId:
@@ -12644,9 +12648,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenantUser:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
       required:
       - status
       - tenantUser
@@ -12784,10 +12788,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenantUsers:
           items:
-            $ref: '#/components/schemas/User'
+            $ref: "#/components/schemas/User"
           type: array
       required:
       - status
@@ -12863,9 +12867,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenantUser:
-          $ref: '#/components/schemas/User'
+          $ref: "#/components/schemas/User"
       required:
       - status
       - tenantUser
@@ -13457,9 +13461,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenantPackage:
-          $ref: '#/components/schemas/TenantPackage'
+          $ref: "#/components/schemas/TenantPackage"
       required:
       - status
       - tenantPackage
@@ -13587,10 +13591,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenantPackages:
           items:
-            $ref: '#/components/schemas/TenantPackage'
+            $ref: "#/components/schemas/TenantPackage"
           type: array
       required:
       - status
@@ -13661,9 +13665,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenantPackage:
-          $ref: '#/components/schemas/TenantPackage'
+          $ref: "#/components/schemas/TenantPackage"
       required:
       - status
       - tenantPackage
@@ -14297,10 +14301,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         tenantDailyUsages:
           items:
-            $ref: '#/components/schemas/APITenantDailyUsage'
+            $ref: "#/components/schemas/APITenantDailyUsage"
           type: array
       required:
       - status
@@ -14370,7 +14374,7 @@ components:
           type: string
         meta:
           items:
-            $ref: '#/components/schemas/MetaItem'
+            $ref: "#/components/schemas/MetaItem"
           nullable: true
           type: array
         ipHash:
@@ -14412,9 +14416,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         questionResult:
-          $ref: '#/components/schemas/QuestionResult'
+          $ref: "#/components/schemas/QuestionResult"
       required:
       - questionResult
       - status
@@ -14464,10 +14468,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         questionResults:
           items:
-            $ref: '#/components/schemas/QuestionResult'
+            $ref: "#/components/schemas/QuestionResult"
           type: array
       required:
       - questionResults
@@ -14499,9 +14503,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         questionResult:
-          $ref: '#/components/schemas/QuestionResult'
+          $ref: "#/components/schemas/QuestionResult"
       required:
       - questionResult
       - status
@@ -14540,7 +14544,7 @@ components:
           type: string
         meta:
           items:
-            $ref: '#/components/schemas/MetaItem'
+            $ref: "#/components/schemas/MetaItem"
           nullable: true
           type: array
       required:
@@ -14582,7 +14586,7 @@ components:
           type: string
         meta:
           items:
-            $ref: '#/components/schemas/MetaItem'
+            $ref: "#/components/schemas/MetaItem"
           nullable: true
           type: array
       type: object
@@ -14616,7 +14620,7 @@ components:
       type: object
     Record_string.QuestionDatum_:
       additionalProperties:
-        $ref: '#/components/schemas/QuestionDatum'
+        $ref: "#/components/schemas/QuestionDatum"
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
@@ -14641,13 +14645,13 @@ components:
       properties:
         dataByDateBucket:
           additionalProperties:
-            $ref: '#/components/schemas/QuestionDatum'
+            $ref: "#/components/schemas/QuestionDatum"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
         dataByUrlId:
           additionalProperties:
-            $ref: '#/components/schemas/QuestionDatum'
+            $ref: "#/components/schemas/QuestionDatum"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -14692,9 +14696,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         data:
-          $ref: '#/components/schemas/QuestionResultAggregationOverall'
+          $ref: "#/components/schemas/QuestionResultAggregationOverall"
       required:
       - data
       - status
@@ -14707,7 +14711,7 @@ components:
       type: string
     Record_string.QuestionResultAggregationOverall_:
       additionalProperties:
-        $ref: '#/components/schemas/QuestionResultAggregationOverall'
+        $ref: "#/components/schemas/QuestionResultAggregationOverall"
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
@@ -14734,10 +14738,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         data:
           additionalProperties:
-            $ref: '#/components/schemas/QuestionResultAggregationOverall'
+            $ref: "#/components/schemas/QuestionResultAggregationOverall"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -14768,7 +14772,7 @@ components:
         urlId:
           type: string
         timeBucket:
-          $ref: '#/components/schemas/AggregateTimeBucket'
+          $ref: "#/components/schemas/AggregateTimeBucket"
         startDate:
           format: date-time
           type: string
@@ -14798,7 +14802,7 @@ components:
       properties:
         aggregations:
           items:
-            $ref: '#/components/schemas/BulkAggregateQuestionItem'
+            $ref: "#/components/schemas/BulkAggregateQuestionItem"
           type: array
       required:
       - aggregations
@@ -14965,7 +14969,7 @@ components:
           format: double
           type: number
         rule:
-          $ref: '#/components/schemas/SpamRule'
+          $ref: "#/components/schemas/SpamRule"
         userId:
           type: string
         subscribers:
@@ -14999,9 +15003,9 @@ components:
           nullable: true
           type: number
         repeatAction:
-          $ref: '#/components/schemas/RepeatCommentHandlingAction'
+          $ref: "#/components/schemas/RepeatCommentHandlingAction"
         reason:
-          $ref: '#/components/schemas/RepeatCommentCheckIgnoredReason'
+          $ref: "#/components/schemas/RepeatCommentCheckIgnoredReason"
         otherData: {}
         spamBefore:
           type: boolean
@@ -15112,9 +15116,9 @@ components:
           format: date-time
           type: string
         t:
-          $ref: '#/components/schemas/CommentLogType'
+          $ref: "#/components/schemas/CommentLogType"
         da:
-          $ref: '#/components/schemas/CommentLogData'
+          $ref: "#/components/schemas/CommentLogData"
       required:
       - d
       - t
@@ -15361,7 +15365,7 @@ components:
           type: string
         userId:
           allOf:
-          - $ref: '#/components/schemas/UserId'
+          - $ref: "#/components/schemas/UserId"
           nullable: true
         anonUserId:
           nullable: true
@@ -15493,25 +15497,25 @@ components:
           format: int32
           type: integer
         meta:
-          $ref: '#/components/schemas/FComment_meta'
+          $ref: "#/components/schemas/FComment_meta"
         ipHash:
           type: string
         mentions:
           items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
+            $ref: "#/components/schemas/CommentUserMentionInfo"
           type: array
         hashTags:
           items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
+            $ref: "#/components/schemas/CommentUserHashTagInfo"
           type: array
         badges:
           items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
+            $ref: "#/components/schemas/CommentUserBadgeInfo"
           nullable: true
           type: array
         domain:
           allOf:
-          - $ref: '#/components/schemas/FDomain'
+          - $ref: "#/components/schemas/FDomain"
           nullable: true
         veteranBadgeProcessed:
           type: string
@@ -15535,7 +15539,7 @@ components:
           type: array
         logs:
           items:
-            $ref: '#/components/schemas/CommentLogEntry'
+            $ref: "#/components/schemas/CommentLogEntry"
           nullable: true
           type: array
         groupIds:
@@ -15594,10 +15598,10 @@ components:
       properties:
         comment:
           allOf:
-          - $ref: '#/components/schemas/FComment'
+          - $ref: "#/components/schemas/FComment"
           nullable: true
         result:
-          $ref: '#/components/schemas/QuestionResult'
+          $ref: "#/components/schemas/QuestionResult"
       required:
       - comment
       - result
@@ -15652,7 +15656,7 @@ components:
       properties:
         results:
           items:
-            $ref: '#/components/schemas/FindCommentsByRangeItem'
+            $ref: "#/components/schemas/FindCommentsByRangeItem"
           type: array
         createdAt:
           format: date-time
@@ -15712,9 +15716,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         data:
-          $ref: '#/components/schemas/FindCommentsByRangeResponse'
+          $ref: "#/components/schemas/FindCommentsByRangeResponse"
       required:
       - data
       - status
@@ -15793,7 +15797,7 @@ components:
           type: string
         customOptions:
           items:
-            $ref: '#/components/schemas/QuestionConfig_customOptions_inner'
+            $ref: "#/components/schemas/QuestionConfig_customOptions_inner"
           type: array
         subQuestionIds:
           items:
@@ -15860,9 +15864,9 @@ components:
           usedCount: 0.8008281904610115
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         questionConfig:
-          $ref: '#/components/schemas/QuestionConfig'
+          $ref: "#/components/schemas/QuestionConfig"
       required:
       - questionConfig
       - status
@@ -15928,10 +15932,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         questionConfigs:
           items:
-            $ref: '#/components/schemas/QuestionConfig'
+            $ref: "#/components/schemas/QuestionConfig"
           type: array
       required:
       - questionConfigs
@@ -15971,9 +15975,9 @@ components:
           usedCount: 0.8008281904610115
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         questionConfig:
-          $ref: '#/components/schemas/QuestionConfig'
+          $ref: "#/components/schemas/QuestionConfig"
       required:
       - questionConfig
       - status
@@ -16028,7 +16032,7 @@ components:
           type: string
         customOptions:
           items:
-            $ref: '#/components/schemas/QuestionConfig_customOptions_inner'
+            $ref: "#/components/schemas/QuestionConfig_customOptions_inner"
           type: array
         subQuestionIds:
           items:
@@ -16095,7 +16099,7 @@ components:
           type: string
         customOptions:
           items:
-            $ref: '#/components/schemas/QuestionConfig_customOptions_inner'
+            $ref: "#/components/schemas/QuestionConfig_customOptions_inner"
           type: array
         subQuestionIds:
           items:
@@ -16352,7 +16356,7 @@ components:
         commentId:
           type: string
         comment:
-          $ref: '#/components/schemas/FComment'
+          $ref: "#/components/schemas/FComment"
         externalId:
           nullable: true
           type: string
@@ -16872,10 +16876,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         pendingWebhookEvents:
           items:
-            $ref: '#/components/schemas/PendingCommentToSyncOutbound'
+            $ref: "#/components/schemas/PendingCommentToSyncOutbound"
           type: array
       required:
       - pendingWebhookEvents
@@ -16888,7 +16892,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         count:
           format: double
           type: number
@@ -16963,10 +16967,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         notifications:
           items:
-            $ref: '#/components/schemas/UserNotification'
+            $ref: "#/components/schemas/UserNotification"
           type: array
       required:
       - notifications
@@ -16979,7 +16983,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         count:
           format: double
           type: number
@@ -17034,9 +17038,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         data:
-          $ref: '#/components/schemas/UserNotificationCount'
+          $ref: "#/components/schemas/UserNotificationCount"
       required:
       - data
       - status
@@ -17169,9 +17173,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         moderator:
-          $ref: '#/components/schemas/Moderator'
+          $ref: "#/components/schemas/Moderator"
       required:
       - moderator
       - status
@@ -17225,10 +17229,10 @@ components:
           verificationId: verificationId
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         moderators:
           items:
-            $ref: '#/components/schemas/Moderator'
+            $ref: "#/components/schemas/Moderator"
           type: array
       required:
       - moderators
@@ -17262,9 +17266,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         moderator:
-          $ref: '#/components/schemas/Moderator'
+          $ref: "#/components/schemas/Moderator"
       required:
       - moderator
       - status
@@ -17357,10 +17361,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         hashTags:
           items:
-            $ref: '#/components/schemas/TenantHashTag'
+            $ref: "#/components/schemas/TenantHashTag"
           type: array
       required:
       - hashTags
@@ -17378,9 +17382,9 @@ components:
           url: url
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         hashTag:
-          $ref: '#/components/schemas/TenantHashTag'
+          $ref: "#/components/schemas/TenantHashTag"
       required:
       - hashTag
       - status
@@ -17422,10 +17426,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         results:
           items:
-            $ref: '#/components/schemas/AddHashTag_200_response'
+            $ref: "#/components/schemas/AddHashTag_200_response"
           type: array
       required:
       - results
@@ -17445,7 +17449,7 @@ components:
           type: string
         tags:
           items:
-            $ref: '#/components/schemas/BulkCreateHashTagsBody_tags_inner'
+            $ref: "#/components/schemas/BulkCreateHashTagsBody_tags_inner"
           type: array
       required:
       - tags
@@ -17462,9 +17466,9 @@ components:
           url: url
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         hashTag:
-          $ref: '#/components/schemas/TenantHashTag'
+          $ref: "#/components/schemas/TenantHashTag"
       required:
       - hashTag
       - status
@@ -17582,10 +17586,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         feedPosts:
           items:
-            $ref: '#/components/schemas/FeedPost'
+            $ref: "#/components/schemas/FeedPost"
           type: array
       required:
       - feedPosts
@@ -17644,9 +17648,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         feedPost:
-          $ref: '#/components/schemas/FeedPost'
+          $ref: "#/components/schemas/FeedPost"
       required:
       - feedPost
       - status
@@ -17658,7 +17662,7 @@ components:
       type: object
     Record_string.Record_string.string__:
       additionalProperties:
-        $ref: '#/components/schemas/Record_string.string_'
+        $ref: "#/components/schemas/Record_string.string_"
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
@@ -17681,7 +17685,7 @@ components:
           type: object
         defaultTranslationsByLocale:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string.string_'
+            $ref: "#/components/schemas/Record_string.string_"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -17712,10 +17716,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         definitions:
           items:
-            $ref: '#/components/schemas/EmailTemplateDefinition'
+            $ref: "#/components/schemas/EmailTemplateDefinition"
           type: array
       required:
       - definitions
@@ -17779,10 +17783,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         renderErrors:
           items:
-            $ref: '#/components/schemas/EmailTemplateRenderErrorResponse'
+            $ref: "#/components/schemas/EmailTemplateRenderErrorResponse"
           type: array
       required:
       - renderErrors
@@ -17829,7 +17833,7 @@ components:
           type: string
         translationOverridesByLocale:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string.string_'
+            $ref: "#/components/schemas/Record_string.string_"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -17865,9 +17869,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         emailTemplate:
-          $ref: '#/components/schemas/CustomEmailTemplate'
+          $ref: "#/components/schemas/CustomEmailTemplate"
       required:
       - emailTemplate
       - status
@@ -17903,10 +17907,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         emailTemplates:
           items:
-            $ref: '#/components/schemas/CustomEmailTemplate'
+            $ref: "#/components/schemas/CustomEmailTemplate"
           type: array
       required:
       - emailTemplates
@@ -17931,9 +17935,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         emailTemplate:
-          $ref: '#/components/schemas/CustomEmailTemplate'
+          $ref: "#/components/schemas/CustomEmailTemplate"
       required:
       - emailTemplate
       - status
@@ -17960,7 +17964,7 @@ components:
           type: string
         translationOverridesByLocale:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string.string_'
+            $ref: "#/components/schemas/Record_string.string_"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -17996,7 +18000,7 @@ components:
           type: string
         translationOverridesByLocale:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string.string_'
+            $ref: "#/components/schemas/Record_string.string_"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -18013,7 +18017,7 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         html:
           type: string
       required:
@@ -18041,7 +18045,7 @@ components:
           type: object
         translationOverridesByLocale:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string.string_'
+            $ref: "#/components/schemas/Record_string.string_"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -18163,7 +18167,7 @@ components:
           type: string
         badges:
           items:
-            $ref: '#/components/schemas/CommentUserBadgeInfo'
+            $ref: "#/components/schemas/CommentUserBadgeInfo"
           nullable: true
           type: array
         comment:
@@ -18187,7 +18191,7 @@ components:
           type: string
         domain:
           allOf:
-          - $ref: '#/components/schemas/FDomain'
+          - $ref: "#/components/schemas/FDomain"
           nullable: true
         externalId:
           type: string
@@ -18217,7 +18221,7 @@ components:
           type: boolean
         hashTags:
           items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
+            $ref: "#/components/schemas/CommentUserHashTagInfo"
           type: array
         isByAdmin:
           type: boolean
@@ -18247,10 +18251,10 @@ components:
           type: string
         mentions:
           items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
+            $ref: "#/components/schemas/CommentUserMentionInfo"
           type: array
         meta:
-          $ref: '#/components/schemas/APICommentBase_meta'
+          $ref: "#/components/schemas/APICommentBase_meta"
         moderationGroupIds:
           items:
             type: string
@@ -18282,7 +18286,7 @@ components:
           type: string
         userId:
           allOf:
-          - $ref: '#/components/schemas/UserId'
+          - $ref: "#/components/schemas/UserId"
           nullable: true
         verified:
           type: boolean
@@ -18317,7 +18321,7 @@ components:
       type: object
     APIComment:
       allOf:
-      - $ref: '#/components/schemas/APICommentBase'
+      - $ref: "#/components/schemas/APICommentBase"
       - properties:
           date:
             format: double
@@ -18524,9 +18528,9 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         comment:
-          $ref: '#/components/schemas/APIComment'
+          $ref: "#/components/schemas/APIComment"
       required:
       - comment
       - status
@@ -18728,10 +18732,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         comments:
           items:
-            $ref: '#/components/schemas/APIComment'
+            $ref: "#/components/schemas/APIComment"
           type: array
       required:
       - comments
@@ -18797,7 +18801,7 @@ components:
           type: string
         userId:
           allOf:
-          - $ref: '#/components/schemas/UserId'
+          - $ref: "#/components/schemas/UserId"
           nullable: true
         commenterEmail:
           nullable: true
@@ -18887,7 +18891,7 @@ components:
           nullable: true
           type: string
         meta:
-          $ref: '#/components/schemas/APICommentBase_meta'
+          $ref: "#/components/schemas/APICommentBase_meta"
         moderationGroupIds:
           items:
             type: string
@@ -18910,9 +18914,9 @@ components:
         status: success
       properties:
         action:
-          $ref: '#/components/schemas/DeleteCommentAction'
+          $ref: "#/components/schemas/DeleteCommentAction"
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - action
       - status
@@ -19150,12 +19154,12 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         comment:
-          $ref: '#/components/schemas/FComment'
+          $ref: "#/components/schemas/FComment"
         user:
           allOf:
-          - $ref: '#/components/schemas/UserSessionInfo'
+          - $ref: "#/components/schemas/UserSessionInfo"
           nullable: true
         moduleData:
           additionalProperties: {}
@@ -19261,11 +19265,11 @@ components:
           type: string
         mentions:
           items:
-            $ref: '#/components/schemas/CommentUserMentionInfo'
+            $ref: "#/components/schemas/CommentUserMentionInfo"
           type: array
         hashTags:
           items:
-            $ref: '#/components/schemas/CommentUserHashTagInfo'
+            $ref: "#/components/schemas/CommentUserHashTagInfo"
           type: array
         pageTitle:
           type: string
@@ -19296,7 +19300,7 @@ components:
           type: array
         questionValues:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string_string_or_number__value'
+            $ref: "#/components/schemas/Record_string_string_or_number__value"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -19346,7 +19350,7 @@ components:
           format: int32
           type: integer
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         code:
           type: string
         reason:
@@ -19434,7 +19438,7 @@ components:
           type: string
         objectDetails:
           allOf:
-          - $ref: '#/components/schemas/Record_string.any_'
+          - $ref: "#/components/schemas/Record_string.any_"
           nullable: true
       required:
       - _id
@@ -19472,10 +19476,10 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         auditLogs:
           items:
-            $ref: '#/components/schemas/APIAuditLog'
+            $ref: "#/components/schemas/APIAuditLog"
           type: array
       required:
       - auditLogs
@@ -19487,9 +19491,9 @@ components:
       - DESC
       type: string
     DistinctAccumulator:
-      $ref: '#/components/schemas/Record_string.number_'
+      $ref: "#/components/schemas/Record_string.number_"
     GroupValues:
-      $ref: '#/components/schemas/Record_string.string_'
+      $ref: "#/components/schemas/Record_string.string_"
     AggregationValue:
       properties:
         groups:
@@ -19517,16 +19521,16 @@ components:
       type: object
     Record_string.AggregationValue_:
       additionalProperties:
-        $ref: '#/components/schemas/AggregationValue'
+        $ref: "#/components/schemas/AggregationValue"
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
     AggregationItem:
       allOf:
-      - $ref: '#/components/schemas/Record_string.AggregationValue_'
+      - $ref: "#/components/schemas/Record_string.AggregationValue_"
       - properties:
           groups:
-            $ref: '#/components/schemas/GroupValues'
+            $ref: "#/components/schemas/GroupValues"
         type: object
       example:
         groups: null
@@ -19544,13 +19548,13 @@ components:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
         data:
           items:
-            $ref: '#/components/schemas/AggregationItem'
+            $ref: "#/components/schemas/AggregationItem"
           type: array
         stats:
-          $ref: '#/components/schemas/AggregationResponse_stats'
+          $ref: "#/components/schemas/AggregationResponse_stats"
       required:
       - data
       - status
@@ -19565,7 +19569,7 @@ components:
         key:
           type: string
         value:
-          $ref: '#/components/schemas/QueryPredicate_value'
+          $ref: "#/components/schemas/QueryPredicate_value"
         operator:
           enum:
           - eq
@@ -19603,7 +19607,7 @@ components:
           description: The field to operate on
           type: string
         op:
-          $ref: '#/components/schemas/AggregationOpType'
+          $ref: "#/components/schemas/AggregationOpType"
         alias:
           description: "Optional alias for the output; if not provided, a default\
             \ alias is computed"
@@ -19645,7 +19649,7 @@ components:
       properties:
         query:
           items:
-            $ref: '#/components/schemas/QueryPredicate'
+            $ref: "#/components/schemas/QueryPredicate"
           type: array
         resourceName:
           type: string
@@ -19655,40 +19659,40 @@ components:
           type: array
         operations:
           items:
-            $ref: '#/components/schemas/AggregationOperation'
+            $ref: "#/components/schemas/AggregationOperation"
           type: array
         sort:
-          $ref: '#/components/schemas/AggregationRequest_sort'
+          $ref: "#/components/schemas/AggregationRequest_sort"
       required:
       - operations
       - resourceName
       type: object
     SearchUsers_200_response:
       anyOf:
-      - $ref: '#/components/schemas/SearchUsersSectionedResponse'
-      - $ref: '#/components/schemas/SearchUsersResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/SearchUsersSectionedResponse"
+      - $ref: "#/components/schemas/SearchUsersResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserPresenceStatuses_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetUserPresenceStatusesResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetUserPresenceStatusesResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserNotifications_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetMyNotificationsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetMyNotificationsResponse"
+      - $ref: "#/components/schemas/APIError"
     ResetUserNotifications_200_response:
       anyOf:
-      - $ref: '#/components/schemas/ResetUserNotificationsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/ResetUserNotificationsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserNotificationCount_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetUserNotificationCountResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetUserNotificationCountResponse"
+      - $ref: "#/components/schemas/APIError"
     UpdateUserNotificationStatus_200_response:
       anyOf:
-      - $ref: '#/components/schemas/UserNotificationWriteResponse'
-      - $ref: '#/components/schemas/IgnoredResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/UserNotificationWriteResponse"
+      - $ref: "#/components/schemas/IgnoredResponse"
+      - $ref: "#/components/schemas/APIError"
     UploadImage_request:
       properties:
         file:
@@ -19699,97 +19703,97 @@ components:
       type: object
     FlagCommentPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIEmptyResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIEmptyResponse"
+      - $ref: "#/components/schemas/APIError"
     GetFeedPostsPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/PublicFeedPostsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/PublicFeedPostsResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateFeedPostPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateFeedPostResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateFeedPostResponse"
+      - $ref: "#/components/schemas/APIError"
     ReactFeedPostPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/ReactFeedPostResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/ReactFeedPostResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserReactsPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/UserReactsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/UserReactsResponse"
+      - $ref: "#/components/schemas/APIError"
     DeleteFeedPostPublic_200_response_anyOf:
       example:
         status: success
       properties:
         status:
-          $ref: '#/components/schemas/APIStatus'
+          $ref: "#/components/schemas/APIStatus"
       required:
       - status
       type: object
     DeleteFeedPostPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/DeleteFeedPostPublic_200_response_anyOf'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/DeleteFeedPostPublic_200_response_anyOf"
+      - $ref: "#/components/schemas/APIError"
     GetFeedPostsStats_200_response:
       anyOf:
-      - $ref: '#/components/schemas/FeedPostsStatsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/FeedPostsStatsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetEventLog_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetEventLogResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetEventLogResponse"
+      - $ref: "#/components/schemas/APIError"
     GetCommentText_200_response:
       anyOf:
-      - $ref: '#/components/schemas/PublicAPIGetCommentTextResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/PublicAPIGetCommentTextResponse"
+      - $ref: "#/components/schemas/APIError"
     SetCommentText_200_response:
       anyOf:
-      - $ref: '#/components/schemas/PublicAPISetCommentTextResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/PublicAPISetCommentTextResponse"
+      - $ref: "#/components/schemas/APIError"
     GetCommentsPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetCommentsResponseWithPresence_PublicComment_'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetCommentsResponseWithPresence_PublicComment_"
+      - $ref: "#/components/schemas/APIError"
     CreateCommentPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/SaveCommentsResponseWithPresence'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/SaveCommentsResponseWithPresence"
+      - $ref: "#/components/schemas/APIError"
     DeleteCommentPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/PublicAPIDeleteCommentResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/PublicAPIDeleteCommentResponse"
+      - $ref: "#/components/schemas/APIError"
     CheckedCommentsForBlocked_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CheckBlockedCommentsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CheckBlockedCommentsResponse"
+      - $ref: "#/components/schemas/APIError"
     VoteComment_200_response:
       anyOf:
-      - $ref: '#/components/schemas/VoteResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/VoteResponse"
+      - $ref: "#/components/schemas/APIError"
     DeleteCommentVote_200_response:
       anyOf:
-      - $ref: '#/components/schemas/VoteDeleteResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/VoteDeleteResponse"
+      - $ref: "#/components/schemas/APIError"
     GetCommentVoteUserNames_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetCommentVoteUserNamesSuccessResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetCommentVoteUserNamesSuccessResponse"
+      - $ref: "#/components/schemas/APIError"
     PinComment_200_response:
       anyOf:
-      - $ref: '#/components/schemas/ChangeCommentPinStatusResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/ChangeCommentPinStatusResponse"
+      - $ref: "#/components/schemas/APIError"
     LockComment_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIError'
-      - $ref: '#/components/schemas/APIEmptyResponse'
+      - $ref: "#/components/schemas/APIError"
+      - $ref: "#/components/schemas/APIEmptyResponse"
     BlockFromCommentPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/BlockSuccess'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/BlockSuccess"
+      - $ref: "#/components/schemas/APIError"
     UnBlockCommentPublic_200_response:
       anyOf:
-      - $ref: '#/components/schemas/UnblockSuccess'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/UnblockSuccess"
+      - $ref: "#/components/schemas/APIError"
     GetSSOUsers_200_response:
       example:
         users:
@@ -19841,7 +19845,7 @@ components:
       properties:
         users:
           items:
-            $ref: '#/components/schemas/APISSOUser'
+            $ref: "#/components/schemas/APISSOUser"
           type: array
         status:
           type: string
@@ -19851,176 +19855,176 @@ components:
       type: object
     GetVotes_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetVotesResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetVotesResponse"
+      - $ref: "#/components/schemas/APIError"
     GetVotesForUser_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetVotesForUserResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetVotesForUserResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUser_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetUserResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetUserResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserBadge_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIGetUserBadgeResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIGetUserBadgeResponse"
+      - $ref: "#/components/schemas/APIError"
     UpdateUserBadge_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIEmptySuccessResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIEmptySuccessResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserBadges_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIGetUserBadgesResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIGetUserBadgesResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateUserBadge_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APICreateUserBadgeResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APICreateUserBadgeResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserBadgeProgressById_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIGetUserBadgeProgressResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIGetUserBadgeProgressResponse"
+      - $ref: "#/components/schemas/APIError"
     GetUserBadgeProgressList_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIGetUserBadgeProgressListResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIGetUserBadgeProgressListResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTickets_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTicketsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTicketsResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateTicket_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateTicketResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateTicketResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTicket_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTicketResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTicketResponse"
+      - $ref: "#/components/schemas/APIError"
     ChangeTicketState_200_response:
       anyOf:
-      - $ref: '#/components/schemas/ChangeTicketStateResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/ChangeTicketStateResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTenant_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTenantResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTenantResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTenants_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTenantsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTenantsResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateTenant_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateTenantResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateTenantResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTenantUser_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTenantUserResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTenantUserResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTenantUsers_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTenantUsersResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTenantUsersResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateTenantUser_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateTenantUserResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateTenantUserResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTenantPackage_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTenantPackageResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTenantPackageResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTenantPackages_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTenantPackagesResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTenantPackagesResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateTenantPackage_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateTenantPackageResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateTenantPackageResponse"
+      - $ref: "#/components/schemas/APIError"
     GetTenantDailyUsages_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetTenantDailyUsagesResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetTenantDailyUsagesResponse"
+      - $ref: "#/components/schemas/APIError"
     GetQuestionResult_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetQuestionResultResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetQuestionResultResponse"
+      - $ref: "#/components/schemas/APIError"
     GetQuestionResults_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetQuestionResultsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetQuestionResultsResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateQuestionResult_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateQuestionResultResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateQuestionResultResponse"
+      - $ref: "#/components/schemas/APIError"
     AggregateQuestionResults_200_response:
       anyOf:
-      - $ref: '#/components/schemas/AggregateQuestionResultsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/AggregateQuestionResultsResponse"
+      - $ref: "#/components/schemas/APIError"
     BulkAggregateQuestionResults_200_response:
       anyOf:
-      - $ref: '#/components/schemas/BulkAggregateQuestionResultsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/BulkAggregateQuestionResultsResponse"
+      - $ref: "#/components/schemas/APIError"
     CombineCommentsWithQuestionResults_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CombineQuestionResultsWithCommentsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CombineQuestionResultsWithCommentsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetQuestionConfig_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetQuestionConfigResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetQuestionConfigResponse"
+      - $ref: "#/components/schemas/APIError"
     GetQuestionConfigs_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetQuestionConfigsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetQuestionConfigsResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateQuestionConfig_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateQuestionConfigResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateQuestionConfigResponse"
+      - $ref: "#/components/schemas/APIError"
     GetPendingWebhookEvents_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetPendingWebhookEventsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetPendingWebhookEventsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetPendingWebhookEventCount_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetPendingWebhookEventCountResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetPendingWebhookEventCountResponse"
+      - $ref: "#/components/schemas/APIError"
     GetNotifications_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetNotificationsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetNotificationsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetNotificationCount_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetNotificationCountResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetNotificationCountResponse"
+      - $ref: "#/components/schemas/APIError"
     GetCachedNotificationCount_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetCachedNotificationCountResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetCachedNotificationCountResponse"
+      - $ref: "#/components/schemas/APIError"
     GetModerator_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetModeratorResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetModeratorResponse"
+      - $ref: "#/components/schemas/APIError"
     GetModerators_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetModeratorsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetModeratorsResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateModerator_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateModeratorResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateModeratorResponse"
+      - $ref: "#/components/schemas/APIError"
     GetHashTags_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetHashTagsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetHashTagsResponse"
+      - $ref: "#/components/schemas/APIError"
     AddHashTag_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateHashTagResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateHashTagResponse"
+      - $ref: "#/components/schemas/APIError"
     AddHashTagsBulk_200_response:
       anyOf:
-      - $ref: '#/components/schemas/BulkCreateHashTagsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/BulkCreateHashTagsResponse"
+      - $ref: "#/components/schemas/APIError"
     DeleteHashTag_request:
       properties:
         tenantId:
@@ -20028,40 +20032,40 @@ components:
       type: object
     PatchHashTag_200_response:
       anyOf:
-      - $ref: '#/components/schemas/UpdateHashTagResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/UpdateHashTagResponse"
+      - $ref: "#/components/schemas/APIError"
     GetFeedPosts_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetFeedPostsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetFeedPostsResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateFeedPost_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateFeedPostsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateFeedPostsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetEmailTemplateDefinitions_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetEmailTemplateDefinitionsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetEmailTemplateDefinitionsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetEmailTemplateRenderErrors_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetEmailTemplateRenderErrorsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetEmailTemplateRenderErrorsResponse"
+      - $ref: "#/components/schemas/APIError"
     GetEmailTemplate_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetEmailTemplateResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetEmailTemplateResponse"
+      - $ref: "#/components/schemas/APIError"
     GetEmailTemplates_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetEmailTemplatesResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetEmailTemplatesResponse"
+      - $ref: "#/components/schemas/APIError"
     CreateEmailTemplate_200_response:
       anyOf:
-      - $ref: '#/components/schemas/CreateEmailTemplateResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/CreateEmailTemplateResponse"
+      - $ref: "#/components/schemas/APIError"
     RenderEmailTemplate_200_response:
       anyOf:
-      - $ref: '#/components/schemas/RenderEmailTemplateResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/RenderEmailTemplateResponse"
+      - $ref: "#/components/schemas/APIError"
     GetDomainConfigs_200_response_anyOf:
       example:
         configurations: ""
@@ -20091,8 +20095,8 @@ components:
       type: object
     GetDomainConfigs_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetDomainConfigs_200_response_anyOf'
-      - $ref: '#/components/schemas/GetDomainConfigs_200_response_anyOf_1'
+      - $ref: "#/components/schemas/GetDomainConfigs_200_response_anyOf"
+      - $ref: "#/components/schemas/GetDomainConfigs_200_response_anyOf_1"
     AddDomainConfig_200_response_anyOf:
       example:
         configuration: ""
@@ -20106,12 +20110,12 @@ components:
       type: object
     AddDomainConfig_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetDomainConfigs_200_response_anyOf_1'
-      - $ref: '#/components/schemas/AddDomainConfig_200_response_anyOf'
+      - $ref: "#/components/schemas/GetDomainConfigs_200_response_anyOf_1"
+      - $ref: "#/components/schemas/AddDomainConfig_200_response_anyOf"
     GetDomainConfig_200_response:
       anyOf:
-      - $ref: '#/components/schemas/AddDomainConfig_200_response_anyOf'
-      - $ref: '#/components/schemas/GetDomainConfigs_200_response_anyOf_1'
+      - $ref: "#/components/schemas/AddDomainConfig_200_response_anyOf"
+      - $ref: "#/components/schemas/GetDomainConfigs_200_response_anyOf_1"
     DeleteDomainConfig_200_response:
       example:
         status: ""
@@ -20122,28 +20126,28 @@ components:
       type: object
     GetComment_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIGetCommentResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIGetCommentResponse"
+      - $ref: "#/components/schemas/APIError"
     DeleteComment_200_response:
       anyOf:
-      - $ref: '#/components/schemas/DeleteCommentResult'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/DeleteCommentResult"
+      - $ref: "#/components/schemas/APIError"
     GetComments_200_response:
       anyOf:
-      - $ref: '#/components/schemas/APIGetCommentsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/APIGetCommentsResponse"
+      - $ref: "#/components/schemas/APIError"
     SaveComment_200_response:
       anyOf:
-      - $ref: '#/components/schemas/SaveCommentResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/SaveCommentResponse"
+      - $ref: "#/components/schemas/APIError"
     FlagComment_200_response:
       anyOf:
-      - $ref: '#/components/schemas/FlagCommentResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/FlagCommentResponse"
+      - $ref: "#/components/schemas/APIError"
     GetAuditLogs_200_response:
       anyOf:
-      - $ref: '#/components/schemas/GetAuditLogsResponse'
-      - $ref: '#/components/schemas/APIError'
+      - $ref: "#/components/schemas/GetAuditLogsResponse"
+      - $ref: "#/components/schemas/APIError"
     Record_string__before_string_or_null__after_string_or_null___value:
       example:
         before: before
@@ -20161,7 +20165,7 @@ components:
       properties:
         commentPositions:
           additionalProperties:
-            $ref: '#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value'
+            $ref: "#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
@@ -20171,12 +20175,6 @@ components:
       - type: string
       - format: double
         type: number
-    VoteResponse_status:
-      anyOf:
-      - $ref: '#/components/schemas/APIStatus'
-      - enum:
-        - pending-verification
-        type: string
     FComment_meta:
       additionalProperties: {}
       example:

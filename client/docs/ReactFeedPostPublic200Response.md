@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**reactType** | **String** |  |  |
-|**isUndo** | **Boolean** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reactType** | **String** |  |  [optional] |
+|**isUndo** | **Boolean** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

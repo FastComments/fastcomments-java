@@ -8,8 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**code** | **String** |  |  |
-|**reason** | **String** |  |  |
+|**code** | **String** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

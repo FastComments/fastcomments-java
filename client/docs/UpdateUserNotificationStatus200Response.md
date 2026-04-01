@@ -8,11 +8,11 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**matchedCount** | **Long** |  |  |
-|**modifiedCount** | **Long** |  |  |
-|**note** | [**NoteEnum**](#NoteEnum) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**matchedCount** | **Long** |  |  [optional] |
+|**modifiedCount** | **Long** |  |  [optional] |
+|**note** | [**NoteEnum**](#NoteEnum) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

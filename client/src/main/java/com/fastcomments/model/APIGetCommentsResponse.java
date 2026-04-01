@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * APIGetCommentsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class APIGetCommentsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -159,14 +159,10 @@ public class APIGetCommentsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("comments");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "comments"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("comments");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "comments"));
   }
 
   /**
@@ -178,7 +174,7 @@ public class APIGetCommentsResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!APIGetCommentsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in APIGetCommentsResponse is not found in the empty JSON string", APIGetCommentsResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in APIGetCommentsResponse is not found in the empty JSON string", APIGetCommentsResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -186,14 +182,14 @@ public class APIGetCommentsResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!APIGetCommentsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `APIGetCommentsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `APIGetCommentsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : APIGetCommentsResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -201,7 +197,7 @@ public class APIGetCommentsResponse {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("comments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comments` to be an array in the JSON string but got `%s`", jsonObj.get("comments").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comments` to be an array in the JSON string but got `%s`", jsonObj.get("comments").toString()));
       }
 
       JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");

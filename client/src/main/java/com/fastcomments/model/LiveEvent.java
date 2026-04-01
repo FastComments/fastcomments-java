@@ -59,7 +59,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * LiveEvent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class LiveEvent {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -580,28 +580,10 @@ public class LiveEvent {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("timestamp");
-    openapiFields.add("ts");
-    openapiFields.add("broadcastId");
-    openapiFields.add("userId");
-    openapiFields.add("badges");
-    openapiFields.add("notification");
-    openapiFields.add("vote");
-    openapiFields.add("comment");
-    openapiFields.add("feedPost");
-    openapiFields.add("extraInfo");
-    openapiFields.add("config");
-    openapiFields.add("isClosed");
-    openapiFields.add("uj");
-    openapiFields.add("ul");
-    openapiFields.add("sc");
-    openapiFields.add("changes");
+    openapiFields = new HashSet<String>(Arrays.asList("type", "timestamp", "ts", "broadcastId", "userId", "badges", "notification", "vote", "comment", "feedPost", "extraInfo", "config", "isClosed", "uj", "ul", "sc", "changes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
   }
 
   /**
@@ -613,7 +595,7 @@ public class LiveEvent {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LiveEvent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LiveEvent is not found in the empty JSON string", LiveEvent.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in LiveEvent is not found in the empty JSON string", LiveEvent.openapiRequiredFields.toString()));
         }
       }
 
@@ -621,31 +603,31 @@ public class LiveEvent {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LiveEvent.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LiveEvent` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LiveEvent` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : LiveEvent.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `type`
       LiveEventType.validateJsonElement(jsonObj.get("type"));
       if ((jsonObj.get("broadcastId") != null && !jsonObj.get("broadcastId").isJsonNull()) && !jsonObj.get("broadcastId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `broadcastId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("broadcastId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `broadcastId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("broadcastId").toString()));
       }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       if (jsonObj.get("badges") != null && !jsonObj.get("badges").isJsonNull()) {
         JsonArray jsonArraybadges = jsonObj.getAsJsonArray("badges");
         if (jsonArraybadges != null) {
           // ensure the json data is an array
           if (!jsonObj.get("badges").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `badges` to be an array in the JSON string but got `%s`", jsonObj.get("badges").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `badges` to be an array in the JSON string but got `%s`", jsonObj.get("badges").toString()));
           }
 
           // validate the optional field `badges` (array)
@@ -676,11 +658,11 @@ public class LiveEvent {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("uj") != null && !jsonObj.get("uj").isJsonNull() && !jsonObj.get("uj").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uj` to be an array in the JSON string but got `%s`", jsonObj.get("uj").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uj` to be an array in the JSON string but got `%s`", jsonObj.get("uj").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("ul") != null && !jsonObj.get("ul").isJsonNull() && !jsonObj.get("ul").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ul` to be an array in the JSON string but got `%s`", jsonObj.get("ul").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ul` to be an array in the JSON string but got `%s`", jsonObj.get("ul").toString()));
       }
   }
 

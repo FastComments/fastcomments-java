@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**configurations** | **Object** |  |  |
+|**configurations** | **Object** |  |  [optional] |
 |**status** | **Object** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 
 
 

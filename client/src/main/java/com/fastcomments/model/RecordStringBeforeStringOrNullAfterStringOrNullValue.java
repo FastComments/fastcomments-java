@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * RecordStringBeforeStringOrNullAfterStringOrNullValue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
   public static final String SERIALIZED_NAME_AFTER = "after";
   @SerializedName(SERIALIZED_NAME_AFTER)
@@ -193,14 +193,10 @@ public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("after");
-    openapiFields.add("before");
+    openapiFields = new HashSet<String>(Arrays.asList("after", "before"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("after");
-    openapiRequiredFields.add("before");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("after", "before"));
   }
 
   /**
@@ -212,22 +208,22 @@ public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RecordStringBeforeStringOrNullAfterStringOrNullValue.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RecordStringBeforeStringOrNullAfterStringOrNullValue is not found in the empty JSON string", RecordStringBeforeStringOrNullAfterStringOrNullValue.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RecordStringBeforeStringOrNullAfterStringOrNullValue is not found in the empty JSON string", RecordStringBeforeStringOrNullAfterStringOrNullValue.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RecordStringBeforeStringOrNullAfterStringOrNullValue.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("after").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after").toString()));
       }
       if (!jsonObj.get("before").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `before` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `before` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before").toString()));
       }
   }
 
@@ -288,7 +284,7 @@ public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

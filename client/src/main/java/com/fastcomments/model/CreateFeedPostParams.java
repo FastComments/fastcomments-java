@@ -54,7 +54,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CreateFeedPostParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class CreateFeedPostParams {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -341,18 +341,10 @@ public class CreateFeedPostParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("title");
-    openapiFields.add("contentHTML");
-    openapiFields.add("media");
-    openapiFields.add("links");
-    openapiFields.add("fromUserId");
-    openapiFields.add("fromUserDisplayName");
-    openapiFields.add("tags");
-    openapiFields.add("meta");
+    openapiFields = new HashSet<String>(Arrays.asList("title", "contentHTML", "media", "links", "fromUserId", "fromUserDisplayName", "tags", "meta"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -364,7 +356,7 @@ public class CreateFeedPostParams {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateFeedPostParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateFeedPostParams is not found in the empty JSON string", CreateFeedPostParams.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateFeedPostParams is not found in the empty JSON string", CreateFeedPostParams.openapiRequiredFields.toString()));
         }
       }
 
@@ -372,22 +364,22 @@ public class CreateFeedPostParams {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateFeedPostParams.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateFeedPostParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateFeedPostParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if ((jsonObj.get("contentHTML") != null && !jsonObj.get("contentHTML").isJsonNull()) && !jsonObj.get("contentHTML").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `contentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contentHTML").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `contentHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contentHTML").toString()));
       }
       if (jsonObj.get("media") != null && !jsonObj.get("media").isJsonNull()) {
         JsonArray jsonArraymedia = jsonObj.getAsJsonArray("media");
         if (jsonArraymedia != null) {
           // ensure the json data is an array
           if (!jsonObj.get("media").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `media` to be an array in the JSON string but got `%s`", jsonObj.get("media").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `media` to be an array in the JSON string but got `%s`", jsonObj.get("media").toString()));
           }
 
           // validate the optional field `media` (array)
@@ -401,7 +393,7 @@ public class CreateFeedPostParams {
         if (jsonArraylinks != null) {
           // ensure the json data is an array
           if (!jsonObj.get("links").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `links` to be an array in the JSON string but got `%s`", jsonObj.get("links").toString()));
           }
 
           // validate the optional field `links` (array)
@@ -411,14 +403,14 @@ public class CreateFeedPostParams {
         }
       }
       if ((jsonObj.get("fromUserId") != null && !jsonObj.get("fromUserId").isJsonNull()) && !jsonObj.get("fromUserId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fromUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `fromUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserId").toString()));
       }
       if ((jsonObj.get("fromUserDisplayName") != null && !jsonObj.get("fromUserDisplayName").isJsonNull()) && !jsonObj.get("fromUserDisplayName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fromUserDisplayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserDisplayName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `fromUserDisplayName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fromUserDisplayName").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
   }
 

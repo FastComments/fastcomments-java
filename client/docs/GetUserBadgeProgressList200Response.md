@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**userBadgeProgresses** | [**List&lt;UserBadgeProgress&gt;**](UserBadgeProgress.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**userBadgeProgresses** | [**List&lt;UserBadgeProgress&gt;**](UserBadgeProgress.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

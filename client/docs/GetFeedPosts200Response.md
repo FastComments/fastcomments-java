@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

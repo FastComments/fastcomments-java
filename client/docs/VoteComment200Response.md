@@ -12,8 +12,8 @@
 |**isVerified** | **Boolean** |  |  [optional] |
 |**user** | [**VoteResponseUser**](VoteResponseUser.md) |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * APICreateUserBadgeResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class APICreateUserBadgeResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -185,15 +185,10 @@ public class APICreateUserBadgeResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("userBadge");
-    openapiFields.add("notes");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "userBadge", "notes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("userBadge");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "userBadge"));
   }
 
   /**
@@ -205,7 +200,7 @@ public class APICreateUserBadgeResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!APICreateUserBadgeResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in APICreateUserBadgeResponse is not found in the empty JSON string", APICreateUserBadgeResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in APICreateUserBadgeResponse is not found in the empty JSON string", APICreateUserBadgeResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -213,14 +208,14 @@ public class APICreateUserBadgeResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!APICreateUserBadgeResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `APICreateUserBadgeResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `APICreateUserBadgeResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : APICreateUserBadgeResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -230,7 +225,7 @@ public class APICreateUserBadgeResponse {
       UserBadge.validateJsonElement(jsonObj.get("userBadge"));
       // ensure the optional json data is an array if present
       if (jsonObj.get("notes") != null && !jsonObj.get("notes").isJsonNull() && !jsonObj.get("notes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `notes` to be an array in the JSON string but got `%s`", jsonObj.get("notes").toString()));
       }
   }
 

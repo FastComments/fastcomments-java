@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetHashTagsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class GetHashTagsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -159,14 +159,10 @@ public class GetHashTagsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("hashTags");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "hashTags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("hashTags");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "hashTags"));
   }
 
   /**
@@ -178,7 +174,7 @@ public class GetHashTagsResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetHashTagsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetHashTagsResponse is not found in the empty JSON string", GetHashTagsResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetHashTagsResponse is not found in the empty JSON string", GetHashTagsResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -186,14 +182,14 @@ public class GetHashTagsResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetHashTagsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetHashTagsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetHashTagsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetHashTagsResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -201,7 +197,7 @@ public class GetHashTagsResponse {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("hashTags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hashTags` to be an array in the JSON string but got `%s`", jsonObj.get("hashTags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hashTags` to be an array in the JSON string but got `%s`", jsonObj.get("hashTags").toString()));
       }
 
       JsonArray jsonArrayhashTags = jsonObj.getAsJsonArray("hashTags");

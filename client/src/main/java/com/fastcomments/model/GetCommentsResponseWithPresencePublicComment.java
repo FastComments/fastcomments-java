@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponseWithPresencePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
@@ -866,41 +866,10 @@ public class GetCommentsResponseWithPresencePublicComment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("statusCode");
-    openapiFields.add("status");
-    openapiFields.add("code");
-    openapiFields.add("reason");
-    openapiFields.add("translatedWarning");
-    openapiFields.add("comments");
-    openapiFields.add("user");
-    openapiFields.add("urlIdClean");
-    openapiFields.add("lastGenDate");
-    openapiFields.add("includesPastPages");
-    openapiFields.add("isDemo");
-    openapiFields.add("commentCount");
-    openapiFields.add("isSiteAdmin");
-    openapiFields.add("hasBillingIssue");
-    openapiFields.add("moduleData");
-    openapiFields.add("pageNumber");
-    openapiFields.add("isWhiteLabeled");
-    openapiFields.add("isProd");
-    openapiFields.add("isCrawler");
-    openapiFields.add("notificationCount");
-    openapiFields.add("hasMore");
-    openapiFields.add("isClosed");
-    openapiFields.add("presencePollState");
-    openapiFields.add("customConfig");
-    openapiFields.add("urlIdWS");
-    openapiFields.add("userIdWS");
-    openapiFields.add("tenantIdWS");
+    openapiFields = new HashSet<String>(Arrays.asList("statusCode", "status", "code", "reason", "translatedWarning", "comments", "user", "urlIdClean", "lastGenDate", "includesPastPages", "isDemo", "commentCount", "isSiteAdmin", "hasBillingIssue", "moduleData", "pageNumber", "isWhiteLabeled", "isProd", "isCrawler", "notificationCount", "hasMore", "isClosed", "presencePollState", "customConfig", "urlIdWS", "userIdWS", "tenantIdWS"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("comments");
-    openapiRequiredFields.add("user");
-    openapiRequiredFields.add("pageNumber");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "comments", "user", "pageNumber"));
   }
 
   /**
@@ -912,32 +881,32 @@ public class GetCommentsResponseWithPresencePublicComment {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetCommentsResponseWithPresencePublicComment.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetCommentsResponseWithPresencePublicComment is not found in the empty JSON string", GetCommentsResponseWithPresencePublicComment.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetCommentsResponseWithPresencePublicComment is not found in the empty JSON string", GetCommentsResponseWithPresencePublicComment.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetCommentsResponseWithPresencePublicComment.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
       if ((jsonObj.get("translatedWarning") != null && !jsonObj.get("translatedWarning").isJsonNull()) && !jsonObj.get("translatedWarning").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `translatedWarning` to be a primitive type in the JSON string but got `%s`", jsonObj.get("translatedWarning").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `translatedWarning` to be a primitive type in the JSON string but got `%s`", jsonObj.get("translatedWarning").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("comments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comments` to be an array in the JSON string but got `%s`", jsonObj.get("comments").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comments` to be an array in the JSON string but got `%s`", jsonObj.get("comments").toString()));
       }
 
       JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");
@@ -948,20 +917,20 @@ public class GetCommentsResponseWithPresencePublicComment {
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
       if ((jsonObj.get("urlIdClean") != null && !jsonObj.get("urlIdClean").isJsonNull()) && !jsonObj.get("urlIdClean").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlIdClean` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdClean").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `urlIdClean` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdClean").toString()));
       }
       // validate the optional field `customConfig`
       if (jsonObj.get("customConfig") != null && !jsonObj.get("customConfig").isJsonNull()) {
         CustomConfigParameters.validateJsonElement(jsonObj.get("customConfig"));
       }
       if ((jsonObj.get("urlIdWS") != null && !jsonObj.get("urlIdWS").isJsonNull()) && !jsonObj.get("urlIdWS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdWS").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `urlIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdWS").toString()));
       }
       if ((jsonObj.get("userIdWS") != null && !jsonObj.get("userIdWS").isJsonNull()) && !jsonObj.get("userIdWS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
       }
       if ((jsonObj.get("tenantIdWS") != null && !jsonObj.get("tenantIdWS").isJsonNull()) && !jsonObj.get("tenantIdWS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantIdWS").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantIdWS").toString()));
       }
   }
 
@@ -1022,7 +991,7 @@ public class GetCommentsResponseWithPresencePublicComment {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

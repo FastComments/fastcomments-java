@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetTenantPackagesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class GetTenantPackagesResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -159,14 +159,10 @@ public class GetTenantPackagesResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("tenantPackages");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "tenantPackages"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("tenantPackages");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "tenantPackages"));
   }
 
   /**
@@ -178,7 +174,7 @@ public class GetTenantPackagesResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetTenantPackagesResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetTenantPackagesResponse is not found in the empty JSON string", GetTenantPackagesResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetTenantPackagesResponse is not found in the empty JSON string", GetTenantPackagesResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -186,14 +182,14 @@ public class GetTenantPackagesResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetTenantPackagesResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTenantPackagesResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetTenantPackagesResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetTenantPackagesResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -201,7 +197,7 @@ public class GetTenantPackagesResponse {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("tenantPackages").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantPackages` to be an array in the JSON string but got `%s`", jsonObj.get("tenantPackages").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantPackages` to be an array in the JSON string but got `%s`", jsonObj.get("tenantPackages").toString()));
       }
 
       JsonArray jsonArraytenantPackages = jsonObj.getAsJsonArray("tenantPackages");

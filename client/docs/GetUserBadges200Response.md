@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**userBadges** | [**List&lt;UserBadge&gt;**](UserBadge.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**userBadges** | [**List&lt;UserBadge&gt;**](UserBadge.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

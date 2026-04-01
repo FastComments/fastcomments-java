@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CreateAPIPageData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class CreateAPIPageData {
   public static final String SERIALIZED_NAME_ACCESSIBLE_BY_GROUP_IDS = "accessibleByGroupIds";
   @SerializedName(SERIALIZED_NAME_ACCESSIBLE_BY_GROUP_IDS)
@@ -307,19 +307,10 @@ public class CreateAPIPageData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accessibleByGroupIds");
-    openapiFields.add("rootCommentCount");
-    openapiFields.add("commentCount");
-    openapiFields.add("title");
-    openapiFields.add("url");
-    openapiFields.add("urlId");
+    openapiFields = new HashSet<String>(Arrays.asList("accessibleByGroupIds", "rootCommentCount", "commentCount", "title", "url", "urlId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("title");
-    openapiRequiredFields.add("url");
-    openapiRequiredFields.add("urlId");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("title", "url", "urlId"));
   }
 
   /**
@@ -331,29 +322,29 @@ public class CreateAPIPageData {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateAPIPageData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateAPIPageData is not found in the empty JSON string", CreateAPIPageData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateAPIPageData is not found in the empty JSON string", CreateAPIPageData.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateAPIPageData.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("accessibleByGroupIds") != null && !jsonObj.get("accessibleByGroupIds").isJsonNull() && !jsonObj.get("accessibleByGroupIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accessibleByGroupIds` to be an array in the JSON string but got `%s`", jsonObj.get("accessibleByGroupIds").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessibleByGroupIds` to be an array in the JSON string but got `%s`", jsonObj.get("accessibleByGroupIds").toString()));
       }
       if (!jsonObj.get("title").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
       }
       if (!jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       if (!jsonObj.get("urlId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
       }
   }
 
@@ -414,7 +405,7 @@ public class CreateAPIPageData {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

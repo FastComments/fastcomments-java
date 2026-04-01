@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**comments** | [**List&lt;APIComment&gt;**](APIComment.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**comments** | [**List&lt;APIComment&gt;**](APIComment.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * Moderator
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class Moderator {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -600,47 +600,10 @@ public class Moderator {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("_id");
-    openapiFields.add("tenantId");
-    openapiFields.add("name");
-    openapiFields.add("userId");
-    openapiFields.add("acceptedInvite");
-    openapiFields.add("email");
-    openapiFields.add("markReviewedCount");
-    openapiFields.add("deletedCount");
-    openapiFields.add("markedSpamCount");
-    openapiFields.add("markedNotSpamCount");
-    openapiFields.add("approvedCount");
-    openapiFields.add("unApprovedCount");
-    openapiFields.add("editedCount");
-    openapiFields.add("bannedCount");
-    openapiFields.add("unFlaggedCount");
-    openapiFields.add("verificationId");
-    openapiFields.add("createdAt");
-    openapiFields.add("moderationGroupIds");
-    openapiFields.add("isEmailSuppressed");
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "name", "userId", "acceptedInvite", "email", "markReviewedCount", "deletedCount", "markedSpamCount", "markedNotSpamCount", "approvedCount", "unApprovedCount", "editedCount", "bannedCount", "unFlaggedCount", "verificationId", "createdAt", "moderationGroupIds", "isEmailSuppressed"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("_id");
-    openapiRequiredFields.add("tenantId");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("userId");
-    openapiRequiredFields.add("acceptedInvite");
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("markReviewedCount");
-    openapiRequiredFields.add("deletedCount");
-    openapiRequiredFields.add("markedSpamCount");
-    openapiRequiredFields.add("markedNotSpamCount");
-    openapiRequiredFields.add("approvedCount");
-    openapiRequiredFields.add("unApprovedCount");
-    openapiRequiredFields.add("editedCount");
-    openapiRequiredFields.add("bannedCount");
-    openapiRequiredFields.add("unFlaggedCount");
-    openapiRequiredFields.add("verificationId");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("moderationGroupIds");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "name", "userId", "acceptedInvite", "email", "markReviewedCount", "deletedCount", "markedSpamCount", "markedNotSpamCount", "approvedCount", "unApprovedCount", "editedCount", "bannedCount", "unFlaggedCount", "verificationId", "createdAt", "moderationGroupIds"));
   }
 
   /**
@@ -652,7 +615,7 @@ public class Moderator {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Moderator.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Moderator is not found in the empty JSON string", Moderator.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Moderator is not found in the empty JSON string", Moderator.openapiRequiredFields.toString()));
         }
       }
 
@@ -660,40 +623,40 @@ public class Moderator {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Moderator.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Moderator` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Moderator` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Moderator.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
       if (!jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("verificationId") != null && !jsonObj.get("verificationId").isJsonNull()) && !jsonObj.get("verificationId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `verificationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `verificationId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verificationId").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("moderationGroupIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("moderationGroupIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `moderationGroupIds` to be an array in the JSON string but got `%s`", jsonObj.get("moderationGroupIds").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moderationGroupIds` to be an array in the JSON string but got `%s`", jsonObj.get("moderationGroupIds").toString()));
       }
   }
 

@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**hashTags** | [**List&lt;TenantHashTag&gt;**](TenantHashTag.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**hashTags** | [**List&lt;TenantHashTag&gt;**](TenantHashTag.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

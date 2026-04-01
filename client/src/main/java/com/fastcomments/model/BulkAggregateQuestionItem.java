@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * BulkAggregateQuestionItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class BulkAggregateQuestionItem {
   public static final String SERIALIZED_NAME_AGG_ID = "aggId";
   @SerializedName(SERIALIZED_NAME_AGG_ID)
@@ -263,17 +263,10 @@ public class BulkAggregateQuestionItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("aggId");
-    openapiFields.add("questionId");
-    openapiFields.add("questionIds");
-    openapiFields.add("urlId");
-    openapiFields.add("timeBucket");
-    openapiFields.add("startDate");
+    openapiFields = new HashSet<String>(Arrays.asList("aggId", "questionId", "questionIds", "urlId", "timeBucket", "startDate"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("aggId");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("aggId"));
   }
 
   /**
@@ -285,7 +278,7 @@ public class BulkAggregateQuestionItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!BulkAggregateQuestionItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BulkAggregateQuestionItem is not found in the empty JSON string", BulkAggregateQuestionItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BulkAggregateQuestionItem is not found in the empty JSON string", BulkAggregateQuestionItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -293,29 +286,29 @@ public class BulkAggregateQuestionItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BulkAggregateQuestionItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BulkAggregateQuestionItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BulkAggregateQuestionItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : BulkAggregateQuestionItem.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("aggId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aggId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aggId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggId").toString()));
       }
       if ((jsonObj.get("questionId") != null && !jsonObj.get("questionId").isJsonNull()) && !jsonObj.get("questionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `questionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("questionId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `questionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("questionId").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("questionIds") != null && !jsonObj.get("questionIds").isJsonNull() && !jsonObj.get("questionIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `questionIds` to be an array in the JSON string but got `%s`", jsonObj.get("questionIds").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `questionIds` to be an array in the JSON string but got `%s`", jsonObj.get("questionIds").toString()));
       }
       if ((jsonObj.get("urlId") != null && !jsonObj.get("urlId").isJsonNull()) && !jsonObj.get("urlId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
       }
       // validate the optional field `timeBucket`
       if (jsonObj.get("timeBucket") != null && !jsonObj.get("timeBucket").isJsonNull()) {

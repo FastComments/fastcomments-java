@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**emailTemplates** | [**List&lt;CustomEmailTemplate&gt;**](CustomEmailTemplate.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**emailTemplates** | [**List&lt;CustomEmailTemplate&gt;**](CustomEmailTemplate.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

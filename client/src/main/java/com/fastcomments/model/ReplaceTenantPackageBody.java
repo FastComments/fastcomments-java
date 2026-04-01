@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * ReplaceTenantPackageBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class ReplaceTenantPackageBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -911,56 +911,10 @@ public class ReplaceTenantPackageBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("monthlyCostUSD");
-    openapiFields.add("yearlyCostUSD");
-    openapiFields.add("maxMonthlyPageLoads");
-    openapiFields.add("maxMonthlyAPICredits");
-    openapiFields.add("maxMonthlyComments");
-    openapiFields.add("maxConcurrentUsers");
-    openapiFields.add("maxTenantUsers");
-    openapiFields.add("maxSSOUsers");
-    openapiFields.add("maxModerators");
-    openapiFields.add("maxDomains");
-    openapiFields.add("maxCustomCollectionSize");
-    openapiFields.add("hasDebranding");
-    openapiFields.add("forWhoText");
-    openapiFields.add("featureTaglines");
-    openapiFields.add("hasFlexPricing");
-    openapiFields.add("flexPageLoadCostCents");
-    openapiFields.add("flexPageLoadUnit");
-    openapiFields.add("flexCommentCostCents");
-    openapiFields.add("flexCommentUnit");
-    openapiFields.add("flexSSOUserCostCents");
-    openapiFields.add("flexSSOUserUnit");
-    openapiFields.add("flexAPICreditCostCents");
-    openapiFields.add("flexAPICreditUnit");
-    openapiFields.add("flexModeratorCostCents");
-    openapiFields.add("flexModeratorUnit");
-    openapiFields.add("flexAdminCostCents");
-    openapiFields.add("flexAdminUnit");
-    openapiFields.add("flexDomainCostCents");
-    openapiFields.add("flexDomainUnit");
-    openapiFields.add("flexMinimumCostCents");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "monthlyCostUSD", "yearlyCostUSD", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxCustomCollectionSize", "hasDebranding", "forWhoText", "featureTaglines", "hasFlexPricing", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexMinimumCostCents"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("monthlyCostUSD");
-    openapiRequiredFields.add("yearlyCostUSD");
-    openapiRequiredFields.add("maxMonthlyPageLoads");
-    openapiRequiredFields.add("maxMonthlyAPICredits");
-    openapiRequiredFields.add("maxMonthlyComments");
-    openapiRequiredFields.add("maxConcurrentUsers");
-    openapiRequiredFields.add("maxTenantUsers");
-    openapiRequiredFields.add("maxSSOUsers");
-    openapiRequiredFields.add("maxModerators");
-    openapiRequiredFields.add("maxDomains");
-    openapiRequiredFields.add("hasDebranding");
-    openapiRequiredFields.add("forWhoText");
-    openapiRequiredFields.add("featureTaglines");
-    openapiRequiredFields.add("hasFlexPricing");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "monthlyCostUSD", "yearlyCostUSD", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "hasDebranding", "forWhoText", "featureTaglines", "hasFlexPricing"));
   }
 
   /**
@@ -972,7 +926,7 @@ public class ReplaceTenantPackageBody {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ReplaceTenantPackageBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReplaceTenantPackageBody is not found in the empty JSON string", ReplaceTenantPackageBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ReplaceTenantPackageBody is not found in the empty JSON string", ReplaceTenantPackageBody.openapiRequiredFields.toString()));
         }
       }
 
@@ -980,28 +934,28 @@ public class ReplaceTenantPackageBody {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ReplaceTenantPackageBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReplaceTenantPackageBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ReplaceTenantPackageBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ReplaceTenantPackageBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("forWhoText").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `forWhoText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forWhoText").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `forWhoText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forWhoText").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("featureTaglines") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("featureTaglines").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `featureTaglines` to be an array in the JSON string but got `%s`", jsonObj.get("featureTaglines").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `featureTaglines` to be an array in the JSON string but got `%s`", jsonObj.get("featureTaglines").toString()));
       }
   }
 

@@ -53,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * HeaderState
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class HeaderState {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -272,22 +272,10 @@ public class HeaderState {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("NotificationType");
-    openapiFields.add("userId");
-    openapiFields.add("userIdWS");
-    openapiFields.add("notificationCounts");
-    openapiFields.add("accountNotifications");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "NotificationType", "userId", "userIdWS", "notificationCounts", "accountNotifications"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("NotificationType");
-    openapiRequiredFields.add("userId");
-    openapiRequiredFields.add("userIdWS");
-    openapiRequiredFields.add("notificationCounts");
-    openapiRequiredFields.add("accountNotifications");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "NotificationType", "userId", "userIdWS", "notificationCounts", "accountNotifications"));
   }
 
   /**
@@ -299,7 +287,7 @@ public class HeaderState {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!HeaderState.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in HeaderState is not found in the empty JSON string", HeaderState.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HeaderState is not found in the empty JSON string", HeaderState.openapiRequiredFields.toString()));
         }
       }
 
@@ -307,28 +295,28 @@ public class HeaderState {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HeaderState.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HeaderState` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HeaderState` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : HeaderState.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
       if (!jsonObj.get("userId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       if (!jsonObj.get("userIdWS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
       }
       // ensure the json data is an array
       if (!jsonObj.get("notificationCounts").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `notificationCounts` to be an array in the JSON string but got `%s`", jsonObj.get("notificationCounts").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `notificationCounts` to be an array in the JSON string but got `%s`", jsonObj.get("notificationCounts").toString()));
       }
 
       JsonArray jsonArraynotificationCounts = jsonObj.getAsJsonArray("notificationCounts");
@@ -338,7 +326,7 @@ public class HeaderState {
       };
       // ensure the json data is an array
       if (!jsonObj.get("accountNotifications").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accountNotifications` to be an array in the JSON string but got `%s`", jsonObj.get("accountNotifications").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accountNotifications` to be an array in the JSON string but got `%s`", jsonObj.get("accountNotifications").toString()));
       }
 
       JsonArray jsonArrayaccountNotifications = jsonObj.getAsJsonArray("accountNotifications");

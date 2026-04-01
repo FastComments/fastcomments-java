@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**commentStatuses** | **Map&lt;String, Boolean&gt;** | Construct a type with a set of properties K of type T |  |
+|**commentStatuses** | **Map&lt;String, Boolean&gt;** | Construct a type with a set of properties K of type T |  [optional] |
 |**status** | **APIStatus** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

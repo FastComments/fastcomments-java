@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * VoteBodyParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class VoteBodyParams {
   public static final String SERIALIZED_NAME_COMMENTER_EMAIL = "commenterEmail";
   @SerializedName(SERIALIZED_NAME_COMMENTER_EMAIL)
@@ -251,18 +251,10 @@ public class VoteBodyParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("commenterEmail");
-    openapiFields.add("commenterName");
-    openapiFields.add("voteDir");
-    openapiFields.add("url");
+    openapiFields = new HashSet<String>(Arrays.asList("commenterEmail", "commenterName", "voteDir", "url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("commenterEmail");
-    openapiRequiredFields.add("commenterName");
-    openapiRequiredFields.add("voteDir");
-    openapiRequiredFields.add("url");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("commenterEmail", "commenterName", "voteDir", "url"));
   }
 
   /**
@@ -274,7 +266,7 @@ public class VoteBodyParams {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!VoteBodyParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VoteBodyParams is not found in the empty JSON string", VoteBodyParams.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VoteBodyParams is not found in the empty JSON string", VoteBodyParams.openapiRequiredFields.toString()));
         }
       }
 
@@ -282,30 +274,30 @@ public class VoteBodyParams {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!VoteBodyParams.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VoteBodyParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VoteBodyParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : VoteBodyParams.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("commenterEmail") != null && !jsonObj.get("commenterEmail").isJsonNull()) && !jsonObj.get("commenterEmail").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commenterEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterEmail").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commenterEmail` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterEmail").toString()));
       }
       if ((jsonObj.get("commenterName") != null && !jsonObj.get("commenterName").isJsonNull()) && !jsonObj.get("commenterName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commenterName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commenterName").toString()));
       }
       if (!jsonObj.get("voteDir").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `voteDir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("voteDir").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `voteDir` to be a primitive type in the JSON string but got `%s`", jsonObj.get("voteDir").toString()));
       }
       // validate the required field `voteDir`
       VoteDirEnum.validateJsonElement(jsonObj.get("voteDir"));
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
   }
 

@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**comment** | [**SetCommentTextResult**](SetCommentTextResult.md) |  |  |
+|**comment** | [**SetCommentTextResult**](SetCommentTextResult.md) |  |  [optional] |
 |**status** | **APIStatus** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

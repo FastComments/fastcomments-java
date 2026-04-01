@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * RenderEmailTemplateBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class RenderEmailTemplateBody {
   public static final String SERIALIZED_NAME_EMAIL_TEMPLATE_ID = "emailTemplateId";
   @SerializedName(SERIALIZED_NAME_EMAIL_TEMPLATE_ID)
@@ -217,16 +217,10 @@ public class RenderEmailTemplateBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("emailTemplateId");
-    openapiFields.add("ejs");
-    openapiFields.add("testData");
-    openapiFields.add("translationOverridesByLocale");
+    openapiFields = new HashSet<String>(Arrays.asList("emailTemplateId", "ejs", "testData", "translationOverridesByLocale"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("emailTemplateId");
-    openapiRequiredFields.add("ejs");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("emailTemplateId", "ejs"));
   }
 
   /**
@@ -238,7 +232,7 @@ public class RenderEmailTemplateBody {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RenderEmailTemplateBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RenderEmailTemplateBody is not found in the empty JSON string", RenderEmailTemplateBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RenderEmailTemplateBody is not found in the empty JSON string", RenderEmailTemplateBody.openapiRequiredFields.toString()));
         }
       }
 
@@ -246,22 +240,22 @@ public class RenderEmailTemplateBody {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RenderEmailTemplateBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RenderEmailTemplateBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RenderEmailTemplateBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RenderEmailTemplateBody.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("emailTemplateId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `emailTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emailTemplateId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("emailTemplateId").toString()));
       }
       if (!jsonObj.get("ejs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ejs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ejs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ejs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ejs").toString()));
       }
   }
 

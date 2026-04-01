@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**tenantPackage** | [**TenantPackage**](TenantPackage.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**tenantPackage** | [**TenantPackage**](TenantPackage.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

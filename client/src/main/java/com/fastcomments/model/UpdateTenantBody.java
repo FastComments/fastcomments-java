@@ -54,7 +54,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * UpdateTenantBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class UpdateTenantBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -741,34 +741,10 @@ public class UpdateTenantBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("email");
-    openapiFields.add("signUpDate");
-    openapiFields.add("packageId");
-    openapiFields.add("paymentFrequency");
-    openapiFields.add("billingInfoValid");
-    openapiFields.add("billingHandledExternally");
-    openapiFields.add("createdBy");
-    openapiFields.add("isSetup");
-    openapiFields.add("domainConfiguration");
-    openapiFields.add("billingInfo");
-    openapiFields.add("stripeCustomerId");
-    openapiFields.add("stripeSubscriptionId");
-    openapiFields.add("stripePlanId");
-    openapiFields.add("enableProfanityFilter");
-    openapiFields.add("enableSpamFilter");
-    openapiFields.add("removeUnverifiedComments");
-    openapiFields.add("unverifiedCommentsTTLms");
-    openapiFields.add("commentsRequireApproval");
-    openapiFields.add("autoApproveCommentOnVerification");
-    openapiFields.add("sendProfaneToSpam");
-    openapiFields.add("deAnonIpAddr");
-    openapiFields.add("meta");
-    openapiFields.add("managedByTenantId");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "email", "signUpDate", "packageId", "paymentFrequency", "billingInfoValid", "billingHandledExternally", "createdBy", "isSetup", "domainConfiguration", "billingInfo", "stripeCustomerId", "stripeSubscriptionId", "stripePlanId", "enableProfanityFilter", "enableSpamFilter", "removeUnverifiedComments", "unverifiedCommentsTTLms", "commentsRequireApproval", "autoApproveCommentOnVerification", "sendProfaneToSpam", "deAnonIpAddr", "meta", "managedByTenantId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -780,7 +756,7 @@ public class UpdateTenantBody {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UpdateTenantBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTenantBody is not found in the empty JSON string", UpdateTenantBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateTenantBody is not found in the empty JSON string", UpdateTenantBody.openapiRequiredFields.toString()));
         }
       }
 
@@ -788,28 +764,28 @@ public class UpdateTenantBody {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateTenantBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateTenantBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UpdateTenantBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("packageId") != null && !jsonObj.get("packageId").isJsonNull()) && !jsonObj.get("packageId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `packageId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("packageId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `packageId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("packageId").toString()));
       }
       if ((jsonObj.get("createdBy") != null && !jsonObj.get("createdBy").isJsonNull()) && !jsonObj.get("createdBy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
       }
       if (jsonObj.get("domainConfiguration") != null && !jsonObj.get("domainConfiguration").isJsonNull()) {
         JsonArray jsonArraydomainConfiguration = jsonObj.getAsJsonArray("domainConfiguration");
         if (jsonArraydomainConfiguration != null) {
           // ensure the json data is an array
           if (!jsonObj.get("domainConfiguration").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `domainConfiguration` to be an array in the JSON string but got `%s`", jsonObj.get("domainConfiguration").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domainConfiguration` to be an array in the JSON string but got `%s`", jsonObj.get("domainConfiguration").toString()));
           }
 
           // validate the optional field `domainConfiguration` (array)
@@ -823,16 +799,16 @@ public class UpdateTenantBody {
         BillingInfo.validateJsonElement(jsonObj.get("billingInfo"));
       }
       if ((jsonObj.get("stripeCustomerId") != null && !jsonObj.get("stripeCustomerId").isJsonNull()) && !jsonObj.get("stripeCustomerId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stripeCustomerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stripeCustomerId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stripeCustomerId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stripeCustomerId").toString()));
       }
       if ((jsonObj.get("stripeSubscriptionId") != null && !jsonObj.get("stripeSubscriptionId").isJsonNull()) && !jsonObj.get("stripeSubscriptionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stripeSubscriptionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stripeSubscriptionId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stripeSubscriptionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stripeSubscriptionId").toString()));
       }
       if ((jsonObj.get("stripePlanId") != null && !jsonObj.get("stripePlanId").isJsonNull()) && !jsonObj.get("stripePlanId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stripePlanId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stripePlanId").toString()));
       }
       if ((jsonObj.get("managedByTenantId") != null && !jsonObj.get("managedByTenantId").isJsonNull()) && !jsonObj.get("managedByTenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `managedByTenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("managedByTenantId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `managedByTenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("managedByTenantId").toString()));
       }
   }
 

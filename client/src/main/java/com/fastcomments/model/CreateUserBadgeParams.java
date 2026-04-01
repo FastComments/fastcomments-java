@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CreateUserBadgeParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class CreateUserBadgeParams {
   public static final String SERIALIZED_NAME_USER_ID = "userId";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -173,15 +173,10 @@ public class CreateUserBadgeParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("userId");
-    openapiFields.add("badgeId");
-    openapiFields.add("displayedOnComments");
+    openapiFields = new HashSet<String>(Arrays.asList("userId", "badgeId", "displayedOnComments"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("userId");
-    openapiRequiredFields.add("badgeId");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("userId", "badgeId"));
   }
 
   /**
@@ -193,7 +188,7 @@ public class CreateUserBadgeParams {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateUserBadgeParams.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateUserBadgeParams is not found in the empty JSON string", CreateUserBadgeParams.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateUserBadgeParams is not found in the empty JSON string", CreateUserBadgeParams.openapiRequiredFields.toString()));
         }
       }
 
@@ -201,22 +196,22 @@ public class CreateUserBadgeParams {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateUserBadgeParams.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateUserBadgeParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateUserBadgeParams` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CreateUserBadgeParams.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("userId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
       }
       if (!jsonObj.get("badgeId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `badgeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("badgeId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `badgeId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("badgeId").toString()));
       }
   }
 

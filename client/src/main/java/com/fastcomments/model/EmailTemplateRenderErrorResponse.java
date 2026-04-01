@@ -49,7 +49,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * EmailTemplateRenderErrorResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class EmailTemplateRenderErrorResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -278,24 +278,10 @@ public class EmailTemplateRenderErrorResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("tenantId");
-    openapiFields.add("customTemplateId");
-    openapiFields.add("error");
-    openapiFields.add("count");
-    openapiFields.add("createdAt");
-    openapiFields.add("lastOccurredAt");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "tenantId", "customTemplateId", "error", "count", "createdAt", "lastOccurredAt"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("tenantId");
-    openapiRequiredFields.add("customTemplateId");
-    openapiRequiredFields.add("error");
-    openapiRequiredFields.add("count");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("lastOccurredAt");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "tenantId", "customTemplateId", "error", "count", "createdAt", "lastOccurredAt"));
   }
 
   /**
@@ -307,7 +293,7 @@ public class EmailTemplateRenderErrorResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EmailTemplateRenderErrorResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EmailTemplateRenderErrorResponse is not found in the empty JSON string", EmailTemplateRenderErrorResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in EmailTemplateRenderErrorResponse is not found in the empty JSON string", EmailTemplateRenderErrorResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -315,28 +301,28 @@ public class EmailTemplateRenderErrorResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EmailTemplateRenderErrorResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EmailTemplateRenderErrorResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EmailTemplateRenderErrorResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : EmailTemplateRenderErrorResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if (!jsonObj.get("customTemplateId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customTemplateId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customTemplateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customTemplateId").toString()));
       }
       if (!jsonObj.get("error").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
       }
   }
 

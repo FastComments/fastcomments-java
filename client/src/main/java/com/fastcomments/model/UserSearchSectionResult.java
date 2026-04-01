@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * UserSearchSectionResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class UserSearchSectionResult {
   public static final String SERIALIZED_NAME_SECTION = "section";
   @SerializedName(SERIALIZED_NAME_SECTION)
@@ -159,14 +159,10 @@ public class UserSearchSectionResult {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("section");
-    openapiFields.add("users");
+    openapiFields = new HashSet<String>(Arrays.asList("section", "users"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("section");
-    openapiRequiredFields.add("users");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("section", "users"));
   }
 
   /**
@@ -178,7 +174,7 @@ public class UserSearchSectionResult {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UserSearchSectionResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UserSearchSectionResult is not found in the empty JSON string", UserSearchSectionResult.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UserSearchSectionResult is not found in the empty JSON string", UserSearchSectionResult.openapiRequiredFields.toString()));
         }
       }
 
@@ -186,14 +182,14 @@ public class UserSearchSectionResult {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UserSearchSectionResult.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserSearchSectionResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UserSearchSectionResult` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UserSearchSectionResult.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -201,7 +197,7 @@ public class UserSearchSectionResult {
       UserSearchSection.validateJsonElement(jsonObj.get("section"));
       // ensure the json data is an array
       if (!jsonObj.get("users").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
       }
 
       JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");

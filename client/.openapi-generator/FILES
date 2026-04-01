@@ -363,7 +363,6 @@ docs/VoteBodyParams.md
 docs/VoteComment200Response.md
 docs/VoteDeleteResponse.md
 docs/VoteResponse.md
-docs/VoteResponseStatus.md
 docs/VoteResponseUser.md
 docs/VoteStyle.md
 git_push.sh
@@ -751,7 +750,6 @@ src/main/java/com/fastcomments/model/VoteBodyParams.java
 src/main/java/com/fastcomments/model/VoteComment200Response.java
 src/main/java/com/fastcomments/model/VoteDeleteResponse.java
 src/main/java/com/fastcomments/model/VoteResponse.java
-src/main/java/com/fastcomments/model/VoteResponseStatus.java
 src/main/java/com/fastcomments/model/VoteResponseUser.java
 src/main/java/com/fastcomments/model/VoteStyle.java
 src/test/java/com/fastcomments/api/DefaultApiTest.java
@@ -1111,7 +1109,6 @@ src/test/java/com/fastcomments/model/UserTest.java
 src/test/java/com/fastcomments/model/VoteBodyParamsTest.java
 src/test/java/com/fastcomments/model/VoteComment200ResponseTest.java
 src/test/java/com/fastcomments/model/VoteDeleteResponseTest.java
-src/test/java/com/fastcomments/model/VoteResponseStatusTest.java
 src/test/java/com/fastcomments/model/VoteResponseTest.java
 src/test/java/com/fastcomments/model/VoteResponseUserTest.java
 src/test/java/com/fastcomments/model/VoteStyleTest.java

@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * FeedPostStats
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class FeedPostStats {
   public static final String SERIALIZED_NAME_REACTS = "reacts";
   @SerializedName(SERIALIZED_NAME_REACTS)
@@ -157,12 +157,10 @@ public class FeedPostStats {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("reacts");
-    openapiFields.add("commentCount");
+    openapiFields = new HashSet<String>(Arrays.asList("reacts", "commentCount"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,7 +172,7 @@ public class FeedPostStats {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FeedPostStats.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FeedPostStats is not found in the empty JSON string", FeedPostStats.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FeedPostStats is not found in the empty JSON string", FeedPostStats.openapiRequiredFields.toString()));
         }
       }
 
@@ -182,7 +180,7 @@ public class FeedPostStats {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FeedPostStats.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FeedPostStats` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FeedPostStats` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

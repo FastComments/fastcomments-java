@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SpamRule
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class SpamRule {
   /**
    * Gets or Sets actions
@@ -211,13 +211,10 @@ public class SpamRule {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("actions");
-    openapiFields.add("commentContains");
+    openapiFields = new HashSet<String>(Arrays.asList("actions", "commentContains"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("actions");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("actions"));
   }
 
   /**
@@ -229,7 +226,7 @@ public class SpamRule {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SpamRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SpamRule is not found in the empty JSON string", SpamRule.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SpamRule is not found in the empty JSON string", SpamRule.openapiRequiredFields.toString()));
         }
       }
 
@@ -237,14 +234,14 @@ public class SpamRule {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SpamRule.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SpamRule` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SpamRule` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : SpamRule.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -252,10 +249,10 @@ public class SpamRule {
       if (jsonObj.get("actions") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("actions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `actions` to be an array in the JSON string but got `%s`", jsonObj.get("actions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actions` to be an array in the JSON string but got `%s`", jsonObj.get("actions").toString()));
       }
       if ((jsonObj.get("commentContains") != null && !jsonObj.get("commentContains").isJsonNull()) && !jsonObj.get("commentContains").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commentContains` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentContains").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commentContains` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentContains").toString()));
       }
   }
 

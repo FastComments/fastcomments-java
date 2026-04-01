@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**action** | **DeleteCommentAction** |  |  |
+|**action** | **DeleteCommentAction** |  |  [optional] |
 |**status** | **APIStatus** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

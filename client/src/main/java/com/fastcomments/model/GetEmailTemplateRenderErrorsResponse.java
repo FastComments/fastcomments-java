@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetEmailTemplateRenderErrorsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class GetEmailTemplateRenderErrorsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -159,14 +159,10 @@ public class GetEmailTemplateRenderErrorsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("renderErrors");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "renderErrors"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("renderErrors");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "renderErrors"));
   }
 
   /**
@@ -178,7 +174,7 @@ public class GetEmailTemplateRenderErrorsResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetEmailTemplateRenderErrorsResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetEmailTemplateRenderErrorsResponse is not found in the empty JSON string", GetEmailTemplateRenderErrorsResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetEmailTemplateRenderErrorsResponse is not found in the empty JSON string", GetEmailTemplateRenderErrorsResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -186,14 +182,14 @@ public class GetEmailTemplateRenderErrorsResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetEmailTemplateRenderErrorsResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetEmailTemplateRenderErrorsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetEmailTemplateRenderErrorsResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetEmailTemplateRenderErrorsResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -201,7 +197,7 @@ public class GetEmailTemplateRenderErrorsResponse {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("renderErrors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `renderErrors` to be an array in the JSON string but got `%s`", jsonObj.get("renderErrors").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `renderErrors` to be an array in the JSON string but got `%s`", jsonObj.get("renderErrors").toString()));
       }
 
       JsonArray jsonArrayrenderErrors = jsonObj.getAsJsonArray("renderErrors");

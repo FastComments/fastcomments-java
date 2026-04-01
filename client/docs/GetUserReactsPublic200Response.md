@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**reacts** | **Map&lt;String, Map&lt;String, Boolean&gt;&gt;** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reacts** | **Map&lt;String, Map&lt;String, Boolean&gt;&gt;** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

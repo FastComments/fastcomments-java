@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * UpdateTenantPackageBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class UpdateTenantPackageBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -937,42 +937,10 @@ public class UpdateTenantPackageBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("name");
-    openapiFields.add("monthlyCostUSD");
-    openapiFields.add("yearlyCostUSD");
-    openapiFields.add("maxMonthlyPageLoads");
-    openapiFields.add("maxMonthlyAPICredits");
-    openapiFields.add("maxMonthlyComments");
-    openapiFields.add("maxConcurrentUsers");
-    openapiFields.add("maxTenantUsers");
-    openapiFields.add("maxSSOUsers");
-    openapiFields.add("maxModerators");
-    openapiFields.add("maxDomains");
-    openapiFields.add("maxCustomCollectionSize");
-    openapiFields.add("hasDebranding");
-    openapiFields.add("hasWhiteLabeling");
-    openapiFields.add("forWhoText");
-    openapiFields.add("featureTaglines");
-    openapiFields.add("hasFlexPricing");
-    openapiFields.add("flexPageLoadCostCents");
-    openapiFields.add("flexPageLoadUnit");
-    openapiFields.add("flexCommentCostCents");
-    openapiFields.add("flexCommentUnit");
-    openapiFields.add("flexSSOUserCostCents");
-    openapiFields.add("flexSSOUserUnit");
-    openapiFields.add("flexAPICreditCostCents");
-    openapiFields.add("flexAPICreditUnit");
-    openapiFields.add("flexModeratorCostCents");
-    openapiFields.add("flexModeratorUnit");
-    openapiFields.add("flexAdminCostCents");
-    openapiFields.add("flexAdminUnit");
-    openapiFields.add("flexDomainCostCents");
-    openapiFields.add("flexDomainUnit");
-    openapiFields.add("flexMinimumCostCents");
+    openapiFields = new HashSet<String>(Arrays.asList("name", "monthlyCostUSD", "yearlyCostUSD", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxCustomCollectionSize", "hasDebranding", "hasWhiteLabeling", "forWhoText", "featureTaglines", "hasFlexPricing", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexMinimumCostCents"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -984,7 +952,7 @@ public class UpdateTenantPackageBody {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UpdateTenantPackageBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTenantPackageBody is not found in the empty JSON string", UpdateTenantPackageBody.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateTenantPackageBody is not found in the empty JSON string", UpdateTenantPackageBody.openapiRequiredFields.toString()));
         }
       }
 
@@ -992,19 +960,19 @@ public class UpdateTenantPackageBody {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateTenantPackageBody.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateTenantPackageBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UpdateTenantPackageBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("forWhoText") != null && !jsonObj.get("forWhoText").isJsonNull()) && !jsonObj.get("forWhoText").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `forWhoText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forWhoText").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `forWhoText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("forWhoText").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("featureTaglines") != null && !jsonObj.get("featureTaglines").isJsonNull() && !jsonObj.get("featureTaglines").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `featureTaglines` to be an array in the JSON string but got `%s`", jsonObj.get("featureTaglines").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `featureTaglines` to be an array in the JSON string but got `%s`", jsonObj.get("featureTaglines").toString()));
       }
   }
 

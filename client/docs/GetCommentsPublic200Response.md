@@ -9,11 +9,11 @@
 |------------ | ------------- | ------------- | -------------|
 |**statusCode** | **Integer** |  |  [optional] |
 |**status** | **APIStatus** |  |  |
-|**code** | **String** |  |  |
-|**reason** | **String** |  |  |
+|**code** | **String** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
 |**translatedWarning** | **String** |  |  [optional] |
-|**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  |
-|**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  |
+|**comments** | [**List&lt;PublicComment&gt;**](PublicComment.md) |  |  [optional] |
+|**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  [optional] |
 |**urlIdClean** | **String** |  |  [optional] |
 |**lastGenDate** | **Long** |  |  [optional] |
 |**includesPastPages** | **Boolean** |  |  [optional] |
@@ -22,7 +22,7 @@
 |**isSiteAdmin** | **Boolean** |  |  [optional] |
 |**hasBillingIssue** | **Boolean** |  |  [optional] |
 |**moduleData** | **Map&lt;String, Object&gt;** | Construct a type with a set of properties K of type T |  [optional] |
-|**pageNumber** | **Integer** |  |  |
+|**pageNumber** | **Integer** |  |  [optional] |
 |**isWhiteLabeled** | **Boolean** |  |  [optional] |
 |**isProd** | **Boolean** |  |  [optional] |
 |**isCrawler** | **Boolean** |  |  [optional] |

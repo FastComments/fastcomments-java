@@ -49,7 +49,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * APITenantDailyUsage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class APITenantDailyUsage {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -590,48 +590,10 @@ public class APITenantDailyUsage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("id");
-    openapiFields.add("tenantId");
-    openapiFields.add("yearNumber");
-    openapiFields.add("monthNumber");
-    openapiFields.add("dayNumber");
-    openapiFields.add("commentFetchCount");
-    openapiFields.add("commentCreateCount");
-    openapiFields.add("conversationCreateCount");
-    openapiFields.add("voteCount");
-    openapiFields.add("accountCreatedCount");
-    openapiFields.add("userMentionSearch");
-    openapiFields.add("hashTagSearch");
-    openapiFields.add("gifSearchTrending");
-    openapiFields.add("gifSearch");
-    openapiFields.add("apiCreditsUsed");
-    openapiFields.add("createdAt");
-    openapiFields.add("billed");
-    openapiFields.add("ignored");
-    openapiFields.add("apiErrorCount");
+    openapiFields = new HashSet<String>(Arrays.asList("id", "tenantId", "yearNumber", "monthNumber", "dayNumber", "commentFetchCount", "commentCreateCount", "conversationCreateCount", "voteCount", "accountCreatedCount", "userMentionSearch", "hashTagSearch", "gifSearchTrending", "gifSearch", "apiCreditsUsed", "createdAt", "billed", "ignored", "apiErrorCount"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("id");
-    openapiRequiredFields.add("tenantId");
-    openapiRequiredFields.add("yearNumber");
-    openapiRequiredFields.add("monthNumber");
-    openapiRequiredFields.add("dayNumber");
-    openapiRequiredFields.add("commentFetchCount");
-    openapiRequiredFields.add("commentCreateCount");
-    openapiRequiredFields.add("conversationCreateCount");
-    openapiRequiredFields.add("voteCount");
-    openapiRequiredFields.add("accountCreatedCount");
-    openapiRequiredFields.add("userMentionSearch");
-    openapiRequiredFields.add("hashTagSearch");
-    openapiRequiredFields.add("gifSearchTrending");
-    openapiRequiredFields.add("gifSearch");
-    openapiRequiredFields.add("apiCreditsUsed");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("billed");
-    openapiRequiredFields.add("ignored");
-    openapiRequiredFields.add("apiErrorCount");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "tenantId", "yearNumber", "monthNumber", "dayNumber", "commentFetchCount", "commentCreateCount", "conversationCreateCount", "voteCount", "accountCreatedCount", "userMentionSearch", "hashTagSearch", "gifSearchTrending", "gifSearch", "apiCreditsUsed", "createdAt", "billed", "ignored", "apiErrorCount"));
   }
 
   /**
@@ -643,7 +605,7 @@ public class APITenantDailyUsage {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!APITenantDailyUsage.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in APITenantDailyUsage is not found in the empty JSON string", APITenantDailyUsage.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in APITenantDailyUsage is not found in the empty JSON string", APITenantDailyUsage.openapiRequiredFields.toString()));
         }
       }
 
@@ -651,22 +613,22 @@ public class APITenantDailyUsage {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!APITenantDailyUsage.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `APITenantDailyUsage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `APITenantDailyUsage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : APITenantDailyUsage.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if (!jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
   }
 

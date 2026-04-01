@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetVotesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class GetVotesResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -227,18 +227,10 @@ public class GetVotesResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("appliedAuthorizedVotes");
-    openapiFields.add("appliedAnonymousVotes");
-    openapiFields.add("pendingVotes");
+    openapiFields = new HashSet<String>(Arrays.asList("status", "appliedAuthorizedVotes", "appliedAnonymousVotes", "pendingVotes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("status");
-    openapiRequiredFields.add("appliedAuthorizedVotes");
-    openapiRequiredFields.add("appliedAnonymousVotes");
-    openapiRequiredFields.add("pendingVotes");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "appliedAuthorizedVotes", "appliedAnonymousVotes", "pendingVotes"));
   }
 
   /**
@@ -250,7 +242,7 @@ public class GetVotesResponse {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetVotesResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetVotesResponse is not found in the empty JSON string", GetVotesResponse.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetVotesResponse is not found in the empty JSON string", GetVotesResponse.openapiRequiredFields.toString()));
         }
       }
 
@@ -258,14 +250,14 @@ public class GetVotesResponse {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetVotesResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetVotesResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetVotesResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetVotesResponse.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -273,7 +265,7 @@ public class GetVotesResponse {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // ensure the json data is an array
       if (!jsonObj.get("appliedAuthorizedVotes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `appliedAuthorizedVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAuthorizedVotes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `appliedAuthorizedVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAuthorizedVotes").toString()));
       }
 
       JsonArray jsonArrayappliedAuthorizedVotes = jsonObj.getAsJsonArray("appliedAuthorizedVotes");
@@ -283,7 +275,7 @@ public class GetVotesResponse {
       };
       // ensure the json data is an array
       if (!jsonObj.get("appliedAnonymousVotes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `appliedAnonymousVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAnonymousVotes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `appliedAnonymousVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAnonymousVotes").toString()));
       }
 
       JsonArray jsonArrayappliedAnonymousVotes = jsonObj.getAsJsonArray("appliedAnonymousVotes");
@@ -293,7 +285,7 @@ public class GetVotesResponse {
       };
       // ensure the json data is an array
       if (!jsonObj.get("pendingVotes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pendingVotes` to be an array in the JSON string but got `%s`", jsonObj.get("pendingVotes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pendingVotes` to be an array in the JSON string but got `%s`", jsonObj.get("pendingVotes").toString()));
       }
 
       JsonArray jsonArraypendingVotes = jsonObj.getAsJsonArray("pendingVotes");

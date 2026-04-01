@@ -202,7 +202,7 @@ public class DefaultApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call addDomainConfigCall(String tenantId, AddDomainConfigParams addDomainConfigParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addDomainConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -252,7 +252,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addDomainConfigValidateBeforeCall(String tenantId, AddDomainConfigParams addDomainConfigParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addDomainConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling addDomainConfig(Async)");
@@ -268,13 +268,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AddDomainConfig200Response> addDomainConfigWithHttpInfo(String tenantId, AddDomainConfigParams addDomainConfigParams) throws ApiException {
+    private ApiResponse<AddDomainConfig200Response> addDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams) throws ApiException {
         okhttp3.Call localVarCall = addDomainConfigValidateBeforeCall(tenantId, addDomainConfigParams, null);
         Type localVarReturnType = new TypeToken<AddDomainConfig200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addDomainConfigAsync(String tenantId, AddDomainConfigParams addDomainConfigParams, final ApiCallback<AddDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call addDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams, final ApiCallback<AddDomainConfig200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addDomainConfigValidateBeforeCall(tenantId, addDomainConfigParams, _callback);
         Type localVarReturnType = new TypeToken<AddDomainConfig200Response>(){}.getType();
@@ -283,10 +283,12 @@ public class DefaultApi {
     }
 
     public class APIaddDomainConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final AddDomainConfigParams addDomainConfigParams;
 
-        private APIaddDomainConfigRequest(String tenantId, AddDomainConfigParams addDomainConfigParams) {
+        private APIaddDomainConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams) {
             this.tenantId = tenantId;
             this.addDomainConfigParams = addDomainConfigParams;
         }
@@ -368,10 +370,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIaddDomainConfigRequest addDomainConfig(String tenantId, AddDomainConfigParams addDomainConfigParams) {
+    public APIaddDomainConfigRequest addDomainConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams) {
         return new APIaddDomainConfigRequest(tenantId, addDomainConfigParams);
     }
-    private okhttp3.Call addHashTagCall(String tenantId, CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -421,19 +423,19 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addHashTagValidateBeforeCall(String tenantId, CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagValidateBeforeCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
         return addHashTagCall(tenantId, createHashTagBody, _callback);
 
     }
 
 
-    private ApiResponse<AddHashTag200Response> addHashTagWithHttpInfo(String tenantId, CreateHashTagBody createHashTagBody) throws ApiException {
+    private ApiResponse<AddHashTag200Response> addHashTagWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody) throws ApiException {
         okhttp3.Call localVarCall = addHashTagValidateBeforeCall(tenantId, createHashTagBody, null);
         Type localVarReturnType = new TypeToken<AddHashTag200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addHashTagAsync(String tenantId, CreateHashTagBody createHashTagBody, final ApiCallback<AddHashTag200Response> _callback) throws ApiException {
+    private okhttp3.Call addHashTagAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback<AddHashTag200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addHashTagValidateBeforeCall(tenantId, createHashTagBody, _callback);
         Type localVarReturnType = new TypeToken<AddHashTag200Response>(){}.getType();
@@ -442,7 +444,9 @@ public class DefaultApi {
     }
 
     public class APIaddHashTagRequest {
+        @javax.annotation.Nullable
         private String tenantId;
+        @javax.annotation.Nullable
         private CreateHashTagBody createHashTagBody;
 
         private APIaddHashTagRequest() {
@@ -453,7 +457,7 @@ public class DefaultApi {
          * @param tenantId  (optional)
          * @return APIaddHashTagRequest
          */
-        public APIaddHashTagRequest tenantId(String tenantId) {
+        public APIaddHashTagRequest tenantId(@javax.annotation.Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
@@ -463,7 +467,7 @@ public class DefaultApi {
          * @param createHashTagBody  (optional)
          * @return APIaddHashTagRequest
          */
-        public APIaddHashTagRequest createHashTagBody(CreateHashTagBody createHashTagBody) {
+        public APIaddHashTagRequest createHashTagBody(@javax.annotation.Nullable CreateHashTagBody createHashTagBody) {
             this.createHashTagBody = createHashTagBody;
             return this;
         }
@@ -546,7 +550,7 @@ public class DefaultApi {
     public APIaddHashTagRequest addHashTag() {
         return new APIaddHashTagRequest();
     }
-    private okhttp3.Call addHashTagsBulkCall(String tenantId, BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagsBulkCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -596,19 +600,19 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addHashTagsBulkValidateBeforeCall(String tenantId, BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagsBulkValidateBeforeCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
         return addHashTagsBulkCall(tenantId, bulkCreateHashTagsBody, _callback);
 
     }
 
 
-    private ApiResponse<AddHashTagsBulk200Response> addHashTagsBulkWithHttpInfo(String tenantId, BulkCreateHashTagsBody bulkCreateHashTagsBody) throws ApiException {
+    private ApiResponse<AddHashTagsBulk200Response> addHashTagsBulkWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody) throws ApiException {
         okhttp3.Call localVarCall = addHashTagsBulkValidateBeforeCall(tenantId, bulkCreateHashTagsBody, null);
         Type localVarReturnType = new TypeToken<AddHashTagsBulk200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addHashTagsBulkAsync(String tenantId, BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback<AddHashTagsBulk200Response> _callback) throws ApiException {
+    private okhttp3.Call addHashTagsBulkAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback<AddHashTagsBulk200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addHashTagsBulkValidateBeforeCall(tenantId, bulkCreateHashTagsBody, _callback);
         Type localVarReturnType = new TypeToken<AddHashTagsBulk200Response>(){}.getType();
@@ -617,7 +621,9 @@ public class DefaultApi {
     }
 
     public class APIaddHashTagsBulkRequest {
+        @javax.annotation.Nullable
         private String tenantId;
+        @javax.annotation.Nullable
         private BulkCreateHashTagsBody bulkCreateHashTagsBody;
 
         private APIaddHashTagsBulkRequest() {
@@ -628,7 +634,7 @@ public class DefaultApi {
          * @param tenantId  (optional)
          * @return APIaddHashTagsBulkRequest
          */
-        public APIaddHashTagsBulkRequest tenantId(String tenantId) {
+        public APIaddHashTagsBulkRequest tenantId(@javax.annotation.Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
@@ -638,7 +644,7 @@ public class DefaultApi {
          * @param bulkCreateHashTagsBody  (optional)
          * @return APIaddHashTagsBulkRequest
          */
-        public APIaddHashTagsBulkRequest bulkCreateHashTagsBody(BulkCreateHashTagsBody bulkCreateHashTagsBody) {
+        public APIaddHashTagsBulkRequest bulkCreateHashTagsBody(@javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody) {
             this.bulkCreateHashTagsBody = bulkCreateHashTagsBody;
             return this;
         }
@@ -721,7 +727,7 @@ public class DefaultApi {
     public APIaddHashTagsBulkRequest addHashTagsBulk() {
         return new APIaddHashTagsBulkRequest();
     }
-    private okhttp3.Call addPageCall(String tenantId, CreateAPIPageData createAPIPageData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addPageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIPageData createAPIPageData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -771,7 +777,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addPageValidateBeforeCall(String tenantId, CreateAPIPageData createAPIPageData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addPageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIPageData createAPIPageData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling addPage(Async)");
@@ -787,13 +793,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AddPageAPIResponse> addPageWithHttpInfo(String tenantId, CreateAPIPageData createAPIPageData) throws ApiException {
+    private ApiResponse<AddPageAPIResponse> addPageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIPageData createAPIPageData) throws ApiException {
         okhttp3.Call localVarCall = addPageValidateBeforeCall(tenantId, createAPIPageData, null);
         Type localVarReturnType = new TypeToken<AddPageAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addPageAsync(String tenantId, CreateAPIPageData createAPIPageData, final ApiCallback<AddPageAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call addPageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIPageData createAPIPageData, final ApiCallback<AddPageAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addPageValidateBeforeCall(tenantId, createAPIPageData, _callback);
         Type localVarReturnType = new TypeToken<AddPageAPIResponse>(){}.getType();
@@ -802,10 +808,12 @@ public class DefaultApi {
     }
 
     public class APIaddPageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateAPIPageData createAPIPageData;
 
-        private APIaddPageRequest(String tenantId, CreateAPIPageData createAPIPageData) {
+        private APIaddPageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIPageData createAPIPageData) {
             this.tenantId = tenantId;
             this.createAPIPageData = createAPIPageData;
         }
@@ -887,10 +895,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIaddPageRequest addPage(String tenantId, CreateAPIPageData createAPIPageData) {
+    public APIaddPageRequest addPage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIPageData createAPIPageData) {
         return new APIaddPageRequest(tenantId, createAPIPageData);
     }
-    private okhttp3.Call addSSOUserCall(String tenantId, CreateAPISSOUserData createAPISSOUserData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addSSOUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPISSOUserData createAPISSOUserData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -940,7 +948,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addSSOUserValidateBeforeCall(String tenantId, CreateAPISSOUserData createAPISSOUserData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addSSOUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPISSOUserData createAPISSOUserData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling addSSOUser(Async)");
@@ -956,13 +964,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AddSSOUserAPIResponse> addSSOUserWithHttpInfo(String tenantId, CreateAPISSOUserData createAPISSOUserData) throws ApiException {
+    private ApiResponse<AddSSOUserAPIResponse> addSSOUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPISSOUserData createAPISSOUserData) throws ApiException {
         okhttp3.Call localVarCall = addSSOUserValidateBeforeCall(tenantId, createAPISSOUserData, null);
         Type localVarReturnType = new TypeToken<AddSSOUserAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addSSOUserAsync(String tenantId, CreateAPISSOUserData createAPISSOUserData, final ApiCallback<AddSSOUserAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call addSSOUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPISSOUserData createAPISSOUserData, final ApiCallback<AddSSOUserAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addSSOUserValidateBeforeCall(tenantId, createAPISSOUserData, _callback);
         Type localVarReturnType = new TypeToken<AddSSOUserAPIResponse>(){}.getType();
@@ -971,10 +979,12 @@ public class DefaultApi {
     }
 
     public class APIaddSSOUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateAPISSOUserData createAPISSOUserData;
 
-        private APIaddSSOUserRequest(String tenantId, CreateAPISSOUserData createAPISSOUserData) {
+        private APIaddSSOUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPISSOUserData createAPISSOUserData) {
             this.tenantId = tenantId;
             this.createAPISSOUserData = createAPISSOUserData;
         }
@@ -1056,10 +1066,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIaddSSOUserRequest addSSOUser(String tenantId, CreateAPISSOUserData createAPISSOUserData) {
+    public APIaddSSOUserRequest addSSOUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPISSOUserData createAPISSOUserData) {
         return new APIaddSSOUserRequest(tenantId, createAPISSOUserData);
     }
-    private okhttp3.Call aggregateCall(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1117,7 +1127,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aggregateValidateBeforeCall(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling aggregate(Async)");
@@ -1133,13 +1143,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AggregationResponse> aggregateWithHttpInfo(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats) throws ApiException {
+    private ApiResponse<AggregationResponse> aggregateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats) throws ApiException {
         okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, null);
         Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call aggregateAsync(String tenantId, AggregationRequest aggregationRequest, String parentTenantId, Boolean includeStats, final ApiCallback<AggregationResponse> _callback) throws ApiException {
+    private okhttp3.Call aggregateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats, final ApiCallback<AggregationResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
         Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
@@ -1148,12 +1158,16 @@ public class DefaultApi {
     }
 
     public class APIaggregateRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final AggregationRequest aggregationRequest;
+        @javax.annotation.Nullable
         private String parentTenantId;
+        @javax.annotation.Nullable
         private Boolean includeStats;
 
-        private APIaggregateRequest(String tenantId, AggregationRequest aggregationRequest) {
+        private APIaggregateRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest) {
             this.tenantId = tenantId;
             this.aggregationRequest = aggregationRequest;
         }
@@ -1163,7 +1177,7 @@ public class DefaultApi {
          * @param parentTenantId  (optional)
          * @return APIaggregateRequest
          */
-        public APIaggregateRequest parentTenantId(String parentTenantId) {
+        public APIaggregateRequest parentTenantId(@javax.annotation.Nullable String parentTenantId) {
             this.parentTenantId = parentTenantId;
             return this;
         }
@@ -1173,7 +1187,7 @@ public class DefaultApi {
          * @param includeStats  (optional)
          * @return APIaggregateRequest
          */
-        public APIaggregateRequest includeStats(Boolean includeStats) {
+        public APIaggregateRequest includeStats(@javax.annotation.Nullable Boolean includeStats) {
             this.includeStats = includeStats;
             return this;
         }
@@ -1255,10 +1269,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIaggregateRequest aggregate(String tenantId, AggregationRequest aggregationRequest) {
+    public APIaggregateRequest aggregate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest) {
         return new APIaggregateRequest(tenantId, aggregationRequest);
     }
-    private okhttp3.Call aggregateQuestionResultsCall(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateQuestionResultsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1331,7 +1345,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aggregateQuestionResultsValidateBeforeCall(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateQuestionResultsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling aggregateQuestionResults(Async)");
@@ -1342,13 +1356,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AggregateQuestionResults200Response> aggregateQuestionResultsWithHttpInfo(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate) throws ApiException {
+    private ApiResponse<AggregateQuestionResults200Response> aggregateQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate) throws ApiException {
         okhttp3.Call localVarCall = aggregateQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, null);
         Type localVarReturnType = new TypeToken<AggregateQuestionResults200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call aggregateQuestionResultsAsync(String tenantId, String questionId, List<String> questionIds, String urlId, AggregateTimeBucket timeBucket, OffsetDateTime startDate, Boolean forceRecalculate, final ApiCallback<AggregateQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call aggregateQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback<AggregateQuestionResults200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = aggregateQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, _callback);
         Type localVarReturnType = new TypeToken<AggregateQuestionResults200Response>(){}.getType();
@@ -1357,15 +1371,22 @@ public class DefaultApi {
     }
 
     public class APIaggregateQuestionResultsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String questionId;
+        @javax.annotation.Nullable
         private List<String> questionIds;
+        @javax.annotation.Nullable
         private String urlId;
+        @javax.annotation.Nullable
         private AggregateTimeBucket timeBucket;
+        @javax.annotation.Nullable
         private OffsetDateTime startDate;
+        @javax.annotation.Nullable
         private Boolean forceRecalculate;
 
-        private APIaggregateQuestionResultsRequest(String tenantId) {
+        private APIaggregateQuestionResultsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -1374,7 +1395,7 @@ public class DefaultApi {
          * @param questionId  (optional)
          * @return APIaggregateQuestionResultsRequest
          */
-        public APIaggregateQuestionResultsRequest questionId(String questionId) {
+        public APIaggregateQuestionResultsRequest questionId(@javax.annotation.Nullable String questionId) {
             this.questionId = questionId;
             return this;
         }
@@ -1384,7 +1405,7 @@ public class DefaultApi {
          * @param questionIds  (optional)
          * @return APIaggregateQuestionResultsRequest
          */
-        public APIaggregateQuestionResultsRequest questionIds(List<String> questionIds) {
+        public APIaggregateQuestionResultsRequest questionIds(@javax.annotation.Nullable List<String> questionIds) {
             this.questionIds = questionIds;
             return this;
         }
@@ -1394,7 +1415,7 @@ public class DefaultApi {
          * @param urlId  (optional)
          * @return APIaggregateQuestionResultsRequest
          */
-        public APIaggregateQuestionResultsRequest urlId(String urlId) {
+        public APIaggregateQuestionResultsRequest urlId(@javax.annotation.Nullable String urlId) {
             this.urlId = urlId;
             return this;
         }
@@ -1404,7 +1425,7 @@ public class DefaultApi {
          * @param timeBucket  (optional)
          * @return APIaggregateQuestionResultsRequest
          */
-        public APIaggregateQuestionResultsRequest timeBucket(AggregateTimeBucket timeBucket) {
+        public APIaggregateQuestionResultsRequest timeBucket(@javax.annotation.Nullable AggregateTimeBucket timeBucket) {
             this.timeBucket = timeBucket;
             return this;
         }
@@ -1414,7 +1435,7 @@ public class DefaultApi {
          * @param startDate  (optional)
          * @return APIaggregateQuestionResultsRequest
          */
-        public APIaggregateQuestionResultsRequest startDate(OffsetDateTime startDate) {
+        public APIaggregateQuestionResultsRequest startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
             this.startDate = startDate;
             return this;
         }
@@ -1424,7 +1445,7 @@ public class DefaultApi {
          * @param forceRecalculate  (optional)
          * @return APIaggregateQuestionResultsRequest
          */
-        public APIaggregateQuestionResultsRequest forceRecalculate(Boolean forceRecalculate) {
+        public APIaggregateQuestionResultsRequest forceRecalculate(@javax.annotation.Nullable Boolean forceRecalculate) {
             this.forceRecalculate = forceRecalculate;
             return this;
         }
@@ -1505,10 +1526,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIaggregateQuestionResultsRequest aggregateQuestionResults(String tenantId) {
+    public APIaggregateQuestionResultsRequest aggregateQuestionResults(@javax.annotation.Nonnull String tenantId) {
         return new APIaggregateQuestionResultsRequest(tenantId);
     }
-    private okhttp3.Call blockUserFromCommentCall(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call blockUserFromCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1567,7 +1588,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call blockUserFromCommentValidateBeforeCall(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call blockUserFromCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling blockUserFromComment(Async)");
@@ -1588,13 +1609,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<BlockFromCommentPublic200Response> blockUserFromCommentWithHttpInfo(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<BlockFromCommentPublic200Response> blockUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = blockUserFromCommentValidateBeforeCall(tenantId, id, blockFromCommentParams, userId, anonUserId, null);
         Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call blockUserFromCommentAsync(String tenantId, String id, BlockFromCommentParams blockFromCommentParams, String userId, String anonUserId, final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call blockUserFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = blockUserFromCommentValidateBeforeCall(tenantId, id, blockFromCommentParams, userId, anonUserId, _callback);
         Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
@@ -1603,13 +1624,18 @@ public class DefaultApi {
     }
 
     public class APIblockUserFromCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final BlockFromCommentParams blockFromCommentParams;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String anonUserId;
 
-        private APIblockUserFromCommentRequest(String tenantId, String id, BlockFromCommentParams blockFromCommentParams) {
+        private APIblockUserFromCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams) {
             this.tenantId = tenantId;
             this.id = id;
             this.blockFromCommentParams = blockFromCommentParams;
@@ -1620,7 +1646,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIblockUserFromCommentRequest
          */
-        public APIblockUserFromCommentRequest userId(String userId) {
+        public APIblockUserFromCommentRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -1630,7 +1656,7 @@ public class DefaultApi {
          * @param anonUserId  (optional)
          * @return APIblockUserFromCommentRequest
          */
-        public APIblockUserFromCommentRequest anonUserId(String anonUserId) {
+        public APIblockUserFromCommentRequest anonUserId(@javax.annotation.Nullable String anonUserId) {
             this.anonUserId = anonUserId;
             return this;
         }
@@ -1713,10 +1739,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIblockUserFromCommentRequest blockUserFromComment(String tenantId, String id, BlockFromCommentParams blockFromCommentParams) {
+    public APIblockUserFromCommentRequest blockUserFromComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams) {
         return new APIblockUserFromCommentRequest(tenantId, id, blockFromCommentParams);
     }
-    private okhttp3.Call bulkAggregateQuestionResultsCall(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bulkAggregateQuestionResultsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1770,7 +1796,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call bulkAggregateQuestionResultsValidateBeforeCall(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call bulkAggregateQuestionResultsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling bulkAggregateQuestionResults(Async)");
@@ -1786,13 +1812,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<BulkAggregateQuestionResults200Response> bulkAggregateQuestionResultsWithHttpInfo(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate) throws ApiException {
+    private ApiResponse<BulkAggregateQuestionResults200Response> bulkAggregateQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate) throws ApiException {
         okhttp3.Call localVarCall = bulkAggregateQuestionResultsValidateBeforeCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, null);
         Type localVarReturnType = new TypeToken<BulkAggregateQuestionResults200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call bulkAggregateQuestionResultsAsync(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, Boolean forceRecalculate, final ApiCallback<BulkAggregateQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call bulkAggregateQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback<BulkAggregateQuestionResults200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = bulkAggregateQuestionResultsValidateBeforeCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, _callback);
         Type localVarReturnType = new TypeToken<BulkAggregateQuestionResults200Response>(){}.getType();
@@ -1801,11 +1827,14 @@ public class DefaultApi {
     }
 
     public class APIbulkAggregateQuestionResultsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest;
+        @javax.annotation.Nullable
         private Boolean forceRecalculate;
 
-        private APIbulkAggregateQuestionResultsRequest(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest) {
+        private APIbulkAggregateQuestionResultsRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest) {
             this.tenantId = tenantId;
             this.bulkAggregateQuestionResultsRequest = bulkAggregateQuestionResultsRequest;
         }
@@ -1815,7 +1844,7 @@ public class DefaultApi {
          * @param forceRecalculate  (optional)
          * @return APIbulkAggregateQuestionResultsRequest
          */
-        public APIbulkAggregateQuestionResultsRequest forceRecalculate(Boolean forceRecalculate) {
+        public APIbulkAggregateQuestionResultsRequest forceRecalculate(@javax.annotation.Nullable Boolean forceRecalculate) {
             this.forceRecalculate = forceRecalculate;
             return this;
         }
@@ -1897,10 +1926,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIbulkAggregateQuestionResultsRequest bulkAggregateQuestionResults(String tenantId, BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest) {
+    public APIbulkAggregateQuestionResultsRequest bulkAggregateQuestionResults(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest) {
         return new APIbulkAggregateQuestionResultsRequest(tenantId, bulkAggregateQuestionResultsRequest);
     }
-    private okhttp3.Call changeTicketStateCall(String tenantId, String userId, String id, ChangeTicketStateBody changeTicketStateBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call changeTicketStateCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1955,7 +1984,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call changeTicketStateValidateBeforeCall(String tenantId, String userId, String id, ChangeTicketStateBody changeTicketStateBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call changeTicketStateValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling changeTicketState(Async)");
@@ -1981,13 +2010,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<ChangeTicketState200Response> changeTicketStateWithHttpInfo(String tenantId, String userId, String id, ChangeTicketStateBody changeTicketStateBody) throws ApiException {
+    private ApiResponse<ChangeTicketState200Response> changeTicketStateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody) throws ApiException {
         okhttp3.Call localVarCall = changeTicketStateValidateBeforeCall(tenantId, userId, id, changeTicketStateBody, null);
         Type localVarReturnType = new TypeToken<ChangeTicketState200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call changeTicketStateAsync(String tenantId, String userId, String id, ChangeTicketStateBody changeTicketStateBody, final ApiCallback<ChangeTicketState200Response> _callback) throws ApiException {
+    private okhttp3.Call changeTicketStateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody, final ApiCallback<ChangeTicketState200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = changeTicketStateValidateBeforeCall(tenantId, userId, id, changeTicketStateBody, _callback);
         Type localVarReturnType = new TypeToken<ChangeTicketState200Response>(){}.getType();
@@ -1996,12 +2025,16 @@ public class DefaultApi {
     }
 
     public class APIchangeTicketStateRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String userId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final ChangeTicketStateBody changeTicketStateBody;
 
-        private APIchangeTicketStateRequest(String tenantId, String userId, String id, ChangeTicketStateBody changeTicketStateBody) {
+        private APIchangeTicketStateRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody) {
             this.tenantId = tenantId;
             this.userId = userId;
             this.id = id;
@@ -2087,10 +2120,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIchangeTicketStateRequest changeTicketState(String tenantId, String userId, String id, ChangeTicketStateBody changeTicketStateBody) {
+    public APIchangeTicketStateRequest changeTicketState(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody) {
         return new APIchangeTicketStateRequest(tenantId, userId, id, changeTicketStateBody);
     }
-    private okhttp3.Call combineCommentsWithQuestionResultsCall(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call combineCommentsWithQuestionResultsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2171,7 +2204,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call combineCommentsWithQuestionResultsValidateBeforeCall(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call combineCommentsWithQuestionResultsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling combineCommentsWithQuestionResults(Async)");
@@ -2182,13 +2215,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CombineCommentsWithQuestionResults200Response> combineCommentsWithQuestionResultsWithHttpInfo(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit) throws ApiException {
+    private ApiResponse<CombineCommentsWithQuestionResults200Response> combineCommentsWithQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit) throws ApiException {
         okhttp3.Call localVarCall = combineCommentsWithQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, null);
         Type localVarReturnType = new TypeToken<CombineCommentsWithQuestionResults200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call combineCommentsWithQuestionResultsAsync(String tenantId, String questionId, List<String> questionIds, String urlId, OffsetDateTime startDate, Boolean forceRecalculate, Double minValue, Double maxValue, Double limit, final ApiCallback<CombineCommentsWithQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call combineCommentsWithQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit, final ApiCallback<CombineCommentsWithQuestionResults200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = combineCommentsWithQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, _callback);
         Type localVarReturnType = new TypeToken<CombineCommentsWithQuestionResults200Response>(){}.getType();
@@ -2197,17 +2230,26 @@ public class DefaultApi {
     }
 
     public class APIcombineCommentsWithQuestionResultsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String questionId;
+        @javax.annotation.Nullable
         private List<String> questionIds;
+        @javax.annotation.Nullable
         private String urlId;
+        @javax.annotation.Nullable
         private OffsetDateTime startDate;
+        @javax.annotation.Nullable
         private Boolean forceRecalculate;
+        @javax.annotation.Nullable
         private Double minValue;
+        @javax.annotation.Nullable
         private Double maxValue;
+        @javax.annotation.Nullable
         private Double limit;
 
-        private APIcombineCommentsWithQuestionResultsRequest(String tenantId) {
+        private APIcombineCommentsWithQuestionResultsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -2216,7 +2258,7 @@ public class DefaultApi {
          * @param questionId  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest questionId(String questionId) {
+        public APIcombineCommentsWithQuestionResultsRequest questionId(@javax.annotation.Nullable String questionId) {
             this.questionId = questionId;
             return this;
         }
@@ -2226,7 +2268,7 @@ public class DefaultApi {
          * @param questionIds  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest questionIds(List<String> questionIds) {
+        public APIcombineCommentsWithQuestionResultsRequest questionIds(@javax.annotation.Nullable List<String> questionIds) {
             this.questionIds = questionIds;
             return this;
         }
@@ -2236,7 +2278,7 @@ public class DefaultApi {
          * @param urlId  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest urlId(String urlId) {
+        public APIcombineCommentsWithQuestionResultsRequest urlId(@javax.annotation.Nullable String urlId) {
             this.urlId = urlId;
             return this;
         }
@@ -2246,7 +2288,7 @@ public class DefaultApi {
          * @param startDate  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest startDate(OffsetDateTime startDate) {
+        public APIcombineCommentsWithQuestionResultsRequest startDate(@javax.annotation.Nullable OffsetDateTime startDate) {
             this.startDate = startDate;
             return this;
         }
@@ -2256,7 +2298,7 @@ public class DefaultApi {
          * @param forceRecalculate  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest forceRecalculate(Boolean forceRecalculate) {
+        public APIcombineCommentsWithQuestionResultsRequest forceRecalculate(@javax.annotation.Nullable Boolean forceRecalculate) {
             this.forceRecalculate = forceRecalculate;
             return this;
         }
@@ -2266,7 +2308,7 @@ public class DefaultApi {
          * @param minValue  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest minValue(Double minValue) {
+        public APIcombineCommentsWithQuestionResultsRequest minValue(@javax.annotation.Nullable Double minValue) {
             this.minValue = minValue;
             return this;
         }
@@ -2276,7 +2318,7 @@ public class DefaultApi {
          * @param maxValue  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest maxValue(Double maxValue) {
+        public APIcombineCommentsWithQuestionResultsRequest maxValue(@javax.annotation.Nullable Double maxValue) {
             this.maxValue = maxValue;
             return this;
         }
@@ -2286,7 +2328,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIcombineCommentsWithQuestionResultsRequest
          */
-        public APIcombineCommentsWithQuestionResultsRequest limit(Double limit) {
+        public APIcombineCommentsWithQuestionResultsRequest limit(@javax.annotation.Nullable Double limit) {
             this.limit = limit;
             return this;
         }
@@ -2367,10 +2409,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcombineCommentsWithQuestionResultsRequest combineCommentsWithQuestionResults(String tenantId) {
+    public APIcombineCommentsWithQuestionResultsRequest combineCommentsWithQuestionResults(@javax.annotation.Nonnull String tenantId) {
         return new APIcombineCommentsWithQuestionResultsRequest(tenantId);
     }
-    private okhttp3.Call createEmailTemplateCall(String tenantId, CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createEmailTemplateCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2420,7 +2462,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEmailTemplateValidateBeforeCall(String tenantId, CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createEmailTemplateValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createEmailTemplate(Async)");
@@ -2436,13 +2478,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateEmailTemplate200Response> createEmailTemplateWithHttpInfo(String tenantId, CreateEmailTemplateBody createEmailTemplateBody) throws ApiException {
+    private ApiResponse<CreateEmailTemplate200Response> createEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody) throws ApiException {
         okhttp3.Call localVarCall = createEmailTemplateValidateBeforeCall(tenantId, createEmailTemplateBody, null);
         Type localVarReturnType = new TypeToken<CreateEmailTemplate200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createEmailTemplateAsync(String tenantId, CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback<CreateEmailTemplate200Response> _callback) throws ApiException {
+    private okhttp3.Call createEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback<CreateEmailTemplate200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createEmailTemplateValidateBeforeCall(tenantId, createEmailTemplateBody, _callback);
         Type localVarReturnType = new TypeToken<CreateEmailTemplate200Response>(){}.getType();
@@ -2451,10 +2493,12 @@ public class DefaultApi {
     }
 
     public class APIcreateEmailTemplateRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateEmailTemplateBody createEmailTemplateBody;
 
-        private APIcreateEmailTemplateRequest(String tenantId, CreateEmailTemplateBody createEmailTemplateBody) {
+        private APIcreateEmailTemplateRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody) {
             this.tenantId = tenantId;
             this.createEmailTemplateBody = createEmailTemplateBody;
         }
@@ -2536,10 +2580,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateEmailTemplateRequest createEmailTemplate(String tenantId, CreateEmailTemplateBody createEmailTemplateBody) {
+    public APIcreateEmailTemplateRequest createEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody) {
         return new APIcreateEmailTemplateRequest(tenantId, createEmailTemplateBody);
     }
-    private okhttp3.Call createFeedPostCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFeedPostCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2605,7 +2649,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFeedPostValidateBeforeCall(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createFeedPostValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createFeedPost(Async)");
@@ -2621,13 +2665,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateFeedPost200Response> createFeedPostWithHttpInfo(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck) throws ApiException {
+    private ApiResponse<CreateFeedPost200Response> createFeedPostWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck) throws ApiException {
         okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, null);
         Type localVarReturnType = new TypeToken<CreateFeedPost200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createFeedPostAsync(String tenantId, CreateFeedPostParams createFeedPostParams, String broadcastId, Boolean isLive, Boolean doSpamCheck, Boolean skipDupCheck, final ApiCallback<CreateFeedPost200Response> _callback) throws ApiException {
+    private okhttp3.Call createFeedPostAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck, final ApiCallback<CreateFeedPost200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, _callback);
         Type localVarReturnType = new TypeToken<CreateFeedPost200Response>(){}.getType();
@@ -2636,14 +2680,20 @@ public class DefaultApi {
     }
 
     public class APIcreateFeedPostRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateFeedPostParams createFeedPostParams;
+        @javax.annotation.Nullable
         private String broadcastId;
+        @javax.annotation.Nullable
         private Boolean isLive;
+        @javax.annotation.Nullable
         private Boolean doSpamCheck;
+        @javax.annotation.Nullable
         private Boolean skipDupCheck;
 
-        private APIcreateFeedPostRequest(String tenantId, CreateFeedPostParams createFeedPostParams) {
+        private APIcreateFeedPostRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams) {
             this.tenantId = tenantId;
             this.createFeedPostParams = createFeedPostParams;
         }
@@ -2653,7 +2703,7 @@ public class DefaultApi {
          * @param broadcastId  (optional)
          * @return APIcreateFeedPostRequest
          */
-        public APIcreateFeedPostRequest broadcastId(String broadcastId) {
+        public APIcreateFeedPostRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
             this.broadcastId = broadcastId;
             return this;
         }
@@ -2663,7 +2713,7 @@ public class DefaultApi {
          * @param isLive  (optional)
          * @return APIcreateFeedPostRequest
          */
-        public APIcreateFeedPostRequest isLive(Boolean isLive) {
+        public APIcreateFeedPostRequest isLive(@javax.annotation.Nullable Boolean isLive) {
             this.isLive = isLive;
             return this;
         }
@@ -2673,7 +2723,7 @@ public class DefaultApi {
          * @param doSpamCheck  (optional)
          * @return APIcreateFeedPostRequest
          */
-        public APIcreateFeedPostRequest doSpamCheck(Boolean doSpamCheck) {
+        public APIcreateFeedPostRequest doSpamCheck(@javax.annotation.Nullable Boolean doSpamCheck) {
             this.doSpamCheck = doSpamCheck;
             return this;
         }
@@ -2683,7 +2733,7 @@ public class DefaultApi {
          * @param skipDupCheck  (optional)
          * @return APIcreateFeedPostRequest
          */
-        public APIcreateFeedPostRequest skipDupCheck(Boolean skipDupCheck) {
+        public APIcreateFeedPostRequest skipDupCheck(@javax.annotation.Nullable Boolean skipDupCheck) {
             this.skipDupCheck = skipDupCheck;
             return this;
         }
@@ -2765,10 +2815,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateFeedPostRequest createFeedPost(String tenantId, CreateFeedPostParams createFeedPostParams) {
+    public APIcreateFeedPostRequest createFeedPost(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams) {
         return new APIcreateFeedPostRequest(tenantId, createFeedPostParams);
     }
-    private okhttp3.Call createModeratorCall(String tenantId, CreateModeratorBody createModeratorBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createModeratorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2818,7 +2868,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createModeratorValidateBeforeCall(String tenantId, CreateModeratorBody createModeratorBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createModeratorValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createModerator(Async)");
@@ -2834,13 +2884,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateModerator200Response> createModeratorWithHttpInfo(String tenantId, CreateModeratorBody createModeratorBody) throws ApiException {
+    private ApiResponse<CreateModerator200Response> createModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody) throws ApiException {
         okhttp3.Call localVarCall = createModeratorValidateBeforeCall(tenantId, createModeratorBody, null);
         Type localVarReturnType = new TypeToken<CreateModerator200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createModeratorAsync(String tenantId, CreateModeratorBody createModeratorBody, final ApiCallback<CreateModerator200Response> _callback) throws ApiException {
+    private okhttp3.Call createModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody, final ApiCallback<CreateModerator200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createModeratorValidateBeforeCall(tenantId, createModeratorBody, _callback);
         Type localVarReturnType = new TypeToken<CreateModerator200Response>(){}.getType();
@@ -2849,10 +2899,12 @@ public class DefaultApi {
     }
 
     public class APIcreateModeratorRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateModeratorBody createModeratorBody;
 
-        private APIcreateModeratorRequest(String tenantId, CreateModeratorBody createModeratorBody) {
+        private APIcreateModeratorRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody) {
             this.tenantId = tenantId;
             this.createModeratorBody = createModeratorBody;
         }
@@ -2934,10 +2986,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateModeratorRequest createModerator(String tenantId, CreateModeratorBody createModeratorBody) {
+    public APIcreateModeratorRequest createModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody) {
         return new APIcreateModeratorRequest(tenantId, createModeratorBody);
     }
-    private okhttp3.Call createQuestionConfigCall(String tenantId, CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createQuestionConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2987,7 +3039,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createQuestionConfigValidateBeforeCall(String tenantId, CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createQuestionConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createQuestionConfig(Async)");
@@ -3003,13 +3055,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateQuestionConfig200Response> createQuestionConfigWithHttpInfo(String tenantId, CreateQuestionConfigBody createQuestionConfigBody) throws ApiException {
+    private ApiResponse<CreateQuestionConfig200Response> createQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody) throws ApiException {
         okhttp3.Call localVarCall = createQuestionConfigValidateBeforeCall(tenantId, createQuestionConfigBody, null);
         Type localVarReturnType = new TypeToken<CreateQuestionConfig200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createQuestionConfigAsync(String tenantId, CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback<CreateQuestionConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call createQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback<CreateQuestionConfig200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createQuestionConfigValidateBeforeCall(tenantId, createQuestionConfigBody, _callback);
         Type localVarReturnType = new TypeToken<CreateQuestionConfig200Response>(){}.getType();
@@ -3018,10 +3070,12 @@ public class DefaultApi {
     }
 
     public class APIcreateQuestionConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateQuestionConfigBody createQuestionConfigBody;
 
-        private APIcreateQuestionConfigRequest(String tenantId, CreateQuestionConfigBody createQuestionConfigBody) {
+        private APIcreateQuestionConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody) {
             this.tenantId = tenantId;
             this.createQuestionConfigBody = createQuestionConfigBody;
         }
@@ -3103,10 +3157,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateQuestionConfigRequest createQuestionConfig(String tenantId, CreateQuestionConfigBody createQuestionConfigBody) {
+    public APIcreateQuestionConfigRequest createQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody) {
         return new APIcreateQuestionConfigRequest(tenantId, createQuestionConfigBody);
     }
-    private okhttp3.Call createQuestionResultCall(String tenantId, CreateQuestionResultBody createQuestionResultBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createQuestionResultCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3156,7 +3210,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createQuestionResultValidateBeforeCall(String tenantId, CreateQuestionResultBody createQuestionResultBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createQuestionResultValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createQuestionResult(Async)");
@@ -3172,13 +3226,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateQuestionResult200Response> createQuestionResultWithHttpInfo(String tenantId, CreateQuestionResultBody createQuestionResultBody) throws ApiException {
+    private ApiResponse<CreateQuestionResult200Response> createQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody) throws ApiException {
         okhttp3.Call localVarCall = createQuestionResultValidateBeforeCall(tenantId, createQuestionResultBody, null);
         Type localVarReturnType = new TypeToken<CreateQuestionResult200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createQuestionResultAsync(String tenantId, CreateQuestionResultBody createQuestionResultBody, final ApiCallback<CreateQuestionResult200Response> _callback) throws ApiException {
+    private okhttp3.Call createQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody, final ApiCallback<CreateQuestionResult200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createQuestionResultValidateBeforeCall(tenantId, createQuestionResultBody, _callback);
         Type localVarReturnType = new TypeToken<CreateQuestionResult200Response>(){}.getType();
@@ -3187,10 +3241,12 @@ public class DefaultApi {
     }
 
     public class APIcreateQuestionResultRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateQuestionResultBody createQuestionResultBody;
 
-        private APIcreateQuestionResultRequest(String tenantId, CreateQuestionResultBody createQuestionResultBody) {
+        private APIcreateQuestionResultRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody) {
             this.tenantId = tenantId;
             this.createQuestionResultBody = createQuestionResultBody;
         }
@@ -3272,10 +3328,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateQuestionResultRequest createQuestionResult(String tenantId, CreateQuestionResultBody createQuestionResultBody) {
+    public APIcreateQuestionResultRequest createQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody) {
         return new APIcreateQuestionResultRequest(tenantId, createQuestionResultBody);
     }
-    private okhttp3.Call createSubscriptionCall(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSubscriptionCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3325,7 +3381,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createSubscriptionValidateBeforeCall(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createSubscriptionValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createSubscription(Async)");
@@ -3341,13 +3397,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateSubscriptionAPIResponse> createSubscriptionWithHttpInfo(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData) throws ApiException {
+    private ApiResponse<CreateSubscriptionAPIResponse> createSubscriptionWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIUserSubscriptionData createAPIUserSubscriptionData) throws ApiException {
         okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(tenantId, createAPIUserSubscriptionData, null);
         Type localVarReturnType = new TypeToken<CreateSubscriptionAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createSubscriptionAsync(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback<CreateSubscriptionAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call createSubscriptionAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIUserSubscriptionData createAPIUserSubscriptionData, final ApiCallback<CreateSubscriptionAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSubscriptionValidateBeforeCall(tenantId, createAPIUserSubscriptionData, _callback);
         Type localVarReturnType = new TypeToken<CreateSubscriptionAPIResponse>(){}.getType();
@@ -3356,10 +3412,12 @@ public class DefaultApi {
     }
 
     public class APIcreateSubscriptionRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateAPIUserSubscriptionData createAPIUserSubscriptionData;
 
-        private APIcreateSubscriptionRequest(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData) {
+        private APIcreateSubscriptionRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIUserSubscriptionData createAPIUserSubscriptionData) {
             this.tenantId = tenantId;
             this.createAPIUserSubscriptionData = createAPIUserSubscriptionData;
         }
@@ -3441,10 +3499,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateSubscriptionRequest createSubscription(String tenantId, CreateAPIUserSubscriptionData createAPIUserSubscriptionData) {
+    public APIcreateSubscriptionRequest createSubscription(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIUserSubscriptionData createAPIUserSubscriptionData) {
         return new APIcreateSubscriptionRequest(tenantId, createAPIUserSubscriptionData);
     }
-    private okhttp3.Call createTenantCall(String tenantId, CreateTenantBody createTenantBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTenantCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3494,7 +3552,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTenantValidateBeforeCall(String tenantId, CreateTenantBody createTenantBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTenantValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createTenant(Async)");
@@ -3510,13 +3568,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTenant200Response> createTenantWithHttpInfo(String tenantId, CreateTenantBody createTenantBody) throws ApiException {
+    private ApiResponse<CreateTenant200Response> createTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody) throws ApiException {
         okhttp3.Call localVarCall = createTenantValidateBeforeCall(tenantId, createTenantBody, null);
         Type localVarReturnType = new TypeToken<CreateTenant200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTenantAsync(String tenantId, CreateTenantBody createTenantBody, final ApiCallback<CreateTenant200Response> _callback) throws ApiException {
+    private okhttp3.Call createTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody, final ApiCallback<CreateTenant200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTenantValidateBeforeCall(tenantId, createTenantBody, _callback);
         Type localVarReturnType = new TypeToken<CreateTenant200Response>(){}.getType();
@@ -3525,10 +3583,12 @@ public class DefaultApi {
     }
 
     public class APIcreateTenantRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateTenantBody createTenantBody;
 
-        private APIcreateTenantRequest(String tenantId, CreateTenantBody createTenantBody) {
+        private APIcreateTenantRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody) {
             this.tenantId = tenantId;
             this.createTenantBody = createTenantBody;
         }
@@ -3610,10 +3670,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateTenantRequest createTenant(String tenantId, CreateTenantBody createTenantBody) {
+    public APIcreateTenantRequest createTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody) {
         return new APIcreateTenantRequest(tenantId, createTenantBody);
     }
-    private okhttp3.Call createTenantPackageCall(String tenantId, CreateTenantPackageBody createTenantPackageBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTenantPackageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3663,7 +3723,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTenantPackageValidateBeforeCall(String tenantId, CreateTenantPackageBody createTenantPackageBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTenantPackageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createTenantPackage(Async)");
@@ -3679,13 +3739,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTenantPackage200Response> createTenantPackageWithHttpInfo(String tenantId, CreateTenantPackageBody createTenantPackageBody) throws ApiException {
+    private ApiResponse<CreateTenantPackage200Response> createTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody) throws ApiException {
         okhttp3.Call localVarCall = createTenantPackageValidateBeforeCall(tenantId, createTenantPackageBody, null);
         Type localVarReturnType = new TypeToken<CreateTenantPackage200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTenantPackageAsync(String tenantId, CreateTenantPackageBody createTenantPackageBody, final ApiCallback<CreateTenantPackage200Response> _callback) throws ApiException {
+    private okhttp3.Call createTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody, final ApiCallback<CreateTenantPackage200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTenantPackageValidateBeforeCall(tenantId, createTenantPackageBody, _callback);
         Type localVarReturnType = new TypeToken<CreateTenantPackage200Response>(){}.getType();
@@ -3694,10 +3754,12 @@ public class DefaultApi {
     }
 
     public class APIcreateTenantPackageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateTenantPackageBody createTenantPackageBody;
 
-        private APIcreateTenantPackageRequest(String tenantId, CreateTenantPackageBody createTenantPackageBody) {
+        private APIcreateTenantPackageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody) {
             this.tenantId = tenantId;
             this.createTenantPackageBody = createTenantPackageBody;
         }
@@ -3779,10 +3841,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateTenantPackageRequest createTenantPackage(String tenantId, CreateTenantPackageBody createTenantPackageBody) {
+    public APIcreateTenantPackageRequest createTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody) {
         return new APIcreateTenantPackageRequest(tenantId, createTenantPackageBody);
     }
-    private okhttp3.Call createTenantUserCall(String tenantId, CreateTenantUserBody createTenantUserBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTenantUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3832,7 +3894,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTenantUserValidateBeforeCall(String tenantId, CreateTenantUserBody createTenantUserBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTenantUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createTenantUser(Async)");
@@ -3848,13 +3910,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTenantUser200Response> createTenantUserWithHttpInfo(String tenantId, CreateTenantUserBody createTenantUserBody) throws ApiException {
+    private ApiResponse<CreateTenantUser200Response> createTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody) throws ApiException {
         okhttp3.Call localVarCall = createTenantUserValidateBeforeCall(tenantId, createTenantUserBody, null);
         Type localVarReturnType = new TypeToken<CreateTenantUser200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTenantUserAsync(String tenantId, CreateTenantUserBody createTenantUserBody, final ApiCallback<CreateTenantUser200Response> _callback) throws ApiException {
+    private okhttp3.Call createTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody, final ApiCallback<CreateTenantUser200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTenantUserValidateBeforeCall(tenantId, createTenantUserBody, _callback);
         Type localVarReturnType = new TypeToken<CreateTenantUser200Response>(){}.getType();
@@ -3863,10 +3925,12 @@ public class DefaultApi {
     }
 
     public class APIcreateTenantUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateTenantUserBody createTenantUserBody;
 
-        private APIcreateTenantUserRequest(String tenantId, CreateTenantUserBody createTenantUserBody) {
+        private APIcreateTenantUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody) {
             this.tenantId = tenantId;
             this.createTenantUserBody = createTenantUserBody;
         }
@@ -3948,10 +4012,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateTenantUserRequest createTenantUser(String tenantId, CreateTenantUserBody createTenantUserBody) {
+    public APIcreateTenantUserRequest createTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody) {
         return new APIcreateTenantUserRequest(tenantId, createTenantUserBody);
     }
-    private okhttp3.Call createTicketCall(String tenantId, String userId, CreateTicketBody createTicketBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTicketCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4005,7 +4069,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createTicketValidateBeforeCall(String tenantId, String userId, CreateTicketBody createTicketBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createTicketValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createTicket(Async)");
@@ -4026,13 +4090,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTicket200Response> createTicketWithHttpInfo(String tenantId, String userId, CreateTicketBody createTicketBody) throws ApiException {
+    private ApiResponse<CreateTicket200Response> createTicketWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody) throws ApiException {
         okhttp3.Call localVarCall = createTicketValidateBeforeCall(tenantId, userId, createTicketBody, null);
         Type localVarReturnType = new TypeToken<CreateTicket200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTicketAsync(String tenantId, String userId, CreateTicketBody createTicketBody, final ApiCallback<CreateTicket200Response> _callback) throws ApiException {
+    private okhttp3.Call createTicketAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody, final ApiCallback<CreateTicket200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTicketValidateBeforeCall(tenantId, userId, createTicketBody, _callback);
         Type localVarReturnType = new TypeToken<CreateTicket200Response>(){}.getType();
@@ -4041,11 +4105,14 @@ public class DefaultApi {
     }
 
     public class APIcreateTicketRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String userId;
+        @javax.annotation.Nonnull
         private final CreateTicketBody createTicketBody;
 
-        private APIcreateTicketRequest(String tenantId, String userId, CreateTicketBody createTicketBody) {
+        private APIcreateTicketRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody) {
             this.tenantId = tenantId;
             this.userId = userId;
             this.createTicketBody = createTicketBody;
@@ -4129,10 +4196,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateTicketRequest createTicket(String tenantId, String userId, CreateTicketBody createTicketBody) {
+    public APIcreateTicketRequest createTicket(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody) {
         return new APIcreateTicketRequest(tenantId, userId, createTicketBody);
     }
-    private okhttp3.Call createUserBadgeCall(String tenantId, CreateUserBadgeParams createUserBadgeParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createUserBadgeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4182,7 +4249,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createUserBadgeValidateBeforeCall(String tenantId, CreateUserBadgeParams createUserBadgeParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createUserBadgeValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createUserBadge(Async)");
@@ -4198,13 +4265,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateUserBadge200Response> createUserBadgeWithHttpInfo(String tenantId, CreateUserBadgeParams createUserBadgeParams) throws ApiException {
+    private ApiResponse<CreateUserBadge200Response> createUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams) throws ApiException {
         okhttp3.Call localVarCall = createUserBadgeValidateBeforeCall(tenantId, createUserBadgeParams, null);
         Type localVarReturnType = new TypeToken<CreateUserBadge200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createUserBadgeAsync(String tenantId, CreateUserBadgeParams createUserBadgeParams, final ApiCallback<CreateUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call createUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams, final ApiCallback<CreateUserBadge200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createUserBadgeValidateBeforeCall(tenantId, createUserBadgeParams, _callback);
         Type localVarReturnType = new TypeToken<CreateUserBadge200Response>(){}.getType();
@@ -4213,10 +4280,12 @@ public class DefaultApi {
     }
 
     public class APIcreateUserBadgeRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateUserBadgeParams createUserBadgeParams;
 
-        private APIcreateUserBadgeRequest(String tenantId, CreateUserBadgeParams createUserBadgeParams) {
+        private APIcreateUserBadgeRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams) {
             this.tenantId = tenantId;
             this.createUserBadgeParams = createUserBadgeParams;
         }
@@ -4298,10 +4367,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateUserBadgeRequest createUserBadge(String tenantId, CreateUserBadgeParams createUserBadgeParams) {
+    public APIcreateUserBadgeRequest createUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams) {
         return new APIcreateUserBadgeRequest(tenantId, createUserBadgeParams);
     }
-    private okhttp3.Call createVoteCall(String tenantId, String commentId, String direction, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createVoteCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4366,7 +4435,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createVoteValidateBeforeCall(String tenantId, String commentId, String direction, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createVoteValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createVote(Async)");
@@ -4387,13 +4456,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<VoteComment200Response> createVoteWithHttpInfo(String tenantId, String commentId, String direction, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<VoteComment200Response> createVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = createVoteValidateBeforeCall(tenantId, commentId, direction, userId, anonUserId, null);
         Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createVoteAsync(String tenantId, String commentId, String direction, String userId, String anonUserId, final ApiCallback<VoteComment200Response> _callback) throws ApiException {
+    private okhttp3.Call createVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<VoteComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createVoteValidateBeforeCall(tenantId, commentId, direction, userId, anonUserId, _callback);
         Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
@@ -4402,13 +4471,18 @@ public class DefaultApi {
     }
 
     public class APIcreateVoteRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
+        @javax.annotation.Nonnull
         private final String direction;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String anonUserId;
 
-        private APIcreateVoteRequest(String tenantId, String commentId, String direction) {
+        private APIcreateVoteRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction) {
             this.tenantId = tenantId;
             this.commentId = commentId;
             this.direction = direction;
@@ -4419,7 +4493,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIcreateVoteRequest
          */
-        public APIcreateVoteRequest userId(String userId) {
+        public APIcreateVoteRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -4429,7 +4503,7 @@ public class DefaultApi {
          * @param anonUserId  (optional)
          * @return APIcreateVoteRequest
          */
-        public APIcreateVoteRequest anonUserId(String anonUserId) {
+        public APIcreateVoteRequest anonUserId(@javax.annotation.Nullable String anonUserId) {
             this.anonUserId = anonUserId;
             return this;
         }
@@ -4512,10 +4586,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIcreateVoteRequest createVote(String tenantId, String commentId, String direction) {
+    public APIcreateVoteRequest createVote(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction) {
         return new APIcreateVoteRequest(tenantId, commentId, direction);
     }
-    private okhttp3.Call deleteCommentCall(String tenantId, String id, String contextUserId, Boolean isLive, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4573,7 +4647,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCommentValidateBeforeCall(String tenantId, String id, String contextUserId, Boolean isLive, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteComment(Async)");
@@ -4589,13 +4663,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteComment200Response> deleteCommentWithHttpInfo(String tenantId, String id, String contextUserId, Boolean isLive) throws ApiException {
+    private ApiResponse<DeleteComment200Response> deleteCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive) throws ApiException {
         okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, id, contextUserId, isLive, null);
         Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCommentAsync(String tenantId, String id, String contextUserId, Boolean isLive, final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive, final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, id, contextUserId, isLive, _callback);
         Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
@@ -4604,12 +4678,16 @@ public class DefaultApi {
     }
 
     public class APIdeleteCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String contextUserId;
+        @javax.annotation.Nullable
         private Boolean isLive;
 
-        private APIdeleteCommentRequest(String tenantId, String id) {
+        private APIdeleteCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -4619,7 +4697,7 @@ public class DefaultApi {
          * @param contextUserId  (optional)
          * @return APIdeleteCommentRequest
          */
-        public APIdeleteCommentRequest contextUserId(String contextUserId) {
+        public APIdeleteCommentRequest contextUserId(@javax.annotation.Nullable String contextUserId) {
             this.contextUserId = contextUserId;
             return this;
         }
@@ -4629,7 +4707,7 @@ public class DefaultApi {
          * @param isLive  (optional)
          * @return APIdeleteCommentRequest
          */
-        public APIdeleteCommentRequest isLive(Boolean isLive) {
+        public APIdeleteCommentRequest isLive(@javax.annotation.Nullable Boolean isLive) {
             this.isLive = isLive;
             return this;
         }
@@ -4711,10 +4789,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteCommentRequest deleteComment(String tenantId, String id) {
+    public APIdeleteCommentRequest deleteComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteCommentRequest(tenantId, id);
     }
-    private okhttp3.Call deleteDomainConfigCall(String tenantId, String domain, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteDomainConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4764,7 +4842,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteDomainConfigValidateBeforeCall(String tenantId, String domain, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteDomainConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteDomainConfig(Async)");
@@ -4780,13 +4858,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteDomainConfig200Response> deleteDomainConfigWithHttpInfo(String tenantId, String domain) throws ApiException {
+    private ApiResponse<DeleteDomainConfig200Response> deleteDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) throws ApiException {
         okhttp3.Call localVarCall = deleteDomainConfigValidateBeforeCall(tenantId, domain, null);
         Type localVarReturnType = new TypeToken<DeleteDomainConfig200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteDomainConfigAsync(String tenantId, String domain, final ApiCallback<DeleteDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback<DeleteDomainConfig200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDomainConfigValidateBeforeCall(tenantId, domain, _callback);
         Type localVarReturnType = new TypeToken<DeleteDomainConfig200Response>(){}.getType();
@@ -4795,10 +4873,12 @@ public class DefaultApi {
     }
 
     public class APIdeleteDomainConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String domain;
 
-        private APIdeleteDomainConfigRequest(String tenantId, String domain) {
+        private APIdeleteDomainConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) {
             this.tenantId = tenantId;
             this.domain = domain;
         }
@@ -4880,10 +4960,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteDomainConfigRequest deleteDomainConfig(String tenantId, String domain) {
+    public APIdeleteDomainConfigRequest deleteDomainConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) {
         return new APIdeleteDomainConfigRequest(tenantId, domain);
     }
-    private okhttp3.Call deleteEmailTemplateCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4933,7 +5013,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteEmailTemplateValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteEmailTemplate(Async)");
@@ -4949,13 +5029,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteEmailTemplateWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteEmailTemplateValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteEmailTemplateAsync(String tenantId, String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteEmailTemplateValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -4964,10 +5044,12 @@ public class DefaultApi {
     }
 
     public class APIdeleteEmailTemplateRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeleteEmailTemplateRequest(String tenantId, String id) {
+        private APIdeleteEmailTemplateRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -5049,10 +5131,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteEmailTemplateRequest deleteEmailTemplate(String tenantId, String id) {
+    public APIdeleteEmailTemplateRequest deleteEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteEmailTemplateRequest(tenantId, id);
     }
-    private okhttp3.Call deleteEmailTemplateRenderErrorCall(String tenantId, String id, String errorId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateRenderErrorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5103,7 +5185,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteEmailTemplateRenderErrorValidateBeforeCall(String tenantId, String id, String errorId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateRenderErrorValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteEmailTemplateRenderError(Async)");
@@ -5124,13 +5206,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteEmailTemplateRenderErrorWithHttpInfo(String tenantId, String id, String errorId) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteEmailTemplateRenderErrorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId) throws ApiException {
         okhttp3.Call localVarCall = deleteEmailTemplateRenderErrorValidateBeforeCall(tenantId, id, errorId, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteEmailTemplateRenderErrorAsync(String tenantId, String id, String errorId, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateRenderErrorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteEmailTemplateRenderErrorValidateBeforeCall(tenantId, id, errorId, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -5139,11 +5221,14 @@ public class DefaultApi {
     }
 
     public class APIdeleteEmailTemplateRenderErrorRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final String errorId;
 
-        private APIdeleteEmailTemplateRenderErrorRequest(String tenantId, String id, String errorId) {
+        private APIdeleteEmailTemplateRenderErrorRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId) {
             this.tenantId = tenantId;
             this.id = id;
             this.errorId = errorId;
@@ -5227,10 +5312,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteEmailTemplateRenderErrorRequest deleteEmailTemplateRenderError(String tenantId, String id, String errorId) {
+    public APIdeleteEmailTemplateRenderErrorRequest deleteEmailTemplateRenderError(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId) {
         return new APIdeleteEmailTemplateRenderErrorRequest(tenantId, id, errorId);
     }
-    private okhttp3.Call deleteHashTagCall(String tag, String tenantId, DeleteHashTagRequest deleteHashTagRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5281,7 +5366,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteHashTagValidateBeforeCall(String tag, String tenantId, DeleteHashTagRequest deleteHashTagRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagValidateBeforeCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tag' is set
         if (tag == null) {
             throw new ApiException("Missing the required parameter 'tag' when calling deleteHashTag(Async)");
@@ -5292,13 +5377,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteHashTagWithHttpInfo(String tag, String tenantId, DeleteHashTagRequest deleteHashTagRequest) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest) throws ApiException {
         okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequest, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteHashTagAsync(String tag, String tenantId, DeleteHashTagRequest deleteHashTagRequest, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequest, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -5307,11 +5392,14 @@ public class DefaultApi {
     }
 
     public class APIdeleteHashTagRequest {
+        @javax.annotation.Nonnull
         private final String tag;
+        @javax.annotation.Nullable
         private String tenantId;
+        @javax.annotation.Nullable
         private DeleteHashTagRequest deleteHashTagRequest;
 
-        private APIdeleteHashTagRequest(String tag) {
+        private APIdeleteHashTagRequest(@javax.annotation.Nonnull String tag) {
             this.tag = tag;
         }
 
@@ -5320,7 +5408,7 @@ public class DefaultApi {
          * @param tenantId  (optional)
          * @return APIdeleteHashTagRequest
          */
-        public APIdeleteHashTagRequest tenantId(String tenantId) {
+        public APIdeleteHashTagRequest tenantId(@javax.annotation.Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
@@ -5330,7 +5418,7 @@ public class DefaultApi {
          * @param deleteHashTagRequest  (optional)
          * @return APIdeleteHashTagRequest
          */
-        public APIdeleteHashTagRequest deleteHashTagRequest(DeleteHashTagRequest deleteHashTagRequest) {
+        public APIdeleteHashTagRequest deleteHashTagRequest(@javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest) {
             this.deleteHashTagRequest = deleteHashTagRequest;
             return this;
         }
@@ -5411,10 +5499,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteHashTagRequest deleteHashTag(String tag) {
+    public APIdeleteHashTagRequest deleteHashTag(@javax.annotation.Nonnull String tag) {
         return new APIdeleteHashTagRequest(tag);
     }
-    private okhttp3.Call deleteModeratorCall(String tenantId, String id, String sendEmail, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteModeratorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5468,7 +5556,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteModeratorValidateBeforeCall(String tenantId, String id, String sendEmail, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteModeratorValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteModerator(Async)");
@@ -5484,13 +5572,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteModeratorWithHttpInfo(String tenantId, String id, String sendEmail) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail) throws ApiException {
         okhttp3.Call localVarCall = deleteModeratorValidateBeforeCall(tenantId, id, sendEmail, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteModeratorAsync(String tenantId, String id, String sendEmail, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteModeratorValidateBeforeCall(tenantId, id, sendEmail, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -5499,11 +5587,14 @@ public class DefaultApi {
     }
 
     public class APIdeleteModeratorRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String sendEmail;
 
-        private APIdeleteModeratorRequest(String tenantId, String id) {
+        private APIdeleteModeratorRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -5513,7 +5604,7 @@ public class DefaultApi {
          * @param sendEmail  (optional)
          * @return APIdeleteModeratorRequest
          */
-        public APIdeleteModeratorRequest sendEmail(String sendEmail) {
+        public APIdeleteModeratorRequest sendEmail(@javax.annotation.Nullable String sendEmail) {
             this.sendEmail = sendEmail;
             return this;
         }
@@ -5595,10 +5686,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteModeratorRequest deleteModerator(String tenantId, String id) {
+    public APIdeleteModeratorRequest deleteModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteModeratorRequest(tenantId, id);
     }
-    private okhttp3.Call deleteNotificationCountCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNotificationCountCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5648,7 +5739,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteNotificationCountValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteNotificationCountValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteNotificationCount(Async)");
@@ -5664,13 +5755,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteNotificationCountWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteNotificationCountValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNotificationCountAsync(String tenantId, String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNotificationCountValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -5679,10 +5770,12 @@ public class DefaultApi {
     }
 
     public class APIdeleteNotificationCountRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeleteNotificationCountRequest(String tenantId, String id) {
+        private APIdeleteNotificationCountRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -5764,10 +5857,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteNotificationCountRequest deleteNotificationCount(String tenantId, String id) {
+    public APIdeleteNotificationCountRequest deleteNotificationCount(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteNotificationCountRequest(tenantId, id);
     }
-    private okhttp3.Call deletePageCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5817,7 +5910,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePageValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deletePage(Async)");
@@ -5833,13 +5926,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeletePageAPIResponse> deletePageWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<DeletePageAPIResponse> deletePageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deletePageValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<DeletePageAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deletePageAsync(String tenantId, String id, final ApiCallback<DeletePageAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call deletePageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<DeletePageAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deletePageValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<DeletePageAPIResponse>(){}.getType();
@@ -5848,10 +5941,12 @@ public class DefaultApi {
     }
 
     public class APIdeletePageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeletePageRequest(String tenantId, String id) {
+        private APIdeletePageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -5933,10 +6028,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeletePageRequest deletePage(String tenantId, String id) {
+    public APIdeletePageRequest deletePage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeletePageRequest(tenantId, id);
     }
-    private okhttp3.Call deletePendingWebhookEventCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePendingWebhookEventCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5986,7 +6081,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deletePendingWebhookEventValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deletePendingWebhookEventValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deletePendingWebhookEvent(Async)");
@@ -6002,13 +6097,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deletePendingWebhookEventWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deletePendingWebhookEventWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deletePendingWebhookEventValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deletePendingWebhookEventAsync(String tenantId, String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deletePendingWebhookEventAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deletePendingWebhookEventValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -6017,10 +6112,12 @@ public class DefaultApi {
     }
 
     public class APIdeletePendingWebhookEventRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeletePendingWebhookEventRequest(String tenantId, String id) {
+        private APIdeletePendingWebhookEventRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -6102,10 +6199,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeletePendingWebhookEventRequest deletePendingWebhookEvent(String tenantId, String id) {
+    public APIdeletePendingWebhookEventRequest deletePendingWebhookEvent(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeletePendingWebhookEventRequest(tenantId, id);
     }
-    private okhttp3.Call deleteQuestionConfigCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6155,7 +6252,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteQuestionConfigValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteQuestionConfig(Async)");
@@ -6171,13 +6268,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteQuestionConfigWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteQuestionConfigValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteQuestionConfigAsync(String tenantId, String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteQuestionConfigValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -6186,10 +6283,12 @@ public class DefaultApi {
     }
 
     public class APIdeleteQuestionConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeleteQuestionConfigRequest(String tenantId, String id) {
+        private APIdeleteQuestionConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -6271,10 +6370,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteQuestionConfigRequest deleteQuestionConfig(String tenantId, String id) {
+    public APIdeleteQuestionConfigRequest deleteQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteQuestionConfigRequest(tenantId, id);
     }
-    private okhttp3.Call deleteQuestionResultCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionResultCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6324,7 +6423,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteQuestionResultValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionResultValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteQuestionResult(Async)");
@@ -6340,13 +6439,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteQuestionResultWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteQuestionResultValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteQuestionResultAsync(String tenantId, String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteQuestionResultValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -6355,10 +6454,12 @@ public class DefaultApi {
     }
 
     public class APIdeleteQuestionResultRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeleteQuestionResultRequest(String tenantId, String id) {
+        private APIdeleteQuestionResultRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -6440,10 +6541,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteQuestionResultRequest deleteQuestionResult(String tenantId, String id) {
+    public APIdeleteQuestionResultRequest deleteQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteQuestionResultRequest(tenantId, id);
     }
-    private okhttp3.Call deleteSSOUserCall(String tenantId, String id, Boolean deleteComments, String commentDeleteMode, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteSSOUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Boolean deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6501,7 +6602,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteSSOUserValidateBeforeCall(String tenantId, String id, Boolean deleteComments, String commentDeleteMode, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteSSOUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Boolean deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteSSOUser(Async)");
@@ -6517,13 +6618,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteSSOUserAPIResponse> deleteSSOUserWithHttpInfo(String tenantId, String id, Boolean deleteComments, String commentDeleteMode) throws ApiException {
+    private ApiResponse<DeleteSSOUserAPIResponse> deleteSSOUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Boolean deleteComments, @javax.annotation.Nullable String commentDeleteMode) throws ApiException {
         okhttp3.Call localVarCall = deleteSSOUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, null);
         Type localVarReturnType = new TypeToken<DeleteSSOUserAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteSSOUserAsync(String tenantId, String id, Boolean deleteComments, String commentDeleteMode, final ApiCallback<DeleteSSOUserAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call deleteSSOUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Boolean deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback<DeleteSSOUserAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteSSOUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, _callback);
         Type localVarReturnType = new TypeToken<DeleteSSOUserAPIResponse>(){}.getType();
@@ -6532,12 +6633,16 @@ public class DefaultApi {
     }
 
     public class APIdeleteSSOUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private Boolean deleteComments;
+        @javax.annotation.Nullable
         private String commentDeleteMode;
 
-        private APIdeleteSSOUserRequest(String tenantId, String id) {
+        private APIdeleteSSOUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -6547,7 +6652,7 @@ public class DefaultApi {
          * @param deleteComments  (optional)
          * @return APIdeleteSSOUserRequest
          */
-        public APIdeleteSSOUserRequest deleteComments(Boolean deleteComments) {
+        public APIdeleteSSOUserRequest deleteComments(@javax.annotation.Nullable Boolean deleteComments) {
             this.deleteComments = deleteComments;
             return this;
         }
@@ -6557,7 +6662,7 @@ public class DefaultApi {
          * @param commentDeleteMode  (optional)
          * @return APIdeleteSSOUserRequest
          */
-        public APIdeleteSSOUserRequest commentDeleteMode(String commentDeleteMode) {
+        public APIdeleteSSOUserRequest commentDeleteMode(@javax.annotation.Nullable String commentDeleteMode) {
             this.commentDeleteMode = commentDeleteMode;
             return this;
         }
@@ -6639,10 +6744,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteSSOUserRequest deleteSSOUser(String tenantId, String id) {
+    public APIdeleteSSOUserRequest deleteSSOUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteSSOUserRequest(tenantId, id);
     }
-    private okhttp3.Call deleteSubscriptionCall(String tenantId, String id, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteSubscriptionCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6696,7 +6801,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteSubscriptionValidateBeforeCall(String tenantId, String id, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteSubscriptionValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteSubscription(Async)");
@@ -6712,13 +6817,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteSubscriptionAPIResponse> deleteSubscriptionWithHttpInfo(String tenantId, String id, String userId) throws ApiException {
+    private ApiResponse<DeleteSubscriptionAPIResponse> deleteSubscriptionWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId) throws ApiException {
         okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(tenantId, id, userId, null);
         Type localVarReturnType = new TypeToken<DeleteSubscriptionAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteSubscriptionAsync(String tenantId, String id, String userId, final ApiCallback<DeleteSubscriptionAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call deleteSubscriptionAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback<DeleteSubscriptionAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteSubscriptionValidateBeforeCall(tenantId, id, userId, _callback);
         Type localVarReturnType = new TypeToken<DeleteSubscriptionAPIResponse>(){}.getType();
@@ -6727,11 +6832,14 @@ public class DefaultApi {
     }
 
     public class APIdeleteSubscriptionRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String userId;
 
-        private APIdeleteSubscriptionRequest(String tenantId, String id) {
+        private APIdeleteSubscriptionRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -6741,7 +6849,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIdeleteSubscriptionRequest
          */
-        public APIdeleteSubscriptionRequest userId(String userId) {
+        public APIdeleteSubscriptionRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -6823,10 +6931,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteSubscriptionRequest deleteSubscription(String tenantId, String id) {
+    public APIdeleteSubscriptionRequest deleteSubscription(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteSubscriptionRequest(tenantId, id);
     }
-    private okhttp3.Call deleteTenantCall(String tenantId, String id, String sure, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteTenantCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6880,7 +6988,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTenantValidateBeforeCall(String tenantId, String id, String sure, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteTenantValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteTenant(Async)");
@@ -6896,13 +7004,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteTenantWithHttpInfo(String tenantId, String id, String sure) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure) throws ApiException {
         okhttp3.Call localVarCall = deleteTenantValidateBeforeCall(tenantId, id, sure, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteTenantAsync(String tenantId, String id, String sure, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTenantValidateBeforeCall(tenantId, id, sure, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -6911,11 +7019,14 @@ public class DefaultApi {
     }
 
     public class APIdeleteTenantRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String sure;
 
-        private APIdeleteTenantRequest(String tenantId, String id) {
+        private APIdeleteTenantRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -6925,7 +7036,7 @@ public class DefaultApi {
          * @param sure  (optional)
          * @return APIdeleteTenantRequest
          */
-        public APIdeleteTenantRequest sure(String sure) {
+        public APIdeleteTenantRequest sure(@javax.annotation.Nullable String sure) {
             this.sure = sure;
             return this;
         }
@@ -7007,10 +7118,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteTenantRequest deleteTenant(String tenantId, String id) {
+    public APIdeleteTenantRequest deleteTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteTenantRequest(tenantId, id);
     }
-    private okhttp3.Call deleteTenantPackageCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteTenantPackageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7060,7 +7171,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTenantPackageValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteTenantPackageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteTenantPackage(Async)");
@@ -7076,13 +7187,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteTenantPackageWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteTenantPackageValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteTenantPackageAsync(String tenantId, String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTenantPackageValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -7091,10 +7202,12 @@ public class DefaultApi {
     }
 
     public class APIdeleteTenantPackageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeleteTenantPackageRequest(String tenantId, String id) {
+        private APIdeleteTenantPackageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -7176,10 +7289,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteTenantPackageRequest deleteTenantPackage(String tenantId, String id) {
+    public APIdeleteTenantPackageRequest deleteTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteTenantPackageRequest(tenantId, id);
     }
-    private okhttp3.Call deleteTenantUserCall(String tenantId, String id, String deleteComments, String commentDeleteMode, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteTenantUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7237,7 +7350,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteTenantUserValidateBeforeCall(String tenantId, String id, String deleteComments, String commentDeleteMode, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteTenantUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteTenantUser(Async)");
@@ -7253,13 +7366,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteTenantUserWithHttpInfo(String tenantId, String id, String deleteComments, String commentDeleteMode) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> deleteTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode) throws ApiException {
         okhttp3.Call localVarCall = deleteTenantUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteTenantUserAsync(String tenantId, String id, String deleteComments, String commentDeleteMode, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTenantUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -7268,12 +7381,16 @@ public class DefaultApi {
     }
 
     public class APIdeleteTenantUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String deleteComments;
+        @javax.annotation.Nullable
         private String commentDeleteMode;
 
-        private APIdeleteTenantUserRequest(String tenantId, String id) {
+        private APIdeleteTenantUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -7283,7 +7400,7 @@ public class DefaultApi {
          * @param deleteComments  (optional)
          * @return APIdeleteTenantUserRequest
          */
-        public APIdeleteTenantUserRequest deleteComments(String deleteComments) {
+        public APIdeleteTenantUserRequest deleteComments(@javax.annotation.Nullable String deleteComments) {
             this.deleteComments = deleteComments;
             return this;
         }
@@ -7293,7 +7410,7 @@ public class DefaultApi {
          * @param commentDeleteMode  (optional)
          * @return APIdeleteTenantUserRequest
          */
-        public APIdeleteTenantUserRequest commentDeleteMode(String commentDeleteMode) {
+        public APIdeleteTenantUserRequest commentDeleteMode(@javax.annotation.Nullable String commentDeleteMode) {
             this.commentDeleteMode = commentDeleteMode;
             return this;
         }
@@ -7375,10 +7492,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteTenantUserRequest deleteTenantUser(String tenantId, String id) {
+    public APIdeleteTenantUserRequest deleteTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteTenantUserRequest(tenantId, id);
     }
-    private okhttp3.Call deleteUserBadgeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteUserBadgeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7428,7 +7545,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteUserBadgeValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteUserBadgeValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteUserBadge(Async)");
@@ -7444,13 +7561,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UpdateUserBadge200Response> deleteUserBadgeWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<UpdateUserBadge200Response> deleteUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteUserBadgeValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteUserBadgeAsync(String tenantId, String id, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteUserBadgeValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
@@ -7459,10 +7576,12 @@ public class DefaultApi {
     }
 
     public class APIdeleteUserBadgeRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIdeleteUserBadgeRequest(String tenantId, String id) {
+        private APIdeleteUserBadgeRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -7544,10 +7663,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteUserBadgeRequest deleteUserBadge(String tenantId, String id) {
+    public APIdeleteUserBadgeRequest deleteUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteUserBadgeRequest(tenantId, id);
     }
-    private okhttp3.Call deleteVoteCall(String tenantId, String id, String editKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteVoteCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7601,7 +7720,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteVoteValidateBeforeCall(String tenantId, String id, String editKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteVoteValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteVote(Async)");
@@ -7617,13 +7736,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteCommentVote200Response> deleteVoteWithHttpInfo(String tenantId, String id, String editKey) throws ApiException {
+    private ApiResponse<DeleteCommentVote200Response> deleteVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey) throws ApiException {
         okhttp3.Call localVarCall = deleteVoteValidateBeforeCall(tenantId, id, editKey, null);
         Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteVoteAsync(String tenantId, String id, String editKey, final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey, final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteVoteValidateBeforeCall(tenantId, id, editKey, _callback);
         Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
@@ -7632,11 +7751,14 @@ public class DefaultApi {
     }
 
     public class APIdeleteVoteRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String editKey;
 
-        private APIdeleteVoteRequest(String tenantId, String id) {
+        private APIdeleteVoteRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -7646,7 +7768,7 @@ public class DefaultApi {
          * @param editKey  (optional)
          * @return APIdeleteVoteRequest
          */
-        public APIdeleteVoteRequest editKey(String editKey) {
+        public APIdeleteVoteRequest editKey(@javax.annotation.Nullable String editKey) {
             this.editKey = editKey;
             return this;
         }
@@ -7728,10 +7850,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteVoteRequest deleteVote(String tenantId, String id) {
+    public APIdeleteVoteRequest deleteVote(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIdeleteVoteRequest(tenantId, id);
     }
-    private okhttp3.Call flagCommentCall(String tenantId, String id, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call flagCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7789,7 +7911,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call flagCommentValidateBeforeCall(String tenantId, String id, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call flagCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling flagComment(Async)");
@@ -7805,13 +7927,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(String tenantId, String id, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, null);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call flagCommentAsync(String tenantId, String id, String userId, String anonUserId, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+    private okhttp3.Call flagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, _callback);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
@@ -7820,12 +7942,16 @@ public class DefaultApi {
     }
 
     public class APIflagCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String anonUserId;
 
-        private APIflagCommentRequest(String tenantId, String id) {
+        private APIflagCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -7835,7 +7961,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIflagCommentRequest
          */
-        public APIflagCommentRequest userId(String userId) {
+        public APIflagCommentRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -7845,7 +7971,7 @@ public class DefaultApi {
          * @param anonUserId  (optional)
          * @return APIflagCommentRequest
          */
-        public APIflagCommentRequest anonUserId(String anonUserId) {
+        public APIflagCommentRequest anonUserId(@javax.annotation.Nullable String anonUserId) {
             this.anonUserId = anonUserId;
             return this;
         }
@@ -7927,10 +8053,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIflagCommentRequest flagComment(String tenantId, String id) {
+    public APIflagCommentRequest flagComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIflagCommentRequest(tenantId, id);
     }
-    private okhttp3.Call getAuditLogsCall(String tenantId, Double limit, Double skip, SORTDIR order, Double after, Double before, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAuditLogsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7999,7 +8125,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAuditLogsValidateBeforeCall(String tenantId, Double limit, Double skip, SORTDIR order, Double after, Double before, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAuditLogsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAuditLogs(Async)");
@@ -8010,13 +8136,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetAuditLogs200Response> getAuditLogsWithHttpInfo(String tenantId, Double limit, Double skip, SORTDIR order, Double after, Double before) throws ApiException {
+    private ApiResponse<GetAuditLogs200Response> getAuditLogsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before) throws ApiException {
         okhttp3.Call localVarCall = getAuditLogsValidateBeforeCall(tenantId, limit, skip, order, after, before, null);
         Type localVarReturnType = new TypeToken<GetAuditLogs200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getAuditLogsAsync(String tenantId, Double limit, Double skip, SORTDIR order, Double after, Double before, final ApiCallback<GetAuditLogs200Response> _callback) throws ApiException {
+    private okhttp3.Call getAuditLogsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before, final ApiCallback<GetAuditLogs200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAuditLogsValidateBeforeCall(tenantId, limit, skip, order, after, before, _callback);
         Type localVarReturnType = new TypeToken<GetAuditLogs200Response>(){}.getType();
@@ -8025,14 +8151,20 @@ public class DefaultApi {
     }
 
     public class APIgetAuditLogsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double limit;
+        @javax.annotation.Nullable
         private Double skip;
+        @javax.annotation.Nullable
         private SORTDIR order;
+        @javax.annotation.Nullable
         private Double after;
+        @javax.annotation.Nullable
         private Double before;
 
-        private APIgetAuditLogsRequest(String tenantId) {
+        private APIgetAuditLogsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -8041,7 +8173,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetAuditLogsRequest
          */
-        public APIgetAuditLogsRequest limit(Double limit) {
+        public APIgetAuditLogsRequest limit(@javax.annotation.Nullable Double limit) {
             this.limit = limit;
             return this;
         }
@@ -8051,7 +8183,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetAuditLogsRequest
          */
-        public APIgetAuditLogsRequest skip(Double skip) {
+        public APIgetAuditLogsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -8061,7 +8193,7 @@ public class DefaultApi {
          * @param order  (optional)
          * @return APIgetAuditLogsRequest
          */
-        public APIgetAuditLogsRequest order(SORTDIR order) {
+        public APIgetAuditLogsRequest order(@javax.annotation.Nullable SORTDIR order) {
             this.order = order;
             return this;
         }
@@ -8071,7 +8203,7 @@ public class DefaultApi {
          * @param after  (optional)
          * @return APIgetAuditLogsRequest
          */
-        public APIgetAuditLogsRequest after(Double after) {
+        public APIgetAuditLogsRequest after(@javax.annotation.Nullable Double after) {
             this.after = after;
             return this;
         }
@@ -8081,7 +8213,7 @@ public class DefaultApi {
          * @param before  (optional)
          * @return APIgetAuditLogsRequest
          */
-        public APIgetAuditLogsRequest before(Double before) {
+        public APIgetAuditLogsRequest before(@javax.annotation.Nullable Double before) {
             this.before = before;
             return this;
         }
@@ -8162,10 +8294,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetAuditLogsRequest getAuditLogs(String tenantId) {
+    public APIgetAuditLogsRequest getAuditLogs(@javax.annotation.Nonnull String tenantId) {
         return new APIgetAuditLogsRequest(tenantId);
     }
-    private okhttp3.Call getCachedNotificationCountCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCachedNotificationCountCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8215,7 +8347,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCachedNotificationCountValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCachedNotificationCountValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCachedNotificationCount(Async)");
@@ -8231,13 +8363,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetCachedNotificationCount200Response> getCachedNotificationCountWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetCachedNotificationCount200Response> getCachedNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getCachedNotificationCountValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetCachedNotificationCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCachedNotificationCountAsync(String tenantId, String id, final ApiCallback<GetCachedNotificationCount200Response> _callback) throws ApiException {
+    private okhttp3.Call getCachedNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetCachedNotificationCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCachedNotificationCountValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetCachedNotificationCount200Response>(){}.getType();
@@ -8246,10 +8378,12 @@ public class DefaultApi {
     }
 
     public class APIgetCachedNotificationCountRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetCachedNotificationCountRequest(String tenantId, String id) {
+        private APIgetCachedNotificationCountRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -8331,10 +8465,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCachedNotificationCountRequest getCachedNotificationCount(String tenantId, String id) {
+    public APIgetCachedNotificationCountRequest getCachedNotificationCount(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetCachedNotificationCountRequest(tenantId, id);
     }
-    private okhttp3.Call getCommentCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8384,7 +8518,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getComment(Async)");
@@ -8400,13 +8534,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetComment200Response> getCommentWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetComment200Response> getCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getCommentValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentAsync(String tenantId, String id, final ApiCallback<GetComment200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetComment200Response>(){}.getType();
@@ -8415,10 +8549,12 @@ public class DefaultApi {
     }
 
     public class APIgetCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetCommentRequest(String tenantId, String id) {
+        private APIgetCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -8500,10 +8636,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCommentRequest getComment(String tenantId, String id) {
+    public APIgetCommentRequest getComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetCommentRequest(tenantId, id);
     }
-    private okhttp3.Call getCommentsCall(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8608,7 +8744,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsValidateBeforeCall(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getComments(Async)");
@@ -8619,13 +8755,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction) throws ApiException {
+    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction) throws ApiException {
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, null);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentsAsync(String tenantId, Integer page, Integer limit, Integer skip, Boolean asTree, Integer skipChildren, Integer limitChildren, Integer maxTreeDepth, String urlId, String userId, String anonUserId, String contextUserId, String hashTag, String parentId, SortDirections direction, final ApiCallback<GetComments200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, final ApiCallback<GetComments200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, _callback);
         Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
@@ -8634,23 +8770,38 @@ public class DefaultApi {
     }
 
     public class APIgetCommentsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Integer page;
+        @javax.annotation.Nullable
         private Integer limit;
+        @javax.annotation.Nullable
         private Integer skip;
+        @javax.annotation.Nullable
         private Boolean asTree;
+        @javax.annotation.Nullable
         private Integer skipChildren;
+        @javax.annotation.Nullable
         private Integer limitChildren;
+        @javax.annotation.Nullable
         private Integer maxTreeDepth;
+        @javax.annotation.Nullable
         private String urlId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String anonUserId;
+        @javax.annotation.Nullable
         private String contextUserId;
+        @javax.annotation.Nullable
         private String hashTag;
+        @javax.annotation.Nullable
         private String parentId;
+        @javax.annotation.Nullable
         private SortDirections direction;
 
-        private APIgetCommentsRequest(String tenantId) {
+        private APIgetCommentsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -8659,7 +8810,7 @@ public class DefaultApi {
          * @param page  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest page(Integer page) {
+        public APIgetCommentsRequest page(@javax.annotation.Nullable Integer page) {
             this.page = page;
             return this;
         }
@@ -8669,7 +8820,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest limit(Integer limit) {
+        public APIgetCommentsRequest limit(@javax.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -8679,7 +8830,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest skip(Integer skip) {
+        public APIgetCommentsRequest skip(@javax.annotation.Nullable Integer skip) {
             this.skip = skip;
             return this;
         }
@@ -8689,7 +8840,7 @@ public class DefaultApi {
          * @param asTree  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest asTree(Boolean asTree) {
+        public APIgetCommentsRequest asTree(@javax.annotation.Nullable Boolean asTree) {
             this.asTree = asTree;
             return this;
         }
@@ -8699,7 +8850,7 @@ public class DefaultApi {
          * @param skipChildren  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest skipChildren(Integer skipChildren) {
+        public APIgetCommentsRequest skipChildren(@javax.annotation.Nullable Integer skipChildren) {
             this.skipChildren = skipChildren;
             return this;
         }
@@ -8709,7 +8860,7 @@ public class DefaultApi {
          * @param limitChildren  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest limitChildren(Integer limitChildren) {
+        public APIgetCommentsRequest limitChildren(@javax.annotation.Nullable Integer limitChildren) {
             this.limitChildren = limitChildren;
             return this;
         }
@@ -8719,7 +8870,7 @@ public class DefaultApi {
          * @param maxTreeDepth  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest maxTreeDepth(Integer maxTreeDepth) {
+        public APIgetCommentsRequest maxTreeDepth(@javax.annotation.Nullable Integer maxTreeDepth) {
             this.maxTreeDepth = maxTreeDepth;
             return this;
         }
@@ -8729,7 +8880,7 @@ public class DefaultApi {
          * @param urlId  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest urlId(String urlId) {
+        public APIgetCommentsRequest urlId(@javax.annotation.Nullable String urlId) {
             this.urlId = urlId;
             return this;
         }
@@ -8739,7 +8890,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest userId(String userId) {
+        public APIgetCommentsRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -8749,7 +8900,7 @@ public class DefaultApi {
          * @param anonUserId  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest anonUserId(String anonUserId) {
+        public APIgetCommentsRequest anonUserId(@javax.annotation.Nullable String anonUserId) {
             this.anonUserId = anonUserId;
             return this;
         }
@@ -8759,7 +8910,7 @@ public class DefaultApi {
          * @param contextUserId  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest contextUserId(String contextUserId) {
+        public APIgetCommentsRequest contextUserId(@javax.annotation.Nullable String contextUserId) {
             this.contextUserId = contextUserId;
             return this;
         }
@@ -8769,7 +8920,7 @@ public class DefaultApi {
          * @param hashTag  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest hashTag(String hashTag) {
+        public APIgetCommentsRequest hashTag(@javax.annotation.Nullable String hashTag) {
             this.hashTag = hashTag;
             return this;
         }
@@ -8779,7 +8930,7 @@ public class DefaultApi {
          * @param parentId  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest parentId(String parentId) {
+        public APIgetCommentsRequest parentId(@javax.annotation.Nullable String parentId) {
             this.parentId = parentId;
             return this;
         }
@@ -8789,7 +8940,7 @@ public class DefaultApi {
          * @param direction  (optional)
          * @return APIgetCommentsRequest
          */
-        public APIgetCommentsRequest direction(SortDirections direction) {
+        public APIgetCommentsRequest direction(@javax.annotation.Nullable SortDirections direction) {
             this.direction = direction;
             return this;
         }
@@ -8870,10 +9021,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCommentsRequest getComments(String tenantId) {
+    public APIgetCommentsRequest getComments(@javax.annotation.Nonnull String tenantId) {
         return new APIgetCommentsRequest(tenantId);
     }
-    private okhttp3.Call getDomainConfigCall(String tenantId, String domain, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8923,7 +9074,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDomainConfigValidateBeforeCall(String tenantId, String domain, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDomainConfig(Async)");
@@ -8939,13 +9090,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfig200Response> getDomainConfigWithHttpInfo(String tenantId, String domain) throws ApiException {
+    private ApiResponse<GetDomainConfig200Response> getDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) throws ApiException {
         okhttp3.Call localVarCall = getDomainConfigValidateBeforeCall(tenantId, domain, null);
         Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getDomainConfigAsync(String tenantId, String domain, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDomainConfigValidateBeforeCall(tenantId, domain, _callback);
         Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
@@ -8954,10 +9105,12 @@ public class DefaultApi {
     }
 
     public class APIgetDomainConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String domain;
 
-        private APIgetDomainConfigRequest(String tenantId, String domain) {
+        private APIgetDomainConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) {
             this.tenantId = tenantId;
             this.domain = domain;
         }
@@ -9039,10 +9192,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetDomainConfigRequest getDomainConfig(String tenantId, String domain) {
+    public APIgetDomainConfigRequest getDomainConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) {
         return new APIgetDomainConfigRequest(tenantId, domain);
     }
-    private okhttp3.Call getDomainConfigsCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigsCall(@javax.annotation.Nonnull String tenantId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9091,7 +9244,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDomainConfigsValidateBeforeCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getDomainConfigs(Async)");
@@ -9102,13 +9255,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfigs200Response> getDomainConfigsWithHttpInfo(String tenantId) throws ApiException {
+    private ApiResponse<GetDomainConfigs200Response> getDomainConfigsWithHttpInfo(@javax.annotation.Nonnull String tenantId) throws ApiException {
         okhttp3.Call localVarCall = getDomainConfigsValidateBeforeCall(tenantId, null);
         Type localVarReturnType = new TypeToken<GetDomainConfigs200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getDomainConfigsAsync(String tenantId, final ApiCallback<GetDomainConfigs200Response> _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigsAsync(@javax.annotation.Nonnull String tenantId, final ApiCallback<GetDomainConfigs200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDomainConfigsValidateBeforeCall(tenantId, _callback);
         Type localVarReturnType = new TypeToken<GetDomainConfigs200Response>(){}.getType();
@@ -9117,9 +9270,10 @@ public class DefaultApi {
     }
 
     public class APIgetDomainConfigsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
 
-        private APIgetDomainConfigsRequest(String tenantId) {
+        private APIgetDomainConfigsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -9199,10 +9353,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetDomainConfigsRequest getDomainConfigs(String tenantId) {
+    public APIgetDomainConfigsRequest getDomainConfigs(@javax.annotation.Nonnull String tenantId) {
         return new APIgetDomainConfigsRequest(tenantId);
     }
-    private okhttp3.Call getEmailTemplateCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9252,7 +9406,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailTemplateValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getEmailTemplate(Async)");
@@ -9268,13 +9422,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplate200Response> getEmailTemplateWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetEmailTemplate200Response> getEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplateValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetEmailTemplate200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplateAsync(String tenantId, String id, final ApiCallback<GetEmailTemplate200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetEmailTemplate200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplateValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetEmailTemplate200Response>(){}.getType();
@@ -9283,10 +9437,12 @@ public class DefaultApi {
     }
 
     public class APIgetEmailTemplateRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetEmailTemplateRequest(String tenantId, String id) {
+        private APIgetEmailTemplateRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -9368,10 +9524,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetEmailTemplateRequest getEmailTemplate(String tenantId, String id) {
+    public APIgetEmailTemplateRequest getEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetEmailTemplateRequest(tenantId, id);
     }
-    private okhttp3.Call getEmailTemplateDefinitionsCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateDefinitionsCall(@javax.annotation.Nonnull String tenantId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9420,7 +9576,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailTemplateDefinitionsValidateBeforeCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateDefinitionsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getEmailTemplateDefinitions(Async)");
@@ -9431,13 +9587,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplateDefinitions200Response> getEmailTemplateDefinitionsWithHttpInfo(String tenantId) throws ApiException {
+    private ApiResponse<GetEmailTemplateDefinitions200Response> getEmailTemplateDefinitionsWithHttpInfo(@javax.annotation.Nonnull String tenantId) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplateDefinitionsValidateBeforeCall(tenantId, null);
         Type localVarReturnType = new TypeToken<GetEmailTemplateDefinitions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplateDefinitionsAsync(String tenantId, final ApiCallback<GetEmailTemplateDefinitions200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateDefinitionsAsync(@javax.annotation.Nonnull String tenantId, final ApiCallback<GetEmailTemplateDefinitions200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplateDefinitionsValidateBeforeCall(tenantId, _callback);
         Type localVarReturnType = new TypeToken<GetEmailTemplateDefinitions200Response>(){}.getType();
@@ -9446,9 +9602,10 @@ public class DefaultApi {
     }
 
     public class APIgetEmailTemplateDefinitionsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
 
-        private APIgetEmailTemplateDefinitionsRequest(String tenantId) {
+        private APIgetEmailTemplateDefinitionsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -9528,10 +9685,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetEmailTemplateDefinitionsRequest getEmailTemplateDefinitions(String tenantId) {
+    public APIgetEmailTemplateDefinitionsRequest getEmailTemplateDefinitions(@javax.annotation.Nonnull String tenantId) {
         return new APIgetEmailTemplateDefinitionsRequest(tenantId);
     }
-    private okhttp3.Call getEmailTemplateRenderErrorsCall(String tenantId, String id, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateRenderErrorsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9585,7 +9742,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailTemplateRenderErrorsValidateBeforeCall(String tenantId, String id, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateRenderErrorsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getEmailTemplateRenderErrors(Async)");
@@ -9601,13 +9758,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplateRenderErrors200Response> getEmailTemplateRenderErrorsWithHttpInfo(String tenantId, String id, Double skip) throws ApiException {
+    private ApiResponse<GetEmailTemplateRenderErrors200Response> getEmailTemplateRenderErrorsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplateRenderErrorsValidateBeforeCall(tenantId, id, skip, null);
         Type localVarReturnType = new TypeToken<GetEmailTemplateRenderErrors200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplateRenderErrorsAsync(String tenantId, String id, Double skip, final ApiCallback<GetEmailTemplateRenderErrors200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateRenderErrorsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip, final ApiCallback<GetEmailTemplateRenderErrors200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplateRenderErrorsValidateBeforeCall(tenantId, id, skip, _callback);
         Type localVarReturnType = new TypeToken<GetEmailTemplateRenderErrors200Response>(){}.getType();
@@ -9616,11 +9773,14 @@ public class DefaultApi {
     }
 
     public class APIgetEmailTemplateRenderErrorsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetEmailTemplateRenderErrorsRequest(String tenantId, String id) {
+        private APIgetEmailTemplateRenderErrorsRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -9630,7 +9790,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetEmailTemplateRenderErrorsRequest
          */
-        public APIgetEmailTemplateRenderErrorsRequest skip(Double skip) {
+        public APIgetEmailTemplateRenderErrorsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -9712,10 +9872,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetEmailTemplateRenderErrorsRequest getEmailTemplateRenderErrors(String tenantId, String id) {
+    public APIgetEmailTemplateRenderErrorsRequest getEmailTemplateRenderErrors(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetEmailTemplateRenderErrorsRequest(tenantId, id);
     }
-    private okhttp3.Call getEmailTemplatesCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplatesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9768,7 +9928,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEmailTemplatesValidateBeforeCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplatesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getEmailTemplates(Async)");
@@ -9779,13 +9939,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplates200Response> getEmailTemplatesWithHttpInfo(String tenantId, Double skip) throws ApiException {
+    private ApiResponse<GetEmailTemplates200Response> getEmailTemplatesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplatesValidateBeforeCall(tenantId, skip, null);
         Type localVarReturnType = new TypeToken<GetEmailTemplates200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplatesAsync(String tenantId, Double skip, final ApiCallback<GetEmailTemplates200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplatesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetEmailTemplates200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplatesValidateBeforeCall(tenantId, skip, _callback);
         Type localVarReturnType = new TypeToken<GetEmailTemplates200Response>(){}.getType();
@@ -9794,10 +9954,12 @@ public class DefaultApi {
     }
 
     public class APIgetEmailTemplatesRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetEmailTemplatesRequest(String tenantId) {
+        private APIgetEmailTemplatesRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -9806,7 +9968,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetEmailTemplatesRequest
          */
-        public APIgetEmailTemplatesRequest skip(Double skip) {
+        public APIgetEmailTemplatesRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -9887,10 +10049,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetEmailTemplatesRequest getEmailTemplates(String tenantId) {
+    public APIgetEmailTemplatesRequest getEmailTemplates(@javax.annotation.Nonnull String tenantId) {
         return new APIgetEmailTemplatesRequest(tenantId);
     }
-    private okhttp3.Call getFeedPostsCall(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -9951,7 +10113,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFeedPostsValidateBeforeCall(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getFeedPosts(Async)");
@@ -9962,13 +10124,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetFeedPosts200Response> getFeedPostsWithHttpInfo(String tenantId, String afterId, Integer limit, List<String> tags) throws ApiException {
+    private ApiResponse<GetFeedPosts200Response> getFeedPostsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags) throws ApiException {
         okhttp3.Call localVarCall = getFeedPostsValidateBeforeCall(tenantId, afterId, limit, tags, null);
         Type localVarReturnType = new TypeToken<GetFeedPosts200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getFeedPostsAsync(String tenantId, String afterId, Integer limit, List<String> tags, final ApiCallback<GetFeedPosts200Response> _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags, final ApiCallback<GetFeedPosts200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFeedPostsValidateBeforeCall(tenantId, afterId, limit, tags, _callback);
         Type localVarReturnType = new TypeToken<GetFeedPosts200Response>(){}.getType();
@@ -9977,12 +10139,16 @@ public class DefaultApi {
     }
 
     public class APIgetFeedPostsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String afterId;
+        @javax.annotation.Nullable
         private Integer limit;
+        @javax.annotation.Nullable
         private List<String> tags;
 
-        private APIgetFeedPostsRequest(String tenantId) {
+        private APIgetFeedPostsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -9991,7 +10157,7 @@ public class DefaultApi {
          * @param afterId  (optional)
          * @return APIgetFeedPostsRequest
          */
-        public APIgetFeedPostsRequest afterId(String afterId) {
+        public APIgetFeedPostsRequest afterId(@javax.annotation.Nullable String afterId) {
             this.afterId = afterId;
             return this;
         }
@@ -10001,7 +10167,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetFeedPostsRequest
          */
-        public APIgetFeedPostsRequest limit(Integer limit) {
+        public APIgetFeedPostsRequest limit(@javax.annotation.Nullable Integer limit) {
             this.limit = limit;
             return this;
         }
@@ -10011,7 +10177,7 @@ public class DefaultApi {
          * @param tags  (optional)
          * @return APIgetFeedPostsRequest
          */
-        public APIgetFeedPostsRequest tags(List<String> tags) {
+        public APIgetFeedPostsRequest tags(@javax.annotation.Nullable List<String> tags) {
             this.tags = tags;
             return this;
         }
@@ -10092,10 +10258,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetFeedPostsRequest getFeedPosts(String tenantId) {
+    public APIgetFeedPostsRequest getFeedPosts(@javax.annotation.Nonnull String tenantId) {
         return new APIgetFeedPostsRequest(tenantId);
     }
-    private okhttp3.Call getHashTagsCall(String tenantId, Double page, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getHashTagsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10148,7 +10314,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getHashTagsValidateBeforeCall(String tenantId, Double page, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getHashTagsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getHashTags(Async)");
@@ -10159,13 +10325,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetHashTags200Response> getHashTagsWithHttpInfo(String tenantId, Double page) throws ApiException {
+    private ApiResponse<GetHashTags200Response> getHashTagsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page) throws ApiException {
         okhttp3.Call localVarCall = getHashTagsValidateBeforeCall(tenantId, page, null);
         Type localVarReturnType = new TypeToken<GetHashTags200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getHashTagsAsync(String tenantId, Double page, final ApiCallback<GetHashTags200Response> _callback) throws ApiException {
+    private okhttp3.Call getHashTagsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, final ApiCallback<GetHashTags200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getHashTagsValidateBeforeCall(tenantId, page, _callback);
         Type localVarReturnType = new TypeToken<GetHashTags200Response>(){}.getType();
@@ -10174,10 +10340,12 @@ public class DefaultApi {
     }
 
     public class APIgetHashTagsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double page;
 
-        private APIgetHashTagsRequest(String tenantId) {
+        private APIgetHashTagsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -10186,7 +10354,7 @@ public class DefaultApi {
          * @param page  (optional)
          * @return APIgetHashTagsRequest
          */
-        public APIgetHashTagsRequest page(Double page) {
+        public APIgetHashTagsRequest page(@javax.annotation.Nullable Double page) {
             this.page = page;
             return this;
         }
@@ -10267,10 +10435,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetHashTagsRequest getHashTags(String tenantId) {
+    public APIgetHashTagsRequest getHashTags(@javax.annotation.Nonnull String tenantId) {
         return new APIgetHashTagsRequest(tenantId);
     }
-    private okhttp3.Call getModeratorCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModeratorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10320,7 +10488,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getModeratorValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModeratorValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getModerator(Async)");
@@ -10336,13 +10504,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetModerator200Response> getModeratorWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetModerator200Response> getModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getModeratorValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetModerator200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getModeratorAsync(String tenantId, String id, final ApiCallback<GetModerator200Response> _callback) throws ApiException {
+    private okhttp3.Call getModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetModerator200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getModeratorValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetModerator200Response>(){}.getType();
@@ -10351,10 +10519,12 @@ public class DefaultApi {
     }
 
     public class APIgetModeratorRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetModeratorRequest(String tenantId, String id) {
+        private APIgetModeratorRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -10436,10 +10606,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetModeratorRequest getModerator(String tenantId, String id) {
+    public APIgetModeratorRequest getModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetModeratorRequest(tenantId, id);
     }
-    private okhttp3.Call getModeratorsCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModeratorsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10492,7 +10662,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getModeratorsValidateBeforeCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModeratorsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getModerators(Async)");
@@ -10503,13 +10673,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetModerators200Response> getModeratorsWithHttpInfo(String tenantId, Double skip) throws ApiException {
+    private ApiResponse<GetModerators200Response> getModeratorsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getModeratorsValidateBeforeCall(tenantId, skip, null);
         Type localVarReturnType = new TypeToken<GetModerators200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getModeratorsAsync(String tenantId, Double skip, final ApiCallback<GetModerators200Response> _callback) throws ApiException {
+    private okhttp3.Call getModeratorsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetModerators200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getModeratorsValidateBeforeCall(tenantId, skip, _callback);
         Type localVarReturnType = new TypeToken<GetModerators200Response>(){}.getType();
@@ -10518,10 +10688,12 @@ public class DefaultApi {
     }
 
     public class APIgetModeratorsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetModeratorsRequest(String tenantId) {
+        private APIgetModeratorsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -10530,7 +10702,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetModeratorsRequest
          */
-        public APIgetModeratorsRequest skip(Double skip) {
+        public APIgetModeratorsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -10611,10 +10783,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetModeratorsRequest getModerators(String tenantId) {
+    public APIgetModeratorsRequest getModerators(@javax.annotation.Nonnull String tenantId) {
         return new APIgetModeratorsRequest(tenantId);
     }
-    private okhttp3.Call getNotificationCountCall(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNotificationCountCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10683,7 +10855,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNotificationCountValidateBeforeCall(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNotificationCountValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getNotificationCount(Async)");
@@ -10694,13 +10866,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetNotificationCount200Response> getNotificationCountWithHttpInfo(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type) throws ApiException {
+    private ApiResponse<GetNotificationCount200Response> getNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type) throws ApiException {
         okhttp3.Call localVarCall = getNotificationCountValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, null);
         Type localVarReturnType = new TypeToken<GetNotificationCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getNotificationCountAsync(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type, final ApiCallback<GetNotificationCount200Response> _callback) throws ApiException {
+    private okhttp3.Call getNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, final ApiCallback<GetNotificationCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNotificationCountValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, _callback);
         Type localVarReturnType = new TypeToken<GetNotificationCount200Response>(){}.getType();
@@ -10709,14 +10881,20 @@ public class DefaultApi {
     }
 
     public class APIgetNotificationCountRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String urlId;
+        @javax.annotation.Nullable
         private String fromCommentId;
+        @javax.annotation.Nullable
         private Boolean viewed;
+        @javax.annotation.Nullable
         private String type;
 
-        private APIgetNotificationCountRequest(String tenantId) {
+        private APIgetNotificationCountRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -10725,7 +10903,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetNotificationCountRequest
          */
-        public APIgetNotificationCountRequest userId(String userId) {
+        public APIgetNotificationCountRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -10735,7 +10913,7 @@ public class DefaultApi {
          * @param urlId  (optional)
          * @return APIgetNotificationCountRequest
          */
-        public APIgetNotificationCountRequest urlId(String urlId) {
+        public APIgetNotificationCountRequest urlId(@javax.annotation.Nullable String urlId) {
             this.urlId = urlId;
             return this;
         }
@@ -10745,7 +10923,7 @@ public class DefaultApi {
          * @param fromCommentId  (optional)
          * @return APIgetNotificationCountRequest
          */
-        public APIgetNotificationCountRequest fromCommentId(String fromCommentId) {
+        public APIgetNotificationCountRequest fromCommentId(@javax.annotation.Nullable String fromCommentId) {
             this.fromCommentId = fromCommentId;
             return this;
         }
@@ -10755,7 +10933,7 @@ public class DefaultApi {
          * @param viewed  (optional)
          * @return APIgetNotificationCountRequest
          */
-        public APIgetNotificationCountRequest viewed(Boolean viewed) {
+        public APIgetNotificationCountRequest viewed(@javax.annotation.Nullable Boolean viewed) {
             this.viewed = viewed;
             return this;
         }
@@ -10765,7 +10943,7 @@ public class DefaultApi {
          * @param type  (optional)
          * @return APIgetNotificationCountRequest
          */
-        public APIgetNotificationCountRequest type(String type) {
+        public APIgetNotificationCountRequest type(@javax.annotation.Nullable String type) {
             this.type = type;
             return this;
         }
@@ -10846,10 +11024,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetNotificationCountRequest getNotificationCount(String tenantId) {
+    public APIgetNotificationCountRequest getNotificationCount(@javax.annotation.Nonnull String tenantId) {
         return new APIgetNotificationCountRequest(tenantId);
     }
-    private okhttp3.Call getNotificationsCall(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNotificationsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -10922,7 +11100,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getNotificationsValidateBeforeCall(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getNotificationsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getNotifications(Async)");
@@ -10933,13 +11111,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetNotifications200Response> getNotificationsWithHttpInfo(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type, Double skip) throws ApiException {
+    private ApiResponse<GetNotifications200Response> getNotificationsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, skip, null);
         Type localVarReturnType = new TypeToken<GetNotifications200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getNotificationsAsync(String tenantId, String userId, String urlId, String fromCommentId, Boolean viewed, String type, Double skip, final ApiCallback<GetNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call getNotificationsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip, final ApiCallback<GetNotifications200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, skip, _callback);
         Type localVarReturnType = new TypeToken<GetNotifications200Response>(){}.getType();
@@ -10948,15 +11126,22 @@ public class DefaultApi {
     }
 
     public class APIgetNotificationsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String urlId;
+        @javax.annotation.Nullable
         private String fromCommentId;
+        @javax.annotation.Nullable
         private Boolean viewed;
+        @javax.annotation.Nullable
         private String type;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetNotificationsRequest(String tenantId) {
+        private APIgetNotificationsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -10965,7 +11150,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetNotificationsRequest
          */
-        public APIgetNotificationsRequest userId(String userId) {
+        public APIgetNotificationsRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -10975,7 +11160,7 @@ public class DefaultApi {
          * @param urlId  (optional)
          * @return APIgetNotificationsRequest
          */
-        public APIgetNotificationsRequest urlId(String urlId) {
+        public APIgetNotificationsRequest urlId(@javax.annotation.Nullable String urlId) {
             this.urlId = urlId;
             return this;
         }
@@ -10985,7 +11170,7 @@ public class DefaultApi {
          * @param fromCommentId  (optional)
          * @return APIgetNotificationsRequest
          */
-        public APIgetNotificationsRequest fromCommentId(String fromCommentId) {
+        public APIgetNotificationsRequest fromCommentId(@javax.annotation.Nullable String fromCommentId) {
             this.fromCommentId = fromCommentId;
             return this;
         }
@@ -10995,7 +11180,7 @@ public class DefaultApi {
          * @param viewed  (optional)
          * @return APIgetNotificationsRequest
          */
-        public APIgetNotificationsRequest viewed(Boolean viewed) {
+        public APIgetNotificationsRequest viewed(@javax.annotation.Nullable Boolean viewed) {
             this.viewed = viewed;
             return this;
         }
@@ -11005,7 +11190,7 @@ public class DefaultApi {
          * @param type  (optional)
          * @return APIgetNotificationsRequest
          */
-        public APIgetNotificationsRequest type(String type) {
+        public APIgetNotificationsRequest type(@javax.annotation.Nullable String type) {
             this.type = type;
             return this;
         }
@@ -11015,7 +11200,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetNotificationsRequest
          */
-        public APIgetNotificationsRequest skip(Double skip) {
+        public APIgetNotificationsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -11096,10 +11281,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetNotificationsRequest getNotifications(String tenantId) {
+    public APIgetNotificationsRequest getNotifications(@javax.annotation.Nonnull String tenantId) {
         return new APIgetNotificationsRequest(tenantId);
     }
-    private okhttp3.Call getPageByURLIdCall(String tenantId, String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPageByURLIdCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11152,7 +11337,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPageByURLIdValidateBeforeCall(String tenantId, String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPageByURLIdValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPageByURLId(Async)");
@@ -11168,13 +11353,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetPageByURLIdAPIResponse> getPageByURLIdWithHttpInfo(String tenantId, String urlId) throws ApiException {
+    private ApiResponse<GetPageByURLIdAPIResponse> getPageByURLIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) throws ApiException {
         okhttp3.Call localVarCall = getPageByURLIdValidateBeforeCall(tenantId, urlId, null);
         Type localVarReturnType = new TypeToken<GetPageByURLIdAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPageByURLIdAsync(String tenantId, String urlId, final ApiCallback<GetPageByURLIdAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call getPageByURLIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback<GetPageByURLIdAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPageByURLIdValidateBeforeCall(tenantId, urlId, _callback);
         Type localVarReturnType = new TypeToken<GetPageByURLIdAPIResponse>(){}.getType();
@@ -11183,10 +11368,12 @@ public class DefaultApi {
     }
 
     public class APIgetPageByURLIdRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String urlId;
 
-        private APIgetPageByURLIdRequest(String tenantId, String urlId) {
+        private APIgetPageByURLIdRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
         }
@@ -11268,10 +11455,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetPageByURLIdRequest getPageByURLId(String tenantId, String urlId) {
+    public APIgetPageByURLIdRequest getPageByURLId(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
         return new APIgetPageByURLIdRequest(tenantId, urlId);
     }
-    private okhttp3.Call getPagesCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPagesCall(@javax.annotation.Nonnull String tenantId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11320,7 +11507,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPagesValidateBeforeCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPagesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPages(Async)");
@@ -11331,13 +11518,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetPagesAPIResponse> getPagesWithHttpInfo(String tenantId) throws ApiException {
+    private ApiResponse<GetPagesAPIResponse> getPagesWithHttpInfo(@javax.annotation.Nonnull String tenantId) throws ApiException {
         okhttp3.Call localVarCall = getPagesValidateBeforeCall(tenantId, null);
         Type localVarReturnType = new TypeToken<GetPagesAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPagesAsync(String tenantId, final ApiCallback<GetPagesAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call getPagesAsync(@javax.annotation.Nonnull String tenantId, final ApiCallback<GetPagesAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPagesValidateBeforeCall(tenantId, _callback);
         Type localVarReturnType = new TypeToken<GetPagesAPIResponse>(){}.getType();
@@ -11346,9 +11533,10 @@ public class DefaultApi {
     }
 
     public class APIgetPagesRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
 
-        private APIgetPagesRequest(String tenantId) {
+        private APIgetPagesRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -11428,10 +11616,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetPagesRequest getPages(String tenantId) {
+    public APIgetPagesRequest getPages(@javax.annotation.Nonnull String tenantId) {
         return new APIgetPagesRequest(tenantId);
     }
-    private okhttp3.Call getPendingWebhookEventCountCall(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventCountCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11504,7 +11692,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPendingWebhookEventCountValidateBeforeCall(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventCountValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPendingWebhookEventCount(Async)");
@@ -11515,13 +11703,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetPendingWebhookEventCount200Response> getPendingWebhookEventCountWithHttpInfo(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT) throws ApiException {
+    private ApiResponse<GetPendingWebhookEventCount200Response> getPendingWebhookEventCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT) throws ApiException {
         okhttp3.Call localVarCall = getPendingWebhookEventCountValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, null);
         Type localVarReturnType = new TypeToken<GetPendingWebhookEventCount200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPendingWebhookEventCountAsync(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT, final ApiCallback<GetPendingWebhookEventCount200Response> _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, final ApiCallback<GetPendingWebhookEventCount200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPendingWebhookEventCountValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, _callback);
         Type localVarReturnType = new TypeToken<GetPendingWebhookEventCount200Response>(){}.getType();
@@ -11530,15 +11718,22 @@ public class DefaultApi {
     }
 
     public class APIgetPendingWebhookEventCountRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String commentId;
+        @javax.annotation.Nullable
         private String externalId;
+        @javax.annotation.Nullable
         private String eventType;
+        @javax.annotation.Nullable
         private String type;
+        @javax.annotation.Nullable
         private String domain;
+        @javax.annotation.Nullable
         private Double attemptCountGT;
 
-        private APIgetPendingWebhookEventCountRequest(String tenantId) {
+        private APIgetPendingWebhookEventCountRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -11547,7 +11742,7 @@ public class DefaultApi {
          * @param commentId  (optional)
          * @return APIgetPendingWebhookEventCountRequest
          */
-        public APIgetPendingWebhookEventCountRequest commentId(String commentId) {
+        public APIgetPendingWebhookEventCountRequest commentId(@javax.annotation.Nullable String commentId) {
             this.commentId = commentId;
             return this;
         }
@@ -11557,7 +11752,7 @@ public class DefaultApi {
          * @param externalId  (optional)
          * @return APIgetPendingWebhookEventCountRequest
          */
-        public APIgetPendingWebhookEventCountRequest externalId(String externalId) {
+        public APIgetPendingWebhookEventCountRequest externalId(@javax.annotation.Nullable String externalId) {
             this.externalId = externalId;
             return this;
         }
@@ -11567,7 +11762,7 @@ public class DefaultApi {
          * @param eventType  (optional)
          * @return APIgetPendingWebhookEventCountRequest
          */
-        public APIgetPendingWebhookEventCountRequest eventType(String eventType) {
+        public APIgetPendingWebhookEventCountRequest eventType(@javax.annotation.Nullable String eventType) {
             this.eventType = eventType;
             return this;
         }
@@ -11577,7 +11772,7 @@ public class DefaultApi {
          * @param type  (optional)
          * @return APIgetPendingWebhookEventCountRequest
          */
-        public APIgetPendingWebhookEventCountRequest type(String type) {
+        public APIgetPendingWebhookEventCountRequest type(@javax.annotation.Nullable String type) {
             this.type = type;
             return this;
         }
@@ -11587,7 +11782,7 @@ public class DefaultApi {
          * @param domain  (optional)
          * @return APIgetPendingWebhookEventCountRequest
          */
-        public APIgetPendingWebhookEventCountRequest domain(String domain) {
+        public APIgetPendingWebhookEventCountRequest domain(@javax.annotation.Nullable String domain) {
             this.domain = domain;
             return this;
         }
@@ -11597,7 +11792,7 @@ public class DefaultApi {
          * @param attemptCountGT  (optional)
          * @return APIgetPendingWebhookEventCountRequest
          */
-        public APIgetPendingWebhookEventCountRequest attemptCountGT(Double attemptCountGT) {
+        public APIgetPendingWebhookEventCountRequest attemptCountGT(@javax.annotation.Nullable Double attemptCountGT) {
             this.attemptCountGT = attemptCountGT;
             return this;
         }
@@ -11678,10 +11873,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetPendingWebhookEventCountRequest getPendingWebhookEventCount(String tenantId) {
+    public APIgetPendingWebhookEventCountRequest getPendingWebhookEventCount(@javax.annotation.Nonnull String tenantId) {
         return new APIgetPendingWebhookEventCountRequest(tenantId);
     }
-    private okhttp3.Call getPendingWebhookEventsCall(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11758,7 +11953,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPendingWebhookEventsValidateBeforeCall(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getPendingWebhookEvents(Async)");
@@ -11769,13 +11964,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetPendingWebhookEvents200Response> getPendingWebhookEventsWithHttpInfo(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT, Double skip) throws ApiException {
+    private ApiResponse<GetPendingWebhookEvents200Response> getPendingWebhookEventsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getPendingWebhookEventsValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip, null);
         Type localVarReturnType = new TypeToken<GetPendingWebhookEvents200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPendingWebhookEventsAsync(String tenantId, String commentId, String externalId, String eventType, String type, String domain, Double attemptCountGT, Double skip, final ApiCallback<GetPendingWebhookEvents200Response> _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip, final ApiCallback<GetPendingWebhookEvents200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPendingWebhookEventsValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip, _callback);
         Type localVarReturnType = new TypeToken<GetPendingWebhookEvents200Response>(){}.getType();
@@ -11784,16 +11979,24 @@ public class DefaultApi {
     }
 
     public class APIgetPendingWebhookEventsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String commentId;
+        @javax.annotation.Nullable
         private String externalId;
+        @javax.annotation.Nullable
         private String eventType;
+        @javax.annotation.Nullable
         private String type;
+        @javax.annotation.Nullable
         private String domain;
+        @javax.annotation.Nullable
         private Double attemptCountGT;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetPendingWebhookEventsRequest(String tenantId) {
+        private APIgetPendingWebhookEventsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -11802,7 +12005,7 @@ public class DefaultApi {
          * @param commentId  (optional)
          * @return APIgetPendingWebhookEventsRequest
          */
-        public APIgetPendingWebhookEventsRequest commentId(String commentId) {
+        public APIgetPendingWebhookEventsRequest commentId(@javax.annotation.Nullable String commentId) {
             this.commentId = commentId;
             return this;
         }
@@ -11812,7 +12015,7 @@ public class DefaultApi {
          * @param externalId  (optional)
          * @return APIgetPendingWebhookEventsRequest
          */
-        public APIgetPendingWebhookEventsRequest externalId(String externalId) {
+        public APIgetPendingWebhookEventsRequest externalId(@javax.annotation.Nullable String externalId) {
             this.externalId = externalId;
             return this;
         }
@@ -11822,7 +12025,7 @@ public class DefaultApi {
          * @param eventType  (optional)
          * @return APIgetPendingWebhookEventsRequest
          */
-        public APIgetPendingWebhookEventsRequest eventType(String eventType) {
+        public APIgetPendingWebhookEventsRequest eventType(@javax.annotation.Nullable String eventType) {
             this.eventType = eventType;
             return this;
         }
@@ -11832,7 +12035,7 @@ public class DefaultApi {
          * @param type  (optional)
          * @return APIgetPendingWebhookEventsRequest
          */
-        public APIgetPendingWebhookEventsRequest type(String type) {
+        public APIgetPendingWebhookEventsRequest type(@javax.annotation.Nullable String type) {
             this.type = type;
             return this;
         }
@@ -11842,7 +12045,7 @@ public class DefaultApi {
          * @param domain  (optional)
          * @return APIgetPendingWebhookEventsRequest
          */
-        public APIgetPendingWebhookEventsRequest domain(String domain) {
+        public APIgetPendingWebhookEventsRequest domain(@javax.annotation.Nullable String domain) {
             this.domain = domain;
             return this;
         }
@@ -11852,7 +12055,7 @@ public class DefaultApi {
          * @param attemptCountGT  (optional)
          * @return APIgetPendingWebhookEventsRequest
          */
-        public APIgetPendingWebhookEventsRequest attemptCountGT(Double attemptCountGT) {
+        public APIgetPendingWebhookEventsRequest attemptCountGT(@javax.annotation.Nullable Double attemptCountGT) {
             this.attemptCountGT = attemptCountGT;
             return this;
         }
@@ -11862,7 +12065,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetPendingWebhookEventsRequest
          */
-        public APIgetPendingWebhookEventsRequest skip(Double skip) {
+        public APIgetPendingWebhookEventsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -11943,10 +12146,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetPendingWebhookEventsRequest getPendingWebhookEvents(String tenantId) {
+    public APIgetPendingWebhookEventsRequest getPendingWebhookEvents(@javax.annotation.Nonnull String tenantId) {
         return new APIgetPendingWebhookEventsRequest(tenantId);
     }
-    private okhttp3.Call getQuestionConfigCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -11996,7 +12199,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuestionConfigValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuestionConfig(Async)");
@@ -12012,13 +12215,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionConfig200Response> getQuestionConfigWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetQuestionConfig200Response> getQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getQuestionConfigValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetQuestionConfig200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionConfigAsync(String tenantId, String id, final ApiCallback<GetQuestionConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetQuestionConfig200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionConfigValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetQuestionConfig200Response>(){}.getType();
@@ -12027,10 +12230,12 @@ public class DefaultApi {
     }
 
     public class APIgetQuestionConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetQuestionConfigRequest(String tenantId, String id) {
+        private APIgetQuestionConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -12112,10 +12317,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetQuestionConfigRequest getQuestionConfig(String tenantId, String id) {
+    public APIgetQuestionConfigRequest getQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetQuestionConfigRequest(tenantId, id);
     }
-    private okhttp3.Call getQuestionConfigsCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12168,7 +12373,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuestionConfigsValidateBeforeCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuestionConfigs(Async)");
@@ -12179,13 +12384,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionConfigs200Response> getQuestionConfigsWithHttpInfo(String tenantId, Double skip) throws ApiException {
+    private ApiResponse<GetQuestionConfigs200Response> getQuestionConfigsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getQuestionConfigsValidateBeforeCall(tenantId, skip, null);
         Type localVarReturnType = new TypeToken<GetQuestionConfigs200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionConfigsAsync(String tenantId, Double skip, final ApiCallback<GetQuestionConfigs200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetQuestionConfigs200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionConfigsValidateBeforeCall(tenantId, skip, _callback);
         Type localVarReturnType = new TypeToken<GetQuestionConfigs200Response>(){}.getType();
@@ -12194,10 +12399,12 @@ public class DefaultApi {
     }
 
     public class APIgetQuestionConfigsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetQuestionConfigsRequest(String tenantId) {
+        private APIgetQuestionConfigsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -12206,7 +12413,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetQuestionConfigsRequest
          */
-        public APIgetQuestionConfigsRequest skip(Double skip) {
+        public APIgetQuestionConfigsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -12287,10 +12494,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetQuestionConfigsRequest getQuestionConfigs(String tenantId) {
+    public APIgetQuestionConfigsRequest getQuestionConfigs(@javax.annotation.Nonnull String tenantId) {
         return new APIgetQuestionConfigsRequest(tenantId);
     }
-    private okhttp3.Call getQuestionResultCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12340,7 +12547,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuestionResultValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuestionResult(Async)");
@@ -12356,13 +12563,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionResult200Response> getQuestionResultWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetQuestionResult200Response> getQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getQuestionResultValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetQuestionResult200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionResultAsync(String tenantId, String id, final ApiCallback<GetQuestionResult200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetQuestionResult200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionResultValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetQuestionResult200Response>(){}.getType();
@@ -12371,10 +12578,12 @@ public class DefaultApi {
     }
 
     public class APIgetQuestionResultRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetQuestionResultRequest(String tenantId, String id) {
+        private APIgetQuestionResultRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -12456,10 +12665,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetQuestionResultRequest getQuestionResult(String tenantId, String id) {
+    public APIgetQuestionResultRequest getQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetQuestionResultRequest(tenantId, id);
     }
-    private okhttp3.Call getQuestionResultsCall(String tenantId, String urlId, String userId, String startDate, String questionId, String questionIds, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12532,7 +12741,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getQuestionResultsValidateBeforeCall(String tenantId, String urlId, String userId, String startDate, String questionId, String questionIds, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getQuestionResults(Async)");
@@ -12543,13 +12752,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionResults200Response> getQuestionResultsWithHttpInfo(String tenantId, String urlId, String userId, String startDate, String questionId, String questionIds, Double skip) throws ApiException {
+    private ApiResponse<GetQuestionResults200Response> getQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getQuestionResultsValidateBeforeCall(tenantId, urlId, userId, startDate, questionId, questionIds, skip, null);
         Type localVarReturnType = new TypeToken<GetQuestionResults200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionResultsAsync(String tenantId, String urlId, String userId, String startDate, String questionId, String questionIds, Double skip, final ApiCallback<GetQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip, final ApiCallback<GetQuestionResults200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionResultsValidateBeforeCall(tenantId, urlId, userId, startDate, questionId, questionIds, skip, _callback);
         Type localVarReturnType = new TypeToken<GetQuestionResults200Response>(){}.getType();
@@ -12558,15 +12767,22 @@ public class DefaultApi {
     }
 
     public class APIgetQuestionResultsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String urlId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String startDate;
+        @javax.annotation.Nullable
         private String questionId;
+        @javax.annotation.Nullable
         private String questionIds;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetQuestionResultsRequest(String tenantId) {
+        private APIgetQuestionResultsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -12575,7 +12791,7 @@ public class DefaultApi {
          * @param urlId  (optional)
          * @return APIgetQuestionResultsRequest
          */
-        public APIgetQuestionResultsRequest urlId(String urlId) {
+        public APIgetQuestionResultsRequest urlId(@javax.annotation.Nullable String urlId) {
             this.urlId = urlId;
             return this;
         }
@@ -12585,7 +12801,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetQuestionResultsRequest
          */
-        public APIgetQuestionResultsRequest userId(String userId) {
+        public APIgetQuestionResultsRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -12595,7 +12811,7 @@ public class DefaultApi {
          * @param startDate  (optional)
          * @return APIgetQuestionResultsRequest
          */
-        public APIgetQuestionResultsRequest startDate(String startDate) {
+        public APIgetQuestionResultsRequest startDate(@javax.annotation.Nullable String startDate) {
             this.startDate = startDate;
             return this;
         }
@@ -12605,7 +12821,7 @@ public class DefaultApi {
          * @param questionId  (optional)
          * @return APIgetQuestionResultsRequest
          */
-        public APIgetQuestionResultsRequest questionId(String questionId) {
+        public APIgetQuestionResultsRequest questionId(@javax.annotation.Nullable String questionId) {
             this.questionId = questionId;
             return this;
         }
@@ -12615,7 +12831,7 @@ public class DefaultApi {
          * @param questionIds  (optional)
          * @return APIgetQuestionResultsRequest
          */
-        public APIgetQuestionResultsRequest questionIds(String questionIds) {
+        public APIgetQuestionResultsRequest questionIds(@javax.annotation.Nullable String questionIds) {
             this.questionIds = questionIds;
             return this;
         }
@@ -12625,7 +12841,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetQuestionResultsRequest
          */
-        public APIgetQuestionResultsRequest skip(Double skip) {
+        public APIgetQuestionResultsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -12706,10 +12922,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetQuestionResultsRequest getQuestionResults(String tenantId) {
+    public APIgetQuestionResultsRequest getQuestionResults(@javax.annotation.Nonnull String tenantId) {
         return new APIgetQuestionResultsRequest(tenantId);
     }
-    private okhttp3.Call getSSOUserByEmailCall(String tenantId, String email, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUserByEmailCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String email, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12759,7 +12975,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSSOUserByEmailValidateBeforeCall(String tenantId, String email, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUserByEmailValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String email, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSSOUserByEmail(Async)");
@@ -12775,13 +12991,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetSSOUserByEmailAPIResponse> getSSOUserByEmailWithHttpInfo(String tenantId, String email) throws ApiException {
+    private ApiResponse<GetSSOUserByEmailAPIResponse> getSSOUserByEmailWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String email) throws ApiException {
         okhttp3.Call localVarCall = getSSOUserByEmailValidateBeforeCall(tenantId, email, null);
         Type localVarReturnType = new TypeToken<GetSSOUserByEmailAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSSOUserByEmailAsync(String tenantId, String email, final ApiCallback<GetSSOUserByEmailAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call getSSOUserByEmailAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String email, final ApiCallback<GetSSOUserByEmailAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSSOUserByEmailValidateBeforeCall(tenantId, email, _callback);
         Type localVarReturnType = new TypeToken<GetSSOUserByEmailAPIResponse>(){}.getType();
@@ -12790,10 +13006,12 @@ public class DefaultApi {
     }
 
     public class APIgetSSOUserByEmailRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String email;
 
-        private APIgetSSOUserByEmailRequest(String tenantId, String email) {
+        private APIgetSSOUserByEmailRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String email) {
             this.tenantId = tenantId;
             this.email = email;
         }
@@ -12875,10 +13093,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSSOUserByEmailRequest getSSOUserByEmail(String tenantId, String email) {
+    public APIgetSSOUserByEmailRequest getSSOUserByEmail(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String email) {
         return new APIgetSSOUserByEmailRequest(tenantId, email);
     }
-    private okhttp3.Call getSSOUserByIdCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUserByIdCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -12928,7 +13146,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSSOUserByIdValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUserByIdValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSSOUserById(Async)");
@@ -12944,13 +13162,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetSSOUserByIdAPIResponse> getSSOUserByIdWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetSSOUserByIdAPIResponse> getSSOUserByIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getSSOUserByIdValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetSSOUserByIdAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSSOUserByIdAsync(String tenantId, String id, final ApiCallback<GetSSOUserByIdAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call getSSOUserByIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetSSOUserByIdAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSSOUserByIdValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetSSOUserByIdAPIResponse>(){}.getType();
@@ -12959,10 +13177,12 @@ public class DefaultApi {
     }
 
     public class APIgetSSOUserByIdRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetSSOUserByIdRequest(String tenantId, String id) {
+        private APIgetSSOUserByIdRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -13044,10 +13264,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSSOUserByIdRequest getSSOUserById(String tenantId, String id) {
+    public APIgetSSOUserByIdRequest getSSOUserById(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetSSOUserByIdRequest(tenantId, id);
     }
-    private okhttp3.Call getSSOUsersCall(String tenantId, Integer skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUsersCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13100,7 +13320,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSSOUsersValidateBeforeCall(String tenantId, Integer skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSSOUsersValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSSOUsers(Async)");
@@ -13111,13 +13331,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetSSOUsers200Response> getSSOUsersWithHttpInfo(String tenantId, Integer skip) throws ApiException {
+    private ApiResponse<GetSSOUsers200Response> getSSOUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip) throws ApiException {
         okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, null);
         Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSSOUsersAsync(String tenantId, Integer skip, final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
+    private okhttp3.Call getSSOUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip, final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, _callback);
         Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
@@ -13126,10 +13346,12 @@ public class DefaultApi {
     }
 
     public class APIgetSSOUsersRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Integer skip;
 
-        private APIgetSSOUsersRequest(String tenantId) {
+        private APIgetSSOUsersRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -13138,7 +13360,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetSSOUsersRequest
          */
-        public APIgetSSOUsersRequest skip(Integer skip) {
+        public APIgetSSOUsersRequest skip(@javax.annotation.Nullable Integer skip) {
             this.skip = skip;
             return this;
         }
@@ -13219,10 +13441,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSSOUsersRequest getSSOUsers(String tenantId) {
+    public APIgetSSOUsersRequest getSSOUsers(@javax.annotation.Nonnull String tenantId) {
         return new APIgetSSOUsersRequest(tenantId);
     }
-    private okhttp3.Call getSubscriptionsCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubscriptionsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13275,7 +13497,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubscriptionsValidateBeforeCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubscriptionsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getSubscriptions(Async)");
@@ -13286,13 +13508,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetSubscriptionsAPIResponse> getSubscriptionsWithHttpInfo(String tenantId, String userId) throws ApiException {
+    private ApiResponse<GetSubscriptionsAPIResponse> getSubscriptionsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId) throws ApiException {
         okhttp3.Call localVarCall = getSubscriptionsValidateBeforeCall(tenantId, userId, null);
         Type localVarReturnType = new TypeToken<GetSubscriptionsAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSubscriptionsAsync(String tenantId, String userId, final ApiCallback<GetSubscriptionsAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call getSubscriptionsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, final ApiCallback<GetSubscriptionsAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSubscriptionsValidateBeforeCall(tenantId, userId, _callback);
         Type localVarReturnType = new TypeToken<GetSubscriptionsAPIResponse>(){}.getType();
@@ -13301,10 +13523,12 @@ public class DefaultApi {
     }
 
     public class APIgetSubscriptionsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String userId;
 
-        private APIgetSubscriptionsRequest(String tenantId) {
+        private APIgetSubscriptionsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -13313,7 +13537,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetSubscriptionsRequest
          */
-        public APIgetSubscriptionsRequest userId(String userId) {
+        public APIgetSubscriptionsRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -13394,10 +13618,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSubscriptionsRequest getSubscriptions(String tenantId) {
+    public APIgetSubscriptionsRequest getSubscriptions(@javax.annotation.Nonnull String tenantId) {
         return new APIgetSubscriptionsRequest(tenantId);
     }
-    private okhttp3.Call getTenantCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13447,7 +13671,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenant(Async)");
@@ -13463,13 +13687,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenant200Response> getTenantWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetTenant200Response> getTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getTenantValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetTenant200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantAsync(String tenantId, String id, final ApiCallback<GetTenant200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenant200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetTenant200Response>(){}.getType();
@@ -13478,10 +13702,12 @@ public class DefaultApi {
     }
 
     public class APIgetTenantRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetTenantRequest(String tenantId, String id) {
+        private APIgetTenantRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -13563,10 +13789,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTenantRequest getTenant(String tenantId, String id) {
+    public APIgetTenantRequest getTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetTenantRequest(tenantId, id);
     }
-    private okhttp3.Call getTenantDailyUsagesCall(String tenantId, Double yearNumber, Double monthNumber, Double dayNumber, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantDailyUsagesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13631,7 +13857,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantDailyUsagesValidateBeforeCall(String tenantId, Double yearNumber, Double monthNumber, Double dayNumber, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantDailyUsagesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantDailyUsages(Async)");
@@ -13642,13 +13868,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantDailyUsages200Response> getTenantDailyUsagesWithHttpInfo(String tenantId, Double yearNumber, Double monthNumber, Double dayNumber, Double skip) throws ApiException {
+    private ApiResponse<GetTenantDailyUsages200Response> getTenantDailyUsagesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantDailyUsagesValidateBeforeCall(tenantId, yearNumber, monthNumber, dayNumber, skip, null);
         Type localVarReturnType = new TypeToken<GetTenantDailyUsages200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantDailyUsagesAsync(String tenantId, Double yearNumber, Double monthNumber, Double dayNumber, Double skip, final ApiCallback<GetTenantDailyUsages200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantDailyUsagesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantDailyUsages200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantDailyUsagesValidateBeforeCall(tenantId, yearNumber, monthNumber, dayNumber, skip, _callback);
         Type localVarReturnType = new TypeToken<GetTenantDailyUsages200Response>(){}.getType();
@@ -13657,13 +13883,18 @@ public class DefaultApi {
     }
 
     public class APIgetTenantDailyUsagesRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double yearNumber;
+        @javax.annotation.Nullable
         private Double monthNumber;
+        @javax.annotation.Nullable
         private Double dayNumber;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetTenantDailyUsagesRequest(String tenantId) {
+        private APIgetTenantDailyUsagesRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -13672,7 +13903,7 @@ public class DefaultApi {
          * @param yearNumber  (optional)
          * @return APIgetTenantDailyUsagesRequest
          */
-        public APIgetTenantDailyUsagesRequest yearNumber(Double yearNumber) {
+        public APIgetTenantDailyUsagesRequest yearNumber(@javax.annotation.Nullable Double yearNumber) {
             this.yearNumber = yearNumber;
             return this;
         }
@@ -13682,7 +13913,7 @@ public class DefaultApi {
          * @param monthNumber  (optional)
          * @return APIgetTenantDailyUsagesRequest
          */
-        public APIgetTenantDailyUsagesRequest monthNumber(Double monthNumber) {
+        public APIgetTenantDailyUsagesRequest monthNumber(@javax.annotation.Nullable Double monthNumber) {
             this.monthNumber = monthNumber;
             return this;
         }
@@ -13692,7 +13923,7 @@ public class DefaultApi {
          * @param dayNumber  (optional)
          * @return APIgetTenantDailyUsagesRequest
          */
-        public APIgetTenantDailyUsagesRequest dayNumber(Double dayNumber) {
+        public APIgetTenantDailyUsagesRequest dayNumber(@javax.annotation.Nullable Double dayNumber) {
             this.dayNumber = dayNumber;
             return this;
         }
@@ -13702,7 +13933,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetTenantDailyUsagesRequest
          */
-        public APIgetTenantDailyUsagesRequest skip(Double skip) {
+        public APIgetTenantDailyUsagesRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -13783,10 +14014,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTenantDailyUsagesRequest getTenantDailyUsages(String tenantId) {
+    public APIgetTenantDailyUsagesRequest getTenantDailyUsages(@javax.annotation.Nonnull String tenantId) {
         return new APIgetTenantDailyUsagesRequest(tenantId);
     }
-    private okhttp3.Call getTenantPackageCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantPackageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -13836,7 +14067,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantPackageValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantPackageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantPackage(Async)");
@@ -13852,13 +14083,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantPackage200Response> getTenantPackageWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetTenantPackage200Response> getTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getTenantPackageValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetTenantPackage200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantPackageAsync(String tenantId, String id, final ApiCallback<GetTenantPackage200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenantPackage200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantPackageValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetTenantPackage200Response>(){}.getType();
@@ -13867,10 +14098,12 @@ public class DefaultApi {
     }
 
     public class APIgetTenantPackageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetTenantPackageRequest(String tenantId, String id) {
+        private APIgetTenantPackageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -13952,10 +14185,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTenantPackageRequest getTenantPackage(String tenantId, String id) {
+    public APIgetTenantPackageRequest getTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetTenantPackageRequest(tenantId, id);
     }
-    private okhttp3.Call getTenantPackagesCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantPackagesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14008,7 +14241,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantPackagesValidateBeforeCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantPackagesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantPackages(Async)");
@@ -14019,13 +14252,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantPackages200Response> getTenantPackagesWithHttpInfo(String tenantId, Double skip) throws ApiException {
+    private ApiResponse<GetTenantPackages200Response> getTenantPackagesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantPackagesValidateBeforeCall(tenantId, skip, null);
         Type localVarReturnType = new TypeToken<GetTenantPackages200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantPackagesAsync(String tenantId, Double skip, final ApiCallback<GetTenantPackages200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantPackagesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantPackages200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantPackagesValidateBeforeCall(tenantId, skip, _callback);
         Type localVarReturnType = new TypeToken<GetTenantPackages200Response>(){}.getType();
@@ -14034,10 +14267,12 @@ public class DefaultApi {
     }
 
     public class APIgetTenantPackagesRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetTenantPackagesRequest(String tenantId) {
+        private APIgetTenantPackagesRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -14046,7 +14281,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetTenantPackagesRequest
          */
-        public APIgetTenantPackagesRequest skip(Double skip) {
+        public APIgetTenantPackagesRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -14127,10 +14362,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTenantPackagesRequest getTenantPackages(String tenantId) {
+    public APIgetTenantPackagesRequest getTenantPackages(@javax.annotation.Nonnull String tenantId) {
         return new APIgetTenantPackagesRequest(tenantId);
     }
-    private okhttp3.Call getTenantUserCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14180,7 +14415,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantUserValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantUser(Async)");
@@ -14196,13 +14431,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantUser200Response> getTenantUserWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetTenantUser200Response> getTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getTenantUserValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetTenantUser200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantUserAsync(String tenantId, String id, final ApiCallback<GetTenantUser200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenantUser200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantUserValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetTenantUser200Response>(){}.getType();
@@ -14211,10 +14446,12 @@ public class DefaultApi {
     }
 
     public class APIgetTenantUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetTenantUserRequest(String tenantId, String id) {
+        private APIgetTenantUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -14296,10 +14533,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTenantUserRequest getTenantUser(String tenantId, String id) {
+    public APIgetTenantUserRequest getTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetTenantUserRequest(tenantId, id);
     }
-    private okhttp3.Call getTenantUsersCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantUsersCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14352,7 +14589,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantUsersValidateBeforeCall(String tenantId, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantUsersValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenantUsers(Async)");
@@ -14363,13 +14600,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantUsers200Response> getTenantUsersWithHttpInfo(String tenantId, Double skip) throws ApiException {
+    private ApiResponse<GetTenantUsers200Response> getTenantUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantUsersValidateBeforeCall(tenantId, skip, null);
         Type localVarReturnType = new TypeToken<GetTenantUsers200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantUsersAsync(String tenantId, Double skip, final ApiCallback<GetTenantUsers200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantUsers200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantUsersValidateBeforeCall(tenantId, skip, _callback);
         Type localVarReturnType = new TypeToken<GetTenantUsers200Response>(){}.getType();
@@ -14378,10 +14615,12 @@ public class DefaultApi {
     }
 
     public class APIgetTenantUsersRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetTenantUsersRequest(String tenantId) {
+        private APIgetTenantUsersRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -14390,7 +14629,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetTenantUsersRequest
          */
-        public APIgetTenantUsersRequest skip(Double skip) {
+        public APIgetTenantUsersRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -14471,10 +14710,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTenantUsersRequest getTenantUsers(String tenantId) {
+    public APIgetTenantUsersRequest getTenantUsers(@javax.annotation.Nonnull String tenantId) {
         return new APIgetTenantUsersRequest(tenantId);
     }
-    private okhttp3.Call getTenantsCall(String tenantId, String meta, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14531,7 +14770,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTenantsValidateBeforeCall(String tenantId, String meta, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTenantsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTenants(Async)");
@@ -14542,13 +14781,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenants200Response> getTenantsWithHttpInfo(String tenantId, String meta, Double skip) throws ApiException {
+    private ApiResponse<GetTenants200Response> getTenantsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantsValidateBeforeCall(tenantId, meta, skip, null);
         Type localVarReturnType = new TypeToken<GetTenants200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantsAsync(String tenantId, String meta, Double skip, final ApiCallback<GetTenants200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenants200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantsValidateBeforeCall(tenantId, meta, skip, _callback);
         Type localVarReturnType = new TypeToken<GetTenants200Response>(){}.getType();
@@ -14557,11 +14796,14 @@ public class DefaultApi {
     }
 
     public class APIgetTenantsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String meta;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetTenantsRequest(String tenantId) {
+        private APIgetTenantsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -14570,7 +14812,7 @@ public class DefaultApi {
          * @param meta  (optional)
          * @return APIgetTenantsRequest
          */
-        public APIgetTenantsRequest meta(String meta) {
+        public APIgetTenantsRequest meta(@javax.annotation.Nullable String meta) {
             this.meta = meta;
             return this;
         }
@@ -14580,7 +14822,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetTenantsRequest
          */
-        public APIgetTenantsRequest skip(Double skip) {
+        public APIgetTenantsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -14661,10 +14903,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTenantsRequest getTenants(String tenantId) {
+    public APIgetTenantsRequest getTenants(@javax.annotation.Nonnull String tenantId) {
         return new APIgetTenantsRequest(tenantId);
     }
-    private okhttp3.Call getTicketCall(String tenantId, String id, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTicketCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14718,7 +14960,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTicketValidateBeforeCall(String tenantId, String id, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTicketValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTicket(Async)");
@@ -14734,13 +14976,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTicket200Response> getTicketWithHttpInfo(String tenantId, String id, String userId) throws ApiException {
+    private ApiResponse<GetTicket200Response> getTicketWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId) throws ApiException {
         okhttp3.Call localVarCall = getTicketValidateBeforeCall(tenantId, id, userId, null);
         Type localVarReturnType = new TypeToken<GetTicket200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTicketAsync(String tenantId, String id, String userId, final ApiCallback<GetTicket200Response> _callback) throws ApiException {
+    private okhttp3.Call getTicketAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback<GetTicket200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTicketValidateBeforeCall(tenantId, id, userId, _callback);
         Type localVarReturnType = new TypeToken<GetTicket200Response>(){}.getType();
@@ -14749,11 +14991,14 @@ public class DefaultApi {
     }
 
     public class APIgetTicketRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String userId;
 
-        private APIgetTicketRequest(String tenantId, String id) {
+        private APIgetTicketRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -14763,7 +15008,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetTicketRequest
          */
-        public APIgetTicketRequest userId(String userId) {
+        public APIgetTicketRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -14845,10 +15090,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTicketRequest getTicket(String tenantId, String id) {
+    public APIgetTicketRequest getTicket(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetTicketRequest(tenantId, id);
     }
-    private okhttp3.Call getTicketsCall(String tenantId, String userId, Double state, Double skip, Double limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTicketsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -14913,7 +15158,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTicketsValidateBeforeCall(String tenantId, String userId, Double state, Double skip, Double limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTicketsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getTickets(Async)");
@@ -14924,13 +15169,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTickets200Response> getTicketsWithHttpInfo(String tenantId, String userId, Double state, Double skip, Double limit) throws ApiException {
+    private ApiResponse<GetTickets200Response> getTicketsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit) throws ApiException {
         okhttp3.Call localVarCall = getTicketsValidateBeforeCall(tenantId, userId, state, skip, limit, null);
         Type localVarReturnType = new TypeToken<GetTickets200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTicketsAsync(String tenantId, String userId, Double state, Double skip, Double limit, final ApiCallback<GetTickets200Response> _callback) throws ApiException {
+    private okhttp3.Call getTicketsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit, final ApiCallback<GetTickets200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTicketsValidateBeforeCall(tenantId, userId, state, skip, limit, _callback);
         Type localVarReturnType = new TypeToken<GetTickets200Response>(){}.getType();
@@ -14939,13 +15184,18 @@ public class DefaultApi {
     }
 
     public class APIgetTicketsRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private Double state;
+        @javax.annotation.Nullable
         private Double skip;
+        @javax.annotation.Nullable
         private Double limit;
 
-        private APIgetTicketsRequest(String tenantId) {
+        private APIgetTicketsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -14954,7 +15204,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetTicketsRequest
          */
-        public APIgetTicketsRequest userId(String userId) {
+        public APIgetTicketsRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -14964,7 +15214,7 @@ public class DefaultApi {
          * @param state  (optional)
          * @return APIgetTicketsRequest
          */
-        public APIgetTicketsRequest state(Double state) {
+        public APIgetTicketsRequest state(@javax.annotation.Nullable Double state) {
             this.state = state;
             return this;
         }
@@ -14974,7 +15224,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetTicketsRequest
          */
-        public APIgetTicketsRequest skip(Double skip) {
+        public APIgetTicketsRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -14984,7 +15234,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetTicketsRequest
          */
-        public APIgetTicketsRequest limit(Double limit) {
+        public APIgetTicketsRequest limit(@javax.annotation.Nullable Double limit) {
             this.limit = limit;
             return this;
         }
@@ -15065,10 +15315,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTicketsRequest getTickets(String tenantId) {
+    public APIgetTicketsRequest getTickets(@javax.annotation.Nonnull String tenantId) {
         return new APIgetTicketsRequest(tenantId);
     }
-    private okhttp3.Call getUserCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15118,7 +15368,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUser(Async)");
@@ -15134,13 +15384,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUser200Response> getUserWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetUser200Response> getUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getUserValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetUser200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserAsync(String tenantId, String id, final ApiCallback<GetUser200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetUser200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetUser200Response>(){}.getType();
@@ -15149,10 +15399,12 @@ public class DefaultApi {
     }
 
     public class APIgetUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetUserRequest(String tenantId, String id) {
+        private APIgetUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -15234,10 +15486,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserRequest getUser(String tenantId, String id) {
+    public APIgetUserRequest getUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetUserRequest(tenantId, id);
     }
-    private okhttp3.Call getUserBadgeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15287,7 +15539,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserBadgeValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadge(Async)");
@@ -15303,13 +15555,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadge200Response> getUserBadgeWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetUserBadge200Response> getUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetUserBadge200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeAsync(String tenantId, String id, final ApiCallback<GetUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetUserBadge200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetUserBadge200Response>(){}.getType();
@@ -15318,10 +15570,12 @@ public class DefaultApi {
     }
 
     public class APIgetUserBadgeRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetUserBadgeRequest(String tenantId, String id) {
+        private APIgetUserBadgeRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -15403,10 +15657,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserBadgeRequest getUserBadge(String tenantId, String id) {
+    public APIgetUserBadgeRequest getUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetUserBadgeRequest(tenantId, id);
     }
-    private okhttp3.Call getUserBadgeProgressByIdCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByIdCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15456,7 +15710,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserBadgeProgressByIdValidateBeforeCall(String tenantId, String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByIdValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadgeProgressById(Async)");
@@ -15472,13 +15726,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByIdWithHttpInfo(String tenantId, String id) throws ApiException {
+    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeProgressByIdValidateBeforeCall(tenantId, id, null);
         Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeProgressByIdAsync(String tenantId, String id, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeProgressByIdValidateBeforeCall(tenantId, id, _callback);
         Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
@@ -15487,10 +15741,12 @@ public class DefaultApi {
     }
 
     public class APIgetUserBadgeProgressByIdRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
 
-        private APIgetUserBadgeProgressByIdRequest(String tenantId, String id) {
+        private APIgetUserBadgeProgressByIdRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -15572,10 +15828,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserBadgeProgressByIdRequest getUserBadgeProgressById(String tenantId, String id) {
+    public APIgetUserBadgeProgressByIdRequest getUserBadgeProgressById(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetUserBadgeProgressByIdRequest(tenantId, id);
     }
-    private okhttp3.Call getUserBadgeProgressByUserIdCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByUserIdCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15625,7 +15881,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserBadgeProgressByUserIdValidateBeforeCall(String tenantId, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByUserIdValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadgeProgressByUserId(Async)");
@@ -15641,13 +15897,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByUserIdWithHttpInfo(String tenantId, String userId) throws ApiException {
+    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByUserIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeProgressByUserIdValidateBeforeCall(tenantId, userId, null);
         Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeProgressByUserIdAsync(String tenantId, String userId, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByUserIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeProgressByUserIdValidateBeforeCall(tenantId, userId, _callback);
         Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
@@ -15656,10 +15912,12 @@ public class DefaultApi {
     }
 
     public class APIgetUserBadgeProgressByUserIdRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String userId;
 
-        private APIgetUserBadgeProgressByUserIdRequest(String tenantId, String userId) {
+        private APIgetUserBadgeProgressByUserIdRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId) {
             this.tenantId = tenantId;
             this.userId = userId;
         }
@@ -15741,10 +15999,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserBadgeProgressByUserIdRequest getUserBadgeProgressByUserId(String tenantId, String userId) {
+    public APIgetUserBadgeProgressByUserIdRequest getUserBadgeProgressByUserId(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId) {
         return new APIgetUserBadgeProgressByUserIdRequest(tenantId, userId);
     }
-    private okhttp3.Call getUserBadgeProgressListCall(String tenantId, String userId, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressListCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -15805,7 +16063,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserBadgeProgressListValidateBeforeCall(String tenantId, String userId, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressListValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadgeProgressList(Async)");
@@ -15816,13 +16074,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadgeProgressList200Response> getUserBadgeProgressListWithHttpInfo(String tenantId, String userId, Double limit, Double skip) throws ApiException {
+    private ApiResponse<GetUserBadgeProgressList200Response> getUserBadgeProgressListWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeProgressListValidateBeforeCall(tenantId, userId, limit, skip, null);
         Type localVarReturnType = new TypeToken<GetUserBadgeProgressList200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeProgressListAsync(String tenantId, String userId, Double limit, Double skip, final ApiCallback<GetUserBadgeProgressList200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressListAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback<GetUserBadgeProgressList200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeProgressListValidateBeforeCall(tenantId, userId, limit, skip, _callback);
         Type localVarReturnType = new TypeToken<GetUserBadgeProgressList200Response>(){}.getType();
@@ -15831,12 +16089,16 @@ public class DefaultApi {
     }
 
     public class APIgetUserBadgeProgressListRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private Double limit;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetUserBadgeProgressListRequest(String tenantId) {
+        private APIgetUserBadgeProgressListRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -15845,7 +16107,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetUserBadgeProgressListRequest
          */
-        public APIgetUserBadgeProgressListRequest userId(String userId) {
+        public APIgetUserBadgeProgressListRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -15855,7 +16117,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetUserBadgeProgressListRequest
          */
-        public APIgetUserBadgeProgressListRequest limit(Double limit) {
+        public APIgetUserBadgeProgressListRequest limit(@javax.annotation.Nullable Double limit) {
             this.limit = limit;
             return this;
         }
@@ -15865,7 +16127,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetUserBadgeProgressListRequest
          */
-        public APIgetUserBadgeProgressListRequest skip(Double skip) {
+        public APIgetUserBadgeProgressListRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -15946,10 +16208,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserBadgeProgressListRequest getUserBadgeProgressList(String tenantId) {
+    public APIgetUserBadgeProgressListRequest getUserBadgeProgressList(@javax.annotation.Nonnull String tenantId) {
         return new APIgetUserBadgeProgressListRequest(tenantId);
     }
-    private okhttp3.Call getUserBadgesCall(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16022,7 +16284,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserBadgesValidateBeforeCall(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBadgesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBadges(Async)");
@@ -16033,13 +16295,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadges200Response> getUserBadgesWithHttpInfo(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip) throws ApiException {
+    private ApiResponse<GetUserBadges200Response> getUserBadgesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgesValidateBeforeCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, null);
         Type localVarReturnType = new TypeToken<GetUserBadges200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgesAsync(String tenantId, String userId, String badgeId, Double type, Boolean displayedOnComments, Double limit, Double skip, final ApiCallback<GetUserBadges200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback<GetUserBadges200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgesValidateBeforeCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, _callback);
         Type localVarReturnType = new TypeToken<GetUserBadges200Response>(){}.getType();
@@ -16048,15 +16310,22 @@ public class DefaultApi {
     }
 
     public class APIgetUserBadgesRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String badgeId;
+        @javax.annotation.Nullable
         private Double type;
+        @javax.annotation.Nullable
         private Boolean displayedOnComments;
+        @javax.annotation.Nullable
         private Double limit;
+        @javax.annotation.Nullable
         private Double skip;
 
-        private APIgetUserBadgesRequest(String tenantId) {
+        private APIgetUserBadgesRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
         }
 
@@ -16065,7 +16334,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetUserBadgesRequest
          */
-        public APIgetUserBadgesRequest userId(String userId) {
+        public APIgetUserBadgesRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -16075,7 +16344,7 @@ public class DefaultApi {
          * @param badgeId  (optional)
          * @return APIgetUserBadgesRequest
          */
-        public APIgetUserBadgesRequest badgeId(String badgeId) {
+        public APIgetUserBadgesRequest badgeId(@javax.annotation.Nullable String badgeId) {
             this.badgeId = badgeId;
             return this;
         }
@@ -16085,7 +16354,7 @@ public class DefaultApi {
          * @param type  (optional)
          * @return APIgetUserBadgesRequest
          */
-        public APIgetUserBadgesRequest type(Double type) {
+        public APIgetUserBadgesRequest type(@javax.annotation.Nullable Double type) {
             this.type = type;
             return this;
         }
@@ -16095,7 +16364,7 @@ public class DefaultApi {
          * @param displayedOnComments  (optional)
          * @return APIgetUserBadgesRequest
          */
-        public APIgetUserBadgesRequest displayedOnComments(Boolean displayedOnComments) {
+        public APIgetUserBadgesRequest displayedOnComments(@javax.annotation.Nullable Boolean displayedOnComments) {
             this.displayedOnComments = displayedOnComments;
             return this;
         }
@@ -16105,7 +16374,7 @@ public class DefaultApi {
          * @param limit  (optional)
          * @return APIgetUserBadgesRequest
          */
-        public APIgetUserBadgesRequest limit(Double limit) {
+        public APIgetUserBadgesRequest limit(@javax.annotation.Nullable Double limit) {
             this.limit = limit;
             return this;
         }
@@ -16115,7 +16384,7 @@ public class DefaultApi {
          * @param skip  (optional)
          * @return APIgetUserBadgesRequest
          */
-        public APIgetUserBadgesRequest skip(Double skip) {
+        public APIgetUserBadgesRequest skip(@javax.annotation.Nullable Double skip) {
             this.skip = skip;
             return this;
         }
@@ -16196,10 +16465,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserBadgesRequest getUserBadges(String tenantId) {
+    public APIgetUserBadgesRequest getUserBadges(@javax.annotation.Nonnull String tenantId) {
         return new APIgetUserBadgesRequest(tenantId);
     }
-    private okhttp3.Call getVotesCall(String tenantId, String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVotesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16252,7 +16521,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVotesValidateBeforeCall(String tenantId, String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVotesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVotes(Async)");
@@ -16268,13 +16537,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetVotes200Response> getVotesWithHttpInfo(String tenantId, String urlId) throws ApiException {
+    private ApiResponse<GetVotes200Response> getVotesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) throws ApiException {
         okhttp3.Call localVarCall = getVotesValidateBeforeCall(tenantId, urlId, null);
         Type localVarReturnType = new TypeToken<GetVotes200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getVotesAsync(String tenantId, String urlId, final ApiCallback<GetVotes200Response> _callback) throws ApiException {
+    private okhttp3.Call getVotesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback<GetVotes200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVotesValidateBeforeCall(tenantId, urlId, _callback);
         Type localVarReturnType = new TypeToken<GetVotes200Response>(){}.getType();
@@ -16283,10 +16552,12 @@ public class DefaultApi {
     }
 
     public class APIgetVotesRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String urlId;
 
-        private APIgetVotesRequest(String tenantId, String urlId) {
+        private APIgetVotesRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
         }
@@ -16368,10 +16639,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetVotesRequest getVotes(String tenantId, String urlId) {
+    public APIgetVotesRequest getVotes(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
         return new APIgetVotesRequest(tenantId, urlId);
     }
-    private okhttp3.Call getVotesForUserCall(String tenantId, String urlId, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVotesForUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16432,7 +16703,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getVotesForUserValidateBeforeCall(String tenantId, String urlId, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getVotesForUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getVotesForUser(Async)");
@@ -16448,13 +16719,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetVotesForUser200Response> getVotesForUserWithHttpInfo(String tenantId, String urlId, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<GetVotesForUser200Response> getVotesForUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = getVotesForUserValidateBeforeCall(tenantId, urlId, userId, anonUserId, null);
         Type localVarReturnType = new TypeToken<GetVotesForUser200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getVotesForUserAsync(String tenantId, String urlId, String userId, String anonUserId, final ApiCallback<GetVotesForUser200Response> _callback) throws ApiException {
+    private okhttp3.Call getVotesForUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<GetVotesForUser200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVotesForUserValidateBeforeCall(tenantId, urlId, userId, anonUserId, _callback);
         Type localVarReturnType = new TypeToken<GetVotesForUser200Response>(){}.getType();
@@ -16463,12 +16734,16 @@ public class DefaultApi {
     }
 
     public class APIgetVotesForUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String urlId;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String anonUserId;
 
-        private APIgetVotesForUserRequest(String tenantId, String urlId) {
+        private APIgetVotesForUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
         }
@@ -16478,7 +16753,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIgetVotesForUserRequest
          */
-        public APIgetVotesForUserRequest userId(String userId) {
+        public APIgetVotesForUserRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -16488,7 +16763,7 @@ public class DefaultApi {
          * @param anonUserId  (optional)
          * @return APIgetVotesForUserRequest
          */
-        public APIgetVotesForUserRequest anonUserId(String anonUserId) {
+        public APIgetVotesForUserRequest anonUserId(@javax.annotation.Nullable String anonUserId) {
             this.anonUserId = anonUserId;
             return this;
         }
@@ -16570,10 +16845,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetVotesForUserRequest getVotesForUser(String tenantId, String urlId) {
+    public APIgetVotesForUserRequest getVotesForUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
         return new APIgetVotesForUserRequest(tenantId, urlId);
     }
-    private okhttp3.Call patchDomainConfigCall(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchDomainConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16624,7 +16899,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchDomainConfigValidateBeforeCall(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchDomainConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchDomainConfig(Async)");
@@ -16645,13 +16920,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfig200Response> patchDomainConfigWithHttpInfo(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams) throws ApiException {
+    private ApiResponse<GetDomainConfig200Response> patchDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams) throws ApiException {
         okhttp3.Call localVarCall = patchDomainConfigValidateBeforeCall(tenantId, domainToUpdate, patchDomainConfigParams, null);
         Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchDomainConfigAsync(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call patchDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchDomainConfigValidateBeforeCall(tenantId, domainToUpdate, patchDomainConfigParams, _callback);
         Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
@@ -16660,11 +16935,14 @@ public class DefaultApi {
     }
 
     public class APIpatchDomainConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String domainToUpdate;
+        @javax.annotation.Nonnull
         private final PatchDomainConfigParams patchDomainConfigParams;
 
-        private APIpatchDomainConfigRequest(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams) {
+        private APIpatchDomainConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams) {
             this.tenantId = tenantId;
             this.domainToUpdate = domainToUpdate;
             this.patchDomainConfigParams = patchDomainConfigParams;
@@ -16748,10 +17026,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchDomainConfigRequest patchDomainConfig(String tenantId, String domainToUpdate, PatchDomainConfigParams patchDomainConfigParams) {
+    public APIpatchDomainConfigRequest patchDomainConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams) {
         return new APIpatchDomainConfigRequest(tenantId, domainToUpdate, patchDomainConfigParams);
     }
-    private okhttp3.Call patchHashTagCall(String tag, String tenantId, UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchHashTagCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16802,7 +17080,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchHashTagValidateBeforeCall(String tag, String tenantId, UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchHashTagValidateBeforeCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tag' is set
         if (tag == null) {
             throw new ApiException("Missing the required parameter 'tag' when calling patchHashTag(Async)");
@@ -16813,13 +17091,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<PatchHashTag200Response> patchHashTagWithHttpInfo(String tag, String tenantId, UpdateHashTagBody updateHashTagBody) throws ApiException {
+    private ApiResponse<PatchHashTag200Response> patchHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody) throws ApiException {
         okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tag, tenantId, updateHashTagBody, null);
         Type localVarReturnType = new TypeToken<PatchHashTag200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchHashTagAsync(String tag, String tenantId, UpdateHashTagBody updateHashTagBody, final ApiCallback<PatchHashTag200Response> _callback) throws ApiException {
+    private okhttp3.Call patchHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback<PatchHashTag200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tag, tenantId, updateHashTagBody, _callback);
         Type localVarReturnType = new TypeToken<PatchHashTag200Response>(){}.getType();
@@ -16828,11 +17106,14 @@ public class DefaultApi {
     }
 
     public class APIpatchHashTagRequest {
+        @javax.annotation.Nonnull
         private final String tag;
+        @javax.annotation.Nullable
         private String tenantId;
+        @javax.annotation.Nullable
         private UpdateHashTagBody updateHashTagBody;
 
-        private APIpatchHashTagRequest(String tag) {
+        private APIpatchHashTagRequest(@javax.annotation.Nonnull String tag) {
             this.tag = tag;
         }
 
@@ -16841,7 +17122,7 @@ public class DefaultApi {
          * @param tenantId  (optional)
          * @return APIpatchHashTagRequest
          */
-        public APIpatchHashTagRequest tenantId(String tenantId) {
+        public APIpatchHashTagRequest tenantId(@javax.annotation.Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
@@ -16851,7 +17132,7 @@ public class DefaultApi {
          * @param updateHashTagBody  (optional)
          * @return APIpatchHashTagRequest
          */
-        public APIpatchHashTagRequest updateHashTagBody(UpdateHashTagBody updateHashTagBody) {
+        public APIpatchHashTagRequest updateHashTagBody(@javax.annotation.Nullable UpdateHashTagBody updateHashTagBody) {
             this.updateHashTagBody = updateHashTagBody;
             return this;
         }
@@ -16932,10 +17213,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchHashTagRequest patchHashTag(String tag) {
+    public APIpatchHashTagRequest patchHashTag(@javax.annotation.Nonnull String tag) {
         return new APIpatchHashTagRequest(tag);
     }
-    private okhttp3.Call patchPageCall(String tenantId, String id, UpdateAPIPageData updateAPIPageData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIPageData updateAPIPageData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -16986,7 +17267,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchPageValidateBeforeCall(String tenantId, String id, UpdateAPIPageData updateAPIPageData, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchPageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIPageData updateAPIPageData, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchPage(Async)");
@@ -17007,13 +17288,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<PatchPageAPIResponse> patchPageWithHttpInfo(String tenantId, String id, UpdateAPIPageData updateAPIPageData) throws ApiException {
+    private ApiResponse<PatchPageAPIResponse> patchPageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIPageData updateAPIPageData) throws ApiException {
         okhttp3.Call localVarCall = patchPageValidateBeforeCall(tenantId, id, updateAPIPageData, null);
         Type localVarReturnType = new TypeToken<PatchPageAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchPageAsync(String tenantId, String id, UpdateAPIPageData updateAPIPageData, final ApiCallback<PatchPageAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call patchPageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIPageData updateAPIPageData, final ApiCallback<PatchPageAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchPageValidateBeforeCall(tenantId, id, updateAPIPageData, _callback);
         Type localVarReturnType = new TypeToken<PatchPageAPIResponse>(){}.getType();
@@ -17022,11 +17303,14 @@ public class DefaultApi {
     }
 
     public class APIpatchPageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateAPIPageData updateAPIPageData;
 
-        private APIpatchPageRequest(String tenantId, String id, UpdateAPIPageData updateAPIPageData) {
+        private APIpatchPageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIPageData updateAPIPageData) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateAPIPageData = updateAPIPageData;
@@ -17110,10 +17394,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchPageRequest patchPage(String tenantId, String id, UpdateAPIPageData updateAPIPageData) {
+    public APIpatchPageRequest patchPage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIPageData updateAPIPageData) {
         return new APIpatchPageRequest(tenantId, id, updateAPIPageData);
     }
-    private okhttp3.Call patchSSOUserCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSSOUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17168,7 +17452,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchSSOUserValidateBeforeCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchSSOUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling patchSSOUser(Async)");
@@ -17189,13 +17473,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<PatchSSOUserAPIResponse> patchSSOUserWithHttpInfo(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments) throws ApiException {
+    private ApiResponse<PatchSSOUserAPIResponse> patchSSOUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments) throws ApiException {
         okhttp3.Call localVarCall = patchSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, null);
         Type localVarReturnType = new TypeToken<PatchSSOUserAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchSSOUserAsync(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback<PatchSSOUserAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call patchSSOUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments, final ApiCallback<PatchSSOUserAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
         Type localVarReturnType = new TypeToken<PatchSSOUserAPIResponse>(){}.getType();
@@ -17204,12 +17488,16 @@ public class DefaultApi {
     }
 
     public class APIpatchSSOUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateAPISSOUserData updateAPISSOUserData;
+        @javax.annotation.Nullable
         private Boolean updateComments;
 
-        private APIpatchSSOUserRequest(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+        private APIpatchSSOUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateAPISSOUserData = updateAPISSOUserData;
@@ -17220,7 +17508,7 @@ public class DefaultApi {
          * @param updateComments  (optional)
          * @return APIpatchSSOUserRequest
          */
-        public APIpatchSSOUserRequest updateComments(Boolean updateComments) {
+        public APIpatchSSOUserRequest updateComments(@javax.annotation.Nullable Boolean updateComments) {
             this.updateComments = updateComments;
             return this;
         }
@@ -17303,10 +17591,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchSSOUserRequest patchSSOUser(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+    public APIpatchSSOUserRequest patchSSOUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData) {
         return new APIpatchSSOUserRequest(tenantId, id, updateAPISSOUserData);
     }
-    private okhttp3.Call putDomainConfigCall(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putDomainConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17357,7 +17645,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putDomainConfigValidateBeforeCall(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putDomainConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling putDomainConfig(Async)");
@@ -17378,13 +17666,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfig200Response> putDomainConfigWithHttpInfo(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams) throws ApiException {
+    private ApiResponse<GetDomainConfig200Response> putDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams) throws ApiException {
         okhttp3.Call localVarCall = putDomainConfigValidateBeforeCall(tenantId, domainToUpdate, updateDomainConfigParams, null);
         Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call putDomainConfigAsync(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call putDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = putDomainConfigValidateBeforeCall(tenantId, domainToUpdate, updateDomainConfigParams, _callback);
         Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
@@ -17393,11 +17681,14 @@ public class DefaultApi {
     }
 
     public class APIputDomainConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String domainToUpdate;
+        @javax.annotation.Nonnull
         private final UpdateDomainConfigParams updateDomainConfigParams;
 
-        private APIputDomainConfigRequest(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams) {
+        private APIputDomainConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams) {
             this.tenantId = tenantId;
             this.domainToUpdate = domainToUpdate;
             this.updateDomainConfigParams = updateDomainConfigParams;
@@ -17481,10 +17772,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIputDomainConfigRequest putDomainConfig(String tenantId, String domainToUpdate, UpdateDomainConfigParams updateDomainConfigParams) {
+    public APIputDomainConfigRequest putDomainConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams) {
         return new APIputDomainConfigRequest(tenantId, domainToUpdate, updateDomainConfigParams);
     }
-    private okhttp3.Call putSSOUserCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putSSOUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17539,7 +17830,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putSSOUserValidateBeforeCall(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putSSOUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling putSSOUser(Async)");
@@ -17560,13 +17851,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<PutSSOUserAPIResponse> putSSOUserWithHttpInfo(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments) throws ApiException {
+    private ApiResponse<PutSSOUserAPIResponse> putSSOUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments) throws ApiException {
         okhttp3.Call localVarCall = putSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, null);
         Type localVarReturnType = new TypeToken<PutSSOUserAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call putSSOUserAsync(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData, Boolean updateComments, final ApiCallback<PutSSOUserAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call putSSOUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData, @javax.annotation.Nullable Boolean updateComments, final ApiCallback<PutSSOUserAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = putSSOUserValidateBeforeCall(tenantId, id, updateAPISSOUserData, updateComments, _callback);
         Type localVarReturnType = new TypeToken<PutSSOUserAPIResponse>(){}.getType();
@@ -17575,12 +17866,16 @@ public class DefaultApi {
     }
 
     public class APIputSSOUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateAPISSOUserData updateAPISSOUserData;
+        @javax.annotation.Nullable
         private Boolean updateComments;
 
-        private APIputSSOUserRequest(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+        private APIputSSOUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateAPISSOUserData = updateAPISSOUserData;
@@ -17591,7 +17886,7 @@ public class DefaultApi {
          * @param updateComments  (optional)
          * @return APIputSSOUserRequest
          */
-        public APIputSSOUserRequest updateComments(Boolean updateComments) {
+        public APIputSSOUserRequest updateComments(@javax.annotation.Nullable Boolean updateComments) {
             this.updateComments = updateComments;
             return this;
         }
@@ -17674,10 +17969,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIputSSOUserRequest putSSOUser(String tenantId, String id, UpdateAPISSOUserData updateAPISSOUserData) {
+    public APIputSSOUserRequest putSSOUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPISSOUserData updateAPISSOUserData) {
         return new APIputSSOUserRequest(tenantId, id, updateAPISSOUserData);
     }
-    private okhttp3.Call renderEmailTemplateCall(String tenantId, RenderEmailTemplateBody renderEmailTemplateBody, String locale, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call renderEmailTemplateCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17731,7 +18026,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call renderEmailTemplateValidateBeforeCall(String tenantId, RenderEmailTemplateBody renderEmailTemplateBody, String locale, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call renderEmailTemplateValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling renderEmailTemplate(Async)");
@@ -17747,13 +18042,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<RenderEmailTemplate200Response> renderEmailTemplateWithHttpInfo(String tenantId, RenderEmailTemplateBody renderEmailTemplateBody, String locale) throws ApiException {
+    private ApiResponse<RenderEmailTemplate200Response> renderEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale) throws ApiException {
         okhttp3.Call localVarCall = renderEmailTemplateValidateBeforeCall(tenantId, renderEmailTemplateBody, locale, null);
         Type localVarReturnType = new TypeToken<RenderEmailTemplate200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call renderEmailTemplateAsync(String tenantId, RenderEmailTemplateBody renderEmailTemplateBody, String locale, final ApiCallback<RenderEmailTemplate200Response> _callback) throws ApiException {
+    private okhttp3.Call renderEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale, final ApiCallback<RenderEmailTemplate200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = renderEmailTemplateValidateBeforeCall(tenantId, renderEmailTemplateBody, locale, _callback);
         Type localVarReturnType = new TypeToken<RenderEmailTemplate200Response>(){}.getType();
@@ -17762,11 +18057,14 @@ public class DefaultApi {
     }
 
     public class APIrenderEmailTemplateRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final RenderEmailTemplateBody renderEmailTemplateBody;
+        @javax.annotation.Nullable
         private String locale;
 
-        private APIrenderEmailTemplateRequest(String tenantId, RenderEmailTemplateBody renderEmailTemplateBody) {
+        private APIrenderEmailTemplateRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody) {
             this.tenantId = tenantId;
             this.renderEmailTemplateBody = renderEmailTemplateBody;
         }
@@ -17776,7 +18074,7 @@ public class DefaultApi {
          * @param locale  (optional)
          * @return APIrenderEmailTemplateRequest
          */
-        public APIrenderEmailTemplateRequest locale(String locale) {
+        public APIrenderEmailTemplateRequest locale(@javax.annotation.Nullable String locale) {
             this.locale = locale;
             return this;
         }
@@ -17858,10 +18156,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIrenderEmailTemplateRequest renderEmailTemplate(String tenantId, RenderEmailTemplateBody renderEmailTemplateBody) {
+    public APIrenderEmailTemplateRequest renderEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody) {
         return new APIrenderEmailTemplateRequest(tenantId, renderEmailTemplateBody);
     }
-    private okhttp3.Call replaceTenantPackageCall(String tenantId, String id, ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceTenantPackageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17912,7 +18210,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceTenantPackageValidateBeforeCall(String tenantId, String id, ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceTenantPackageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling replaceTenantPackage(Async)");
@@ -17933,13 +18231,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> replaceTenantPackageWithHttpInfo(String tenantId, String id, ReplaceTenantPackageBody replaceTenantPackageBody) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> replaceTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody) throws ApiException {
         okhttp3.Call localVarCall = replaceTenantPackageValidateBeforeCall(tenantId, id, replaceTenantPackageBody, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceTenantPackageAsync(String tenantId, String id, ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call replaceTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceTenantPackageValidateBeforeCall(tenantId, id, replaceTenantPackageBody, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -17948,11 +18246,14 @@ public class DefaultApi {
     }
 
     public class APIreplaceTenantPackageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final ReplaceTenantPackageBody replaceTenantPackageBody;
 
-        private APIreplaceTenantPackageRequest(String tenantId, String id, ReplaceTenantPackageBody replaceTenantPackageBody) {
+        private APIreplaceTenantPackageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.replaceTenantPackageBody = replaceTenantPackageBody;
@@ -18036,10 +18337,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceTenantPackageRequest replaceTenantPackage(String tenantId, String id, ReplaceTenantPackageBody replaceTenantPackageBody) {
+    public APIreplaceTenantPackageRequest replaceTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody) {
         return new APIreplaceTenantPackageRequest(tenantId, id, replaceTenantPackageBody);
     }
-    private okhttp3.Call replaceTenantUserCall(String tenantId, String id, ReplaceTenantUserBody replaceTenantUserBody, String updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceTenantUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18094,7 +18395,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceTenantUserValidateBeforeCall(String tenantId, String id, ReplaceTenantUserBody replaceTenantUserBody, String updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceTenantUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling replaceTenantUser(Async)");
@@ -18115,13 +18416,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> replaceTenantUserWithHttpInfo(String tenantId, String id, ReplaceTenantUserBody replaceTenantUserBody, String updateComments) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> replaceTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments) throws ApiException {
         okhttp3.Call localVarCall = replaceTenantUserValidateBeforeCall(tenantId, id, replaceTenantUserBody, updateComments, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceTenantUserAsync(String tenantId, String id, ReplaceTenantUserBody replaceTenantUserBody, String updateComments, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call replaceTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceTenantUserValidateBeforeCall(tenantId, id, replaceTenantUserBody, updateComments, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -18130,12 +18431,16 @@ public class DefaultApi {
     }
 
     public class APIreplaceTenantUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final ReplaceTenantUserBody replaceTenantUserBody;
+        @javax.annotation.Nullable
         private String updateComments;
 
-        private APIreplaceTenantUserRequest(String tenantId, String id, ReplaceTenantUserBody replaceTenantUserBody) {
+        private APIreplaceTenantUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.replaceTenantUserBody = replaceTenantUserBody;
@@ -18146,7 +18451,7 @@ public class DefaultApi {
          * @param updateComments  (optional)
          * @return APIreplaceTenantUserRequest
          */
-        public APIreplaceTenantUserRequest updateComments(String updateComments) {
+        public APIreplaceTenantUserRequest updateComments(@javax.annotation.Nullable String updateComments) {
             this.updateComments = updateComments;
             return this;
         }
@@ -18229,10 +18534,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIreplaceTenantUserRequest replaceTenantUser(String tenantId, String id, ReplaceTenantUserBody replaceTenantUserBody) {
+    public APIreplaceTenantUserRequest replaceTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody) {
         return new APIreplaceTenantUserRequest(tenantId, id, replaceTenantUserBody);
     }
-    private okhttp3.Call saveCommentCall(String tenantId, CreateCommentParams createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call saveCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18298,7 +18603,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call saveCommentValidateBeforeCall(String tenantId, CreateCommentParams createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call saveCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling saveComment(Async)");
@@ -18314,13 +18619,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<SaveComment200Response> saveCommentWithHttpInfo(String tenantId, CreateCommentParams createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications) throws ApiException {
+    private ApiResponse<SaveComment200Response> saveCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications) throws ApiException {
         okhttp3.Call localVarCall = saveCommentValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, null);
         Type localVarReturnType = new TypeToken<SaveComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call saveCommentAsync(String tenantId, CreateCommentParams createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback<SaveComment200Response> _callback) throws ApiException {
+    private okhttp3.Call saveCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback<SaveComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = saveCommentValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
         Type localVarReturnType = new TypeToken<SaveComment200Response>(){}.getType();
@@ -18329,14 +18634,20 @@ public class DefaultApi {
     }
 
     public class APIsaveCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final CreateCommentParams createCommentParams;
+        @javax.annotation.Nullable
         private Boolean isLive;
+        @javax.annotation.Nullable
         private Boolean doSpamCheck;
+        @javax.annotation.Nullable
         private Boolean sendEmails;
+        @javax.annotation.Nullable
         private Boolean populateNotifications;
 
-        private APIsaveCommentRequest(String tenantId, CreateCommentParams createCommentParams) {
+        private APIsaveCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams) {
             this.tenantId = tenantId;
             this.createCommentParams = createCommentParams;
         }
@@ -18346,7 +18657,7 @@ public class DefaultApi {
          * @param isLive  (optional)
          * @return APIsaveCommentRequest
          */
-        public APIsaveCommentRequest isLive(Boolean isLive) {
+        public APIsaveCommentRequest isLive(@javax.annotation.Nullable Boolean isLive) {
             this.isLive = isLive;
             return this;
         }
@@ -18356,7 +18667,7 @@ public class DefaultApi {
          * @param doSpamCheck  (optional)
          * @return APIsaveCommentRequest
          */
-        public APIsaveCommentRequest doSpamCheck(Boolean doSpamCheck) {
+        public APIsaveCommentRequest doSpamCheck(@javax.annotation.Nullable Boolean doSpamCheck) {
             this.doSpamCheck = doSpamCheck;
             return this;
         }
@@ -18366,7 +18677,7 @@ public class DefaultApi {
          * @param sendEmails  (optional)
          * @return APIsaveCommentRequest
          */
-        public APIsaveCommentRequest sendEmails(Boolean sendEmails) {
+        public APIsaveCommentRequest sendEmails(@javax.annotation.Nullable Boolean sendEmails) {
             this.sendEmails = sendEmails;
             return this;
         }
@@ -18376,7 +18687,7 @@ public class DefaultApi {
          * @param populateNotifications  (optional)
          * @return APIsaveCommentRequest
          */
-        public APIsaveCommentRequest populateNotifications(Boolean populateNotifications) {
+        public APIsaveCommentRequest populateNotifications(@javax.annotation.Nullable Boolean populateNotifications) {
             this.populateNotifications = populateNotifications;
             return this;
         }
@@ -18458,10 +18769,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIsaveCommentRequest saveComment(String tenantId, CreateCommentParams createCommentParams) {
+    public APIsaveCommentRequest saveComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams) {
         return new APIsaveCommentRequest(tenantId, createCommentParams);
     }
-    private okhttp3.Call saveCommentsBulkCall(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call saveCommentsBulkCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18527,7 +18838,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call saveCommentsBulkValidateBeforeCall(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call saveCommentsBulkValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling saveCommentsBulk(Async)");
@@ -18543,13 +18854,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<List<SaveComment200Response>> saveCommentsBulkWithHttpInfo(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications) throws ApiException {
+    private ApiResponse<List<SaveComment200Response>> saveCommentsBulkWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications) throws ApiException {
         okhttp3.Call localVarCall = saveCommentsBulkValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, null);
         Type localVarReturnType = new TypeToken<List<SaveComment200Response>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call saveCommentsBulkAsync(String tenantId, List<CreateCommentParams> createCommentParams, Boolean isLive, Boolean doSpamCheck, Boolean sendEmails, Boolean populateNotifications, final ApiCallback<List<SaveComment200Response>> _callback) throws ApiException {
+    private okhttp3.Call saveCommentsBulkAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback<List<SaveComment200Response>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = saveCommentsBulkValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
         Type localVarReturnType = new TypeToken<List<SaveComment200Response>>(){}.getType();
@@ -18558,14 +18869,20 @@ public class DefaultApi {
     }
 
     public class APIsaveCommentsBulkRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final List<CreateCommentParams> createCommentParams;
+        @javax.annotation.Nullable
         private Boolean isLive;
+        @javax.annotation.Nullable
         private Boolean doSpamCheck;
+        @javax.annotation.Nullable
         private Boolean sendEmails;
+        @javax.annotation.Nullable
         private Boolean populateNotifications;
 
-        private APIsaveCommentsBulkRequest(String tenantId, List<CreateCommentParams> createCommentParams) {
+        private APIsaveCommentsBulkRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams) {
             this.tenantId = tenantId;
             this.createCommentParams = createCommentParams;
         }
@@ -18575,7 +18892,7 @@ public class DefaultApi {
          * @param isLive  (optional)
          * @return APIsaveCommentsBulkRequest
          */
-        public APIsaveCommentsBulkRequest isLive(Boolean isLive) {
+        public APIsaveCommentsBulkRequest isLive(@javax.annotation.Nullable Boolean isLive) {
             this.isLive = isLive;
             return this;
         }
@@ -18585,7 +18902,7 @@ public class DefaultApi {
          * @param doSpamCheck  (optional)
          * @return APIsaveCommentsBulkRequest
          */
-        public APIsaveCommentsBulkRequest doSpamCheck(Boolean doSpamCheck) {
+        public APIsaveCommentsBulkRequest doSpamCheck(@javax.annotation.Nullable Boolean doSpamCheck) {
             this.doSpamCheck = doSpamCheck;
             return this;
         }
@@ -18595,7 +18912,7 @@ public class DefaultApi {
          * @param sendEmails  (optional)
          * @return APIsaveCommentsBulkRequest
          */
-        public APIsaveCommentsBulkRequest sendEmails(Boolean sendEmails) {
+        public APIsaveCommentsBulkRequest sendEmails(@javax.annotation.Nullable Boolean sendEmails) {
             this.sendEmails = sendEmails;
             return this;
         }
@@ -18605,7 +18922,7 @@ public class DefaultApi {
          * @param populateNotifications  (optional)
          * @return APIsaveCommentsBulkRequest
          */
-        public APIsaveCommentsBulkRequest populateNotifications(Boolean populateNotifications) {
+        public APIsaveCommentsBulkRequest populateNotifications(@javax.annotation.Nullable Boolean populateNotifications) {
             this.populateNotifications = populateNotifications;
             return this;
         }
@@ -18687,10 +19004,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIsaveCommentsBulkRequest saveCommentsBulk(String tenantId, List<CreateCommentParams> createCommentParams) {
+    public APIsaveCommentsBulkRequest saveCommentsBulk(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams) {
         return new APIsaveCommentsBulkRequest(tenantId, createCommentParams);
     }
-    private okhttp3.Call sendInviteCall(String tenantId, String id, String fromName, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendInviteCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18744,7 +19061,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendInviteValidateBeforeCall(String tenantId, String id, String fromName, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendInviteValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling sendInvite(Async)");
@@ -18765,13 +19082,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> sendInviteWithHttpInfo(String tenantId, String id, String fromName) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> sendInviteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName) throws ApiException {
         okhttp3.Call localVarCall = sendInviteValidateBeforeCall(tenantId, id, fromName, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call sendInviteAsync(String tenantId, String id, String fromName, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call sendInviteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = sendInviteValidateBeforeCall(tenantId, id, fromName, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -18780,11 +19097,14 @@ public class DefaultApi {
     }
 
     public class APIsendInviteRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final String fromName;
 
-        private APIsendInviteRequest(String tenantId, String id, String fromName) {
+        private APIsendInviteRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName) {
             this.tenantId = tenantId;
             this.id = id;
             this.fromName = fromName;
@@ -18868,10 +19188,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIsendInviteRequest sendInvite(String tenantId, String id, String fromName) {
+    public APIsendInviteRequest sendInvite(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName) {
         return new APIsendInviteRequest(tenantId, id, fromName);
     }
-    private okhttp3.Call sendLoginLinkCall(String tenantId, String id, String redirectURL, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendLoginLinkCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -18925,7 +19245,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendLoginLinkValidateBeforeCall(String tenantId, String id, String redirectURL, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendLoginLinkValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling sendLoginLink(Async)");
@@ -18941,13 +19261,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> sendLoginLinkWithHttpInfo(String tenantId, String id, String redirectURL) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> sendLoginLinkWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL) throws ApiException {
         okhttp3.Call localVarCall = sendLoginLinkValidateBeforeCall(tenantId, id, redirectURL, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call sendLoginLinkAsync(String tenantId, String id, String redirectURL, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call sendLoginLinkAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = sendLoginLinkValidateBeforeCall(tenantId, id, redirectURL, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -18956,11 +19276,14 @@ public class DefaultApi {
     }
 
     public class APIsendLoginLinkRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String redirectURL;
 
-        private APIsendLoginLinkRequest(String tenantId, String id) {
+        private APIsendLoginLinkRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -18970,7 +19293,7 @@ public class DefaultApi {
          * @param redirectURL  (optional)
          * @return APIsendLoginLinkRequest
          */
-        public APIsendLoginLinkRequest redirectURL(String redirectURL) {
+        public APIsendLoginLinkRequest redirectURL(@javax.annotation.Nullable String redirectURL) {
             this.redirectURL = redirectURL;
             return this;
         }
@@ -19052,10 +19375,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIsendLoginLinkRequest sendLoginLink(String tenantId, String id) {
+    public APIsendLoginLinkRequest sendLoginLink(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIsendLoginLinkRequest(tenantId, id);
     }
-    private okhttp3.Call unBlockUserFromCommentCall(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unBlockUserFromCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19114,7 +19437,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call unBlockUserFromCommentValidateBeforeCall(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unBlockUserFromCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling unBlockUserFromComment(Async)");
@@ -19135,13 +19458,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UnBlockCommentPublic200Response> unBlockUserFromCommentWithHttpInfo(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<UnBlockCommentPublic200Response> unBlockUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = unBlockUserFromCommentValidateBeforeCall(tenantId, id, unBlockFromCommentParams, userId, anonUserId, null);
         Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call unBlockUserFromCommentAsync(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams, String userId, String anonUserId, final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call unBlockUserFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unBlockUserFromCommentValidateBeforeCall(tenantId, id, unBlockFromCommentParams, userId, anonUserId, _callback);
         Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
@@ -19150,13 +19473,18 @@ public class DefaultApi {
     }
 
     public class APIunBlockUserFromCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UnBlockFromCommentParams unBlockFromCommentParams;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String anonUserId;
 
-        private APIunBlockUserFromCommentRequest(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams) {
+        private APIunBlockUserFromCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams) {
             this.tenantId = tenantId;
             this.id = id;
             this.unBlockFromCommentParams = unBlockFromCommentParams;
@@ -19167,7 +19495,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIunBlockUserFromCommentRequest
          */
-        public APIunBlockUserFromCommentRequest userId(String userId) {
+        public APIunBlockUserFromCommentRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -19177,7 +19505,7 @@ public class DefaultApi {
          * @param anonUserId  (optional)
          * @return APIunBlockUserFromCommentRequest
          */
-        public APIunBlockUserFromCommentRequest anonUserId(String anonUserId) {
+        public APIunBlockUserFromCommentRequest anonUserId(@javax.annotation.Nullable String anonUserId) {
             this.anonUserId = anonUserId;
             return this;
         }
@@ -19260,10 +19588,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIunBlockUserFromCommentRequest unBlockUserFromComment(String tenantId, String id, UnBlockFromCommentParams unBlockFromCommentParams) {
+    public APIunBlockUserFromCommentRequest unBlockUserFromComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams) {
         return new APIunBlockUserFromCommentRequest(tenantId, id, unBlockFromCommentParams);
     }
-    private okhttp3.Call unFlagCommentCall(String tenantId, String id, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unFlagCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19321,7 +19649,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call unFlagCommentValidateBeforeCall(String tenantId, String id, String userId, String anonUserId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call unFlagCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling unFlagComment(Async)");
@@ -19337,13 +19665,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagComment200Response> unFlagCommentWithHttpInfo(String tenantId, String id, String userId, String anonUserId) throws ApiException {
+    private ApiResponse<FlagComment200Response> unFlagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = unFlagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, null);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call unFlagCommentAsync(String tenantId, String id, String userId, String anonUserId, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unFlagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unFlagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, _callback);
         Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
@@ -19352,12 +19680,16 @@ public class DefaultApi {
     }
 
     public class APIunFlagCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
         private String userId;
+        @javax.annotation.Nullable
         private String anonUserId;
 
-        private APIunFlagCommentRequest(String tenantId, String id) {
+        private APIunFlagCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.id = id;
         }
@@ -19367,7 +19699,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIunFlagCommentRequest
          */
-        public APIunFlagCommentRequest userId(String userId) {
+        public APIunFlagCommentRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -19377,7 +19709,7 @@ public class DefaultApi {
          * @param anonUserId  (optional)
          * @return APIunFlagCommentRequest
          */
-        public APIunFlagCommentRequest anonUserId(String anonUserId) {
+        public APIunFlagCommentRequest anonUserId(@javax.annotation.Nullable String anonUserId) {
             this.anonUserId = anonUserId;
             return this;
         }
@@ -19459,10 +19791,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIunFlagCommentRequest unFlagComment(String tenantId, String id) {
+    public APIunFlagCommentRequest unFlagComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIunFlagCommentRequest(tenantId, id);
     }
-    private okhttp3.Call updateCommentCall(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19525,7 +19857,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateCommentValidateBeforeCall(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateComment(Async)");
@@ -19546,13 +19878,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateCommentWithHttpInfo(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive) throws ApiException {
         okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateCommentAsync(String tenantId, String id, UpdatableCommentParams updatableCommentParams, String contextUserId, Boolean doSpamCheck, Boolean isLive, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -19561,14 +19893,20 @@ public class DefaultApi {
     }
 
     public class APIupdateCommentRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdatableCommentParams updatableCommentParams;
+        @javax.annotation.Nullable
         private String contextUserId;
+        @javax.annotation.Nullable
         private Boolean doSpamCheck;
+        @javax.annotation.Nullable
         private Boolean isLive;
 
-        private APIupdateCommentRequest(String tenantId, String id, UpdatableCommentParams updatableCommentParams) {
+        private APIupdateCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams) {
             this.tenantId = tenantId;
             this.id = id;
             this.updatableCommentParams = updatableCommentParams;
@@ -19579,7 +19917,7 @@ public class DefaultApi {
          * @param contextUserId  (optional)
          * @return APIupdateCommentRequest
          */
-        public APIupdateCommentRequest contextUserId(String contextUserId) {
+        public APIupdateCommentRequest contextUserId(@javax.annotation.Nullable String contextUserId) {
             this.contextUserId = contextUserId;
             return this;
         }
@@ -19589,7 +19927,7 @@ public class DefaultApi {
          * @param doSpamCheck  (optional)
          * @return APIupdateCommentRequest
          */
-        public APIupdateCommentRequest doSpamCheck(Boolean doSpamCheck) {
+        public APIupdateCommentRequest doSpamCheck(@javax.annotation.Nullable Boolean doSpamCheck) {
             this.doSpamCheck = doSpamCheck;
             return this;
         }
@@ -19599,7 +19937,7 @@ public class DefaultApi {
          * @param isLive  (optional)
          * @return APIupdateCommentRequest
          */
-        public APIupdateCommentRequest isLive(Boolean isLive) {
+        public APIupdateCommentRequest isLive(@javax.annotation.Nullable Boolean isLive) {
             this.isLive = isLive;
             return this;
         }
@@ -19682,10 +20020,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateCommentRequest updateComment(String tenantId, String id, UpdatableCommentParams updatableCommentParams) {
+    public APIupdateCommentRequest updateComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams) {
         return new APIupdateCommentRequest(tenantId, id, updatableCommentParams);
     }
-    private okhttp3.Call updateEmailTemplateCall(String tenantId, String id, UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateEmailTemplateCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19736,7 +20074,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateEmailTemplateValidateBeforeCall(String tenantId, String id, UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateEmailTemplateValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateEmailTemplate(Async)");
@@ -19757,13 +20095,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateEmailTemplateWithHttpInfo(String tenantId, String id, UpdateEmailTemplateBody updateEmailTemplateBody) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody) throws ApiException {
         okhttp3.Call localVarCall = updateEmailTemplateValidateBeforeCall(tenantId, id, updateEmailTemplateBody, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateEmailTemplateAsync(String tenantId, String id, UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateEmailTemplateValidateBeforeCall(tenantId, id, updateEmailTemplateBody, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -19772,11 +20110,14 @@ public class DefaultApi {
     }
 
     public class APIupdateEmailTemplateRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateEmailTemplateBody updateEmailTemplateBody;
 
-        private APIupdateEmailTemplateRequest(String tenantId, String id, UpdateEmailTemplateBody updateEmailTemplateBody) {
+        private APIupdateEmailTemplateRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateEmailTemplateBody = updateEmailTemplateBody;
@@ -19860,10 +20201,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateEmailTemplateRequest updateEmailTemplate(String tenantId, String id, UpdateEmailTemplateBody updateEmailTemplateBody) {
+    public APIupdateEmailTemplateRequest updateEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody) {
         return new APIupdateEmailTemplateRequest(tenantId, id, updateEmailTemplateBody);
     }
-    private okhttp3.Call updateFeedPostCall(String tenantId, String id, FeedPost feedPost, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateFeedPostCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -19914,7 +20255,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateFeedPostValidateBeforeCall(String tenantId, String id, FeedPost feedPost, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateFeedPostValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateFeedPost(Async)");
@@ -19935,13 +20276,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateFeedPostWithHttpInfo(String tenantId, String id, FeedPost feedPost) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateFeedPostWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost) throws ApiException {
         okhttp3.Call localVarCall = updateFeedPostValidateBeforeCall(tenantId, id, feedPost, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateFeedPostAsync(String tenantId, String id, FeedPost feedPost, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateFeedPostAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateFeedPostValidateBeforeCall(tenantId, id, feedPost, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -19950,11 +20291,14 @@ public class DefaultApi {
     }
 
     public class APIupdateFeedPostRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final FeedPost feedPost;
 
-        private APIupdateFeedPostRequest(String tenantId, String id, FeedPost feedPost) {
+        private APIupdateFeedPostRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost) {
             this.tenantId = tenantId;
             this.id = id;
             this.feedPost = feedPost;
@@ -20038,10 +20382,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateFeedPostRequest updateFeedPost(String tenantId, String id, FeedPost feedPost) {
+    public APIupdateFeedPostRequest updateFeedPost(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost) {
         return new APIupdateFeedPostRequest(tenantId, id, feedPost);
     }
-    private okhttp3.Call updateModeratorCall(String tenantId, String id, UpdateModeratorBody updateModeratorBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateModeratorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20092,7 +20436,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateModeratorValidateBeforeCall(String tenantId, String id, UpdateModeratorBody updateModeratorBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateModeratorValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateModerator(Async)");
@@ -20113,13 +20457,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateModeratorWithHttpInfo(String tenantId, String id, UpdateModeratorBody updateModeratorBody) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody) throws ApiException {
         okhttp3.Call localVarCall = updateModeratorValidateBeforeCall(tenantId, id, updateModeratorBody, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateModeratorAsync(String tenantId, String id, UpdateModeratorBody updateModeratorBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateModeratorValidateBeforeCall(tenantId, id, updateModeratorBody, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -20128,11 +20472,14 @@ public class DefaultApi {
     }
 
     public class APIupdateModeratorRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateModeratorBody updateModeratorBody;
 
-        private APIupdateModeratorRequest(String tenantId, String id, UpdateModeratorBody updateModeratorBody) {
+        private APIupdateModeratorRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateModeratorBody = updateModeratorBody;
@@ -20216,10 +20563,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateModeratorRequest updateModerator(String tenantId, String id, UpdateModeratorBody updateModeratorBody) {
+    public APIupdateModeratorRequest updateModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody) {
         return new APIupdateModeratorRequest(tenantId, id, updateModeratorBody);
     }
-    private okhttp3.Call updateNotificationCall(String tenantId, String id, UpdateNotificationBody updateNotificationBody, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateNotificationCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20274,7 +20621,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateNotificationValidateBeforeCall(String tenantId, String id, UpdateNotificationBody updateNotificationBody, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateNotificationValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateNotification(Async)");
@@ -20295,13 +20642,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateNotificationWithHttpInfo(String tenantId, String id, UpdateNotificationBody updateNotificationBody, String userId) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateNotificationWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId) throws ApiException {
         okhttp3.Call localVarCall = updateNotificationValidateBeforeCall(tenantId, id, updateNotificationBody, userId, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateNotificationAsync(String tenantId, String id, UpdateNotificationBody updateNotificationBody, String userId, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateNotificationAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateNotificationValidateBeforeCall(tenantId, id, updateNotificationBody, userId, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -20310,12 +20657,16 @@ public class DefaultApi {
     }
 
     public class APIupdateNotificationRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateNotificationBody updateNotificationBody;
+        @javax.annotation.Nullable
         private String userId;
 
-        private APIupdateNotificationRequest(String tenantId, String id, UpdateNotificationBody updateNotificationBody) {
+        private APIupdateNotificationRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateNotificationBody = updateNotificationBody;
@@ -20326,7 +20677,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIupdateNotificationRequest
          */
-        public APIupdateNotificationRequest userId(String userId) {
+        public APIupdateNotificationRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -20409,10 +20760,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateNotificationRequest updateNotification(String tenantId, String id, UpdateNotificationBody updateNotificationBody) {
+    public APIupdateNotificationRequest updateNotification(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody) {
         return new APIupdateNotificationRequest(tenantId, id, updateNotificationBody);
     }
-    private okhttp3.Call updateQuestionConfigCall(String tenantId, String id, UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateQuestionConfigCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20463,7 +20814,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateQuestionConfigValidateBeforeCall(String tenantId, String id, UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateQuestionConfigValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateQuestionConfig(Async)");
@@ -20484,13 +20835,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateQuestionConfigWithHttpInfo(String tenantId, String id, UpdateQuestionConfigBody updateQuestionConfigBody) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody) throws ApiException {
         okhttp3.Call localVarCall = updateQuestionConfigValidateBeforeCall(tenantId, id, updateQuestionConfigBody, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateQuestionConfigAsync(String tenantId, String id, UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateQuestionConfigValidateBeforeCall(tenantId, id, updateQuestionConfigBody, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -20499,11 +20850,14 @@ public class DefaultApi {
     }
 
     public class APIupdateQuestionConfigRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateQuestionConfigBody updateQuestionConfigBody;
 
-        private APIupdateQuestionConfigRequest(String tenantId, String id, UpdateQuestionConfigBody updateQuestionConfigBody) {
+        private APIupdateQuestionConfigRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateQuestionConfigBody = updateQuestionConfigBody;
@@ -20587,10 +20941,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateQuestionConfigRequest updateQuestionConfig(String tenantId, String id, UpdateQuestionConfigBody updateQuestionConfigBody) {
+    public APIupdateQuestionConfigRequest updateQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody) {
         return new APIupdateQuestionConfigRequest(tenantId, id, updateQuestionConfigBody);
     }
-    private okhttp3.Call updateQuestionResultCall(String tenantId, String id, UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateQuestionResultCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20641,7 +20995,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateQuestionResultValidateBeforeCall(String tenantId, String id, UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateQuestionResultValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateQuestionResult(Async)");
@@ -20662,13 +21016,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateQuestionResultWithHttpInfo(String tenantId, String id, UpdateQuestionResultBody updateQuestionResultBody) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody) throws ApiException {
         okhttp3.Call localVarCall = updateQuestionResultValidateBeforeCall(tenantId, id, updateQuestionResultBody, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateQuestionResultAsync(String tenantId, String id, UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateQuestionResultValidateBeforeCall(tenantId, id, updateQuestionResultBody, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -20677,11 +21031,14 @@ public class DefaultApi {
     }
 
     public class APIupdateQuestionResultRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateQuestionResultBody updateQuestionResultBody;
 
-        private APIupdateQuestionResultRequest(String tenantId, String id, UpdateQuestionResultBody updateQuestionResultBody) {
+        private APIupdateQuestionResultRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateQuestionResultBody = updateQuestionResultBody;
@@ -20765,10 +21122,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateQuestionResultRequest updateQuestionResult(String tenantId, String id, UpdateQuestionResultBody updateQuestionResultBody) {
+    public APIupdateQuestionResultRequest updateQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody) {
         return new APIupdateQuestionResultRequest(tenantId, id, updateQuestionResultBody);
     }
-    private okhttp3.Call updateSubscriptionCall(String tenantId, String id, UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateSubscriptionCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -20823,7 +21180,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateSubscriptionValidateBeforeCall(String tenantId, String id, UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, String userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateSubscriptionValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, @javax.annotation.Nullable String userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateSubscription(Async)");
@@ -20844,13 +21201,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UpdateSubscriptionAPIResponse> updateSubscriptionWithHttpInfo(String tenantId, String id, UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, String userId) throws ApiException {
+    private ApiResponse<UpdateSubscriptionAPIResponse> updateSubscriptionWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, @javax.annotation.Nullable String userId) throws ApiException {
         okhttp3.Call localVarCall = updateSubscriptionValidateBeforeCall(tenantId, id, updateAPIUserSubscriptionData, userId, null);
         Type localVarReturnType = new TypeToken<UpdateSubscriptionAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateSubscriptionAsync(String tenantId, String id, UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, String userId, final ApiCallback<UpdateSubscriptionAPIResponse> _callback) throws ApiException {
+    private okhttp3.Call updateSubscriptionAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData, @javax.annotation.Nullable String userId, final ApiCallback<UpdateSubscriptionAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateSubscriptionValidateBeforeCall(tenantId, id, updateAPIUserSubscriptionData, userId, _callback);
         Type localVarReturnType = new TypeToken<UpdateSubscriptionAPIResponse>(){}.getType();
@@ -20859,12 +21216,16 @@ public class DefaultApi {
     }
 
     public class APIupdateSubscriptionRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData;
+        @javax.annotation.Nullable
         private String userId;
 
-        private APIupdateSubscriptionRequest(String tenantId, String id, UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData) {
+        private APIupdateSubscriptionRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateAPIUserSubscriptionData = updateAPIUserSubscriptionData;
@@ -20875,7 +21236,7 @@ public class DefaultApi {
          * @param userId  (optional)
          * @return APIupdateSubscriptionRequest
          */
-        public APIupdateSubscriptionRequest userId(String userId) {
+        public APIupdateSubscriptionRequest userId(@javax.annotation.Nullable String userId) {
             this.userId = userId;
             return this;
         }
@@ -20958,10 +21319,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateSubscriptionRequest updateSubscription(String tenantId, String id, UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData) {
+    public APIupdateSubscriptionRequest updateSubscription(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIUserSubscriptionData updateAPIUserSubscriptionData) {
         return new APIupdateSubscriptionRequest(tenantId, id, updateAPIUserSubscriptionData);
     }
-    private okhttp3.Call updateTenantCall(String tenantId, String id, UpdateTenantBody updateTenantBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTenantCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21012,7 +21373,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTenantValidateBeforeCall(String tenantId, String id, UpdateTenantBody updateTenantBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTenantValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateTenant(Async)");
@@ -21033,13 +21394,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateTenantWithHttpInfo(String tenantId, String id, UpdateTenantBody updateTenantBody) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody) throws ApiException {
         okhttp3.Call localVarCall = updateTenantValidateBeforeCall(tenantId, id, updateTenantBody, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateTenantAsync(String tenantId, String id, UpdateTenantBody updateTenantBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantValidateBeforeCall(tenantId, id, updateTenantBody, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -21048,11 +21409,14 @@ public class DefaultApi {
     }
 
     public class APIupdateTenantRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateTenantBody updateTenantBody;
 
-        private APIupdateTenantRequest(String tenantId, String id, UpdateTenantBody updateTenantBody) {
+        private APIupdateTenantRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateTenantBody = updateTenantBody;
@@ -21136,10 +21500,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateTenantRequest updateTenant(String tenantId, String id, UpdateTenantBody updateTenantBody) {
+    public APIupdateTenantRequest updateTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody) {
         return new APIupdateTenantRequest(tenantId, id, updateTenantBody);
     }
-    private okhttp3.Call updateTenantPackageCall(String tenantId, String id, UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTenantPackageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21190,7 +21554,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTenantPackageValidateBeforeCall(String tenantId, String id, UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTenantPackageValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateTenantPackage(Async)");
@@ -21211,13 +21575,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateTenantPackageWithHttpInfo(String tenantId, String id, UpdateTenantPackageBody updateTenantPackageBody) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody) throws ApiException {
         okhttp3.Call localVarCall = updateTenantPackageValidateBeforeCall(tenantId, id, updateTenantPackageBody, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateTenantPackageAsync(String tenantId, String id, UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantPackageValidateBeforeCall(tenantId, id, updateTenantPackageBody, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -21226,11 +21590,14 @@ public class DefaultApi {
     }
 
     public class APIupdateTenantPackageRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateTenantPackageBody updateTenantPackageBody;
 
-        private APIupdateTenantPackageRequest(String tenantId, String id, UpdateTenantPackageBody updateTenantPackageBody) {
+        private APIupdateTenantPackageRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateTenantPackageBody = updateTenantPackageBody;
@@ -21314,10 +21681,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateTenantPackageRequest updateTenantPackage(String tenantId, String id, UpdateTenantPackageBody updateTenantPackageBody) {
+    public APIupdateTenantPackageRequest updateTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody) {
         return new APIupdateTenantPackageRequest(tenantId, id, updateTenantPackageBody);
     }
-    private okhttp3.Call updateTenantUserCall(String tenantId, String id, UpdateTenantUserBody updateTenantUserBody, String updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTenantUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21372,7 +21739,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTenantUserValidateBeforeCall(String tenantId, String id, UpdateTenantUserBody updateTenantUserBody, String updateComments, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTenantUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateTenantUser(Async)");
@@ -21393,13 +21760,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateTenantUserWithHttpInfo(String tenantId, String id, UpdateTenantUserBody updateTenantUserBody, String updateComments) throws ApiException {
+    private ApiResponse<FlagCommentPublic200Response> updateTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments) throws ApiException {
         okhttp3.Call localVarCall = updateTenantUserValidateBeforeCall(tenantId, id, updateTenantUserBody, updateComments, null);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateTenantUserAsync(String tenantId, String id, UpdateTenantUserBody updateTenantUserBody, String updateComments, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantUserValidateBeforeCall(tenantId, id, updateTenantUserBody, updateComments, _callback);
         Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
@@ -21408,12 +21775,16 @@ public class DefaultApi {
     }
 
     public class APIupdateTenantUserRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateTenantUserBody updateTenantUserBody;
+        @javax.annotation.Nullable
         private String updateComments;
 
-        private APIupdateTenantUserRequest(String tenantId, String id, UpdateTenantUserBody updateTenantUserBody) {
+        private APIupdateTenantUserRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateTenantUserBody = updateTenantUserBody;
@@ -21424,7 +21795,7 @@ public class DefaultApi {
          * @param updateComments  (optional)
          * @return APIupdateTenantUserRequest
          */
-        public APIupdateTenantUserRequest updateComments(String updateComments) {
+        public APIupdateTenantUserRequest updateComments(@javax.annotation.Nullable String updateComments) {
             this.updateComments = updateComments;
             return this;
         }
@@ -21507,10 +21878,10 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateTenantUserRequest updateTenantUser(String tenantId, String id, UpdateTenantUserBody updateTenantUserBody) {
+    public APIupdateTenantUserRequest updateTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody) {
         return new APIupdateTenantUserRequest(tenantId, id, updateTenantUserBody);
     }
-    private okhttp3.Call updateUserBadgeCall(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateUserBadgeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -21561,7 +21932,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserBadgeValidateBeforeCall(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateUserBadgeValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateUserBadge(Async)");
@@ -21582,13 +21953,13 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UpdateUserBadge200Response> updateUserBadgeWithHttpInfo(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams) throws ApiException {
+    private ApiResponse<UpdateUserBadge200Response> updateUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams) throws ApiException {
         okhttp3.Call localVarCall = updateUserBadgeValidateBeforeCall(tenantId, id, updateUserBadgeParams, null);
         Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateUserBadgeAsync(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call updateUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateUserBadgeValidateBeforeCall(tenantId, id, updateUserBadgeParams, _callback);
         Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
@@ -21597,11 +21968,14 @@ public class DefaultApi {
     }
 
     public class APIupdateUserBadgeRequest {
+        @javax.annotation.Nonnull
         private final String tenantId;
+        @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nonnull
         private final UpdateUserBadgeParams updateUserBadgeParams;
 
-        private APIupdateUserBadgeRequest(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams) {
+        private APIupdateUserBadgeRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams) {
             this.tenantId = tenantId;
             this.id = id;
             this.updateUserBadgeParams = updateUserBadgeParams;
@@ -21685,7 +22059,7 @@ public class DefaultApi {
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
      </table>
      */
-    public APIupdateUserBadgeRequest updateUserBadge(String tenantId, String id, UpdateUserBadgeParams updateUserBadgeParams) {
+    public APIupdateUserBadgeRequest updateUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams) {
         return new APIupdateUserBadgeRequest(tenantId, id, updateUserBadgeParams);
     }
 }

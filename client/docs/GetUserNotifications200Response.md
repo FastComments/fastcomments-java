@@ -8,12 +8,12 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**translations** | **Map&lt;String, String&gt;** | Construct a type with a set of properties K of type T |  [optional] |
-|**isSubscribed** | **Boolean** |  |  |
-|**hasMore** | **Boolean** |  |  |
-|**notifications** | [**List&lt;RenderableUserNotification&gt;**](RenderableUserNotification.md) |  |  |
+|**isSubscribed** | **Boolean** |  |  [optional] |
+|**hasMore** | **Boolean** |  |  [optional] |
+|**notifications** | [**List&lt;RenderableUserNotification&gt;**](RenderableUserNotification.md) |  |  [optional] |
 |**status** | **APIStatus** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**questionConfig** | [**QuestionConfig**](QuestionConfig.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**questionConfig** | [**QuestionConfig**](QuestionConfig.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

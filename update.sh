@@ -2,7 +2,7 @@
 
 rm -rvf ./client/src ./client/docs \
     && wget http://localhost:3001/js/swagger.json -O ./openapi.json \
-    && openapi-generator-cli generate \
+    && java -jar /home/winrid/dev/fastcomments/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate \
         -i ./openapi.json \
         -g java \
         -o ./client \
@@ -10,4 +10,4 @@ rm -rvf ./client/src ./client/docs \
         -c config.json
 
 # Change to the desired Gradle version
-sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-8.5-bin.zip|' ./client/gradle/wrapper/gradle-wrapper.properties
+sed -i 's|distributionUrl=.*|distributionUrl=https\\://services.gradle.org/distributions/gradle-9.4.1-bin.zip|' ./client/gradle/wrapper/gradle-wrapper.properties

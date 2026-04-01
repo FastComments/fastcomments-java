@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * QuestionDatum
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class QuestionDatum {
   public static final String SERIALIZED_NAME_V = "v";
   @SerializedName(SERIALIZED_NAME_V)
@@ -157,14 +157,10 @@ public class QuestionDatum {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("v");
-    openapiFields.add("total");
+    openapiFields = new HashSet<String>(Arrays.asList("v", "total"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("v");
-    openapiRequiredFields.add("total");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("v", "total"));
   }
 
   /**
@@ -176,7 +172,7 @@ public class QuestionDatum {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!QuestionDatum.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in QuestionDatum is not found in the empty JSON string", QuestionDatum.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in QuestionDatum is not found in the empty JSON string", QuestionDatum.openapiRequiredFields.toString()));
         }
       }
 
@@ -184,14 +180,14 @@ public class QuestionDatum {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!QuestionDatum.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `QuestionDatum` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `QuestionDatum` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : QuestionDatum.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

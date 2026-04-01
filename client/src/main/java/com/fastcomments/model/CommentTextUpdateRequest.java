@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentTextUpdateRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class CommentTextUpdateRequest {
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
@@ -193,14 +193,10 @@ public class CommentTextUpdateRequest {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("comment");
-    openapiFields.add("mentions");
-    openapiFields.add("hashTags");
+    openapiFields = new HashSet<String>(Arrays.asList("comment", "mentions", "hashTags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("comment");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("comment"));
   }
 
   /**
@@ -212,7 +208,7 @@ public class CommentTextUpdateRequest {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CommentTextUpdateRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CommentTextUpdateRequest is not found in the empty JSON string", CommentTextUpdateRequest.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CommentTextUpdateRequest is not found in the empty JSON string", CommentTextUpdateRequest.openapiRequiredFields.toString()));
         }
       }
 
@@ -220,26 +216,26 @@ public class CommentTextUpdateRequest {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CommentTextUpdateRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CommentTextUpdateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CommentTextUpdateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CommentTextUpdateRequest.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
       if (jsonObj.get("mentions") != null && !jsonObj.get("mentions").isJsonNull()) {
         JsonArray jsonArraymentions = jsonObj.getAsJsonArray("mentions");
         if (jsonArraymentions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("mentions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `mentions` to be an array in the JSON string but got `%s`", jsonObj.get("mentions").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mentions` to be an array in the JSON string but got `%s`", jsonObj.get("mentions").toString()));
           }
 
           // validate the optional field `mentions` (array)
@@ -253,7 +249,7 @@ public class CommentTextUpdateRequest {
         if (jsonArrayhashTags != null) {
           // ensure the json data is an array
           if (!jsonObj.get("hashTags").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `hashTags` to be an array in the JSON string but got `%s`", jsonObj.get("hashTags").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hashTags` to be an array in the JSON string but got `%s`", jsonObj.get("hashTags").toString()));
           }
 
           // validate the optional field `hashTags` (array)

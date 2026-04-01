@@ -8,10 +8,10 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**commentText** | **String** |  |  |
-|**sanitizedCommentText** | **String** |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**commentText** | **String** |  |  [optional] |
+|**sanitizedCommentText** | **String** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

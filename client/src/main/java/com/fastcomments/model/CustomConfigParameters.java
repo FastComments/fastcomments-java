@@ -68,7 +68,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CustomConfigParameters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class CustomConfigParameters {
   public static final String SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES = "absoluteAndRelativeDates";
   @SerializedName(SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES)
@@ -2313,93 +2313,10 @@ public class CustomConfigParameters {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("absoluteAndRelativeDates");
-    openapiFields.add("absoluteDates");
-    openapiFields.add("allowAnon");
-    openapiFields.add("allowAnonFlag");
-    openapiFields.add("allowAnonVotes");
-    openapiFields.add("allowedLanguages");
-    openapiFields.add("collapseReplies");
-    openapiFields.add("commentCountFormat");
-    openapiFields.add("commentHTMLRenderingMode");
-    openapiFields.add("commentThreadDeleteMode");
-    openapiFields.add("commenterNameFormat");
-    openapiFields.add("countAboveToggle");
-    openapiFields.add("customCSS");
-    openapiFields.add("defaultAvatarSrc");
-    openapiFields.add("defaultSortDirection");
-    openapiFields.add("defaultUsername");
-    openapiFields.add("disableAutoAdminMigration");
-    openapiFields.add("disableAutoHashTagCreation");
-    openapiFields.add("disableBlocking");
-    openapiFields.add("disableCommenterCommentDelete");
-    openapiFields.add("disableCommenterCommentEdit");
-    openapiFields.add("disableEmailInputs");
-    openapiFields.add("disableLiveCommenting");
-    openapiFields.add("disableNotificationBell");
-    openapiFields.add("disableProfileComments");
-    openapiFields.add("disableProfileDirectMessages");
-    openapiFields.add("disableProfiles");
-    openapiFields.add("disableSuccessMessage");
-    openapiFields.add("disableToolbar");
-    openapiFields.add("disableUnverifiedLabel");
-    openapiFields.add("disableVoting");
-    openapiFields.add("enableCommenterLinks");
-    openapiFields.add("enableSearch");
-    openapiFields.add("enableSpoilers");
-    openapiFields.add("enableThirdPartyCookieBypass");
-    openapiFields.add("enableViewCounts");
-    openapiFields.add("enableVoteList");
-    openapiFields.add("enableWYSIWYG");
-    openapiFields.add("gifRating");
-    openapiFields.add("hasDarkBackground");
-    openapiFields.add("headerHTML");
-    openapiFields.add("hideAvatars");
-    openapiFields.add("hideCommentsUnderCountTextFormat");
-    openapiFields.add("imageContentProfanityLevel");
-    openapiFields.add("inputAfterComments");
-    openapiFields.add("limitCommentsByGroups");
-    openapiFields.add("locale");
-    openapiFields.add("maxCommentCharacterLength");
-    openapiFields.add("maxCommentCreatedCountPUPM");
-    openapiFields.add("noCustomConfig");
-    openapiFields.add("mentionAutoCompleteMode");
-    openapiFields.add("noImageUploads");
-    openapiFields.add("noStyles");
-    openapiFields.add("pageSize");
-    openapiFields.add("readonly");
-    openapiFields.add("noNewRootComments");
-    openapiFields.add("requireSSO");
-    openapiFields.add("enableResizeHandle");
-    openapiFields.add("restrictedLinkDomains");
-    openapiFields.add("showBadgesInTopBar");
-    openapiFields.add("showCommentSaveSuccess");
-    openapiFields.add("showLiveRightAway");
-    openapiFields.add("showQuestion");
-    openapiFields.add("spamRules");
-    openapiFields.add("ssoSecLvl");
-    openapiFields.add("translations");
-    openapiFields.add("useShowCommentsToggle");
-    openapiFields.add("useSingleLineCommentInput");
-    openapiFields.add("voteStyle");
-    openapiFields.add("widgetQuestionId");
-    openapiFields.add("widgetQuestionResultsStyle");
-    openapiFields.add("widgetQuestionShowBreakdown");
-    openapiFields.add("widgetQuestionStyle");
-    openapiFields.add("widgetQuestionWhenToSave");
-    openapiFields.add("widgetQuestionsRequired");
-    openapiFields.add("widgetSubQuestionVisibility");
-    openapiFields.add("wrap");
-    openapiFields.add("ticketBaseUrl");
-    openapiFields.add("ticketKBSearchEndpoint");
-    openapiFields.add("ticketFileUploadsEnabled");
-    openapiFields.add("ticketMaxFileSize");
-    openapiFields.add("ticketAutoAssignUserIds");
-    openapiFields.add("tos");
+    openapiFields = new HashSet<String>(Arrays.asList("absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -2411,7 +2328,7 @@ public class CustomConfigParameters {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CustomConfigParameters.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomConfigParameters is not found in the empty JSON string", CustomConfigParameters.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CustomConfigParameters is not found in the empty JSON string", CustomConfigParameters.openapiRequiredFields.toString()));
         }
       }
 
@@ -2419,16 +2336,16 @@ public class CustomConfigParameters {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomConfigParameters.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomConfigParameters` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomConfigParameters` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowedLanguages") != null && !jsonObj.get("allowedLanguages").isJsonNull() && !jsonObj.get("allowedLanguages").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowedLanguages` to be an array in the JSON string but got `%s`", jsonObj.get("allowedLanguages").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowedLanguages` to be an array in the JSON string but got `%s`", jsonObj.get("allowedLanguages").toString()));
       }
       if ((jsonObj.get("commentCountFormat") != null && !jsonObj.get("commentCountFormat").isJsonNull()) && !jsonObj.get("commentCountFormat").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commentCountFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentCountFormat").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commentCountFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentCountFormat").toString()));
       }
       // validate the optional field `commentHTMLRenderingMode`
       if (jsonObj.get("commentHTMLRenderingMode") != null && !jsonObj.get("commentHTMLRenderingMode").isJsonNull()) {
@@ -2443,34 +2360,34 @@ public class CustomConfigParameters {
         CommenterNameFormats.validateJsonElement(jsonObj.get("commenterNameFormat"));
       }
       if ((jsonObj.get("customCSS") != null && !jsonObj.get("customCSS").isJsonNull()) && !jsonObj.get("customCSS").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customCSS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customCSS").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customCSS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customCSS").toString()));
       }
       if ((jsonObj.get("defaultAvatarSrc") != null && !jsonObj.get("defaultAvatarSrc").isJsonNull()) && !jsonObj.get("defaultAvatarSrc").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `defaultAvatarSrc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultAvatarSrc").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `defaultAvatarSrc` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultAvatarSrc").toString()));
       }
       // validate the optional field `defaultSortDirection`
       if (jsonObj.get("defaultSortDirection") != null && !jsonObj.get("defaultSortDirection").isJsonNull()) {
         SortDirections.validateJsonElement(jsonObj.get("defaultSortDirection"));
       }
       if ((jsonObj.get("defaultUsername") != null && !jsonObj.get("defaultUsername").isJsonNull()) && !jsonObj.get("defaultUsername").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `defaultUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultUsername").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `defaultUsername` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultUsername").toString()));
       }
       // validate the optional field `gifRating`
       if (jsonObj.get("gifRating") != null && !jsonObj.get("gifRating").isJsonNull()) {
         GifRating.validateJsonElement(jsonObj.get("gifRating"));
       }
       if ((jsonObj.get("headerHTML") != null && !jsonObj.get("headerHTML").isJsonNull()) && !jsonObj.get("headerHTML").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `headerHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("headerHTML").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `headerHTML` to be a primitive type in the JSON string but got `%s`", jsonObj.get("headerHTML").toString()));
       }
       if ((jsonObj.get("hideCommentsUnderCountTextFormat") != null && !jsonObj.get("hideCommentsUnderCountTextFormat").isJsonNull()) && !jsonObj.get("hideCommentsUnderCountTextFormat").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hideCommentsUnderCountTextFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hideCommentsUnderCountTextFormat").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hideCommentsUnderCountTextFormat` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hideCommentsUnderCountTextFormat").toString()));
       }
       // validate the optional field `imageContentProfanityLevel`
       if (jsonObj.get("imageContentProfanityLevel") != null && !jsonObj.get("imageContentProfanityLevel").isJsonNull()) {
         ImageContentProfanityLevel.validateJsonElement(jsonObj.get("imageContentProfanityLevel"));
       }
       if ((jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) && !jsonObj.get("locale").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
       }
       // validate the optional field `mentionAutoCompleteMode`
       if (jsonObj.get("mentionAutoCompleteMode") != null && !jsonObj.get("mentionAutoCompleteMode").isJsonNull()) {
@@ -2478,14 +2395,14 @@ public class CustomConfigParameters {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("restrictedLinkDomains") != null && !jsonObj.get("restrictedLinkDomains").isJsonNull() && !jsonObj.get("restrictedLinkDomains").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `restrictedLinkDomains` to be an array in the JSON string but got `%s`", jsonObj.get("restrictedLinkDomains").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `restrictedLinkDomains` to be an array in the JSON string but got `%s`", jsonObj.get("restrictedLinkDomains").toString()));
       }
       if (jsonObj.get("spamRules") != null && !jsonObj.get("spamRules").isJsonNull()) {
         JsonArray jsonArrayspamRules = jsonObj.getAsJsonArray("spamRules");
         if (jsonArrayspamRules != null) {
           // ensure the json data is an array
           if (!jsonObj.get("spamRules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `spamRules` to be an array in the JSON string but got `%s`", jsonObj.get("spamRules").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `spamRules` to be an array in the JSON string but got `%s`", jsonObj.get("spamRules").toString()));
           }
 
           // validate the optional field `spamRules` (array)
@@ -2503,7 +2420,7 @@ public class CustomConfigParameters {
         VoteStyle.validateJsonElement(jsonObj.get("voteStyle"));
       }
       if ((jsonObj.get("widgetQuestionId") != null && !jsonObj.get("widgetQuestionId").isJsonNull()) && !jsonObj.get("widgetQuestionId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `widgetQuestionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("widgetQuestionId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `widgetQuestionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("widgetQuestionId").toString()));
       }
       // validate the optional field `widgetQuestionResultsStyle`
       if (jsonObj.get("widgetQuestionResultsStyle") != null && !jsonObj.get("widgetQuestionResultsStyle").isJsonNull()) {
@@ -2526,14 +2443,14 @@ public class CustomConfigParameters {
         QuestionSubQuestionVisibility.validateJsonElement(jsonObj.get("widgetSubQuestionVisibility"));
       }
       if ((jsonObj.get("ticketBaseUrl") != null && !jsonObj.get("ticketBaseUrl").isJsonNull()) && !jsonObj.get("ticketBaseUrl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ticketBaseUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ticketBaseUrl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ticketBaseUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ticketBaseUrl").toString()));
       }
       if ((jsonObj.get("ticketKBSearchEndpoint") != null && !jsonObj.get("ticketKBSearchEndpoint").isJsonNull()) && !jsonObj.get("ticketKBSearchEndpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ticketKBSearchEndpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ticketKBSearchEndpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ticketKBSearchEndpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ticketKBSearchEndpoint").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("ticketAutoAssignUserIds") != null && !jsonObj.get("ticketAutoAssignUserIds").isJsonNull() && !jsonObj.get("ticketAutoAssignUserIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ticketAutoAssignUserIds` to be an array in the JSON string but got `%s`", jsonObj.get("ticketAutoAssignUserIds").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ticketAutoAssignUserIds` to be an array in the JSON string but got `%s`", jsonObj.get("ticketAutoAssignUserIds").toString()));
       }
       // validate the optional field `tos`
       if (jsonObj.get("tos") != null && !jsonObj.get("tos").isJsonNull()) {

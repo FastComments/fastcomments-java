@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * FCommentMeta
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class FCommentMeta {
   public static final String SERIALIZED_NAME_WP_ID = "wpId";
   @SerializedName(SERIALIZED_NAME_WP_ID)
@@ -219,13 +219,10 @@ public class FCommentMeta {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("wpId");
-    openapiFields.add("wpUserId");
-    openapiFields.add("wpPostId");
+    openapiFields = new HashSet<String>(Arrays.asList("wpId", "wpUserId", "wpPostId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -237,18 +234,18 @@ public class FCommentMeta {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FCommentMeta.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FCommentMeta is not found in the empty JSON string", FCommentMeta.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FCommentMeta is not found in the empty JSON string", FCommentMeta.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("wpId") != null && !jsonObj.get("wpId").isJsonNull()) && !jsonObj.get("wpId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wpId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wpId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpId").toString()));
       }
       if ((jsonObj.get("wpUserId") != null && !jsonObj.get("wpUserId").isJsonNull()) && !jsonObj.get("wpUserId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wpUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpUserId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wpUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpUserId").toString()));
       }
       if ((jsonObj.get("wpPostId") != null && !jsonObj.get("wpPostId").isJsonNull()) && !jsonObj.get("wpPostId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wpPostId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpPostId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wpPostId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wpPostId").toString()));
       }
   }
 
@@ -309,7 +306,7 @@ public class FCommentMeta {
                    else if (entry.getValue().getAsJsonPrimitive().isBoolean())
                      instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
                    else
-                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
                  } else if (entry.getValue().isJsonArray()) {
                      instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
                  } else { // JSON object

@@ -9,8 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**statusCode** | **Integer** |  |  [optional] |
 |**status** | **APIStatus** |  |  |
-|**code** | **String** |  |  |
-|**reason** | **String** |  |  |
+|**code** | **String** |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
 |**wasUnapproved** | **Boolean** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |

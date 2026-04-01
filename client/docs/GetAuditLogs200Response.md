@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**auditLogs** | [**List&lt;APIAuditLog&gt;**](APIAuditLog.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**auditLogs** | [**List&lt;APIAuditLog&gt;**](APIAuditLog.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

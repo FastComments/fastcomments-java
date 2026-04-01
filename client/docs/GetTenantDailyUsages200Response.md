@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**tenantDailyUsages** | [**List&lt;APITenantDailyUsage&gt;**](APITenantDailyUsage.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**tenantDailyUsages** | [**List&lt;APITenantDailyUsage&gt;**](APITenantDailyUsage.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

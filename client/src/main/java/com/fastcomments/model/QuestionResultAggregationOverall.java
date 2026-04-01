@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * QuestionResultAggregationOverall
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class QuestionResultAggregationOverall {
   public static final String SERIALIZED_NAME_DATA_BY_DATE_BUCKET = "dataByDateBucket";
   @SerializedName(SERIALIZED_NAME_DATA_BY_DATE_BUCKET)
@@ -279,18 +279,10 @@ public class QuestionResultAggregationOverall {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("dataByDateBucket");
-    openapiFields.add("dataByUrlId");
-    openapiFields.add("countsByValue");
-    openapiFields.add("total");
-    openapiFields.add("average");
-    openapiFields.add("createdAt");
+    openapiFields = new HashSet<String>(Arrays.asList("dataByDateBucket", "dataByUrlId", "countsByValue", "total", "average", "createdAt"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("createdAt");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("total", "createdAt"));
   }
 
   /**
@@ -302,7 +294,7 @@ public class QuestionResultAggregationOverall {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!QuestionResultAggregationOverall.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in QuestionResultAggregationOverall is not found in the empty JSON string", QuestionResultAggregationOverall.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in QuestionResultAggregationOverall is not found in the empty JSON string", QuestionResultAggregationOverall.openapiRequiredFields.toString()));
         }
       }
 
@@ -310,14 +302,14 @@ public class QuestionResultAggregationOverall {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!QuestionResultAggregationOverall.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `QuestionResultAggregationOverall` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `QuestionResultAggregationOverall` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : QuestionResultAggregationOverall.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

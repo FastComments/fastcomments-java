@@ -9,13 +9,13 @@
 |------------ | ------------- | ------------- | -------------|
 |**myReacts** | **Map&lt;String, Map&lt;String, Boolean&gt;&gt;** |  |  [optional] |
 |**status** | **APIStatus** |  |  |
-|**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  |
+|**feedPosts** | [**List&lt;FeedPost&gt;**](FeedPost.md) |  |  [optional] |
 |**user** | [**UserSessionInfo**](UserSessionInfo.md) |  |  [optional] |
 |**urlIdWS** | **String** |  |  [optional] |
 |**userIdWS** | **String** |  |  [optional] |
 |**tenantIdWS** | **String** |  |  [optional] |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

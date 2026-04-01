@@ -50,7 +50,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * PendingCommentToSyncOutbound
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.11.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class PendingCommentToSyncOutbound {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -435,34 +435,10 @@ public class PendingCommentToSyncOutbound {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("_id");
-    openapiFields.add("commentId");
-    openapiFields.add("comment");
-    openapiFields.add("externalId");
-    openapiFields.add("createdAt");
-    openapiFields.add("tenantId");
-    openapiFields.add("attemptCount");
-    openapiFields.add("nextAttemptAt");
-    openapiFields.add("eventType");
-    openapiFields.add("type");
-    openapiFields.add("domain");
-    openapiFields.add("lastError");
-    openapiFields.add("webhookId");
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "commentId", "comment", "externalId", "createdAt", "tenantId", "attemptCount", "nextAttemptAt", "eventType", "type", "domain", "lastError", "webhookId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("_id");
-    openapiRequiredFields.add("commentId");
-    openapiRequiredFields.add("externalId");
-    openapiRequiredFields.add("createdAt");
-    openapiRequiredFields.add("tenantId");
-    openapiRequiredFields.add("attemptCount");
-    openapiRequiredFields.add("nextAttemptAt");
-    openapiRequiredFields.add("eventType");
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("domain");
-    openapiRequiredFields.add("lastError");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "commentId", "externalId", "createdAt", "tenantId", "attemptCount", "nextAttemptAt", "eventType", "type", "domain", "lastError"));
   }
 
   /**
@@ -474,7 +450,7 @@ public class PendingCommentToSyncOutbound {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PendingCommentToSyncOutbound.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PendingCommentToSyncOutbound is not found in the empty JSON string", PendingCommentToSyncOutbound.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PendingCommentToSyncOutbound is not found in the empty JSON string", PendingCommentToSyncOutbound.openapiRequiredFields.toString()));
         }
       }
 
@@ -482,38 +458,38 @@ public class PendingCommentToSyncOutbound {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PendingCommentToSyncOutbound.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PendingCommentToSyncOutbound` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PendingCommentToSyncOutbound` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PendingCommentToSyncOutbound.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
       }
       if (!jsonObj.get("commentId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentId").toString()));
       }
       // validate the optional field `comment`
       if (jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) {
         FComment.validateJsonElement(jsonObj.get("comment"));
       }
       if ((jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonNull()) && !jsonObj.get("externalId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `externalId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("externalId").toString()));
       }
       if (!jsonObj.get("tenantId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
       if (!jsonObj.get("domain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain").toString()));
       }
       if ((jsonObj.get("webhookId") != null && !jsonObj.get("webhookId").isJsonNull()) && !jsonObj.get("webhookId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `webhookId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webhookId").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `webhookId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webhookId").toString()));
       }
   }
 

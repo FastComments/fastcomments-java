@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**questionResults** | [**List&lt;QuestionResult&gt;**](QuestionResult.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**questionResults** | [**List&lt;QuestionResult&gt;**](QuestionResult.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |

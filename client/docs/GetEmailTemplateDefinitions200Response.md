@@ -8,9 +8,9 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**status** | **APIStatus** |  |  |
-|**definitions** | [**List&lt;EmailTemplateDefinition&gt;**](EmailTemplateDefinition.md) |  |  |
-|**reason** | **String** |  |  |
-|**code** | **String** |  |  |
+|**definitions** | [**List&lt;EmailTemplateDefinition&gt;**](EmailTemplateDefinition.md) |  |  [optional] |
+|**reason** | **String** |  |  [optional] |
+|**code** | **String** |  |  [optional] |
 |**secondaryCode** | **String** |  |  [optional] |
 |**bannedUntil** | **Long** |  |  [optional] |
 |**maxCharacterLength** | **Integer** |  |  [optional] |
