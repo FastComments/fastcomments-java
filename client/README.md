@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>1.3.3</version>
+  <version>1.3.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:1.3.3"
+     implementation "com.fastcomments:client:1.3.4"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-1.3.3.jar`
+* `target/client-1.3.4.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
