@@ -9,7 +9,7 @@
   "openApiNullable": false,
   "library": "okhttp-gson",
   "serializationLibrary": "gson",
-  "disableStrictValidation": true,
+  "disallowAdditionalPropertiesIfNotPresent": false,
   "description": "FastComments API Client - A SDK for interacting with the FastComments API",
   "artifactDescription": "FastComments API Client - A SDK for interacting with the FastComments API",
   "artifactUrl": "https://fastcomments.com",
