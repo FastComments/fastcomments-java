@@ -218,6 +218,11 @@ public class LiveEventSubscriber {
         @Override
         public void onFailure(WebSocket webSocket, Throwable t, Response response) {
             System.err.println("FastComments: WebSocket error: " + t.getMessage());
+            if (response != null) {
+                System.err.println("FastComments: WebSocket error response code: " + response.code());
+                System.err.println("FastComments: WebSocket error response message: " + response.message());
+            }
+            t.printStackTrace();
 
             // Fetch missed events if we have a last event time
             if (lastEventTime > 0) {
