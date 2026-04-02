@@ -10,6 +10,7 @@ import okhttp3.*;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 /**
@@ -21,7 +22,10 @@ public class LiveEventSubscriber {
     private static final long RECONNECT_INTERVAL_BASE = 4000; // 4 seconds
 
     private static final Gson gson = new Gson();
-    private final OkHttpClient client = new OkHttpClient();
+    private final OkHttpClient client = new OkHttpClient.Builder()
+        .pingInterval(30, TimeUnit.SECONDS) // okhttp-level ws pings
+        .readTimeout(0, TimeUnit.SECONDS) // no read timeout for ws
+        .build();
 
     private final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
     private ConnectionStatusChangeCallback onConnectionStatusChange;
