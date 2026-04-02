@@ -20154,8 +20154,10 @@ components:
         after: after
       properties:
         after:
+          nullable: true
           type: string
         before:
+          nullable: true
           type: string
       required:
       - after

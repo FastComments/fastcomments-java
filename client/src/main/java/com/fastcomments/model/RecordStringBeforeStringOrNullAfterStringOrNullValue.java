@@ -52,18 +52,18 @@ import com.fastcomments.invoker.JSON;
 public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
   public static final String SERIALIZED_NAME_AFTER = "after";
   @SerializedName(SERIALIZED_NAME_AFTER)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String after;
 
   public static final String SERIALIZED_NAME_BEFORE = "before";
   @SerializedName(SERIALIZED_NAME_BEFORE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String before;
 
   public RecordStringBeforeStringOrNullAfterStringOrNullValue() {
   }
 
-  public RecordStringBeforeStringOrNullAfterStringOrNullValue after(@javax.annotation.Nonnull String after) {
+  public RecordStringBeforeStringOrNullAfterStringOrNullValue after(@javax.annotation.Nullable String after) {
     this.after = after;
     return this;
   }
@@ -72,17 +72,17 @@ public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
    * Get after
    * @return after
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getAfter() {
     return after;
   }
 
-  public void setAfter(@javax.annotation.Nonnull String after) {
+  public void setAfter(@javax.annotation.Nullable String after) {
     this.after = after;
   }
 
 
-  public RecordStringBeforeStringOrNullAfterStringOrNullValue before(@javax.annotation.Nonnull String before) {
+  public RecordStringBeforeStringOrNullAfterStringOrNullValue before(@javax.annotation.Nullable String before) {
     this.before = before;
     return this;
   }
@@ -91,12 +91,12 @@ public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
    * Get before
    * @return before
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getBefore() {
     return before;
   }
 
-  public void setBefore(@javax.annotation.Nonnull String before) {
+  public void setBefore(@javax.annotation.Nullable String before) {
     this.before = before;
   }
 
@@ -219,10 +219,10 @@ public class RecordStringBeforeStringOrNullAfterStringOrNullValue {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("after").isJsonPrimitive()) {
+      if ((jsonObj.get("after") != null && !jsonObj.get("after").isJsonNull()) && !jsonObj.get("after").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after").toString()));
       }
-      if (!jsonObj.get("before").isJsonPrimitive()) {
+      if ((jsonObj.get("before") != null && !jsonObj.get("before").isJsonNull()) && !jsonObj.get("before").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `before` to be a primitive type in the JSON string but got `%s`", jsonObj.get("before").toString()));
       }
   }

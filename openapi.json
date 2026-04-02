@@ -1995,10 +1995,12 @@
 				"additionalProperties": {
 					"properties": {
 						"after": {
-							"type": "string"
+							"type": "string",
+							"nullable": true
 						},
 						"before": {
-							"type": "string"
+							"type": "string",
+							"nullable": true
 						}
 					},
 					"required": [
