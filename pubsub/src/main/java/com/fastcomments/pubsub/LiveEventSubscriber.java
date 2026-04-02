@@ -18,13 +18,13 @@ import java.util.function.Consumer;
  */
 public class LiveEventSubscriber {
 
-    private static final long WEBSOCKET_PING_INTERVAL = 60000; // 60 seconds
     private static final long RECONNECT_INTERVAL_BASE = 4000; // 4 seconds
 
     private static final Gson gson = new Gson();
     private final OkHttpClient client = new OkHttpClient.Builder()
         .readTimeout(0, TimeUnit.SECONDS) // no read timeout for ws
-        .protocols(Collections.singletonList(Protocol.HTTP_1_1)) // having trouble w/ http/2 in emulators
+        .pingInterval(25, TimeUnit.SECONDS) // protocol-level WebSocket ping to keep NATs alive (emulators, silly networks, etc)
+        .protocols(Collections.singletonList(Protocol.HTTP_1_1)) // just skip negotiating, server is 1.1, reduces latency
         .connectionPool(new ConnectionPool(5, 5, TimeUnit.MINUTES)) // create our own connection pool so it doesn't get shared w/ another okhttpclient config
         .build();
 
@@ -135,7 +135,6 @@ public class LiveEventSubscriber {
         private final CanSeeCommentsCallback canSeeCommentsCallback;
         private final boolean[] isIntentionallyClosed;
         private final CommentWidgetConfig config;
-        private final Timer pingTimer = new Timer();
         private Timer reconnectTimer;
         private final String tenantId;
         private final String urlId;
@@ -165,18 +164,6 @@ public class LiveEventSubscriber {
                 webSocket.close(1000, "Intentionally closed");
                 return;
             }
-
-            // Setup ping timer to keep connection alive
-            pingTimer.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    try {
-                        webSocket.send("ping");
-                    } catch (Exception e) {
-                        // Ignore ping errors
-                    }
-                }
-            }, WEBSOCKET_PING_INTERVAL, WEBSOCKET_PING_INTERVAL);
 
             // Fetch missed events if we have a last event time
             if (lastEventTime > 0) {
@@ -248,9 +235,6 @@ public class LiveEventSubscriber {
         }
 
         private void cleanup() {
-            // Clean up ping timer
-            pingTimer.cancel();
-
             // Cancel any existing reconnect timer
             if (reconnectTimer != null) {
                 reconnectTimer.cancel();
