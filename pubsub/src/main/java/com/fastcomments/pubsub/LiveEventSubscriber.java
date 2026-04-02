@@ -20,16 +20,39 @@ public class LiveEventSubscriber {
 
     private static final long RECONNECT_INTERVAL_BASE = 4000; // 4 seconds
 
+    private static final long DEFAULT_PING_INTERVAL_SECONDS = 25;
+    private static final long TESTING_PING_INTERVAL_SECONDS = 5;
+
     private static final Gson gson = new Gson();
-    private final OkHttpClient client = new OkHttpClient.Builder()
-        .readTimeout(0, TimeUnit.SECONDS) // no read timeout for ws
-        .pingInterval(25, TimeUnit.SECONDS) // protocol-level WebSocket ping to keep NATs alive (emulators, silly networks, etc)
-        .protocols(Collections.singletonList(Protocol.HTTP_1_1)) // just skip negotiating, server is 1.1, reduces latency
-        .connectionPool(new ConnectionPool(5, 5, TimeUnit.MINUTES)) // create our own connection pool so it doesn't get shared w/ another okhttpclient config
-        .build();
+    private final OkHttpClient client;
 
     private final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
     private ConnectionStatusChangeCallback onConnectionStatusChange;
+
+    private static OkHttpClient buildClient(long pingIntervalSeconds) {
+        return new OkHttpClient.Builder()
+            .readTimeout(0, TimeUnit.SECONDS) // no read timeout for ws
+            .pingInterval(pingIntervalSeconds, TimeUnit.SECONDS) // protocol-level WebSocket ping to keep NATs alive (emulators, silly networks, etc)
+            .protocols(Collections.singletonList(Protocol.HTTP_1_1)) // just skip negotiating, server is 1.1, reduces latency
+            .connectionPool(new ConnectionPool(5, 5, TimeUnit.MINUTES)) // create our own connection pool so it doesn't get shared w/ another okhttpclient config
+            .build();
+    }
+
+    public LiveEventSubscriber() {
+        this.client = buildClient(DEFAULT_PING_INTERVAL_SECONDS);
+    }
+
+    private LiveEventSubscriber(long pingIntervalSeconds) {
+        this.client = buildClient(pingIntervalSeconds);
+    }
+
+    /**
+     * Creates a LiveEventSubscriber configured for testing with a 5s ping interval,
+     * useful for Android NAT environments where connections drop more aggressively.
+     */
+    public static LiveEventSubscriber createTesting() {
+        return new LiveEventSubscriber(TESTING_PING_INTERVAL_SECONDS);
+    }
     private long lastEventTime;
 
     /**

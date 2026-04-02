@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
 public class Configuration {
-  public static final String VERSION = "1.3.4";
+  public static final String VERSION = "1.3.5";
 
   private static final AtomicReference<ApiClient> defaultApiClient = new AtomicReference<>();
   private static volatile Supplier<ApiClient> apiClientFactory = ApiClient::new;
