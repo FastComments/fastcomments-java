@@ -23,8 +23,8 @@ public class LiveEventSubscriber {
 
     private static final Gson gson = new Gson();
     private final OkHttpClient client = new OkHttpClient.Builder()
-        .pingInterval(30, TimeUnit.SECONDS) // okhttp-level ws pings
         .readTimeout(0, TimeUnit.SECONDS) // no read timeout for ws
+        .connectionPool(new ConnectionPool(5, 5, TimeUnit.MINUTES)) // create our own connection pool so it doesn't get shared w/ another okhttpclient config
         .build();
 
     private final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
