@@ -24,6 +24,7 @@ public class LiveEventSubscriber {
     private static final Gson gson = new Gson();
     private final OkHttpClient client = new OkHttpClient.Builder()
         .readTimeout(0, TimeUnit.SECONDS) // no read timeout for ws
+        .protocols(Collections.singletonList(Protocol.HTTP_1_1)) // having trouble w/ http/2 in emulators
         .connectionPool(new ConnectionPool(5, 5, TimeUnit.MINUTES)) // create our own connection pool so it doesn't get shared w/ another okhttpclient config
         .build();
 
