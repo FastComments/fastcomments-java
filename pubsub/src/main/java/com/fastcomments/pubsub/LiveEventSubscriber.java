@@ -6,6 +6,8 @@ import com.fastcomments.invoker.ApiCallback;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.*;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializer;
 import okhttp3.*;
 
 import java.util.*;
@@ -23,7 +25,11 @@ public class LiveEventSubscriber {
     private static final long DEFAULT_PING_INTERVAL_SECONDS = 25;
     private static final long TESTING_PING_INTERVAL_SECONDS = 5;
 
-    private static final Gson gson = new Gson();
+    private static final Gson gson = new GsonBuilder()
+            .registerTypeAdapter(java.time.OffsetDateTime.class,
+                    (JsonDeserializer<java.time.OffsetDateTime>) (json, type, ctx) ->
+                            java.time.OffsetDateTime.parse(json.getAsString()))
+            .create();
     private final OkHttpClient client;
 
     private final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
@@ -435,7 +441,6 @@ public class LiveEventSubscriber {
                 String wsUrl = WS_HOST + "/sub" + "?urlId=" + urlIdWS +
                         "&userIdWS=" + userIdWS +
                         "&tenantIdWS=" + tenantIdWS;
-
                 // Create WebSocket listener
                 FastCommentsWebSocketListener listener = new FastCommentsWebSocketListener(
                         handleLiveEvent,
@@ -469,4 +474,5 @@ public class LiveEventSubscriber {
             return null;
         }
     }
+
 }
