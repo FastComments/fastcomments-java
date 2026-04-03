@@ -3,6 +3,7 @@ package com.fastcomments.pubsub;
 import com.fastcomments.api.PublicApi;
 import com.fastcomments.core.CommentWidgetConfig;
 import com.fastcomments.invoker.ApiCallback;
+import com.fastcomments.invoker.ApiClient;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.*;
 import com.google.gson.Gson;
@@ -30,6 +31,10 @@ public class LiveEventSubscriber {
                     (JsonDeserializer<java.time.OffsetDateTime>) (json, type, ctx) ->
                             java.time.OffsetDateTime.parse(json.getAsString()))
             .create();
+    private static final OkHttpClient httpClient = new OkHttpClient.Builder()
+        .connectionPool(new ConnectionPool(5, 5, TimeUnit.MINUTES))
+        .dispatcher(new Dispatcher())
+        .build();
     private final OkHttpClient client;
 
     private final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
@@ -41,6 +46,7 @@ public class LiveEventSubscriber {
             .pingInterval(pingIntervalSeconds, TimeUnit.SECONDS) // protocol-level WebSocket ping to keep NATs alive (emulators, silly networks, etc)
             .protocols(Collections.singletonList(Protocol.HTTP_1_1)) // just skip negotiating, server is 1.1, reduces latency
             .connectionPool(new ConnectionPool(5, 5, TimeUnit.MINUTES)) // create our own connection pool so it doesn't get shared w/ another okhttpclient config
+            .dispatcher(new Dispatcher())
             .build();
     }
 
@@ -325,8 +331,8 @@ public class LiveEventSubscriber {
             Consumer<List<LiveEvent>> callback
     ) {
         try {
-            // Create PublicApi instance
-            PublicApi publicApi = new PublicApi();
+            // Create PublicApi instance with its own HTTP client
+            PublicApi publicApi = new PublicApi(new ApiClient(httpClient));
 
             // Create API request
             PublicApi.APIgetEventLogRequest request =
