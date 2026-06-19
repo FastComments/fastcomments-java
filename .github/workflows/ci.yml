@@ -23,13 +23,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      # Run the core module's tests: this compiles the generated client (a dependency)
-      # and runs the hand-written SSO unit + integration tests, which are the real coverage.
+      # Run the core module's tests from the repo root (multi-module settings.gradle) so the
+      # generated client builds as a dependency and the hand-written SSO unit + integration
+      # tests run. Running from inside core/ resolves to the wrong (client) project.
       - name: Run tests
-        working-directory: core
         run: |
-          chmod +x gradlew
-          ./gradlew test --no-daemon
+          chmod +x core/gradlew
+          ./core/gradlew :core:test --no-daemon
         env:
           FASTCOMMENTS_API_KEY: ${{ secrets.FASTCOMMENTS_API_KEY }}
           FASTCOMMENTS_TENANT_ID: ${{ secrets.FASTCOMMENTS_TENANT_ID }}
