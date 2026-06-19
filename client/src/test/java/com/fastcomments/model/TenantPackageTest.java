@@ -73,6 +73,14 @@ public class TenantPackageTest {
     }
 
     /**
+     * Test the property 'templateId'
+     */
+    @Test
+    public void templateIdTest() {
+        // TODO: test templateId
+    }
+
+    /**
      * Test the property 'monthlyCostUSD'
      */
     @Test
@@ -486,6 +494,38 @@ public class TenantPackageTest {
     @Test
     public void isSSOBillingMonthlyActiveUsersTest() {
         // TODO: test isSSOBillingMonthlyActiveUsers
+    }
+
+    /**
+     * Test the property 'hasAIAgents'
+     */
+    @Test
+    public void hasAIAgentsTest() {
+        // TODO: test hasAIAgents
+    }
+
+    /**
+     * Test the property 'maxAIAgents'
+     */
+    @Test
+    public void maxAIAgentsTest() {
+        // TODO: test maxAIAgents
+    }
+
+    /**
+     * Test the property 'aiAgentDailyBudgetCents'
+     */
+    @Test
+    public void aiAgentDailyBudgetCentsTest() {
+        // TODO: test aiAgentDailyBudgetCents
+    }
+
+    /**
+     * Test the property 'aiAgentMonthlyBudgetCents'
+     */
+    @Test
+    public void aiAgentMonthlyBudgetCentsTest() {
+        // TODO: test aiAgentMonthlyBudgetCents
     }
 
 }

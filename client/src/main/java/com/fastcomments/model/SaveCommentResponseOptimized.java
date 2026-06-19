@@ -53,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SaveCommentResponseOptimized
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class SaveCommentResponseOptimized {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -200,10 +200,7 @@ public class SaveCommentResponseOptimized {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -250,8 +247,10 @@ public class SaveCommentResponseOptimized {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // validate the required field `comment`
       PublicComment.validateJsonElement(jsonObj.get("comment"));
+      if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

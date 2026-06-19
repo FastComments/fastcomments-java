@@ -48,7 +48,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * ReactBodyParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class ReactBodyParams {
   public static final String SERIALIZED_NAME_REACT_TYPE = "reactType";
   @SerializedName(SERIALIZED_NAME_REACT_TYPE)
@@ -109,10 +109,7 @@ public class ReactBodyParams {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

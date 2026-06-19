@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * TenantPackage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class TenantPackage {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -72,6 +72,11 @@ public class TenantPackage {
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_ID = "templateId";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_ID)
+  @javax.annotation.Nullable
+  private String templateId;
 
   public static final String SERIALIZED_NAME_MONTHLY_COST_U_S_D = "monthlyCostUSD";
   @SerializedName(SERIALIZED_NAME_MONTHLY_COST_U_S_D)
@@ -333,6 +338,26 @@ public class TenantPackage {
   @javax.annotation.Nullable
   private Boolean isSSOBillingMonthlyActiveUsers;
 
+  public static final String SERIALIZED_NAME_HAS_A_I_AGENTS = "hasAIAgents";
+  @SerializedName(SERIALIZED_NAME_HAS_A_I_AGENTS)
+  @javax.annotation.Nullable
+  private Boolean hasAIAgents;
+
+  public static final String SERIALIZED_NAME_MAX_A_I_AGENTS = "maxAIAgents";
+  @SerializedName(SERIALIZED_NAME_MAX_A_I_AGENTS)
+  @javax.annotation.Nullable
+  private Double maxAIAgents;
+
+  public static final String SERIALIZED_NAME_AI_AGENT_DAILY_BUDGET_CENTS = "aiAgentDailyBudgetCents";
+  @SerializedName(SERIALIZED_NAME_AI_AGENT_DAILY_BUDGET_CENTS)
+  @javax.annotation.Nullable
+  private Double aiAgentDailyBudgetCents;
+
+  public static final String SERIALIZED_NAME_AI_AGENT_MONTHLY_BUDGET_CENTS = "aiAgentMonthlyBudgetCents";
+  @SerializedName(SERIALIZED_NAME_AI_AGENT_MONTHLY_BUDGET_CENTS)
+  @javax.annotation.Nullable
+  private Double aiAgentMonthlyBudgetCents;
+
   public TenantPackage() {
   }
 
@@ -409,6 +434,25 @@ public class TenantPackage {
 
   public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
     this.createdAt = createdAt;
+  }
+
+
+  public TenantPackage templateId(@javax.annotation.Nullable String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+  /**
+   * Get templateId
+   * @return templateId
+   */
+  @javax.annotation.Nullable
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(@javax.annotation.Nullable String templateId) {
+    this.templateId = templateId;
   }
 
 
@@ -1408,6 +1452,82 @@ public class TenantPackage {
   }
 
 
+  public TenantPackage hasAIAgents(@javax.annotation.Nullable Boolean hasAIAgents) {
+    this.hasAIAgents = hasAIAgents;
+    return this;
+  }
+
+  /**
+   * Get hasAIAgents
+   * @return hasAIAgents
+   */
+  @javax.annotation.Nullable
+  public Boolean getHasAIAgents() {
+    return hasAIAgents;
+  }
+
+  public void setHasAIAgents(@javax.annotation.Nullable Boolean hasAIAgents) {
+    this.hasAIAgents = hasAIAgents;
+  }
+
+
+  public TenantPackage maxAIAgents(@javax.annotation.Nullable Double maxAIAgents) {
+    this.maxAIAgents = maxAIAgents;
+    return this;
+  }
+
+  /**
+   * Get maxAIAgents
+   * @return maxAIAgents
+   */
+  @javax.annotation.Nullable
+  public Double getMaxAIAgents() {
+    return maxAIAgents;
+  }
+
+  public void setMaxAIAgents(@javax.annotation.Nullable Double maxAIAgents) {
+    this.maxAIAgents = maxAIAgents;
+  }
+
+
+  public TenantPackage aiAgentDailyBudgetCents(@javax.annotation.Nullable Double aiAgentDailyBudgetCents) {
+    this.aiAgentDailyBudgetCents = aiAgentDailyBudgetCents;
+    return this;
+  }
+
+  /**
+   * Get aiAgentDailyBudgetCents
+   * @return aiAgentDailyBudgetCents
+   */
+  @javax.annotation.Nullable
+  public Double getAiAgentDailyBudgetCents() {
+    return aiAgentDailyBudgetCents;
+  }
+
+  public void setAiAgentDailyBudgetCents(@javax.annotation.Nullable Double aiAgentDailyBudgetCents) {
+    this.aiAgentDailyBudgetCents = aiAgentDailyBudgetCents;
+  }
+
+
+  public TenantPackage aiAgentMonthlyBudgetCents(@javax.annotation.Nullable Double aiAgentMonthlyBudgetCents) {
+    this.aiAgentMonthlyBudgetCents = aiAgentMonthlyBudgetCents;
+    return this;
+  }
+
+  /**
+   * Get aiAgentMonthlyBudgetCents
+   * @return aiAgentMonthlyBudgetCents
+   */
+  @javax.annotation.Nullable
+  public Double getAiAgentMonthlyBudgetCents() {
+    return aiAgentMonthlyBudgetCents;
+  }
+
+  public void setAiAgentMonthlyBudgetCents(@javax.annotation.Nullable Double aiAgentMonthlyBudgetCents) {
+    this.aiAgentMonthlyBudgetCents = aiAgentMonthlyBudgetCents;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1422,6 +1542,7 @@ public class TenantPackage {
         Objects.equals(this.name, tenantPackage.name) &&
         Objects.equals(this.tenantId, tenantPackage.tenantId) &&
         Objects.equals(this.createdAt, tenantPackage.createdAt) &&
+        Objects.equals(this.templateId, tenantPackage.templateId) &&
         Objects.equals(this.monthlyCostUSD, tenantPackage.monthlyCostUSD) &&
         Objects.equals(this.yearlyCostUSD, tenantPackage.yearlyCostUSD) &&
         Objects.equals(this.monthlyStripePlanId, tenantPackage.monthlyStripePlanId) &&
@@ -1473,12 +1594,16 @@ public class TenantPackage {
         Objects.equals(this.flexSSOAdminUnit, tenantPackage.flexSSOAdminUnit) &&
         Objects.equals(this.flexSSOModeratorCostCents, tenantPackage.flexSSOModeratorCostCents) &&
         Objects.equals(this.flexSSOModeratorUnit, tenantPackage.flexSSOModeratorUnit) &&
-        Objects.equals(this.isSSOBillingMonthlyActiveUsers, tenantPackage.isSSOBillingMonthlyActiveUsers);
+        Objects.equals(this.isSSOBillingMonthlyActiveUsers, tenantPackage.isSSOBillingMonthlyActiveUsers) &&
+        Objects.equals(this.hasAIAgents, tenantPackage.hasAIAgents) &&
+        Objects.equals(this.maxAIAgents, tenantPackage.maxAIAgents) &&
+        Objects.equals(this.aiAgentDailyBudgetCents, tenantPackage.aiAgentDailyBudgetCents) &&
+        Objects.equals(this.aiAgentMonthlyBudgetCents, tenantPackage.aiAgentMonthlyBudgetCents);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, tenantId, createdAt, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, isSSOBillingMonthlyActiveUsers);
+    return Objects.hash(id, name, tenantId, createdAt, templateId, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, isSSOBillingMonthlyActiveUsers, hasAIAgents, maxAIAgents, aiAgentDailyBudgetCents, aiAgentMonthlyBudgetCents);
   }
 
   @Override
@@ -1489,6 +1614,7 @@ public class TenantPackage {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    monthlyCostUSD: ").append(toIndentedString(monthlyCostUSD)).append("\n");
     sb.append("    yearlyCostUSD: ").append(toIndentedString(yearlyCostUSD)).append("\n");
     sb.append("    monthlyStripePlanId: ").append(toIndentedString(monthlyStripePlanId)).append("\n");
@@ -1541,6 +1667,10 @@ public class TenantPackage {
     sb.append("    flexSSOModeratorCostCents: ").append(toIndentedString(flexSSOModeratorCostCents)).append("\n");
     sb.append("    flexSSOModeratorUnit: ").append(toIndentedString(flexSSOModeratorUnit)).append("\n");
     sb.append("    isSSOBillingMonthlyActiveUsers: ").append(toIndentedString(isSSOBillingMonthlyActiveUsers)).append("\n");
+    sb.append("    hasAIAgents: ").append(toIndentedString(hasAIAgents)).append("\n");
+    sb.append("    maxAIAgents: ").append(toIndentedString(maxAIAgents)).append("\n");
+    sb.append("    aiAgentDailyBudgetCents: ").append(toIndentedString(aiAgentDailyBudgetCents)).append("\n");
+    sb.append("    aiAgentMonthlyBudgetCents: ").append(toIndentedString(aiAgentMonthlyBudgetCents)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1550,10 +1680,7 @@ public class TenantPackage {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -1562,7 +1689,7 @@ public class TenantPackage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "templateId", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers", "hasAIAgents", "maxAIAgents", "aiAgentDailyBudgetCents", "aiAgentMonthlyBudgetCents"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing"));
@@ -1604,6 +1731,9 @@ public class TenantPackage {
       }
       if (!jsonObj.get("tenantId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
+      }
+      if ((jsonObj.get("templateId") != null && !jsonObj.get("templateId").isJsonNull()) && !jsonObj.get("templateId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateId").toString()));
       }
       if ((jsonObj.get("monthlyStripePlanId") != null && !jsonObj.get("monthlyStripePlanId").isJsonNull()) && !jsonObj.get("monthlyStripePlanId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `monthlyStripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monthlyStripePlanId").toString()));

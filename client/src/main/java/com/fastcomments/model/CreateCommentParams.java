@@ -16,7 +16,7 @@ package com.fastcomments.model;
 import java.util.Objects;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.RecordStringStringOrNumberValue;
+import com.fastcomments.model.GifSearchResponseImagesInnerInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CreateCommentParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class CreateCommentParams {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
@@ -175,12 +175,17 @@ public class CreateCommentParams {
   public static final String SERIALIZED_NAME_QUESTION_VALUES = "questionValues";
   @SerializedName(SERIALIZED_NAME_QUESTION_VALUES)
   @javax.annotation.Nullable
-  private Map<String, RecordStringStringOrNumberValue> questionValues = new HashMap<>();
+  private Map<String, GifSearchResponseImagesInnerInner> questionValues = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TOS = "tos";
   @SerializedName(SERIALIZED_NAME_TOS)
   @javax.annotation.Nullable
   private Boolean tos;
+
+  public static final String SERIALIZED_NAME_BOT_ID = "botId";
+  @SerializedName(SERIALIZED_NAME_BOT_ID)
+  @javax.annotation.Nullable
+  private String botId;
 
   public static final String SERIALIZED_NAME_APPROVED = "approved";
   @SerializedName(SERIALIZED_NAME_APPROVED)
@@ -704,12 +709,12 @@ public class CreateCommentParams {
   }
 
 
-  public CreateCommentParams questionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberValue> questionValues) {
+  public CreateCommentParams questionValues(@javax.annotation.Nullable Map<String, GifSearchResponseImagesInnerInner> questionValues) {
     this.questionValues = questionValues;
     return this;
   }
 
-  public CreateCommentParams putQuestionValuesItem(String key, RecordStringStringOrNumberValue questionValuesItem) {
+  public CreateCommentParams putQuestionValuesItem(String key, GifSearchResponseImagesInnerInner questionValuesItem) {
     if (this.questionValues == null) {
       this.questionValues = new HashMap<>();
     }
@@ -722,11 +727,11 @@ public class CreateCommentParams {
    * @return questionValues
    */
   @javax.annotation.Nullable
-  public Map<String, RecordStringStringOrNumberValue> getQuestionValues() {
+  public Map<String, GifSearchResponseImagesInnerInner> getQuestionValues() {
     return questionValues;
   }
 
-  public void setQuestionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberValue> questionValues) {
+  public void setQuestionValues(@javax.annotation.Nullable Map<String, GifSearchResponseImagesInnerInner> questionValues) {
     this.questionValues = questionValues;
   }
 
@@ -747,6 +752,25 @@ public class CreateCommentParams {
 
   public void setTos(@javax.annotation.Nullable Boolean tos) {
     this.tos = tos;
+  }
+
+
+  public CreateCommentParams botId(@javax.annotation.Nullable String botId) {
+    this.botId = botId;
+    return this;
+  }
+
+  /**
+   * Get botId
+   * @return botId
+   */
+  @javax.annotation.Nullable
+  public String getBotId() {
+    return botId;
+  }
+
+  public void setBotId(@javax.annotation.Nullable String botId) {
+    this.botId = botId;
   }
 
 
@@ -975,6 +999,7 @@ public class CreateCommentParams {
         Objects.equals(this.feedbackIds, createCommentParams.feedbackIds) &&
         Objects.equals(this.questionValues, createCommentParams.questionValues) &&
         Objects.equals(this.tos, createCommentParams.tos) &&
+        Objects.equals(this.botId, createCommentParams.botId) &&
         Objects.equals(this.approved, createCommentParams.approved) &&
         Objects.equals(this.domain, createCommentParams.domain) &&
         Objects.equals(this.ip, createCommentParams.ip) &&
@@ -989,7 +1014,7 @@ public class CreateCommentParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, tos, approved, domain, ip, isPinned, locale, reviewed, verified, votes, votesDown, votesUp);
+    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, tos, botId, approved, domain, ip, isPinned, locale, reviewed, verified, votes, votesDown, votesUp);
   }
 
   @Override
@@ -1021,6 +1046,7 @@ public class CreateCommentParams {
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
     sb.append("    questionValues: ").append(toIndentedString(questionValues)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    botId: ").append(toIndentedString(botId)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    ip: ").append(toIndentedString(ip)).append("\n");
@@ -1040,10 +1066,7 @@ public class CreateCommentParams {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -1052,7 +1075,7 @@ public class CreateCommentParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"));
+    openapiFields = new HashSet<String>(Arrays.asList("date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos", "botId", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("commenterName", "comment", "url", "urlId", "locale"));
@@ -1154,6 +1177,9 @@ public class CreateCommentParams {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      if ((jsonObj.get("botId") != null && !jsonObj.get("botId").isJsonNull()) && !jsonObj.get("botId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `botId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("botId").toString()));
       }
       if ((jsonObj.get("domain") != null && !jsonObj.get("domain").isJsonNull()) && !jsonObj.get("domain").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain").toString()));

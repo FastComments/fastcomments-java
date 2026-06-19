@@ -15,7 +15,7 @@ package com.fastcomments.model;
 
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.RecordStringStringOrNumberValue;
+import com.fastcomments.model.GifSearchResponseImagesInnerInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -242,6 +242,14 @@ public class CreateCommentParamsTest {
     @Test
     public void tosTest() {
         // TODO: test tos
+    }
+
+    /**
+     * Test the property 'botId'
+     */
+    @Test
+    public void botIdTest() {
+        // TODO: test botId
     }
 
     /**

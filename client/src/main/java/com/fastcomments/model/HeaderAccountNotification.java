@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * HeaderAccountNotification
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class HeaderAccountNotification {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -97,6 +97,11 @@ public class HeaderAccountNotification {
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   @javax.annotation.Nonnull
   private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
+  private String type;
 
   public HeaderAccountNotification() {
   }
@@ -288,6 +293,25 @@ public class HeaderAccountNotification {
   }
 
 
+  public HeaderAccountNotification type(@javax.annotation.Nullable String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Discriminator for notifications with a special layout/click handler (e.g. \&quot;feedback-offer\&quot;).
+   * @return type
+   */
+  @javax.annotation.Nullable
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nullable String type) {
+    this.type = type;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -306,12 +330,13 @@ public class HeaderAccountNotification {
         Objects.equals(this.severity, headerAccountNotification.severity) &&
         Objects.equals(this.linkUrl, headerAccountNotification.linkUrl) &&
         Objects.equals(this.linkText, headerAccountNotification.linkText) &&
-        Objects.equals(this.createdAt, headerAccountNotification.createdAt);
+        Objects.equals(this.createdAt, headerAccountNotification.createdAt) &&
+        Objects.equals(this.type, headerAccountNotification.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title, message, messagesByLocale, dates, severity, linkUrl, linkText, createdAt);
+    return Objects.hash(id, title, message, messagesByLocale, dates, severity, linkUrl, linkText, createdAt, type);
   }
 
   @Override
@@ -327,6 +352,7 @@ public class HeaderAccountNotification {
     sb.append("    linkUrl: ").append(toIndentedString(linkUrl)).append("\n");
     sb.append("    linkText: ").append(toIndentedString(linkText)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -336,10 +362,7 @@ public class HeaderAccountNotification {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -348,7 +371,7 @@ public class HeaderAccountNotification {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "title", "message", "messagesByLocale", "dates", "severity", "linkUrl", "linkText", "createdAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "title", "message", "messagesByLocale", "dates", "severity", "linkUrl", "linkText", "createdAt", "type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "title", "message", "messagesByLocale", "dates", "severity", "linkUrl", "linkText", "createdAt"));
@@ -399,6 +422,9 @@ public class HeaderAccountNotification {
       }
       if ((jsonObj.get("linkText") != null && !jsonObj.get("linkText").isJsonNull()) && !jsonObj.get("linkText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `linkText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkText").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

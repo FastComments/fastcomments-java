@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetModeratorsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetModeratorsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -147,10 +147,7 @@ public class GetModeratorsResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -195,16 +192,16 @@ public class GetModeratorsResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
-      // ensure the json data is an array
-      if (!jsonObj.get("moderators").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moderators` to be an array in the JSON string but got `%s`", jsonObj.get("moderators").toString()));
+      if (jsonObj.get("moderators") != null) {
+        if (!jsonObj.get("moderators").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moderators` to be an array in the JSON string but got `%s`", jsonObj.get("moderators").toString()));
+        }
+        JsonArray jsonArraymoderators = jsonObj.getAsJsonArray("moderators");
+        // validate the required field `moderators` (array)
+        for (int i = 0; i < jsonArraymoderators.size(); i++) {
+          Moderator.validateJsonElement(jsonArraymoderators.get(i));
+        }
       }
-
-      JsonArray jsonArraymoderators = jsonObj.getAsJsonArray("moderators");
-      // validate the required field `moderators` (array)
-      for (int i = 0; i < jsonArraymoderators.size(); i++) {
-        Moderator.validateJsonElement(jsonArraymoderators.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

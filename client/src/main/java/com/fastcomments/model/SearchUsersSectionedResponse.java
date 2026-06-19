@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SearchUsersSectionedResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class SearchUsersSectionedResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -193,10 +193,7 @@ public class SearchUsersSectionedResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -233,16 +230,16 @@ public class SearchUsersSectionedResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
-      // ensure the json data is an array
-      if (!jsonObj.get("sections").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
+      if (jsonObj.get("sections") != null) {
+        if (!jsonObj.get("sections").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sections` to be an array in the JSON string but got `%s`", jsonObj.get("sections").toString()));
+        }
+        JsonArray jsonArraysections = jsonObj.getAsJsonArray("sections");
+        // validate the required field `sections` (array)
+        for (int i = 0; i < jsonArraysections.size(); i++) {
+          UserSearchSectionResult.validateJsonElement(jsonArraysections.get(i));
+        }
       }
-
-      JsonArray jsonArraysections = jsonObj.getAsJsonArray("sections");
-      // validate the required field `sections` (array)
-      for (int i = 0; i < jsonArraysections.size(); i++) {
-        UserSearchSectionResult.validateJsonElement(jsonArraysections.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

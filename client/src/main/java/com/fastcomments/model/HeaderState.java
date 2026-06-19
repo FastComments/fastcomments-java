@@ -53,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * HeaderState
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class HeaderState {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -260,10 +260,7 @@ public class HeaderState {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -314,26 +311,26 @@ public class HeaderState {
       if (!jsonObj.get("userIdWS").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("notificationCounts").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `notificationCounts` to be an array in the JSON string but got `%s`", jsonObj.get("notificationCounts").toString()));
+      if (jsonObj.get("notificationCounts") != null) {
+        if (!jsonObj.get("notificationCounts").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `notificationCounts` to be an array in the JSON string but got `%s`", jsonObj.get("notificationCounts").toString()));
+        }
+        JsonArray jsonArraynotificationCounts = jsonObj.getAsJsonArray("notificationCounts");
+        // validate the required field `notificationCounts` (array)
+        for (int i = 0; i < jsonArraynotificationCounts.size(); i++) {
+          NotificationAndCount.validateJsonElement(jsonArraynotificationCounts.get(i));
+        }
       }
-
-      JsonArray jsonArraynotificationCounts = jsonObj.getAsJsonArray("notificationCounts");
-      // validate the required field `notificationCounts` (array)
-      for (int i = 0; i < jsonArraynotificationCounts.size(); i++) {
-        NotificationAndCount.validateJsonElement(jsonArraynotificationCounts.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("accountNotifications").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accountNotifications` to be an array in the JSON string but got `%s`", jsonObj.get("accountNotifications").toString()));
+      if (jsonObj.get("accountNotifications") != null) {
+        if (!jsonObj.get("accountNotifications").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accountNotifications` to be an array in the JSON string but got `%s`", jsonObj.get("accountNotifications").toString()));
+        }
+        JsonArray jsonArrayaccountNotifications = jsonObj.getAsJsonArray("accountNotifications");
+        // validate the required field `accountNotifications` (array)
+        for (int i = 0; i < jsonArrayaccountNotifications.size(); i++) {
+          HeaderAccountNotification.validateJsonElement(jsonArrayaccountNotifications.get(i));
+        }
       }
-
-      JsonArray jsonArrayaccountNotifications = jsonObj.getAsJsonArray("accountNotifications");
-      // validate the required field `accountNotifications` (array)
-      for (int i = 0; i < jsonArrayaccountNotifications.size(); i++) {
-        HeaderAccountNotification.validateJsonElement(jsonArrayaccountNotifications.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

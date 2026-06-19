@@ -22,6 +22,7 @@
 |**engineResponse** | **String** |  |  [optional] |
 |**engineTokens** | **Double** |  |  [optional] |
 |**trustFactor** | **Double** |  |  [optional] |
+|**source** | **String** |  |  [optional] |
 |**rule** | [**SpamRule**](SpamRule.md) |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 |**subscribers** | **Double** |  |  [optional] |

@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * Moderator
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class Moderator {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -588,10 +588,7 @@ public class Moderator {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -655,7 +652,7 @@ public class Moderator {
       // ensure the required json array is present
       if (jsonObj.get("moderationGroupIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("moderationGroupIds").isJsonArray()) {
+      } else if (!jsonObj.get("moderationGroupIds").isJsonArray() && !jsonObj.get("moderationGroupIds").isJsonNull()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `moderationGroupIds` to be an array in the JSON string but got `%s`", jsonObj.get("moderationGroupIds").toString()));
       }
   }

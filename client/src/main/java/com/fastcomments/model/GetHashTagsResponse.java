@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetHashTagsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetHashTagsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -147,10 +147,7 @@ public class GetHashTagsResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -195,16 +192,16 @@ public class GetHashTagsResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
-      // ensure the json data is an array
-      if (!jsonObj.get("hashTags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hashTags` to be an array in the JSON string but got `%s`", jsonObj.get("hashTags").toString()));
+      if (jsonObj.get("hashTags") != null) {
+        if (!jsonObj.get("hashTags").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hashTags` to be an array in the JSON string but got `%s`", jsonObj.get("hashTags").toString()));
+        }
+        JsonArray jsonArrayhashTags = jsonObj.getAsJsonArray("hashTags");
+        // validate the required field `hashTags` (array)
+        for (int i = 0; i < jsonArrayhashTags.size(); i++) {
+          TenantHashTag.validateJsonElement(jsonArrayhashTags.get(i));
+        }
       }
-
-      JsonArray jsonArrayhashTags = jsonObj.getAsJsonArray("hashTags");
-      // validate the required field `hashTags` (array)
-      for (int i = 0; i < jsonArrayhashTags.size(); i++) {
-        TenantHashTag.validateJsonElement(jsonArrayhashTags.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

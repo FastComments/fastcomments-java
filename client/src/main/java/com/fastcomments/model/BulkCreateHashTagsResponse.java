@@ -15,7 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.APIStatus;
-import com.fastcomments.model.AddHashTag200Response;
+import com.fastcomments.model.BulkCreateHashTagsResponseResultsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * BulkCreateHashTagsResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class BulkCreateHashTagsResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -62,7 +62,7 @@ public class BulkCreateHashTagsResponse {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   @javax.annotation.Nonnull
-  private List<AddHashTag200Response> results = new ArrayList<>();
+  private List<BulkCreateHashTagsResponseResultsInner> results = new ArrayList<>();
 
   public BulkCreateHashTagsResponse() {
   }
@@ -86,12 +86,12 @@ public class BulkCreateHashTagsResponse {
   }
 
 
-  public BulkCreateHashTagsResponse results(@javax.annotation.Nonnull List<AddHashTag200Response> results) {
+  public BulkCreateHashTagsResponse results(@javax.annotation.Nonnull List<BulkCreateHashTagsResponseResultsInner> results) {
     this.results = results;
     return this;
   }
 
-  public BulkCreateHashTagsResponse addResultsItem(AddHashTag200Response resultsItem) {
+  public BulkCreateHashTagsResponse addResultsItem(BulkCreateHashTagsResponseResultsInner resultsItem) {
     if (this.results == null) {
       this.results = new ArrayList<>();
     }
@@ -104,11 +104,11 @@ public class BulkCreateHashTagsResponse {
    * @return results
    */
   @javax.annotation.Nonnull
-  public List<AddHashTag200Response> getResults() {
+  public List<BulkCreateHashTagsResponseResultsInner> getResults() {
     return results;
   }
 
-  public void setResults(@javax.annotation.Nonnull List<AddHashTag200Response> results) {
+  public void setResults(@javax.annotation.Nonnull List<BulkCreateHashTagsResponseResultsInner> results) {
     this.results = results;
   }
 
@@ -147,10 +147,7 @@ public class BulkCreateHashTagsResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -195,16 +192,16 @@ public class BulkCreateHashTagsResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
-      // ensure the json data is an array
-      if (!jsonObj.get("results").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+      if (jsonObj.get("results") != null) {
+        if (!jsonObj.get("results").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+        }
+        JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+        // validate the required field `results` (array)
+        for (int i = 0; i < jsonArrayresults.size(); i++) {
+          BulkCreateHashTagsResponseResultsInner.validateJsonElement(jsonArrayresults.get(i));
+        }
       }
-
-      JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
-      // validate the required field `results` (array)
-      for (int i = 0; i < jsonArrayresults.size(); i++) {
-        AddHashTag200Response.validateJsonElement(jsonArrayresults.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

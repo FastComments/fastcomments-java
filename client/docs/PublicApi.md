@@ -9,22 +9,39 @@ All URIs are relative to *https://fastcomments.com*
 | [**checkedCommentsForBlocked**](PublicApi.md#checkedCommentsForBlocked) | **GET** /check-blocked-comments |  |
 | [**createCommentPublic**](PublicApi.md#createCommentPublic) | **POST** /comments/{tenantId} |  |
 | [**createFeedPostPublic**](PublicApi.md#createFeedPostPublic) | **POST** /feed-posts/{tenantId} |  |
+| [**createV1PageReact**](PublicApi.md#createV1PageReact) | **POST** /page-reacts/v1/likes/{tenantId} |  |
+| [**createV2PageReact**](PublicApi.md#createV2PageReact) | **POST** /page-reacts/v2/{tenantId} |  |
 | [**deleteCommentPublic**](PublicApi.md#deleteCommentPublic) | **DELETE** /comments/{tenantId}/{commentId} |  |
 | [**deleteCommentVote**](PublicApi.md#deleteCommentVote) | **DELETE** /comments/{tenantId}/{commentId}/vote/{voteId} |  |
 | [**deleteFeedPostPublic**](PublicApi.md#deleteFeedPostPublic) | **DELETE** /feed-posts/{tenantId}/{postId} |  |
+| [**deleteV1PageReact**](PublicApi.md#deleteV1PageReact) | **DELETE** /page-reacts/v1/likes/{tenantId} |  |
+| [**deleteV2PageReact**](PublicApi.md#deleteV2PageReact) | **DELETE** /page-reacts/v2/{tenantId} |  |
 | [**flagCommentPublic**](PublicApi.md#flagCommentPublic) | **POST** /flag-comment/{commentId} |  |
 | [**getCommentText**](PublicApi.md#getCommentText) | **GET** /comments/{tenantId}/{commentId}/text |  |
 | [**getCommentVoteUserNames**](PublicApi.md#getCommentVoteUserNames) | **GET** /comments/{tenantId}/{commentId}/votes |  |
+| [**getCommentsForUser**](PublicApi.md#getCommentsForUser) | **GET** /comments-for-user |  |
 | [**getCommentsPublic**](PublicApi.md#getCommentsPublic) | **GET** /comments/{tenantId} |  |
 | [**getEventLog**](PublicApi.md#getEventLog) | **GET** /event-log/{tenantId} |  |
 | [**getFeedPostsPublic**](PublicApi.md#getFeedPostsPublic) | **GET** /feed-posts/{tenantId} |  |
 | [**getFeedPostsStats**](PublicApi.md#getFeedPostsStats) | **GET** /feed-posts/{tenantId}/stats |  |
+| [**getGifLarge**](PublicApi.md#getGifLarge) | **GET** /gifs/get-large/{tenantId} |  |
+| [**getGifsSearch**](PublicApi.md#getGifsSearch) | **GET** /gifs/search/{tenantId} |  |
+| [**getGifsTrending**](PublicApi.md#getGifsTrending) | **GET** /gifs/trending/{tenantId} |  |
 | [**getGlobalEventLog**](PublicApi.md#getGlobalEventLog) | **GET** /event-log/global/{tenantId} |  |
+| [**getOfflineUsers**](PublicApi.md#getOfflineUsers) | **GET** /pages/{tenantId}/users/offline |  |
+| [**getOnlineUsers**](PublicApi.md#getOnlineUsers) | **GET** /pages/{tenantId}/users/online |  |
+| [**getPagesPublic**](PublicApi.md#getPagesPublic) | **GET** /pages/{tenantId} |  |
+| [**getTranslations**](PublicApi.md#getTranslations) | **GET** /translations/{namespace}/{component} |  |
 | [**getUserNotificationCount**](PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count |  |
 | [**getUserNotifications**](PublicApi.md#getUserNotifications) | **GET** /user-notifications |  |
 | [**getUserPresenceStatuses**](PublicApi.md#getUserPresenceStatuses) | **GET** /user-presence-status |  |
 | [**getUserReactsPublic**](PublicApi.md#getUserReactsPublic) | **GET** /feed-posts/{tenantId}/user-reacts |  |
+| [**getUsersInfo**](PublicApi.md#getUsersInfo) | **GET** /pages/{tenantId}/users/info |  |
+| [**getV1PageLikes**](PublicApi.md#getV1PageLikes) | **GET** /page-reacts/v1/likes/{tenantId} |  |
+| [**getV2PageReactUsers**](PublicApi.md#getV2PageReactUsers) | **GET** /page-reacts/v2/{tenantId}/list |  |
+| [**getV2PageReacts**](PublicApi.md#getV2PageReacts) | **GET** /page-reacts/v2/{tenantId} |  |
 | [**lockComment**](PublicApi.md#lockComment) | **POST** /comments/{tenantId}/{commentId}/lock |  |
+| [**logoutPublic**](PublicApi.md#logoutPublic) | **PUT** /auth/logout |  |
 | [**pinComment**](PublicApi.md#pinComment) | **POST** /comments/{tenantId}/{commentId}/pin |  |
 | [**reactFeedPostPublic**](PublicApi.md#reactFeedPostPublic) | **POST** /feed-posts/{tenantId}/react/{postId} |  |
 | [**resetUserNotificationCount**](PublicApi.md#resetUserNotificationCount) | **POST** /user-notifications/reset-count |  |
@@ -44,7 +61,7 @@ All URIs are relative to *https://fastcomments.com*
 
 <a id="blockFromCommentPublic"></a>
 # **blockFromCommentPublic**
-> BlockFromCommentPublic200Response blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
+> BlockSuccess blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -68,7 +85,7 @@ public class Example {
     PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      BlockFromCommentPublic200Response result = apiInstance.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
+      BlockSuccess result = apiInstance.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -94,7 +111,7 @@ public class Example {
 
 ### Return type
 
-[**BlockFromCommentPublic200Response**](BlockFromCommentPublic200Response.md)
+[**BlockSuccess**](BlockSuccess.md)
 
 ### Authorization
 
@@ -109,10 +126,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="checkedCommentsForBlocked"></a>
 # **checkedCommentsForBlocked**
-> CheckedCommentsForBlocked200Response checkedCommentsForBlocked(tenantId, commentIds).sso(sso).execute();
+> CheckBlockedCommentsResponse checkedCommentsForBlocked(tenantId, commentIds).sso(sso).execute();
 
 
 
@@ -135,7 +153,7 @@ public class Example {
     String commentIds = "commentIds_example"; // String | A comma separated list of comment ids.
     String sso = "sso_example"; // String | 
     try {
-      CheckedCommentsForBlocked200Response result = apiInstance.checkedCommentsForBlocked(tenantId, commentIds)
+      CheckBlockedCommentsResponse result = apiInstance.checkedCommentsForBlocked(tenantId, commentIds)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -160,7 +178,7 @@ public class Example {
 
 ### Return type
 
-[**CheckedCommentsForBlocked200Response**](CheckedCommentsForBlocked200Response.md)
+[**CheckBlockedCommentsResponse**](CheckBlockedCommentsResponse.md)
 
 ### Authorization
 
@@ -175,10 +193,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="createCommentPublic"></a>
 # **createCommentPublic**
-> CreateCommentPublic200Response createCommentPublic(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
+> SaveCommentsResponseWithPresence createCommentPublic(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
 
 
 
@@ -204,7 +223,7 @@ public class Example {
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      CreateCommentPublic200Response result = apiInstance.createCommentPublic(tenantId, urlId, broadcastId, commentData)
+      SaveCommentsResponseWithPresence result = apiInstance.createCommentPublic(tenantId, urlId, broadcastId, commentData)
             .sessionId(sessionId)
             .sso(sso)
             .execute();
@@ -233,7 +252,7 @@ public class Example {
 
 ### Return type
 
-[**CreateCommentPublic200Response**](CreateCommentPublic200Response.md)
+[**SaveCommentsResponseWithPresence**](SaveCommentsResponseWithPresence.md)
 
 ### Authorization
 
@@ -248,10 +267,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="createFeedPostPublic"></a>
 # **createFeedPostPublic**
-> CreateFeedPostPublic200Response createFeedPostPublic(tenantId, createFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
+> CreateFeedPostResponse createFeedPostPublic(tenantId, createFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -275,7 +295,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      CreateFeedPostPublic200Response result = apiInstance.createFeedPostPublic(tenantId, createFeedPostParams)
+      CreateFeedPostResponse result = apiInstance.createFeedPostPublic(tenantId, createFeedPostParams)
             .broadcastId(broadcastId)
             .sso(sso)
             .execute();
@@ -302,7 +322,7 @@ public class Example {
 
 ### Return type
 
-[**CreateFeedPostPublic200Response**](CreateFeedPostPublic200Response.md)
+[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
 
 ### Authorization
 
@@ -317,10 +337,147 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="createV1PageReact"></a>
+# **createV1PageReact**
+> CreateV1PageReact createV1PageReact(tenantId, urlId).title(title).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    String title = "title_example"; // String | 
+    try {
+      CreateV1PageReact result = apiInstance.createV1PageReact(tenantId, urlId)
+            .title(title)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#createV1PageReact");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **title** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="createV2PageReact"></a>
+# **createV2PageReact**
+> CreateV1PageReact createV2PageReact(tenantId, urlId, id).title(title).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    String id = "id_example"; // String | 
+    String title = "title_example"; // String | 
+    try {
+      CreateV1PageReact result = apiInstance.createV2PageReact(tenantId, urlId, id)
+            .title(title)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#createV2PageReact");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **id** | **String**|  | |
+| **title** | **String**|  | [optional] |
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="deleteCommentPublic"></a>
 # **deleteCommentPublic**
-> DeleteCommentPublic200Response deleteCommentPublic(tenantId, commentId, broadcastId).editKey(editKey).sso(sso).execute();
+> PublicAPIDeleteCommentResponse deleteCommentPublic(tenantId, commentId, broadcastId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -345,7 +502,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      DeleteCommentPublic200Response result = apiInstance.deleteCommentPublic(tenantId, commentId, broadcastId)
+      PublicAPIDeleteCommentResponse result = apiInstance.deleteCommentPublic(tenantId, commentId, broadcastId)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -373,7 +530,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteCommentPublic200Response**](DeleteCommentPublic200Response.md)
+[**PublicAPIDeleteCommentResponse**](PublicAPIDeleteCommentResponse.md)
 
 ### Authorization
 
@@ -388,10 +545,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="deleteCommentVote"></a>
 # **deleteCommentVote**
-> DeleteCommentVote200Response deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId).editKey(editKey).sso(sso).execute();
+> VoteDeleteResponse deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -418,7 +576,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      DeleteCommentVote200Response result = apiInstance.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
+      VoteDeleteResponse result = apiInstance.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -448,7 +606,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteCommentVote200Response**](DeleteCommentVote200Response.md)
+[**VoteDeleteResponse**](VoteDeleteResponse.md)
 
 ### Authorization
 
@@ -463,10 +621,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="deleteFeedPostPublic"></a>
 # **deleteFeedPostPublic**
-> DeleteFeedPostPublic200Response deleteFeedPostPublic(tenantId, postId).broadcastId(broadcastId).sso(sso).execute();
+> DeleteFeedPostPublicResponse deleteFeedPostPublic(tenantId, postId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -490,7 +649,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      DeleteFeedPostPublic200Response result = apiInstance.deleteFeedPostPublic(tenantId, postId)
+      DeleteFeedPostPublicResponse result = apiInstance.deleteFeedPostPublic(tenantId, postId)
             .broadcastId(broadcastId)
             .sso(sso)
             .execute();
@@ -517,7 +676,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteFeedPostPublic200Response**](DeleteFeedPostPublic200Response.md)
+[**DeleteFeedPostPublicResponse**](DeleteFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -532,10 +691,141 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="deleteV1PageReact"></a>
+# **deleteV1PageReact**
+> CreateV1PageReact deleteV1PageReact(tenantId, urlId).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    try {
+      CreateV1PageReact result = apiInstance.deleteV1PageReact(tenantId, urlId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#deleteV1PageReact");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="deleteV2PageReact"></a>
+# **deleteV2PageReact**
+> CreateV1PageReact deleteV2PageReact(tenantId, urlId, id).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      CreateV1PageReact result = apiInstance.deleteV2PageReact(tenantId, urlId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#deleteV2PageReact");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**CreateV1PageReact**](CreateV1PageReact.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="flagCommentPublic"></a>
 # **flagCommentPublic**
-> FlagCommentPublic200Response flagCommentPublic(tenantId, commentId, isFlagged).sso(sso).execute();
+> APIEmptyResponse flagCommentPublic(tenantId, commentId, isFlagged).sso(sso).execute();
 
 
 
@@ -559,7 +849,7 @@ public class Example {
     Boolean isFlagged = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      FlagCommentPublic200Response result = apiInstance.flagCommentPublic(tenantId, commentId, isFlagged)
+      APIEmptyResponse result = apiInstance.flagCommentPublic(tenantId, commentId, isFlagged)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -585,7 +875,7 @@ public class Example {
 
 ### Return type
 
-[**FlagCommentPublic200Response**](FlagCommentPublic200Response.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -600,10 +890,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getCommentText"></a>
 # **getCommentText**
-> GetCommentText200Response getCommentText(tenantId, commentId).editKey(editKey).sso(sso).execute();
+> PublicAPIGetCommentTextResponse getCommentText(tenantId, commentId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -627,7 +918,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentText200Response result = apiInstance.getCommentText(tenantId, commentId)
+      PublicAPIGetCommentTextResponse result = apiInstance.getCommentText(tenantId, commentId)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -654,7 +945,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentText200Response**](GetCommentText200Response.md)
+[**PublicAPIGetCommentTextResponse**](PublicAPIGetCommentTextResponse.md)
 
 ### Authorization
 
@@ -669,10 +960,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getCommentVoteUserNames"></a>
 # **getCommentVoteUserNames**
-> GetCommentVoteUserNames200Response getCommentVoteUserNames(tenantId, commentId, dir).sso(sso).execute();
+> GetCommentVoteUserNamesSuccessResponse getCommentVoteUserNames(tenantId, commentId, dir).sso(sso).execute();
 
 
 
@@ -696,7 +988,7 @@ public class Example {
     Integer dir = 56; // Integer | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentVoteUserNames200Response result = apiInstance.getCommentVoteUserNames(tenantId, commentId, dir)
+      GetCommentVoteUserNamesSuccessResponse result = apiInstance.getCommentVoteUserNames(tenantId, commentId, dir)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -722,7 +1014,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentVoteUserNames200Response**](GetCommentVoteUserNames200Response.md)
+[**GetCommentVoteUserNamesSuccessResponse**](GetCommentVoteUserNamesSuccessResponse.md)
 
 ### Authorization
 
@@ -737,10 +1029,92 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getCommentsForUser"></a>
+# **getCommentsForUser**
+> GetCommentsForUserResponse getCommentsForUser().userId(userId).direction(direction).repliesToUserId(repliesToUserId).page(page).includei10n(includei10n).locale(locale).isCrawler(isCrawler).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String userId = "userId_example"; // String | 
+    SortDirections direction = SortDirections.fromValue("OF"); // SortDirections | 
+    String repliesToUserId = "repliesToUserId_example"; // String | 
+    Double page = 3.4D; // Double | 
+    Boolean includei10n = true; // Boolean | 
+    String locale = "locale_example"; // String | 
+    Boolean isCrawler = true; // Boolean | 
+    try {
+      GetCommentsForUserResponse result = apiInstance.getCommentsForUser()
+            .userId(userId)
+            .direction(direction)
+            .repliesToUserId(repliesToUserId)
+            .page(page)
+            .includei10n(includei10n)
+            .locale(locale)
+            .isCrawler(isCrawler)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getCommentsForUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**|  | [optional] |
+| **direction** | [**SortDirections**](.md)|  | [optional] [enum: OF, NF, MR] |
+| **repliesToUserId** | **String**|  | [optional] |
+| **page** | **Double**|  | [optional] |
+| **includei10n** | **Boolean**|  | [optional] |
+| **locale** | **String**|  | [optional] |
+| **isCrawler** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**GetCommentsForUserResponse**](GetCommentsForUserResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getCommentsPublic"></a>
 # **getCommentsPublic**
-> GetCommentsPublic200Response getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).afterCommentId(afterCommentId).beforeCommentId(beforeCommentId).execute();
+> GetCommentsResponseWithPresencePublicComment getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).afterCommentId(afterCommentId).beforeCommentId(beforeCommentId).execute();
 
 
 
@@ -790,7 +1164,7 @@ public class Example {
     String afterCommentId = "afterCommentId_example"; // String | 
     String beforeCommentId = "beforeCommentId_example"; // String | 
     try {
-      GetCommentsPublic200Response result = apiInstance.getCommentsPublic(tenantId, urlId)
+      GetCommentsResponseWithPresencePublicComment result = apiInstance.getCommentsPublic(tenantId, urlId)
             .page(page)
             .direction(direction)
             .sso(sso)
@@ -865,7 +1239,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentsPublic200Response**](GetCommentsPublic200Response.md)
+[**GetCommentsResponseWithPresencePublicComment**](GetCommentsResponseWithPresencePublicComment.md)
 
 ### Authorization
 
@@ -880,10 +1254,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getEventLog"></a>
 # **getEventLog**
-> GetEventLog200Response getEventLog(tenantId, urlId, userIdWS, startTime, endTime).execute();
+> GetEventLogResponse getEventLog(tenantId, urlId, userIdWS, startTime).endTime(endTime).execute();
 
 
 
@@ -910,7 +1285,8 @@ public class Example {
     Long startTime = 56L; // Long | 
     Long endTime = 56L; // Long | 
     try {
-      GetEventLog200Response result = apiInstance.getEventLog(tenantId, urlId, userIdWS, startTime, endTime)
+      GetEventLogResponse result = apiInstance.getEventLog(tenantId, urlId, userIdWS, startTime)
+            .endTime(endTime)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -932,11 +1308,11 @@ public class Example {
 | **urlId** | **String**|  | |
 | **userIdWS** | **String**|  | |
 | **startTime** | **Long**|  | |
-| **endTime** | **Long**|  | |
+| **endTime** | **Long**|  | [optional] |
 
 ### Return type
 
-[**GetEventLog200Response**](GetEventLog200Response.md)
+[**GetEventLogResponse**](GetEventLogResponse.md)
 
 ### Authorization
 
@@ -951,10 +1327,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getFeedPostsPublic"></a>
 # **getFeedPostsPublic**
-> GetFeedPostsPublic200Response getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).isCrawler(isCrawler).includeUserInfo(includeUserInfo).execute();
+> PublicFeedPostsResponse getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).isCrawler(isCrawler).includeUserInfo(includeUserInfo).execute();
 
 
 
@@ -983,7 +1360,7 @@ public class Example {
     Boolean isCrawler = true; // Boolean | 
     Boolean includeUserInfo = true; // Boolean | 
     try {
-      GetFeedPostsPublic200Response result = apiInstance.getFeedPostsPublic(tenantId)
+      PublicFeedPostsResponse result = apiInstance.getFeedPostsPublic(tenantId)
             .afterId(afterId)
             .limit(limit)
             .tags(tags)
@@ -1017,7 +1394,7 @@ public class Example {
 
 ### Return type
 
-[**GetFeedPostsPublic200Response**](GetFeedPostsPublic200Response.md)
+[**PublicFeedPostsResponse**](PublicFeedPostsResponse.md)
 
 ### Authorization
 
@@ -1032,10 +1409,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getFeedPostsStats"></a>
 # **getFeedPostsStats**
-> GetFeedPostsStats200Response getFeedPostsStats(tenantId, postIds).sso(sso).execute();
+> FeedPostsStatsResponse getFeedPostsStats(tenantId, postIds).sso(sso).execute();
 
 
 
@@ -1058,7 +1436,7 @@ public class Example {
     List<String> postIds = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
     try {
-      GetFeedPostsStats200Response result = apiInstance.getFeedPostsStats(tenantId, postIds)
+      FeedPostsStatsResponse result = apiInstance.getFeedPostsStats(tenantId, postIds)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1083,7 +1461,217 @@ public class Example {
 
 ### Return type
 
-[**GetFeedPostsStats200Response**](GetFeedPostsStats200Response.md)
+[**FeedPostsStatsResponse**](FeedPostsStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getGifLarge"></a>
+# **getGifLarge**
+> GifGetLargeResponse getGifLarge(tenantId, largeInternalURLSanitized).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String largeInternalURLSanitized = "largeInternalURLSanitized_example"; // String | 
+    try {
+      GifGetLargeResponse result = apiInstance.getGifLarge(tenantId, largeInternalURLSanitized)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getGifLarge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **largeInternalURLSanitized** | **String**|  | |
+
+### Return type
+
+[**GifGetLargeResponse**](GifGetLargeResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **422** | Validation Failed |  -  |
+| **0** | Error |  -  |
+
+<a id="getGifsSearch"></a>
+# **getGifsSearch**
+> GetGifsSearchResponse getGifsSearch(tenantId, search).locale(locale).rating(rating).page(page).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String search = "search_example"; // String | 
+    String locale = "locale_example"; // String | 
+    String rating = "rating_example"; // String | 
+    Double page = 3.4D; // Double | 
+    try {
+      GetGifsSearchResponse result = apiInstance.getGifsSearch(tenantId, search)
+            .locale(locale)
+            .rating(rating)
+            .page(page)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getGifsSearch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **search** | **String**|  | |
+| **locale** | **String**|  | [optional] |
+| **rating** | **String**|  | [optional] |
+| **page** | **Double**|  | [optional] |
+
+### Return type
+
+[**GetGifsSearchResponse**](GetGifsSearchResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **422** | Validation Failed |  -  |
+| **0** | Error |  -  |
+
+<a id="getGifsTrending"></a>
+# **getGifsTrending**
+> GetGifsTrendingResponse getGifsTrending(tenantId).locale(locale).rating(rating).page(page).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String locale = "locale_example"; // String | 
+    String rating = "rating_example"; // String | 
+    Double page = 3.4D; // Double | 
+    try {
+      GetGifsTrendingResponse result = apiInstance.getGifsTrending(tenantId)
+            .locale(locale)
+            .rating(rating)
+            .page(page)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getGifsTrending");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **locale** | **String**|  | [optional] |
+| **rating** | **String**|  | [optional] |
+| **page** | **Double**|  | [optional] |
+
+### Return type
+
+[**GetGifsTrendingResponse**](GetGifsTrendingResponse.md)
 
 ### Authorization
 
@@ -1101,7 +1689,7 @@ No authorization required
 
 <a id="getGlobalEventLog"></a>
 # **getGlobalEventLog**
-> GetEventLog200Response getGlobalEventLog(tenantId, urlId, userIdWS, startTime, endTime).execute();
+> GetEventLogResponse getGlobalEventLog(tenantId, urlId, userIdWS, startTime).endTime(endTime).execute();
 
 
 
@@ -1128,7 +1716,8 @@ public class Example {
     Long startTime = 56L; // Long | 
     Long endTime = 56L; // Long | 
     try {
-      GetEventLog200Response result = apiInstance.getGlobalEventLog(tenantId, urlId, userIdWS, startTime, endTime)
+      GetEventLogResponse result = apiInstance.getGlobalEventLog(tenantId, urlId, userIdWS, startTime)
+            .endTime(endTime)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1150,11 +1739,11 @@ public class Example {
 | **urlId** | **String**|  | |
 | **userIdWS** | **String**|  | |
 | **startTime** | **Long**|  | |
-| **endTime** | **Long**|  | |
+| **endTime** | **Long**|  | [optional] |
 
 ### Return type
 
-[**GetEventLog200Response**](GetEventLog200Response.md)
+[**GetEventLogResponse**](GetEventLogResponse.md)
 
 ### Authorization
 
@@ -1169,10 +1758,310 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getOfflineUsers"></a>
+# **getOfflineUsers**
+> PageUsersOfflineResponse getOfflineUsers(tenantId, urlId).afterName(afterName).afterUserId(afterUserId).execute();
+
+
+
+Past commenters on the page who are NOT currently online. Sorted by displayName. Use this after exhausting /users/online to render a \&quot;Members\&quot; section. Cursor pagination on commenterName: server walks the partial {tenantId, urlId, commenterName} index from afterName forward via $gt, no $skip cost.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | Page URL identifier (cleaned server-side).
+    String afterName = "afterName_example"; // String | Cursor: pass nextAfterName from the previous response.
+    String afterUserId = "afterUserId_example"; // String | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+    try {
+      PageUsersOfflineResponse result = apiInstance.getOfflineUsers(tenantId, urlId)
+            .afterName(afterName)
+            .afterUserId(afterUserId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getOfflineUsers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**| Page URL identifier (cleaned server-side). | |
+| **afterName** | **String**| Cursor: pass nextAfterName from the previous response. | [optional] |
+| **afterUserId** | **String**| Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don&#39;t drop entries. | [optional] |
+
+### Return type
+
+[**PageUsersOfflineResponse**](PageUsersOfflineResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Validation Failed |  -  |
+| **0** | Error |  -  |
+
+<a id="getOnlineUsers"></a>
+# **getOnlineUsers**
+> PageUsersOnlineResponse getOnlineUsers(tenantId, urlId).afterName(afterName).afterUserId(afterUserId).execute();
+
+
+
+Currently-online viewers of a page: people whose websocket session is subscribed to the page right now. Returns anonCount + totalCount (room-wide subscribers, including anon viewers we don&#39;t enumerate).
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | Page URL identifier (cleaned server-side).
+    String afterName = "afterName_example"; // String | Cursor: pass nextAfterName from the previous response.
+    String afterUserId = "afterUserId_example"; // String | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
+    try {
+      PageUsersOnlineResponse result = apiInstance.getOnlineUsers(tenantId, urlId)
+            .afterName(afterName)
+            .afterUserId(afterUserId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getOnlineUsers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**| Page URL identifier (cleaned server-side). | |
+| **afterName** | **String**| Cursor: pass nextAfterName from the previous response. | [optional] |
+| **afterUserId** | **String**| Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don&#39;t drop entries. | [optional] |
+
+### Return type
+
+[**PageUsersOnlineResponse**](PageUsersOnlineResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Validation Failed |  -  |
+| **0** | Error |  -  |
+
+<a id="getPagesPublic"></a>
+# **getPagesPublic**
+> GetPublicPagesResponse getPagesPublic(tenantId).cursor(cursor).limit(limit).q(q).sortBy(sortBy).hasComments(hasComments).execute();
+
+
+
+List pages for a tenant. Used by the FChat desktop client to populate its room list. Requires &#x60;enableFChat&#x60; to be true on the resolved custom config for each page. Pages that require SSO are filtered against the requesting user&#39;s group access.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String cursor = "cursor_example"; // String | Opaque pagination cursor returned as `nextCursor` from a prior request. Tied to the same `sortBy`.
+    Integer limit = 56; // Integer | 1..200, default 50
+    String q = "q_example"; // String | Optional case-insensitive title prefix filter.
+    PagesSortBy sortBy = PagesSortBy.fromValue("updatedAt"); // PagesSortBy | Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
+    Boolean hasComments = true; // Boolean | If true, only return pages with at least one comment.
+    try {
+      GetPublicPagesResponse result = apiInstance.getPagesPublic(tenantId)
+            .cursor(cursor)
+            .limit(limit)
+            .q(q)
+            .sortBy(sortBy)
+            .hasComments(hasComments)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getPagesPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **cursor** | **String**| Opaque pagination cursor returned as &#x60;nextCursor&#x60; from a prior request. Tied to the same &#x60;sortBy&#x60;. | [optional] |
+| **limit** | **Integer**| 1..200, default 50 | [optional] |
+| **q** | **String**| Optional case-insensitive title prefix filter. | [optional] |
+| **sortBy** | [**PagesSortBy**](.md)| Sort order. &#x60;updatedAt&#x60; (default, newest first), &#x60;commentCount&#x60; (most comments first), or &#x60;title&#x60; (alphabetical). | [optional] [enum: updatedAt, commentCount, title] |
+| **hasComments** | **Boolean**| If true, only return pages with at least one comment. | [optional] |
+
+### Return type
+
+[**GetPublicPagesResponse**](GetPublicPagesResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getTranslations"></a>
+# **getTranslations**
+> GetTranslationsResponse getTranslations(namespace, component).locale(locale).useFullTranslationIds(useFullTranslationIds).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String namespace = "namespace_example"; // String | 
+    String component = "component_example"; // String | 
+    String locale = "locale_example"; // String | 
+    Boolean useFullTranslationIds = true; // Boolean | 
+    try {
+      GetTranslationsResponse result = apiInstance.getTranslations(namespace, component)
+            .locale(locale)
+            .useFullTranslationIds(useFullTranslationIds)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getTranslations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**|  | |
+| **component** | **String**|  | |
+| **locale** | **String**|  | [optional] |
+| **useFullTranslationIds** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**GetTranslationsResponse**](GetTranslationsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **422** | Validation Failed |  -  |
+| **500** | Internal |  -  |
+| **0** | Error |  -  |
 
 <a id="getUserNotificationCount"></a>
 # **getUserNotificationCount**
-> GetUserNotificationCount200Response getUserNotificationCount(tenantId).sso(sso).execute();
+> GetUserNotificationCountResponse getUserNotificationCount(tenantId).sso(sso).execute();
 
 
 
@@ -1194,7 +2083,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserNotificationCount200Response result = apiInstance.getUserNotificationCount(tenantId)
+      GetUserNotificationCountResponse result = apiInstance.getUserNotificationCount(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1218,7 +2107,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserNotificationCount200Response**](GetUserNotificationCount200Response.md)
+[**GetUserNotificationCountResponse**](GetUserNotificationCountResponse.md)
 
 ### Authorization
 
@@ -1233,10 +2122,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getUserNotifications"></a>
 # **getUserNotifications**
-> GetUserNotifications200Response getUserNotifications(tenantId).pageSize(pageSize).afterId(afterId).includeContext(includeContext).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).includeTranslations(includeTranslations).sso(sso).execute();
+> GetMyNotificationsResponse getUserNotifications(tenantId).urlId(urlId).pageSize(pageSize).afterId(afterId).includeContext(includeContext).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).includeTranslations(includeTranslations).includeTenantNotifications(includeTenantNotifications).sso(sso).execute();
 
 
 
@@ -1256,6 +2146,7 @@ public class Example {
 
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | Used to determine whether the current page is subscribed.
     Integer pageSize = 56; // Integer | 
     String afterId = "afterId_example"; // String | 
     Boolean includeContext = true; // Boolean | 
@@ -1264,9 +2155,11 @@ public class Example {
     Boolean dmOnly = true; // Boolean | 
     Boolean noDm = true; // Boolean | 
     Boolean includeTranslations = true; // Boolean | 
+    Boolean includeTenantNotifications = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserNotifications200Response result = apiInstance.getUserNotifications(tenantId)
+      GetMyNotificationsResponse result = apiInstance.getUserNotifications(tenantId)
+            .urlId(urlId)
             .pageSize(pageSize)
             .afterId(afterId)
             .includeContext(includeContext)
@@ -1275,6 +2168,7 @@ public class Example {
             .dmOnly(dmOnly)
             .noDm(noDm)
             .includeTranslations(includeTranslations)
+            .includeTenantNotifications(includeTenantNotifications)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1294,6 +2188,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
+| **urlId** | **String**| Used to determine whether the current page is subscribed. | [optional] |
 | **pageSize** | **Integer**|  | [optional] |
 | **afterId** | **String**|  | [optional] |
 | **includeContext** | **Boolean**|  | [optional] |
@@ -1302,11 +2197,12 @@ public class Example {
 | **dmOnly** | **Boolean**|  | [optional] |
 | **noDm** | **Boolean**|  | [optional] |
 | **includeTranslations** | **Boolean**|  | [optional] |
+| **includeTenantNotifications** | **Boolean**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetUserNotifications200Response**](GetUserNotifications200Response.md)
+[**GetMyNotificationsResponse**](GetMyNotificationsResponse.md)
 
 ### Authorization
 
@@ -1321,10 +2217,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getUserPresenceStatuses"></a>
 # **getUserPresenceStatuses**
-> GetUserPresenceStatuses200Response getUserPresenceStatuses(tenantId, urlIdWS, userIds).execute();
+> GetUserPresenceStatusesResponse getUserPresenceStatuses(tenantId, urlIdWS, userIds).execute();
 
 
 
@@ -1347,7 +2244,7 @@ public class Example {
     String urlIdWS = "urlIdWS_example"; // String | 
     String userIds = "userIds_example"; // String | 
     try {
-      GetUserPresenceStatuses200Response result = apiInstance.getUserPresenceStatuses(tenantId, urlIdWS, userIds)
+      GetUserPresenceStatusesResponse result = apiInstance.getUserPresenceStatuses(tenantId, urlIdWS, userIds)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1371,7 +2268,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserPresenceStatuses200Response**](GetUserPresenceStatuses200Response.md)
+[**GetUserPresenceStatusesResponse**](GetUserPresenceStatusesResponse.md)
 
 ### Authorization
 
@@ -1387,10 +2284,11 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **422** | Validation Failed |  -  |
+| **0** | Error |  -  |
 
 <a id="getUserReactsPublic"></a>
 # **getUserReactsPublic**
-> GetUserReactsPublic200Response getUserReactsPublic(tenantId).postIds(postIds).sso(sso).execute();
+> UserReactsResponse getUserReactsPublic(tenantId).postIds(postIds).sso(sso).execute();
 
 
 
@@ -1413,7 +2311,7 @@ public class Example {
     List<String> postIds = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserReactsPublic200Response result = apiInstance.getUserReactsPublic(tenantId)
+      UserReactsResponse result = apiInstance.getUserReactsPublic(tenantId)
             .postIds(postIds)
             .sso(sso)
             .execute();
@@ -1439,7 +2337,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserReactsPublic200Response**](GetUserReactsPublic200Response.md)
+[**UserReactsResponse**](UserReactsResponse.md)
 
 ### Authorization
 
@@ -1454,10 +2352,272 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getUsersInfo"></a>
+# **getUsersInfo**
+> PageUsersInfoResponse getUsersInfo(tenantId, ids).execute();
+
+
+
+Bulk user info for a tenant. Given userIds, return display info from User / SSOUser. Used by the comment widget to enrich users that just appeared via a presence event. No page context: privacy is enforced uniformly (private profiles are masked).
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String ids = "ids_example"; // String | Comma-delimited userIds.
+    try {
+      PageUsersInfoResponse result = apiInstance.getUsersInfo(tenantId, ids)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getUsersInfo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **ids** | **String**| Comma-delimited userIds. | |
+
+### Return type
+
+[**PageUsersInfoResponse**](PageUsersInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **422** | Validation Failed |  -  |
+| **0** | Error |  -  |
+
+<a id="getV1PageLikes"></a>
+# **getV1PageLikes**
+> GetV1PageLikes getV1PageLikes(tenantId, urlId).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    try {
+      GetV1PageLikes result = apiInstance.getV1PageLikes(tenantId, urlId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getV1PageLikes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+
+### Return type
+
+[**GetV1PageLikes**](GetV1PageLikes.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getV2PageReactUsers"></a>
+# **getV2PageReactUsers**
+> GetV2PageReactUsersResponse getV2PageReactUsers(tenantId, urlId, id).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      GetV2PageReactUsersResponse result = apiInstance.getV2PageReactUsers(tenantId, urlId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getV2PageReactUsers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**GetV2PageReactUsersResponse**](GetV2PageReactUsersResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getV2PageReacts"></a>
+# **getV2PageReacts**
+> GetV2PageReacts getV2PageReacts(tenantId, urlId).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    try {
+      GetV2PageReacts result = apiInstance.getV2PageReacts(tenantId, urlId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getV2PageReacts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+
+### Return type
+
+[**GetV2PageReacts**](GetV2PageReacts.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="lockComment"></a>
 # **lockComment**
-> LockComment200Response lockComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> APIEmptyResponse lockComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -1481,7 +2641,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      LockComment200Response result = apiInstance.lockComment(tenantId, commentId, broadcastId)
+      APIEmptyResponse result = apiInstance.lockComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1507,7 +2667,65 @@ public class Example {
 
 ### Return type
 
-[**LockComment200Response**](LockComment200Response.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="logoutPublic"></a>
+# **logoutPublic**
+> APIEmptyResponse logoutPublic().execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    try {
+      APIEmptyResponse result = apiInstance.logoutPublic()
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#logoutPublic");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1525,7 +2743,7 @@ No authorization required
 
 <a id="pinComment"></a>
 # **pinComment**
-> PinComment200Response pinComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> ChangeCommentPinStatusResponse pinComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -1549,7 +2767,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PinComment200Response result = apiInstance.pinComment(tenantId, commentId, broadcastId)
+      ChangeCommentPinStatusResponse result = apiInstance.pinComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1575,7 +2793,7 @@ public class Example {
 
 ### Return type
 
-[**PinComment200Response**](PinComment200Response.md)
+[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
 
 ### Authorization
 
@@ -1590,10 +2808,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="reactFeedPostPublic"></a>
 # **reactFeedPostPublic**
-> ReactFeedPostPublic200Response reactFeedPostPublic(tenantId, postId, reactBodyParams).isUndo(isUndo).broadcastId(broadcastId).sso(sso).execute();
+> ReactFeedPostResponse reactFeedPostPublic(tenantId, postId, reactBodyParams).isUndo(isUndo).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -1619,7 +2838,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ReactFeedPostPublic200Response result = apiInstance.reactFeedPostPublic(tenantId, postId, reactBodyParams)
+      ReactFeedPostResponse result = apiInstance.reactFeedPostPublic(tenantId, postId, reactBodyParams)
             .isUndo(isUndo)
             .broadcastId(broadcastId)
             .sso(sso)
@@ -1649,7 +2868,7 @@ public class Example {
 
 ### Return type
 
-[**ReactFeedPostPublic200Response**](ReactFeedPostPublic200Response.md)
+[**ReactFeedPostResponse**](ReactFeedPostResponse.md)
 
 ### Authorization
 
@@ -1664,10 +2883,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="resetUserNotificationCount"></a>
 # **resetUserNotificationCount**
-> ResetUserNotifications200Response resetUserNotificationCount(tenantId).sso(sso).execute();
+> ResetUserNotificationsResponse resetUserNotificationCount(tenantId).sso(sso).execute();
 
 
 
@@ -1689,7 +2909,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ResetUserNotifications200Response result = apiInstance.resetUserNotificationCount(tenantId)
+      ResetUserNotificationsResponse result = apiInstance.resetUserNotificationCount(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1713,7 +2933,7 @@ public class Example {
 
 ### Return type
 
-[**ResetUserNotifications200Response**](ResetUserNotifications200Response.md)
+[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -1728,10 +2948,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="resetUserNotifications"></a>
 # **resetUserNotifications**
-> ResetUserNotifications200Response resetUserNotifications(tenantId).afterId(afterId).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).sso(sso).execute();
+> ResetUserNotificationsResponse resetUserNotifications(tenantId).afterId(afterId).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).sso(sso).execute();
 
 
 
@@ -1758,7 +2979,7 @@ public class Example {
     Boolean noDm = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      ResetUserNotifications200Response result = apiInstance.resetUserNotifications(tenantId)
+      ResetUserNotificationsResponse result = apiInstance.resetUserNotifications(tenantId)
             .afterId(afterId)
             .afterCreatedAt(afterCreatedAt)
             .unreadOnly(unreadOnly)
@@ -1792,7 +3013,7 @@ public class Example {
 
 ### Return type
 
-[**ResetUserNotifications200Response**](ResetUserNotifications200Response.md)
+[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -1807,10 +3028,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="searchUsers"></a>
 # **searchUsers**
-> SearchUsers200Response searchUsers(tenantId, urlId).usernameStartsWith(usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).searchSection(searchSection).execute();
+> SearchUsersResult searchUsers(tenantId, urlId).usernameStartsWith(usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).searchSection(searchSection).execute();
 
 
 
@@ -1836,7 +3058,7 @@ public class Example {
     String sso = "sso_example"; // String | 
     String searchSection = "fast"; // String | 
     try {
-      SearchUsers200Response result = apiInstance.searchUsers(tenantId, urlId)
+      SearchUsersResult result = apiInstance.searchUsers(tenantId, urlId)
             .usernameStartsWith(usernameStartsWith)
             .mentionGroupIds(mentionGroupIds)
             .sso(sso)
@@ -1867,7 +3089,7 @@ public class Example {
 
 ### Return type
 
-[**SearchUsers200Response**](SearchUsers200Response.md)
+[**SearchUsersResult**](SearchUsersResult.md)
 
 ### Authorization
 
@@ -1882,10 +3104,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="setCommentText"></a>
 # **setCommentText**
-> SetCommentText200Response setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest).editKey(editKey).sso(sso).execute();
+> PublicAPISetCommentTextResponse setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest).editKey(editKey).sso(sso).execute();
 
 
 
@@ -1911,7 +3134,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetCommentText200Response result = apiInstance.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
+      PublicAPISetCommentTextResponse result = apiInstance.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -1940,7 +3163,7 @@ public class Example {
 
 ### Return type
 
-[**SetCommentText200Response**](SetCommentText200Response.md)
+[**PublicAPISetCommentTextResponse**](PublicAPISetCommentTextResponse.md)
 
 ### Authorization
 
@@ -1955,10 +3178,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="unBlockCommentPublic"></a>
 # **unBlockCommentPublic**
-> UnBlockCommentPublic200Response unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
+> UnblockSuccess unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -1982,7 +3206,7 @@ public class Example {
     PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      UnBlockCommentPublic200Response result = apiInstance.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
+      UnblockSuccess result = apiInstance.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2008,7 +3232,7 @@ public class Example {
 
 ### Return type
 
-[**UnBlockCommentPublic200Response**](UnBlockCommentPublic200Response.md)
+[**UnblockSuccess**](UnblockSuccess.md)
 
 ### Authorization
 
@@ -2023,10 +3247,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="unLockComment"></a>
 # **unLockComment**
-> LockComment200Response unLockComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> APIEmptyResponse unLockComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -2050,7 +3275,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      LockComment200Response result = apiInstance.unLockComment(tenantId, commentId, broadcastId)
+      APIEmptyResponse result = apiInstance.unLockComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2076,7 +3301,7 @@ public class Example {
 
 ### Return type
 
-[**LockComment200Response**](LockComment200Response.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2091,10 +3316,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="unPinComment"></a>
 # **unPinComment**
-> PinComment200Response unPinComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> ChangeCommentPinStatusResponse unPinComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -2118,7 +3344,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PinComment200Response result = apiInstance.unPinComment(tenantId, commentId, broadcastId)
+      ChangeCommentPinStatusResponse result = apiInstance.unPinComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2144,7 +3370,7 @@ public class Example {
 
 ### Return type
 
-[**PinComment200Response**](PinComment200Response.md)
+[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
 
 ### Authorization
 
@@ -2159,10 +3385,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="updateFeedPostPublic"></a>
 # **updateFeedPostPublic**
-> CreateFeedPostPublic200Response updateFeedPostPublic(tenantId, postId, updateFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
+> CreateFeedPostResponse updateFeedPostPublic(tenantId, postId, updateFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2187,7 +3414,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      CreateFeedPostPublic200Response result = apiInstance.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
+      CreateFeedPostResponse result = apiInstance.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
             .broadcastId(broadcastId)
             .sso(sso)
             .execute();
@@ -2215,7 +3442,7 @@ public class Example {
 
 ### Return type
 
-[**CreateFeedPostPublic200Response**](CreateFeedPostPublic200Response.md)
+[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
 
 ### Authorization
 
@@ -2230,10 +3457,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="updateUserNotificationCommentSubscriptionStatus"></a>
 # **updateUserNotificationCommentSubscriptionStatus**
-> UpdateUserNotificationStatus200Response updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId).sso(sso).execute();
+> UpdateUserNotificationCommentSubscriptionStatusResponse updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId).sso(sso).execute();
 
 
 
@@ -2260,7 +3488,7 @@ public class Example {
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId)
+      UpdateUserNotificationCommentSubscriptionStatusResponse result = apiInstance.updateUserNotificationCommentSubscriptionStatus(tenantId, notificationId, optedInOrOut, commentId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2287,7 +3515,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateUserNotificationStatus200Response**](UpdateUserNotificationStatus200Response.md)
+[**UpdateUserNotificationCommentSubscriptionStatusResponse**](UpdateUserNotificationCommentSubscriptionStatusResponse.md)
 
 ### Authorization
 
@@ -2302,10 +3530,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="updateUserNotificationPageSubscriptionStatus"></a>
 # **updateUserNotificationPageSubscriptionStatus**
-> UpdateUserNotificationStatus200Response updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed).sso(sso).execute();
+> UpdateUserNotificationPageSubscriptionStatusResponse updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed).sso(sso).execute();
 
 
 
@@ -2333,7 +3562,7 @@ public class Example {
     String subscribedOrUnsubscribed = "subscribe"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed)
+      UpdateUserNotificationPageSubscriptionStatusResponse result = apiInstance.updateUserNotificationPageSubscriptionStatus(tenantId, urlId, url, pageTitle, subscribedOrUnsubscribed)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2361,7 +3590,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateUserNotificationStatus200Response**](UpdateUserNotificationStatus200Response.md)
+[**UpdateUserNotificationPageSubscriptionStatusResponse**](UpdateUserNotificationPageSubscriptionStatusResponse.md)
 
 ### Authorization
 
@@ -2376,10 +3605,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="updateUserNotificationStatus"></a>
 # **updateUserNotificationStatus**
-> UpdateUserNotificationStatus200Response updateUserNotificationStatus(tenantId, notificationId, newStatus).sso(sso).execute();
+> UpdateUserNotificationStatusResponse updateUserNotificationStatus(tenantId, notificationId, newStatus).sso(sso).execute();
 
 
 
@@ -2403,7 +3633,7 @@ public class Example {
     String newStatus = "read"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      UpdateUserNotificationStatus200Response result = apiInstance.updateUserNotificationStatus(tenantId, notificationId, newStatus)
+      UpdateUserNotificationStatusResponse result = apiInstance.updateUserNotificationStatus(tenantId, notificationId, newStatus)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2429,7 +3659,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateUserNotificationStatus200Response**](UpdateUserNotificationStatus200Response.md)
+[**UpdateUserNotificationStatusResponse**](UpdateUserNotificationStatusResponse.md)
 
 ### Authorization
 
@@ -2444,6 +3674,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="uploadImage"></a>
 # **uploadImage**
@@ -2518,7 +3749,7 @@ No authorization required
 
 <a id="voteComment"></a>
 # **voteComment**
-> VoteComment200Response voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams).sessionId(sessionId).sso(sso).execute();
+> VoteResponse voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams).sessionId(sessionId).sso(sso).execute();
 
 
 
@@ -2545,7 +3776,7 @@ public class Example {
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteComment200Response result = apiInstance.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
+      VoteResponse result = apiInstance.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
             .sessionId(sessionId)
             .sso(sso)
             .execute();
@@ -2575,7 +3806,7 @@ public class Example {
 
 ### Return type
 
-[**VoteComment200Response**](VoteComment200Response.md)
+[**VoteResponse**](VoteResponse.md)
 
 ### Authorization
 
@@ -2590,4 +3821,5 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 

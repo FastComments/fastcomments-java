@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.DigestEmailFrequency;
+import com.fastcomments.model.ImportedAgentApprovalNotificationFrequency;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -351,6 +352,14 @@ public class UserTest {
     @Test
     public void adminNotificationFrequencyTest() {
         // TODO: test adminNotificationFrequency
+    }
+
+    /**
+     * Test the property 'agentApprovalNotificationFrequency'
+     */
+    @Test
+    public void agentApprovalNotificationFrequencyTest() {
+        // TODO: test agentApprovalNotificationFrequency
     }
 
     /**

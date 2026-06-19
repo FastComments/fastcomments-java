@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * LiveEventExtraInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class LiveEventExtraInfo {
   public static final String SERIALIZED_NAME_COMMENT_POSITIONS = "commentPositions";
   @SerializedName(SERIALIZED_NAME_COMMENT_POSITIONS)
@@ -166,10 +166,7 @@ public class LiveEventExtraInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

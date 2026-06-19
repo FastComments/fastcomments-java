@@ -79,6 +79,7 @@
 |**requiresVerification** | **Boolean** |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
 |**tosAcceptedAt** | **OffsetDateTime** |  |  [optional] |
+|**botId** | **String** |  |  [optional] |
 
 
 

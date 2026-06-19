@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * QuestionConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class QuestionConfig {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -649,10 +649,7 @@ public class QuestionConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -725,16 +722,16 @@ public class QuestionConfig {
       if (!jsonObj.get("labelPositive").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `labelPositive` to be a primitive type in the JSON string but got `%s`", jsonObj.get("labelPositive").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("customOptions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customOptions` to be an array in the JSON string but got `%s`", jsonObj.get("customOptions").toString()));
+      if (jsonObj.get("customOptions") != null) {
+        if (!jsonObj.get("customOptions").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customOptions` to be an array in the JSON string but got `%s`", jsonObj.get("customOptions").toString()));
+        }
+        JsonArray jsonArraycustomOptions = jsonObj.getAsJsonArray("customOptions");
+        // validate the required field `customOptions` (array)
+        for (int i = 0; i < jsonArraycustomOptions.size(); i++) {
+          QuestionConfigCustomOptionsInner.validateJsonElement(jsonArraycustomOptions.get(i));
+        }
       }
-
-      JsonArray jsonArraycustomOptions = jsonObj.getAsJsonArray("customOptions");
-      // validate the required field `customOptions` (array)
-      for (int i = 0; i < jsonArraycustomOptions.size(); i++) {
-        QuestionConfigCustomOptionsInner.validateJsonElement(jsonArraycustomOptions.get(i));
-      };
       // ensure the required json array is present
       if (jsonObj.get("subQuestionIds") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");

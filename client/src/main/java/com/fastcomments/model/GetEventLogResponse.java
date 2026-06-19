@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetEventLogResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetEventLogResponse {
   public static final String SERIALIZED_NAME_EVENTS = "events";
   @SerializedName(SERIALIZED_NAME_EVENTS)
@@ -193,10 +193,7 @@ public class GetEventLogResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -231,16 +228,16 @@ public class GetEventLogResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("events").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+      if (jsonObj.get("events") != null) {
+        if (!jsonObj.get("events").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+        }
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        // validate the required field `events` (array)
+        for (int i = 0; i < jsonArrayevents.size(); i++) {
+          EventLogEntry.validateJsonElement(jsonArrayevents.get(i));
+        }
       }
-
-      JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
-      // validate the required field `events` (array)
-      for (int i = 0; i < jsonArrayevents.size(); i++) {
-        EventLogEntry.validateJsonElement(jsonArrayevents.get(i));
-      };
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
   }

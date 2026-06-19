@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * APITicketDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class APITicketDetail {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -440,10 +440,7 @@ public class APITicketDetail {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -510,16 +507,16 @@ public class APITicketDetail {
       if (!jsonObj.get("createdAt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdAt").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("files").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `files` to be an array in the JSON string but got `%s`", jsonObj.get("files").toString()));
+      if (jsonObj.get("files") != null) {
+        if (!jsonObj.get("files").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `files` to be an array in the JSON string but got `%s`", jsonObj.get("files").toString()));
+        }
+        JsonArray jsonArrayfiles = jsonObj.getAsJsonArray("files");
+        // validate the required field `files` (array)
+        for (int i = 0; i < jsonArrayfiles.size(); i++) {
+          APITicketFile.validateJsonElement(jsonArrayfiles.get(i));
+        }
       }
-
-      JsonArray jsonArrayfiles = jsonObj.getAsJsonArray("files");
-      // validate the required field `files` (array)
-      for (int i = 0; i < jsonArrayfiles.size(); i++) {
-        APITicketFile.validateJsonElement(jsonArrayfiles.get(i));
-      };
       if ((jsonObj.get("reopenedAt") != null && !jsonObj.get("reopenedAt").isJsonNull()) && !jsonObj.get("reopenedAt").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reopenedAt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reopenedAt").toString()));
       }

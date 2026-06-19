@@ -69,7 +69,11 @@ public enum LiveEventType {
   
   UPDATED_TICKET_ASSIGNMENT("updated-ticket-assignment"),
   
-  DELETED_TICKET("deleted-ticket");
+  DELETED_TICKET("deleted-ticket"),
+  
+  PAGE_REACT("page-react"),
+  
+  QUESTION_RESULT("question-result");
 
   private String value;
 
