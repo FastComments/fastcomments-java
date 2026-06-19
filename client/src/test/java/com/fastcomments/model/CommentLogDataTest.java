@@ -162,6 +162,14 @@ public class CommentLogDataTest {
     }
 
     /**
+     * Test the property 'source'
+     */
+    @Test
+    public void sourceTest() {
+        // TODO: test source
+    }
+
+    /**
      * Test the property 'rule'
      */
     @Test

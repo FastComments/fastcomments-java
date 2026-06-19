@@ -29,6 +29,7 @@ import com.fastcomments.model.SSOSecurityLevel;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.SpamRule;
 import com.fastcomments.model.TOSConfig;
+import com.fastcomments.model.UsersListLocation;
 import com.fastcomments.model.VoteStyle;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -68,7 +69,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CustomConfigParameters
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class CustomConfigParameters {
   public static final String SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES = "absoluteAndRelativeDates";
   @SerializedName(SERIALIZED_NAME_ABSOLUTE_AND_RELATIVE_DATES)
@@ -330,6 +331,16 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private Boolean noImageUploads;
 
+  public static final String SERIALIZED_NAME_ALLOW_EMBEDS = "allowEmbeds";
+  @SerializedName(SERIALIZED_NAME_ALLOW_EMBEDS)
+  @javax.annotation.Nullable
+  private Boolean allowEmbeds;
+
+  public static final String SERIALIZED_NAME_ALLOWED_EMBED_DOMAINS = "allowedEmbedDomains";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_EMBED_DOMAINS)
+  @javax.annotation.Nullable
+  private List<String> allowedEmbedDomains;
+
   public static final String SERIALIZED_NAME_NO_STYLES = "noStyles";
   @SerializedName(SERIALIZED_NAME_NO_STYLES)
   @javax.annotation.Nullable
@@ -354,6 +365,11 @@ public class CustomConfigParameters {
   @SerializedName(SERIALIZED_NAME_REQUIRE_S_S_O)
   @javax.annotation.Nullable
   private Boolean requireSSO;
+
+  public static final String SERIALIZED_NAME_ENABLE_F_CHAT = "enableFChat";
+  @SerializedName(SERIALIZED_NAME_ENABLE_F_CHAT)
+  @javax.annotation.Nullable
+  private Boolean enableFChat;
 
   public static final String SERIALIZED_NAME_ENABLE_RESIZE_HANDLE = "enableResizeHandle";
   @SerializedName(SERIALIZED_NAME_ENABLE_RESIZE_HANDLE)
@@ -454,6 +470,16 @@ public class CustomConfigParameters {
   @SerializedName(SERIALIZED_NAME_WRAP)
   @javax.annotation.Nullable
   private Boolean wrap;
+
+  public static final String SERIALIZED_NAME_USERS_LIST_LOCATION = "usersListLocation";
+  @SerializedName(SERIALIZED_NAME_USERS_LIST_LOCATION)
+  @javax.annotation.Nullable
+  private UsersListLocation usersListLocation;
+
+  public static final String SERIALIZED_NAME_USERS_LIST_INCLUDE_OFFLINE = "usersListIncludeOffline";
+  @SerializedName(SERIALIZED_NAME_USERS_LIST_INCLUDE_OFFLINE)
+  @javax.annotation.Nullable
+  private Boolean usersListIncludeOffline;
 
   public static final String SERIALIZED_NAME_TICKET_BASE_URL = "ticketBaseUrl";
   @SerializedName(SERIALIZED_NAME_TICKET_BASE_URL)
@@ -1484,6 +1510,52 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters allowEmbeds(@javax.annotation.Nullable Boolean allowEmbeds) {
+    this.allowEmbeds = allowEmbeds;
+    return this;
+  }
+
+  /**
+   * Get allowEmbeds
+   * @return allowEmbeds
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowEmbeds() {
+    return allowEmbeds;
+  }
+
+  public void setAllowEmbeds(@javax.annotation.Nullable Boolean allowEmbeds) {
+    this.allowEmbeds = allowEmbeds;
+  }
+
+
+  public CustomConfigParameters allowedEmbedDomains(@javax.annotation.Nullable List<String> allowedEmbedDomains) {
+    this.allowedEmbedDomains = allowedEmbedDomains;
+    return this;
+  }
+
+  public CustomConfigParameters addAllowedEmbedDomainsItem(String allowedEmbedDomainsItem) {
+    if (this.allowedEmbedDomains == null) {
+      this.allowedEmbedDomains = new ArrayList<>();
+    }
+    this.allowedEmbedDomains.add(allowedEmbedDomainsItem);
+    return this;
+  }
+
+  /**
+   * Get allowedEmbedDomains
+   * @return allowedEmbedDomains
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedEmbedDomains() {
+    return allowedEmbedDomains;
+  }
+
+  public void setAllowedEmbedDomains(@javax.annotation.Nullable List<String> allowedEmbedDomains) {
+    this.allowedEmbedDomains = allowedEmbedDomains;
+  }
+
+
   public CustomConfigParameters noStyles(@javax.annotation.Nullable Boolean noStyles) {
     this.noStyles = noStyles;
     return this;
@@ -1576,6 +1648,25 @@ public class CustomConfigParameters {
 
   public void setRequireSSO(@javax.annotation.Nullable Boolean requireSSO) {
     this.requireSSO = requireSSO;
+  }
+
+
+  public CustomConfigParameters enableFChat(@javax.annotation.Nullable Boolean enableFChat) {
+    this.enableFChat = enableFChat;
+    return this;
+  }
+
+  /**
+   * Get enableFChat
+   * @return enableFChat
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableFChat() {
+    return enableFChat;
+  }
+
+  public void setEnableFChat(@javax.annotation.Nullable Boolean enableFChat) {
+    this.enableFChat = enableFChat;
   }
 
 
@@ -1983,6 +2074,44 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters usersListLocation(@javax.annotation.Nullable UsersListLocation usersListLocation) {
+    this.usersListLocation = usersListLocation;
+    return this;
+  }
+
+  /**
+   * Get usersListLocation
+   * @return usersListLocation
+   */
+  @javax.annotation.Nullable
+  public UsersListLocation getUsersListLocation() {
+    return usersListLocation;
+  }
+
+  public void setUsersListLocation(@javax.annotation.Nullable UsersListLocation usersListLocation) {
+    this.usersListLocation = usersListLocation;
+  }
+
+
+  public CustomConfigParameters usersListIncludeOffline(@javax.annotation.Nullable Boolean usersListIncludeOffline) {
+    this.usersListIncludeOffline = usersListIncludeOffline;
+    return this;
+  }
+
+  /**
+   * Get usersListIncludeOffline
+   * @return usersListIncludeOffline
+   */
+  @javax.annotation.Nullable
+  public Boolean getUsersListIncludeOffline() {
+    return usersListIncludeOffline;
+  }
+
+  public void setUsersListIncludeOffline(@javax.annotation.Nullable Boolean usersListIncludeOffline) {
+    this.usersListIncludeOffline = usersListIncludeOffline;
+  }
+
+
   public CustomConfigParameters ticketBaseUrl(@javax.annotation.Nullable String ticketBaseUrl) {
     this.ticketBaseUrl = ticketBaseUrl;
     return this;
@@ -2167,11 +2296,14 @@ public class CustomConfigParameters {
         Objects.equals(this.noCustomConfig, customConfigParameters.noCustomConfig) &&
         Objects.equals(this.mentionAutoCompleteMode, customConfigParameters.mentionAutoCompleteMode) &&
         Objects.equals(this.noImageUploads, customConfigParameters.noImageUploads) &&
+        Objects.equals(this.allowEmbeds, customConfigParameters.allowEmbeds) &&
+        Objects.equals(this.allowedEmbedDomains, customConfigParameters.allowedEmbedDomains) &&
         Objects.equals(this.noStyles, customConfigParameters.noStyles) &&
         Objects.equals(this.pageSize, customConfigParameters.pageSize) &&
         Objects.equals(this.readonly, customConfigParameters.readonly) &&
         Objects.equals(this.noNewRootComments, customConfigParameters.noNewRootComments) &&
         Objects.equals(this.requireSSO, customConfigParameters.requireSSO) &&
+        Objects.equals(this.enableFChat, customConfigParameters.enableFChat) &&
         Objects.equals(this.enableResizeHandle, customConfigParameters.enableResizeHandle) &&
         Objects.equals(this.restrictedLinkDomains, customConfigParameters.restrictedLinkDomains) &&
         Objects.equals(this.showBadgesInTopBar, customConfigParameters.showBadgesInTopBar) &&
@@ -2192,6 +2324,8 @@ public class CustomConfigParameters {
         Objects.equals(this.widgetQuestionsRequired, customConfigParameters.widgetQuestionsRequired) &&
         Objects.equals(this.widgetSubQuestionVisibility, customConfigParameters.widgetSubQuestionVisibility) &&
         Objects.equals(this.wrap, customConfigParameters.wrap) &&
+        Objects.equals(this.usersListLocation, customConfigParameters.usersListLocation) &&
+        Objects.equals(this.usersListIncludeOffline, customConfigParameters.usersListIncludeOffline) &&
         Objects.equals(this.ticketBaseUrl, customConfigParameters.ticketBaseUrl) &&
         Objects.equals(this.ticketKBSearchEndpoint, customConfigParameters.ticketKBSearchEndpoint) &&
         Objects.equals(this.ticketFileUploadsEnabled, customConfigParameters.ticketFileUploadsEnabled) &&
@@ -2202,7 +2336,7 @@ public class CustomConfigParameters {
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfileComments, disableProfileDirectMessages, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, mentionAutoCompleteMode, noImageUploads, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionShowBreakdown, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap, ticketBaseUrl, ticketKBSearchEndpoint, ticketFileUploadsEnabled, ticketMaxFileSize, ticketAutoAssignUserIds, tos);
+    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfileComments, disableProfileDirectMessages, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, mentionAutoCompleteMode, noImageUploads, allowEmbeds, allowedEmbedDomains, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableFChat, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionShowBreakdown, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap, usersListLocation, usersListIncludeOffline, ticketBaseUrl, ticketKBSearchEndpoint, ticketFileUploadsEnabled, ticketMaxFileSize, ticketAutoAssignUserIds, tos);
   }
 
   @Override
@@ -2261,11 +2395,14 @@ public class CustomConfigParameters {
     sb.append("    noCustomConfig: ").append(toIndentedString(noCustomConfig)).append("\n");
     sb.append("    mentionAutoCompleteMode: ").append(toIndentedString(mentionAutoCompleteMode)).append("\n");
     sb.append("    noImageUploads: ").append(toIndentedString(noImageUploads)).append("\n");
+    sb.append("    allowEmbeds: ").append(toIndentedString(allowEmbeds)).append("\n");
+    sb.append("    allowedEmbedDomains: ").append(toIndentedString(allowedEmbedDomains)).append("\n");
     sb.append("    noStyles: ").append(toIndentedString(noStyles)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    readonly: ").append(toIndentedString(readonly)).append("\n");
     sb.append("    noNewRootComments: ").append(toIndentedString(noNewRootComments)).append("\n");
     sb.append("    requireSSO: ").append(toIndentedString(requireSSO)).append("\n");
+    sb.append("    enableFChat: ").append(toIndentedString(enableFChat)).append("\n");
     sb.append("    enableResizeHandle: ").append(toIndentedString(enableResizeHandle)).append("\n");
     sb.append("    restrictedLinkDomains: ").append(toIndentedString(restrictedLinkDomains)).append("\n");
     sb.append("    showBadgesInTopBar: ").append(toIndentedString(showBadgesInTopBar)).append("\n");
@@ -2286,6 +2423,8 @@ public class CustomConfigParameters {
     sb.append("    widgetQuestionsRequired: ").append(toIndentedString(widgetQuestionsRequired)).append("\n");
     sb.append("    widgetSubQuestionVisibility: ").append(toIndentedString(widgetSubQuestionVisibility)).append("\n");
     sb.append("    wrap: ").append(toIndentedString(wrap)).append("\n");
+    sb.append("    usersListLocation: ").append(toIndentedString(usersListLocation)).append("\n");
+    sb.append("    usersListIncludeOffline: ").append(toIndentedString(usersListIncludeOffline)).append("\n");
     sb.append("    ticketBaseUrl: ").append(toIndentedString(ticketBaseUrl)).append("\n");
     sb.append("    ticketKBSearchEndpoint: ").append(toIndentedString(ticketKBSearchEndpoint)).append("\n");
     sb.append("    ticketFileUploadsEnabled: ").append(toIndentedString(ticketFileUploadsEnabled)).append("\n");
@@ -2301,10 +2440,7 @@ public class CustomConfigParameters {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -2313,7 +2449,7 @@ public class CustomConfigParameters {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"));
+    openapiFields = new HashSet<String>(Arrays.asList("absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "allowEmbeds", "allowedEmbedDomains", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableFChat", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "usersListLocation", "usersListIncludeOffline", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -2394,6 +2530,10 @@ public class CustomConfigParameters {
         MentionAutoCompleteMode.validateJsonElement(jsonObj.get("mentionAutoCompleteMode"));
       }
       // ensure the optional json data is an array if present
+      if (jsonObj.get("allowedEmbedDomains") != null && !jsonObj.get("allowedEmbedDomains").isJsonNull() && !jsonObj.get("allowedEmbedDomains").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowedEmbedDomains` to be an array in the JSON string but got `%s`", jsonObj.get("allowedEmbedDomains").toString()));
+      }
+      // ensure the optional json data is an array if present
       if (jsonObj.get("restrictedLinkDomains") != null && !jsonObj.get("restrictedLinkDomains").isJsonNull() && !jsonObj.get("restrictedLinkDomains").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `restrictedLinkDomains` to be an array in the JSON string but got `%s`", jsonObj.get("restrictedLinkDomains").toString()));
       }
@@ -2441,6 +2581,10 @@ public class CustomConfigParameters {
       // validate the optional field `widgetSubQuestionVisibility`
       if (jsonObj.get("widgetSubQuestionVisibility") != null && !jsonObj.get("widgetSubQuestionVisibility").isJsonNull()) {
         QuestionSubQuestionVisibility.validateJsonElement(jsonObj.get("widgetSubQuestionVisibility"));
+      }
+      // validate the optional field `usersListLocation`
+      if (jsonObj.get("usersListLocation") != null && !jsonObj.get("usersListLocation").isJsonNull()) {
+        UsersListLocation.validateJsonElement(jsonObj.get("usersListLocation"));
       }
       if ((jsonObj.get("ticketBaseUrl") != null && !jsonObj.get("ticketBaseUrl").isJsonNull()) && !jsonObj.get("ticketBaseUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ticketBaseUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ticketBaseUrl").toString()));

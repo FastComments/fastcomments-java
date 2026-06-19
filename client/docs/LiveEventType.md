@@ -47,5 +47,9 @@
 
 * `DELETED_TICKET` (value: `"deleted-ticket"`)
 
+* `PAGE_REACT` (value: `"page-react"`)
+
+* `QUESTION_RESULT` (value: `"question-result"`)
+
 
 

@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetEmailTemplatesResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetEmailTemplatesResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -147,10 +147,7 @@ public class GetEmailTemplatesResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -195,16 +192,16 @@ public class GetEmailTemplatesResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
-      // ensure the json data is an array
-      if (!jsonObj.get("emailTemplates").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailTemplates` to be an array in the JSON string but got `%s`", jsonObj.get("emailTemplates").toString()));
+      if (jsonObj.get("emailTemplates") != null) {
+        if (!jsonObj.get("emailTemplates").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `emailTemplates` to be an array in the JSON string but got `%s`", jsonObj.get("emailTemplates").toString()));
+        }
+        JsonArray jsonArrayemailTemplates = jsonObj.getAsJsonArray("emailTemplates");
+        // validate the required field `emailTemplates` (array)
+        for (int i = 0; i < jsonArrayemailTemplates.size(); i++) {
+          CustomEmailTemplate.validateJsonElement(jsonArrayemailTemplates.get(i));
+        }
       }
-
-      JsonArray jsonArrayemailTemplates = jsonObj.getAsJsonArray("emailTemplates");
-      // validate the required field `emailTemplates` (array)
-      for (int i = 0; i < jsonArrayemailTemplates.size(); i++) {
-        CustomEmailTemplate.validateJsonElement(jsonArrayemailTemplates.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

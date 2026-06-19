@@ -53,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SaveCommentsResponseWithPresence
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class SaveCommentsResponseWithPresence {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -272,10 +272,7 @@ public class SaveCommentsResponseWithPresence {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -314,8 +311,10 @@ public class SaveCommentsResponseWithPresence {
       APIStatus.validateJsonElement(jsonObj.get("status"));
       // validate the required field `comment`
       PublicComment.validateJsonElement(jsonObj.get("comment"));
+      if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
+      }
       if ((jsonObj.get("userIdWS") != null && !jsonObj.get("userIdWS").isJsonNull()) && !jsonObj.get("userIdWS").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userIdWS").toString()));
       }

@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetVotesForUserResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetVotesForUserResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -215,10 +215,7 @@ public class GetVotesForUserResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -263,36 +260,36 @@ public class GetVotesForUserResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
-      // ensure the json data is an array
-      if (!jsonObj.get("appliedAuthorizedVotes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `appliedAuthorizedVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAuthorizedVotes").toString()));
+      if (jsonObj.get("appliedAuthorizedVotes") != null) {
+        if (!jsonObj.get("appliedAuthorizedVotes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `appliedAuthorizedVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAuthorizedVotes").toString()));
+        }
+        JsonArray jsonArrayappliedAuthorizedVotes = jsonObj.getAsJsonArray("appliedAuthorizedVotes");
+        // validate the required field `appliedAuthorizedVotes` (array)
+        for (int i = 0; i < jsonArrayappliedAuthorizedVotes.size(); i++) {
+          PublicVote.validateJsonElement(jsonArrayappliedAuthorizedVotes.get(i));
+        }
       }
-
-      JsonArray jsonArrayappliedAuthorizedVotes = jsonObj.getAsJsonArray("appliedAuthorizedVotes");
-      // validate the required field `appliedAuthorizedVotes` (array)
-      for (int i = 0; i < jsonArrayappliedAuthorizedVotes.size(); i++) {
-        PublicVote.validateJsonElement(jsonArrayappliedAuthorizedVotes.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("appliedAnonymousVotes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `appliedAnonymousVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAnonymousVotes").toString()));
+      if (jsonObj.get("appliedAnonymousVotes") != null) {
+        if (!jsonObj.get("appliedAnonymousVotes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `appliedAnonymousVotes` to be an array in the JSON string but got `%s`", jsonObj.get("appliedAnonymousVotes").toString()));
+        }
+        JsonArray jsonArrayappliedAnonymousVotes = jsonObj.getAsJsonArray("appliedAnonymousVotes");
+        // validate the required field `appliedAnonymousVotes` (array)
+        for (int i = 0; i < jsonArrayappliedAnonymousVotes.size(); i++) {
+          PublicVote.validateJsonElement(jsonArrayappliedAnonymousVotes.get(i));
+        }
       }
-
-      JsonArray jsonArrayappliedAnonymousVotes = jsonObj.getAsJsonArray("appliedAnonymousVotes");
-      // validate the required field `appliedAnonymousVotes` (array)
-      for (int i = 0; i < jsonArrayappliedAnonymousVotes.size(); i++) {
-        PublicVote.validateJsonElement(jsonArrayappliedAnonymousVotes.get(i));
-      };
-      // ensure the json data is an array
-      if (!jsonObj.get("pendingVotes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pendingVotes` to be an array in the JSON string but got `%s`", jsonObj.get("pendingVotes").toString()));
+      if (jsonObj.get("pendingVotes") != null) {
+        if (!jsonObj.get("pendingVotes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pendingVotes` to be an array in the JSON string but got `%s`", jsonObj.get("pendingVotes").toString()));
+        }
+        JsonArray jsonArraypendingVotes = jsonObj.getAsJsonArray("pendingVotes");
+        // validate the required field `pendingVotes` (array)
+        for (int i = 0; i < jsonArraypendingVotes.size(); i++) {
+          PublicVote.validateJsonElement(jsonArraypendingVotes.get(i));
+        }
       }
-
-      JsonArray jsonArraypendingVotes = jsonObj.getAsJsonArray("pendingVotes");
-      // validate the required field `pendingVotes` (array)
-      for (int i = 0; i < jsonArraypendingVotes.size(); i++) {
-        PublicVote.validateJsonElement(jsonArraypendingVotes.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -54,7 +54,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CreateTenantBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class CreateTenantBody {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -703,10 +703,7 @@ public class CreateTenantBody {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -752,16 +749,16 @@ public class CreateTenantBody {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("domainConfiguration").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domainConfiguration` to be an array in the JSON string but got `%s`", jsonObj.get("domainConfiguration").toString()));
+      if (jsonObj.get("domainConfiguration") != null) {
+        if (!jsonObj.get("domainConfiguration").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domainConfiguration` to be an array in the JSON string but got `%s`", jsonObj.get("domainConfiguration").toString()));
+        }
+        JsonArray jsonArraydomainConfiguration = jsonObj.getAsJsonArray("domainConfiguration");
+        // validate the required field `domainConfiguration` (array)
+        for (int i = 0; i < jsonArraydomainConfiguration.size(); i++) {
+          APIDomainConfiguration.validateJsonElement(jsonArraydomainConfiguration.get(i));
+        }
       }
-
-      JsonArray jsonArraydomainConfiguration = jsonObj.getAsJsonArray("domainConfiguration");
-      // validate the required field `domainConfiguration` (array)
-      for (int i = 0; i < jsonArraydomainConfiguration.size(); i++) {
-        APIDomainConfiguration.validateJsonElement(jsonArraydomainConfiguration.get(i));
-      };
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }

@@ -56,7 +56,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * FComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class FComment {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -417,6 +417,11 @@ public class FComment {
   @SerializedName(SERIALIZED_NAME_TOS_ACCEPTED_AT)
   @javax.annotation.Nullable
   private OffsetDateTime tosAcceptedAt;
+
+  public static final String SERIALIZED_NAME_BOT_ID = "botId";
+  @SerializedName(SERIALIZED_NAME_BOT_ID)
+  @javax.annotation.Nullable
+  private String botId;
 
   public FComment() {
   }
@@ -1845,6 +1850,25 @@ public class FComment {
   }
 
 
+  public FComment botId(@javax.annotation.Nullable String botId) {
+    this.botId = botId;
+    return this;
+  }
+
+  /**
+   * Get botId
+   * @return botId
+   */
+  @javax.annotation.Nullable
+  public String getBotId() {
+    return botId;
+  }
+
+  public void setBotId(@javax.annotation.Nullable String botId) {
+    this.botId = botId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1926,12 +1950,13 @@ public class FComment {
         Objects.equals(this.viewCount, fcomment.viewCount) &&
         Objects.equals(this.requiresVerification, fcomment.requiresVerification) &&
         Objects.equals(this.editKey, fcomment.editKey) &&
-        Objects.equals(this.tosAcceptedAt, fcomment.tosAcceptedAt);
+        Objects.equals(this.tosAcceptedAt, fcomment.tosAcceptedAt) &&
+        Objects.equals(this.botId, fcomment.botId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, permNotSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey, tosAcceptedAt);
+    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, permNotSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey, tosAcceptedAt, botId);
   }
 
   @Override
@@ -2010,6 +2035,7 @@ public class FComment {
     sb.append("    requiresVerification: ").append(toIndentedString(requiresVerification)).append("\n");
     sb.append("    editKey: ").append(toIndentedString(editKey)).append("\n");
     sb.append("    tosAcceptedAt: ").append(toIndentedString(tosAcceptedAt)).append("\n");
+    sb.append("    botId: ").append(toIndentedString(botId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2019,10 +2045,7 @@ public class FComment {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -2031,7 +2054,7 @@ public class FComment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "urlId", "urlIdRaw", "url", "pageTitle", "userId", "anonUserId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "verificationId", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "imported", "externalId", "externalParentId", "avatarSrc", "isSpam", "permNotSpam", "aiDeterminedSpam", "hasImages", "pageNumber", "pageNumberOF", "pageNumberNF", "hasLinks", "hasCode", "approved", "locale", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "fromProductId", "meta", "ipHash", "mentions", "hashTags", "badges", "domain", "veteranBadgeProcessed", "moderationGroupIds", "didProcessBadges", "fromOfflineRestore", "autoplayJobId", "autoplayDelayMS", "feedbackIds", "logs", "groupIds", "viewCount", "requiresVerification", "editKey", "tosAcceptedAt"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "urlId", "urlIdRaw", "url", "pageTitle", "userId", "anonUserId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "verificationId", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "imported", "externalId", "externalParentId", "avatarSrc", "isSpam", "permNotSpam", "aiDeterminedSpam", "hasImages", "pageNumber", "pageNumberOF", "pageNumberNF", "hasLinks", "hasCode", "approved", "locale", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "fromProductId", "meta", "ipHash", "mentions", "hashTags", "badges", "domain", "veteranBadgeProcessed", "moderationGroupIds", "didProcessBadges", "fromOfflineRestore", "autoplayJobId", "autoplayDelayMS", "feedbackIds", "logs", "groupIds", "viewCount", "requiresVerification", "editKey", "tosAcceptedAt", "botId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "urlId", "url", "commenterName", "comment", "commentHTML", "date", "verified", "approved", "locale"));
@@ -2210,6 +2233,9 @@ public class FComment {
       }
       if ((jsonObj.get("editKey") != null && !jsonObj.get("editKey").isJsonNull()) && !jsonObj.get("editKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `editKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editKey").toString()));
+      }
+      if ((jsonObj.get("botId") != null && !jsonObj.get("botId").isJsonNull()) && !jsonObj.get("botId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `botId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("botId").toString()));
       }
   }
 

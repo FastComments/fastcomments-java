@@ -28,6 +28,7 @@ import com.fastcomments.model.SSOSecurityLevel;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.SpamRule;
 import com.fastcomments.model.TOSConfig;
+import com.fastcomments.model.UsersListLocation;
 import com.fastcomments.model.VoteStyle;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -474,6 +475,22 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'allowEmbeds'
+     */
+    @Test
+    public void allowEmbedsTest() {
+        // TODO: test allowEmbeds
+    }
+
+    /**
+     * Test the property 'allowedEmbedDomains'
+     */
+    @Test
+    public void allowedEmbedDomainsTest() {
+        // TODO: test allowedEmbedDomains
+    }
+
+    /**
      * Test the property 'noStyles'
      */
     @Test
@@ -511,6 +528,14 @@ public class CustomConfigParametersTest {
     @Test
     public void requireSSOTest() {
         // TODO: test requireSSO
+    }
+
+    /**
+     * Test the property 'enableFChat'
+     */
+    @Test
+    public void enableFChatTest() {
+        // TODO: test enableFChat
     }
 
     /**
@@ -671,6 +696,22 @@ public class CustomConfigParametersTest {
     @Test
     public void wrapTest() {
         // TODO: test wrap
+    }
+
+    /**
+     * Test the property 'usersListLocation'
+     */
+    @Test
+    public void usersListLocationTest() {
+        // TODO: test usersListLocation
+    }
+
+    /**
+     * Test the property 'usersListIncludeOffline'
+     */
+    @Test
+    public void usersListIncludeOfflineTest() {
+        // TODO: test usersListIncludeOffline
     }
 
     /**

@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * APITenant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class APITenant {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -834,10 +834,7 @@ public class APITenant {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -895,16 +892,16 @@ public class APITenant {
       if (!jsonObj.get("createdBy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("domainConfiguration").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domainConfiguration` to be an array in the JSON string but got `%s`", jsonObj.get("domainConfiguration").toString()));
+      if (jsonObj.get("domainConfiguration") != null) {
+        if (!jsonObj.get("domainConfiguration").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domainConfiguration` to be an array in the JSON string but got `%s`", jsonObj.get("domainConfiguration").toString()));
+        }
+        JsonArray jsonArraydomainConfiguration = jsonObj.getAsJsonArray("domainConfiguration");
+        // validate the required field `domainConfiguration` (array)
+        for (int i = 0; i < jsonArraydomainConfiguration.size(); i++) {
+          APIDomainConfiguration.validateJsonElement(jsonArraydomainConfiguration.get(i));
+        }
       }
-
-      JsonArray jsonArraydomainConfiguration = jsonObj.getAsJsonArray("domainConfiguration");
-      // validate the required field `domainConfiguration` (array)
-      for (int i = 0; i < jsonArraydomainConfiguration.size(); i++) {
-        APIDomainConfiguration.validateJsonElement(jsonArraydomainConfiguration.get(i));
-      };
       // validate the optional field `billingInfo`
       if (jsonObj.get("billingInfo") != null && !jsonObj.get("billingInfo").isJsonNull()) {
         BillingInfo.validateJsonElement(jsonObj.get("billingInfo"));

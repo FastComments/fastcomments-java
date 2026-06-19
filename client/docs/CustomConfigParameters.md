@@ -59,11 +59,14 @@
 |**noCustomConfig** | **Boolean** |  |  [optional] |
 |**mentionAutoCompleteMode** | **MentionAutoCompleteMode** |  |  [optional] |
 |**noImageUploads** | **Boolean** |  |  [optional] |
+|**allowEmbeds** | **Boolean** |  |  [optional] |
+|**allowedEmbedDomains** | **List&lt;String&gt;** |  |  [optional] |
 |**noStyles** | **Boolean** |  |  [optional] |
 |**pageSize** | **Integer** |  |  [optional] |
 |**readonly** | **Boolean** |  |  [optional] |
 |**noNewRootComments** | **Boolean** |  |  [optional] |
 |**requireSSO** | **Boolean** |  |  [optional] |
+|**enableFChat** | **Boolean** |  |  [optional] |
 |**enableResizeHandle** | **Boolean** |  |  [optional] |
 |**restrictedLinkDomains** | **List&lt;String&gt;** |  |  [optional] |
 |**showBadgesInTopBar** | **Boolean** |  |  [optional] |
@@ -84,6 +87,8 @@
 |**widgetQuestionsRequired** | **CommentQuestionsRequired** |  |  [optional] |
 |**widgetSubQuestionVisibility** | **QuestionSubQuestionVisibility** |  |  [optional] |
 |**wrap** | **Boolean** |  |  [optional] |
+|**usersListLocation** | **UsersListLocation** |  |  [optional] |
+|**usersListIncludeOffline** | **Boolean** |  |  [optional] |
 |**ticketBaseUrl** | **String** |  |  [optional] |
 |**ticketKBSearchEndpoint** | **String** |  |  [optional] |
 |**ticketFileUploadsEnabled** | **Boolean** |  |  [optional] |

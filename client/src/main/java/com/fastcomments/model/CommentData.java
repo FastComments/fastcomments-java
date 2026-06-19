@@ -16,7 +16,7 @@ package com.fastcomments.model;
 import java.util.Objects;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.RecordStringStringOrNumberValue;
+import com.fastcomments.model.GifSearchResponseImagesInnerInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class CommentData {
   public static final String SERIALIZED_NAME_DATE = "date";
   @SerializedName(SERIALIZED_NAME_DATE)
@@ -175,12 +175,17 @@ public class CommentData {
   public static final String SERIALIZED_NAME_QUESTION_VALUES = "questionValues";
   @SerializedName(SERIALIZED_NAME_QUESTION_VALUES)
   @javax.annotation.Nullable
-  private Map<String, RecordStringStringOrNumberValue> questionValues = new HashMap<>();
+  private Map<String, GifSearchResponseImagesInnerInner> questionValues = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TOS = "tos";
   @SerializedName(SERIALIZED_NAME_TOS)
   @javax.annotation.Nullable
   private Boolean tos;
+
+  public static final String SERIALIZED_NAME_BOT_ID = "botId";
+  @SerializedName(SERIALIZED_NAME_BOT_ID)
+  @javax.annotation.Nullable
+  private String botId;
 
   public CommentData() {
   }
@@ -654,12 +659,12 @@ public class CommentData {
   }
 
 
-  public CommentData questionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberValue> questionValues) {
+  public CommentData questionValues(@javax.annotation.Nullable Map<String, GifSearchResponseImagesInnerInner> questionValues) {
     this.questionValues = questionValues;
     return this;
   }
 
-  public CommentData putQuestionValuesItem(String key, RecordStringStringOrNumberValue questionValuesItem) {
+  public CommentData putQuestionValuesItem(String key, GifSearchResponseImagesInnerInner questionValuesItem) {
     if (this.questionValues == null) {
       this.questionValues = new HashMap<>();
     }
@@ -672,11 +677,11 @@ public class CommentData {
    * @return questionValues
    */
   @javax.annotation.Nullable
-  public Map<String, RecordStringStringOrNumberValue> getQuestionValues() {
+  public Map<String, GifSearchResponseImagesInnerInner> getQuestionValues() {
     return questionValues;
   }
 
-  public void setQuestionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberValue> questionValues) {
+  public void setQuestionValues(@javax.annotation.Nullable Map<String, GifSearchResponseImagesInnerInner> questionValues) {
     this.questionValues = questionValues;
   }
 
@@ -697,6 +702,25 @@ public class CommentData {
 
   public void setTos(@javax.annotation.Nullable Boolean tos) {
     this.tos = tos;
+  }
+
+
+  public CommentData botId(@javax.annotation.Nullable String botId) {
+    this.botId = botId;
+    return this;
+  }
+
+  /**
+   * Get botId
+   * @return botId
+   */
+  @javax.annotation.Nullable
+  public String getBotId() {
+    return botId;
+  }
+
+  public void setBotId(@javax.annotation.Nullable String botId) {
+    this.botId = botId;
   }
 
 
@@ -734,12 +758,13 @@ public class CommentData {
         Objects.equals(this.autoplayDelayMS, commentData.autoplayDelayMS) &&
         Objects.equals(this.feedbackIds, commentData.feedbackIds) &&
         Objects.equals(this.questionValues, commentData.questionValues) &&
-        Objects.equals(this.tos, commentData.tos);
+        Objects.equals(this.tos, commentData.tos) &&
+        Objects.equals(this.botId, commentData.botId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, tos);
+    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, tos, botId);
   }
 
   @Override
@@ -771,6 +796,7 @@ public class CommentData {
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
     sb.append("    questionValues: ").append(toIndentedString(questionValues)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    botId: ").append(toIndentedString(botId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -780,10 +806,7 @@ public class CommentData {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -792,7 +815,7 @@ public class CommentData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos"));
+    openapiFields = new HashSet<String>(Arrays.asList("date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos", "botId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("commenterName", "comment", "url", "urlId"));
@@ -894,6 +917,9 @@ public class CommentData {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      if ((jsonObj.get("botId") != null && !jsonObj.get("botId").isJsonNull()) && !jsonObj.get("botId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `botId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("botId").toString()));
       }
   }
 

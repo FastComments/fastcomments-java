@@ -15,6 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.DigestEmailFrequency;
+import com.fastcomments.model.ImportedAgentApprovalNotificationFrequency;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -52,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class User {
   public static final String SERIALIZED_NAME_ID = "_id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -248,6 +249,11 @@ public class User {
   @SerializedName(SERIALIZED_NAME_ADMIN_NOTIFICATION_FREQUENCY)
   @javax.annotation.Nullable
   private Double adminNotificationFrequency;
+
+  public static final String SERIALIZED_NAME_AGENT_APPROVAL_NOTIFICATION_FREQUENCY = "agentApprovalNotificationFrequency";
+  @SerializedName(SERIALIZED_NAME_AGENT_APPROVAL_NOTIFICATION_FREQUENCY)
+  @javax.annotation.Nullable
+  private ImportedAgentApprovalNotificationFrequency agentApprovalNotificationFrequency;
 
   public static final String SERIALIZED_NAME_LAST_TENANT_NOTIFICATION_SENT_DATE = "lastTenantNotificationSentDate";
   @SerializedName(SERIALIZED_NAME_LAST_TENANT_NOTIFICATION_SENT_DATE)
@@ -1101,6 +1107,25 @@ public class User {
   }
 
 
+  public User agentApprovalNotificationFrequency(@javax.annotation.Nullable ImportedAgentApprovalNotificationFrequency agentApprovalNotificationFrequency) {
+    this.agentApprovalNotificationFrequency = agentApprovalNotificationFrequency;
+    return this;
+  }
+
+  /**
+   * Get agentApprovalNotificationFrequency
+   * @return agentApprovalNotificationFrequency
+   */
+  @javax.annotation.Nullable
+  public ImportedAgentApprovalNotificationFrequency getAgentApprovalNotificationFrequency() {
+    return agentApprovalNotificationFrequency;
+  }
+
+  public void setAgentApprovalNotificationFrequency(@javax.annotation.Nullable ImportedAgentApprovalNotificationFrequency agentApprovalNotificationFrequency) {
+    this.agentApprovalNotificationFrequency = agentApprovalNotificationFrequency;
+  }
+
+
   public User lastTenantNotificationSentDate(@javax.annotation.Nullable OffsetDateTime lastTenantNotificationSentDate) {
     this.lastTenantNotificationSentDate = lastTenantNotificationSentDate;
     return this;
@@ -1538,6 +1563,7 @@ public class User {
         Objects.equals(this.digestEmailFrequency, user.digestEmailFrequency) &&
         Objects.equals(this.notificationFrequency, user.notificationFrequency) &&
         Objects.equals(this.adminNotificationFrequency, user.adminNotificationFrequency) &&
+        Objects.equals(this.agentApprovalNotificationFrequency, user.agentApprovalNotificationFrequency) &&
         Objects.equals(this.lastTenantNotificationSentDate, user.lastTenantNotificationSentDate) &&
         Objects.equals(this.lastReplyNotificationSentDate, user.lastReplyNotificationSentDate) &&
         Objects.equals(this.ignoredAddToMySiteMessages, user.ignoredAddToMySiteMessages) &&
@@ -1562,7 +1588,7 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, username, displayName, websiteUrl, email, pendingEmail, backupEmail, pendingBackupEmail, signUpDate, createdFromUrlId, createdFromTenantId, createdFromIpHashed, verified, loginId, loginIdDate, loginCount, optedInNotifications, optedInTenantNotifications, hideAccountCode, avatarSrc, isFastCommentsHelpRequestAdmin, isHelpRequestAdmin, isAccountOwner, isAdminAdmin, isBillingAdmin, isAnalyticsAdmin, isCustomizationAdmin, isManageDataAdmin, isCommentModeratorAdmin, isAPIAdmin, isSiteAdmin, moderatorIds, isImpersonator, isCouponManager, locale, digestEmailFrequency, notificationFrequency, adminNotificationFrequency, lastTenantNotificationSentDate, lastReplyNotificationSentDate, ignoredAddToMySiteMessages, lastLoginDate, displayLabel, isProfileActivityPrivate, isProfileCommentsPrivate, isProfileDMDisabled, profileCommentApprovalMode, karma, passwordHash, averageTicketAckTimeMS, hasBlockedUsers, bio, headerBackgroundSrc, countryCode, countryFlag, socialLinks, hasTwoFactor, isEmailSuppressed);
+    return Objects.hash(id, tenantId, username, displayName, websiteUrl, email, pendingEmail, backupEmail, pendingBackupEmail, signUpDate, createdFromUrlId, createdFromTenantId, createdFromIpHashed, verified, loginId, loginIdDate, loginCount, optedInNotifications, optedInTenantNotifications, hideAccountCode, avatarSrc, isFastCommentsHelpRequestAdmin, isHelpRequestAdmin, isAccountOwner, isAdminAdmin, isBillingAdmin, isAnalyticsAdmin, isCustomizationAdmin, isManageDataAdmin, isCommentModeratorAdmin, isAPIAdmin, isSiteAdmin, moderatorIds, isImpersonator, isCouponManager, locale, digestEmailFrequency, notificationFrequency, adminNotificationFrequency, agentApprovalNotificationFrequency, lastTenantNotificationSentDate, lastReplyNotificationSentDate, ignoredAddToMySiteMessages, lastLoginDate, displayLabel, isProfileActivityPrivate, isProfileCommentsPrivate, isProfileDMDisabled, profileCommentApprovalMode, karma, passwordHash, averageTicketAckTimeMS, hasBlockedUsers, bio, headerBackgroundSrc, countryCode, countryFlag, socialLinks, hasTwoFactor, isEmailSuppressed);
   }
 
   @Override
@@ -1608,6 +1634,7 @@ public class User {
     sb.append("    digestEmailFrequency: ").append(toIndentedString(digestEmailFrequency)).append("\n");
     sb.append("    notificationFrequency: ").append(toIndentedString(notificationFrequency)).append("\n");
     sb.append("    adminNotificationFrequency: ").append(toIndentedString(adminNotificationFrequency)).append("\n");
+    sb.append("    agentApprovalNotificationFrequency: ").append(toIndentedString(agentApprovalNotificationFrequency)).append("\n");
     sb.append("    lastTenantNotificationSentDate: ").append(toIndentedString(lastTenantNotificationSentDate)).append("\n");
     sb.append("    lastReplyNotificationSentDate: ").append(toIndentedString(lastReplyNotificationSentDate)).append("\n");
     sb.append("    ignoredAddToMySiteMessages: ").append(toIndentedString(ignoredAddToMySiteMessages)).append("\n");
@@ -1637,10 +1664,7 @@ public class User {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -1649,7 +1673,7 @@ public class User {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "username", "displayName", "websiteUrl", "email", "pendingEmail", "backupEmail", "pendingBackupEmail", "signUpDate", "createdFromUrlId", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate", "loginCount", "optedInNotifications", "optedInTenantNotifications", "hideAccountCode", "avatarSrc", "isFastCommentsHelpRequestAdmin", "isHelpRequestAdmin", "isAccountOwner", "isAdminAdmin", "isBillingAdmin", "isAnalyticsAdmin", "isCustomizationAdmin", "isManageDataAdmin", "isCommentModeratorAdmin", "isAPIAdmin", "isSiteAdmin", "moderatorIds", "isImpersonator", "isCouponManager", "locale", "digestEmailFrequency", "notificationFrequency", "adminNotificationFrequency", "lastTenantNotificationSentDate", "lastReplyNotificationSentDate", "ignoredAddToMySiteMessages", "lastLoginDate", "displayLabel", "isProfileActivityPrivate", "isProfileCommentsPrivate", "isProfileDMDisabled", "profileCommentApprovalMode", "karma", "passwordHash", "averageTicketAckTimeMS", "hasBlockedUsers", "bio", "headerBackgroundSrc", "countryCode", "countryFlag", "socialLinks", "hasTwoFactor", "isEmailSuppressed"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "username", "displayName", "websiteUrl", "email", "pendingEmail", "backupEmail", "pendingBackupEmail", "signUpDate", "createdFromUrlId", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate", "loginCount", "optedInNotifications", "optedInTenantNotifications", "hideAccountCode", "avatarSrc", "isFastCommentsHelpRequestAdmin", "isHelpRequestAdmin", "isAccountOwner", "isAdminAdmin", "isBillingAdmin", "isAnalyticsAdmin", "isCustomizationAdmin", "isManageDataAdmin", "isCommentModeratorAdmin", "isAPIAdmin", "isSiteAdmin", "moderatorIds", "isImpersonator", "isCouponManager", "locale", "digestEmailFrequency", "notificationFrequency", "adminNotificationFrequency", "agentApprovalNotificationFrequency", "lastTenantNotificationSentDate", "lastReplyNotificationSentDate", "ignoredAddToMySiteMessages", "lastLoginDate", "displayLabel", "isProfileActivityPrivate", "isProfileCommentsPrivate", "isProfileDMDisabled", "profileCommentApprovalMode", "karma", "passwordHash", "averageTicketAckTimeMS", "hasBlockedUsers", "bio", "headerBackgroundSrc", "countryCode", "countryFlag", "socialLinks", "hasTwoFactor", "isEmailSuppressed"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "username", "email", "signUpDate", "createdFromTenantId", "createdFromIpHashed", "verified", "loginId", "loginIdDate"));
@@ -1735,6 +1759,10 @@ public class User {
       // validate the optional field `digestEmailFrequency`
       if (jsonObj.get("digestEmailFrequency") != null && !jsonObj.get("digestEmailFrequency").isJsonNull()) {
         DigestEmailFrequency.validateJsonElement(jsonObj.get("digestEmailFrequency"));
+      }
+      // validate the optional field `agentApprovalNotificationFrequency`
+      if (jsonObj.get("agentApprovalNotificationFrequency") != null && !jsonObj.get("agentApprovalNotificationFrequency").isJsonNull()) {
+        ImportedAgentApprovalNotificationFrequency.validateJsonElement(jsonObj.get("agentApprovalNotificationFrequency"));
       }
       if ((jsonObj.get("displayLabel") != null && !jsonObj.get("displayLabel").isJsonNull()) && !jsonObj.get("displayLabel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `displayLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayLabel").toString()));

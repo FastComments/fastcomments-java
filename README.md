@@ -79,8 +79,13 @@ to make working with the API easier, and the `pubsub` module which is a library 
 
 ### Public vs Secured APIs
 
-For the API client, there are two classes, `DefaultApi` and `PublicApi`. The `DefaultApi` contains methods that require your API key, and `PublicApi` contains api calls
+For the API client, there are three classes, `DefaultApi`, `PublicApi`, and `ModerationApi`. The `DefaultApi` contains methods that require your API key, and `PublicApi` contains methods
 that can be made directly from a browser/mobile device/etc without authentication.
+
+The `ModerationApi` powers the moderator dashboard. It contains methods for comment moderation (list, count, search, logs, and export), moderation actions (remove/restore,
+flag, set review/spam/approval status, votes, and reopen/close thread), bans (ban from comment, undo a ban, pre-ban summaries, ban status and preferences, and banned-user counts),
+and badges & trust (award/remove a badge, manual badges, get/set trust factor, and user internal profile). Every `ModerationApi` method accepts an `sso` parameter so the call can be
+performed on behalf of an SSO-authenticated moderator.
 
 ## Quick Start
 
@@ -139,6 +144,28 @@ PublicApi publicApi = new PublicApi();
 
 try {
     var response = publicApi.getCommentsPublic("YOUR_TENANT_ID", "page-url-id")
+        .execute();
+    System.out.println(response);
+} catch (ApiException e) {
+    e.printStackTrace();
+}
+```
+
+### Using Moderation APIs (ModerationApi)
+
+The `ModerationApi` drives the moderator dashboard. Each method accepts an `sso` parameter identifying the SSO-authenticated moderator on whose behalf the request is made:
+
+```java
+import com.fastcomments.api.ModerationApi;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.model.*;
+
+ModerationApi moderationApi = new ModerationApi();
+
+try {
+    // List comments awaiting moderation
+    ModerationAPIGetCommentsResponse response = moderationApi.getApiComments()
+        .sso("YOUR_SSO_TOKEN")
         .execute();
     System.out.println(response);
 } catch (ApiException e) {

@@ -11,6 +11,7 @@
 |**name** | **String** |  |  |
 |**tenantId** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
+|**templateId** | **String** |  |  [optional] |
 |**monthlyCostUSD** | **Double** |  |  |
 |**yearlyCostUSD** | **Double** |  |  |
 |**monthlyStripePlanId** | **String** |  |  |
@@ -63,6 +64,10 @@
 |**flexSSOModeratorCostCents** | **Double** |  |  [optional] |
 |**flexSSOModeratorUnit** | **Double** |  |  [optional] |
 |**isSSOBillingMonthlyActiveUsers** | **Boolean** |  |  [optional] |
+|**hasAIAgents** | **Boolean** |  |  [optional] |
+|**maxAIAgents** | **Double** |  |  [optional] |
+|**aiAgentDailyBudgetCents** | **Double** |  |  [optional] |
+|**aiAgentMonthlyBudgetCents** | **Double** |  |  [optional] |
 
 
 

@@ -55,9 +55,9 @@ import com.fastcomments.invoker.JSON;
 /**
  * APIComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class APIComment {
-  public static final String SERIALIZED_NAME_ID = "_id";
+  public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nonnull
   private String id;
@@ -1554,10 +1554,7 @@ public class APIComment {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -1566,10 +1563,10 @@ public class APIComment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "aiDeterminedSpam", "anonUserId", "approved", "avatarSrc", "badges", "comment", "commentHTML", "commenterEmail", "commenterLink", "commenterName", "date", "displayLabel", "domain", "externalId", "externalParentId", "expireAt", "feedbackIds", "flagCount", "fromProductId", "hasCode", "hasImages", "hasLinks", "hashTags", "isByAdmin", "isByModerator", "isDeleted", "isDeletedUser", "isPinned", "isLocked", "isSpam", "localDateHours", "localDateString", "locale", "mentions", "meta", "moderationGroupIds", "notificationSentForParent", "notificationSentForParentTenant", "pageTitle", "parentId", "rating", "reviewed", "tenantId", "url", "urlId", "urlIdRaw", "userId", "verified", "verifiedDate", "votes", "votesDown", "votesUp"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "aiDeterminedSpam", "anonUserId", "approved", "avatarSrc", "badges", "comment", "commentHTML", "commenterEmail", "commenterLink", "commenterName", "date", "displayLabel", "domain", "externalId", "externalParentId", "expireAt", "feedbackIds", "flagCount", "fromProductId", "hasCode", "hasImages", "hasLinks", "hashTags", "isByAdmin", "isByModerator", "isDeleted", "isDeletedUser", "isPinned", "isLocked", "isSpam", "localDateHours", "localDateString", "locale", "mentions", "meta", "moderationGroupIds", "notificationSentForParent", "notificationSentForParentTenant", "pageTitle", "parentId", "rating", "reviewed", "tenantId", "url", "urlId", "urlIdRaw", "userId", "verified", "verifiedDate", "votes", "votesDown", "votesUp"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "approved", "comment", "commentHTML", "commenterName", "date", "locale", "tenantId", "url", "urlId", "verified"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "approved", "comment", "commentHTML", "commenterName", "date", "locale", "tenantId", "url", "urlId", "verified"));
   }
 
   /**
@@ -1592,8 +1589,8 @@ public class APIComment {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_id").toString()));
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("anonUserId") != null && !jsonObj.get("anonUserId").isJsonNull()) && !jsonObj.get("anonUserId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `anonUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("anonUserId").toString()));

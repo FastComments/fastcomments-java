@@ -27,119 +27,122 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.fastcomments.model.AddDomainConfig200Response;
+import com.fastcomments.model.APICreateUserBadgeResponse;
+import com.fastcomments.model.APIEmptyResponse;
+import com.fastcomments.model.APIEmptySuccessResponse;
+import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIGetCommentResponse;
+import com.fastcomments.model.APIGetCommentsResponse;
+import com.fastcomments.model.APIGetUserBadgeProgressListResponse;
+import com.fastcomments.model.APIGetUserBadgeProgressResponse;
+import com.fastcomments.model.APIGetUserBadgeResponse;
+import com.fastcomments.model.APIGetUserBadgesResponse;
+import com.fastcomments.model.APISaveCommentResponse;
 import com.fastcomments.model.AddDomainConfigParams;
-import com.fastcomments.model.AddHashTag200Response;
-import com.fastcomments.model.AddHashTagsBulk200Response;
+import com.fastcomments.model.AddDomainConfigResponse;
 import com.fastcomments.model.AddPageAPIResponse;
 import com.fastcomments.model.AddSSOUserAPIResponse;
-import com.fastcomments.model.AggregateQuestionResults200Response;
+import com.fastcomments.model.AggregateQuestionResultsResponse;
+import com.fastcomments.model.AggregateResponse;
 import com.fastcomments.model.AggregateTimeBucket;
 import com.fastcomments.model.AggregationRequest;
-import com.fastcomments.model.AggregationResponse;
 import com.fastcomments.model.BlockFromCommentParams;
-import com.fastcomments.model.BlockFromCommentPublic200Response;
-import com.fastcomments.model.BulkAggregateQuestionResults200Response;
+import com.fastcomments.model.BlockSuccess;
 import com.fastcomments.model.BulkAggregateQuestionResultsRequest;
+import com.fastcomments.model.BulkAggregateQuestionResultsResponse;
 import com.fastcomments.model.BulkCreateHashTagsBody;
-import com.fastcomments.model.ChangeTicketState200Response;
+import com.fastcomments.model.BulkCreateHashTagsResponse;
 import com.fastcomments.model.ChangeTicketStateBody;
-import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
+import com.fastcomments.model.ChangeTicketStateResponse;
+import com.fastcomments.model.CombineQuestionResultsWithCommentsResponse;
 import com.fastcomments.model.CreateAPIPageData;
 import com.fastcomments.model.CreateAPISSOUserData;
 import com.fastcomments.model.CreateAPIUserSubscriptionData;
 import com.fastcomments.model.CreateCommentParams;
-import com.fastcomments.model.CreateEmailTemplate200Response;
 import com.fastcomments.model.CreateEmailTemplateBody;
-import com.fastcomments.model.CreateFeedPost200Response;
+import com.fastcomments.model.CreateEmailTemplateResponse;
 import com.fastcomments.model.CreateFeedPostParams;
+import com.fastcomments.model.CreateFeedPostsResponse;
 import com.fastcomments.model.CreateHashTagBody;
-import com.fastcomments.model.CreateModerator200Response;
+import com.fastcomments.model.CreateHashTagResponse;
 import com.fastcomments.model.CreateModeratorBody;
-import com.fastcomments.model.CreateQuestionConfig200Response;
+import com.fastcomments.model.CreateModeratorResponse;
 import com.fastcomments.model.CreateQuestionConfigBody;
-import com.fastcomments.model.CreateQuestionResult200Response;
+import com.fastcomments.model.CreateQuestionConfigResponse;
 import com.fastcomments.model.CreateQuestionResultBody;
+import com.fastcomments.model.CreateQuestionResultResponse;
 import com.fastcomments.model.CreateSubscriptionAPIResponse;
-import com.fastcomments.model.CreateTenant200Response;
 import com.fastcomments.model.CreateTenantBody;
-import com.fastcomments.model.CreateTenantPackage200Response;
 import com.fastcomments.model.CreateTenantPackageBody;
-import com.fastcomments.model.CreateTenantUser200Response;
+import com.fastcomments.model.CreateTenantPackageResponse;
+import com.fastcomments.model.CreateTenantResponse;
 import com.fastcomments.model.CreateTenantUserBody;
-import com.fastcomments.model.CreateTicket200Response;
+import com.fastcomments.model.CreateTenantUserResponse;
 import com.fastcomments.model.CreateTicketBody;
-import com.fastcomments.model.CreateUserBadge200Response;
+import com.fastcomments.model.CreateTicketResponse;
 import com.fastcomments.model.CreateUserBadgeParams;
-import com.fastcomments.model.DeleteComment200Response;
-import com.fastcomments.model.DeleteCommentVote200Response;
-import com.fastcomments.model.DeleteDomainConfig200Response;
-import com.fastcomments.model.DeleteHashTagRequest;
+import com.fastcomments.model.DeleteCommentResult;
+import com.fastcomments.model.DeleteDomainConfigResponse;
+import com.fastcomments.model.DeleteHashTagRequestBody;
 import com.fastcomments.model.DeletePageAPIResponse;
 import com.fastcomments.model.DeleteSSOUserAPIResponse;
 import com.fastcomments.model.DeleteSubscriptionAPIResponse;
 import com.fastcomments.model.FeedPost;
-import com.fastcomments.model.FlagComment200Response;
-import com.fastcomments.model.FlagCommentPublic200Response;
-import com.fastcomments.model.GetAuditLogs200Response;
-import com.fastcomments.model.GetCachedNotificationCount200Response;
-import com.fastcomments.model.GetComment200Response;
-import com.fastcomments.model.GetComments200Response;
-import com.fastcomments.model.GetDomainConfig200Response;
-import com.fastcomments.model.GetDomainConfigs200Response;
-import com.fastcomments.model.GetEmailTemplate200Response;
-import com.fastcomments.model.GetEmailTemplateDefinitions200Response;
-import com.fastcomments.model.GetEmailTemplateRenderErrors200Response;
-import com.fastcomments.model.GetEmailTemplates200Response;
-import com.fastcomments.model.GetFeedPosts200Response;
-import com.fastcomments.model.GetHashTags200Response;
-import com.fastcomments.model.GetModerator200Response;
-import com.fastcomments.model.GetModerators200Response;
-import com.fastcomments.model.GetNotificationCount200Response;
-import com.fastcomments.model.GetNotifications200Response;
+import com.fastcomments.model.FlagCommentResponse;
+import com.fastcomments.model.GetAuditLogsResponse;
+import com.fastcomments.model.GetCachedNotificationCountResponse;
+import com.fastcomments.model.GetDomainConfigResponse;
+import com.fastcomments.model.GetDomainConfigsResponse;
+import com.fastcomments.model.GetEmailTemplateDefinitionsResponse;
+import com.fastcomments.model.GetEmailTemplateRenderErrorsResponse;
+import com.fastcomments.model.GetEmailTemplateResponse;
+import com.fastcomments.model.GetEmailTemplatesResponse;
+import com.fastcomments.model.GetFeedPostsResponse;
+import com.fastcomments.model.GetHashTagsResponse;
+import com.fastcomments.model.GetModeratorResponse;
+import com.fastcomments.model.GetModeratorsResponse;
+import com.fastcomments.model.GetNotificationCountResponse;
+import com.fastcomments.model.GetNotificationsResponse;
 import com.fastcomments.model.GetPageByURLIdAPIResponse;
 import com.fastcomments.model.GetPagesAPIResponse;
-import com.fastcomments.model.GetPendingWebhookEventCount200Response;
-import com.fastcomments.model.GetPendingWebhookEvents200Response;
-import com.fastcomments.model.GetQuestionConfig200Response;
-import com.fastcomments.model.GetQuestionConfigs200Response;
-import com.fastcomments.model.GetQuestionResult200Response;
-import com.fastcomments.model.GetQuestionResults200Response;
+import com.fastcomments.model.GetPendingWebhookEventCountResponse;
+import com.fastcomments.model.GetPendingWebhookEventsResponse;
+import com.fastcomments.model.GetQuestionConfigResponse;
+import com.fastcomments.model.GetQuestionConfigsResponse;
+import com.fastcomments.model.GetQuestionResultResponse;
+import com.fastcomments.model.GetQuestionResultsResponse;
 import com.fastcomments.model.GetSSOUserByEmailAPIResponse;
 import com.fastcomments.model.GetSSOUserByIdAPIResponse;
-import com.fastcomments.model.GetSSOUsers200Response;
+import com.fastcomments.model.GetSSOUsersResponse;
 import com.fastcomments.model.GetSubscriptionsAPIResponse;
-import com.fastcomments.model.GetTenant200Response;
-import com.fastcomments.model.GetTenantDailyUsages200Response;
-import com.fastcomments.model.GetTenantPackage200Response;
-import com.fastcomments.model.GetTenantPackages200Response;
-import com.fastcomments.model.GetTenantUser200Response;
-import com.fastcomments.model.GetTenantUsers200Response;
-import com.fastcomments.model.GetTenants200Response;
-import com.fastcomments.model.GetTicket200Response;
-import com.fastcomments.model.GetTickets200Response;
-import com.fastcomments.model.GetUser200Response;
-import com.fastcomments.model.GetUserBadge200Response;
-import com.fastcomments.model.GetUserBadgeProgressById200Response;
-import com.fastcomments.model.GetUserBadgeProgressList200Response;
-import com.fastcomments.model.GetUserBadges200Response;
-import com.fastcomments.model.GetVotes200Response;
-import com.fastcomments.model.GetVotesForUser200Response;
+import com.fastcomments.model.GetTenantDailyUsagesResponse;
+import com.fastcomments.model.GetTenantPackageResponse;
+import com.fastcomments.model.GetTenantPackagesResponse;
+import com.fastcomments.model.GetTenantResponse;
+import com.fastcomments.model.GetTenantUserResponse;
+import com.fastcomments.model.GetTenantUsersResponse;
+import com.fastcomments.model.GetTenantsResponse;
+import com.fastcomments.model.GetTicketResponse;
+import com.fastcomments.model.GetTicketsResponse;
+import com.fastcomments.model.GetUserResponse;
+import com.fastcomments.model.GetVotesForUserResponse;
+import com.fastcomments.model.GetVotesResponse;
 import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
-import com.fastcomments.model.PatchHashTag200Response;
+import com.fastcomments.model.PatchDomainConfigResponse;
 import com.fastcomments.model.PatchPageAPIResponse;
 import com.fastcomments.model.PatchSSOUserAPIResponse;
+import com.fastcomments.model.PutDomainConfigResponse;
 import com.fastcomments.model.PutSSOUserAPIResponse;
-import com.fastcomments.model.RenderEmailTemplate200Response;
 import com.fastcomments.model.RenderEmailTemplateBody;
+import com.fastcomments.model.RenderEmailTemplateResponse;
 import com.fastcomments.model.ReplaceTenantPackageBody;
 import com.fastcomments.model.ReplaceTenantUserBody;
 import com.fastcomments.model.SORTDIR;
-import com.fastcomments.model.SaveComment200Response;
+import com.fastcomments.model.SaveCommentsBulkResponse;
 import com.fastcomments.model.SortDirections;
-import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
+import com.fastcomments.model.UnblockSuccess;
 import com.fastcomments.model.UpdatableCommentParams;
 import com.fastcomments.model.UpdateAPIPageData;
 import com.fastcomments.model.UpdateAPISSOUserData;
@@ -147,6 +150,7 @@ import com.fastcomments.model.UpdateAPIUserSubscriptionData;
 import com.fastcomments.model.UpdateDomainConfigParams;
 import com.fastcomments.model.UpdateEmailTemplateBody;
 import com.fastcomments.model.UpdateHashTagBody;
+import com.fastcomments.model.UpdateHashTagResponse;
 import com.fastcomments.model.UpdateModeratorBody;
 import com.fastcomments.model.UpdateNotificationBody;
 import com.fastcomments.model.UpdateQuestionConfigBody;
@@ -155,9 +159,9 @@ import com.fastcomments.model.UpdateSubscriptionAPIResponse;
 import com.fastcomments.model.UpdateTenantBody;
 import com.fastcomments.model.UpdateTenantPackageBody;
 import com.fastcomments.model.UpdateTenantUserBody;
-import com.fastcomments.model.UpdateUserBadge200Response;
 import com.fastcomments.model.UpdateUserBadgeParams;
-import com.fastcomments.model.VoteComment200Response;
+import com.fastcomments.model.VoteDeleteResponse;
+import com.fastcomments.model.VoteResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -268,16 +272,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AddDomainConfig200Response> addDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams) throws ApiException {
+    private ApiResponse<AddDomainConfigResponse> addDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams) throws ApiException {
         okhttp3.Call localVarCall = addDomainConfigValidateBeforeCall(tenantId, addDomainConfigParams, null);
-        Type localVarReturnType = new TypeToken<AddDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<AddDomainConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams, final ApiCallback<AddDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call addDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams, final ApiCallback<AddDomainConfigResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addDomainConfigValidateBeforeCall(tenantId, addDomainConfigParams, _callback);
-        Type localVarReturnType = new TypeToken<AddDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<AddDomainConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -311,7 +315,7 @@ public class DefaultApi {
 
         /**
          * Execute addDomainConfig request
-         * @return AddDomainConfig200Response
+         * @return AddDomainConfigResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -320,14 +324,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public AddDomainConfig200Response execute() throws ApiException {
-            ApiResponse<AddDomainConfig200Response> localVarResp = addDomainConfigWithHttpInfo(tenantId, addDomainConfigParams);
+        public AddDomainConfigResponse execute() throws ApiException {
+            ApiResponse<AddDomainConfigResponse> localVarResp = addDomainConfigWithHttpInfo(tenantId, addDomainConfigParams);
             return localVarResp.getData();
         }
 
         /**
          * Execute addDomainConfig request with HTTP info returned
-         * @return ApiResponse&lt;AddDomainConfig200Response&gt;
+         * @return ApiResponse&lt;AddDomainConfigResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -336,7 +340,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<AddDomainConfig200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<AddDomainConfigResponse> executeWithHttpInfo() throws ApiException {
             return addDomainConfigWithHttpInfo(tenantId, addDomainConfigParams);
         }
 
@@ -352,7 +356,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<AddDomainConfig200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<AddDomainConfigResponse> _callback) throws ApiException {
             return addDomainConfigAsync(tenantId, addDomainConfigParams, _callback);
         }
     }
@@ -429,16 +433,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AddHashTag200Response> addHashTagWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody) throws ApiException {
+    private ApiResponse<CreateHashTagResponse> addHashTagWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody) throws ApiException {
         okhttp3.Call localVarCall = addHashTagValidateBeforeCall(tenantId, createHashTagBody, null);
-        Type localVarReturnType = new TypeToken<AddHashTag200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateHashTagResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addHashTagAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback<AddHashTag200Response> _callback) throws ApiException {
+    private okhttp3.Call addHashTagAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback<CreateHashTagResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addHashTagValidateBeforeCall(tenantId, createHashTagBody, _callback);
-        Type localVarReturnType = new TypeToken<AddHashTag200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateHashTagResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -482,6 +486,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -490,32 +495,34 @@ public class DefaultApi {
 
         /**
          * Execute addHashTag request
-         * @return AddHashTag200Response
+         * @return CreateHashTagResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public AddHashTag200Response execute() throws ApiException {
-            ApiResponse<AddHashTag200Response> localVarResp = addHashTagWithHttpInfo(tenantId, createHashTagBody);
+        public CreateHashTagResponse execute() throws ApiException {
+            ApiResponse<CreateHashTagResponse> localVarResp = addHashTagWithHttpInfo(tenantId, createHashTagBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute addHashTag request with HTTP info returned
-         * @return ApiResponse&lt;AddHashTag200Response&gt;
+         * @return ApiResponse&lt;CreateHashTagResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<AddHashTag200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateHashTagResponse> executeWithHttpInfo() throws ApiException {
             return addHashTagWithHttpInfo(tenantId, createHashTagBody);
         }
 
@@ -529,9 +536,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<AddHashTag200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateHashTagResponse> _callback) throws ApiException {
             return addHashTagAsync(tenantId, createHashTagBody, _callback);
         }
     }
@@ -545,6 +553,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIaddHashTagRequest addHashTag() {
@@ -606,16 +615,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AddHashTagsBulk200Response> addHashTagsBulkWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody) throws ApiException {
+    private ApiResponse<BulkCreateHashTagsResponse> addHashTagsBulkWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody) throws ApiException {
         okhttp3.Call localVarCall = addHashTagsBulkValidateBeforeCall(tenantId, bulkCreateHashTagsBody, null);
-        Type localVarReturnType = new TypeToken<AddHashTagsBulk200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulkCreateHashTagsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addHashTagsBulkAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback<AddHashTagsBulk200Response> _callback) throws ApiException {
+    private okhttp3.Call addHashTagsBulkAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback<BulkCreateHashTagsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addHashTagsBulkValidateBeforeCall(tenantId, bulkCreateHashTagsBody, _callback);
-        Type localVarReturnType = new TypeToken<AddHashTagsBulk200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulkCreateHashTagsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -659,6 +668,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -667,32 +677,34 @@ public class DefaultApi {
 
         /**
          * Execute addHashTagsBulk request
-         * @return AddHashTagsBulk200Response
+         * @return BulkCreateHashTagsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public AddHashTagsBulk200Response execute() throws ApiException {
-            ApiResponse<AddHashTagsBulk200Response> localVarResp = addHashTagsBulkWithHttpInfo(tenantId, bulkCreateHashTagsBody);
+        public BulkCreateHashTagsResponse execute() throws ApiException {
+            ApiResponse<BulkCreateHashTagsResponse> localVarResp = addHashTagsBulkWithHttpInfo(tenantId, bulkCreateHashTagsBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute addHashTagsBulk request with HTTP info returned
-         * @return ApiResponse&lt;AddHashTagsBulk200Response&gt;
+         * @return ApiResponse&lt;BulkCreateHashTagsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<AddHashTagsBulk200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<BulkCreateHashTagsResponse> executeWithHttpInfo() throws ApiException {
             return addHashTagsBulkWithHttpInfo(tenantId, bulkCreateHashTagsBody);
         }
 
@@ -706,9 +718,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<AddHashTagsBulk200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<BulkCreateHashTagsResponse> _callback) throws ApiException {
             return addHashTagsBulkAsync(tenantId, bulkCreateHashTagsBody, _callback);
         }
     }
@@ -722,6 +735,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIaddHashTagsBulkRequest addHashTagsBulk() {
@@ -1143,16 +1157,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AggregationResponse> aggregateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats) throws ApiException {
+    private ApiResponse<AggregateResponse> aggregateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats) throws ApiException {
         okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, null);
-        Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<AggregateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call aggregateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats, final ApiCallback<AggregationResponse> _callback) throws ApiException {
+    private okhttp3.Call aggregateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AggregationRequest aggregationRequest, @javax.annotation.Nullable String parentTenantId, @javax.annotation.Nullable Boolean includeStats, final ApiCallback<AggregateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = aggregateValidateBeforeCall(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
-        Type localVarReturnType = new TypeToken<AggregationResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<AggregateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1210,7 +1224,7 @@ public class DefaultApi {
 
         /**
          * Execute aggregate request
-         * @return AggregationResponse
+         * @return AggregateResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -1219,14 +1233,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public AggregationResponse execute() throws ApiException {
-            ApiResponse<AggregationResponse> localVarResp = aggregateWithHttpInfo(tenantId, aggregationRequest, parentTenantId, includeStats);
+        public AggregateResponse execute() throws ApiException {
+            ApiResponse<AggregateResponse> localVarResp = aggregateWithHttpInfo(tenantId, aggregationRequest, parentTenantId, includeStats);
             return localVarResp.getData();
         }
 
         /**
          * Execute aggregate request with HTTP info returned
-         * @return ApiResponse&lt;AggregationResponse&gt;
+         * @return ApiResponse&lt;AggregateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -1235,7 +1249,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<AggregationResponse> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<AggregateResponse> executeWithHttpInfo() throws ApiException {
             return aggregateWithHttpInfo(tenantId, aggregationRequest, parentTenantId, includeStats);
         }
 
@@ -1251,7 +1265,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<AggregationResponse> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<AggregateResponse> _callback) throws ApiException {
             return aggregateAsync(tenantId, aggregationRequest, parentTenantId, includeStats, _callback);
         }
     }
@@ -1356,16 +1370,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<AggregateQuestionResults200Response> aggregateQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate) throws ApiException {
+    private ApiResponse<AggregateQuestionResultsResponse> aggregateQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate) throws ApiException {
         okhttp3.Call localVarCall = aggregateQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, null);
-        Type localVarReturnType = new TypeToken<AggregateQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<AggregateQuestionResultsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call aggregateQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback<AggregateQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call aggregateQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable AggregateTimeBucket timeBucket, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback<AggregateQuestionResultsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = aggregateQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, _callback);
-        Type localVarReturnType = new TypeToken<AggregateQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<AggregateQuestionResultsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1460,6 +1474,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1468,32 +1483,34 @@ public class DefaultApi {
 
         /**
          * Execute aggregateQuestionResults request
-         * @return AggregateQuestionResults200Response
+         * @return AggregateQuestionResultsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public AggregateQuestionResults200Response execute() throws ApiException {
-            ApiResponse<AggregateQuestionResults200Response> localVarResp = aggregateQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate);
+        public AggregateQuestionResultsResponse execute() throws ApiException {
+            ApiResponse<AggregateQuestionResultsResponse> localVarResp = aggregateQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate);
             return localVarResp.getData();
         }
 
         /**
          * Execute aggregateQuestionResults request with HTTP info returned
-         * @return ApiResponse&lt;AggregateQuestionResults200Response&gt;
+         * @return ApiResponse&lt;AggregateQuestionResultsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<AggregateQuestionResults200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<AggregateQuestionResultsResponse> executeWithHttpInfo() throws ApiException {
             return aggregateQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate);
         }
 
@@ -1507,9 +1524,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<AggregateQuestionResults200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<AggregateQuestionResultsResponse> _callback) throws ApiException {
             return aggregateQuestionResultsAsync(tenantId, questionId, questionIds, urlId, timeBucket, startDate, forceRecalculate, _callback);
         }
     }
@@ -1524,6 +1542,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIaggregateQuestionResultsRequest aggregateQuestionResults(@javax.annotation.Nonnull String tenantId) {
@@ -1609,16 +1628,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<BlockFromCommentPublic200Response> blockUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
+    private ApiResponse<BlockSuccess> blockUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = blockUserFromCommentValidateBeforeCall(tenantId, id, blockFromCommentParams, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BlockSuccess>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call blockUserFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call blockUserFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<BlockSuccess> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = blockUserFromCommentValidateBeforeCall(tenantId, id, blockFromCommentParams, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<BlockFromCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BlockSuccess>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1671,6 +1690,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1679,32 +1699,34 @@ public class DefaultApi {
 
         /**
          * Execute blockUserFromComment request
-         * @return BlockFromCommentPublic200Response
+         * @return BlockSuccess
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public BlockFromCommentPublic200Response execute() throws ApiException {
-            ApiResponse<BlockFromCommentPublic200Response> localVarResp = blockUserFromCommentWithHttpInfo(tenantId, id, blockFromCommentParams, userId, anonUserId);
+        public BlockSuccess execute() throws ApiException {
+            ApiResponse<BlockSuccess> localVarResp = blockUserFromCommentWithHttpInfo(tenantId, id, blockFromCommentParams, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute blockUserFromComment request with HTTP info returned
-         * @return ApiResponse&lt;BlockFromCommentPublic200Response&gt;
+         * @return ApiResponse&lt;BlockSuccess&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<BlockFromCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<BlockSuccess> executeWithHttpInfo() throws ApiException {
             return blockUserFromCommentWithHttpInfo(tenantId, id, blockFromCommentParams, userId, anonUserId);
         }
 
@@ -1718,9 +1740,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<BlockFromCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<BlockSuccess> _callback) throws ApiException {
             return blockUserFromCommentAsync(tenantId, id, blockFromCommentParams, userId, anonUserId, _callback);
         }
     }
@@ -1737,6 +1760,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIblockUserFromCommentRequest blockUserFromComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull BlockFromCommentParams blockFromCommentParams) {
@@ -1812,16 +1836,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<BulkAggregateQuestionResults200Response> bulkAggregateQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate) throws ApiException {
+    private ApiResponse<BulkAggregateQuestionResultsResponse> bulkAggregateQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate) throws ApiException {
         okhttp3.Call localVarCall = bulkAggregateQuestionResultsValidateBeforeCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, null);
-        Type localVarReturnType = new TypeToken<BulkAggregateQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulkAggregateQuestionResultsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call bulkAggregateQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback<BulkAggregateQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call bulkAggregateQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest, @javax.annotation.Nullable Boolean forceRecalculate, final ApiCallback<BulkAggregateQuestionResultsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = bulkAggregateQuestionResultsValidateBeforeCall(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, _callback);
-        Type localVarReturnType = new TypeToken<BulkAggregateQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulkAggregateQuestionResultsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1859,6 +1883,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -1867,32 +1892,34 @@ public class DefaultApi {
 
         /**
          * Execute bulkAggregateQuestionResults request
-         * @return BulkAggregateQuestionResults200Response
+         * @return BulkAggregateQuestionResultsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public BulkAggregateQuestionResults200Response execute() throws ApiException {
-            ApiResponse<BulkAggregateQuestionResults200Response> localVarResp = bulkAggregateQuestionResultsWithHttpInfo(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate);
+        public BulkAggregateQuestionResultsResponse execute() throws ApiException {
+            ApiResponse<BulkAggregateQuestionResultsResponse> localVarResp = bulkAggregateQuestionResultsWithHttpInfo(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate);
             return localVarResp.getData();
         }
 
         /**
          * Execute bulkAggregateQuestionResults request with HTTP info returned
-         * @return ApiResponse&lt;BulkAggregateQuestionResults200Response&gt;
+         * @return ApiResponse&lt;BulkAggregateQuestionResultsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<BulkAggregateQuestionResults200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<BulkAggregateQuestionResultsResponse> executeWithHttpInfo() throws ApiException {
             return bulkAggregateQuestionResultsWithHttpInfo(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate);
         }
 
@@ -1906,9 +1933,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<BulkAggregateQuestionResults200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<BulkAggregateQuestionResultsResponse> _callback) throws ApiException {
             return bulkAggregateQuestionResultsAsync(tenantId, bulkAggregateQuestionResultsRequest, forceRecalculate, _callback);
         }
     }
@@ -1924,6 +1952,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIbulkAggregateQuestionResultsRequest bulkAggregateQuestionResults(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest) {
@@ -2010,16 +2039,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<ChangeTicketState200Response> changeTicketStateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody) throws ApiException {
+    private ApiResponse<ChangeTicketStateResponse> changeTicketStateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody) throws ApiException {
         okhttp3.Call localVarCall = changeTicketStateValidateBeforeCall(tenantId, userId, id, changeTicketStateBody, null);
-        Type localVarReturnType = new TypeToken<ChangeTicketState200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ChangeTicketStateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call changeTicketStateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody, final ApiCallback<ChangeTicketState200Response> _callback) throws ApiException {
+    private okhttp3.Call changeTicketStateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody, final ApiCallback<ChangeTicketStateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = changeTicketStateValidateBeforeCall(tenantId, userId, id, changeTicketStateBody, _callback);
-        Type localVarReturnType = new TypeToken<ChangeTicketState200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<ChangeTicketStateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2051,6 +2080,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2059,32 +2089,34 @@ public class DefaultApi {
 
         /**
          * Execute changeTicketState request
-         * @return ChangeTicketState200Response
+         * @return ChangeTicketStateResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ChangeTicketState200Response execute() throws ApiException {
-            ApiResponse<ChangeTicketState200Response> localVarResp = changeTicketStateWithHttpInfo(tenantId, userId, id, changeTicketStateBody);
+        public ChangeTicketStateResponse execute() throws ApiException {
+            ApiResponse<ChangeTicketStateResponse> localVarResp = changeTicketStateWithHttpInfo(tenantId, userId, id, changeTicketStateBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute changeTicketState request with HTTP info returned
-         * @return ApiResponse&lt;ChangeTicketState200Response&gt;
+         * @return ApiResponse&lt;ChangeTicketStateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<ChangeTicketState200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<ChangeTicketStateResponse> executeWithHttpInfo() throws ApiException {
             return changeTicketStateWithHttpInfo(tenantId, userId, id, changeTicketStateBody);
         }
 
@@ -2098,9 +2130,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<ChangeTicketState200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<ChangeTicketStateResponse> _callback) throws ApiException {
             return changeTicketStateAsync(tenantId, userId, id, changeTicketStateBody, _callback);
         }
     }
@@ -2118,6 +2151,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIchangeTicketStateRequest changeTicketState(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ChangeTicketStateBody changeTicketStateBody) {
@@ -2215,16 +2249,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CombineCommentsWithQuestionResults200Response> combineCommentsWithQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit) throws ApiException {
+    private ApiResponse<CombineQuestionResultsWithCommentsResponse> combineCommentsWithQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit) throws ApiException {
         okhttp3.Call localVarCall = combineCommentsWithQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, null);
-        Type localVarReturnType = new TypeToken<CombineCommentsWithQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CombineQuestionResultsWithCommentsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call combineCommentsWithQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit, final ApiCallback<CombineCommentsWithQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call combineCommentsWithQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable List<String> questionIds, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable OffsetDateTime startDate, @javax.annotation.Nullable Boolean forceRecalculate, @javax.annotation.Nullable Double minValue, @javax.annotation.Nullable Double maxValue, @javax.annotation.Nullable Double limit, final ApiCallback<CombineQuestionResultsWithCommentsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = combineCommentsWithQuestionResultsValidateBeforeCall(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, _callback);
-        Type localVarReturnType = new TypeToken<CombineCommentsWithQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CombineQuestionResultsWithCommentsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2343,6 +2377,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2351,32 +2386,34 @@ public class DefaultApi {
 
         /**
          * Execute combineCommentsWithQuestionResults request
-         * @return CombineCommentsWithQuestionResults200Response
+         * @return CombineQuestionResultsWithCommentsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CombineCommentsWithQuestionResults200Response execute() throws ApiException {
-            ApiResponse<CombineCommentsWithQuestionResults200Response> localVarResp = combineCommentsWithQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit);
+        public CombineQuestionResultsWithCommentsResponse execute() throws ApiException {
+            ApiResponse<CombineQuestionResultsWithCommentsResponse> localVarResp = combineCommentsWithQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit);
             return localVarResp.getData();
         }
 
         /**
          * Execute combineCommentsWithQuestionResults request with HTTP info returned
-         * @return ApiResponse&lt;CombineCommentsWithQuestionResults200Response&gt;
+         * @return ApiResponse&lt;CombineQuestionResultsWithCommentsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CombineCommentsWithQuestionResults200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CombineQuestionResultsWithCommentsResponse> executeWithHttpInfo() throws ApiException {
             return combineCommentsWithQuestionResultsWithHttpInfo(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit);
         }
 
@@ -2390,9 +2427,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CombineCommentsWithQuestionResults200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CombineQuestionResultsWithCommentsResponse> _callback) throws ApiException {
             return combineCommentsWithQuestionResultsAsync(tenantId, questionId, questionIds, urlId, startDate, forceRecalculate, minValue, maxValue, limit, _callback);
         }
     }
@@ -2407,6 +2445,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcombineCommentsWithQuestionResultsRequest combineCommentsWithQuestionResults(@javax.annotation.Nonnull String tenantId) {
@@ -2478,16 +2517,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateEmailTemplate200Response> createEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody) throws ApiException {
+    private ApiResponse<CreateEmailTemplateResponse> createEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody) throws ApiException {
         okhttp3.Call localVarCall = createEmailTemplateValidateBeforeCall(tenantId, createEmailTemplateBody, null);
-        Type localVarReturnType = new TypeToken<CreateEmailTemplate200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateEmailTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback<CreateEmailTemplate200Response> _callback) throws ApiException {
+    private okhttp3.Call createEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody, final ApiCallback<CreateEmailTemplateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createEmailTemplateValidateBeforeCall(tenantId, createEmailTemplateBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateEmailTemplate200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateEmailTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2513,6 +2552,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2521,32 +2561,34 @@ public class DefaultApi {
 
         /**
          * Execute createEmailTemplate request
-         * @return CreateEmailTemplate200Response
+         * @return CreateEmailTemplateResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateEmailTemplate200Response execute() throws ApiException {
-            ApiResponse<CreateEmailTemplate200Response> localVarResp = createEmailTemplateWithHttpInfo(tenantId, createEmailTemplateBody);
+        public CreateEmailTemplateResponse execute() throws ApiException {
+            ApiResponse<CreateEmailTemplateResponse> localVarResp = createEmailTemplateWithHttpInfo(tenantId, createEmailTemplateBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createEmailTemplate request with HTTP info returned
-         * @return ApiResponse&lt;CreateEmailTemplate200Response&gt;
+         * @return ApiResponse&lt;CreateEmailTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateEmailTemplate200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateEmailTemplateResponse> executeWithHttpInfo() throws ApiException {
             return createEmailTemplateWithHttpInfo(tenantId, createEmailTemplateBody);
         }
 
@@ -2560,9 +2602,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateEmailTemplate200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateEmailTemplateResponse> _callback) throws ApiException {
             return createEmailTemplateAsync(tenantId, createEmailTemplateBody, _callback);
         }
     }
@@ -2578,6 +2621,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateEmailTemplateRequest createEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateEmailTemplateBody createEmailTemplateBody) {
@@ -2665,16 +2709,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateFeedPost200Response> createFeedPostWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck) throws ApiException {
+    private ApiResponse<CreateFeedPostsResponse> createFeedPostWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck) throws ApiException {
         okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, null);
-        Type localVarReturnType = new TypeToken<CreateFeedPost200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateFeedPostsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createFeedPostAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck, final ApiCallback<CreateFeedPost200Response> _callback) throws ApiException {
+    private okhttp3.Call createFeedPostAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean skipDupCheck, final ApiCallback<CreateFeedPostsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createFeedPostValidateBeforeCall(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, _callback);
-        Type localVarReturnType = new TypeToken<CreateFeedPost200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateFeedPostsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2748,6 +2792,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2756,32 +2801,34 @@ public class DefaultApi {
 
         /**
          * Execute createFeedPost request
-         * @return CreateFeedPost200Response
+         * @return CreateFeedPostsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateFeedPost200Response execute() throws ApiException {
-            ApiResponse<CreateFeedPost200Response> localVarResp = createFeedPostWithHttpInfo(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck);
+        public CreateFeedPostsResponse execute() throws ApiException {
+            ApiResponse<CreateFeedPostsResponse> localVarResp = createFeedPostWithHttpInfo(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck);
             return localVarResp.getData();
         }
 
         /**
          * Execute createFeedPost request with HTTP info returned
-         * @return ApiResponse&lt;CreateFeedPost200Response&gt;
+         * @return ApiResponse&lt;CreateFeedPostsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateFeedPost200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateFeedPostsResponse> executeWithHttpInfo() throws ApiException {
             return createFeedPostWithHttpInfo(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck);
         }
 
@@ -2795,9 +2842,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateFeedPost200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateFeedPostsResponse> _callback) throws ApiException {
             return createFeedPostAsync(tenantId, createFeedPostParams, broadcastId, isLive, doSpamCheck, skipDupCheck, _callback);
         }
     }
@@ -2813,6 +2861,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateFeedPostRequest createFeedPost(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams) {
@@ -2884,16 +2933,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateModerator200Response> createModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody) throws ApiException {
+    private ApiResponse<CreateModeratorResponse> createModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody) throws ApiException {
         okhttp3.Call localVarCall = createModeratorValidateBeforeCall(tenantId, createModeratorBody, null);
-        Type localVarReturnType = new TypeToken<CreateModerator200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateModeratorResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody, final ApiCallback<CreateModerator200Response> _callback) throws ApiException {
+    private okhttp3.Call createModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody, final ApiCallback<CreateModeratorResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createModeratorValidateBeforeCall(tenantId, createModeratorBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateModerator200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateModeratorResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2919,6 +2968,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -2927,32 +2977,34 @@ public class DefaultApi {
 
         /**
          * Execute createModerator request
-         * @return CreateModerator200Response
+         * @return CreateModeratorResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateModerator200Response execute() throws ApiException {
-            ApiResponse<CreateModerator200Response> localVarResp = createModeratorWithHttpInfo(tenantId, createModeratorBody);
+        public CreateModeratorResponse execute() throws ApiException {
+            ApiResponse<CreateModeratorResponse> localVarResp = createModeratorWithHttpInfo(tenantId, createModeratorBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createModerator request with HTTP info returned
-         * @return ApiResponse&lt;CreateModerator200Response&gt;
+         * @return ApiResponse&lt;CreateModeratorResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateModerator200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateModeratorResponse> executeWithHttpInfo() throws ApiException {
             return createModeratorWithHttpInfo(tenantId, createModeratorBody);
         }
 
@@ -2966,9 +3018,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateModerator200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateModeratorResponse> _callback) throws ApiException {
             return createModeratorAsync(tenantId, createModeratorBody, _callback);
         }
     }
@@ -2984,6 +3037,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateModeratorRequest createModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateModeratorBody createModeratorBody) {
@@ -3055,16 +3109,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateQuestionConfig200Response> createQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody) throws ApiException {
+    private ApiResponse<CreateQuestionConfigResponse> createQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody) throws ApiException {
         okhttp3.Call localVarCall = createQuestionConfigValidateBeforeCall(tenantId, createQuestionConfigBody, null);
-        Type localVarReturnType = new TypeToken<CreateQuestionConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateQuestionConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback<CreateQuestionConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call createQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody, final ApiCallback<CreateQuestionConfigResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createQuestionConfigValidateBeforeCall(tenantId, createQuestionConfigBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateQuestionConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateQuestionConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3090,6 +3144,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3098,32 +3153,34 @@ public class DefaultApi {
 
         /**
          * Execute createQuestionConfig request
-         * @return CreateQuestionConfig200Response
+         * @return CreateQuestionConfigResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateQuestionConfig200Response execute() throws ApiException {
-            ApiResponse<CreateQuestionConfig200Response> localVarResp = createQuestionConfigWithHttpInfo(tenantId, createQuestionConfigBody);
+        public CreateQuestionConfigResponse execute() throws ApiException {
+            ApiResponse<CreateQuestionConfigResponse> localVarResp = createQuestionConfigWithHttpInfo(tenantId, createQuestionConfigBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createQuestionConfig request with HTTP info returned
-         * @return ApiResponse&lt;CreateQuestionConfig200Response&gt;
+         * @return ApiResponse&lt;CreateQuestionConfigResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateQuestionConfig200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateQuestionConfigResponse> executeWithHttpInfo() throws ApiException {
             return createQuestionConfigWithHttpInfo(tenantId, createQuestionConfigBody);
         }
 
@@ -3137,9 +3194,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateQuestionConfig200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateQuestionConfigResponse> _callback) throws ApiException {
             return createQuestionConfigAsync(tenantId, createQuestionConfigBody, _callback);
         }
     }
@@ -3155,6 +3213,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateQuestionConfigRequest createQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionConfigBody createQuestionConfigBody) {
@@ -3226,16 +3285,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateQuestionResult200Response> createQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody) throws ApiException {
+    private ApiResponse<CreateQuestionResultResponse> createQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody) throws ApiException {
         okhttp3.Call localVarCall = createQuestionResultValidateBeforeCall(tenantId, createQuestionResultBody, null);
-        Type localVarReturnType = new TypeToken<CreateQuestionResult200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateQuestionResultResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody, final ApiCallback<CreateQuestionResult200Response> _callback) throws ApiException {
+    private okhttp3.Call createQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody, final ApiCallback<CreateQuestionResultResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createQuestionResultValidateBeforeCall(tenantId, createQuestionResultBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateQuestionResult200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateQuestionResultResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3261,6 +3320,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3269,32 +3329,34 @@ public class DefaultApi {
 
         /**
          * Execute createQuestionResult request
-         * @return CreateQuestionResult200Response
+         * @return CreateQuestionResultResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateQuestionResult200Response execute() throws ApiException {
-            ApiResponse<CreateQuestionResult200Response> localVarResp = createQuestionResultWithHttpInfo(tenantId, createQuestionResultBody);
+        public CreateQuestionResultResponse execute() throws ApiException {
+            ApiResponse<CreateQuestionResultResponse> localVarResp = createQuestionResultWithHttpInfo(tenantId, createQuestionResultBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createQuestionResult request with HTTP info returned
-         * @return ApiResponse&lt;CreateQuestionResult200Response&gt;
+         * @return ApiResponse&lt;CreateQuestionResultResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateQuestionResult200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateQuestionResultResponse> executeWithHttpInfo() throws ApiException {
             return createQuestionResultWithHttpInfo(tenantId, createQuestionResultBody);
         }
 
@@ -3308,9 +3370,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateQuestionResult200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateQuestionResultResponse> _callback) throws ApiException {
             return createQuestionResultAsync(tenantId, createQuestionResultBody, _callback);
         }
     }
@@ -3326,6 +3389,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateQuestionResultRequest createQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateQuestionResultBody createQuestionResultBody) {
@@ -3568,16 +3632,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTenant200Response> createTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody) throws ApiException {
+    private ApiResponse<CreateTenantResponse> createTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody) throws ApiException {
         okhttp3.Call localVarCall = createTenantValidateBeforeCall(tenantId, createTenantBody, null);
-        Type localVarReturnType = new TypeToken<CreateTenant200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTenantResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody, final ApiCallback<CreateTenant200Response> _callback) throws ApiException {
+    private okhttp3.Call createTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody, final ApiCallback<CreateTenantResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTenantValidateBeforeCall(tenantId, createTenantBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateTenant200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTenantResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3603,6 +3667,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3611,32 +3676,34 @@ public class DefaultApi {
 
         /**
          * Execute createTenant request
-         * @return CreateTenant200Response
+         * @return CreateTenantResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateTenant200Response execute() throws ApiException {
-            ApiResponse<CreateTenant200Response> localVarResp = createTenantWithHttpInfo(tenantId, createTenantBody);
+        public CreateTenantResponse execute() throws ApiException {
+            ApiResponse<CreateTenantResponse> localVarResp = createTenantWithHttpInfo(tenantId, createTenantBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createTenant request with HTTP info returned
-         * @return ApiResponse&lt;CreateTenant200Response&gt;
+         * @return ApiResponse&lt;CreateTenantResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateTenant200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateTenantResponse> executeWithHttpInfo() throws ApiException {
             return createTenantWithHttpInfo(tenantId, createTenantBody);
         }
 
@@ -3650,9 +3717,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateTenant200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateTenantResponse> _callback) throws ApiException {
             return createTenantAsync(tenantId, createTenantBody, _callback);
         }
     }
@@ -3668,6 +3736,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateTenantRequest createTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantBody createTenantBody) {
@@ -3739,16 +3808,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTenantPackage200Response> createTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody) throws ApiException {
+    private ApiResponse<CreateTenantPackageResponse> createTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody) throws ApiException {
         okhttp3.Call localVarCall = createTenantPackageValidateBeforeCall(tenantId, createTenantPackageBody, null);
-        Type localVarReturnType = new TypeToken<CreateTenantPackage200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTenantPackageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody, final ApiCallback<CreateTenantPackage200Response> _callback) throws ApiException {
+    private okhttp3.Call createTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody, final ApiCallback<CreateTenantPackageResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTenantPackageValidateBeforeCall(tenantId, createTenantPackageBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateTenantPackage200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTenantPackageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3774,6 +3843,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3782,32 +3852,34 @@ public class DefaultApi {
 
         /**
          * Execute createTenantPackage request
-         * @return CreateTenantPackage200Response
+         * @return CreateTenantPackageResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateTenantPackage200Response execute() throws ApiException {
-            ApiResponse<CreateTenantPackage200Response> localVarResp = createTenantPackageWithHttpInfo(tenantId, createTenantPackageBody);
+        public CreateTenantPackageResponse execute() throws ApiException {
+            ApiResponse<CreateTenantPackageResponse> localVarResp = createTenantPackageWithHttpInfo(tenantId, createTenantPackageBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createTenantPackage request with HTTP info returned
-         * @return ApiResponse&lt;CreateTenantPackage200Response&gt;
+         * @return ApiResponse&lt;CreateTenantPackageResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateTenantPackage200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateTenantPackageResponse> executeWithHttpInfo() throws ApiException {
             return createTenantPackageWithHttpInfo(tenantId, createTenantPackageBody);
         }
 
@@ -3821,9 +3893,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateTenantPackage200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateTenantPackageResponse> _callback) throws ApiException {
             return createTenantPackageAsync(tenantId, createTenantPackageBody, _callback);
         }
     }
@@ -3839,6 +3912,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateTenantPackageRequest createTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantPackageBody createTenantPackageBody) {
@@ -3910,16 +3984,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTenantUser200Response> createTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody) throws ApiException {
+    private ApiResponse<CreateTenantUserResponse> createTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody) throws ApiException {
         okhttp3.Call localVarCall = createTenantUserValidateBeforeCall(tenantId, createTenantUserBody, null);
-        Type localVarReturnType = new TypeToken<CreateTenantUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTenantUserResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody, final ApiCallback<CreateTenantUser200Response> _callback) throws ApiException {
+    private okhttp3.Call createTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody, final ApiCallback<CreateTenantUserResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTenantUserValidateBeforeCall(tenantId, createTenantUserBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateTenantUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTenantUserResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3945,6 +4019,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -3953,32 +4028,34 @@ public class DefaultApi {
 
         /**
          * Execute createTenantUser request
-         * @return CreateTenantUser200Response
+         * @return CreateTenantUserResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateTenantUser200Response execute() throws ApiException {
-            ApiResponse<CreateTenantUser200Response> localVarResp = createTenantUserWithHttpInfo(tenantId, createTenantUserBody);
+        public CreateTenantUserResponse execute() throws ApiException {
+            ApiResponse<CreateTenantUserResponse> localVarResp = createTenantUserWithHttpInfo(tenantId, createTenantUserBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createTenantUser request with HTTP info returned
-         * @return ApiResponse&lt;CreateTenantUser200Response&gt;
+         * @return ApiResponse&lt;CreateTenantUserResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateTenantUser200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateTenantUserResponse> executeWithHttpInfo() throws ApiException {
             return createTenantUserWithHttpInfo(tenantId, createTenantUserBody);
         }
 
@@ -3992,9 +4069,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateTenantUser200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateTenantUserResponse> _callback) throws ApiException {
             return createTenantUserAsync(tenantId, createTenantUserBody, _callback);
         }
     }
@@ -4010,6 +4088,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateTenantUserRequest createTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateTenantUserBody createTenantUserBody) {
@@ -4090,16 +4169,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateTicket200Response> createTicketWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody) throws ApiException {
+    private ApiResponse<CreateTicketResponse> createTicketWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody) throws ApiException {
         okhttp3.Call localVarCall = createTicketValidateBeforeCall(tenantId, userId, createTicketBody, null);
-        Type localVarReturnType = new TypeToken<CreateTicket200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTicketResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createTicketAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody, final ApiCallback<CreateTicket200Response> _callback) throws ApiException {
+    private okhttp3.Call createTicketAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody, final ApiCallback<CreateTicketResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createTicketValidateBeforeCall(tenantId, userId, createTicketBody, _callback);
-        Type localVarReturnType = new TypeToken<CreateTicket200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<CreateTicketResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4128,6 +4207,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4136,32 +4216,34 @@ public class DefaultApi {
 
         /**
          * Execute createTicket request
-         * @return CreateTicket200Response
+         * @return CreateTicketResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateTicket200Response execute() throws ApiException {
-            ApiResponse<CreateTicket200Response> localVarResp = createTicketWithHttpInfo(tenantId, userId, createTicketBody);
+        public CreateTicketResponse execute() throws ApiException {
+            ApiResponse<CreateTicketResponse> localVarResp = createTicketWithHttpInfo(tenantId, userId, createTicketBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute createTicket request with HTTP info returned
-         * @return ApiResponse&lt;CreateTicket200Response&gt;
+         * @return ApiResponse&lt;CreateTicketResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateTicket200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<CreateTicketResponse> executeWithHttpInfo() throws ApiException {
             return createTicketWithHttpInfo(tenantId, userId, createTicketBody);
         }
 
@@ -4175,9 +4257,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateTicket200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<CreateTicketResponse> _callback) throws ApiException {
             return createTicketAsync(tenantId, userId, createTicketBody, _callback);
         }
     }
@@ -4194,6 +4277,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateTicketRequest createTicket(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, @javax.annotation.Nonnull CreateTicketBody createTicketBody) {
@@ -4265,16 +4349,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<CreateUserBadge200Response> createUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams) throws ApiException {
+    private ApiResponse<APICreateUserBadgeResponse> createUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams) throws ApiException {
         okhttp3.Call localVarCall = createUserBadgeValidateBeforeCall(tenantId, createUserBadgeParams, null);
-        Type localVarReturnType = new TypeToken<CreateUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APICreateUserBadgeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams, final ApiCallback<CreateUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call createUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams, final ApiCallback<APICreateUserBadgeResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createUserBadgeValidateBeforeCall(tenantId, createUserBadgeParams, _callback);
-        Type localVarReturnType = new TypeToken<CreateUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APICreateUserBadgeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4300,6 +4384,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4308,32 +4393,34 @@ public class DefaultApi {
 
         /**
          * Execute createUserBadge request
-         * @return CreateUserBadge200Response
+         * @return APICreateUserBadgeResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public CreateUserBadge200Response execute() throws ApiException {
-            ApiResponse<CreateUserBadge200Response> localVarResp = createUserBadgeWithHttpInfo(tenantId, createUserBadgeParams);
+        public APICreateUserBadgeResponse execute() throws ApiException {
+            ApiResponse<APICreateUserBadgeResponse> localVarResp = createUserBadgeWithHttpInfo(tenantId, createUserBadgeParams);
             return localVarResp.getData();
         }
 
         /**
          * Execute createUserBadge request with HTTP info returned
-         * @return ApiResponse&lt;CreateUserBadge200Response&gt;
+         * @return ApiResponse&lt;APICreateUserBadgeResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<CreateUserBadge200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APICreateUserBadgeResponse> executeWithHttpInfo() throws ApiException {
             return createUserBadgeWithHttpInfo(tenantId, createUserBadgeParams);
         }
 
@@ -4347,9 +4434,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<CreateUserBadge200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APICreateUserBadgeResponse> _callback) throws ApiException {
             return createUserBadgeAsync(tenantId, createUserBadgeParams, _callback);
         }
     }
@@ -4365,6 +4453,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateUserBadgeRequest createUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateUserBadgeParams createUserBadgeParams) {
@@ -4456,16 +4545,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<VoteComment200Response> createVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
+    private ApiResponse<VoteResponse> createVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = createVoteValidateBeforeCall(tenantId, commentId, direction, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VoteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<VoteComment200Response> _callback) throws ApiException {
+    private okhttp3.Call createVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<VoteResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createVoteValidateBeforeCall(tenantId, commentId, direction, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<VoteComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VoteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4518,6 +4607,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4526,32 +4616,34 @@ public class DefaultApi {
 
         /**
          * Execute createVote request
-         * @return VoteComment200Response
+         * @return VoteResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public VoteComment200Response execute() throws ApiException {
-            ApiResponse<VoteComment200Response> localVarResp = createVoteWithHttpInfo(tenantId, commentId, direction, userId, anonUserId);
+        public VoteResponse execute() throws ApiException {
+            ApiResponse<VoteResponse> localVarResp = createVoteWithHttpInfo(tenantId, commentId, direction, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute createVote request with HTTP info returned
-         * @return ApiResponse&lt;VoteComment200Response&gt;
+         * @return ApiResponse&lt;VoteResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<VoteComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<VoteResponse> executeWithHttpInfo() throws ApiException {
             return createVoteWithHttpInfo(tenantId, commentId, direction, userId, anonUserId);
         }
 
@@ -4565,9 +4657,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<VoteComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<VoteResponse> _callback) throws ApiException {
             return createVoteAsync(tenantId, commentId, direction, userId, anonUserId, _callback);
         }
     }
@@ -4584,6 +4677,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIcreateVoteRequest createVote(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String direction) {
@@ -4663,16 +4757,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteComment200Response> deleteCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive) throws ApiException {
+    private ApiResponse<DeleteCommentResult> deleteCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive) throws ApiException {
         okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, id, contextUserId, isLive, null);
-        Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteCommentResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive, final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean isLive, final ApiCallback<DeleteCommentResult> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCommentValidateBeforeCall(tenantId, id, contextUserId, isLive, _callback);
-        Type localVarReturnType = new TypeToken<DeleteComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteCommentResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4722,6 +4816,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -4730,32 +4825,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteComment request
-         * @return DeleteComment200Response
+         * @return DeleteCommentResult
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public DeleteComment200Response execute() throws ApiException {
-            ApiResponse<DeleteComment200Response> localVarResp = deleteCommentWithHttpInfo(tenantId, id, contextUserId, isLive);
+        public DeleteCommentResult execute() throws ApiException {
+            ApiResponse<DeleteCommentResult> localVarResp = deleteCommentWithHttpInfo(tenantId, id, contextUserId, isLive);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteComment request with HTTP info returned
-         * @return ApiResponse&lt;DeleteComment200Response&gt;
+         * @return ApiResponse&lt;DeleteCommentResult&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<DeleteComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<DeleteCommentResult> executeWithHttpInfo() throws ApiException {
             return deleteCommentWithHttpInfo(tenantId, id, contextUserId, isLive);
         }
 
@@ -4769,9 +4866,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<DeleteComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteCommentResult> _callback) throws ApiException {
             return deleteCommentAsync(tenantId, id, contextUserId, isLive, _callback);
         }
     }
@@ -4787,6 +4885,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteCommentRequest deleteComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -4858,16 +4957,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteDomainConfig200Response> deleteDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) throws ApiException {
+    private ApiResponse<DeleteDomainConfigResponse> deleteDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) throws ApiException {
         okhttp3.Call localVarCall = deleteDomainConfigValidateBeforeCall(tenantId, domain, null);
-        Type localVarReturnType = new TypeToken<DeleteDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteDomainConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback<DeleteDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback<DeleteDomainConfigResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteDomainConfigValidateBeforeCall(tenantId, domain, _callback);
-        Type localVarReturnType = new TypeToken<DeleteDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<DeleteDomainConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4901,7 +5000,7 @@ public class DefaultApi {
 
         /**
          * Execute deleteDomainConfig request
-         * @return DeleteDomainConfig200Response
+         * @return DeleteDomainConfigResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -4910,14 +5009,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public DeleteDomainConfig200Response execute() throws ApiException {
-            ApiResponse<DeleteDomainConfig200Response> localVarResp = deleteDomainConfigWithHttpInfo(tenantId, domain);
+        public DeleteDomainConfigResponse execute() throws ApiException {
+            ApiResponse<DeleteDomainConfigResponse> localVarResp = deleteDomainConfigWithHttpInfo(tenantId, domain);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteDomainConfig request with HTTP info returned
-         * @return ApiResponse&lt;DeleteDomainConfig200Response&gt;
+         * @return ApiResponse&lt;DeleteDomainConfigResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -4926,7 +5025,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<DeleteDomainConfig200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<DeleteDomainConfigResponse> executeWithHttpInfo() throws ApiException {
             return deleteDomainConfigWithHttpInfo(tenantId, domain);
         }
 
@@ -4942,7 +5041,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<DeleteDomainConfig200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<DeleteDomainConfigResponse> _callback) throws ApiException {
             return deleteDomainConfigAsync(tenantId, domain, _callback);
         }
     }
@@ -5029,16 +5128,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteEmailTemplateValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteEmailTemplateValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5064,6 +5163,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -5072,32 +5172,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteEmailTemplate request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteEmailTemplateWithHttpInfo(tenantId, id);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteEmailTemplateWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteEmailTemplate request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteEmailTemplateWithHttpInfo(tenantId, id);
         }
 
@@ -5111,9 +5213,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteEmailTemplateAsync(tenantId, id, _callback);
         }
     }
@@ -5129,6 +5232,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteEmailTemplateRequest deleteEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -5206,16 +5310,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteEmailTemplateRenderErrorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteEmailTemplateRenderErrorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId) throws ApiException {
         okhttp3.Call localVarCall = deleteEmailTemplateRenderErrorValidateBeforeCall(tenantId, id, errorId, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteEmailTemplateRenderErrorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteEmailTemplateRenderErrorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteEmailTemplateRenderErrorValidateBeforeCall(tenantId, id, errorId, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5244,6 +5348,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -5252,32 +5357,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteEmailTemplateRenderError request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteEmailTemplateRenderErrorWithHttpInfo(tenantId, id, errorId);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteEmailTemplateRenderErrorWithHttpInfo(tenantId, id, errorId);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteEmailTemplateRenderError request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteEmailTemplateRenderErrorWithHttpInfo(tenantId, id, errorId);
         }
 
@@ -5291,9 +5398,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteEmailTemplateRenderErrorAsync(tenantId, id, errorId, _callback);
         }
     }
@@ -5310,12 +5418,13 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteEmailTemplateRenderErrorRequest deleteEmailTemplateRenderError(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId) {
         return new APIdeleteEmailTemplateRenderErrorRequest(tenantId, id, errorId);
     }
-    private okhttp3.Call deleteHashTagCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5329,7 +5438,7 @@ public class DefaultApi {
             basePath = null;
         }
 
-        Object localVarPostBody = deleteHashTagRequest;
+        Object localVarPostBody = deleteHashTagRequestBody;
 
         // create path and map variables
         String localVarPath = "/api/v1/hash-tags/{tag}"
@@ -5366,27 +5475,27 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteHashTagValidateBeforeCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagValidateBeforeCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tag' is set
         if (tag == null) {
             throw new ApiException("Missing the required parameter 'tag' when calling deleteHashTag(Async)");
         }
 
-        return deleteHashTagCall(tag, tenantId, deleteHashTagRequest, _callback);
+        return deleteHashTagCall(tag, tenantId, deleteHashTagRequestBody, _callback);
 
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest) throws ApiException {
-        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequest, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+    private ApiResponse<APIEmptyResponse> deleteHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequestBody, null);
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequest, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5397,7 +5506,7 @@ public class DefaultApi {
         @javax.annotation.Nullable
         private String tenantId;
         @javax.annotation.Nullable
-        private DeleteHashTagRequest deleteHashTagRequest;
+        private DeleteHashTagRequestBody deleteHashTagRequestBody;
 
         private APIdeleteHashTagRequest(@javax.annotation.Nonnull String tag) {
             this.tag = tag;
@@ -5414,12 +5523,12 @@ public class DefaultApi {
         }
 
         /**
-         * Set deleteHashTagRequest
-         * @param deleteHashTagRequest  (optional)
+         * Set deleteHashTagRequestBody
+         * @param deleteHashTagRequestBody  (optional)
          * @return APIdeleteHashTagRequest
          */
-        public APIdeleteHashTagRequest deleteHashTagRequest(@javax.annotation.Nullable DeleteHashTagRequest deleteHashTagRequest) {
-            this.deleteHashTagRequest = deleteHashTagRequest;
+        public APIdeleteHashTagRequest deleteHashTagRequestBody(@javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody) {
+            this.deleteHashTagRequestBody = deleteHashTagRequestBody;
             return this;
         }
 
@@ -5433,41 +5542,44 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteHashTagCall(tag, tenantId, deleteHashTagRequest, _callback);
+            return deleteHashTagCall(tag, tenantId, deleteHashTagRequestBody, _callback);
         }
 
         /**
          * Execute deleteHashTag request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteHashTagWithHttpInfo(tag, tenantId, deleteHashTagRequest);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteHashTagWithHttpInfo(tag, tenantId, deleteHashTagRequestBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteHashTag request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
-            return deleteHashTagWithHttpInfo(tag, tenantId, deleteHashTagRequest);
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
+            return deleteHashTagWithHttpInfo(tag, tenantId, deleteHashTagRequestBody);
         }
 
         /**
@@ -5480,10 +5592,11 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
-            return deleteHashTagAsync(tag, tenantId, deleteHashTagRequest, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+            return deleteHashTagAsync(tag, tenantId, deleteHashTagRequestBody, _callback);
         }
     }
 
@@ -5497,6 +5610,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteHashTagRequest deleteHashTag(@javax.annotation.Nonnull String tag) {
@@ -5572,16 +5686,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail) throws ApiException {
         okhttp3.Call localVarCall = deleteModeratorValidateBeforeCall(tenantId, id, sendEmail, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteModeratorValidateBeforeCall(tenantId, id, sendEmail, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5619,6 +5733,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -5627,32 +5742,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteModerator request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteModeratorWithHttpInfo(tenantId, id, sendEmail);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteModeratorWithHttpInfo(tenantId, id, sendEmail);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteModerator request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteModeratorWithHttpInfo(tenantId, id, sendEmail);
         }
 
@@ -5666,9 +5783,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteModeratorAsync(tenantId, id, sendEmail, _callback);
         }
     }
@@ -5684,6 +5802,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteModeratorRequest deleteModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -5755,16 +5874,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteNotificationCountValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteNotificationCountValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5790,6 +5909,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -5798,32 +5918,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteNotificationCount request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteNotificationCountWithHttpInfo(tenantId, id);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteNotificationCountWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteNotificationCount request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteNotificationCountWithHttpInfo(tenantId, id);
         }
 
@@ -5837,9 +5959,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteNotificationCountAsync(tenantId, id, _callback);
         }
     }
@@ -5855,6 +5978,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteNotificationCountRequest deleteNotificationCount(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -6097,16 +6221,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deletePendingWebhookEventWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deletePendingWebhookEventWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deletePendingWebhookEventValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deletePendingWebhookEventAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deletePendingWebhookEventAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deletePendingWebhookEventValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -6132,6 +6256,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -6140,32 +6265,34 @@ public class DefaultApi {
 
         /**
          * Execute deletePendingWebhookEvent request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deletePendingWebhookEventWithHttpInfo(tenantId, id);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deletePendingWebhookEventWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute deletePendingWebhookEvent request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deletePendingWebhookEventWithHttpInfo(tenantId, id);
         }
 
@@ -6179,9 +6306,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deletePendingWebhookEventAsync(tenantId, id, _callback);
         }
     }
@@ -6197,6 +6325,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeletePendingWebhookEventRequest deletePendingWebhookEvent(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -6268,16 +6397,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteQuestionConfigValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteQuestionConfigValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -6303,6 +6432,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -6311,32 +6441,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteQuestionConfig request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteQuestionConfigWithHttpInfo(tenantId, id);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteQuestionConfigWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteQuestionConfig request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteQuestionConfigWithHttpInfo(tenantId, id);
         }
 
@@ -6350,9 +6482,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteQuestionConfigAsync(tenantId, id, _callback);
         }
     }
@@ -6368,6 +6501,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteQuestionConfigRequest deleteQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -6439,16 +6573,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteQuestionResultValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteQuestionResultValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -6474,6 +6608,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -6482,32 +6617,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteQuestionResult request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteQuestionResultWithHttpInfo(tenantId, id);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteQuestionResultWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteQuestionResult request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteQuestionResultWithHttpInfo(tenantId, id);
         }
 
@@ -6521,9 +6658,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteQuestionResultAsync(tenantId, id, _callback);
         }
     }
@@ -6539,6 +6677,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteQuestionResultRequest deleteQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -7004,16 +7143,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure) throws ApiException {
         okhttp3.Call localVarCall = deleteTenantValidateBeforeCall(tenantId, id, sure, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sure, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTenantValidateBeforeCall(tenantId, id, sure, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7051,6 +7190,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -7059,32 +7199,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteTenant request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteTenantWithHttpInfo(tenantId, id, sure);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteTenantWithHttpInfo(tenantId, id, sure);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteTenant request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteTenantWithHttpInfo(tenantId, id, sure);
         }
 
@@ -7098,9 +7240,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteTenantAsync(tenantId, id, sure, _callback);
         }
     }
@@ -7116,6 +7259,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteTenantRequest deleteTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -7187,16 +7331,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteTenantPackageValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTenantPackageValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7222,6 +7366,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -7230,32 +7375,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteTenantPackage request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteTenantPackageWithHttpInfo(tenantId, id);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteTenantPackageWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteTenantPackage request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteTenantPackageWithHttpInfo(tenantId, id);
         }
 
@@ -7269,9 +7416,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteTenantPackageAsync(tenantId, id, _callback);
         }
     }
@@ -7287,6 +7435,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteTenantPackageRequest deleteTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -7366,16 +7515,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> deleteTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode) throws ApiException {
+    private ApiResponse<APIEmptyResponse> deleteTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode) throws ApiException {
         okhttp3.Call localVarCall = deleteTenantUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String deleteComments, @javax.annotation.Nullable String commentDeleteMode, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteTenantUserValidateBeforeCall(tenantId, id, deleteComments, commentDeleteMode, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7425,6 +7574,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -7433,32 +7583,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteTenantUser request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = deleteTenantUserWithHttpInfo(tenantId, id, deleteComments, commentDeleteMode);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = deleteTenantUserWithHttpInfo(tenantId, id, deleteComments, commentDeleteMode);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteTenantUser request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return deleteTenantUserWithHttpInfo(tenantId, id, deleteComments, commentDeleteMode);
         }
 
@@ -7472,9 +7624,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return deleteTenantUserAsync(tenantId, id, deleteComments, commentDeleteMode, _callback);
         }
     }
@@ -7490,6 +7643,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteTenantUserRequest deleteTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -7561,16 +7715,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UpdateUserBadge200Response> deleteUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIEmptySuccessResponse> deleteUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteUserBadgeValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptySuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIEmptySuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteUserBadgeValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptySuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7596,6 +7750,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -7604,32 +7759,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteUserBadge request
-         * @return UpdateUserBadge200Response
+         * @return APIEmptySuccessResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public UpdateUserBadge200Response execute() throws ApiException {
-            ApiResponse<UpdateUserBadge200Response> localVarResp = deleteUserBadgeWithHttpInfo(tenantId, id);
+        public APIEmptySuccessResponse execute() throws ApiException {
+            ApiResponse<APIEmptySuccessResponse> localVarResp = deleteUserBadgeWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteUserBadge request with HTTP info returned
-         * @return ApiResponse&lt;UpdateUserBadge200Response&gt;
+         * @return ApiResponse&lt;APIEmptySuccessResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<UpdateUserBadge200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptySuccessResponse> executeWithHttpInfo() throws ApiException {
             return deleteUserBadgeWithHttpInfo(tenantId, id);
         }
 
@@ -7643,9 +7800,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptySuccessResponse> _callback) throws ApiException {
             return deleteUserBadgeAsync(tenantId, id, _callback);
         }
     }
@@ -7661,6 +7819,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteUserBadgeRequest deleteUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -7736,16 +7895,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<DeleteCommentVote200Response> deleteVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey) throws ApiException {
+    private ApiResponse<VoteDeleteResponse> deleteVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey) throws ApiException {
         okhttp3.Call localVarCall = deleteVoteValidateBeforeCall(tenantId, id, editKey, null);
-        Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VoteDeleteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey, final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
+    private okhttp3.Call deleteVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String editKey, final ApiCallback<VoteDeleteResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteVoteValidateBeforeCall(tenantId, id, editKey, _callback);
-        Type localVarReturnType = new TypeToken<DeleteCommentVote200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<VoteDeleteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7783,6 +7942,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -7791,32 +7951,34 @@ public class DefaultApi {
 
         /**
          * Execute deleteVote request
-         * @return DeleteCommentVote200Response
+         * @return VoteDeleteResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public DeleteCommentVote200Response execute() throws ApiException {
-            ApiResponse<DeleteCommentVote200Response> localVarResp = deleteVoteWithHttpInfo(tenantId, id, editKey);
+        public VoteDeleteResponse execute() throws ApiException {
+            ApiResponse<VoteDeleteResponse> localVarResp = deleteVoteWithHttpInfo(tenantId, id, editKey);
             return localVarResp.getData();
         }
 
         /**
          * Execute deleteVote request with HTTP info returned
-         * @return ApiResponse&lt;DeleteCommentVote200Response&gt;
+         * @return ApiResponse&lt;VoteDeleteResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<DeleteCommentVote200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<VoteDeleteResponse> executeWithHttpInfo() throws ApiException {
             return deleteVoteWithHttpInfo(tenantId, id, editKey);
         }
 
@@ -7830,9 +7992,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<DeleteCommentVote200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<VoteDeleteResponse> _callback) throws ApiException {
             return deleteVoteAsync(tenantId, id, editKey, _callback);
         }
     }
@@ -7848,6 +8011,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIdeleteVoteRequest deleteVote(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -7927,16 +8091,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagComment200Response> flagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
+    private ApiResponse<FlagCommentResponse> flagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlagCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call flagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+    private okhttp3.Call flagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<FlagCommentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = flagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlagCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7986,6 +8150,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -7994,32 +8159,34 @@ public class DefaultApi {
 
         /**
          * Execute flagComment request
-         * @return FlagComment200Response
+         * @return FlagCommentResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagComment200Response execute() throws ApiException {
-            ApiResponse<FlagComment200Response> localVarResp = flagCommentWithHttpInfo(tenantId, id, userId, anonUserId);
+        public FlagCommentResponse execute() throws ApiException {
+            ApiResponse<FlagCommentResponse> localVarResp = flagCommentWithHttpInfo(tenantId, id, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute flagComment request with HTTP info returned
-         * @return ApiResponse&lt;FlagComment200Response&gt;
+         * @return ApiResponse&lt;FlagCommentResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<FlagCommentResponse> executeWithHttpInfo() throws ApiException {
             return flagCommentWithHttpInfo(tenantId, id, userId, anonUserId);
         }
 
@@ -8033,9 +8200,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentResponse> _callback) throws ApiException {
             return flagCommentAsync(tenantId, id, userId, anonUserId, _callback);
         }
     }
@@ -8051,6 +8219,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIflagCommentRequest flagComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -8136,16 +8305,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetAuditLogs200Response> getAuditLogsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before) throws ApiException {
+    private ApiResponse<GetAuditLogsResponse> getAuditLogsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before) throws ApiException {
         okhttp3.Call localVarCall = getAuditLogsValidateBeforeCall(tenantId, limit, skip, order, after, before, null);
-        Type localVarReturnType = new TypeToken<GetAuditLogs200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetAuditLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getAuditLogsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before, final ApiCallback<GetAuditLogs200Response> _callback) throws ApiException {
+    private okhttp3.Call getAuditLogsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable SORTDIR order, @javax.annotation.Nullable Double after, @javax.annotation.Nullable Double before, final ApiCallback<GetAuditLogsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getAuditLogsValidateBeforeCall(tenantId, limit, skip, order, after, before, _callback);
-        Type localVarReturnType = new TypeToken<GetAuditLogs200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetAuditLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8228,6 +8397,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -8236,32 +8406,34 @@ public class DefaultApi {
 
         /**
          * Execute getAuditLogs request
-         * @return GetAuditLogs200Response
+         * @return GetAuditLogsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetAuditLogs200Response execute() throws ApiException {
-            ApiResponse<GetAuditLogs200Response> localVarResp = getAuditLogsWithHttpInfo(tenantId, limit, skip, order, after, before);
+        public GetAuditLogsResponse execute() throws ApiException {
+            ApiResponse<GetAuditLogsResponse> localVarResp = getAuditLogsWithHttpInfo(tenantId, limit, skip, order, after, before);
             return localVarResp.getData();
         }
 
         /**
          * Execute getAuditLogs request with HTTP info returned
-         * @return ApiResponse&lt;GetAuditLogs200Response&gt;
+         * @return ApiResponse&lt;GetAuditLogsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetAuditLogs200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetAuditLogsResponse> executeWithHttpInfo() throws ApiException {
             return getAuditLogsWithHttpInfo(tenantId, limit, skip, order, after, before);
         }
 
@@ -8275,9 +8447,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetAuditLogs200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetAuditLogsResponse> _callback) throws ApiException {
             return getAuditLogsAsync(tenantId, limit, skip, order, after, before, _callback);
         }
     }
@@ -8292,6 +8465,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetAuditLogsRequest getAuditLogs(@javax.annotation.Nonnull String tenantId) {
@@ -8363,16 +8537,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetCachedNotificationCount200Response> getCachedNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetCachedNotificationCountResponse> getCachedNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getCachedNotificationCountValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetCachedNotificationCount200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetCachedNotificationCountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCachedNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetCachedNotificationCount200Response> _callback) throws ApiException {
+    private okhttp3.Call getCachedNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetCachedNotificationCountResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCachedNotificationCountValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetCachedNotificationCount200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetCachedNotificationCountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8398,6 +8572,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -8406,32 +8581,34 @@ public class DefaultApi {
 
         /**
          * Execute getCachedNotificationCount request
-         * @return GetCachedNotificationCount200Response
+         * @return GetCachedNotificationCountResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetCachedNotificationCount200Response execute() throws ApiException {
-            ApiResponse<GetCachedNotificationCount200Response> localVarResp = getCachedNotificationCountWithHttpInfo(tenantId, id);
+        public GetCachedNotificationCountResponse execute() throws ApiException {
+            ApiResponse<GetCachedNotificationCountResponse> localVarResp = getCachedNotificationCountWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getCachedNotificationCount request with HTTP info returned
-         * @return ApiResponse&lt;GetCachedNotificationCount200Response&gt;
+         * @return ApiResponse&lt;GetCachedNotificationCountResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetCachedNotificationCount200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetCachedNotificationCountResponse> executeWithHttpInfo() throws ApiException {
             return getCachedNotificationCountWithHttpInfo(tenantId, id);
         }
 
@@ -8445,9 +8622,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetCachedNotificationCount200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetCachedNotificationCountResponse> _callback) throws ApiException {
             return getCachedNotificationCountAsync(tenantId, id, _callback);
         }
     }
@@ -8463,6 +8641,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetCachedNotificationCountRequest getCachedNotificationCount(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -8534,16 +8713,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetComment200Response> getCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIGetCommentResponse> getCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getCommentValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetComment200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIGetCommentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCommentValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8569,6 +8748,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -8577,32 +8757,34 @@ public class DefaultApi {
 
         /**
          * Execute getComment request
-         * @return GetComment200Response
+         * @return APIGetCommentResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetComment200Response execute() throws ApiException {
-            ApiResponse<GetComment200Response> localVarResp = getCommentWithHttpInfo(tenantId, id);
+        public APIGetCommentResponse execute() throws ApiException {
+            ApiResponse<APIGetCommentResponse> localVarResp = getCommentWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getComment request with HTTP info returned
-         * @return ApiResponse&lt;GetComment200Response&gt;
+         * @return ApiResponse&lt;APIGetCommentResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIGetCommentResponse> executeWithHttpInfo() throws ApiException {
             return getCommentWithHttpInfo(tenantId, id);
         }
 
@@ -8616,9 +8798,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIGetCommentResponse> _callback) throws ApiException {
             return getCommentAsync(tenantId, id, _callback);
         }
     }
@@ -8634,12 +8817,13 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetCommentRequest getComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
         return new APIgetCommentRequest(tenantId, id);
     }
-    private okhttp3.Call getCommentsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Long toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8724,6 +8908,14 @@ public class DefaultApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
         }
 
+        if (fromDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fromDate", fromDate));
+        }
+
+        if (toDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("toDate", toDate));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -8744,27 +8936,27 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Long toDate, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getComments(Async)");
         }
 
-        return getCommentsCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, _callback);
+        return getCommentsCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, fromDate, toDate, _callback);
 
     }
 
 
-    private ApiResponse<GetComments200Response> getCommentsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction) throws ApiException {
-        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, null);
-        Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
+    private ApiResponse<APIGetCommentsResponse> getCommentsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Long toDate) throws ApiException {
+        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, fromDate, toDate, null);
+        Type localVarReturnType = new TypeToken<APIGetCommentsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, final ApiCallback<GetComments200Response> _callback) throws ApiException {
+    private okhttp3.Call getCommentsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable String hashTag, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable Long fromDate, @javax.annotation.Nullable Long toDate, final ApiCallback<APIGetCommentsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, _callback);
-        Type localVarReturnType = new TypeToken<GetComments200Response>(){}.getType();
+        okhttp3.Call localVarCall = getCommentsValidateBeforeCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, fromDate, toDate, _callback);
+        Type localVarReturnType = new TypeToken<APIGetCommentsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -8800,6 +8992,10 @@ public class DefaultApi {
         private String parentId;
         @javax.annotation.Nullable
         private SortDirections direction;
+        @javax.annotation.Nullable
+        private Long fromDate;
+        @javax.annotation.Nullable
+        private Long toDate;
 
         private APIgetCommentsRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
@@ -8946,6 +9142,26 @@ public class DefaultApi {
         }
 
         /**
+         * Set fromDate
+         * @param fromDate  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest fromDate(@javax.annotation.Nullable Long fromDate) {
+            this.fromDate = fromDate;
+            return this;
+        }
+
+        /**
+         * Set toDate
+         * @param toDate  (optional)
+         * @return APIgetCommentsRequest
+         */
+        public APIgetCommentsRequest toDate(@javax.annotation.Nullable Long toDate) {
+            this.toDate = toDate;
+            return this;
+        }
+
+        /**
          * Build call for getComments
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -8955,41 +9171,44 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCommentsCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, _callback);
+            return getCommentsCall(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, fromDate, toDate, _callback);
         }
 
         /**
          * Execute getComments request
-         * @return GetComments200Response
+         * @return APIGetCommentsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetComments200Response execute() throws ApiException {
-            ApiResponse<GetComments200Response> localVarResp = getCommentsWithHttpInfo(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction);
+        public APIGetCommentsResponse execute() throws ApiException {
+            ApiResponse<APIGetCommentsResponse> localVarResp = getCommentsWithHttpInfo(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, fromDate, toDate);
             return localVarResp.getData();
         }
 
         /**
          * Execute getComments request with HTTP info returned
-         * @return ApiResponse&lt;GetComments200Response&gt;
+         * @return ApiResponse&lt;APIGetCommentsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetComments200Response> executeWithHttpInfo() throws ApiException {
-            return getCommentsWithHttpInfo(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction);
+        public ApiResponse<APIGetCommentsResponse> executeWithHttpInfo() throws ApiException {
+            return getCommentsWithHttpInfo(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, fromDate, toDate);
         }
 
         /**
@@ -9002,10 +9221,11 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetComments200Response> _callback) throws ApiException {
-            return getCommentsAsync(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<APIGetCommentsResponse> _callback) throws ApiException {
+            return getCommentsAsync(tenantId, page, limit, skip, asTree, skipChildren, limitChildren, maxTreeDepth, urlId, userId, anonUserId, contextUserId, hashTag, parentId, direction, fromDate, toDate, _callback);
         }
     }
 
@@ -9019,6 +9239,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetCommentsRequest getComments(@javax.annotation.Nonnull String tenantId) {
@@ -9090,16 +9311,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfig200Response> getDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) throws ApiException {
+    private ApiResponse<GetDomainConfigResponse> getDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain) throws ApiException {
         okhttp3.Call localVarCall = getDomainConfigValidateBeforeCall(tenantId, domain, null);
-        Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetDomainConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domain, final ApiCallback<GetDomainConfigResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDomainConfigValidateBeforeCall(tenantId, domain, _callback);
-        Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetDomainConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9133,7 +9354,7 @@ public class DefaultApi {
 
         /**
          * Execute getDomainConfig request
-         * @return GetDomainConfig200Response
+         * @return GetDomainConfigResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -9142,14 +9363,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public GetDomainConfig200Response execute() throws ApiException {
-            ApiResponse<GetDomainConfig200Response> localVarResp = getDomainConfigWithHttpInfo(tenantId, domain);
+        public GetDomainConfigResponse execute() throws ApiException {
+            ApiResponse<GetDomainConfigResponse> localVarResp = getDomainConfigWithHttpInfo(tenantId, domain);
             return localVarResp.getData();
         }
 
         /**
          * Execute getDomainConfig request with HTTP info returned
-         * @return ApiResponse&lt;GetDomainConfig200Response&gt;
+         * @return ApiResponse&lt;GetDomainConfigResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -9158,7 +9379,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetDomainConfig200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetDomainConfigResponse> executeWithHttpInfo() throws ApiException {
             return getDomainConfigWithHttpInfo(tenantId, domain);
         }
 
@@ -9174,7 +9395,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetDomainConfigResponse> _callback) throws ApiException {
             return getDomainConfigAsync(tenantId, domain, _callback);
         }
     }
@@ -9255,16 +9476,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfigs200Response> getDomainConfigsWithHttpInfo(@javax.annotation.Nonnull String tenantId) throws ApiException {
+    private ApiResponse<GetDomainConfigsResponse> getDomainConfigsWithHttpInfo(@javax.annotation.Nonnull String tenantId) throws ApiException {
         okhttp3.Call localVarCall = getDomainConfigsValidateBeforeCall(tenantId, null);
-        Type localVarReturnType = new TypeToken<GetDomainConfigs200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetDomainConfigsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getDomainConfigsAsync(@javax.annotation.Nonnull String tenantId, final ApiCallback<GetDomainConfigs200Response> _callback) throws ApiException {
+    private okhttp3.Call getDomainConfigsAsync(@javax.annotation.Nonnull String tenantId, final ApiCallback<GetDomainConfigsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getDomainConfigsValidateBeforeCall(tenantId, _callback);
-        Type localVarReturnType = new TypeToken<GetDomainConfigs200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetDomainConfigsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9295,7 +9516,7 @@ public class DefaultApi {
 
         /**
          * Execute getDomainConfigs request
-         * @return GetDomainConfigs200Response
+         * @return GetDomainConfigsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -9304,14 +9525,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public GetDomainConfigs200Response execute() throws ApiException {
-            ApiResponse<GetDomainConfigs200Response> localVarResp = getDomainConfigsWithHttpInfo(tenantId);
+        public GetDomainConfigsResponse execute() throws ApiException {
+            ApiResponse<GetDomainConfigsResponse> localVarResp = getDomainConfigsWithHttpInfo(tenantId);
             return localVarResp.getData();
         }
 
         /**
          * Execute getDomainConfigs request with HTTP info returned
-         * @return ApiResponse&lt;GetDomainConfigs200Response&gt;
+         * @return ApiResponse&lt;GetDomainConfigsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -9320,7 +9541,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetDomainConfigs200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetDomainConfigsResponse> executeWithHttpInfo() throws ApiException {
             return getDomainConfigsWithHttpInfo(tenantId);
         }
 
@@ -9336,7 +9557,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetDomainConfigs200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetDomainConfigsResponse> _callback) throws ApiException {
             return getDomainConfigsAsync(tenantId, _callback);
         }
     }
@@ -9422,16 +9643,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplate200Response> getEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetEmailTemplateResponse> getEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplateValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetEmailTemplate200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetEmailTemplate200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetEmailTemplateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplateValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetEmailTemplate200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9457,6 +9678,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -9465,32 +9687,34 @@ public class DefaultApi {
 
         /**
          * Execute getEmailTemplate request
-         * @return GetEmailTemplate200Response
+         * @return GetEmailTemplateResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetEmailTemplate200Response execute() throws ApiException {
-            ApiResponse<GetEmailTemplate200Response> localVarResp = getEmailTemplateWithHttpInfo(tenantId, id);
+        public GetEmailTemplateResponse execute() throws ApiException {
+            ApiResponse<GetEmailTemplateResponse> localVarResp = getEmailTemplateWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getEmailTemplate request with HTTP info returned
-         * @return ApiResponse&lt;GetEmailTemplate200Response&gt;
+         * @return ApiResponse&lt;GetEmailTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetEmailTemplate200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetEmailTemplateResponse> executeWithHttpInfo() throws ApiException {
             return getEmailTemplateWithHttpInfo(tenantId, id);
         }
 
@@ -9504,9 +9728,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplate200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplateResponse> _callback) throws ApiException {
             return getEmailTemplateAsync(tenantId, id, _callback);
         }
     }
@@ -9522,6 +9747,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetEmailTemplateRequest getEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -9587,16 +9813,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplateDefinitions200Response> getEmailTemplateDefinitionsWithHttpInfo(@javax.annotation.Nonnull String tenantId) throws ApiException {
+    private ApiResponse<GetEmailTemplateDefinitionsResponse> getEmailTemplateDefinitionsWithHttpInfo(@javax.annotation.Nonnull String tenantId) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplateDefinitionsValidateBeforeCall(tenantId, null);
-        Type localVarReturnType = new TypeToken<GetEmailTemplateDefinitions200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplateDefinitionsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplateDefinitionsAsync(@javax.annotation.Nonnull String tenantId, final ApiCallback<GetEmailTemplateDefinitions200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateDefinitionsAsync(@javax.annotation.Nonnull String tenantId, final ApiCallback<GetEmailTemplateDefinitionsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplateDefinitionsValidateBeforeCall(tenantId, _callback);
-        Type localVarReturnType = new TypeToken<GetEmailTemplateDefinitions200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplateDefinitionsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9619,6 +9845,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -9627,32 +9854,34 @@ public class DefaultApi {
 
         /**
          * Execute getEmailTemplateDefinitions request
-         * @return GetEmailTemplateDefinitions200Response
+         * @return GetEmailTemplateDefinitionsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetEmailTemplateDefinitions200Response execute() throws ApiException {
-            ApiResponse<GetEmailTemplateDefinitions200Response> localVarResp = getEmailTemplateDefinitionsWithHttpInfo(tenantId);
+        public GetEmailTemplateDefinitionsResponse execute() throws ApiException {
+            ApiResponse<GetEmailTemplateDefinitionsResponse> localVarResp = getEmailTemplateDefinitionsWithHttpInfo(tenantId);
             return localVarResp.getData();
         }
 
         /**
          * Execute getEmailTemplateDefinitions request with HTTP info returned
-         * @return ApiResponse&lt;GetEmailTemplateDefinitions200Response&gt;
+         * @return ApiResponse&lt;GetEmailTemplateDefinitionsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetEmailTemplateDefinitions200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetEmailTemplateDefinitionsResponse> executeWithHttpInfo() throws ApiException {
             return getEmailTemplateDefinitionsWithHttpInfo(tenantId);
         }
 
@@ -9666,9 +9895,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplateDefinitions200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplateDefinitionsResponse> _callback) throws ApiException {
             return getEmailTemplateDefinitionsAsync(tenantId, _callback);
         }
     }
@@ -9683,6 +9913,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetEmailTemplateDefinitionsRequest getEmailTemplateDefinitions(@javax.annotation.Nonnull String tenantId) {
@@ -9758,16 +9989,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplateRenderErrors200Response> getEmailTemplateRenderErrorsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetEmailTemplateRenderErrorsResponse> getEmailTemplateRenderErrorsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplateRenderErrorsValidateBeforeCall(tenantId, id, skip, null);
-        Type localVarReturnType = new TypeToken<GetEmailTemplateRenderErrors200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplateRenderErrorsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplateRenderErrorsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip, final ApiCallback<GetEmailTemplateRenderErrors200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplateRenderErrorsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable Double skip, final ApiCallback<GetEmailTemplateRenderErrorsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplateRenderErrorsValidateBeforeCall(tenantId, id, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetEmailTemplateRenderErrors200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplateRenderErrorsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9805,6 +10036,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -9813,32 +10045,34 @@ public class DefaultApi {
 
         /**
          * Execute getEmailTemplateRenderErrors request
-         * @return GetEmailTemplateRenderErrors200Response
+         * @return GetEmailTemplateRenderErrorsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetEmailTemplateRenderErrors200Response execute() throws ApiException {
-            ApiResponse<GetEmailTemplateRenderErrors200Response> localVarResp = getEmailTemplateRenderErrorsWithHttpInfo(tenantId, id, skip);
+        public GetEmailTemplateRenderErrorsResponse execute() throws ApiException {
+            ApiResponse<GetEmailTemplateRenderErrorsResponse> localVarResp = getEmailTemplateRenderErrorsWithHttpInfo(tenantId, id, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getEmailTemplateRenderErrors request with HTTP info returned
-         * @return ApiResponse&lt;GetEmailTemplateRenderErrors200Response&gt;
+         * @return ApiResponse&lt;GetEmailTemplateRenderErrorsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetEmailTemplateRenderErrors200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetEmailTemplateRenderErrorsResponse> executeWithHttpInfo() throws ApiException {
             return getEmailTemplateRenderErrorsWithHttpInfo(tenantId, id, skip);
         }
 
@@ -9852,9 +10086,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplateRenderErrors200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplateRenderErrorsResponse> _callback) throws ApiException {
             return getEmailTemplateRenderErrorsAsync(tenantId, id, skip, _callback);
         }
     }
@@ -9870,6 +10105,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetEmailTemplateRenderErrorsRequest getEmailTemplateRenderErrors(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -9939,16 +10175,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetEmailTemplates200Response> getEmailTemplatesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetEmailTemplatesResponse> getEmailTemplatesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getEmailTemplatesValidateBeforeCall(tenantId, skip, null);
-        Type localVarReturnType = new TypeToken<GetEmailTemplates200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplatesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getEmailTemplatesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetEmailTemplates200Response> _callback) throws ApiException {
+    private okhttp3.Call getEmailTemplatesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetEmailTemplatesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEmailTemplatesValidateBeforeCall(tenantId, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetEmailTemplates200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetEmailTemplatesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -9983,6 +10219,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -9991,32 +10228,34 @@ public class DefaultApi {
 
         /**
          * Execute getEmailTemplates request
-         * @return GetEmailTemplates200Response
+         * @return GetEmailTemplatesResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetEmailTemplates200Response execute() throws ApiException {
-            ApiResponse<GetEmailTemplates200Response> localVarResp = getEmailTemplatesWithHttpInfo(tenantId, skip);
+        public GetEmailTemplatesResponse execute() throws ApiException {
+            ApiResponse<GetEmailTemplatesResponse> localVarResp = getEmailTemplatesWithHttpInfo(tenantId, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getEmailTemplates request with HTTP info returned
-         * @return ApiResponse&lt;GetEmailTemplates200Response&gt;
+         * @return ApiResponse&lt;GetEmailTemplatesResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetEmailTemplates200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetEmailTemplatesResponse> executeWithHttpInfo() throws ApiException {
             return getEmailTemplatesWithHttpInfo(tenantId, skip);
         }
 
@@ -10030,9 +10269,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplates200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetEmailTemplatesResponse> _callback) throws ApiException {
             return getEmailTemplatesAsync(tenantId, skip, _callback);
         }
     }
@@ -10047,6 +10287,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetEmailTemplatesRequest getEmailTemplates(@javax.annotation.Nonnull String tenantId) {
@@ -10124,16 +10365,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetFeedPosts200Response> getFeedPostsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags) throws ApiException {
+    private ApiResponse<GetFeedPostsResponse> getFeedPostsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags) throws ApiException {
         okhttp3.Call localVarCall = getFeedPostsValidateBeforeCall(tenantId, afterId, limit, tags, null);
-        Type localVarReturnType = new TypeToken<GetFeedPosts200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetFeedPostsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getFeedPostsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags, final ApiCallback<GetFeedPosts200Response> _callback) throws ApiException {
+    private okhttp3.Call getFeedPostsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable List<String> tags, final ApiCallback<GetFeedPostsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getFeedPostsValidateBeforeCall(tenantId, afterId, limit, tags, _callback);
-        Type localVarReturnType = new TypeToken<GetFeedPosts200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetFeedPostsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -10192,6 +10433,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -10200,32 +10442,34 @@ public class DefaultApi {
 
         /**
          * Execute getFeedPosts request
-         * @return GetFeedPosts200Response
+         * @return GetFeedPostsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetFeedPosts200Response execute() throws ApiException {
-            ApiResponse<GetFeedPosts200Response> localVarResp = getFeedPostsWithHttpInfo(tenantId, afterId, limit, tags);
+        public GetFeedPostsResponse execute() throws ApiException {
+            ApiResponse<GetFeedPostsResponse> localVarResp = getFeedPostsWithHttpInfo(tenantId, afterId, limit, tags);
             return localVarResp.getData();
         }
 
         /**
          * Execute getFeedPosts request with HTTP info returned
-         * @return ApiResponse&lt;GetFeedPosts200Response&gt;
+         * @return ApiResponse&lt;GetFeedPostsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetFeedPosts200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetFeedPostsResponse> executeWithHttpInfo() throws ApiException {
             return getFeedPostsWithHttpInfo(tenantId, afterId, limit, tags);
         }
 
@@ -10239,9 +10483,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetFeedPosts200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetFeedPostsResponse> _callback) throws ApiException {
             return getFeedPostsAsync(tenantId, afterId, limit, tags, _callback);
         }
     }
@@ -10256,6 +10501,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetFeedPostsRequest getFeedPosts(@javax.annotation.Nonnull String tenantId) {
@@ -10325,16 +10571,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetHashTags200Response> getHashTagsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page) throws ApiException {
+    private ApiResponse<GetHashTagsResponse> getHashTagsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page) throws ApiException {
         okhttp3.Call localVarCall = getHashTagsValidateBeforeCall(tenantId, page, null);
-        Type localVarReturnType = new TypeToken<GetHashTags200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetHashTagsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getHashTagsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, final ApiCallback<GetHashTags200Response> _callback) throws ApiException {
+    private okhttp3.Call getHashTagsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, final ApiCallback<GetHashTagsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getHashTagsValidateBeforeCall(tenantId, page, _callback);
-        Type localVarReturnType = new TypeToken<GetHashTags200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetHashTagsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -10369,6 +10615,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -10377,32 +10624,34 @@ public class DefaultApi {
 
         /**
          * Execute getHashTags request
-         * @return GetHashTags200Response
+         * @return GetHashTagsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetHashTags200Response execute() throws ApiException {
-            ApiResponse<GetHashTags200Response> localVarResp = getHashTagsWithHttpInfo(tenantId, page);
+        public GetHashTagsResponse execute() throws ApiException {
+            ApiResponse<GetHashTagsResponse> localVarResp = getHashTagsWithHttpInfo(tenantId, page);
             return localVarResp.getData();
         }
 
         /**
          * Execute getHashTags request with HTTP info returned
-         * @return ApiResponse&lt;GetHashTags200Response&gt;
+         * @return ApiResponse&lt;GetHashTagsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetHashTags200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetHashTagsResponse> executeWithHttpInfo() throws ApiException {
             return getHashTagsWithHttpInfo(tenantId, page);
         }
 
@@ -10416,9 +10665,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetHashTags200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetHashTagsResponse> _callback) throws ApiException {
             return getHashTagsAsync(tenantId, page, _callback);
         }
     }
@@ -10433,6 +10683,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetHashTagsRequest getHashTags(@javax.annotation.Nonnull String tenantId) {
@@ -10504,16 +10755,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetModerator200Response> getModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetModeratorResponse> getModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getModeratorValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetModerator200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetModeratorResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetModerator200Response> _callback) throws ApiException {
+    private okhttp3.Call getModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetModeratorResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getModeratorValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetModerator200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetModeratorResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -10539,6 +10790,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -10547,32 +10799,34 @@ public class DefaultApi {
 
         /**
          * Execute getModerator request
-         * @return GetModerator200Response
+         * @return GetModeratorResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetModerator200Response execute() throws ApiException {
-            ApiResponse<GetModerator200Response> localVarResp = getModeratorWithHttpInfo(tenantId, id);
+        public GetModeratorResponse execute() throws ApiException {
+            ApiResponse<GetModeratorResponse> localVarResp = getModeratorWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getModerator request with HTTP info returned
-         * @return ApiResponse&lt;GetModerator200Response&gt;
+         * @return ApiResponse&lt;GetModeratorResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetModerator200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetModeratorResponse> executeWithHttpInfo() throws ApiException {
             return getModeratorWithHttpInfo(tenantId, id);
         }
 
@@ -10586,9 +10840,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetModerator200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetModeratorResponse> _callback) throws ApiException {
             return getModeratorAsync(tenantId, id, _callback);
         }
     }
@@ -10604,6 +10859,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetModeratorRequest getModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -10673,16 +10929,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetModerators200Response> getModeratorsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetModeratorsResponse> getModeratorsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getModeratorsValidateBeforeCall(tenantId, skip, null);
-        Type localVarReturnType = new TypeToken<GetModerators200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetModeratorsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getModeratorsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetModerators200Response> _callback) throws ApiException {
+    private okhttp3.Call getModeratorsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetModeratorsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getModeratorsValidateBeforeCall(tenantId, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetModerators200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetModeratorsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -10717,6 +10973,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -10725,32 +10982,34 @@ public class DefaultApi {
 
         /**
          * Execute getModerators request
-         * @return GetModerators200Response
+         * @return GetModeratorsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetModerators200Response execute() throws ApiException {
-            ApiResponse<GetModerators200Response> localVarResp = getModeratorsWithHttpInfo(tenantId, skip);
+        public GetModeratorsResponse execute() throws ApiException {
+            ApiResponse<GetModeratorsResponse> localVarResp = getModeratorsWithHttpInfo(tenantId, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getModerators request with HTTP info returned
-         * @return ApiResponse&lt;GetModerators200Response&gt;
+         * @return ApiResponse&lt;GetModeratorsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetModerators200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetModeratorsResponse> executeWithHttpInfo() throws ApiException {
             return getModeratorsWithHttpInfo(tenantId, skip);
         }
 
@@ -10764,9 +11023,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetModerators200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetModeratorsResponse> _callback) throws ApiException {
             return getModeratorsAsync(tenantId, skip, _callback);
         }
     }
@@ -10781,6 +11041,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetModeratorsRequest getModerators(@javax.annotation.Nonnull String tenantId) {
@@ -10866,16 +11127,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetNotificationCount200Response> getNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type) throws ApiException {
+    private ApiResponse<GetNotificationCountResponse> getNotificationCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type) throws ApiException {
         okhttp3.Call localVarCall = getNotificationCountValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, null);
-        Type localVarReturnType = new TypeToken<GetNotificationCount200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetNotificationCountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, final ApiCallback<GetNotificationCount200Response> _callback) throws ApiException {
+    private okhttp3.Call getNotificationCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, final ApiCallback<GetNotificationCountResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNotificationCountValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, _callback);
-        Type localVarReturnType = new TypeToken<GetNotificationCount200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetNotificationCountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -10958,6 +11219,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -10966,32 +11228,34 @@ public class DefaultApi {
 
         /**
          * Execute getNotificationCount request
-         * @return GetNotificationCount200Response
+         * @return GetNotificationCountResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetNotificationCount200Response execute() throws ApiException {
-            ApiResponse<GetNotificationCount200Response> localVarResp = getNotificationCountWithHttpInfo(tenantId, userId, urlId, fromCommentId, viewed, type);
+        public GetNotificationCountResponse execute() throws ApiException {
+            ApiResponse<GetNotificationCountResponse> localVarResp = getNotificationCountWithHttpInfo(tenantId, userId, urlId, fromCommentId, viewed, type);
             return localVarResp.getData();
         }
 
         /**
          * Execute getNotificationCount request with HTTP info returned
-         * @return ApiResponse&lt;GetNotificationCount200Response&gt;
+         * @return ApiResponse&lt;GetNotificationCountResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetNotificationCount200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetNotificationCountResponse> executeWithHttpInfo() throws ApiException {
             return getNotificationCountWithHttpInfo(tenantId, userId, urlId, fromCommentId, viewed, type);
         }
 
@@ -11005,9 +11269,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetNotificationCount200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetNotificationCountResponse> _callback) throws ApiException {
             return getNotificationCountAsync(tenantId, userId, urlId, fromCommentId, viewed, type, _callback);
         }
     }
@@ -11022,6 +11287,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetNotificationCountRequest getNotificationCount(@javax.annotation.Nonnull String tenantId) {
@@ -11111,16 +11377,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetNotifications200Response> getNotificationsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetNotificationsResponse> getNotificationsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, skip, null);
-        Type localVarReturnType = new TypeToken<GetNotifications200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetNotificationsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getNotificationsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip, final ApiCallback<GetNotifications200Response> _callback) throws ApiException {
+    private okhttp3.Call getNotificationsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String fromCommentId, @javax.annotation.Nullable Boolean viewed, @javax.annotation.Nullable String type, @javax.annotation.Nullable Double skip, final ApiCallback<GetNotificationsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getNotificationsValidateBeforeCall(tenantId, userId, urlId, fromCommentId, viewed, type, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetNotifications200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetNotificationsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -11215,6 +11481,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -11223,32 +11490,34 @@ public class DefaultApi {
 
         /**
          * Execute getNotifications request
-         * @return GetNotifications200Response
+         * @return GetNotificationsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetNotifications200Response execute() throws ApiException {
-            ApiResponse<GetNotifications200Response> localVarResp = getNotificationsWithHttpInfo(tenantId, userId, urlId, fromCommentId, viewed, type, skip);
+        public GetNotificationsResponse execute() throws ApiException {
+            ApiResponse<GetNotificationsResponse> localVarResp = getNotificationsWithHttpInfo(tenantId, userId, urlId, fromCommentId, viewed, type, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getNotifications request with HTTP info returned
-         * @return ApiResponse&lt;GetNotifications200Response&gt;
+         * @return ApiResponse&lt;GetNotificationsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetNotifications200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetNotificationsResponse> executeWithHttpInfo() throws ApiException {
             return getNotificationsWithHttpInfo(tenantId, userId, urlId, fromCommentId, viewed, type, skip);
         }
 
@@ -11262,9 +11531,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetNotifications200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetNotificationsResponse> _callback) throws ApiException {
             return getNotificationsAsync(tenantId, userId, urlId, fromCommentId, viewed, type, skip, _callback);
         }
     }
@@ -11279,6 +11549,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetNotificationsRequest getNotifications(@javax.annotation.Nonnull String tenantId) {
@@ -11703,16 +11974,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetPendingWebhookEventCount200Response> getPendingWebhookEventCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT) throws ApiException {
+    private ApiResponse<GetPendingWebhookEventCountResponse> getPendingWebhookEventCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT) throws ApiException {
         okhttp3.Call localVarCall = getPendingWebhookEventCountValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, null);
-        Type localVarReturnType = new TypeToken<GetPendingWebhookEventCount200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPendingWebhookEventCountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPendingWebhookEventCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, final ApiCallback<GetPendingWebhookEventCount200Response> _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, final ApiCallback<GetPendingWebhookEventCountResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPendingWebhookEventCountValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, _callback);
-        Type localVarReturnType = new TypeToken<GetPendingWebhookEventCount200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPendingWebhookEventCountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -11807,6 +12078,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -11815,32 +12087,34 @@ public class DefaultApi {
 
         /**
          * Execute getPendingWebhookEventCount request
-         * @return GetPendingWebhookEventCount200Response
+         * @return GetPendingWebhookEventCountResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetPendingWebhookEventCount200Response execute() throws ApiException {
-            ApiResponse<GetPendingWebhookEventCount200Response> localVarResp = getPendingWebhookEventCountWithHttpInfo(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT);
+        public GetPendingWebhookEventCountResponse execute() throws ApiException {
+            ApiResponse<GetPendingWebhookEventCountResponse> localVarResp = getPendingWebhookEventCountWithHttpInfo(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT);
             return localVarResp.getData();
         }
 
         /**
          * Execute getPendingWebhookEventCount request with HTTP info returned
-         * @return ApiResponse&lt;GetPendingWebhookEventCount200Response&gt;
+         * @return ApiResponse&lt;GetPendingWebhookEventCountResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetPendingWebhookEventCount200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetPendingWebhookEventCountResponse> executeWithHttpInfo() throws ApiException {
             return getPendingWebhookEventCountWithHttpInfo(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT);
         }
 
@@ -11854,9 +12128,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetPendingWebhookEventCount200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetPendingWebhookEventCountResponse> _callback) throws ApiException {
             return getPendingWebhookEventCountAsync(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, _callback);
         }
     }
@@ -11871,6 +12146,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetPendingWebhookEventCountRequest getPendingWebhookEventCount(@javax.annotation.Nonnull String tenantId) {
@@ -11964,16 +12240,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetPendingWebhookEvents200Response> getPendingWebhookEventsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetPendingWebhookEventsResponse> getPendingWebhookEventsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getPendingWebhookEventsValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip, null);
-        Type localVarReturnType = new TypeToken<GetPendingWebhookEvents200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPendingWebhookEventsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPendingWebhookEventsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip, final ApiCallback<GetPendingWebhookEvents200Response> _callback) throws ApiException {
+    private okhttp3.Call getPendingWebhookEventsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String externalId, @javax.annotation.Nullable String eventType, @javax.annotation.Nullable String type, @javax.annotation.Nullable String domain, @javax.annotation.Nullable Double attemptCountGT, @javax.annotation.Nullable Double skip, final ApiCallback<GetPendingWebhookEventsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getPendingWebhookEventsValidateBeforeCall(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetPendingWebhookEvents200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetPendingWebhookEventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -12080,6 +12356,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -12088,32 +12365,34 @@ public class DefaultApi {
 
         /**
          * Execute getPendingWebhookEvents request
-         * @return GetPendingWebhookEvents200Response
+         * @return GetPendingWebhookEventsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetPendingWebhookEvents200Response execute() throws ApiException {
-            ApiResponse<GetPendingWebhookEvents200Response> localVarResp = getPendingWebhookEventsWithHttpInfo(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip);
+        public GetPendingWebhookEventsResponse execute() throws ApiException {
+            ApiResponse<GetPendingWebhookEventsResponse> localVarResp = getPendingWebhookEventsWithHttpInfo(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getPendingWebhookEvents request with HTTP info returned
-         * @return ApiResponse&lt;GetPendingWebhookEvents200Response&gt;
+         * @return ApiResponse&lt;GetPendingWebhookEventsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetPendingWebhookEvents200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetPendingWebhookEventsResponse> executeWithHttpInfo() throws ApiException {
             return getPendingWebhookEventsWithHttpInfo(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip);
         }
 
@@ -12127,9 +12406,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetPendingWebhookEvents200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetPendingWebhookEventsResponse> _callback) throws ApiException {
             return getPendingWebhookEventsAsync(tenantId, commentId, externalId, eventType, type, domain, attemptCountGT, skip, _callback);
         }
     }
@@ -12144,6 +12424,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetPendingWebhookEventsRequest getPendingWebhookEvents(@javax.annotation.Nonnull String tenantId) {
@@ -12215,16 +12496,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionConfig200Response> getQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetQuestionConfigResponse> getQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getQuestionConfigValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetQuestionConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetQuestionConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetQuestionConfigResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionConfigValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetQuestionConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -12250,6 +12531,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -12258,32 +12540,34 @@ public class DefaultApi {
 
         /**
          * Execute getQuestionConfig request
-         * @return GetQuestionConfig200Response
+         * @return GetQuestionConfigResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetQuestionConfig200Response execute() throws ApiException {
-            ApiResponse<GetQuestionConfig200Response> localVarResp = getQuestionConfigWithHttpInfo(tenantId, id);
+        public GetQuestionConfigResponse execute() throws ApiException {
+            ApiResponse<GetQuestionConfigResponse> localVarResp = getQuestionConfigWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getQuestionConfig request with HTTP info returned
-         * @return ApiResponse&lt;GetQuestionConfig200Response&gt;
+         * @return ApiResponse&lt;GetQuestionConfigResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetQuestionConfig200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetQuestionConfigResponse> executeWithHttpInfo() throws ApiException {
             return getQuestionConfigWithHttpInfo(tenantId, id);
         }
 
@@ -12297,9 +12581,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionConfig200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionConfigResponse> _callback) throws ApiException {
             return getQuestionConfigAsync(tenantId, id, _callback);
         }
     }
@@ -12315,6 +12600,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetQuestionConfigRequest getQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -12384,16 +12670,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionConfigs200Response> getQuestionConfigsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetQuestionConfigsResponse> getQuestionConfigsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getQuestionConfigsValidateBeforeCall(tenantId, skip, null);
-        Type localVarReturnType = new TypeToken<GetQuestionConfigs200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionConfigsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionConfigsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetQuestionConfigs200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionConfigsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetQuestionConfigsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionConfigsValidateBeforeCall(tenantId, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetQuestionConfigs200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionConfigsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -12428,6 +12714,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -12436,32 +12723,34 @@ public class DefaultApi {
 
         /**
          * Execute getQuestionConfigs request
-         * @return GetQuestionConfigs200Response
+         * @return GetQuestionConfigsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetQuestionConfigs200Response execute() throws ApiException {
-            ApiResponse<GetQuestionConfigs200Response> localVarResp = getQuestionConfigsWithHttpInfo(tenantId, skip);
+        public GetQuestionConfigsResponse execute() throws ApiException {
+            ApiResponse<GetQuestionConfigsResponse> localVarResp = getQuestionConfigsWithHttpInfo(tenantId, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getQuestionConfigs request with HTTP info returned
-         * @return ApiResponse&lt;GetQuestionConfigs200Response&gt;
+         * @return ApiResponse&lt;GetQuestionConfigsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetQuestionConfigs200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetQuestionConfigsResponse> executeWithHttpInfo() throws ApiException {
             return getQuestionConfigsWithHttpInfo(tenantId, skip);
         }
 
@@ -12475,9 +12764,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionConfigs200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionConfigsResponse> _callback) throws ApiException {
             return getQuestionConfigsAsync(tenantId, skip, _callback);
         }
     }
@@ -12492,6 +12782,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetQuestionConfigsRequest getQuestionConfigs(@javax.annotation.Nonnull String tenantId) {
@@ -12563,16 +12854,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionResult200Response> getQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetQuestionResultResponse> getQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getQuestionResultValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetQuestionResult200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionResultResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetQuestionResult200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetQuestionResultResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionResultValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetQuestionResult200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionResultResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -12598,6 +12889,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -12606,32 +12898,34 @@ public class DefaultApi {
 
         /**
          * Execute getQuestionResult request
-         * @return GetQuestionResult200Response
+         * @return GetQuestionResultResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetQuestionResult200Response execute() throws ApiException {
-            ApiResponse<GetQuestionResult200Response> localVarResp = getQuestionResultWithHttpInfo(tenantId, id);
+        public GetQuestionResultResponse execute() throws ApiException {
+            ApiResponse<GetQuestionResultResponse> localVarResp = getQuestionResultWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getQuestionResult request with HTTP info returned
-         * @return ApiResponse&lt;GetQuestionResult200Response&gt;
+         * @return ApiResponse&lt;GetQuestionResultResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetQuestionResult200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetQuestionResultResponse> executeWithHttpInfo() throws ApiException {
             return getQuestionResultWithHttpInfo(tenantId, id);
         }
 
@@ -12645,9 +12939,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionResult200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionResultResponse> _callback) throws ApiException {
             return getQuestionResultAsync(tenantId, id, _callback);
         }
     }
@@ -12663,6 +12958,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetQuestionResultRequest getQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -12752,16 +13048,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetQuestionResults200Response> getQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetQuestionResultsResponse> getQuestionResultsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getQuestionResultsValidateBeforeCall(tenantId, urlId, userId, startDate, questionId, questionIds, skip, null);
-        Type localVarReturnType = new TypeToken<GetQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionResultsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip, final ApiCallback<GetQuestionResults200Response> _callback) throws ApiException {
+    private okhttp3.Call getQuestionResultsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String startDate, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable String questionIds, @javax.annotation.Nullable Double skip, final ApiCallback<GetQuestionResultsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getQuestionResultsValidateBeforeCall(tenantId, urlId, userId, startDate, questionId, questionIds, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetQuestionResults200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetQuestionResultsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -12856,6 +13152,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -12864,32 +13161,34 @@ public class DefaultApi {
 
         /**
          * Execute getQuestionResults request
-         * @return GetQuestionResults200Response
+         * @return GetQuestionResultsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetQuestionResults200Response execute() throws ApiException {
-            ApiResponse<GetQuestionResults200Response> localVarResp = getQuestionResultsWithHttpInfo(tenantId, urlId, userId, startDate, questionId, questionIds, skip);
+        public GetQuestionResultsResponse execute() throws ApiException {
+            ApiResponse<GetQuestionResultsResponse> localVarResp = getQuestionResultsWithHttpInfo(tenantId, urlId, userId, startDate, questionId, questionIds, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getQuestionResults request with HTTP info returned
-         * @return ApiResponse&lt;GetQuestionResults200Response&gt;
+         * @return ApiResponse&lt;GetQuestionResultsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetQuestionResults200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetQuestionResultsResponse> executeWithHttpInfo() throws ApiException {
             return getQuestionResultsWithHttpInfo(tenantId, urlId, userId, startDate, questionId, questionIds, skip);
         }
 
@@ -12903,9 +13202,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionResults200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetQuestionResultsResponse> _callback) throws ApiException {
             return getQuestionResultsAsync(tenantId, urlId, userId, startDate, questionId, questionIds, skip, _callback);
         }
     }
@@ -12920,6 +13220,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetQuestionResultsRequest getQuestionResults(@javax.annotation.Nonnull String tenantId) {
@@ -13331,16 +13632,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetSSOUsers200Response> getSSOUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip) throws ApiException {
+    private ApiResponse<GetSSOUsersResponse> getSSOUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip) throws ApiException {
         okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, null);
-        Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetSSOUsersResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSSOUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip, final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
+    private okhttp3.Call getSSOUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Integer skip, final ApiCallback<GetSSOUsersResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getSSOUsersValidateBeforeCall(tenantId, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetSSOUsers200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetSSOUsersResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -13383,7 +13684,7 @@ public class DefaultApi {
 
         /**
          * Execute getSSOUsers request
-         * @return GetSSOUsers200Response
+         * @return GetSSOUsersResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -13392,14 +13693,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public GetSSOUsers200Response execute() throws ApiException {
-            ApiResponse<GetSSOUsers200Response> localVarResp = getSSOUsersWithHttpInfo(tenantId, skip);
+        public GetSSOUsersResponse execute() throws ApiException {
+            ApiResponse<GetSSOUsersResponse> localVarResp = getSSOUsersWithHttpInfo(tenantId, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getSSOUsers request with HTTP info returned
-         * @return ApiResponse&lt;GetSSOUsers200Response&gt;
+         * @return ApiResponse&lt;GetSSOUsersResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -13408,7 +13709,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetSSOUsers200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetSSOUsersResponse> executeWithHttpInfo() throws ApiException {
             return getSSOUsersWithHttpInfo(tenantId, skip);
         }
 
@@ -13424,7 +13725,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetSSOUsers200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetSSOUsersResponse> _callback) throws ApiException {
             return getSSOUsersAsync(tenantId, skip, _callback);
         }
     }
@@ -13687,16 +13988,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenant200Response> getTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetTenantResponse> getTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getTenantValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetTenant200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenant200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenantResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetTenant200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -13722,6 +14023,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -13730,32 +14032,34 @@ public class DefaultApi {
 
         /**
          * Execute getTenant request
-         * @return GetTenant200Response
+         * @return GetTenantResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTenant200Response execute() throws ApiException {
-            ApiResponse<GetTenant200Response> localVarResp = getTenantWithHttpInfo(tenantId, id);
+        public GetTenantResponse execute() throws ApiException {
+            ApiResponse<GetTenantResponse> localVarResp = getTenantWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTenant request with HTTP info returned
-         * @return ApiResponse&lt;GetTenant200Response&gt;
+         * @return ApiResponse&lt;GetTenantResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTenant200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTenantResponse> executeWithHttpInfo() throws ApiException {
             return getTenantWithHttpInfo(tenantId, id);
         }
 
@@ -13769,9 +14073,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTenant200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTenantResponse> _callback) throws ApiException {
             return getTenantAsync(tenantId, id, _callback);
         }
     }
@@ -13787,6 +14092,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTenantRequest getTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -13868,16 +14174,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantDailyUsages200Response> getTenantDailyUsagesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetTenantDailyUsagesResponse> getTenantDailyUsagesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantDailyUsagesValidateBeforeCall(tenantId, yearNumber, monthNumber, dayNumber, skip, null);
-        Type localVarReturnType = new TypeToken<GetTenantDailyUsages200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantDailyUsagesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantDailyUsagesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantDailyUsages200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantDailyUsagesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double yearNumber, @javax.annotation.Nullable Double monthNumber, @javax.annotation.Nullable Double dayNumber, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantDailyUsagesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantDailyUsagesValidateBeforeCall(tenantId, yearNumber, monthNumber, dayNumber, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetTenantDailyUsages200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantDailyUsagesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -13948,6 +14254,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -13956,32 +14263,34 @@ public class DefaultApi {
 
         /**
          * Execute getTenantDailyUsages request
-         * @return GetTenantDailyUsages200Response
+         * @return GetTenantDailyUsagesResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTenantDailyUsages200Response execute() throws ApiException {
-            ApiResponse<GetTenantDailyUsages200Response> localVarResp = getTenantDailyUsagesWithHttpInfo(tenantId, yearNumber, monthNumber, dayNumber, skip);
+        public GetTenantDailyUsagesResponse execute() throws ApiException {
+            ApiResponse<GetTenantDailyUsagesResponse> localVarResp = getTenantDailyUsagesWithHttpInfo(tenantId, yearNumber, monthNumber, dayNumber, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTenantDailyUsages request with HTTP info returned
-         * @return ApiResponse&lt;GetTenantDailyUsages200Response&gt;
+         * @return ApiResponse&lt;GetTenantDailyUsagesResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTenantDailyUsages200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTenantDailyUsagesResponse> executeWithHttpInfo() throws ApiException {
             return getTenantDailyUsagesWithHttpInfo(tenantId, yearNumber, monthNumber, dayNumber, skip);
         }
 
@@ -13995,9 +14304,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTenantDailyUsages200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTenantDailyUsagesResponse> _callback) throws ApiException {
             return getTenantDailyUsagesAsync(tenantId, yearNumber, monthNumber, dayNumber, skip, _callback);
         }
     }
@@ -14012,6 +14322,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTenantDailyUsagesRequest getTenantDailyUsages(@javax.annotation.Nonnull String tenantId) {
@@ -14083,16 +14394,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantPackage200Response> getTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetTenantPackageResponse> getTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getTenantPackageValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetTenantPackage200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantPackageResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenantPackage200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenantPackageResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantPackageValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetTenantPackage200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantPackageResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -14118,6 +14429,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -14126,32 +14438,34 @@ public class DefaultApi {
 
         /**
          * Execute getTenantPackage request
-         * @return GetTenantPackage200Response
+         * @return GetTenantPackageResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTenantPackage200Response execute() throws ApiException {
-            ApiResponse<GetTenantPackage200Response> localVarResp = getTenantPackageWithHttpInfo(tenantId, id);
+        public GetTenantPackageResponse execute() throws ApiException {
+            ApiResponse<GetTenantPackageResponse> localVarResp = getTenantPackageWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTenantPackage request with HTTP info returned
-         * @return ApiResponse&lt;GetTenantPackage200Response&gt;
+         * @return ApiResponse&lt;GetTenantPackageResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTenantPackage200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTenantPackageResponse> executeWithHttpInfo() throws ApiException {
             return getTenantPackageWithHttpInfo(tenantId, id);
         }
 
@@ -14165,9 +14479,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTenantPackage200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTenantPackageResponse> _callback) throws ApiException {
             return getTenantPackageAsync(tenantId, id, _callback);
         }
     }
@@ -14183,6 +14498,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTenantPackageRequest getTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -14252,16 +14568,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantPackages200Response> getTenantPackagesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetTenantPackagesResponse> getTenantPackagesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantPackagesValidateBeforeCall(tenantId, skip, null);
-        Type localVarReturnType = new TypeToken<GetTenantPackages200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantPackagesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantPackagesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantPackages200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantPackagesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantPackagesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantPackagesValidateBeforeCall(tenantId, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetTenantPackages200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantPackagesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -14296,6 +14612,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -14304,32 +14621,34 @@ public class DefaultApi {
 
         /**
          * Execute getTenantPackages request
-         * @return GetTenantPackages200Response
+         * @return GetTenantPackagesResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTenantPackages200Response execute() throws ApiException {
-            ApiResponse<GetTenantPackages200Response> localVarResp = getTenantPackagesWithHttpInfo(tenantId, skip);
+        public GetTenantPackagesResponse execute() throws ApiException {
+            ApiResponse<GetTenantPackagesResponse> localVarResp = getTenantPackagesWithHttpInfo(tenantId, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTenantPackages request with HTTP info returned
-         * @return ApiResponse&lt;GetTenantPackages200Response&gt;
+         * @return ApiResponse&lt;GetTenantPackagesResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTenantPackages200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTenantPackagesResponse> executeWithHttpInfo() throws ApiException {
             return getTenantPackagesWithHttpInfo(tenantId, skip);
         }
 
@@ -14343,9 +14662,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTenantPackages200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTenantPackagesResponse> _callback) throws ApiException {
             return getTenantPackagesAsync(tenantId, skip, _callback);
         }
     }
@@ -14360,6 +14680,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTenantPackagesRequest getTenantPackages(@javax.annotation.Nonnull String tenantId) {
@@ -14431,16 +14752,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantUser200Response> getTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetTenantUserResponse> getTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getTenantUserValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetTenantUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantUserResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenantUser200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetTenantUserResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantUserValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetTenantUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantUserResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -14466,6 +14787,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -14474,32 +14796,34 @@ public class DefaultApi {
 
         /**
          * Execute getTenantUser request
-         * @return GetTenantUser200Response
+         * @return GetTenantUserResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTenantUser200Response execute() throws ApiException {
-            ApiResponse<GetTenantUser200Response> localVarResp = getTenantUserWithHttpInfo(tenantId, id);
+        public GetTenantUserResponse execute() throws ApiException {
+            ApiResponse<GetTenantUserResponse> localVarResp = getTenantUserWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTenantUser request with HTTP info returned
-         * @return ApiResponse&lt;GetTenantUser200Response&gt;
+         * @return ApiResponse&lt;GetTenantUserResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTenantUser200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTenantUserResponse> executeWithHttpInfo() throws ApiException {
             return getTenantUserWithHttpInfo(tenantId, id);
         }
 
@@ -14513,9 +14837,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTenantUser200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTenantUserResponse> _callback) throws ApiException {
             return getTenantUserAsync(tenantId, id, _callback);
         }
     }
@@ -14531,6 +14856,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTenantUserRequest getTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -14600,16 +14926,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenantUsers200Response> getTenantUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetTenantUsersResponse> getTenantUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantUsersValidateBeforeCall(tenantId, skip, null);
-        Type localVarReturnType = new TypeToken<GetTenantUsers200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantUsersResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantUsers200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantUsersResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantUsersValidateBeforeCall(tenantId, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetTenantUsers200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantUsersResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -14644,6 +14970,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -14652,32 +14979,34 @@ public class DefaultApi {
 
         /**
          * Execute getTenantUsers request
-         * @return GetTenantUsers200Response
+         * @return GetTenantUsersResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTenantUsers200Response execute() throws ApiException {
-            ApiResponse<GetTenantUsers200Response> localVarResp = getTenantUsersWithHttpInfo(tenantId, skip);
+        public GetTenantUsersResponse execute() throws ApiException {
+            ApiResponse<GetTenantUsersResponse> localVarResp = getTenantUsersWithHttpInfo(tenantId, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTenantUsers request with HTTP info returned
-         * @return ApiResponse&lt;GetTenantUsers200Response&gt;
+         * @return ApiResponse&lt;GetTenantUsersResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTenantUsers200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTenantUsersResponse> executeWithHttpInfo() throws ApiException {
             return getTenantUsersWithHttpInfo(tenantId, skip);
         }
 
@@ -14691,9 +15020,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTenantUsers200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTenantUsersResponse> _callback) throws ApiException {
             return getTenantUsersAsync(tenantId, skip, _callback);
         }
     }
@@ -14708,6 +15038,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTenantUsersRequest getTenantUsers(@javax.annotation.Nonnull String tenantId) {
@@ -14781,16 +15112,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTenants200Response> getTenantsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<GetTenantsResponse> getTenantsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getTenantsValidateBeforeCall(tenantId, meta, skip, null);
-        Type localVarReturnType = new TypeToken<GetTenants200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTenantsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenants200Response> _callback) throws ApiException {
+    private okhttp3.Call getTenantsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String meta, @javax.annotation.Nullable Double skip, final ApiCallback<GetTenantsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTenantsValidateBeforeCall(tenantId, meta, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetTenants200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTenantsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -14837,6 +15168,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -14845,32 +15177,34 @@ public class DefaultApi {
 
         /**
          * Execute getTenants request
-         * @return GetTenants200Response
+         * @return GetTenantsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTenants200Response execute() throws ApiException {
-            ApiResponse<GetTenants200Response> localVarResp = getTenantsWithHttpInfo(tenantId, meta, skip);
+        public GetTenantsResponse execute() throws ApiException {
+            ApiResponse<GetTenantsResponse> localVarResp = getTenantsWithHttpInfo(tenantId, meta, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTenants request with HTTP info returned
-         * @return ApiResponse&lt;GetTenants200Response&gt;
+         * @return ApiResponse&lt;GetTenantsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTenants200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTenantsResponse> executeWithHttpInfo() throws ApiException {
             return getTenantsWithHttpInfo(tenantId, meta, skip);
         }
 
@@ -14884,9 +15218,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTenants200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTenantsResponse> _callback) throws ApiException {
             return getTenantsAsync(tenantId, meta, skip, _callback);
         }
     }
@@ -14901,6 +15236,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTenantsRequest getTenants(@javax.annotation.Nonnull String tenantId) {
@@ -14976,16 +15312,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTicket200Response> getTicketWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId) throws ApiException {
+    private ApiResponse<GetTicketResponse> getTicketWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId) throws ApiException {
         okhttp3.Call localVarCall = getTicketValidateBeforeCall(tenantId, id, userId, null);
-        Type localVarReturnType = new TypeToken<GetTicket200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTicketResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTicketAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback<GetTicket200Response> _callback) throws ApiException {
+    private okhttp3.Call getTicketAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, final ApiCallback<GetTicketResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTicketValidateBeforeCall(tenantId, id, userId, _callback);
-        Type localVarReturnType = new TypeToken<GetTicket200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTicketResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -15023,6 +15359,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -15031,32 +15368,34 @@ public class DefaultApi {
 
         /**
          * Execute getTicket request
-         * @return GetTicket200Response
+         * @return GetTicketResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTicket200Response execute() throws ApiException {
-            ApiResponse<GetTicket200Response> localVarResp = getTicketWithHttpInfo(tenantId, id, userId);
+        public GetTicketResponse execute() throws ApiException {
+            ApiResponse<GetTicketResponse> localVarResp = getTicketWithHttpInfo(tenantId, id, userId);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTicket request with HTTP info returned
-         * @return ApiResponse&lt;GetTicket200Response&gt;
+         * @return ApiResponse&lt;GetTicketResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTicket200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTicketResponse> executeWithHttpInfo() throws ApiException {
             return getTicketWithHttpInfo(tenantId, id, userId);
         }
 
@@ -15070,9 +15409,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTicket200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTicketResponse> _callback) throws ApiException {
             return getTicketAsync(tenantId, id, userId, _callback);
         }
     }
@@ -15088,6 +15428,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTicketRequest getTicket(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -15169,16 +15510,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetTickets200Response> getTicketsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit) throws ApiException {
+    private ApiResponse<GetTicketsResponse> getTicketsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit) throws ApiException {
         okhttp3.Call localVarCall = getTicketsValidateBeforeCall(tenantId, userId, state, skip, limit, null);
-        Type localVarReturnType = new TypeToken<GetTickets200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTicketsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTicketsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit, final ApiCallback<GetTickets200Response> _callback) throws ApiException {
+    private okhttp3.Call getTicketsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double state, @javax.annotation.Nullable Double skip, @javax.annotation.Nullable Double limit, final ApiCallback<GetTicketsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getTicketsValidateBeforeCall(tenantId, userId, state, skip, limit, _callback);
-        Type localVarReturnType = new TypeToken<GetTickets200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetTicketsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -15249,6 +15590,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -15257,32 +15599,34 @@ public class DefaultApi {
 
         /**
          * Execute getTickets request
-         * @return GetTickets200Response
+         * @return GetTicketsResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetTickets200Response execute() throws ApiException {
-            ApiResponse<GetTickets200Response> localVarResp = getTicketsWithHttpInfo(tenantId, userId, state, skip, limit);
+        public GetTicketsResponse execute() throws ApiException {
+            ApiResponse<GetTicketsResponse> localVarResp = getTicketsWithHttpInfo(tenantId, userId, state, skip, limit);
             return localVarResp.getData();
         }
 
         /**
          * Execute getTickets request with HTTP info returned
-         * @return ApiResponse&lt;GetTickets200Response&gt;
+         * @return ApiResponse&lt;GetTicketsResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetTickets200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetTicketsResponse> executeWithHttpInfo() throws ApiException {
             return getTicketsWithHttpInfo(tenantId, userId, state, skip, limit);
         }
 
@@ -15296,9 +15640,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetTickets200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetTicketsResponse> _callback) throws ApiException {
             return getTicketsAsync(tenantId, userId, state, skip, limit, _callback);
         }
     }
@@ -15313,6 +15658,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetTicketsRequest getTickets(@javax.annotation.Nonnull String tenantId) {
@@ -15384,16 +15730,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUser200Response> getUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<GetUserResponse> getUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getUserValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetUser200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetUserResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetUserResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -15419,6 +15765,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -15427,32 +15774,34 @@ public class DefaultApi {
 
         /**
          * Execute getUser request
-         * @return GetUser200Response
+         * @return GetUserResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetUser200Response execute() throws ApiException {
-            ApiResponse<GetUser200Response> localVarResp = getUserWithHttpInfo(tenantId, id);
+        public GetUserResponse execute() throws ApiException {
+            ApiResponse<GetUserResponse> localVarResp = getUserWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getUser request with HTTP info returned
-         * @return ApiResponse&lt;GetUser200Response&gt;
+         * @return ApiResponse&lt;GetUserResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetUser200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetUserResponse> executeWithHttpInfo() throws ApiException {
             return getUserWithHttpInfo(tenantId, id);
         }
 
@@ -15466,9 +15815,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetUser200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetUserResponse> _callback) throws ApiException {
             return getUserAsync(tenantId, id, _callback);
         }
     }
@@ -15484,6 +15834,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetUserRequest getUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -15555,16 +15906,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadge200Response> getUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIGetUserBadgeResponse> getUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIGetUserBadgeResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -15590,6 +15941,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -15598,32 +15950,34 @@ public class DefaultApi {
 
         /**
          * Execute getUserBadge request
-         * @return GetUserBadge200Response
+         * @return APIGetUserBadgeResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetUserBadge200Response execute() throws ApiException {
-            ApiResponse<GetUserBadge200Response> localVarResp = getUserBadgeWithHttpInfo(tenantId, id);
+        public APIGetUserBadgeResponse execute() throws ApiException {
+            ApiResponse<APIGetUserBadgeResponse> localVarResp = getUserBadgeWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getUserBadge request with HTTP info returned
-         * @return ApiResponse&lt;GetUserBadge200Response&gt;
+         * @return ApiResponse&lt;APIGetUserBadgeResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetUserBadge200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIGetUserBadgeResponse> executeWithHttpInfo() throws ApiException {
             return getUserBadgeWithHttpInfo(tenantId, id);
         }
 
@@ -15637,9 +15991,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadge200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIGetUserBadgeResponse> _callback) throws ApiException {
             return getUserBadgeAsync(tenantId, id, _callback);
         }
     }
@@ -15655,6 +16010,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetUserBadgeRequest getUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -15726,16 +16082,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
+    private ApiResponse<APIGetUserBadgeProgressResponse> getUserBadgeProgressByIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeProgressByIdValidateBeforeCall(tenantId, id, null);
-        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeProgressResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeProgressByIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, final ApiCallback<APIGetUserBadgeProgressResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeProgressByIdValidateBeforeCall(tenantId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeProgressResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -15761,6 +16117,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -15769,32 +16126,34 @@ public class DefaultApi {
 
         /**
          * Execute getUserBadgeProgressById request
-         * @return GetUserBadgeProgressById200Response
+         * @return APIGetUserBadgeProgressResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetUserBadgeProgressById200Response execute() throws ApiException {
-            ApiResponse<GetUserBadgeProgressById200Response> localVarResp = getUserBadgeProgressByIdWithHttpInfo(tenantId, id);
+        public APIGetUserBadgeProgressResponse execute() throws ApiException {
+            ApiResponse<APIGetUserBadgeProgressResponse> localVarResp = getUserBadgeProgressByIdWithHttpInfo(tenantId, id);
             return localVarResp.getData();
         }
 
         /**
          * Execute getUserBadgeProgressById request with HTTP info returned
-         * @return ApiResponse&lt;GetUserBadgeProgressById200Response&gt;
+         * @return ApiResponse&lt;APIGetUserBadgeProgressResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetUserBadgeProgressById200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIGetUserBadgeProgressResponse> executeWithHttpInfo() throws ApiException {
             return getUserBadgeProgressByIdWithHttpInfo(tenantId, id);
         }
 
@@ -15808,9 +16167,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIGetUserBadgeProgressResponse> _callback) throws ApiException {
             return getUserBadgeProgressByIdAsync(tenantId, id, _callback);
         }
     }
@@ -15826,6 +16186,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetUserBadgeProgressByIdRequest getUserBadgeProgressById(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -15897,16 +16258,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadgeProgressById200Response> getUserBadgeProgressByUserIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId) throws ApiException {
+    private ApiResponse<APIGetUserBadgeProgressResponse> getUserBadgeProgressByUserIdWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeProgressByUserIdValidateBeforeCall(tenantId, userId, null);
-        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeProgressResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeProgressByUserIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressByUserIdAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId, final ApiCallback<APIGetUserBadgeProgressResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeProgressByUserIdValidateBeforeCall(tenantId, userId, _callback);
-        Type localVarReturnType = new TypeToken<GetUserBadgeProgressById200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeProgressResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -15932,6 +16293,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -15940,32 +16302,34 @@ public class DefaultApi {
 
         /**
          * Execute getUserBadgeProgressByUserId request
-         * @return GetUserBadgeProgressById200Response
+         * @return APIGetUserBadgeProgressResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetUserBadgeProgressById200Response execute() throws ApiException {
-            ApiResponse<GetUserBadgeProgressById200Response> localVarResp = getUserBadgeProgressByUserIdWithHttpInfo(tenantId, userId);
+        public APIGetUserBadgeProgressResponse execute() throws ApiException {
+            ApiResponse<APIGetUserBadgeProgressResponse> localVarResp = getUserBadgeProgressByUserIdWithHttpInfo(tenantId, userId);
             return localVarResp.getData();
         }
 
         /**
          * Execute getUserBadgeProgressByUserId request with HTTP info returned
-         * @return ApiResponse&lt;GetUserBadgeProgressById200Response&gt;
+         * @return ApiResponse&lt;APIGetUserBadgeProgressResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetUserBadgeProgressById200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIGetUserBadgeProgressResponse> executeWithHttpInfo() throws ApiException {
             return getUserBadgeProgressByUserIdWithHttpInfo(tenantId, userId);
         }
 
@@ -15979,9 +16343,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadgeProgressById200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIGetUserBadgeProgressResponse> _callback) throws ApiException {
             return getUserBadgeProgressByUserIdAsync(tenantId, userId, _callback);
         }
     }
@@ -15997,6 +16362,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetUserBadgeProgressByUserIdRequest getUserBadgeProgressByUserId(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String userId) {
@@ -16074,16 +16440,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadgeProgressList200Response> getUserBadgeProgressListWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<APIGetUserBadgeProgressListResponse> getUserBadgeProgressListWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgeProgressListValidateBeforeCall(tenantId, userId, limit, skip, null);
-        Type localVarReturnType = new TypeToken<GetUserBadgeProgressList200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeProgressListResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgeProgressListAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback<GetUserBadgeProgressList200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgeProgressListAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback<APIGetUserBadgeProgressListResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgeProgressListValidateBeforeCall(tenantId, userId, limit, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetUserBadgeProgressList200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgeProgressListResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -16142,6 +16508,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -16150,32 +16517,34 @@ public class DefaultApi {
 
         /**
          * Execute getUserBadgeProgressList request
-         * @return GetUserBadgeProgressList200Response
+         * @return APIGetUserBadgeProgressListResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetUserBadgeProgressList200Response execute() throws ApiException {
-            ApiResponse<GetUserBadgeProgressList200Response> localVarResp = getUserBadgeProgressListWithHttpInfo(tenantId, userId, limit, skip);
+        public APIGetUserBadgeProgressListResponse execute() throws ApiException {
+            ApiResponse<APIGetUserBadgeProgressListResponse> localVarResp = getUserBadgeProgressListWithHttpInfo(tenantId, userId, limit, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getUserBadgeProgressList request with HTTP info returned
-         * @return ApiResponse&lt;GetUserBadgeProgressList200Response&gt;
+         * @return ApiResponse&lt;APIGetUserBadgeProgressListResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetUserBadgeProgressList200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIGetUserBadgeProgressListResponse> executeWithHttpInfo() throws ApiException {
             return getUserBadgeProgressListWithHttpInfo(tenantId, userId, limit, skip);
         }
 
@@ -16189,9 +16558,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadgeProgressList200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIGetUserBadgeProgressListResponse> _callback) throws ApiException {
             return getUserBadgeProgressListAsync(tenantId, userId, limit, skip, _callback);
         }
     }
@@ -16206,6 +16576,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetUserBadgeProgressListRequest getUserBadgeProgressList(@javax.annotation.Nonnull String tenantId) {
@@ -16295,16 +16666,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetUserBadges200Response> getUserBadgesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip) throws ApiException {
+    private ApiResponse<APIGetUserBadgesResponse> getUserBadgesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip) throws ApiException {
         okhttp3.Call localVarCall = getUserBadgesValidateBeforeCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, null);
-        Type localVarReturnType = new TypeToken<GetUserBadges200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBadgesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback<GetUserBadges200Response> _callback) throws ApiException {
+    private okhttp3.Call getUserBadgesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String badgeId, @javax.annotation.Nullable Double type, @javax.annotation.Nullable Boolean displayedOnComments, @javax.annotation.Nullable Double limit, @javax.annotation.Nullable Double skip, final ApiCallback<APIGetUserBadgesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUserBadgesValidateBeforeCall(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, _callback);
-        Type localVarReturnType = new TypeToken<GetUserBadges200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIGetUserBadgesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -16399,6 +16770,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -16407,32 +16779,34 @@ public class DefaultApi {
 
         /**
          * Execute getUserBadges request
-         * @return GetUserBadges200Response
+         * @return APIGetUserBadgesResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetUserBadges200Response execute() throws ApiException {
-            ApiResponse<GetUserBadges200Response> localVarResp = getUserBadgesWithHttpInfo(tenantId, userId, badgeId, type, displayedOnComments, limit, skip);
+        public APIGetUserBadgesResponse execute() throws ApiException {
+            ApiResponse<APIGetUserBadgesResponse> localVarResp = getUserBadgesWithHttpInfo(tenantId, userId, badgeId, type, displayedOnComments, limit, skip);
             return localVarResp.getData();
         }
 
         /**
          * Execute getUserBadges request with HTTP info returned
-         * @return ApiResponse&lt;GetUserBadges200Response&gt;
+         * @return ApiResponse&lt;APIGetUserBadgesResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetUserBadges200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIGetUserBadgesResponse> executeWithHttpInfo() throws ApiException {
             return getUserBadgesWithHttpInfo(tenantId, userId, badgeId, type, displayedOnComments, limit, skip);
         }
 
@@ -16446,9 +16820,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetUserBadges200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIGetUserBadgesResponse> _callback) throws ApiException {
             return getUserBadgesAsync(tenantId, userId, badgeId, type, displayedOnComments, limit, skip, _callback);
         }
     }
@@ -16463,6 +16838,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetUserBadgesRequest getUserBadges(@javax.annotation.Nonnull String tenantId) {
@@ -16537,16 +16913,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetVotes200Response> getVotesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) throws ApiException {
+    private ApiResponse<GetVotesResponse> getVotesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) throws ApiException {
         okhttp3.Call localVarCall = getVotesValidateBeforeCall(tenantId, urlId, null);
-        Type localVarReturnType = new TypeToken<GetVotes200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetVotesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getVotesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback<GetVotes200Response> _callback) throws ApiException {
+    private okhttp3.Call getVotesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback<GetVotesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVotesValidateBeforeCall(tenantId, urlId, _callback);
-        Type localVarReturnType = new TypeToken<GetVotes200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetVotesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -16572,6 +16948,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -16580,32 +16957,34 @@ public class DefaultApi {
 
         /**
          * Execute getVotes request
-         * @return GetVotes200Response
+         * @return GetVotesResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetVotes200Response execute() throws ApiException {
-            ApiResponse<GetVotes200Response> localVarResp = getVotesWithHttpInfo(tenantId, urlId);
+        public GetVotesResponse execute() throws ApiException {
+            ApiResponse<GetVotesResponse> localVarResp = getVotesWithHttpInfo(tenantId, urlId);
             return localVarResp.getData();
         }
 
         /**
          * Execute getVotes request with HTTP info returned
-         * @return ApiResponse&lt;GetVotes200Response&gt;
+         * @return ApiResponse&lt;GetVotesResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetVotes200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetVotesResponse> executeWithHttpInfo() throws ApiException {
             return getVotesWithHttpInfo(tenantId, urlId);
         }
 
@@ -16619,9 +16998,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetVotes200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetVotesResponse> _callback) throws ApiException {
             return getVotesAsync(tenantId, urlId, _callback);
         }
     }
@@ -16637,6 +17017,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetVotesRequest getVotes(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
@@ -16719,16 +17100,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetVotesForUser200Response> getVotesForUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
+    private ApiResponse<GetVotesForUserResponse> getVotesForUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = getVotesForUserValidateBeforeCall(tenantId, urlId, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<GetVotesForUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetVotesForUserResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getVotesForUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<GetVotesForUser200Response> _callback) throws ApiException {
+    private okhttp3.Call getVotesForUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<GetVotesForUserResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVotesForUserValidateBeforeCall(tenantId, urlId, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<GetVotesForUser200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<GetVotesForUserResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -16778,6 +17159,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -16786,32 +17168,34 @@ public class DefaultApi {
 
         /**
          * Execute getVotesForUser request
-         * @return GetVotesForUser200Response
+         * @return GetVotesForUserResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public GetVotesForUser200Response execute() throws ApiException {
-            ApiResponse<GetVotesForUser200Response> localVarResp = getVotesForUserWithHttpInfo(tenantId, urlId, userId, anonUserId);
+        public GetVotesForUserResponse execute() throws ApiException {
+            ApiResponse<GetVotesForUserResponse> localVarResp = getVotesForUserWithHttpInfo(tenantId, urlId, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute getVotesForUser request with HTTP info returned
-         * @return ApiResponse&lt;GetVotesForUser200Response&gt;
+         * @return ApiResponse&lt;GetVotesForUserResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetVotesForUser200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<GetVotesForUserResponse> executeWithHttpInfo() throws ApiException {
             return getVotesForUserWithHttpInfo(tenantId, urlId, userId, anonUserId);
         }
 
@@ -16825,9 +17209,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetVotesForUser200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<GetVotesForUserResponse> _callback) throws ApiException {
             return getVotesForUserAsync(tenantId, urlId, userId, anonUserId, _callback);
         }
     }
@@ -16843,6 +17228,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIgetVotesForUserRequest getVotesForUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
@@ -16920,16 +17306,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfig200Response> patchDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams) throws ApiException {
+    private ApiResponse<PatchDomainConfigResponse> patchDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams) throws ApiException {
         okhttp3.Call localVarCall = patchDomainConfigValidateBeforeCall(tenantId, domainToUpdate, patchDomainConfigParams, null);
-        Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<PatchDomainConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call patchDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams, final ApiCallback<PatchDomainConfigResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchDomainConfigValidateBeforeCall(tenantId, domainToUpdate, patchDomainConfigParams, _callback);
-        Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<PatchDomainConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -16966,7 +17352,7 @@ public class DefaultApi {
 
         /**
          * Execute patchDomainConfig request
-         * @return GetDomainConfig200Response
+         * @return PatchDomainConfigResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -16975,14 +17361,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public GetDomainConfig200Response execute() throws ApiException {
-            ApiResponse<GetDomainConfig200Response> localVarResp = patchDomainConfigWithHttpInfo(tenantId, domainToUpdate, patchDomainConfigParams);
+        public PatchDomainConfigResponse execute() throws ApiException {
+            ApiResponse<PatchDomainConfigResponse> localVarResp = patchDomainConfigWithHttpInfo(tenantId, domainToUpdate, patchDomainConfigParams);
             return localVarResp.getData();
         }
 
         /**
          * Execute patchDomainConfig request with HTTP info returned
-         * @return ApiResponse&lt;GetDomainConfig200Response&gt;
+         * @return ApiResponse&lt;PatchDomainConfigResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -16991,7 +17377,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetDomainConfig200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<PatchDomainConfigResponse> executeWithHttpInfo() throws ApiException {
             return patchDomainConfigWithHttpInfo(tenantId, domainToUpdate, patchDomainConfigParams);
         }
 
@@ -17007,7 +17393,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<PatchDomainConfigResponse> _callback) throws ApiException {
             return patchDomainConfigAsync(tenantId, domainToUpdate, patchDomainConfigParams, _callback);
         }
     }
@@ -17091,16 +17477,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<PatchHashTag200Response> patchHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody) throws ApiException {
+    private ApiResponse<UpdateHashTagResponse> patchHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody) throws ApiException {
         okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tag, tenantId, updateHashTagBody, null);
-        Type localVarReturnType = new TypeToken<PatchHashTag200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateHashTagResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback<PatchHashTag200Response> _callback) throws ApiException {
+    private okhttp3.Call patchHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback<UpdateHashTagResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tag, tenantId, updateHashTagBody, _callback);
-        Type localVarReturnType = new TypeToken<PatchHashTag200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UpdateHashTagResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -17147,6 +17533,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -17155,32 +17542,34 @@ public class DefaultApi {
 
         /**
          * Execute patchHashTag request
-         * @return PatchHashTag200Response
+         * @return UpdateHashTagResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public PatchHashTag200Response execute() throws ApiException {
-            ApiResponse<PatchHashTag200Response> localVarResp = patchHashTagWithHttpInfo(tag, tenantId, updateHashTagBody);
+        public UpdateHashTagResponse execute() throws ApiException {
+            ApiResponse<UpdateHashTagResponse> localVarResp = patchHashTagWithHttpInfo(tag, tenantId, updateHashTagBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute patchHashTag request with HTTP info returned
-         * @return ApiResponse&lt;PatchHashTag200Response&gt;
+         * @return ApiResponse&lt;UpdateHashTagResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<PatchHashTag200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<UpdateHashTagResponse> executeWithHttpInfo() throws ApiException {
             return patchHashTagWithHttpInfo(tag, tenantId, updateHashTagBody);
         }
 
@@ -17194,9 +17583,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<PatchHashTag200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<UpdateHashTagResponse> _callback) throws ApiException {
             return patchHashTagAsync(tag, tenantId, updateHashTagBody, _callback);
         }
     }
@@ -17211,6 +17601,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIpatchHashTagRequest patchHashTag(@javax.annotation.Nonnull String tag) {
@@ -17666,16 +18057,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<GetDomainConfig200Response> putDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams) throws ApiException {
+    private ApiResponse<PutDomainConfigResponse> putDomainConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams) throws ApiException {
         okhttp3.Call localVarCall = putDomainConfigValidateBeforeCall(tenantId, domainToUpdate, updateDomainConfigParams, null);
-        Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<PutDomainConfigResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call putDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+    private okhttp3.Call putDomainConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull UpdateDomainConfigParams updateDomainConfigParams, final ApiCallback<PutDomainConfigResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = putDomainConfigValidateBeforeCall(tenantId, domainToUpdate, updateDomainConfigParams, _callback);
-        Type localVarReturnType = new TypeToken<GetDomainConfig200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<PutDomainConfigResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -17712,7 +18103,7 @@ public class DefaultApi {
 
         /**
          * Execute putDomainConfig request
-         * @return GetDomainConfig200Response
+         * @return PutDomainConfigResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -17721,14 +18112,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public GetDomainConfig200Response execute() throws ApiException {
-            ApiResponse<GetDomainConfig200Response> localVarResp = putDomainConfigWithHttpInfo(tenantId, domainToUpdate, updateDomainConfigParams);
+        public PutDomainConfigResponse execute() throws ApiException {
+            ApiResponse<PutDomainConfigResponse> localVarResp = putDomainConfigWithHttpInfo(tenantId, domainToUpdate, updateDomainConfigParams);
             return localVarResp.getData();
         }
 
         /**
          * Execute putDomainConfig request with HTTP info returned
-         * @return ApiResponse&lt;GetDomainConfig200Response&gt;
+         * @return ApiResponse&lt;PutDomainConfigResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -17737,7 +18128,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<GetDomainConfig200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<PutDomainConfigResponse> executeWithHttpInfo() throws ApiException {
             return putDomainConfigWithHttpInfo(tenantId, domainToUpdate, updateDomainConfigParams);
         }
 
@@ -17753,7 +18144,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<GetDomainConfig200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<PutDomainConfigResponse> _callback) throws ApiException {
             return putDomainConfigAsync(tenantId, domainToUpdate, updateDomainConfigParams, _callback);
         }
     }
@@ -18042,16 +18433,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<RenderEmailTemplate200Response> renderEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale) throws ApiException {
+    private ApiResponse<RenderEmailTemplateResponse> renderEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale) throws ApiException {
         okhttp3.Call localVarCall = renderEmailTemplateValidateBeforeCall(tenantId, renderEmailTemplateBody, locale, null);
-        Type localVarReturnType = new TypeToken<RenderEmailTemplate200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RenderEmailTemplateResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call renderEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale, final ApiCallback<RenderEmailTemplate200Response> _callback) throws ApiException {
+    private okhttp3.Call renderEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody, @javax.annotation.Nullable String locale, final ApiCallback<RenderEmailTemplateResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = renderEmailTemplateValidateBeforeCall(tenantId, renderEmailTemplateBody, locale, _callback);
-        Type localVarReturnType = new TypeToken<RenderEmailTemplate200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RenderEmailTemplateResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18089,6 +18480,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -18097,32 +18489,34 @@ public class DefaultApi {
 
         /**
          * Execute renderEmailTemplate request
-         * @return RenderEmailTemplate200Response
+         * @return RenderEmailTemplateResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public RenderEmailTemplate200Response execute() throws ApiException {
-            ApiResponse<RenderEmailTemplate200Response> localVarResp = renderEmailTemplateWithHttpInfo(tenantId, renderEmailTemplateBody, locale);
+        public RenderEmailTemplateResponse execute() throws ApiException {
+            ApiResponse<RenderEmailTemplateResponse> localVarResp = renderEmailTemplateWithHttpInfo(tenantId, renderEmailTemplateBody, locale);
             return localVarResp.getData();
         }
 
         /**
          * Execute renderEmailTemplate request with HTTP info returned
-         * @return ApiResponse&lt;RenderEmailTemplate200Response&gt;
+         * @return ApiResponse&lt;RenderEmailTemplateResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<RenderEmailTemplate200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<RenderEmailTemplateResponse> executeWithHttpInfo() throws ApiException {
             return renderEmailTemplateWithHttpInfo(tenantId, renderEmailTemplateBody, locale);
         }
 
@@ -18136,9 +18530,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<RenderEmailTemplate200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<RenderEmailTemplateResponse> _callback) throws ApiException {
             return renderEmailTemplateAsync(tenantId, renderEmailTemplateBody, locale, _callback);
         }
     }
@@ -18154,6 +18549,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIrenderEmailTemplateRequest renderEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull RenderEmailTemplateBody renderEmailTemplateBody) {
@@ -18231,16 +18627,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> replaceTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody) throws ApiException {
+    private ApiResponse<APIEmptyResponse> replaceTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody) throws ApiException {
         okhttp3.Call localVarCall = replaceTenantPackageValidateBeforeCall(tenantId, id, replaceTenantPackageBody, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call replaceTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceTenantPackageValidateBeforeCall(tenantId, id, replaceTenantPackageBody, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18269,6 +18665,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -18277,32 +18674,34 @@ public class DefaultApi {
 
         /**
          * Execute replaceTenantPackage request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = replaceTenantPackageWithHttpInfo(tenantId, id, replaceTenantPackageBody);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = replaceTenantPackageWithHttpInfo(tenantId, id, replaceTenantPackageBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute replaceTenantPackage request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return replaceTenantPackageWithHttpInfo(tenantId, id, replaceTenantPackageBody);
         }
 
@@ -18316,9 +18715,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return replaceTenantPackageAsync(tenantId, id, replaceTenantPackageBody, _callback);
         }
     }
@@ -18335,6 +18735,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIreplaceTenantPackageRequest replaceTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantPackageBody replaceTenantPackageBody) {
@@ -18416,16 +18817,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> replaceTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments) throws ApiException {
+    private ApiResponse<APIEmptyResponse> replaceTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments) throws ApiException {
         okhttp3.Call localVarCall = replaceTenantUserValidateBeforeCall(tenantId, id, replaceTenantUserBody, updateComments, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call replaceTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = replaceTenantUserValidateBeforeCall(tenantId, id, replaceTenantUserBody, updateComments, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18466,6 +18867,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -18474,32 +18876,34 @@ public class DefaultApi {
 
         /**
          * Execute replaceTenantUser request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = replaceTenantUserWithHttpInfo(tenantId, id, replaceTenantUserBody, updateComments);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = replaceTenantUserWithHttpInfo(tenantId, id, replaceTenantUserBody, updateComments);
             return localVarResp.getData();
         }
 
         /**
          * Execute replaceTenantUser request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return replaceTenantUserWithHttpInfo(tenantId, id, replaceTenantUserBody, updateComments);
         }
 
@@ -18513,9 +18917,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return replaceTenantUserAsync(tenantId, id, replaceTenantUserBody, updateComments, _callback);
         }
     }
@@ -18532,6 +18937,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIreplaceTenantUserRequest replaceTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull ReplaceTenantUserBody replaceTenantUserBody) {
@@ -18619,16 +19025,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<SaveComment200Response> saveCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications) throws ApiException {
+    private ApiResponse<APISaveCommentResponse> saveCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications) throws ApiException {
         okhttp3.Call localVarCall = saveCommentValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, null);
-        Type localVarReturnType = new TypeToken<SaveComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APISaveCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call saveCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback<SaveComment200Response> _callback) throws ApiException {
+    private okhttp3.Call saveCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback<APISaveCommentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = saveCommentValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
-        Type localVarReturnType = new TypeToken<SaveComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APISaveCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18702,6 +19108,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -18710,32 +19117,34 @@ public class DefaultApi {
 
         /**
          * Execute saveComment request
-         * @return SaveComment200Response
+         * @return APISaveCommentResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public SaveComment200Response execute() throws ApiException {
-            ApiResponse<SaveComment200Response> localVarResp = saveCommentWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
+        public APISaveCommentResponse execute() throws ApiException {
+            ApiResponse<APISaveCommentResponse> localVarResp = saveCommentWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
             return localVarResp.getData();
         }
 
         /**
          * Execute saveComment request with HTTP info returned
-         * @return ApiResponse&lt;SaveComment200Response&gt;
+         * @return ApiResponse&lt;APISaveCommentResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<SaveComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APISaveCommentResponse> executeWithHttpInfo() throws ApiException {
             return saveCommentWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
         }
 
@@ -18749,9 +19158,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<SaveComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APISaveCommentResponse> _callback) throws ApiException {
             return saveCommentAsync(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
         }
     }
@@ -18767,6 +19177,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIsaveCommentRequest saveComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateCommentParams createCommentParams) {
@@ -18854,16 +19265,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<List<SaveComment200Response>> saveCommentsBulkWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications) throws ApiException {
+    private ApiResponse<List<SaveCommentsBulkResponse>> saveCommentsBulkWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications) throws ApiException {
         okhttp3.Call localVarCall = saveCommentsBulkValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, null);
-        Type localVarReturnType = new TypeToken<List<SaveComment200Response>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<SaveCommentsBulkResponse>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call saveCommentsBulkAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback<List<SaveComment200Response>> _callback) throws ApiException {
+    private okhttp3.Call saveCommentsBulkAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull List<CreateCommentParams> createCommentParams, @javax.annotation.Nullable Boolean isLive, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean sendEmails, @javax.annotation.Nullable Boolean populateNotifications, final ApiCallback<List<SaveCommentsBulkResponse>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = saveCommentsBulkValidateBeforeCall(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
-        Type localVarReturnType = new TypeToken<List<SaveComment200Response>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<SaveCommentsBulkResponse>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -18945,7 +19356,7 @@ public class DefaultApi {
 
         /**
          * Execute saveCommentsBulk request
-         * @return List&lt;SaveComment200Response&gt;
+         * @return List&lt;SaveCommentsBulkResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -18954,14 +19365,14 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public List<SaveComment200Response> execute() throws ApiException {
-            ApiResponse<List<SaveComment200Response>> localVarResp = saveCommentsBulkWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
+        public List<SaveCommentsBulkResponse> execute() throws ApiException {
+            ApiResponse<List<SaveCommentsBulkResponse>> localVarResp = saveCommentsBulkWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
             return localVarResp.getData();
         }
 
         /**
          * Execute saveCommentsBulk request with HTTP info returned
-         * @return ApiResponse&lt;List&lt;SaveComment200Response&gt;&gt;
+         * @return ApiResponse&lt;List&lt;SaveCommentsBulkResponse&gt;&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -18970,7 +19381,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<List<SaveComment200Response>> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<List<SaveCommentsBulkResponse>> executeWithHttpInfo() throws ApiException {
             return saveCommentsBulkWithHttpInfo(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications);
         }
 
@@ -18986,7 +19397,7 @@ public class DefaultApi {
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<List<SaveComment200Response>> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<List<SaveCommentsBulkResponse>> _callback) throws ApiException {
             return saveCommentsBulkAsync(tenantId, createCommentParams, isLive, doSpamCheck, sendEmails, populateNotifications, _callback);
         }
     }
@@ -19082,16 +19493,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> sendInviteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName) throws ApiException {
+    private ApiResponse<APIEmptyResponse> sendInviteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName) throws ApiException {
         okhttp3.Call localVarCall = sendInviteValidateBeforeCall(tenantId, id, fromName, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call sendInviteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call sendInviteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = sendInviteValidateBeforeCall(tenantId, id, fromName, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -19120,6 +19531,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -19128,32 +19540,34 @@ public class DefaultApi {
 
         /**
          * Execute sendInvite request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = sendInviteWithHttpInfo(tenantId, id, fromName);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = sendInviteWithHttpInfo(tenantId, id, fromName);
             return localVarResp.getData();
         }
 
         /**
          * Execute sendInvite request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return sendInviteWithHttpInfo(tenantId, id, fromName);
         }
 
@@ -19167,9 +19581,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return sendInviteAsync(tenantId, id, fromName, _callback);
         }
     }
@@ -19186,6 +19601,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIsendInviteRequest sendInvite(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String fromName) {
@@ -19261,16 +19677,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> sendLoginLinkWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL) throws ApiException {
+    private ApiResponse<APIEmptyResponse> sendLoginLinkWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL) throws ApiException {
         okhttp3.Call localVarCall = sendLoginLinkValidateBeforeCall(tenantId, id, redirectURL, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call sendLoginLinkAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call sendLoginLinkAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String redirectURL, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = sendLoginLinkValidateBeforeCall(tenantId, id, redirectURL, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -19308,6 +19724,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -19316,32 +19733,34 @@ public class DefaultApi {
 
         /**
          * Execute sendLoginLink request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = sendLoginLinkWithHttpInfo(tenantId, id, redirectURL);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = sendLoginLinkWithHttpInfo(tenantId, id, redirectURL);
             return localVarResp.getData();
         }
 
         /**
          * Execute sendLoginLink request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return sendLoginLinkWithHttpInfo(tenantId, id, redirectURL);
         }
 
@@ -19355,9 +19774,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return sendLoginLinkAsync(tenantId, id, redirectURL, _callback);
         }
     }
@@ -19373,6 +19793,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIsendLoginLinkRequest sendLoginLink(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -19458,16 +19879,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UnBlockCommentPublic200Response> unBlockUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
+    private ApiResponse<UnblockSuccess> unBlockUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = unBlockUserFromCommentValidateBeforeCall(tenantId, id, unBlockFromCommentParams, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UnblockSuccess>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call unBlockUserFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call unBlockUserFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<UnblockSuccess> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unBlockUserFromCommentValidateBeforeCall(tenantId, id, unBlockFromCommentParams, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<UnBlockCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<UnblockSuccess>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -19520,6 +19941,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -19528,32 +19950,34 @@ public class DefaultApi {
 
         /**
          * Execute unBlockUserFromComment request
-         * @return UnBlockCommentPublic200Response
+         * @return UnblockSuccess
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public UnBlockCommentPublic200Response execute() throws ApiException {
-            ApiResponse<UnBlockCommentPublic200Response> localVarResp = unBlockUserFromCommentWithHttpInfo(tenantId, id, unBlockFromCommentParams, userId, anonUserId);
+        public UnblockSuccess execute() throws ApiException {
+            ApiResponse<UnblockSuccess> localVarResp = unBlockUserFromCommentWithHttpInfo(tenantId, id, unBlockFromCommentParams, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute unBlockUserFromComment request with HTTP info returned
-         * @return ApiResponse&lt;UnBlockCommentPublic200Response&gt;
+         * @return ApiResponse&lt;UnblockSuccess&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<UnBlockCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<UnblockSuccess> executeWithHttpInfo() throws ApiException {
             return unBlockUserFromCommentWithHttpInfo(tenantId, id, unBlockFromCommentParams, userId, anonUserId);
         }
 
@@ -19567,9 +19991,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<UnBlockCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<UnblockSuccess> _callback) throws ApiException {
             return unBlockUserFromCommentAsync(tenantId, id, unBlockFromCommentParams, userId, anonUserId, _callback);
         }
     }
@@ -19586,6 +20011,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIunBlockUserFromCommentRequest unBlockUserFromComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UnBlockFromCommentParams unBlockFromCommentParams) {
@@ -19665,16 +20091,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagComment200Response> unFlagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
+    private ApiResponse<FlagCommentResponse> unFlagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId) throws ApiException {
         okhttp3.Call localVarCall = unFlagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, null);
-        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlagCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call unFlagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+    private okhttp3.Call unFlagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String anonUserId, final ApiCallback<FlagCommentResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = unFlagCommentValidateBeforeCall(tenantId, id, userId, anonUserId, _callback);
-        Type localVarReturnType = new TypeToken<FlagComment200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlagCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -19724,6 +20150,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -19732,32 +20159,34 @@ public class DefaultApi {
 
         /**
          * Execute unFlagComment request
-         * @return FlagComment200Response
+         * @return FlagCommentResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagComment200Response execute() throws ApiException {
-            ApiResponse<FlagComment200Response> localVarResp = unFlagCommentWithHttpInfo(tenantId, id, userId, anonUserId);
+        public FlagCommentResponse execute() throws ApiException {
+            ApiResponse<FlagCommentResponse> localVarResp = unFlagCommentWithHttpInfo(tenantId, id, userId, anonUserId);
             return localVarResp.getData();
         }
 
         /**
          * Execute unFlagComment request with HTTP info returned
-         * @return ApiResponse&lt;FlagComment200Response&gt;
+         * @return ApiResponse&lt;FlagCommentResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagComment200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<FlagCommentResponse> executeWithHttpInfo() throws ApiException {
             return unFlagCommentWithHttpInfo(tenantId, id, userId, anonUserId);
         }
 
@@ -19771,9 +20200,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagComment200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentResponse> _callback) throws ApiException {
             return unFlagCommentAsync(tenantId, id, userId, anonUserId, _callback);
         }
     }
@@ -19789,6 +20219,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIunFlagCommentRequest unFlagComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id) {
@@ -19878,16 +20309,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive) throws ApiException {
         okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams, @javax.annotation.Nullable String contextUserId, @javax.annotation.Nullable Boolean doSpamCheck, @javax.annotation.Nullable Boolean isLive, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateCommentValidateBeforeCall(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -19952,6 +20383,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -19960,32 +20392,34 @@ public class DefaultApi {
 
         /**
          * Execute updateComment request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateCommentWithHttpInfo(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateCommentWithHttpInfo(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateComment request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateCommentWithHttpInfo(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive);
         }
 
@@ -19999,9 +20433,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateCommentAsync(tenantId, id, updatableCommentParams, contextUserId, doSpamCheck, isLive, _callback);
         }
     }
@@ -20018,6 +20453,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateCommentRequest updateComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdatableCommentParams updatableCommentParams) {
@@ -20095,16 +20531,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateEmailTemplateWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody) throws ApiException {
         okhttp3.Call localVarCall = updateEmailTemplateValidateBeforeCall(tenantId, id, updateEmailTemplateBody, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateEmailTemplateAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateEmailTemplateValidateBeforeCall(tenantId, id, updateEmailTemplateBody, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -20133,6 +20569,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -20141,32 +20578,34 @@ public class DefaultApi {
 
         /**
          * Execute updateEmailTemplate request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateEmailTemplateWithHttpInfo(tenantId, id, updateEmailTemplateBody);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateEmailTemplateWithHttpInfo(tenantId, id, updateEmailTemplateBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateEmailTemplate request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateEmailTemplateWithHttpInfo(tenantId, id, updateEmailTemplateBody);
         }
 
@@ -20180,9 +20619,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateEmailTemplateAsync(tenantId, id, updateEmailTemplateBody, _callback);
         }
     }
@@ -20199,6 +20639,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateEmailTemplateRequest updateEmailTemplate(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateEmailTemplateBody updateEmailTemplateBody) {
@@ -20276,16 +20717,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateFeedPostWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateFeedPostWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost) throws ApiException {
         okhttp3.Call localVarCall = updateFeedPostValidateBeforeCall(tenantId, id, feedPost, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateFeedPostAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateFeedPostAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateFeedPostValidateBeforeCall(tenantId, id, feedPost, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -20314,6 +20755,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -20322,32 +20764,34 @@ public class DefaultApi {
 
         /**
          * Execute updateFeedPost request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateFeedPostWithHttpInfo(tenantId, id, feedPost);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateFeedPostWithHttpInfo(tenantId, id, feedPost);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateFeedPost request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateFeedPostWithHttpInfo(tenantId, id, feedPost);
         }
 
@@ -20361,9 +20805,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateFeedPostAsync(tenantId, id, feedPost, _callback);
         }
     }
@@ -20380,6 +20825,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateFeedPostRequest updateFeedPost(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull FeedPost feedPost) {
@@ -20457,16 +20903,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateModeratorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody) throws ApiException {
         okhttp3.Call localVarCall = updateModeratorValidateBeforeCall(tenantId, id, updateModeratorBody, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateModeratorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateModeratorValidateBeforeCall(tenantId, id, updateModeratorBody, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -20495,6 +20941,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -20503,32 +20950,34 @@ public class DefaultApi {
 
         /**
          * Execute updateModerator request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateModeratorWithHttpInfo(tenantId, id, updateModeratorBody);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateModeratorWithHttpInfo(tenantId, id, updateModeratorBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateModerator request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateModeratorWithHttpInfo(tenantId, id, updateModeratorBody);
         }
 
@@ -20542,9 +20991,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateModeratorAsync(tenantId, id, updateModeratorBody, _callback);
         }
     }
@@ -20561,6 +21011,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateModeratorRequest updateModerator(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateModeratorBody updateModeratorBody) {
@@ -20642,16 +21093,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateNotificationWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateNotificationWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId) throws ApiException {
         okhttp3.Call localVarCall = updateNotificationValidateBeforeCall(tenantId, id, updateNotificationBody, userId, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateNotificationAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateNotificationAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody, @javax.annotation.Nullable String userId, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateNotificationValidateBeforeCall(tenantId, id, updateNotificationBody, userId, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -20692,6 +21143,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -20700,32 +21152,34 @@ public class DefaultApi {
 
         /**
          * Execute updateNotification request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateNotificationWithHttpInfo(tenantId, id, updateNotificationBody, userId);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateNotificationWithHttpInfo(tenantId, id, updateNotificationBody, userId);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateNotification request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateNotificationWithHttpInfo(tenantId, id, updateNotificationBody, userId);
         }
 
@@ -20739,9 +21193,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateNotificationAsync(tenantId, id, updateNotificationBody, userId, _callback);
         }
     }
@@ -20758,6 +21213,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateNotificationRequest updateNotification(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateNotificationBody updateNotificationBody) {
@@ -20835,16 +21291,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateQuestionConfigWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody) throws ApiException {
         okhttp3.Call localVarCall = updateQuestionConfigValidateBeforeCall(tenantId, id, updateQuestionConfigBody, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateQuestionConfigAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateQuestionConfigValidateBeforeCall(tenantId, id, updateQuestionConfigBody, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -20873,6 +21329,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -20881,32 +21338,34 @@ public class DefaultApi {
 
         /**
          * Execute updateQuestionConfig request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateQuestionConfigWithHttpInfo(tenantId, id, updateQuestionConfigBody);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateQuestionConfigWithHttpInfo(tenantId, id, updateQuestionConfigBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateQuestionConfig request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateQuestionConfigWithHttpInfo(tenantId, id, updateQuestionConfigBody);
         }
 
@@ -20920,9 +21379,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateQuestionConfigAsync(tenantId, id, updateQuestionConfigBody, _callback);
         }
     }
@@ -20939,6 +21399,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateQuestionConfigRequest updateQuestionConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionConfigBody updateQuestionConfigBody) {
@@ -21016,16 +21477,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateQuestionResultWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody) throws ApiException {
         okhttp3.Call localVarCall = updateQuestionResultValidateBeforeCall(tenantId, id, updateQuestionResultBody, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateQuestionResultAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateQuestionResultValidateBeforeCall(tenantId, id, updateQuestionResultBody, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -21054,6 +21515,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -21062,32 +21524,34 @@ public class DefaultApi {
 
         /**
          * Execute updateQuestionResult request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateQuestionResultWithHttpInfo(tenantId, id, updateQuestionResultBody);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateQuestionResultWithHttpInfo(tenantId, id, updateQuestionResultBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateQuestionResult request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateQuestionResultWithHttpInfo(tenantId, id, updateQuestionResultBody);
         }
 
@@ -21101,9 +21565,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateQuestionResultAsync(tenantId, id, updateQuestionResultBody, _callback);
         }
     }
@@ -21120,6 +21585,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateQuestionResultRequest updateQuestionResult(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateQuestionResultBody updateQuestionResultBody) {
@@ -21394,16 +21860,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateTenantWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody) throws ApiException {
         okhttp3.Call localVarCall = updateTenantValidateBeforeCall(tenantId, id, updateTenantBody, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateTenantAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantValidateBeforeCall(tenantId, id, updateTenantBody, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -21432,6 +21898,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -21440,32 +21907,34 @@ public class DefaultApi {
 
         /**
          * Execute updateTenant request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateTenantWithHttpInfo(tenantId, id, updateTenantBody);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateTenantWithHttpInfo(tenantId, id, updateTenantBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateTenant request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateTenantWithHttpInfo(tenantId, id, updateTenantBody);
         }
 
@@ -21479,9 +21948,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateTenantAsync(tenantId, id, updateTenantBody, _callback);
         }
     }
@@ -21498,6 +21968,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateTenantRequest updateTenant(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantBody updateTenantBody) {
@@ -21575,16 +22046,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateTenantPackageWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody) throws ApiException {
         okhttp3.Call localVarCall = updateTenantPackageValidateBeforeCall(tenantId, id, updateTenantPackageBody, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateTenantPackageAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantPackageValidateBeforeCall(tenantId, id, updateTenantPackageBody, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -21613,6 +22084,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -21621,32 +22093,34 @@ public class DefaultApi {
 
         /**
          * Execute updateTenantPackage request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateTenantPackageWithHttpInfo(tenantId, id, updateTenantPackageBody);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateTenantPackageWithHttpInfo(tenantId, id, updateTenantPackageBody);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateTenantPackage request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateTenantPackageWithHttpInfo(tenantId, id, updateTenantPackageBody);
         }
 
@@ -21660,9 +22134,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateTenantPackageAsync(tenantId, id, updateTenantPackageBody, _callback);
         }
     }
@@ -21679,6 +22154,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateTenantPackageRequest updateTenantPackage(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantPackageBody updateTenantPackageBody) {
@@ -21760,16 +22236,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<FlagCommentPublic200Response> updateTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments) throws ApiException {
+    private ApiResponse<APIEmptyResponse> updateTenantUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments) throws ApiException {
         okhttp3.Call localVarCall = updateTenantUserValidateBeforeCall(tenantId, id, updateTenantUserBody, updateComments, null);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+    private okhttp3.Call updateTenantUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody, @javax.annotation.Nullable String updateComments, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantUserValidateBeforeCall(tenantId, id, updateTenantUserBody, updateComments, _callback);
-        Type localVarReturnType = new TypeToken<FlagCommentPublic200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -21810,6 +22286,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -21818,32 +22295,34 @@ public class DefaultApi {
 
         /**
          * Execute updateTenantUser request
-         * @return FlagCommentPublic200Response
+         * @return APIEmptyResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public FlagCommentPublic200Response execute() throws ApiException {
-            ApiResponse<FlagCommentPublic200Response> localVarResp = updateTenantUserWithHttpInfo(tenantId, id, updateTenantUserBody, updateComments);
+        public APIEmptyResponse execute() throws ApiException {
+            ApiResponse<APIEmptyResponse> localVarResp = updateTenantUserWithHttpInfo(tenantId, id, updateTenantUserBody, updateComments);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateTenantUser request with HTTP info returned
-         * @return ApiResponse&lt;FlagCommentPublic200Response&gt;
+         * @return ApiResponse&lt;APIEmptyResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<FlagCommentPublic200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
             return updateTenantUserWithHttpInfo(tenantId, id, updateTenantUserBody, updateComments);
         }
 
@@ -21857,9 +22336,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<FlagCommentPublic200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
             return updateTenantUserAsync(tenantId, id, updateTenantUserBody, updateComments, _callback);
         }
     }
@@ -21876,6 +22356,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateTenantUserRequest updateTenantUser(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateTenantUserBody updateTenantUserBody) {
@@ -21953,16 +22434,16 @@ public class DefaultApi {
     }
 
 
-    private ApiResponse<UpdateUserBadge200Response> updateUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams) throws ApiException {
+    private ApiResponse<APIEmptySuccessResponse> updateUserBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams) throws ApiException {
         okhttp3.Call localVarCall = updateUserBadgeValidateBeforeCall(tenantId, id, updateUserBadgeParams, null);
-        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptySuccessResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call updateUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+    private okhttp3.Call updateUserBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams, final ApiCallback<APIEmptySuccessResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateUserBadgeValidateBeforeCall(tenantId, id, updateUserBadgeParams, _callback);
-        Type localVarReturnType = new TypeToken<UpdateUserBadge200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<APIEmptySuccessResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -21991,6 +22472,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
@@ -21999,32 +22481,34 @@ public class DefaultApi {
 
         /**
          * Execute updateUserBadge request
-         * @return UpdateUserBadge200Response
+         * @return APIEmptySuccessResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public UpdateUserBadge200Response execute() throws ApiException {
-            ApiResponse<UpdateUserBadge200Response> localVarResp = updateUserBadgeWithHttpInfo(tenantId, id, updateUserBadgeParams);
+        public APIEmptySuccessResponse execute() throws ApiException {
+            ApiResponse<APIEmptySuccessResponse> localVarResp = updateUserBadgeWithHttpInfo(tenantId, id, updateUserBadgeParams);
             return localVarResp.getData();
         }
 
         /**
          * Execute updateUserBadge request with HTTP info returned
-         * @return ApiResponse&lt;UpdateUserBadge200Response&gt;
+         * @return ApiResponse&lt;APIEmptySuccessResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<UpdateUserBadge200Response> executeWithHttpInfo() throws ApiException {
+        public ApiResponse<APIEmptySuccessResponse> executeWithHttpInfo() throws ApiException {
             return updateUserBadgeWithHttpInfo(tenantId, id, updateUserBadgeParams);
         }
 
@@ -22038,9 +22522,10 @@ public class DefaultApi {
        <caption>Response Details</caption>
             <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
             <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<UpdateUserBadge200Response> _callback) throws ApiException {
+        public okhttp3.Call executeAsync(final ApiCallback<APIEmptySuccessResponse> _callback) throws ApiException {
             return updateUserBadgeAsync(tenantId, id, updateUserBadgeParams, _callback);
         }
     }
@@ -22057,6 +22542,7 @@ public class DefaultApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
     public APIupdateUserBadgeRequest updateUserBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateUserBadgeParams updateUserBadgeParams) {

@@ -46,6 +46,7 @@
 |**digestEmailFrequency** | **DigestEmailFrequency** |  |  [optional] |
 |**notificationFrequency** | **Double** |  |  [optional] |
 |**adminNotificationFrequency** | **Double** |  |  [optional] |
+|**agentApprovalNotificationFrequency** | **ImportedAgentApprovalNotificationFrequency** |  |  [optional] |
 |**lastTenantNotificationSentDate** | **OffsetDateTime** |  |  [optional] |
 |**lastReplyNotificationSentDate** | **OffsetDateTime** |  |  [optional] |
 |**ignoredAddToMySiteMessages** | **Boolean** |  |  [optional] |

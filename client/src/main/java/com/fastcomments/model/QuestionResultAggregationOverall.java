@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * QuestionResultAggregationOverall
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class QuestionResultAggregationOverall {
   public static final String SERIALIZED_NAME_DATA_BY_DATE_BUCKET = "dataByDateBucket";
   @SerializedName(SERIALIZED_NAME_DATA_BY_DATE_BUCKET)
@@ -267,10 +267,7 @@ public class QuestionResultAggregationOverall {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

@@ -55,7 +55,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetCommentsResponseWithPresencePublicComment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetCommentsResponseWithPresencePublicComment {
   public static final String SERIALIZED_NAME_STATUS_CODE = "statusCode";
   @SerializedName(SERIALIZED_NAME_STATUS_CODE)
@@ -854,10 +854,7 @@ public class GetCommentsResponseWithPresencePublicComment {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -904,18 +901,20 @@ public class GetCommentsResponseWithPresencePublicComment {
       if ((jsonObj.get("translatedWarning") != null && !jsonObj.get("translatedWarning").isJsonNull()) && !jsonObj.get("translatedWarning").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `translatedWarning` to be a primitive type in the JSON string but got `%s`", jsonObj.get("translatedWarning").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("comments").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comments` to be an array in the JSON string but got `%s`", jsonObj.get("comments").toString()));
+      if (jsonObj.get("comments") != null) {
+        if (!jsonObj.get("comments").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comments` to be an array in the JSON string but got `%s`", jsonObj.get("comments").toString()));
+        }
+        JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");
+        // validate the required field `comments` (array)
+        for (int i = 0; i < jsonArraycomments.size(); i++) {
+          PublicComment.validateJsonElement(jsonArraycomments.get(i));
+        }
       }
-
-      JsonArray jsonArraycomments = jsonObj.getAsJsonArray("comments");
-      // validate the required field `comments` (array)
-      for (int i = 0; i < jsonArraycomments.size(); i++) {
-        PublicComment.validateJsonElement(jsonArraycomments.get(i));
-      };
+      if (jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) {
       // validate the required field `user`
       UserSessionInfo.validateJsonElement(jsonObj.get("user"));
+      }
       if ((jsonObj.get("urlIdClean") != null && !jsonObj.get("urlIdClean").isJsonNull()) && !jsonObj.get("urlIdClean").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `urlIdClean` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdClean").toString()));
       }

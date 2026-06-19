@@ -16,6 +16,7 @@
 |**linkUrl** | **String** |  |  |
 |**linkText** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
+|**type** | **String** | Discriminator for notifications with a special layout/click handler (e.g. \&quot;feedback-offer\&quot;). |  [optional] |
 
 
 

@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * SearchUsersResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class SearchUsersResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -193,10 +193,7 @@ public class SearchUsersResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -233,16 +230,16 @@ public class SearchUsersResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
-      // ensure the json data is an array
-      if (!jsonObj.get("users").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+      if (jsonObj.get("users") != null) {
+        if (!jsonObj.get("users").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+        }
+        JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
+        // validate the required field `users` (array)
+        for (int i = 0; i < jsonArrayusers.size(); i++) {
+          UserSearchResult.validateJsonElement(jsonArrayusers.get(i));
+        }
       }
-
-      JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
-      // validate the required field `users` (array)
-      for (int i = 0; i < jsonArrayusers.size(); i++) {
-        UserSearchResult.validateJsonElement(jsonArrayusers.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

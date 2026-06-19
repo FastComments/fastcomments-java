@@ -53,7 +53,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * The aggregation request accepts a resource, optional grouping keys, an array of operations, and an optional sort
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class AggregationRequest {
   public static final String SERIALIZED_NAME_QUERY = "query";
   @SerializedName(SERIALIZED_NAME_QUERY)
@@ -242,10 +242,7 @@ public class AggregationRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -309,16 +306,16 @@ public class AggregationRequest {
       if (jsonObj.get("groupBy") != null && !jsonObj.get("groupBy").isJsonNull() && !jsonObj.get("groupBy").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `groupBy` to be an array in the JSON string but got `%s`", jsonObj.get("groupBy").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("operations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
+      if (jsonObj.get("operations") != null) {
+        if (!jsonObj.get("operations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `operations` to be an array in the JSON string but got `%s`", jsonObj.get("operations").toString()));
+        }
+        JsonArray jsonArrayoperations = jsonObj.getAsJsonArray("operations");
+        // validate the required field `operations` (array)
+        for (int i = 0; i < jsonArrayoperations.size(); i++) {
+          AggregationOperation.validateJsonElement(jsonArrayoperations.get(i));
+        }
       }
-
-      JsonArray jsonArrayoperations = jsonObj.getAsJsonArray("operations");
-      // validate the required field `operations` (array)
-      for (int i = 0; i < jsonArrayoperations.size(); i++) {
-        AggregationOperation.validateJsonElement(jsonArrayoperations.get(i));
-      };
       // validate the optional field `sort`
       if (jsonObj.get("sort") != null && !jsonObj.get("sort").isJsonNull()) {
         AggregationRequestSort.validateJsonElement(jsonObj.get("sort"));

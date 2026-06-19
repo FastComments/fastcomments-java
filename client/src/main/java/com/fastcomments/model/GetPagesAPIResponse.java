@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * GetPagesAPIResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetPagesAPIResponse {
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
@@ -244,10 +244,7 @@ public class GetPagesAPIResponse {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 

@@ -52,7 +52,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * CommentLogData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class CommentLogData {
   public static final String SERIALIZED_NAME_CLEAR_CONTENT = "clearContent";
   @SerializedName(SERIALIZED_NAME_CLEAR_CONTENT)
@@ -128,6 +128,11 @@ public class CommentLogData {
   @SerializedName(SERIALIZED_NAME_TRUST_FACTOR)
   @javax.annotation.Nullable
   private Double trustFactor;
+
+  public static final String SERIALIZED_NAME_SOURCE = "source";
+  @SerializedName(SERIALIZED_NAME_SOURCE)
+  @javax.annotation.Nullable
+  private String source;
 
   public static final String SERIALIZED_NAME_RULE = "rule";
   @SerializedName(SERIALIZED_NAME_RULE)
@@ -619,6 +624,25 @@ public class CommentLogData {
 
   public void setTrustFactor(@javax.annotation.Nullable Double trustFactor) {
     this.trustFactor = trustFactor;
+  }
+
+
+  public CommentLogData source(@javax.annotation.Nullable String source) {
+    this.source = source;
+    return this;
+  }
+
+  /**
+   * Get source
+   * @return source
+   */
+  @javax.annotation.Nullable
+  public String getSource() {
+    return source;
+  }
+
+  public void setSource(@javax.annotation.Nullable String source) {
+    this.source = source;
   }
 
 
@@ -1236,6 +1260,7 @@ public class CommentLogData {
         Objects.equals(this.engineResponse, commentLogData.engineResponse) &&
         Objects.equals(this.engineTokens, commentLogData.engineTokens) &&
         Objects.equals(this.trustFactor, commentLogData.trustFactor) &&
+        Objects.equals(this.source, commentLogData.source) &&
         Objects.equals(this.rule, commentLogData.rule) &&
         Objects.equals(this.userId, commentLogData.userId) &&
         Objects.equals(this.subscribers, commentLogData.subscribers) &&
@@ -1271,7 +1296,7 @@ public class CommentLogData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clearContent, isDeletedUser, phrase, badWord, word, locale, tenantBadgeId, badgeId, wasLoggedIn, foundUser, verified, engine, engineResponse, engineTokens, trustFactor, rule, userId, subscribers, notificationCount, votesBefore, votesUpBefore, votesDownBefore, votesAfter, votesUpAfter, votesDownAfter, repeatAction, reason, otherData, spamBefore, spamAfter, permanentFlag, approvedBefore, approvedAfter, reviewedBefore, reviewedAfter, textBefore, textAfter, expireBefore, expireAfter, flagCountBefore, trustFactorBefore, trustFactorAfter, referencedCommentId, invalidLocale, detectedLocale, detectedLanguage);
+    return Objects.hash(clearContent, isDeletedUser, phrase, badWord, word, locale, tenantBadgeId, badgeId, wasLoggedIn, foundUser, verified, engine, engineResponse, engineTokens, trustFactor, source, rule, userId, subscribers, notificationCount, votesBefore, votesUpBefore, votesDownBefore, votesAfter, votesUpAfter, votesDownAfter, repeatAction, reason, otherData, spamBefore, spamAfter, permanentFlag, approvedBefore, approvedAfter, reviewedBefore, reviewedAfter, textBefore, textAfter, expireBefore, expireAfter, flagCountBefore, trustFactorBefore, trustFactorAfter, referencedCommentId, invalidLocale, detectedLocale, detectedLanguage);
   }
 
   @Override
@@ -1293,6 +1318,7 @@ public class CommentLogData {
     sb.append("    engineResponse: ").append(toIndentedString(engineResponse)).append("\n");
     sb.append("    engineTokens: ").append(toIndentedString(engineTokens)).append("\n");
     sb.append("    trustFactor: ").append(toIndentedString(trustFactor)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    subscribers: ").append(toIndentedString(subscribers)).append("\n");
@@ -1333,10 +1359,7 @@ public class CommentLogData {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -1345,7 +1368,7 @@ public class CommentLogData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId", "invalidLocale", "detectedLocale", "detectedLanguage"));
+    openapiFields = new HashSet<String>(Arrays.asList("clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "source", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId", "invalidLocale", "detectedLocale", "detectedLanguage"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1395,6 +1418,9 @@ public class CommentLogData {
       }
       if ((jsonObj.get("engineResponse") != null && !jsonObj.get("engineResponse").isJsonNull()) && !jsonObj.get("engineResponse").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `engineResponse` to be a primitive type in the JSON string but got `%s`", jsonObj.get("engineResponse").toString()));
+      }
+      if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
       }
       // validate the optional field `rule`
       if (jsonObj.get("rule") != null && !jsonObj.get("rule").isJsonNull()) {

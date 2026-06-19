@@ -14,119 +14,122 @@
 package com.fastcomments.api;
 
 import com.fastcomments.invoker.ApiException;
-import com.fastcomments.model.AddDomainConfig200Response;
+import com.fastcomments.model.APICreateUserBadgeResponse;
+import com.fastcomments.model.APIEmptyResponse;
+import com.fastcomments.model.APIEmptySuccessResponse;
+import com.fastcomments.model.APIError;
+import com.fastcomments.model.APIGetCommentResponse;
+import com.fastcomments.model.APIGetCommentsResponse;
+import com.fastcomments.model.APIGetUserBadgeProgressListResponse;
+import com.fastcomments.model.APIGetUserBadgeProgressResponse;
+import com.fastcomments.model.APIGetUserBadgeResponse;
+import com.fastcomments.model.APIGetUserBadgesResponse;
+import com.fastcomments.model.APISaveCommentResponse;
 import com.fastcomments.model.AddDomainConfigParams;
-import com.fastcomments.model.AddHashTag200Response;
-import com.fastcomments.model.AddHashTagsBulk200Response;
+import com.fastcomments.model.AddDomainConfigResponse;
 import com.fastcomments.model.AddPageAPIResponse;
 import com.fastcomments.model.AddSSOUserAPIResponse;
-import com.fastcomments.model.AggregateQuestionResults200Response;
+import com.fastcomments.model.AggregateQuestionResultsResponse;
+import com.fastcomments.model.AggregateResponse;
 import com.fastcomments.model.AggregateTimeBucket;
 import com.fastcomments.model.AggregationRequest;
-import com.fastcomments.model.AggregationResponse;
 import com.fastcomments.model.BlockFromCommentParams;
-import com.fastcomments.model.BlockFromCommentPublic200Response;
-import com.fastcomments.model.BulkAggregateQuestionResults200Response;
+import com.fastcomments.model.BlockSuccess;
 import com.fastcomments.model.BulkAggregateQuestionResultsRequest;
+import com.fastcomments.model.BulkAggregateQuestionResultsResponse;
 import com.fastcomments.model.BulkCreateHashTagsBody;
-import com.fastcomments.model.ChangeTicketState200Response;
+import com.fastcomments.model.BulkCreateHashTagsResponse;
 import com.fastcomments.model.ChangeTicketStateBody;
-import com.fastcomments.model.CombineCommentsWithQuestionResults200Response;
+import com.fastcomments.model.ChangeTicketStateResponse;
+import com.fastcomments.model.CombineQuestionResultsWithCommentsResponse;
 import com.fastcomments.model.CreateAPIPageData;
 import com.fastcomments.model.CreateAPISSOUserData;
 import com.fastcomments.model.CreateAPIUserSubscriptionData;
 import com.fastcomments.model.CreateCommentParams;
-import com.fastcomments.model.CreateEmailTemplate200Response;
 import com.fastcomments.model.CreateEmailTemplateBody;
-import com.fastcomments.model.CreateFeedPost200Response;
+import com.fastcomments.model.CreateEmailTemplateResponse;
 import com.fastcomments.model.CreateFeedPostParams;
+import com.fastcomments.model.CreateFeedPostsResponse;
 import com.fastcomments.model.CreateHashTagBody;
-import com.fastcomments.model.CreateModerator200Response;
+import com.fastcomments.model.CreateHashTagResponse;
 import com.fastcomments.model.CreateModeratorBody;
-import com.fastcomments.model.CreateQuestionConfig200Response;
+import com.fastcomments.model.CreateModeratorResponse;
 import com.fastcomments.model.CreateQuestionConfigBody;
-import com.fastcomments.model.CreateQuestionResult200Response;
+import com.fastcomments.model.CreateQuestionConfigResponse;
 import com.fastcomments.model.CreateQuestionResultBody;
+import com.fastcomments.model.CreateQuestionResultResponse;
 import com.fastcomments.model.CreateSubscriptionAPIResponse;
-import com.fastcomments.model.CreateTenant200Response;
 import com.fastcomments.model.CreateTenantBody;
-import com.fastcomments.model.CreateTenantPackage200Response;
 import com.fastcomments.model.CreateTenantPackageBody;
-import com.fastcomments.model.CreateTenantUser200Response;
+import com.fastcomments.model.CreateTenantPackageResponse;
+import com.fastcomments.model.CreateTenantResponse;
 import com.fastcomments.model.CreateTenantUserBody;
-import com.fastcomments.model.CreateTicket200Response;
+import com.fastcomments.model.CreateTenantUserResponse;
 import com.fastcomments.model.CreateTicketBody;
-import com.fastcomments.model.CreateUserBadge200Response;
+import com.fastcomments.model.CreateTicketResponse;
 import com.fastcomments.model.CreateUserBadgeParams;
-import com.fastcomments.model.DeleteComment200Response;
-import com.fastcomments.model.DeleteCommentVote200Response;
-import com.fastcomments.model.DeleteDomainConfig200Response;
-import com.fastcomments.model.DeleteHashTagRequest;
+import com.fastcomments.model.DeleteCommentResult;
+import com.fastcomments.model.DeleteDomainConfigResponse;
+import com.fastcomments.model.DeleteHashTagRequestBody;
 import com.fastcomments.model.DeletePageAPIResponse;
 import com.fastcomments.model.DeleteSSOUserAPIResponse;
 import com.fastcomments.model.DeleteSubscriptionAPIResponse;
 import com.fastcomments.model.FeedPost;
-import com.fastcomments.model.FlagComment200Response;
-import com.fastcomments.model.FlagCommentPublic200Response;
-import com.fastcomments.model.GetAuditLogs200Response;
-import com.fastcomments.model.GetCachedNotificationCount200Response;
-import com.fastcomments.model.GetComment200Response;
-import com.fastcomments.model.GetComments200Response;
-import com.fastcomments.model.GetDomainConfig200Response;
-import com.fastcomments.model.GetDomainConfigs200Response;
-import com.fastcomments.model.GetEmailTemplate200Response;
-import com.fastcomments.model.GetEmailTemplateDefinitions200Response;
-import com.fastcomments.model.GetEmailTemplateRenderErrors200Response;
-import com.fastcomments.model.GetEmailTemplates200Response;
-import com.fastcomments.model.GetFeedPosts200Response;
-import com.fastcomments.model.GetHashTags200Response;
-import com.fastcomments.model.GetModerator200Response;
-import com.fastcomments.model.GetModerators200Response;
-import com.fastcomments.model.GetNotificationCount200Response;
-import com.fastcomments.model.GetNotifications200Response;
+import com.fastcomments.model.FlagCommentResponse;
+import com.fastcomments.model.GetAuditLogsResponse;
+import com.fastcomments.model.GetCachedNotificationCountResponse;
+import com.fastcomments.model.GetDomainConfigResponse;
+import com.fastcomments.model.GetDomainConfigsResponse;
+import com.fastcomments.model.GetEmailTemplateDefinitionsResponse;
+import com.fastcomments.model.GetEmailTemplateRenderErrorsResponse;
+import com.fastcomments.model.GetEmailTemplateResponse;
+import com.fastcomments.model.GetEmailTemplatesResponse;
+import com.fastcomments.model.GetFeedPostsResponse;
+import com.fastcomments.model.GetHashTagsResponse;
+import com.fastcomments.model.GetModeratorResponse;
+import com.fastcomments.model.GetModeratorsResponse;
+import com.fastcomments.model.GetNotificationCountResponse;
+import com.fastcomments.model.GetNotificationsResponse;
 import com.fastcomments.model.GetPageByURLIdAPIResponse;
 import com.fastcomments.model.GetPagesAPIResponse;
-import com.fastcomments.model.GetPendingWebhookEventCount200Response;
-import com.fastcomments.model.GetPendingWebhookEvents200Response;
-import com.fastcomments.model.GetQuestionConfig200Response;
-import com.fastcomments.model.GetQuestionConfigs200Response;
-import com.fastcomments.model.GetQuestionResult200Response;
-import com.fastcomments.model.GetQuestionResults200Response;
+import com.fastcomments.model.GetPendingWebhookEventCountResponse;
+import com.fastcomments.model.GetPendingWebhookEventsResponse;
+import com.fastcomments.model.GetQuestionConfigResponse;
+import com.fastcomments.model.GetQuestionConfigsResponse;
+import com.fastcomments.model.GetQuestionResultResponse;
+import com.fastcomments.model.GetQuestionResultsResponse;
 import com.fastcomments.model.GetSSOUserByEmailAPIResponse;
 import com.fastcomments.model.GetSSOUserByIdAPIResponse;
-import com.fastcomments.model.GetSSOUsers200Response;
+import com.fastcomments.model.GetSSOUsersResponse;
 import com.fastcomments.model.GetSubscriptionsAPIResponse;
-import com.fastcomments.model.GetTenant200Response;
-import com.fastcomments.model.GetTenantDailyUsages200Response;
-import com.fastcomments.model.GetTenantPackage200Response;
-import com.fastcomments.model.GetTenantPackages200Response;
-import com.fastcomments.model.GetTenantUser200Response;
-import com.fastcomments.model.GetTenantUsers200Response;
-import com.fastcomments.model.GetTenants200Response;
-import com.fastcomments.model.GetTicket200Response;
-import com.fastcomments.model.GetTickets200Response;
-import com.fastcomments.model.GetUser200Response;
-import com.fastcomments.model.GetUserBadge200Response;
-import com.fastcomments.model.GetUserBadgeProgressById200Response;
-import com.fastcomments.model.GetUserBadgeProgressList200Response;
-import com.fastcomments.model.GetUserBadges200Response;
-import com.fastcomments.model.GetVotes200Response;
-import com.fastcomments.model.GetVotesForUser200Response;
+import com.fastcomments.model.GetTenantDailyUsagesResponse;
+import com.fastcomments.model.GetTenantPackageResponse;
+import com.fastcomments.model.GetTenantPackagesResponse;
+import com.fastcomments.model.GetTenantResponse;
+import com.fastcomments.model.GetTenantUserResponse;
+import com.fastcomments.model.GetTenantUsersResponse;
+import com.fastcomments.model.GetTenantsResponse;
+import com.fastcomments.model.GetTicketResponse;
+import com.fastcomments.model.GetTicketsResponse;
+import com.fastcomments.model.GetUserResponse;
+import com.fastcomments.model.GetVotesForUserResponse;
+import com.fastcomments.model.GetVotesResponse;
 import java.time.OffsetDateTime;
 import com.fastcomments.model.PatchDomainConfigParams;
-import com.fastcomments.model.PatchHashTag200Response;
+import com.fastcomments.model.PatchDomainConfigResponse;
 import com.fastcomments.model.PatchPageAPIResponse;
 import com.fastcomments.model.PatchSSOUserAPIResponse;
+import com.fastcomments.model.PutDomainConfigResponse;
 import com.fastcomments.model.PutSSOUserAPIResponse;
-import com.fastcomments.model.RenderEmailTemplate200Response;
 import com.fastcomments.model.RenderEmailTemplateBody;
+import com.fastcomments.model.RenderEmailTemplateResponse;
 import com.fastcomments.model.ReplaceTenantPackageBody;
 import com.fastcomments.model.ReplaceTenantUserBody;
 import com.fastcomments.model.SORTDIR;
-import com.fastcomments.model.SaveComment200Response;
+import com.fastcomments.model.SaveCommentsBulkResponse;
 import com.fastcomments.model.SortDirections;
-import com.fastcomments.model.UnBlockCommentPublic200Response;
 import com.fastcomments.model.UnBlockFromCommentParams;
+import com.fastcomments.model.UnblockSuccess;
 import com.fastcomments.model.UpdatableCommentParams;
 import com.fastcomments.model.UpdateAPIPageData;
 import com.fastcomments.model.UpdateAPISSOUserData;
@@ -134,6 +137,7 @@ import com.fastcomments.model.UpdateAPIUserSubscriptionData;
 import com.fastcomments.model.UpdateDomainConfigParams;
 import com.fastcomments.model.UpdateEmailTemplateBody;
 import com.fastcomments.model.UpdateHashTagBody;
+import com.fastcomments.model.UpdateHashTagResponse;
 import com.fastcomments.model.UpdateModeratorBody;
 import com.fastcomments.model.UpdateNotificationBody;
 import com.fastcomments.model.UpdateQuestionConfigBody;
@@ -142,9 +146,9 @@ import com.fastcomments.model.UpdateSubscriptionAPIResponse;
 import com.fastcomments.model.UpdateTenantBody;
 import com.fastcomments.model.UpdateTenantPackageBody;
 import com.fastcomments.model.UpdateTenantUserBody;
-import com.fastcomments.model.UpdateUserBadge200Response;
 import com.fastcomments.model.UpdateUserBadgeParams;
-import com.fastcomments.model.VoteComment200Response;
+import com.fastcomments.model.VoteDeleteResponse;
+import com.fastcomments.model.VoteResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -168,7 +172,7 @@ public class DefaultApiTest {
     public void addDomainConfigTest() throws ApiException {
         String tenantId = null;
         AddDomainConfigParams addDomainConfigParams = null;
-        AddDomainConfig200Response response = api.addDomainConfig(tenantId, addDomainConfigParams)
+        AddDomainConfigResponse response = api.addDomainConfig(tenantId, addDomainConfigParams)
                 .execute();
         // TODO: test validations
     }
@@ -180,7 +184,7 @@ public class DefaultApiTest {
     public void addHashTagTest() throws ApiException {
         String tenantId = null;
         CreateHashTagBody createHashTagBody = null;
-        AddHashTag200Response response = api.addHashTag()
+        CreateHashTagResponse response = api.addHashTag()
                 .tenantId(tenantId)
                 .createHashTagBody(createHashTagBody)
                 .execute();
@@ -194,7 +198,7 @@ public class DefaultApiTest {
     public void addHashTagsBulkTest() throws ApiException {
         String tenantId = null;
         BulkCreateHashTagsBody bulkCreateHashTagsBody = null;
-        AddHashTagsBulk200Response response = api.addHashTagsBulk()
+        BulkCreateHashTagsResponse response = api.addHashTagsBulk()
                 .tenantId(tenantId)
                 .bulkCreateHashTagsBody(bulkCreateHashTagsBody)
                 .execute();
@@ -236,7 +240,7 @@ public class DefaultApiTest {
         AggregationRequest aggregationRequest = null;
         String parentTenantId = null;
         Boolean includeStats = null;
-        AggregationResponse response = api.aggregate(tenantId, aggregationRequest)
+        AggregateResponse response = api.aggregate(tenantId, aggregationRequest)
                 .parentTenantId(parentTenantId)
                 .includeStats(includeStats)
                 .execute();
@@ -255,7 +259,7 @@ public class DefaultApiTest {
         AggregateTimeBucket timeBucket = null;
         OffsetDateTime startDate = null;
         Boolean forceRecalculate = null;
-        AggregateQuestionResults200Response response = api.aggregateQuestionResults(tenantId)
+        AggregateQuestionResultsResponse response = api.aggregateQuestionResults(tenantId)
                 .questionId(questionId)
                 .questionIds(questionIds)
                 .urlId(urlId)
@@ -276,7 +280,7 @@ public class DefaultApiTest {
         BlockFromCommentParams blockFromCommentParams = null;
         String userId = null;
         String anonUserId = null;
-        BlockFromCommentPublic200Response response = api.blockUserFromComment(tenantId, id, blockFromCommentParams)
+        BlockSuccess response = api.blockUserFromComment(tenantId, id, blockFromCommentParams)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -291,7 +295,7 @@ public class DefaultApiTest {
         String tenantId = null;
         BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest = null;
         Boolean forceRecalculate = null;
-        BulkAggregateQuestionResults200Response response = api.bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest)
+        BulkAggregateQuestionResultsResponse response = api.bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest)
                 .forceRecalculate(forceRecalculate)
                 .execute();
         // TODO: test validations
@@ -306,7 +310,7 @@ public class DefaultApiTest {
         String userId = null;
         String id = null;
         ChangeTicketStateBody changeTicketStateBody = null;
-        ChangeTicketState200Response response = api.changeTicketState(tenantId, userId, id, changeTicketStateBody)
+        ChangeTicketStateResponse response = api.changeTicketState(tenantId, userId, id, changeTicketStateBody)
                 .execute();
         // TODO: test validations
     }
@@ -325,7 +329,7 @@ public class DefaultApiTest {
         Double minValue = null;
         Double maxValue = null;
         Double limit = null;
-        CombineCommentsWithQuestionResults200Response response = api.combineCommentsWithQuestionResults(tenantId)
+        CombineQuestionResultsWithCommentsResponse response = api.combineCommentsWithQuestionResults(tenantId)
                 .questionId(questionId)
                 .questionIds(questionIds)
                 .urlId(urlId)
@@ -345,7 +349,7 @@ public class DefaultApiTest {
     public void createEmailTemplateTest() throws ApiException {
         String tenantId = null;
         CreateEmailTemplateBody createEmailTemplateBody = null;
-        CreateEmailTemplate200Response response = api.createEmailTemplate(tenantId, createEmailTemplateBody)
+        CreateEmailTemplateResponse response = api.createEmailTemplate(tenantId, createEmailTemplateBody)
                 .execute();
         // TODO: test validations
     }
@@ -361,7 +365,7 @@ public class DefaultApiTest {
         Boolean isLive = null;
         Boolean doSpamCheck = null;
         Boolean skipDupCheck = null;
-        CreateFeedPost200Response response = api.createFeedPost(tenantId, createFeedPostParams)
+        CreateFeedPostsResponse response = api.createFeedPost(tenantId, createFeedPostParams)
                 .broadcastId(broadcastId)
                 .isLive(isLive)
                 .doSpamCheck(doSpamCheck)
@@ -377,7 +381,7 @@ public class DefaultApiTest {
     public void createModeratorTest() throws ApiException {
         String tenantId = null;
         CreateModeratorBody createModeratorBody = null;
-        CreateModerator200Response response = api.createModerator(tenantId, createModeratorBody)
+        CreateModeratorResponse response = api.createModerator(tenantId, createModeratorBody)
                 .execute();
         // TODO: test validations
     }
@@ -389,7 +393,7 @@ public class DefaultApiTest {
     public void createQuestionConfigTest() throws ApiException {
         String tenantId = null;
         CreateQuestionConfigBody createQuestionConfigBody = null;
-        CreateQuestionConfig200Response response = api.createQuestionConfig(tenantId, createQuestionConfigBody)
+        CreateQuestionConfigResponse response = api.createQuestionConfig(tenantId, createQuestionConfigBody)
                 .execute();
         // TODO: test validations
     }
@@ -401,7 +405,7 @@ public class DefaultApiTest {
     public void createQuestionResultTest() throws ApiException {
         String tenantId = null;
         CreateQuestionResultBody createQuestionResultBody = null;
-        CreateQuestionResult200Response response = api.createQuestionResult(tenantId, createQuestionResultBody)
+        CreateQuestionResultResponse response = api.createQuestionResult(tenantId, createQuestionResultBody)
                 .execute();
         // TODO: test validations
     }
@@ -425,7 +429,7 @@ public class DefaultApiTest {
     public void createTenantTest() throws ApiException {
         String tenantId = null;
         CreateTenantBody createTenantBody = null;
-        CreateTenant200Response response = api.createTenant(tenantId, createTenantBody)
+        CreateTenantResponse response = api.createTenant(tenantId, createTenantBody)
                 .execute();
         // TODO: test validations
     }
@@ -437,7 +441,7 @@ public class DefaultApiTest {
     public void createTenantPackageTest() throws ApiException {
         String tenantId = null;
         CreateTenantPackageBody createTenantPackageBody = null;
-        CreateTenantPackage200Response response = api.createTenantPackage(tenantId, createTenantPackageBody)
+        CreateTenantPackageResponse response = api.createTenantPackage(tenantId, createTenantPackageBody)
                 .execute();
         // TODO: test validations
     }
@@ -449,7 +453,7 @@ public class DefaultApiTest {
     public void createTenantUserTest() throws ApiException {
         String tenantId = null;
         CreateTenantUserBody createTenantUserBody = null;
-        CreateTenantUser200Response response = api.createTenantUser(tenantId, createTenantUserBody)
+        CreateTenantUserResponse response = api.createTenantUser(tenantId, createTenantUserBody)
                 .execute();
         // TODO: test validations
     }
@@ -462,7 +466,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String userId = null;
         CreateTicketBody createTicketBody = null;
-        CreateTicket200Response response = api.createTicket(tenantId, userId, createTicketBody)
+        CreateTicketResponse response = api.createTicket(tenantId, userId, createTicketBody)
                 .execute();
         // TODO: test validations
     }
@@ -474,7 +478,7 @@ public class DefaultApiTest {
     public void createUserBadgeTest() throws ApiException {
         String tenantId = null;
         CreateUserBadgeParams createUserBadgeParams = null;
-        CreateUserBadge200Response response = api.createUserBadge(tenantId, createUserBadgeParams)
+        APICreateUserBadgeResponse response = api.createUserBadge(tenantId, createUserBadgeParams)
                 .execute();
         // TODO: test validations
     }
@@ -489,7 +493,7 @@ public class DefaultApiTest {
         String direction = null;
         String userId = null;
         String anonUserId = null;
-        VoteComment200Response response = api.createVote(tenantId, commentId, direction)
+        VoteResponse response = api.createVote(tenantId, commentId, direction)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -505,7 +509,7 @@ public class DefaultApiTest {
         String id = null;
         String contextUserId = null;
         Boolean isLive = null;
-        DeleteComment200Response response = api.deleteComment(tenantId, id)
+        DeleteCommentResult response = api.deleteComment(tenantId, id)
                 .contextUserId(contextUserId)
                 .isLive(isLive)
                 .execute();
@@ -519,7 +523,7 @@ public class DefaultApiTest {
     public void deleteDomainConfigTest() throws ApiException {
         String tenantId = null;
         String domain = null;
-        DeleteDomainConfig200Response response = api.deleteDomainConfig(tenantId, domain)
+        DeleteDomainConfigResponse response = api.deleteDomainConfig(tenantId, domain)
                 .execute();
         // TODO: test validations
     }
@@ -531,7 +535,7 @@ public class DefaultApiTest {
     public void deleteEmailTemplateTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        FlagCommentPublic200Response response = api.deleteEmailTemplate(tenantId, id)
+        APIEmptyResponse response = api.deleteEmailTemplate(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -544,7 +548,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String errorId = null;
-        FlagCommentPublic200Response response = api.deleteEmailTemplateRenderError(tenantId, id, errorId)
+        APIEmptyResponse response = api.deleteEmailTemplateRenderError(tenantId, id, errorId)
                 .execute();
         // TODO: test validations
     }
@@ -556,10 +560,10 @@ public class DefaultApiTest {
     public void deleteHashTagTest() throws ApiException {
         String tag = null;
         String tenantId = null;
-        DeleteHashTagRequest deleteHashTagRequest = null;
-        FlagCommentPublic200Response response = api.deleteHashTag(tag)
+        DeleteHashTagRequestBody deleteHashTagRequestBody = null;
+        APIEmptyResponse response = api.deleteHashTag(tag)
                 .tenantId(tenantId)
-                .deleteHashTagRequest(deleteHashTagRequest)
+                .deleteHashTagRequestBody(deleteHashTagRequestBody)
                 .execute();
         // TODO: test validations
     }
@@ -572,7 +576,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String sendEmail = null;
-        FlagCommentPublic200Response response = api.deleteModerator(tenantId, id)
+        APIEmptyResponse response = api.deleteModerator(tenantId, id)
                 .sendEmail(sendEmail)
                 .execute();
         // TODO: test validations
@@ -585,7 +589,7 @@ public class DefaultApiTest {
     public void deleteNotificationCountTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        FlagCommentPublic200Response response = api.deleteNotificationCount(tenantId, id)
+        APIEmptyResponse response = api.deleteNotificationCount(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -609,7 +613,7 @@ public class DefaultApiTest {
     public void deletePendingWebhookEventTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        FlagCommentPublic200Response response = api.deletePendingWebhookEvent(tenantId, id)
+        APIEmptyResponse response = api.deletePendingWebhookEvent(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -621,7 +625,7 @@ public class DefaultApiTest {
     public void deleteQuestionConfigTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        FlagCommentPublic200Response response = api.deleteQuestionConfig(tenantId, id)
+        APIEmptyResponse response = api.deleteQuestionConfig(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -633,7 +637,7 @@ public class DefaultApiTest {
     public void deleteQuestionResultTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        FlagCommentPublic200Response response = api.deleteQuestionResult(tenantId, id)
+        APIEmptyResponse response = api.deleteQuestionResult(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -676,7 +680,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String sure = null;
-        FlagCommentPublic200Response response = api.deleteTenant(tenantId, id)
+        APIEmptyResponse response = api.deleteTenant(tenantId, id)
                 .sure(sure)
                 .execute();
         // TODO: test validations
@@ -689,7 +693,7 @@ public class DefaultApiTest {
     public void deleteTenantPackageTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        FlagCommentPublic200Response response = api.deleteTenantPackage(tenantId, id)
+        APIEmptyResponse response = api.deleteTenantPackage(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -703,7 +707,7 @@ public class DefaultApiTest {
         String id = null;
         String deleteComments = null;
         String commentDeleteMode = null;
-        FlagCommentPublic200Response response = api.deleteTenantUser(tenantId, id)
+        APIEmptyResponse response = api.deleteTenantUser(tenantId, id)
                 .deleteComments(deleteComments)
                 .commentDeleteMode(commentDeleteMode)
                 .execute();
@@ -717,7 +721,7 @@ public class DefaultApiTest {
     public void deleteUserBadgeTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        UpdateUserBadge200Response response = api.deleteUserBadge(tenantId, id)
+        APIEmptySuccessResponse response = api.deleteUserBadge(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -730,7 +734,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String editKey = null;
-        DeleteCommentVote200Response response = api.deleteVote(tenantId, id)
+        VoteDeleteResponse response = api.deleteVote(tenantId, id)
                 .editKey(editKey)
                 .execute();
         // TODO: test validations
@@ -745,7 +749,7 @@ public class DefaultApiTest {
         String id = null;
         String userId = null;
         String anonUserId = null;
-        FlagComment200Response response = api.flagComment(tenantId, id)
+        FlagCommentResponse response = api.flagComment(tenantId, id)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -763,7 +767,7 @@ public class DefaultApiTest {
         SORTDIR order = null;
         Double after = null;
         Double before = null;
-        GetAuditLogs200Response response = api.getAuditLogs(tenantId)
+        GetAuditLogsResponse response = api.getAuditLogs(tenantId)
                 .limit(limit)
                 .skip(skip)
                 .order(order)
@@ -780,7 +784,7 @@ public class DefaultApiTest {
     public void getCachedNotificationCountTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetCachedNotificationCount200Response response = api.getCachedNotificationCount(tenantId, id)
+        GetCachedNotificationCountResponse response = api.getCachedNotificationCount(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -792,7 +796,7 @@ public class DefaultApiTest {
     public void getCommentTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetComment200Response response = api.getComment(tenantId, id)
+        APIGetCommentResponse response = api.getComment(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -817,7 +821,9 @@ public class DefaultApiTest {
         String hashTag = null;
         String parentId = null;
         SortDirections direction = null;
-        GetComments200Response response = api.getComments(tenantId)
+        Long fromDate = null;
+        Long toDate = null;
+        APIGetCommentsResponse response = api.getComments(tenantId)
                 .page(page)
                 .limit(limit)
                 .skip(skip)
@@ -832,6 +838,8 @@ public class DefaultApiTest {
                 .hashTag(hashTag)
                 .parentId(parentId)
                 .direction(direction)
+                .fromDate(fromDate)
+                .toDate(toDate)
                 .execute();
         // TODO: test validations
     }
@@ -843,7 +851,7 @@ public class DefaultApiTest {
     public void getDomainConfigTest() throws ApiException {
         String tenantId = null;
         String domain = null;
-        GetDomainConfig200Response response = api.getDomainConfig(tenantId, domain)
+        GetDomainConfigResponse response = api.getDomainConfig(tenantId, domain)
                 .execute();
         // TODO: test validations
     }
@@ -854,7 +862,7 @@ public class DefaultApiTest {
     @Test
     public void getDomainConfigsTest() throws ApiException {
         String tenantId = null;
-        GetDomainConfigs200Response response = api.getDomainConfigs(tenantId)
+        GetDomainConfigsResponse response = api.getDomainConfigs(tenantId)
                 .execute();
         // TODO: test validations
     }
@@ -866,7 +874,7 @@ public class DefaultApiTest {
     public void getEmailTemplateTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetEmailTemplate200Response response = api.getEmailTemplate(tenantId, id)
+        GetEmailTemplateResponse response = api.getEmailTemplate(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -877,7 +885,7 @@ public class DefaultApiTest {
     @Test
     public void getEmailTemplateDefinitionsTest() throws ApiException {
         String tenantId = null;
-        GetEmailTemplateDefinitions200Response response = api.getEmailTemplateDefinitions(tenantId)
+        GetEmailTemplateDefinitionsResponse response = api.getEmailTemplateDefinitions(tenantId)
                 .execute();
         // TODO: test validations
     }
@@ -890,7 +898,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         Double skip = null;
-        GetEmailTemplateRenderErrors200Response response = api.getEmailTemplateRenderErrors(tenantId, id)
+        GetEmailTemplateRenderErrorsResponse response = api.getEmailTemplateRenderErrors(tenantId, id)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -903,7 +911,7 @@ public class DefaultApiTest {
     public void getEmailTemplatesTest() throws ApiException {
         String tenantId = null;
         Double skip = null;
-        GetEmailTemplates200Response response = api.getEmailTemplates(tenantId)
+        GetEmailTemplatesResponse response = api.getEmailTemplates(tenantId)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -920,7 +928,7 @@ public class DefaultApiTest {
         String afterId = null;
         Integer limit = null;
         List<String> tags = null;
-        GetFeedPosts200Response response = api.getFeedPosts(tenantId)
+        GetFeedPostsResponse response = api.getFeedPosts(tenantId)
                 .afterId(afterId)
                 .limit(limit)
                 .tags(tags)
@@ -935,7 +943,7 @@ public class DefaultApiTest {
     public void getHashTagsTest() throws ApiException {
         String tenantId = null;
         Double page = null;
-        GetHashTags200Response response = api.getHashTags(tenantId)
+        GetHashTagsResponse response = api.getHashTags(tenantId)
                 .page(page)
                 .execute();
         // TODO: test validations
@@ -948,7 +956,7 @@ public class DefaultApiTest {
     public void getModeratorTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetModerator200Response response = api.getModerator(tenantId, id)
+        GetModeratorResponse response = api.getModerator(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -960,7 +968,7 @@ public class DefaultApiTest {
     public void getModeratorsTest() throws ApiException {
         String tenantId = null;
         Double skip = null;
-        GetModerators200Response response = api.getModerators(tenantId)
+        GetModeratorsResponse response = api.getModerators(tenantId)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -977,7 +985,7 @@ public class DefaultApiTest {
         String fromCommentId = null;
         Boolean viewed = null;
         String type = null;
-        GetNotificationCount200Response response = api.getNotificationCount(tenantId)
+        GetNotificationCountResponse response = api.getNotificationCount(tenantId)
                 .userId(userId)
                 .urlId(urlId)
                 .fromCommentId(fromCommentId)
@@ -999,7 +1007,7 @@ public class DefaultApiTest {
         Boolean viewed = null;
         String type = null;
         Double skip = null;
-        GetNotifications200Response response = api.getNotifications(tenantId)
+        GetNotificationsResponse response = api.getNotifications(tenantId)
                 .userId(userId)
                 .urlId(urlId)
                 .fromCommentId(fromCommentId)
@@ -1045,7 +1053,7 @@ public class DefaultApiTest {
         String type = null;
         String domain = null;
         Double attemptCountGT = null;
-        GetPendingWebhookEventCount200Response response = api.getPendingWebhookEventCount(tenantId)
+        GetPendingWebhookEventCountResponse response = api.getPendingWebhookEventCount(tenantId)
                 .commentId(commentId)
                 .externalId(externalId)
                 .eventType(eventType)
@@ -1069,7 +1077,7 @@ public class DefaultApiTest {
         String domain = null;
         Double attemptCountGT = null;
         Double skip = null;
-        GetPendingWebhookEvents200Response response = api.getPendingWebhookEvents(tenantId)
+        GetPendingWebhookEventsResponse response = api.getPendingWebhookEvents(tenantId)
                 .commentId(commentId)
                 .externalId(externalId)
                 .eventType(eventType)
@@ -1088,7 +1096,7 @@ public class DefaultApiTest {
     public void getQuestionConfigTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetQuestionConfig200Response response = api.getQuestionConfig(tenantId, id)
+        GetQuestionConfigResponse response = api.getQuestionConfig(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1100,7 +1108,7 @@ public class DefaultApiTest {
     public void getQuestionConfigsTest() throws ApiException {
         String tenantId = null;
         Double skip = null;
-        GetQuestionConfigs200Response response = api.getQuestionConfigs(tenantId)
+        GetQuestionConfigsResponse response = api.getQuestionConfigs(tenantId)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -1113,7 +1121,7 @@ public class DefaultApiTest {
     public void getQuestionResultTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetQuestionResult200Response response = api.getQuestionResult(tenantId, id)
+        GetQuestionResultResponse response = api.getQuestionResult(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1130,7 +1138,7 @@ public class DefaultApiTest {
         String questionId = null;
         String questionIds = null;
         Double skip = null;
-        GetQuestionResults200Response response = api.getQuestionResults(tenantId)
+        GetQuestionResultsResponse response = api.getQuestionResults(tenantId)
                 .urlId(urlId)
                 .userId(userId)
                 .startDate(startDate)
@@ -1172,7 +1180,7 @@ public class DefaultApiTest {
     public void getSSOUsersTest() throws ApiException {
         String tenantId = null;
         Integer skip = null;
-        GetSSOUsers200Response response = api.getSSOUsers(tenantId)
+        GetSSOUsersResponse response = api.getSSOUsers(tenantId)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -1198,7 +1206,7 @@ public class DefaultApiTest {
     public void getTenantTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetTenant200Response response = api.getTenant(tenantId, id)
+        GetTenantResponse response = api.getTenant(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1213,7 +1221,7 @@ public class DefaultApiTest {
         Double monthNumber = null;
         Double dayNumber = null;
         Double skip = null;
-        GetTenantDailyUsages200Response response = api.getTenantDailyUsages(tenantId)
+        GetTenantDailyUsagesResponse response = api.getTenantDailyUsages(tenantId)
                 .yearNumber(yearNumber)
                 .monthNumber(monthNumber)
                 .dayNumber(dayNumber)
@@ -1229,7 +1237,7 @@ public class DefaultApiTest {
     public void getTenantPackageTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetTenantPackage200Response response = api.getTenantPackage(tenantId, id)
+        GetTenantPackageResponse response = api.getTenantPackage(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1241,7 +1249,7 @@ public class DefaultApiTest {
     public void getTenantPackagesTest() throws ApiException {
         String tenantId = null;
         Double skip = null;
-        GetTenantPackages200Response response = api.getTenantPackages(tenantId)
+        GetTenantPackagesResponse response = api.getTenantPackages(tenantId)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -1254,7 +1262,7 @@ public class DefaultApiTest {
     public void getTenantUserTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetTenantUser200Response response = api.getTenantUser(tenantId, id)
+        GetTenantUserResponse response = api.getTenantUser(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1266,7 +1274,7 @@ public class DefaultApiTest {
     public void getTenantUsersTest() throws ApiException {
         String tenantId = null;
         Double skip = null;
-        GetTenantUsers200Response response = api.getTenantUsers(tenantId)
+        GetTenantUsersResponse response = api.getTenantUsers(tenantId)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -1280,7 +1288,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String meta = null;
         Double skip = null;
-        GetTenants200Response response = api.getTenants(tenantId)
+        GetTenantsResponse response = api.getTenants(tenantId)
                 .meta(meta)
                 .skip(skip)
                 .execute();
@@ -1295,7 +1303,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String userId = null;
-        GetTicket200Response response = api.getTicket(tenantId, id)
+        GetTicketResponse response = api.getTicket(tenantId, id)
                 .userId(userId)
                 .execute();
         // TODO: test validations
@@ -1311,7 +1319,7 @@ public class DefaultApiTest {
         Double state = null;
         Double skip = null;
         Double limit = null;
-        GetTickets200Response response = api.getTickets(tenantId)
+        GetTicketsResponse response = api.getTickets(tenantId)
                 .userId(userId)
                 .state(state)
                 .skip(skip)
@@ -1327,7 +1335,7 @@ public class DefaultApiTest {
     public void getUserTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetUser200Response response = api.getUser(tenantId, id)
+        GetUserResponse response = api.getUser(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1339,7 +1347,7 @@ public class DefaultApiTest {
     public void getUserBadgeTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetUserBadge200Response response = api.getUserBadge(tenantId, id)
+        APIGetUserBadgeResponse response = api.getUserBadge(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1351,7 +1359,7 @@ public class DefaultApiTest {
     public void getUserBadgeProgressByIdTest() throws ApiException {
         String tenantId = null;
         String id = null;
-        GetUserBadgeProgressById200Response response = api.getUserBadgeProgressById(tenantId, id)
+        APIGetUserBadgeProgressResponse response = api.getUserBadgeProgressById(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -1363,7 +1371,7 @@ public class DefaultApiTest {
     public void getUserBadgeProgressByUserIdTest() throws ApiException {
         String tenantId = null;
         String userId = null;
-        GetUserBadgeProgressById200Response response = api.getUserBadgeProgressByUserId(tenantId, userId)
+        APIGetUserBadgeProgressResponse response = api.getUserBadgeProgressByUserId(tenantId, userId)
                 .execute();
         // TODO: test validations
     }
@@ -1377,7 +1385,7 @@ public class DefaultApiTest {
         String userId = null;
         Double limit = null;
         Double skip = null;
-        GetUserBadgeProgressList200Response response = api.getUserBadgeProgressList(tenantId)
+        APIGetUserBadgeProgressListResponse response = api.getUserBadgeProgressList(tenantId)
                 .userId(userId)
                 .limit(limit)
                 .skip(skip)
@@ -1397,7 +1405,7 @@ public class DefaultApiTest {
         Boolean displayedOnComments = null;
         Double limit = null;
         Double skip = null;
-        GetUserBadges200Response response = api.getUserBadges(tenantId)
+        APIGetUserBadgesResponse response = api.getUserBadges(tenantId)
                 .userId(userId)
                 .badgeId(badgeId)
                 .type(type)
@@ -1415,7 +1423,7 @@ public class DefaultApiTest {
     public void getVotesTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
-        GetVotes200Response response = api.getVotes(tenantId, urlId)
+        GetVotesResponse response = api.getVotes(tenantId, urlId)
                 .execute();
         // TODO: test validations
     }
@@ -1429,7 +1437,7 @@ public class DefaultApiTest {
         String urlId = null;
         String userId = null;
         String anonUserId = null;
-        GetVotesForUser200Response response = api.getVotesForUser(tenantId, urlId)
+        GetVotesForUserResponse response = api.getVotesForUser(tenantId, urlId)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -1444,7 +1452,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String domainToUpdate = null;
         PatchDomainConfigParams patchDomainConfigParams = null;
-        GetDomainConfig200Response response = api.patchDomainConfig(tenantId, domainToUpdate, patchDomainConfigParams)
+        PatchDomainConfigResponse response = api.patchDomainConfig(tenantId, domainToUpdate, patchDomainConfigParams)
                 .execute();
         // TODO: test validations
     }
@@ -1457,7 +1465,7 @@ public class DefaultApiTest {
         String tag = null;
         String tenantId = null;
         UpdateHashTagBody updateHashTagBody = null;
-        PatchHashTag200Response response = api.patchHashTag(tag)
+        UpdateHashTagResponse response = api.patchHashTag(tag)
                 .tenantId(tenantId)
                 .updateHashTagBody(updateHashTagBody)
                 .execute();
@@ -1500,7 +1508,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String domainToUpdate = null;
         UpdateDomainConfigParams updateDomainConfigParams = null;
-        GetDomainConfig200Response response = api.putDomainConfig(tenantId, domainToUpdate, updateDomainConfigParams)
+        PutDomainConfigResponse response = api.putDomainConfig(tenantId, domainToUpdate, updateDomainConfigParams)
                 .execute();
         // TODO: test validations
     }
@@ -1528,7 +1536,7 @@ public class DefaultApiTest {
         String tenantId = null;
         RenderEmailTemplateBody renderEmailTemplateBody = null;
         String locale = null;
-        RenderEmailTemplate200Response response = api.renderEmailTemplate(tenantId, renderEmailTemplateBody)
+        RenderEmailTemplateResponse response = api.renderEmailTemplate(tenantId, renderEmailTemplateBody)
                 .locale(locale)
                 .execute();
         // TODO: test validations
@@ -1542,7 +1550,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         ReplaceTenantPackageBody replaceTenantPackageBody = null;
-        FlagCommentPublic200Response response = api.replaceTenantPackage(tenantId, id, replaceTenantPackageBody)
+        APIEmptyResponse response = api.replaceTenantPackage(tenantId, id, replaceTenantPackageBody)
                 .execute();
         // TODO: test validations
     }
@@ -1556,7 +1564,7 @@ public class DefaultApiTest {
         String id = null;
         ReplaceTenantUserBody replaceTenantUserBody = null;
         String updateComments = null;
-        FlagCommentPublic200Response response = api.replaceTenantUser(tenantId, id, replaceTenantUserBody)
+        APIEmptyResponse response = api.replaceTenantUser(tenantId, id, replaceTenantUserBody)
                 .updateComments(updateComments)
                 .execute();
         // TODO: test validations
@@ -1573,7 +1581,7 @@ public class DefaultApiTest {
         Boolean doSpamCheck = null;
         Boolean sendEmails = null;
         Boolean populateNotifications = null;
-        SaveComment200Response response = api.saveComment(tenantId, createCommentParams)
+        APISaveCommentResponse response = api.saveComment(tenantId, createCommentParams)
                 .isLive(isLive)
                 .doSpamCheck(doSpamCheck)
                 .sendEmails(sendEmails)
@@ -1593,7 +1601,7 @@ public class DefaultApiTest {
         Boolean doSpamCheck = null;
         Boolean sendEmails = null;
         Boolean populateNotifications = null;
-        List<SaveComment200Response> response = api.saveCommentsBulk(tenantId, createCommentParams)
+        List<SaveCommentsBulkResponse> response = api.saveCommentsBulk(tenantId, createCommentParams)
                 .isLive(isLive)
                 .doSpamCheck(doSpamCheck)
                 .sendEmails(sendEmails)
@@ -1610,7 +1618,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String fromName = null;
-        FlagCommentPublic200Response response = api.sendInvite(tenantId, id, fromName)
+        APIEmptyResponse response = api.sendInvite(tenantId, id, fromName)
                 .execute();
         // TODO: test validations
     }
@@ -1623,7 +1631,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         String redirectURL = null;
-        FlagCommentPublic200Response response = api.sendLoginLink(tenantId, id)
+        APIEmptyResponse response = api.sendLoginLink(tenantId, id)
                 .redirectURL(redirectURL)
                 .execute();
         // TODO: test validations
@@ -1639,7 +1647,7 @@ public class DefaultApiTest {
         UnBlockFromCommentParams unBlockFromCommentParams = null;
         String userId = null;
         String anonUserId = null;
-        UnBlockCommentPublic200Response response = api.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
+        UnblockSuccess response = api.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -1655,7 +1663,7 @@ public class DefaultApiTest {
         String id = null;
         String userId = null;
         String anonUserId = null;
-        FlagComment200Response response = api.unFlagComment(tenantId, id)
+        FlagCommentResponse response = api.unFlagComment(tenantId, id)
                 .userId(userId)
                 .anonUserId(anonUserId)
                 .execute();
@@ -1673,7 +1681,7 @@ public class DefaultApiTest {
         String contextUserId = null;
         Boolean doSpamCheck = null;
         Boolean isLive = null;
-        FlagCommentPublic200Response response = api.updateComment(tenantId, id, updatableCommentParams)
+        APIEmptyResponse response = api.updateComment(tenantId, id, updatableCommentParams)
                 .contextUserId(contextUserId)
                 .doSpamCheck(doSpamCheck)
                 .isLive(isLive)
@@ -1689,7 +1697,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         UpdateEmailTemplateBody updateEmailTemplateBody = null;
-        FlagCommentPublic200Response response = api.updateEmailTemplate(tenantId, id, updateEmailTemplateBody)
+        APIEmptyResponse response = api.updateEmailTemplate(tenantId, id, updateEmailTemplateBody)
                 .execute();
         // TODO: test validations
     }
@@ -1702,7 +1710,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         FeedPost feedPost = null;
-        FlagCommentPublic200Response response = api.updateFeedPost(tenantId, id, feedPost)
+        APIEmptyResponse response = api.updateFeedPost(tenantId, id, feedPost)
                 .execute();
         // TODO: test validations
     }
@@ -1715,7 +1723,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         UpdateModeratorBody updateModeratorBody = null;
-        FlagCommentPublic200Response response = api.updateModerator(tenantId, id, updateModeratorBody)
+        APIEmptyResponse response = api.updateModerator(tenantId, id, updateModeratorBody)
                 .execute();
         // TODO: test validations
     }
@@ -1729,7 +1737,7 @@ public class DefaultApiTest {
         String id = null;
         UpdateNotificationBody updateNotificationBody = null;
         String userId = null;
-        FlagCommentPublic200Response response = api.updateNotification(tenantId, id, updateNotificationBody)
+        APIEmptyResponse response = api.updateNotification(tenantId, id, updateNotificationBody)
                 .userId(userId)
                 .execute();
         // TODO: test validations
@@ -1743,7 +1751,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         UpdateQuestionConfigBody updateQuestionConfigBody = null;
-        FlagCommentPublic200Response response = api.updateQuestionConfig(tenantId, id, updateQuestionConfigBody)
+        APIEmptyResponse response = api.updateQuestionConfig(tenantId, id, updateQuestionConfigBody)
                 .execute();
         // TODO: test validations
     }
@@ -1756,7 +1764,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         UpdateQuestionResultBody updateQuestionResultBody = null;
-        FlagCommentPublic200Response response = api.updateQuestionResult(tenantId, id, updateQuestionResultBody)
+        APIEmptyResponse response = api.updateQuestionResult(tenantId, id, updateQuestionResultBody)
                 .execute();
         // TODO: test validations
     }
@@ -1784,7 +1792,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         UpdateTenantBody updateTenantBody = null;
-        FlagCommentPublic200Response response = api.updateTenant(tenantId, id, updateTenantBody)
+        APIEmptyResponse response = api.updateTenant(tenantId, id, updateTenantBody)
                 .execute();
         // TODO: test validations
     }
@@ -1797,7 +1805,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         UpdateTenantPackageBody updateTenantPackageBody = null;
-        FlagCommentPublic200Response response = api.updateTenantPackage(tenantId, id, updateTenantPackageBody)
+        APIEmptyResponse response = api.updateTenantPackage(tenantId, id, updateTenantPackageBody)
                 .execute();
         // TODO: test validations
     }
@@ -1811,7 +1819,7 @@ public class DefaultApiTest {
         String id = null;
         UpdateTenantUserBody updateTenantUserBody = null;
         String updateComments = null;
-        FlagCommentPublic200Response response = api.updateTenantUser(tenantId, id, updateTenantUserBody)
+        APIEmptyResponse response = api.updateTenantUser(tenantId, id, updateTenantUserBody)
                 .updateComments(updateComments)
                 .execute();
         // TODO: test validations
@@ -1825,7 +1833,7 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         UpdateUserBadgeParams updateUserBadgeParams = null;
-        UpdateUserBadge200Response response = api.updateUserBadge(tenantId, id, updateUserBadgeParams)
+        APIEmptySuccessResponse response = api.updateUserBadge(tenantId, id, updateUserBadgeParams)
                 .execute();
         // TODO: test validations
     }

@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * FeedPostMediaItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class FeedPostMediaItem {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -172,10 +172,7 @@ public class FeedPostMediaItem {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -224,16 +221,16 @@ public class FeedPostMediaItem {
       if ((jsonObj.get("linkUrl") != null && !jsonObj.get("linkUrl").isJsonNull()) && !jsonObj.get("linkUrl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `linkUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("linkUrl").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("sizes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sizes` to be an array in the JSON string but got `%s`", jsonObj.get("sizes").toString()));
+      if (jsonObj.get("sizes") != null) {
+        if (!jsonObj.get("sizes").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sizes` to be an array in the JSON string but got `%s`", jsonObj.get("sizes").toString()));
+        }
+        JsonArray jsonArraysizes = jsonObj.getAsJsonArray("sizes");
+        // validate the required field `sizes` (array)
+        for (int i = 0; i < jsonArraysizes.size(); i++) {
+          FeedPostMediaItemAsset.validateJsonElement(jsonArraysizes.get(i));
+        }
       }
-
-      JsonArray jsonArraysizes = jsonObj.getAsJsonArray("sizes");
-      // validate the required field `sizes` (array)
-      for (int i = 0; i < jsonArraysizes.size(); i++) {
-        FeedPostMediaItemAsset.validateJsonElement(jsonArraysizes.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

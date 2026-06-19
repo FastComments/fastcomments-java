@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * BulkCreateHashTagsBody
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class BulkCreateHashTagsBody {
   public static final String SERIALIZED_NAME_TENANT_ID = "tenantId";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -146,10 +146,7 @@ public class BulkCreateHashTagsBody {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -195,16 +192,16 @@ public class BulkCreateHashTagsBody {
       if ((jsonObj.get("tenantId") != null && !jsonObj.get("tenantId").isJsonNull()) && !jsonObj.get("tenantId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenantId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenantId").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      if (jsonObj.get("tags") != null) {
+        if (!jsonObj.get("tags").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        }
+        JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
+        // validate the required field `tags` (array)
+        for (int i = 0; i < jsonArraytags.size(); i++) {
+          BulkCreateHashTagsBodyTagsInner.validateJsonElement(jsonArraytags.get(i));
+        }
       }
-
-      JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
-      // validate the required field `tags` (array)
-      for (int i = 0; i < jsonArraytags.size(); i++) {
-        BulkCreateHashTagsBodyTagsInner.validateJsonElement(jsonArraytags.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

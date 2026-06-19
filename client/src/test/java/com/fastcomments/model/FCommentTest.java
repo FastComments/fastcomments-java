@@ -621,4 +621,12 @@ public class FCommentTest {
         // TODO: test tosAcceptedAt
     }
 
+    /**
+     * Test the property 'botId'
+     */
+    @Test
+    public void botIdTest() {
+        // TODO: test botId
+    }
+
 }

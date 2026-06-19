@@ -51,7 +51,7 @@ import com.fastcomments.invoker.JSON;
 /**
  * BulkAggregateQuestionResultsRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class BulkAggregateQuestionResultsRequest {
   public static final String SERIALIZED_NAME_AGGREGATIONS = "aggregations";
   @SerializedName(SERIALIZED_NAME_AGGREGATIONS)
@@ -120,10 +120,7 @@ public class BulkAggregateQuestionResultsRequest {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -166,16 +163,16 @@ public class BulkAggregateQuestionResultsRequest {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("aggregations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aggregations` to be an array in the JSON string but got `%s`", jsonObj.get("aggregations").toString()));
+      if (jsonObj.get("aggregations") != null) {
+        if (!jsonObj.get("aggregations").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aggregations` to be an array in the JSON string but got `%s`", jsonObj.get("aggregations").toString()));
+        }
+        JsonArray jsonArrayaggregations = jsonObj.getAsJsonArray("aggregations");
+        // validate the required field `aggregations` (array)
+        for (int i = 0; i < jsonArrayaggregations.size(); i++) {
+          BulkAggregateQuestionItem.validateJsonElement(jsonArrayaggregations.get(i));
+        }
       }
-
-      JsonArray jsonArrayaggregations = jsonObj.getAsJsonArray("aggregations");
-      // validate the required field `aggregations` (array)
-      for (int i = 0; i < jsonArrayaggregations.size(); i++) {
-        BulkAggregateQuestionItem.validateJsonElement(jsonArrayaggregations.get(i));
-      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

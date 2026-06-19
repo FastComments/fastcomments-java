@@ -1,0 +1,35 @@
+name: CI
+
+# Runs on PRs and pushes to the default branch. We use `pull_request` (never
+# `pull_request_target`), so secrets are NOT exposed to pull requests from forks.
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      # Run the core module's tests from the repo root (multi-module settings.gradle) so the
+      # generated client builds as a dependency and the hand-written SSO unit + integration
+      # tests run. Running from inside core/ resolves to the wrong (client) project.
+      - name: Run tests
+        run: |
+          chmod +x core/gradlew
+          ./core/gradlew :core:test --no-daemon
+        env:
+          FASTCOMMENTS_API_KEY: ${{ secrets.FASTCOMMENTS_API_KEY }}
+          FASTCOMMENTS_TENANT_ID: ${{ secrets.FASTCOMMENTS_TENANT_ID }}
