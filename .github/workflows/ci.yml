@@ -23,13 +23,15 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      # Run the core module's tests from the repo root (multi-module settings.gradle) so the
-      # generated client builds as a dependency and the hand-written SSO unit + integration
-      # tests run. Running from inside core/ resolves to the wrong (client) project.
+      # Run from the repo root (multi-module settings.gradle) so the generated client builds
+      # as a dependency. :core:test runs the SSO unit + integration tests; :pubsub:compileJava
+      # compile-checks the hand-written pubsub module against the client API. The init script
+      # substitutes the published com.fastcomments:client/core for the LOCAL projects so API
+      # renames in client break the build here instead of only at publish time.
       - name: Run tests
         run: |
           chmod +x core/gradlew
-          ./core/gradlew :core:test --no-daemon
+          ./core/gradlew :core:test :pubsub:compileJava --init-script ci-local-client.gradle --no-daemon
         env:
           FASTCOMMENTS_API_KEY: ${{ secrets.FASTCOMMENTS_API_KEY }}
           FASTCOMMENTS_TENANT_ID: ${{ secrets.FASTCOMMENTS_TENANT_ID }}

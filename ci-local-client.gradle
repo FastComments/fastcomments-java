@@ -1,0 +1,11 @@
+// CI only: build the hand-written modules (core, pubsub) against the local
+// :client / :core projects instead of published Maven artifacts, so API changes
+// in the generated client are compile-checked against the hand-written code.
+allprojects {
+    configurations.all {
+        resolutionStrategy.dependencySubstitution {
+            substitute module('com.fastcomments:client') using project(':client')
+            substitute module('com.fastcomments:core') using project(':core')
+        }
+    }
+}
