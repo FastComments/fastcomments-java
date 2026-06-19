@@ -23,8 +23,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      # Run the core module's tests: this compiles the generated client (a dependency)
+      # and runs the hand-written SSO unit + integration tests, which are the real coverage.
       - name: Run tests
-        working-directory: client
+        working-directory: core
         run: |
           chmod +x gradlew
           ./gradlew test --no-daemon
+        env:
+          FASTCOMMENTS_API_KEY: ${{ secrets.FASTCOMMENTS_API_KEY }}
+          FASTCOMMENTS_TENANT_ID: ${{ secrets.FASTCOMMENTS_TENANT_ID }}
