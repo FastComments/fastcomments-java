@@ -336,12 +336,12 @@ public class LiveEventSubscriber {
 
             // Create API request
             PublicApi.APIgetEventLogRequest request =
-                    publicApi.getEventLog(tenantId, urlId, userIdWS, startTime, endTime);
+                    publicApi.getEventLog(tenantId, urlId, userIdWS, startTime).endTime(endTime);
 
             // Execute the request asynchronously
-            request.executeAsync(new ApiCallback<GetEventLog200Response>() {
+            request.executeAsync(new ApiCallback<GetEventLogResponse>() {
                 @Override
-                public void onSuccess(GetEventLog200Response response, int statusCode, Map<String, List<String>> responseHeaders) {
+                public void onSuccess(GetEventLogResponse response, int statusCode, Map<String, List<String>> responseHeaders) {
                     List<LiveEvent> parsedEvents = new ArrayList<>();
 
                     try {
@@ -351,30 +351,21 @@ public class LiveEventSubscriber {
                             return;
                         }
 
-                        if (response.getActualInstance() instanceof GetEventLogResponse) {
-                            GetEventLogResponse eventLogResponse =
-                                    ((GetEventLogResponse) response.getActualInstance());
+                        List<EventLogEntry> events = response.getEvents();
 
-                            List<EventLogEntry> events = eventLogResponse.getEvents();
-
-                            // Process the events if we have any
-                            if (events != null && !events.isEmpty()) {
-                                // Convert event entries to JSON objects
-                                for (EventLogEntry event : events) {
-                                    String data = event.getData();
-                                    if (data != null && !data.isEmpty()) {
-                                        try {
-                                            parsedEvents.add(gson.fromJson(data, LiveEvent.class));
-                                        } catch (Exception e) {
-                                            System.err.println("FastComments: Error parsing event data: " + e.getMessage());
-                                        }
+                        // Process the events if we have any
+                        if (events != null && !events.isEmpty()) {
+                            // Convert event entries to JSON objects
+                            for (EventLogEntry event : events) {
+                                String data = event.getData();
+                                if (data != null && !data.isEmpty()) {
+                                    try {
+                                        parsedEvents.add(gson.fromJson(data, LiveEvent.class));
+                                    } catch (Exception e) {
+                                        System.err.println("FastComments: Error parsing event data: " + e.getMessage());
                                     }
                                 }
                             }
-                        } else if (response.getActualInstance() instanceof APIError) {
-                            APIError error = (APIError) response.getActualInstance();
-                            System.err.println("FastComments: fetchEventLog API error: " +
-                                    error.getReason());
                         }
                     } catch (Exception e) {
                         System.err.println("FastComments: Error processing event log: " + e.getMessage());
