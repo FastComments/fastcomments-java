@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.fastcomments",
     name := "client",
-    version := "1.3.5",
+    version := "2.0.0",
     scalaVersion := "2.11.12",
     scalacOptions ++= Seq("-feature"),
     compile / javacOptions ++= Seq("-Xlint:deprecation"),
