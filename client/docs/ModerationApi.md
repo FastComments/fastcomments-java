@@ -52,7 +52,7 @@ All URIs are relative to *https://fastcomments.com*
 
 <a id="deleteModerationVote"></a>
 # **deleteModerationVote**
-> VoteDeleteResponse deleteModerationVote(commentId, voteId).sso(sso).execute();
+> DeleteModerationVoteResponse deleteModerationVote(commentId, voteId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -73,9 +73,13 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
     String voteId = "voteId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteDeleteResponse result = apiInstance.deleteModerationVote(commentId, voteId)
+      DeleteModerationVoteResponse result = apiInstance.deleteModerationVote(commentId, voteId)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -96,11 +100,13 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
 | **voteId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**VoteDeleteResponse**](VoteDeleteResponse.md)
+[**DeleteModerationVoteResponse**](DeleteModerationVoteResponse.md)
 
 ### Authorization
 
@@ -115,11 +121,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getApiComments"></a>
 # **getApiComments**
-> ModerationAPIGetCommentsResponse getApiComments().page(page).count(count).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).demo(demo).sso(sso).execute();
+> GetApiCommentsResponse getApiComments().page(page).count(count).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).demo(demo).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -146,9 +151,10 @@ public class Example {
     String searchFilters = "searchFilters_example"; // String | 
     String sorts = "sorts_example"; // String | 
     Boolean demo = true; // Boolean | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIGetCommentsResponse result = apiInstance.getApiComments()
+      GetApiCommentsResponse result = apiInstance.getApiComments()
             .page(page)
             .count(count)
             .textSearch(textSearch)
@@ -157,6 +163,7 @@ public class Example {
             .searchFilters(searchFilters)
             .sorts(sorts)
             .demo(demo)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -183,11 +190,12 @@ public class Example {
 | **searchFilters** | **String**|  | [optional] |
 | **sorts** | **String**|  | [optional] |
 | **demo** | **Boolean**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationAPIGetCommentsResponse**](ModerationAPIGetCommentsResponse.md)
+[**GetApiCommentsResponse**](GetApiCommentsResponse.md)
 
 ### Authorization
 
@@ -202,11 +210,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getApiExportStatus"></a>
 # **getApiExportStatus**
-> ModerationExportStatusResponse getApiExportStatus().batchJobId(batchJobId).sso(sso).execute();
+> GetApiExportStatusResponse getApiExportStatus().batchJobId(batchJobId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -226,10 +233,12 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String batchJobId = "batchJobId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationExportStatusResponse result = apiInstance.getApiExportStatus()
+      GetApiExportStatusResponse result = apiInstance.getApiExportStatus()
             .batchJobId(batchJobId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -249,11 +258,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **batchJobId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationExportStatusResponse**](ModerationExportStatusResponse.md)
+[**GetApiExportStatusResponse**](GetApiExportStatusResponse.md)
 
 ### Authorization
 
@@ -268,11 +278,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getApiIds"></a>
 # **getApiIds**
-> ModerationAPIGetCommentIdsResponse getApiIds().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).afterId(afterId).demo(demo).sso(sso).execute();
+> GetApiIdsResponse getApiIds().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).afterId(afterId).demo(demo).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -297,15 +306,17 @@ public class Example {
     String searchFilters = "searchFilters_example"; // String | 
     String afterId = "afterId_example"; // String | 
     Boolean demo = true; // Boolean | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIGetCommentIdsResponse result = apiInstance.getApiIds()
+      GetApiIdsResponse result = apiInstance.getApiIds()
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filters(filters)
             .searchFilters(searchFilters)
             .afterId(afterId)
             .demo(demo)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -330,11 +341,12 @@ public class Example {
 | **searchFilters** | **String**|  | [optional] |
 | **afterId** | **String**|  | [optional] |
 | **demo** | **Boolean**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationAPIGetCommentIdsResponse**](ModerationAPIGetCommentIdsResponse.md)
+[**GetApiIdsResponse**](GetApiIdsResponse.md)
 
 ### Authorization
 
@@ -349,11 +361,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getBanUsersFromComment"></a>
 # **getBanUsersFromComment**
-> GetBannedUsersFromCommentResponse getBanUsersFromComment(commentId).sso(sso).execute();
+> GetBanUsersFromCommentResponse getBanUsersFromComment(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -373,9 +384,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetBannedUsersFromCommentResponse result = apiInstance.getBanUsersFromComment(commentId)
+      GetBanUsersFromCommentResponse result = apiInstance.getBanUsersFromComment(commentId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -395,11 +408,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetBannedUsersFromCommentResponse**](GetBannedUsersFromCommentResponse.md)
+[**GetBanUsersFromCommentResponse**](GetBanUsersFromCommentResponse.md)
 
 ### Authorization
 
@@ -414,11 +428,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCommentBanStatus"></a>
 # **getCommentBanStatus**
-> GetCommentBanStatusResponse getCommentBanStatus(commentId).sso(sso).execute();
+> GetCommentBanStatusResponse1 getCommentBanStatus(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -438,9 +451,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentBanStatusResponse result = apiInstance.getCommentBanStatus(commentId)
+      GetCommentBanStatusResponse1 result = apiInstance.getCommentBanStatus(commentId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -460,11 +475,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetCommentBanStatusResponse**](GetCommentBanStatusResponse.md)
+[**GetCommentBanStatusResponse1**](GetCommentBanStatusResponse1.md)
 
 ### Authorization
 
@@ -479,11 +495,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCommentChildren"></a>
 # **getCommentChildren**
-> ModerationAPIChildCommentsResponse getCommentChildren(commentId).sso(sso).execute();
+> GetCommentChildrenResponse getCommentChildren(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -503,9 +518,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIChildCommentsResponse result = apiInstance.getCommentChildren(commentId)
+      GetCommentChildrenResponse result = apiInstance.getCommentChildren(commentId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -525,11 +542,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
+[**GetCommentChildrenResponse**](GetCommentChildrenResponse.md)
 
 ### Authorization
 
@@ -544,11 +562,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCount"></a>
 # **getCount**
-> ModerationAPICountCommentsResponse getCount().textSearch(textSearch).byIPFromComment(byIPFromComment).filter(filter).searchFilters(searchFilters).demo(demo).sso(sso).execute();
+> GetCountResponse getCount().textSearch(textSearch).byIPFromComment(byIPFromComment).filter(filter).searchFilters(searchFilters).demo(demo).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -572,14 +589,16 @@ public class Example {
     String filter = "filter_example"; // String | 
     String searchFilters = "searchFilters_example"; // String | 
     Boolean demo = true; // Boolean | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPICountCommentsResponse result = apiInstance.getCount()
+      GetCountResponse result = apiInstance.getCount()
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filter(filter)
             .searchFilters(searchFilters)
             .demo(demo)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -603,11 +622,12 @@ public class Example {
 | **filter** | **String**|  | [optional] |
 | **searchFilters** | **String**|  | [optional] |
 | **demo** | **Boolean**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationAPICountCommentsResponse**](ModerationAPICountCommentsResponse.md)
+[**GetCountResponse**](GetCountResponse.md)
 
 ### Authorization
 
@@ -622,11 +642,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCounts"></a>
 # **getCounts**
-> GetBannedUsersCountResponse getCounts().sso(sso).execute();
+> GetCountsResponse getCounts().tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -645,9 +664,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetBannedUsersCountResponse result = apiInstance.getCounts()
+      GetCountsResponse result = apiInstance.getCounts()
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -666,11 +687,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetBannedUsersCountResponse**](GetBannedUsersCountResponse.md)
+[**GetCountsResponse**](GetCountsResponse.md)
 
 ### Authorization
 
@@ -685,11 +707,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getLogs"></a>
 # **getLogs**
-> ModerationAPIGetLogsResponse getLogs(commentId).sso(sso).execute();
+> GetLogsResponse getLogs(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -709,9 +730,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIGetLogsResponse result = apiInstance.getLogs(commentId)
+      GetLogsResponse result = apiInstance.getLogs(commentId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -731,11 +754,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationAPIGetLogsResponse**](ModerationAPIGetLogsResponse.md)
+[**GetLogsResponse**](GetLogsResponse.md)
 
 ### Authorization
 
@@ -750,11 +774,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getManualBadges"></a>
 # **getManualBadges**
-> GetTenantManualBadgesResponse getManualBadges().sso(sso).execute();
+> GetManualBadgesResponse getManualBadges().tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -773,9 +796,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetTenantManualBadgesResponse result = apiInstance.getManualBadges()
+      GetManualBadgesResponse result = apiInstance.getManualBadges()
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -794,11 +819,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetTenantManualBadgesResponse**](GetTenantManualBadgesResponse.md)
+[**GetManualBadgesResponse**](GetManualBadgesResponse.md)
 
 ### Authorization
 
@@ -813,11 +839,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getManualBadgesForUser"></a>
 # **getManualBadgesForUser**
-> GetUserManualBadgesResponse getManualBadgesForUser().badgesUserId(badgesUserId).commentId(commentId).sso(sso).execute();
+> GetManualBadgesForUserResponse getManualBadgesForUser().badgesUserId(badgesUserId).commentId(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -838,11 +863,13 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String badgesUserId = "badgesUserId_example"; // String | 
     String commentId = "commentId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserManualBadgesResponse result = apiInstance.getManualBadgesForUser()
+      GetManualBadgesForUserResponse result = apiInstance.getManualBadgesForUser()
             .badgesUserId(badgesUserId)
             .commentId(commentId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -863,11 +890,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **badgesUserId** | **String**|  | [optional] |
 | **commentId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetUserManualBadgesResponse**](GetUserManualBadgesResponse.md)
+[**GetManualBadgesForUserResponse**](GetManualBadgesForUserResponse.md)
 
 ### Authorization
 
@@ -882,11 +910,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getModerationComment"></a>
 # **getModerationComment**
-> ModerationAPICommentResponse getModerationComment(commentId).includeEmail(includeEmail).includeIP(includeIP).sso(sso).execute();
+> GetModerationCommentResponse getModerationComment(commentId).includeEmail(includeEmail).includeIP(includeIP).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -908,11 +935,13 @@ public class Example {
     String commentId = "commentId_example"; // String | 
     Boolean includeEmail = true; // Boolean | 
     Boolean includeIP = true; // Boolean | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPICommentResponse result = apiInstance.getModerationComment(commentId)
+      GetModerationCommentResponse result = apiInstance.getModerationComment(commentId)
             .includeEmail(includeEmail)
             .includeIP(includeIP)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -934,11 +963,12 @@ public class Example {
 | **commentId** | **String**|  | |
 | **includeEmail** | **Boolean**|  | [optional] |
 | **includeIP** | **Boolean**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationAPICommentResponse**](ModerationAPICommentResponse.md)
+[**GetModerationCommentResponse**](GetModerationCommentResponse.md)
 
 ### Authorization
 
@@ -953,11 +983,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getModerationCommentText"></a>
 # **getModerationCommentText**
-> GetCommentTextResponse getModerationCommentText(commentId).sso(sso).execute();
+> GetModerationCommentTextResponse getModerationCommentText(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -977,9 +1006,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentTextResponse result = apiInstance.getModerationCommentText(commentId)
+      GetModerationCommentTextResponse result = apiInstance.getModerationCommentText(commentId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -999,11 +1030,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetCommentTextResponse**](GetCommentTextResponse.md)
+[**GetModerationCommentTextResponse**](GetModerationCommentTextResponse.md)
 
 ### Authorization
 
@@ -1018,11 +1050,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getPreBanSummary"></a>
 # **getPreBanSummary**
-> PreBanSummary getPreBanSummary(commentId).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).sso(sso).execute();
+> GetPreBanSummaryResponse getPreBanSummary(commentId).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1045,12 +1076,14 @@ public class Example {
     Boolean includeByUserIdAndEmail = true; // Boolean | 
     Boolean includeByIP = true; // Boolean | 
     Boolean includeByEmailDomain = true; // Boolean | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PreBanSummary result = apiInstance.getPreBanSummary(commentId)
+      GetPreBanSummaryResponse result = apiInstance.getPreBanSummary(commentId)
             .includeByUserIdAndEmail(includeByUserIdAndEmail)
             .includeByIP(includeByIP)
             .includeByEmailDomain(includeByEmailDomain)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1073,11 +1106,12 @@ public class Example {
 | **includeByUserIdAndEmail** | **Boolean**|  | [optional] |
 | **includeByIP** | **Boolean**|  | [optional] |
 | **includeByEmailDomain** | **Boolean**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**PreBanSummary**](PreBanSummary.md)
+[**GetPreBanSummaryResponse**](GetPreBanSummaryResponse.md)
 
 ### Authorization
 
@@ -1092,11 +1126,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getSearchCommentsSummary"></a>
 # **getSearchCommentsSummary**
-> ModerationCommentSearchResponse getSearchCommentsSummary().value(value).filters(filters).searchFilters(searchFilters).sso(sso).execute();
+> GetSearchCommentsSummaryResponse getSearchCommentsSummary().value(value).filters(filters).searchFilters(searchFilters).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1118,12 +1151,14 @@ public class Example {
     String value = "value_example"; // String | 
     String filters = "filters_example"; // String | 
     String searchFilters = "searchFilters_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationCommentSearchResponse result = apiInstance.getSearchCommentsSummary()
+      GetSearchCommentsSummaryResponse result = apiInstance.getSearchCommentsSummary()
             .value(value)
             .filters(filters)
             .searchFilters(searchFilters)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1145,11 +1180,12 @@ public class Example {
 | **value** | **String**|  | [optional] |
 | **filters** | **String**|  | [optional] |
 | **searchFilters** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationCommentSearchResponse**](ModerationCommentSearchResponse.md)
+[**GetSearchCommentsSummaryResponse**](GetSearchCommentsSummaryResponse.md)
 
 ### Authorization
 
@@ -1164,11 +1200,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getSearchPages"></a>
 # **getSearchPages**
-> ModerationPageSearchResponse getSearchPages().value(value).sso(sso).execute();
+> GetSearchPagesResponse getSearchPages().value(value).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1188,10 +1223,12 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String value = "value_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationPageSearchResponse result = apiInstance.getSearchPages()
+      GetSearchPagesResponse result = apiInstance.getSearchPages()
             .value(value)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1211,11 +1248,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **value** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationPageSearchResponse**](ModerationPageSearchResponse.md)
+[**GetSearchPagesResponse**](GetSearchPagesResponse.md)
 
 ### Authorization
 
@@ -1230,11 +1268,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getSearchSites"></a>
 # **getSearchSites**
-> ModerationSiteSearchResponse getSearchSites().value(value).sso(sso).execute();
+> GetSearchSitesResponse getSearchSites().value(value).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1254,10 +1291,12 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String value = "value_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationSiteSearchResponse result = apiInstance.getSearchSites()
+      GetSearchSitesResponse result = apiInstance.getSearchSites()
             .value(value)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1277,11 +1316,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **value** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationSiteSearchResponse**](ModerationSiteSearchResponse.md)
+[**GetSearchSitesResponse**](GetSearchSitesResponse.md)
 
 ### Authorization
 
@@ -1296,11 +1336,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getSearchSuggest"></a>
 # **getSearchSuggest**
-> ModerationSuggestResponse getSearchSuggest().textSearch(textSearch).sso(sso).execute();
+> GetSearchSuggestResponse getSearchSuggest().textSearch(textSearch).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1320,10 +1359,12 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String textSearch = "textSearch_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationSuggestResponse result = apiInstance.getSearchSuggest()
+      GetSearchSuggestResponse result = apiInstance.getSearchSuggest()
             .textSearch(textSearch)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1343,11 +1384,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **textSearch** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationSuggestResponse**](ModerationSuggestResponse.md)
+[**GetSearchSuggestResponse**](GetSearchSuggestResponse.md)
 
 ### Authorization
 
@@ -1362,11 +1404,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getSearchUsers"></a>
 # **getSearchUsers**
-> ModerationUserSearchResponse getSearchUsers().value(value).sso(sso).execute();
+> GetSearchUsersResponse getSearchUsers().value(value).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1386,10 +1427,12 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String value = "value_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationUserSearchResponse result = apiInstance.getSearchUsers()
+      GetSearchUsersResponse result = apiInstance.getSearchUsers()
             .value(value)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1409,11 +1452,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **value** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationUserSearchResponse**](ModerationUserSearchResponse.md)
+[**GetSearchUsersResponse**](GetSearchUsersResponse.md)
 
 ### Authorization
 
@@ -1428,11 +1472,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTrustFactor"></a>
 # **getTrustFactor**
-> GetUserTrustFactorResponse getTrustFactor().userId(userId).sso(sso).execute();
+> GetTrustFactorResponse getTrustFactor().userId(userId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1452,10 +1495,12 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String userId = "userId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserTrustFactorResponse result = apiInstance.getTrustFactor()
+      GetTrustFactorResponse result = apiInstance.getTrustFactor()
             .userId(userId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1475,11 +1520,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetUserTrustFactorResponse**](GetUserTrustFactorResponse.md)
+[**GetTrustFactorResponse**](GetTrustFactorResponse.md)
 
 ### Authorization
 
@@ -1494,11 +1540,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserBanPreference"></a>
 # **getUserBanPreference**
-> APIModerateGetUserBanPreferencesResponse getUserBanPreference().sso(sso).execute();
+> GetUserBanPreferenceResponse getUserBanPreference().tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1517,9 +1562,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIModerateGetUserBanPreferencesResponse result = apiInstance.getUserBanPreference()
+      GetUserBanPreferenceResponse result = apiInstance.getUserBanPreference()
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1538,11 +1585,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIModerateGetUserBanPreferencesResponse**](APIModerateGetUserBanPreferencesResponse.md)
+[**GetUserBanPreferenceResponse**](GetUserBanPreferenceResponse.md)
 
 ### Authorization
 
@@ -1557,11 +1605,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserInternalProfile"></a>
 # **getUserInternalProfile**
-> GetUserInternalProfileResponse getUserInternalProfile().commentId(commentId).sso(sso).execute();
+> GetUserInternalProfileResponse1 getUserInternalProfile().commentId(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1581,10 +1628,12 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserInternalProfileResponse result = apiInstance.getUserInternalProfile()
+      GetUserInternalProfileResponse1 result = apiInstance.getUserInternalProfile()
             .commentId(commentId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1604,11 +1653,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**GetUserInternalProfileResponse**](GetUserInternalProfileResponse.md)
+[**GetUserInternalProfileResponse1**](GetUserInternalProfileResponse1.md)
 
 ### Authorization
 
@@ -1623,11 +1673,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postAdjustCommentVotes"></a>
 # **postAdjustCommentVotes**
-> AdjustVotesResponse postAdjustCommentVotes(commentId, adjustCommentVotesParams).sso(sso).execute();
+> PostAdjustCommentVotesResponse postAdjustCommentVotes(commentId, adjustCommentVotesParams).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1648,9 +1697,13 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
     AdjustCommentVotesParams adjustCommentVotesParams = new AdjustCommentVotesParams(); // AdjustCommentVotesParams | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      AdjustVotesResponse result = apiInstance.postAdjustCommentVotes(commentId, adjustCommentVotesParams)
+      PostAdjustCommentVotesResponse result = apiInstance.postAdjustCommentVotes(commentId, adjustCommentVotesParams)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1671,11 +1724,13 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
 | **adjustCommentVotesParams** | [**AdjustCommentVotesParams**](AdjustCommentVotesParams.md)|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**AdjustVotesResponse**](AdjustVotesResponse.md)
+[**PostAdjustCommentVotesResponse**](PostAdjustCommentVotesResponse.md)
 
 ### Authorization
 
@@ -1690,11 +1745,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postApiExport"></a>
 # **postApiExport**
-> ModerationExportResponse postApiExport().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).sso(sso).execute();
+> PostApiExportResponse postApiExport().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1718,14 +1772,16 @@ public class Example {
     String filters = "filters_example"; // String | 
     String searchFilters = "searchFilters_example"; // String | 
     String sorts = "sorts_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationExportResponse result = apiInstance.postApiExport()
+      PostApiExportResponse result = apiInstance.postApiExport()
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filters(filters)
             .searchFilters(searchFilters)
             .sorts(sorts)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1749,11 +1805,12 @@ public class Example {
 | **filters** | **String**|  | [optional] |
 | **searchFilters** | **String**|  | [optional] |
 | **sorts** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationExportResponse**](ModerationExportResponse.md)
+[**PostApiExportResponse**](PostApiExportResponse.md)
 
 ### Authorization
 
@@ -1768,11 +1825,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postBanUserFromComment"></a>
 # **postBanUserFromComment**
-> BanUserFromCommentResult postBanUserFromComment(commentId).banEmail(banEmail).banEmailDomain(banEmailDomain).banIP(banIP).deleteAllUsersComments(deleteAllUsersComments).bannedUntil(bannedUntil).isShadowBan(isShadowBan).updateId(updateId).banReason(banReason).sso(sso).execute();
+> PostBanUserFromCommentResponse postBanUserFromComment(commentId).banEmail(banEmail).banEmailDomain(banEmailDomain).banIP(banIP).deleteAllUsersComments(deleteAllUsersComments).bannedUntil(bannedUntil).isShadowBan(isShadowBan).updateId(updateId).banReason(banReason).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1800,9 +1856,10 @@ public class Example {
     Boolean isShadowBan = true; // Boolean | 
     String updateId = "updateId_example"; // String | 
     String banReason = "banReason_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      BanUserFromCommentResult result = apiInstance.postBanUserFromComment(commentId)
+      PostBanUserFromCommentResponse result = apiInstance.postBanUserFromComment(commentId)
             .banEmail(banEmail)
             .banEmailDomain(banEmailDomain)
             .banIP(banIP)
@@ -1811,6 +1868,7 @@ public class Example {
             .isShadowBan(isShadowBan)
             .updateId(updateId)
             .banReason(banReason)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1838,11 +1896,12 @@ public class Example {
 | **isShadowBan** | **Boolean**|  | [optional] |
 | **updateId** | **String**|  | [optional] |
 | **banReason** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**BanUserFromCommentResult**](BanUserFromCommentResult.md)
+[**PostBanUserFromCommentResponse**](PostBanUserFromCommentResponse.md)
 
 ### Authorization
 
@@ -1857,11 +1916,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postBanUserUndo"></a>
 # **postBanUserUndo**
-> APIEmptyResponse postBanUserUndo(banUserUndoParams).sso(sso).execute();
+> PostBanUserUndoResponse postBanUserUndo(banUserUndoParams).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1881,9 +1939,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     BanUserUndoParams banUserUndoParams = new BanUserUndoParams(); // BanUserUndoParams | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postBanUserUndo(banUserUndoParams)
+      PostBanUserUndoResponse result = apiInstance.postBanUserUndo(banUserUndoParams)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1903,11 +1963,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **banUserUndoParams** | [**BanUserUndoParams**](BanUserUndoParams.md)|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PostBanUserUndoResponse**](PostBanUserUndoResponse.md)
 
 ### Authorization
 
@@ -1922,11 +1983,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postBulkPreBanSummary"></a>
 # **postBulkPreBanSummary**
-> BulkPreBanSummary postBulkPreBanSummary(bulkPreBanParams).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).sso(sso).execute();
+> PostBulkPreBanSummaryResponse postBulkPreBanSummary(bulkPreBanParams).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1949,12 +2009,14 @@ public class Example {
     Boolean includeByUserIdAndEmail = true; // Boolean | 
     Boolean includeByIP = true; // Boolean | 
     Boolean includeByEmailDomain = true; // Boolean | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      BulkPreBanSummary result = apiInstance.postBulkPreBanSummary(bulkPreBanParams)
+      PostBulkPreBanSummaryResponse result = apiInstance.postBulkPreBanSummary(bulkPreBanParams)
             .includeByUserIdAndEmail(includeByUserIdAndEmail)
             .includeByIP(includeByIP)
             .includeByEmailDomain(includeByEmailDomain)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1977,11 +2039,12 @@ public class Example {
 | **includeByUserIdAndEmail** | **Boolean**|  | [optional] |
 | **includeByIP** | **Boolean**|  | [optional] |
 | **includeByEmailDomain** | **Boolean**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**BulkPreBanSummary**](BulkPreBanSummary.md)
+[**PostBulkPreBanSummaryResponse**](PostBulkPreBanSummaryResponse.md)
 
 ### Authorization
 
@@ -1996,11 +2059,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postCommentsByIds"></a>
 # **postCommentsByIds**
-> ModerationAPIChildCommentsResponse postCommentsByIds(commentsByIdsParams).sso(sso).execute();
+> PostCommentsByIdsResponse postCommentsByIds(commentsByIdsParams).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2020,9 +2082,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     CommentsByIdsParams commentsByIdsParams = new CommentsByIdsParams(); // CommentsByIdsParams | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIChildCommentsResponse result = apiInstance.postCommentsByIds(commentsByIdsParams)
+      PostCommentsByIdsResponse result = apiInstance.postCommentsByIds(commentsByIdsParams)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2042,11 +2106,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentsByIdsParams** | [**CommentsByIdsParams**](CommentsByIdsParams.md)|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
+[**PostCommentsByIdsResponse**](PostCommentsByIdsResponse.md)
 
 ### Authorization
 
@@ -2061,11 +2126,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postFlagComment"></a>
 # **postFlagComment**
-> APIEmptyResponse postFlagComment(commentId).sso(sso).execute();
+> PostFlagCommentResponse postFlagComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2085,9 +2149,13 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postFlagComment(commentId)
+      PostFlagCommentResponse result = apiInstance.postFlagComment(commentId)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2107,11 +2175,13 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PostFlagCommentResponse**](PostFlagCommentResponse.md)
 
 ### Authorization
 
@@ -2126,11 +2196,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postRemoveComment"></a>
 # **postRemoveComment**
-> PostRemoveCommentResponse postRemoveComment(commentId).sso(sso).execute();
+> PostRemoveCommentResponse postRemoveComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2150,9 +2219,13 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
       PostRemoveCommentResponse result = apiInstance.postRemoveComment(commentId)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2172,6 +2245,8 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2191,11 +2266,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postRestoreDeletedComment"></a>
 # **postRestoreDeletedComment**
-> APIEmptyResponse postRestoreDeletedComment(commentId).sso(sso).execute();
+> PostRestoreDeletedCommentResponse postRestoreDeletedComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2215,9 +2289,13 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postRestoreDeletedComment(commentId)
+      PostRestoreDeletedCommentResponse result = apiInstance.postRestoreDeletedComment(commentId)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2237,11 +2315,13 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PostRestoreDeletedCommentResponse**](PostRestoreDeletedCommentResponse.md)
 
 ### Authorization
 
@@ -2256,11 +2336,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postSetCommentApprovalStatus"></a>
 # **postSetCommentApprovalStatus**
-> SetCommentApprovedResponse postSetCommentApprovalStatus(commentId).approved(approved).sso(sso).execute();
+> PostSetCommentApprovalStatusResponse postSetCommentApprovalStatus(commentId).approved(approved).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2281,10 +2360,14 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
     Boolean approved = true; // Boolean | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetCommentApprovedResponse result = apiInstance.postSetCommentApprovalStatus(commentId)
+      PostSetCommentApprovalStatusResponse result = apiInstance.postSetCommentApprovalStatus(commentId)
             .approved(approved)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2305,11 +2388,13 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
 | **approved** | **Boolean**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**SetCommentApprovedResponse**](SetCommentApprovedResponse.md)
+[**PostSetCommentApprovalStatusResponse**](PostSetCommentApprovalStatusResponse.md)
 
 ### Authorization
 
@@ -2324,11 +2409,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postSetCommentReviewStatus"></a>
 # **postSetCommentReviewStatus**
-> APIEmptyResponse postSetCommentReviewStatus(commentId).reviewed(reviewed).sso(sso).execute();
+> PostSetCommentReviewStatusResponse postSetCommentReviewStatus(commentId).reviewed(reviewed).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2349,10 +2433,14 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
     Boolean reviewed = true; // Boolean | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postSetCommentReviewStatus(commentId)
+      PostSetCommentReviewStatusResponse result = apiInstance.postSetCommentReviewStatus(commentId)
             .reviewed(reviewed)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2373,11 +2461,13 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
 | **reviewed** | **Boolean**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PostSetCommentReviewStatusResponse**](PostSetCommentReviewStatusResponse.md)
 
 ### Authorization
 
@@ -2392,11 +2482,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postSetCommentSpamStatus"></a>
 # **postSetCommentSpamStatus**
-> APIEmptyResponse postSetCommentSpamStatus(commentId).spam(spam).permNotSpam(permNotSpam).sso(sso).execute();
+> PostSetCommentSpamStatusResponse postSetCommentSpamStatus(commentId).spam(spam).permNotSpam(permNotSpam).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2418,11 +2507,15 @@ public class Example {
     String commentId = "commentId_example"; // String | 
     Boolean spam = true; // Boolean | 
     Boolean permNotSpam = true; // Boolean | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postSetCommentSpamStatus(commentId)
+      PostSetCommentSpamStatusResponse result = apiInstance.postSetCommentSpamStatus(commentId)
             .spam(spam)
             .permNotSpam(permNotSpam)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2444,11 +2537,13 @@ public class Example {
 | **commentId** | **String**|  | |
 | **spam** | **Boolean**|  | [optional] |
 | **permNotSpam** | **Boolean**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PostSetCommentSpamStatusResponse**](PostSetCommentSpamStatusResponse.md)
 
 ### Authorization
 
@@ -2463,11 +2558,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postSetCommentText"></a>
 # **postSetCommentText**
-> SetCommentTextResponse postSetCommentText(commentId, setCommentTextParams).sso(sso).execute();
+> PostSetCommentTextResponse postSetCommentText(commentId, setCommentTextParams).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2488,9 +2582,13 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
     SetCommentTextParams setCommentTextParams = new SetCommentTextParams(); // SetCommentTextParams | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetCommentTextResponse result = apiInstance.postSetCommentText(commentId, setCommentTextParams)
+      PostSetCommentTextResponse result = apiInstance.postSetCommentText(commentId, setCommentTextParams)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2511,11 +2609,13 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
 | **setCommentTextParams** | [**SetCommentTextParams**](SetCommentTextParams.md)|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**SetCommentTextResponse**](SetCommentTextResponse.md)
+[**PostSetCommentTextResponse**](PostSetCommentTextResponse.md)
 
 ### Authorization
 
@@ -2530,11 +2630,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postUnFlagComment"></a>
 # **postUnFlagComment**
-> APIEmptyResponse postUnFlagComment(commentId).sso(sso).execute();
+> PostUnFlagCommentResponse postUnFlagComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2554,9 +2653,13 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postUnFlagComment(commentId)
+      PostUnFlagCommentResponse result = apiInstance.postUnFlagComment(commentId)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2576,11 +2679,13 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PostUnFlagCommentResponse**](PostUnFlagCommentResponse.md)
 
 ### Authorization
 
@@ -2595,11 +2700,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="postVote"></a>
 # **postVote**
-> VoteResponse postVote(commentId).direction(direction).sso(sso).execute();
+> PostVoteResponse postVote(commentId).direction(direction).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2620,10 +2724,14 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String commentId = "commentId_example"; // String | 
     String direction = "direction_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteResponse result = apiInstance.postVote(commentId)
+      PostVoteResponse result = apiInstance.postVote(commentId)
             .direction(direction)
+            .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2644,11 +2752,13 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **commentId** | **String**|  | |
 | **direction** | **String**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**VoteResponse**](VoteResponse.md)
+[**PostVoteResponse**](PostVoteResponse.md)
 
 ### Authorization
 
@@ -2663,11 +2773,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="putAwardBadge"></a>
 # **putAwardBadge**
-> AwardUserBadgeResponse putAwardBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).sso(sso).execute();
+> PutAwardBadgeResponse putAwardBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2690,12 +2799,14 @@ public class Example {
     String userId = "userId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      AwardUserBadgeResponse result = apiInstance.putAwardBadge(badgeId)
+      PutAwardBadgeResponse result = apiInstance.putAwardBadge(badgeId)
             .userId(userId)
             .commentId(commentId)
             .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2718,11 +2829,12 @@ public class Example {
 | **userId** | **String**|  | [optional] |
 | **commentId** | **String**|  | [optional] |
 | **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**AwardUserBadgeResponse**](AwardUserBadgeResponse.md)
+[**PutAwardBadgeResponse**](PutAwardBadgeResponse.md)
 
 ### Authorization
 
@@ -2737,11 +2849,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="putCloseThread"></a>
 # **putCloseThread**
-> APIEmptyResponse putCloseThread(urlId).sso(sso).execute();
+> PutCloseThreadResponse putCloseThread(urlId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2761,9 +2872,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String urlId = "urlId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.putCloseThread(urlId)
+      PutCloseThreadResponse result = apiInstance.putCloseThread(urlId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2783,11 +2896,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **urlId** | **String**|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PutCloseThreadResponse**](PutCloseThreadResponse.md)
 
 ### Authorization
 
@@ -2802,11 +2916,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="putRemoveBadge"></a>
 # **putRemoveBadge**
-> RemoveUserBadgeResponse putRemoveBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).sso(sso).execute();
+> PutRemoveBadgeResponse putRemoveBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2829,12 +2942,14 @@ public class Example {
     String userId = "userId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String broadcastId = "broadcastId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      RemoveUserBadgeResponse result = apiInstance.putRemoveBadge(badgeId)
+      PutRemoveBadgeResponse result = apiInstance.putRemoveBadge(badgeId)
             .userId(userId)
             .commentId(commentId)
             .broadcastId(broadcastId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2857,11 +2972,12 @@ public class Example {
 | **userId** | **String**|  | [optional] |
 | **commentId** | **String**|  | [optional] |
 | **broadcastId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**RemoveUserBadgeResponse**](RemoveUserBadgeResponse.md)
+[**PutRemoveBadgeResponse**](PutRemoveBadgeResponse.md)
 
 ### Authorization
 
@@ -2876,11 +2992,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="putReopenThread"></a>
 # **putReopenThread**
-> APIEmptyResponse putReopenThread(urlId).sso(sso).execute();
+> PutReopenThreadResponse putReopenThread(urlId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2900,9 +3015,11 @@ public class Example {
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String urlId = "urlId_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.putReopenThread(urlId)
+      PutReopenThreadResponse result = apiInstance.putReopenThread(urlId)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2922,11 +3039,12 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **urlId** | **String**|  | |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**PutReopenThreadResponse**](PutReopenThreadResponse.md)
 
 ### Authorization
 
@@ -2941,11 +3059,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="setTrustFactor"></a>
 # **setTrustFactor**
-> SetUserTrustFactorResponse setTrustFactor().userId(userId).trustFactor(trustFactor).sso(sso).execute();
+> SetTrustFactorResponse setTrustFactor().userId(userId).trustFactor(trustFactor).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2966,11 +3083,13 @@ public class Example {
     ModerationApi apiInstance = new ModerationApi(defaultClient);
     String userId = "userId_example"; // String | 
     String trustFactor = "trustFactor_example"; // String | 
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetUserTrustFactorResponse result = apiInstance.setTrustFactor()
+      SetTrustFactorResponse result = apiInstance.setTrustFactor()
             .userId(userId)
             .trustFactor(trustFactor)
+            .tenantId(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2991,11 +3110,12 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **String**|  | [optional] |
 | **trustFactor** | **String**|  | [optional] |
+| **tenantId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**SetUserTrustFactorResponse**](SetUserTrustFactorResponse.md)
+[**SetTrustFactorResponse**](SetTrustFactorResponse.md)
 
 ### Authorization
 
@@ -3010,5 +3130,4 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 

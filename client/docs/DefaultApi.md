@@ -193,7 +193,7 @@ public class Example {
 
 <a id="addHashTag"></a>
 # **addHashTag**
-> CreateHashTagResponse addHashTag().tenantId(tenantId).createHashTagBody(createHashTagBody).execute();
+> AddHashTagResponse addHashTag().tenantId(tenantId).createHashTagBody(createHashTagBody).execute();
 
 
 
@@ -222,7 +222,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateHashTagBody createHashTagBody = new CreateHashTagBody(); // CreateHashTagBody | 
     try {
-      CreateHashTagResponse result = apiInstance.addHashTag()
+      AddHashTagResponse result = apiInstance.addHashTag()
             .tenantId(tenantId)
             .createHashTagBody(createHashTagBody)
             .execute();
@@ -247,7 +247,7 @@ public class Example {
 
 ### Return type
 
-[**CreateHashTagResponse**](CreateHashTagResponse.md)
+[**AddHashTagResponse**](AddHashTagResponse.md)
 
 ### Authorization
 
@@ -262,11 +262,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="addHashTagsBulk"></a>
 # **addHashTagsBulk**
-> BulkCreateHashTagsResponse addHashTagsBulk().tenantId(tenantId).bulkCreateHashTagsBody(bulkCreateHashTagsBody).execute();
+> AddHashTagsBulkResponse addHashTagsBulk().tenantId(tenantId).bulkCreateHashTagsBody(bulkCreateHashTagsBody).execute();
 
 
 
@@ -295,7 +294,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     BulkCreateHashTagsBody bulkCreateHashTagsBody = new BulkCreateHashTagsBody(); // BulkCreateHashTagsBody | 
     try {
-      BulkCreateHashTagsResponse result = apiInstance.addHashTagsBulk()
+      AddHashTagsBulkResponse result = apiInstance.addHashTagsBulk()
             .tenantId(tenantId)
             .bulkCreateHashTagsBody(bulkCreateHashTagsBody)
             .execute();
@@ -320,7 +319,7 @@ public class Example {
 
 ### Return type
 
-[**BulkCreateHashTagsResponse**](BulkCreateHashTagsResponse.md)
+[**AddHashTagsBulkResponse**](AddHashTagsBulkResponse.md)
 
 ### Authorization
 
@@ -335,7 +334,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="addPage"></a>
 # **addPage**
@@ -557,7 +555,7 @@ public class Example {
 
 <a id="aggregateQuestionResults"></a>
 # **aggregateQuestionResults**
-> AggregateQuestionResultsResponse aggregateQuestionResults(tenantId).questionId(questionId).questionIds(questionIds).urlId(urlId).timeBucket(timeBucket).startDate(startDate).forceRecalculate(forceRecalculate).execute();
+> AggregateQuestionResultsResponse1 aggregateQuestionResults(tenantId).questionId(questionId).questionIds(questionIds).urlId(urlId).timeBucket(timeBucket).startDate(startDate).forceRecalculate(forceRecalculate).execute();
 
 
 
@@ -591,7 +589,7 @@ public class Example {
     OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | 
     Boolean forceRecalculate = true; // Boolean | 
     try {
-      AggregateQuestionResultsResponse result = apiInstance.aggregateQuestionResults(tenantId)
+      AggregateQuestionResultsResponse1 result = apiInstance.aggregateQuestionResults(tenantId)
             .questionId(questionId)
             .questionIds(questionIds)
             .urlId(urlId)
@@ -625,7 +623,7 @@ public class Example {
 
 ### Return type
 
-[**AggregateQuestionResultsResponse**](AggregateQuestionResultsResponse.md)
+[**AggregateQuestionResultsResponse1**](AggregateQuestionResultsResponse1.md)
 
 ### Authorization
 
@@ -640,11 +638,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="blockUserFromComment"></a>
 # **blockUserFromComment**
-> BlockSuccess blockUserFromComment(tenantId, id, blockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
+> BlockUserFromCommentResponse blockUserFromComment(tenantId, id, blockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -676,7 +673,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      BlockSuccess result = apiInstance.blockUserFromComment(tenantId, id, blockFromCommentParams)
+      BlockUserFromCommentResponse result = apiInstance.blockUserFromComment(tenantId, id, blockFromCommentParams)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -704,7 +701,7 @@ public class Example {
 
 ### Return type
 
-[**BlockSuccess**](BlockSuccess.md)
+[**BlockUserFromCommentResponse**](BlockUserFromCommentResponse.md)
 
 ### Authorization
 
@@ -719,11 +716,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="bulkAggregateQuestionResults"></a>
 # **bulkAggregateQuestionResults**
-> BulkAggregateQuestionResultsResponse bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest).forceRecalculate(forceRecalculate).execute();
+> BulkAggregateQuestionResultsResponse1 bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest).forceRecalculate(forceRecalculate).execute();
 
 
 
@@ -753,7 +749,7 @@ public class Example {
     BulkAggregateQuestionResultsRequest bulkAggregateQuestionResultsRequest = new BulkAggregateQuestionResultsRequest(); // BulkAggregateQuestionResultsRequest | 
     Boolean forceRecalculate = true; // Boolean | 
     try {
-      BulkAggregateQuestionResultsResponse result = apiInstance.bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest)
+      BulkAggregateQuestionResultsResponse1 result = apiInstance.bulkAggregateQuestionResults(tenantId, bulkAggregateQuestionResultsRequest)
             .forceRecalculate(forceRecalculate)
             .execute();
       System.out.println(result);
@@ -778,7 +774,7 @@ public class Example {
 
 ### Return type
 
-[**BulkAggregateQuestionResultsResponse**](BulkAggregateQuestionResultsResponse.md)
+[**BulkAggregateQuestionResultsResponse1**](BulkAggregateQuestionResultsResponse1.md)
 
 ### Authorization
 
@@ -793,11 +789,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="changeTicketState"></a>
 # **changeTicketState**
-> ChangeTicketStateResponse changeTicketState(tenantId, userId, id, changeTicketStateBody).execute();
+> ChangeTicketStateResponse1 changeTicketState(tenantId, userId, id, changeTicketStateBody).execute();
 
 
 
@@ -828,7 +823,7 @@ public class Example {
     String id = "id_example"; // String | 
     ChangeTicketStateBody changeTicketStateBody = new ChangeTicketStateBody(); // ChangeTicketStateBody | 
     try {
-      ChangeTicketStateResponse result = apiInstance.changeTicketState(tenantId, userId, id, changeTicketStateBody)
+      ChangeTicketStateResponse1 result = apiInstance.changeTicketState(tenantId, userId, id, changeTicketStateBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -853,7 +848,7 @@ public class Example {
 
 ### Return type
 
-[**ChangeTicketStateResponse**](ChangeTicketStateResponse.md)
+[**ChangeTicketStateResponse1**](ChangeTicketStateResponse1.md)
 
 ### Authorization
 
@@ -868,11 +863,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="combineCommentsWithQuestionResults"></a>
 # **combineCommentsWithQuestionResults**
-> CombineQuestionResultsWithCommentsResponse combineCommentsWithQuestionResults(tenantId).questionId(questionId).questionIds(questionIds).urlId(urlId).startDate(startDate).forceRecalculate(forceRecalculate).minValue(minValue).maxValue(maxValue).limit(limit).execute();
+> CombineCommentsWithQuestionResultsResponse combineCommentsWithQuestionResults(tenantId).questionId(questionId).questionIds(questionIds).urlId(urlId).startDate(startDate).forceRecalculate(forceRecalculate).minValue(minValue).maxValue(maxValue).limit(limit).execute();
 
 
 
@@ -908,7 +902,7 @@ public class Example {
     Double maxValue = 3.4D; // Double | 
     Double limit = 3.4D; // Double | 
     try {
-      CombineQuestionResultsWithCommentsResponse result = apiInstance.combineCommentsWithQuestionResults(tenantId)
+      CombineCommentsWithQuestionResultsResponse result = apiInstance.combineCommentsWithQuestionResults(tenantId)
             .questionId(questionId)
             .questionIds(questionIds)
             .urlId(urlId)
@@ -946,7 +940,7 @@ public class Example {
 
 ### Return type
 
-[**CombineQuestionResultsWithCommentsResponse**](CombineQuestionResultsWithCommentsResponse.md)
+[**CombineCommentsWithQuestionResultsResponse**](CombineCommentsWithQuestionResultsResponse.md)
 
 ### Authorization
 
@@ -961,11 +955,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createEmailTemplate"></a>
 # **createEmailTemplate**
-> CreateEmailTemplateResponse createEmailTemplate(tenantId, createEmailTemplateBody).execute();
+> CreateEmailTemplateResponse1 createEmailTemplate(tenantId, createEmailTemplateBody).execute();
 
 
 
@@ -994,7 +987,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateEmailTemplateBody createEmailTemplateBody = new CreateEmailTemplateBody(); // CreateEmailTemplateBody | 
     try {
-      CreateEmailTemplateResponse result = apiInstance.createEmailTemplate(tenantId, createEmailTemplateBody)
+      CreateEmailTemplateResponse1 result = apiInstance.createEmailTemplate(tenantId, createEmailTemplateBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1017,7 +1010,7 @@ public class Example {
 
 ### Return type
 
-[**CreateEmailTemplateResponse**](CreateEmailTemplateResponse.md)
+[**CreateEmailTemplateResponse1**](CreateEmailTemplateResponse1.md)
 
 ### Authorization
 
@@ -1032,11 +1025,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createFeedPost"></a>
 # **createFeedPost**
-> CreateFeedPostsResponse createFeedPost(tenantId, createFeedPostParams).broadcastId(broadcastId).isLive(isLive).doSpamCheck(doSpamCheck).skipDupCheck(skipDupCheck).execute();
+> CreateFeedPostResponse1 createFeedPost(tenantId, createFeedPostParams).broadcastId(broadcastId).isLive(isLive).doSpamCheck(doSpamCheck).skipDupCheck(skipDupCheck).execute();
 
 
 
@@ -1069,7 +1061,7 @@ public class Example {
     Boolean doSpamCheck = true; // Boolean | 
     Boolean skipDupCheck = true; // Boolean | 
     try {
-      CreateFeedPostsResponse result = apiInstance.createFeedPost(tenantId, createFeedPostParams)
+      CreateFeedPostResponse1 result = apiInstance.createFeedPost(tenantId, createFeedPostParams)
             .broadcastId(broadcastId)
             .isLive(isLive)
             .doSpamCheck(doSpamCheck)
@@ -1100,7 +1092,7 @@ public class Example {
 
 ### Return type
 
-[**CreateFeedPostsResponse**](CreateFeedPostsResponse.md)
+[**CreateFeedPostResponse1**](CreateFeedPostResponse1.md)
 
 ### Authorization
 
@@ -1115,11 +1107,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createModerator"></a>
 # **createModerator**
-> CreateModeratorResponse createModerator(tenantId, createModeratorBody).execute();
+> CreateModeratorResponse1 createModerator(tenantId, createModeratorBody).execute();
 
 
 
@@ -1148,7 +1139,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateModeratorBody createModeratorBody = new CreateModeratorBody(); // CreateModeratorBody | 
     try {
-      CreateModeratorResponse result = apiInstance.createModerator(tenantId, createModeratorBody)
+      CreateModeratorResponse1 result = apiInstance.createModerator(tenantId, createModeratorBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1171,7 +1162,7 @@ public class Example {
 
 ### Return type
 
-[**CreateModeratorResponse**](CreateModeratorResponse.md)
+[**CreateModeratorResponse1**](CreateModeratorResponse1.md)
 
 ### Authorization
 
@@ -1186,11 +1177,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createQuestionConfig"></a>
 # **createQuestionConfig**
-> CreateQuestionConfigResponse createQuestionConfig(tenantId, createQuestionConfigBody).execute();
+> CreateQuestionConfigResponse1 createQuestionConfig(tenantId, createQuestionConfigBody).execute();
 
 
 
@@ -1219,7 +1209,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateQuestionConfigBody createQuestionConfigBody = new CreateQuestionConfigBody(); // CreateQuestionConfigBody | 
     try {
-      CreateQuestionConfigResponse result = apiInstance.createQuestionConfig(tenantId, createQuestionConfigBody)
+      CreateQuestionConfigResponse1 result = apiInstance.createQuestionConfig(tenantId, createQuestionConfigBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1242,7 +1232,7 @@ public class Example {
 
 ### Return type
 
-[**CreateQuestionConfigResponse**](CreateQuestionConfigResponse.md)
+[**CreateQuestionConfigResponse1**](CreateQuestionConfigResponse1.md)
 
 ### Authorization
 
@@ -1257,11 +1247,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createQuestionResult"></a>
 # **createQuestionResult**
-> CreateQuestionResultResponse createQuestionResult(tenantId, createQuestionResultBody).execute();
+> CreateQuestionResultResponse1 createQuestionResult(tenantId, createQuestionResultBody).execute();
 
 
 
@@ -1290,7 +1279,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateQuestionResultBody createQuestionResultBody = new CreateQuestionResultBody(); // CreateQuestionResultBody | 
     try {
-      CreateQuestionResultResponse result = apiInstance.createQuestionResult(tenantId, createQuestionResultBody)
+      CreateQuestionResultResponse1 result = apiInstance.createQuestionResult(tenantId, createQuestionResultBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1313,7 +1302,7 @@ public class Example {
 
 ### Return type
 
-[**CreateQuestionResultResponse**](CreateQuestionResultResponse.md)
+[**CreateQuestionResultResponse1**](CreateQuestionResultResponse1.md)
 
 ### Authorization
 
@@ -1328,7 +1317,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createSubscription"></a>
 # **createSubscription**
@@ -1402,7 +1390,7 @@ public class Example {
 
 <a id="createTenant"></a>
 # **createTenant**
-> CreateTenantResponse createTenant(tenantId, createTenantBody).execute();
+> CreateTenantResponse1 createTenant(tenantId, createTenantBody).execute();
 
 
 
@@ -1431,7 +1419,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateTenantBody createTenantBody = new CreateTenantBody(); // CreateTenantBody | 
     try {
-      CreateTenantResponse result = apiInstance.createTenant(tenantId, createTenantBody)
+      CreateTenantResponse1 result = apiInstance.createTenant(tenantId, createTenantBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1454,7 +1442,7 @@ public class Example {
 
 ### Return type
 
-[**CreateTenantResponse**](CreateTenantResponse.md)
+[**CreateTenantResponse1**](CreateTenantResponse1.md)
 
 ### Authorization
 
@@ -1469,11 +1457,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createTenantPackage"></a>
 # **createTenantPackage**
-> CreateTenantPackageResponse createTenantPackage(tenantId, createTenantPackageBody).execute();
+> CreateTenantPackageResponse1 createTenantPackage(tenantId, createTenantPackageBody).execute();
 
 
 
@@ -1502,7 +1489,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateTenantPackageBody createTenantPackageBody = new CreateTenantPackageBody(); // CreateTenantPackageBody | 
     try {
-      CreateTenantPackageResponse result = apiInstance.createTenantPackage(tenantId, createTenantPackageBody)
+      CreateTenantPackageResponse1 result = apiInstance.createTenantPackage(tenantId, createTenantPackageBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1525,7 +1512,7 @@ public class Example {
 
 ### Return type
 
-[**CreateTenantPackageResponse**](CreateTenantPackageResponse.md)
+[**CreateTenantPackageResponse1**](CreateTenantPackageResponse1.md)
 
 ### Authorization
 
@@ -1540,11 +1527,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createTenantUser"></a>
 # **createTenantUser**
-> CreateTenantUserResponse createTenantUser(tenantId, createTenantUserBody).execute();
+> CreateTenantUserResponse1 createTenantUser(tenantId, createTenantUserBody).execute();
 
 
 
@@ -1573,7 +1559,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateTenantUserBody createTenantUserBody = new CreateTenantUserBody(); // CreateTenantUserBody | 
     try {
-      CreateTenantUserResponse result = apiInstance.createTenantUser(tenantId, createTenantUserBody)
+      CreateTenantUserResponse1 result = apiInstance.createTenantUser(tenantId, createTenantUserBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1596,7 +1582,7 @@ public class Example {
 
 ### Return type
 
-[**CreateTenantUserResponse**](CreateTenantUserResponse.md)
+[**CreateTenantUserResponse1**](CreateTenantUserResponse1.md)
 
 ### Authorization
 
@@ -1611,11 +1597,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createTicket"></a>
 # **createTicket**
-> CreateTicketResponse createTicket(tenantId, userId, createTicketBody).execute();
+> CreateTicketResponse1 createTicket(tenantId, userId, createTicketBody).execute();
 
 
 
@@ -1645,7 +1630,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     CreateTicketBody createTicketBody = new CreateTicketBody(); // CreateTicketBody | 
     try {
-      CreateTicketResponse result = apiInstance.createTicket(tenantId, userId, createTicketBody)
+      CreateTicketResponse1 result = apiInstance.createTicket(tenantId, userId, createTicketBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1669,7 +1654,7 @@ public class Example {
 
 ### Return type
 
-[**CreateTicketResponse**](CreateTicketResponse.md)
+[**CreateTicketResponse1**](CreateTicketResponse1.md)
 
 ### Authorization
 
@@ -1684,11 +1669,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createUserBadge"></a>
 # **createUserBadge**
-> APICreateUserBadgeResponse createUserBadge(tenantId, createUserBadgeParams).execute();
+> CreateUserBadgeResponse createUserBadge(tenantId, createUserBadgeParams).execute();
 
 
 
@@ -1717,7 +1701,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateUserBadgeParams createUserBadgeParams = new CreateUserBadgeParams(); // CreateUserBadgeParams | 
     try {
-      APICreateUserBadgeResponse result = apiInstance.createUserBadge(tenantId, createUserBadgeParams)
+      CreateUserBadgeResponse result = apiInstance.createUserBadge(tenantId, createUserBadgeParams)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1740,7 +1724,7 @@ public class Example {
 
 ### Return type
 
-[**APICreateUserBadgeResponse**](APICreateUserBadgeResponse.md)
+[**CreateUserBadgeResponse**](CreateUserBadgeResponse.md)
 
 ### Authorization
 
@@ -1755,11 +1739,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createVote"></a>
 # **createVote**
-> VoteResponse createVote(tenantId, commentId, direction).userId(userId).anonUserId(anonUserId).execute();
+> CreateVoteResponse createVote(tenantId, commentId, direction).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -1791,7 +1774,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      VoteResponse result = apiInstance.createVote(tenantId, commentId, direction)
+      CreateVoteResponse result = apiInstance.createVote(tenantId, commentId, direction)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -1819,7 +1802,7 @@ public class Example {
 
 ### Return type
 
-[**VoteResponse**](VoteResponse.md)
+[**CreateVoteResponse**](CreateVoteResponse.md)
 
 ### Authorization
 
@@ -1834,11 +1817,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteComment"></a>
 # **deleteComment**
-> DeleteCommentResult deleteComment(tenantId, id).contextUserId(contextUserId).isLive(isLive).execute();
+> DeleteCommentResponse deleteComment(tenantId, id).contextUserId(contextUserId).isLive(isLive).execute();
 
 
 
@@ -1869,7 +1851,7 @@ public class Example {
     String contextUserId = "contextUserId_example"; // String | 
     Boolean isLive = true; // Boolean | 
     try {
-      DeleteCommentResult result = apiInstance.deleteComment(tenantId, id)
+      DeleteCommentResponse result = apiInstance.deleteComment(tenantId, id)
             .contextUserId(contextUserId)
             .isLive(isLive)
             .execute();
@@ -1896,7 +1878,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteCommentResult**](DeleteCommentResult.md)
+[**DeleteCommentResponse**](DeleteCommentResponse.md)
 
 ### Authorization
 
@@ -1911,7 +1893,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteDomainConfig"></a>
 # **deleteDomainConfig**
@@ -1985,7 +1966,7 @@ public class Example {
 
 <a id="deleteEmailTemplate"></a>
 # **deleteEmailTemplate**
-> APIEmptyResponse deleteEmailTemplate(tenantId, id).execute();
+> DeleteEmailTemplateResponse deleteEmailTemplate(tenantId, id).execute();
 
 
 
@@ -2014,7 +1995,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteEmailTemplate(tenantId, id)
+      DeleteEmailTemplateResponse result = apiInstance.deleteEmailTemplate(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2037,7 +2018,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteEmailTemplateResponse**](DeleteEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -2052,11 +2033,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteEmailTemplateRenderError"></a>
 # **deleteEmailTemplateRenderError**
-> APIEmptyResponse deleteEmailTemplateRenderError(tenantId, id, errorId).execute();
+> DeleteEmailTemplateRenderErrorResponse deleteEmailTemplateRenderError(tenantId, id, errorId).execute();
 
 
 
@@ -2086,7 +2066,7 @@ public class Example {
     String id = "id_example"; // String | 
     String errorId = "errorId_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteEmailTemplateRenderError(tenantId, id, errorId)
+      DeleteEmailTemplateRenderErrorResponse result = apiInstance.deleteEmailTemplateRenderError(tenantId, id, errorId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2110,7 +2090,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteEmailTemplateRenderErrorResponse**](DeleteEmailTemplateRenderErrorResponse.md)
 
 ### Authorization
 
@@ -2125,11 +2105,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteHashTag"></a>
 # **deleteHashTag**
-> APIEmptyResponse deleteHashTag(tag).tenantId(tenantId).deleteHashTagRequestBody(deleteHashTagRequestBody).execute();
+> DeleteHashTagResponse deleteHashTag(tag).tenantId(tenantId).deleteHashTagRequestBody(deleteHashTagRequestBody).execute();
 
 
 
@@ -2159,7 +2138,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     DeleteHashTagRequestBody deleteHashTagRequestBody = new DeleteHashTagRequestBody(); // DeleteHashTagRequestBody | 
     try {
-      APIEmptyResponse result = apiInstance.deleteHashTag(tag)
+      DeleteHashTagResponse result = apiInstance.deleteHashTag(tag)
             .tenantId(tenantId)
             .deleteHashTagRequestBody(deleteHashTagRequestBody)
             .execute();
@@ -2185,7 +2164,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteHashTagResponse**](DeleteHashTagResponse.md)
 
 ### Authorization
 
@@ -2200,11 +2179,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteModerator"></a>
 # **deleteModerator**
-> APIEmptyResponse deleteModerator(tenantId, id).sendEmail(sendEmail).execute();
+> DeleteModeratorResponse deleteModerator(tenantId, id).sendEmail(sendEmail).execute();
 
 
 
@@ -2234,7 +2212,7 @@ public class Example {
     String id = "id_example"; // String | 
     String sendEmail = "sendEmail_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteModerator(tenantId, id)
+      DeleteModeratorResponse result = apiInstance.deleteModerator(tenantId, id)
             .sendEmail(sendEmail)
             .execute();
       System.out.println(result);
@@ -2259,7 +2237,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteModeratorResponse**](DeleteModeratorResponse.md)
 
 ### Authorization
 
@@ -2274,11 +2252,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteNotificationCount"></a>
 # **deleteNotificationCount**
-> APIEmptyResponse deleteNotificationCount(tenantId, id).execute();
+> DeleteNotificationCountResponse deleteNotificationCount(tenantId, id).execute();
 
 
 
@@ -2307,7 +2284,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteNotificationCount(tenantId, id)
+      DeleteNotificationCountResponse result = apiInstance.deleteNotificationCount(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2330,7 +2307,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteNotificationCountResponse**](DeleteNotificationCountResponse.md)
 
 ### Authorization
 
@@ -2345,7 +2322,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deletePage"></a>
 # **deletePage**
@@ -2419,7 +2395,7 @@ public class Example {
 
 <a id="deletePendingWebhookEvent"></a>
 # **deletePendingWebhookEvent**
-> APIEmptyResponse deletePendingWebhookEvent(tenantId, id).execute();
+> DeletePendingWebhookEventResponse deletePendingWebhookEvent(tenantId, id).execute();
 
 
 
@@ -2448,7 +2424,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deletePendingWebhookEvent(tenantId, id)
+      DeletePendingWebhookEventResponse result = apiInstance.deletePendingWebhookEvent(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2471,7 +2447,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeletePendingWebhookEventResponse**](DeletePendingWebhookEventResponse.md)
 
 ### Authorization
 
@@ -2486,11 +2462,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteQuestionConfig"></a>
 # **deleteQuestionConfig**
-> APIEmptyResponse deleteQuestionConfig(tenantId, id).execute();
+> DeleteQuestionConfigResponse deleteQuestionConfig(tenantId, id).execute();
 
 
 
@@ -2519,7 +2494,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteQuestionConfig(tenantId, id)
+      DeleteQuestionConfigResponse result = apiInstance.deleteQuestionConfig(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2542,7 +2517,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteQuestionConfigResponse**](DeleteQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -2557,11 +2532,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteQuestionResult"></a>
 # **deleteQuestionResult**
-> APIEmptyResponse deleteQuestionResult(tenantId, id).execute();
+> DeleteQuestionResultResponse deleteQuestionResult(tenantId, id).execute();
 
 
 
@@ -2590,7 +2564,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteQuestionResult(tenantId, id)
+      DeleteQuestionResultResponse result = apiInstance.deleteQuestionResult(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2613,7 +2587,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteQuestionResultResponse**](DeleteQuestionResultResponse.md)
 
 ### Authorization
 
@@ -2628,7 +2602,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteSSOUser"></a>
 # **deleteSSOUser**
@@ -2781,7 +2754,7 @@ public class Example {
 
 <a id="deleteTenant"></a>
 # **deleteTenant**
-> APIEmptyResponse deleteTenant(tenantId, id).sure(sure).execute();
+> DeleteTenantResponse deleteTenant(tenantId, id).sure(sure).execute();
 
 
 
@@ -2811,7 +2784,7 @@ public class Example {
     String id = "id_example"; // String | 
     String sure = "sure_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteTenant(tenantId, id)
+      DeleteTenantResponse result = apiInstance.deleteTenant(tenantId, id)
             .sure(sure)
             .execute();
       System.out.println(result);
@@ -2836,7 +2809,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteTenantResponse**](DeleteTenantResponse.md)
 
 ### Authorization
 
@@ -2851,11 +2824,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteTenantPackage"></a>
 # **deleteTenantPackage**
-> APIEmptyResponse deleteTenantPackage(tenantId, id).execute();
+> DeleteTenantPackageResponse deleteTenantPackage(tenantId, id).execute();
 
 
 
@@ -2884,7 +2856,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteTenantPackage(tenantId, id)
+      DeleteTenantPackageResponse result = apiInstance.deleteTenantPackage(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2907,7 +2879,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteTenantPackageResponse**](DeleteTenantPackageResponse.md)
 
 ### Authorization
 
@@ -2922,11 +2894,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteTenantUser"></a>
 # **deleteTenantUser**
-> APIEmptyResponse deleteTenantUser(tenantId, id).deleteComments(deleteComments).commentDeleteMode(commentDeleteMode).execute();
+> DeleteTenantUserResponse deleteTenantUser(tenantId, id).deleteComments(deleteComments).commentDeleteMode(commentDeleteMode).execute();
 
 
 
@@ -2957,7 +2928,7 @@ public class Example {
     String deleteComments = "deleteComments_example"; // String | 
     String commentDeleteMode = "commentDeleteMode_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.deleteTenantUser(tenantId, id)
+      DeleteTenantUserResponse result = apiInstance.deleteTenantUser(tenantId, id)
             .deleteComments(deleteComments)
             .commentDeleteMode(commentDeleteMode)
             .execute();
@@ -2984,7 +2955,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**DeleteTenantUserResponse**](DeleteTenantUserResponse.md)
 
 ### Authorization
 
@@ -2999,11 +2970,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteUserBadge"></a>
 # **deleteUserBadge**
-> APIEmptySuccessResponse deleteUserBadge(tenantId, id).execute();
+> DeleteUserBadgeResponse deleteUserBadge(tenantId, id).execute();
 
 
 
@@ -3032,7 +3002,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIEmptySuccessResponse result = apiInstance.deleteUserBadge(tenantId, id)
+      DeleteUserBadgeResponse result = apiInstance.deleteUserBadge(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -3055,7 +3025,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptySuccessResponse**](APIEmptySuccessResponse.md)
+[**DeleteUserBadgeResponse**](DeleteUserBadgeResponse.md)
 
 ### Authorization
 
@@ -3070,11 +3040,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteVote"></a>
 # **deleteVote**
-> VoteDeleteResponse deleteVote(tenantId, id).editKey(editKey).execute();
+> DeleteVoteResponse deleteVote(tenantId, id).editKey(editKey).execute();
 
 
 
@@ -3104,7 +3073,7 @@ public class Example {
     String id = "id_example"; // String | 
     String editKey = "editKey_example"; // String | 
     try {
-      VoteDeleteResponse result = apiInstance.deleteVote(tenantId, id)
+      DeleteVoteResponse result = apiInstance.deleteVote(tenantId, id)
             .editKey(editKey)
             .execute();
       System.out.println(result);
@@ -3129,7 +3098,7 @@ public class Example {
 
 ### Return type
 
-[**VoteDeleteResponse**](VoteDeleteResponse.md)
+[**DeleteVoteResponse**](DeleteVoteResponse.md)
 
 ### Authorization
 
@@ -3144,11 +3113,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="flagComment"></a>
 # **flagComment**
-> FlagCommentResponse flagComment(tenantId, id).userId(userId).anonUserId(anonUserId).execute();
+> FlagCommentResponse1 flagComment(tenantId, id).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -3179,7 +3147,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      FlagCommentResponse result = apiInstance.flagComment(tenantId, id)
+      FlagCommentResponse1 result = apiInstance.flagComment(tenantId, id)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -3206,7 +3174,7 @@ public class Example {
 
 ### Return type
 
-[**FlagCommentResponse**](FlagCommentResponse.md)
+[**FlagCommentResponse1**](FlagCommentResponse1.md)
 
 ### Authorization
 
@@ -3221,11 +3189,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getAuditLogs"></a>
 # **getAuditLogs**
-> GetAuditLogsResponse getAuditLogs(tenantId).limit(limit).skip(skip).order(order).after(after).before(before).execute();
+> GetAuditLogsResponse1 getAuditLogs(tenantId).limit(limit).skip(skip).order(order).after(after).before(before).execute();
 
 
 
@@ -3258,7 +3225,7 @@ public class Example {
     Double after = 3.4D; // Double | 
     Double before = 3.4D; // Double | 
     try {
-      GetAuditLogsResponse result = apiInstance.getAuditLogs(tenantId)
+      GetAuditLogsResponse1 result = apiInstance.getAuditLogs(tenantId)
             .limit(limit)
             .skip(skip)
             .order(order)
@@ -3290,7 +3257,7 @@ public class Example {
 
 ### Return type
 
-[**GetAuditLogsResponse**](GetAuditLogsResponse.md)
+[**GetAuditLogsResponse1**](GetAuditLogsResponse1.md)
 
 ### Authorization
 
@@ -3305,11 +3272,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCachedNotificationCount"></a>
 # **getCachedNotificationCount**
-> GetCachedNotificationCountResponse getCachedNotificationCount(tenantId, id).execute();
+> GetCachedNotificationCountResponse1 getCachedNotificationCount(tenantId, id).execute();
 
 
 
@@ -3338,7 +3304,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetCachedNotificationCountResponse result = apiInstance.getCachedNotificationCount(tenantId, id)
+      GetCachedNotificationCountResponse1 result = apiInstance.getCachedNotificationCount(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -3361,7 +3327,7 @@ public class Example {
 
 ### Return type
 
-[**GetCachedNotificationCountResponse**](GetCachedNotificationCountResponse.md)
+[**GetCachedNotificationCountResponse1**](GetCachedNotificationCountResponse1.md)
 
 ### Authorization
 
@@ -3376,11 +3342,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getComment"></a>
 # **getComment**
-> APIGetCommentResponse getComment(tenantId, id).execute();
+> GetCommentResponse getComment(tenantId, id).execute();
 
 
 
@@ -3409,7 +3374,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIGetCommentResponse result = apiInstance.getComment(tenantId, id)
+      GetCommentResponse result = apiInstance.getComment(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -3432,7 +3397,7 @@ public class Example {
 
 ### Return type
 
-[**APIGetCommentResponse**](APIGetCommentResponse.md)
+[**GetCommentResponse**](GetCommentResponse.md)
 
 ### Authorization
 
@@ -3447,11 +3412,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getComments"></a>
 # **getComments**
-> APIGetCommentsResponse getComments(tenantId).page(page).limit(limit).skip(skip).asTree(asTree).skipChildren(skipChildren).limitChildren(limitChildren).maxTreeDepth(maxTreeDepth).urlId(urlId).userId(userId).anonUserId(anonUserId).contextUserId(contextUserId).hashTag(hashTag).parentId(parentId).direction(direction).fromDate(fromDate).toDate(toDate).execute();
+> GetCommentsResponse getComments(tenantId).page(page).limit(limit).skip(skip).asTree(asTree).skipChildren(skipChildren).limitChildren(limitChildren).maxTreeDepth(maxTreeDepth).urlId(urlId).userId(userId).anonUserId(anonUserId).contextUserId(contextUserId).hashTag(hashTag).parentId(parentId).direction(direction).fromDate(fromDate).toDate(toDate).execute();
 
 
 
@@ -3495,7 +3459,7 @@ public class Example {
     Long fromDate = 56L; // Long | 
     Long toDate = 56L; // Long | 
     try {
-      APIGetCommentsResponse result = apiInstance.getComments(tenantId)
+      GetCommentsResponse result = apiInstance.getComments(tenantId)
             .page(page)
             .limit(limit)
             .skip(skip)
@@ -3549,7 +3513,7 @@ public class Example {
 
 ### Return type
 
-[**APIGetCommentsResponse**](APIGetCommentsResponse.md)
+[**GetCommentsResponse**](GetCommentsResponse.md)
 
 ### Authorization
 
@@ -3564,7 +3528,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getDomainConfig"></a>
 # **getDomainConfig**
@@ -3706,7 +3669,7 @@ public class Example {
 
 <a id="getEmailTemplate"></a>
 # **getEmailTemplate**
-> GetEmailTemplateResponse getEmailTemplate(tenantId, id).execute();
+> GetEmailTemplateResponse1 getEmailTemplate(tenantId, id).execute();
 
 
 
@@ -3735,7 +3698,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetEmailTemplateResponse result = apiInstance.getEmailTemplate(tenantId, id)
+      GetEmailTemplateResponse1 result = apiInstance.getEmailTemplate(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -3758,7 +3721,7 @@ public class Example {
 
 ### Return type
 
-[**GetEmailTemplateResponse**](GetEmailTemplateResponse.md)
+[**GetEmailTemplateResponse1**](GetEmailTemplateResponse1.md)
 
 ### Authorization
 
@@ -3773,11 +3736,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getEmailTemplateDefinitions"></a>
 # **getEmailTemplateDefinitions**
-> GetEmailTemplateDefinitionsResponse getEmailTemplateDefinitions(tenantId).execute();
+> GetEmailTemplateDefinitionsResponse1 getEmailTemplateDefinitions(tenantId).execute();
 
 
 
@@ -3805,7 +3767,7 @@ public class Example {
     DefaultApi apiInstance = new DefaultApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     try {
-      GetEmailTemplateDefinitionsResponse result = apiInstance.getEmailTemplateDefinitions(tenantId)
+      GetEmailTemplateDefinitionsResponse1 result = apiInstance.getEmailTemplateDefinitions(tenantId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -3827,7 +3789,7 @@ public class Example {
 
 ### Return type
 
-[**GetEmailTemplateDefinitionsResponse**](GetEmailTemplateDefinitionsResponse.md)
+[**GetEmailTemplateDefinitionsResponse1**](GetEmailTemplateDefinitionsResponse1.md)
 
 ### Authorization
 
@@ -3842,11 +3804,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getEmailTemplateRenderErrors"></a>
 # **getEmailTemplateRenderErrors**
-> GetEmailTemplateRenderErrorsResponse getEmailTemplateRenderErrors(tenantId, id).skip(skip).execute();
+> GetEmailTemplateRenderErrorsResponse1 getEmailTemplateRenderErrors(tenantId, id).skip(skip).execute();
 
 
 
@@ -3876,7 +3837,7 @@ public class Example {
     String id = "id_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetEmailTemplateRenderErrorsResponse result = apiInstance.getEmailTemplateRenderErrors(tenantId, id)
+      GetEmailTemplateRenderErrorsResponse1 result = apiInstance.getEmailTemplateRenderErrors(tenantId, id)
             .skip(skip)
             .execute();
       System.out.println(result);
@@ -3901,7 +3862,7 @@ public class Example {
 
 ### Return type
 
-[**GetEmailTemplateRenderErrorsResponse**](GetEmailTemplateRenderErrorsResponse.md)
+[**GetEmailTemplateRenderErrorsResponse1**](GetEmailTemplateRenderErrorsResponse1.md)
 
 ### Authorization
 
@@ -3916,11 +3877,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getEmailTemplates"></a>
 # **getEmailTemplates**
-> GetEmailTemplatesResponse getEmailTemplates(tenantId).skip(skip).execute();
+> GetEmailTemplatesResponse1 getEmailTemplates(tenantId).skip(skip).execute();
 
 
 
@@ -3949,7 +3909,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetEmailTemplatesResponse result = apiInstance.getEmailTemplates(tenantId)
+      GetEmailTemplatesResponse1 result = apiInstance.getEmailTemplates(tenantId)
             .skip(skip)
             .execute();
       System.out.println(result);
@@ -3973,7 +3933,7 @@ public class Example {
 
 ### Return type
 
-[**GetEmailTemplatesResponse**](GetEmailTemplatesResponse.md)
+[**GetEmailTemplatesResponse1**](GetEmailTemplatesResponse1.md)
 
 ### Authorization
 
@@ -3988,11 +3948,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getFeedPosts"></a>
 # **getFeedPosts**
-> GetFeedPostsResponse getFeedPosts(tenantId).afterId(afterId).limit(limit).tags(tags).execute();
+> GetFeedPostsResponse1 getFeedPosts(tenantId).afterId(afterId).limit(limit).tags(tags).execute();
 
 
 
@@ -4025,7 +3984,7 @@ public class Example {
     Integer limit = 56; // Integer | 
     List<String> tags = Arrays.asList(); // List<String> | 
     try {
-      GetFeedPostsResponse result = apiInstance.getFeedPosts(tenantId)
+      GetFeedPostsResponse1 result = apiInstance.getFeedPosts(tenantId)
             .afterId(afterId)
             .limit(limit)
             .tags(tags)
@@ -4053,7 +4012,7 @@ public class Example {
 
 ### Return type
 
-[**GetFeedPostsResponse**](GetFeedPostsResponse.md)
+[**GetFeedPostsResponse1**](GetFeedPostsResponse1.md)
 
 ### Authorization
 
@@ -4068,11 +4027,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getHashTags"></a>
 # **getHashTags**
-> GetHashTagsResponse getHashTags(tenantId).page(page).execute();
+> GetHashTagsResponse1 getHashTags(tenantId).page(page).execute();
 
 
 
@@ -4101,7 +4059,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     Double page = 3.4D; // Double | 
     try {
-      GetHashTagsResponse result = apiInstance.getHashTags(tenantId)
+      GetHashTagsResponse1 result = apiInstance.getHashTags(tenantId)
             .page(page)
             .execute();
       System.out.println(result);
@@ -4125,7 +4083,7 @@ public class Example {
 
 ### Return type
 
-[**GetHashTagsResponse**](GetHashTagsResponse.md)
+[**GetHashTagsResponse1**](GetHashTagsResponse1.md)
 
 ### Authorization
 
@@ -4140,11 +4098,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getModerator"></a>
 # **getModerator**
-> GetModeratorResponse getModerator(tenantId, id).execute();
+> GetModeratorResponse1 getModerator(tenantId, id).execute();
 
 
 
@@ -4173,7 +4130,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetModeratorResponse result = apiInstance.getModerator(tenantId, id)
+      GetModeratorResponse1 result = apiInstance.getModerator(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -4196,7 +4153,7 @@ public class Example {
 
 ### Return type
 
-[**GetModeratorResponse**](GetModeratorResponse.md)
+[**GetModeratorResponse1**](GetModeratorResponse1.md)
 
 ### Authorization
 
@@ -4211,11 +4168,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getModerators"></a>
 # **getModerators**
-> GetModeratorsResponse getModerators(tenantId).skip(skip).execute();
+> GetModeratorsResponse1 getModerators(tenantId).skip(skip).execute();
 
 
 
@@ -4244,7 +4200,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetModeratorsResponse result = apiInstance.getModerators(tenantId)
+      GetModeratorsResponse1 result = apiInstance.getModerators(tenantId)
             .skip(skip)
             .execute();
       System.out.println(result);
@@ -4268,7 +4224,7 @@ public class Example {
 
 ### Return type
 
-[**GetModeratorsResponse**](GetModeratorsResponse.md)
+[**GetModeratorsResponse1**](GetModeratorsResponse1.md)
 
 ### Authorization
 
@@ -4283,11 +4239,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getNotificationCount"></a>
 # **getNotificationCount**
-> GetNotificationCountResponse getNotificationCount(tenantId).userId(userId).urlId(urlId).fromCommentId(fromCommentId).viewed(viewed).type(type).execute();
+> GetNotificationCountResponse1 getNotificationCount(tenantId).userId(userId).urlId(urlId).fromCommentId(fromCommentId).viewed(viewed).type(type).execute();
 
 
 
@@ -4320,7 +4275,7 @@ public class Example {
     Boolean viewed = true; // Boolean | 
     String type = "type_example"; // String | 
     try {
-      GetNotificationCountResponse result = apiInstance.getNotificationCount(tenantId)
+      GetNotificationCountResponse1 result = apiInstance.getNotificationCount(tenantId)
             .userId(userId)
             .urlId(urlId)
             .fromCommentId(fromCommentId)
@@ -4352,7 +4307,7 @@ public class Example {
 
 ### Return type
 
-[**GetNotificationCountResponse**](GetNotificationCountResponse.md)
+[**GetNotificationCountResponse1**](GetNotificationCountResponse1.md)
 
 ### Authorization
 
@@ -4367,11 +4322,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getNotifications"></a>
 # **getNotifications**
-> GetNotificationsResponse getNotifications(tenantId).userId(userId).urlId(urlId).fromCommentId(fromCommentId).viewed(viewed).type(type).skip(skip).execute();
+> GetNotificationsResponse1 getNotifications(tenantId).userId(userId).urlId(urlId).fromCommentId(fromCommentId).viewed(viewed).type(type).skip(skip).execute();
 
 
 
@@ -4405,7 +4359,7 @@ public class Example {
     String type = "type_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetNotificationsResponse result = apiInstance.getNotifications(tenantId)
+      GetNotificationsResponse1 result = apiInstance.getNotifications(tenantId)
             .userId(userId)
             .urlId(urlId)
             .fromCommentId(fromCommentId)
@@ -4439,7 +4393,7 @@ public class Example {
 
 ### Return type
 
-[**GetNotificationsResponse**](GetNotificationsResponse.md)
+[**GetNotificationsResponse1**](GetNotificationsResponse1.md)
 
 ### Authorization
 
@@ -4454,7 +4408,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getPageByURLId"></a>
 # **getPageByURLId**
@@ -4596,7 +4549,7 @@ public class Example {
 
 <a id="getPendingWebhookEventCount"></a>
 # **getPendingWebhookEventCount**
-> GetPendingWebhookEventCountResponse getPendingWebhookEventCount(tenantId).commentId(commentId).externalId(externalId).eventType(eventType).type(type).domain(domain).attemptCountGT(attemptCountGT).execute();
+> GetPendingWebhookEventCountResponse1 getPendingWebhookEventCount(tenantId).commentId(commentId).externalId(externalId).eventType(eventType).type(type).domain(domain).attemptCountGT(attemptCountGT).execute();
 
 
 
@@ -4630,7 +4583,7 @@ public class Example {
     String domain = "domain_example"; // String | 
     Double attemptCountGT = 3.4D; // Double | 
     try {
-      GetPendingWebhookEventCountResponse result = apiInstance.getPendingWebhookEventCount(tenantId)
+      GetPendingWebhookEventCountResponse1 result = apiInstance.getPendingWebhookEventCount(tenantId)
             .commentId(commentId)
             .externalId(externalId)
             .eventType(eventType)
@@ -4664,7 +4617,7 @@ public class Example {
 
 ### Return type
 
-[**GetPendingWebhookEventCountResponse**](GetPendingWebhookEventCountResponse.md)
+[**GetPendingWebhookEventCountResponse1**](GetPendingWebhookEventCountResponse1.md)
 
 ### Authorization
 
@@ -4679,11 +4632,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getPendingWebhookEvents"></a>
 # **getPendingWebhookEvents**
-> GetPendingWebhookEventsResponse getPendingWebhookEvents(tenantId).commentId(commentId).externalId(externalId).eventType(eventType).type(type).domain(domain).attemptCountGT(attemptCountGT).skip(skip).execute();
+> GetPendingWebhookEventsResponse1 getPendingWebhookEvents(tenantId).commentId(commentId).externalId(externalId).eventType(eventType).type(type).domain(domain).attemptCountGT(attemptCountGT).skip(skip).execute();
 
 
 
@@ -4718,7 +4670,7 @@ public class Example {
     Double attemptCountGT = 3.4D; // Double | 
     Double skip = 3.4D; // Double | 
     try {
-      GetPendingWebhookEventsResponse result = apiInstance.getPendingWebhookEvents(tenantId)
+      GetPendingWebhookEventsResponse1 result = apiInstance.getPendingWebhookEvents(tenantId)
             .commentId(commentId)
             .externalId(externalId)
             .eventType(eventType)
@@ -4754,7 +4706,7 @@ public class Example {
 
 ### Return type
 
-[**GetPendingWebhookEventsResponse**](GetPendingWebhookEventsResponse.md)
+[**GetPendingWebhookEventsResponse1**](GetPendingWebhookEventsResponse1.md)
 
 ### Authorization
 
@@ -4769,11 +4721,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getQuestionConfig"></a>
 # **getQuestionConfig**
-> GetQuestionConfigResponse getQuestionConfig(tenantId, id).execute();
+> GetQuestionConfigResponse1 getQuestionConfig(tenantId, id).execute();
 
 
 
@@ -4802,7 +4753,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetQuestionConfigResponse result = apiInstance.getQuestionConfig(tenantId, id)
+      GetQuestionConfigResponse1 result = apiInstance.getQuestionConfig(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -4825,7 +4776,7 @@ public class Example {
 
 ### Return type
 
-[**GetQuestionConfigResponse**](GetQuestionConfigResponse.md)
+[**GetQuestionConfigResponse1**](GetQuestionConfigResponse1.md)
 
 ### Authorization
 
@@ -4840,11 +4791,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getQuestionConfigs"></a>
 # **getQuestionConfigs**
-> GetQuestionConfigsResponse getQuestionConfigs(tenantId).skip(skip).execute();
+> GetQuestionConfigsResponse1 getQuestionConfigs(tenantId).skip(skip).execute();
 
 
 
@@ -4873,7 +4823,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetQuestionConfigsResponse result = apiInstance.getQuestionConfigs(tenantId)
+      GetQuestionConfigsResponse1 result = apiInstance.getQuestionConfigs(tenantId)
             .skip(skip)
             .execute();
       System.out.println(result);
@@ -4897,7 +4847,7 @@ public class Example {
 
 ### Return type
 
-[**GetQuestionConfigsResponse**](GetQuestionConfigsResponse.md)
+[**GetQuestionConfigsResponse1**](GetQuestionConfigsResponse1.md)
 
 ### Authorization
 
@@ -4912,11 +4862,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getQuestionResult"></a>
 # **getQuestionResult**
-> GetQuestionResultResponse getQuestionResult(tenantId, id).execute();
+> GetQuestionResultResponse1 getQuestionResult(tenantId, id).execute();
 
 
 
@@ -4945,7 +4894,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetQuestionResultResponse result = apiInstance.getQuestionResult(tenantId, id)
+      GetQuestionResultResponse1 result = apiInstance.getQuestionResult(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -4968,7 +4917,7 @@ public class Example {
 
 ### Return type
 
-[**GetQuestionResultResponse**](GetQuestionResultResponse.md)
+[**GetQuestionResultResponse1**](GetQuestionResultResponse1.md)
 
 ### Authorization
 
@@ -4983,11 +4932,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getQuestionResults"></a>
 # **getQuestionResults**
-> GetQuestionResultsResponse getQuestionResults(tenantId).urlId(urlId).userId(userId).startDate(startDate).questionId(questionId).questionIds(questionIds).skip(skip).execute();
+> GetQuestionResultsResponse1 getQuestionResults(tenantId).urlId(urlId).userId(userId).startDate(startDate).questionId(questionId).questionIds(questionIds).skip(skip).execute();
 
 
 
@@ -5021,7 +4969,7 @@ public class Example {
     String questionIds = "questionIds_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetQuestionResultsResponse result = apiInstance.getQuestionResults(tenantId)
+      GetQuestionResultsResponse1 result = apiInstance.getQuestionResults(tenantId)
             .urlId(urlId)
             .userId(userId)
             .startDate(startDate)
@@ -5055,7 +5003,7 @@ public class Example {
 
 ### Return type
 
-[**GetQuestionResultsResponse**](GetQuestionResultsResponse.md)
+[**GetQuestionResultsResponse1**](GetQuestionResultsResponse1.md)
 
 ### Authorization
 
@@ -5070,7 +5018,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getSSOUserByEmail"></a>
 # **getSSOUserByEmail**
@@ -5356,7 +5303,7 @@ public class Example {
 
 <a id="getTenant"></a>
 # **getTenant**
-> GetTenantResponse getTenant(tenantId, id).execute();
+> GetTenantResponse1 getTenant(tenantId, id).execute();
 
 
 
@@ -5385,7 +5332,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetTenantResponse result = apiInstance.getTenant(tenantId, id)
+      GetTenantResponse1 result = apiInstance.getTenant(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -5408,7 +5355,7 @@ public class Example {
 
 ### Return type
 
-[**GetTenantResponse**](GetTenantResponse.md)
+[**GetTenantResponse1**](GetTenantResponse1.md)
 
 ### Authorization
 
@@ -5423,11 +5370,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTenantDailyUsages"></a>
 # **getTenantDailyUsages**
-> GetTenantDailyUsagesResponse getTenantDailyUsages(tenantId).yearNumber(yearNumber).monthNumber(monthNumber).dayNumber(dayNumber).skip(skip).execute();
+> GetTenantDailyUsagesResponse1 getTenantDailyUsages(tenantId).yearNumber(yearNumber).monthNumber(monthNumber).dayNumber(dayNumber).skip(skip).execute();
 
 
 
@@ -5459,7 +5405,7 @@ public class Example {
     Double dayNumber = 3.4D; // Double | 
     Double skip = 3.4D; // Double | 
     try {
-      GetTenantDailyUsagesResponse result = apiInstance.getTenantDailyUsages(tenantId)
+      GetTenantDailyUsagesResponse1 result = apiInstance.getTenantDailyUsages(tenantId)
             .yearNumber(yearNumber)
             .monthNumber(monthNumber)
             .dayNumber(dayNumber)
@@ -5489,7 +5435,7 @@ public class Example {
 
 ### Return type
 
-[**GetTenantDailyUsagesResponse**](GetTenantDailyUsagesResponse.md)
+[**GetTenantDailyUsagesResponse1**](GetTenantDailyUsagesResponse1.md)
 
 ### Authorization
 
@@ -5504,11 +5450,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTenantPackage"></a>
 # **getTenantPackage**
-> GetTenantPackageResponse getTenantPackage(tenantId, id).execute();
+> GetTenantPackageResponse1 getTenantPackage(tenantId, id).execute();
 
 
 
@@ -5537,7 +5482,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetTenantPackageResponse result = apiInstance.getTenantPackage(tenantId, id)
+      GetTenantPackageResponse1 result = apiInstance.getTenantPackage(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -5560,7 +5505,7 @@ public class Example {
 
 ### Return type
 
-[**GetTenantPackageResponse**](GetTenantPackageResponse.md)
+[**GetTenantPackageResponse1**](GetTenantPackageResponse1.md)
 
 ### Authorization
 
@@ -5575,11 +5520,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTenantPackages"></a>
 # **getTenantPackages**
-> GetTenantPackagesResponse getTenantPackages(tenantId).skip(skip).execute();
+> GetTenantPackagesResponse1 getTenantPackages(tenantId).skip(skip).execute();
 
 
 
@@ -5608,7 +5552,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetTenantPackagesResponse result = apiInstance.getTenantPackages(tenantId)
+      GetTenantPackagesResponse1 result = apiInstance.getTenantPackages(tenantId)
             .skip(skip)
             .execute();
       System.out.println(result);
@@ -5632,7 +5576,7 @@ public class Example {
 
 ### Return type
 
-[**GetTenantPackagesResponse**](GetTenantPackagesResponse.md)
+[**GetTenantPackagesResponse1**](GetTenantPackagesResponse1.md)
 
 ### Authorization
 
@@ -5647,11 +5591,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTenantUser"></a>
 # **getTenantUser**
-> GetTenantUserResponse getTenantUser(tenantId, id).execute();
+> GetTenantUserResponse1 getTenantUser(tenantId, id).execute();
 
 
 
@@ -5680,7 +5623,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetTenantUserResponse result = apiInstance.getTenantUser(tenantId, id)
+      GetTenantUserResponse1 result = apiInstance.getTenantUser(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -5703,7 +5646,7 @@ public class Example {
 
 ### Return type
 
-[**GetTenantUserResponse**](GetTenantUserResponse.md)
+[**GetTenantUserResponse1**](GetTenantUserResponse1.md)
 
 ### Authorization
 
@@ -5718,11 +5661,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTenantUsers"></a>
 # **getTenantUsers**
-> GetTenantUsersResponse getTenantUsers(tenantId).skip(skip).execute();
+> GetTenantUsersResponse1 getTenantUsers(tenantId).skip(skip).execute();
 
 
 
@@ -5751,7 +5693,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetTenantUsersResponse result = apiInstance.getTenantUsers(tenantId)
+      GetTenantUsersResponse1 result = apiInstance.getTenantUsers(tenantId)
             .skip(skip)
             .execute();
       System.out.println(result);
@@ -5775,7 +5717,7 @@ public class Example {
 
 ### Return type
 
-[**GetTenantUsersResponse**](GetTenantUsersResponse.md)
+[**GetTenantUsersResponse1**](GetTenantUsersResponse1.md)
 
 ### Authorization
 
@@ -5790,11 +5732,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTenants"></a>
 # **getTenants**
-> GetTenantsResponse getTenants(tenantId).meta(meta).skip(skip).execute();
+> GetTenantsResponse1 getTenants(tenantId).meta(meta).skip(skip).execute();
 
 
 
@@ -5824,7 +5765,7 @@ public class Example {
     String meta = "meta_example"; // String | 
     Double skip = 3.4D; // Double | 
     try {
-      GetTenantsResponse result = apiInstance.getTenants(tenantId)
+      GetTenantsResponse1 result = apiInstance.getTenants(tenantId)
             .meta(meta)
             .skip(skip)
             .execute();
@@ -5850,7 +5791,7 @@ public class Example {
 
 ### Return type
 
-[**GetTenantsResponse**](GetTenantsResponse.md)
+[**GetTenantsResponse1**](GetTenantsResponse1.md)
 
 ### Authorization
 
@@ -5865,11 +5806,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTicket"></a>
 # **getTicket**
-> GetTicketResponse getTicket(tenantId, id).userId(userId).execute();
+> GetTicketResponse1 getTicket(tenantId, id).userId(userId).execute();
 
 
 
@@ -5899,7 +5839,7 @@ public class Example {
     String id = "id_example"; // String | 
     String userId = "userId_example"; // String | 
     try {
-      GetTicketResponse result = apiInstance.getTicket(tenantId, id)
+      GetTicketResponse1 result = apiInstance.getTicket(tenantId, id)
             .userId(userId)
             .execute();
       System.out.println(result);
@@ -5924,7 +5864,7 @@ public class Example {
 
 ### Return type
 
-[**GetTicketResponse**](GetTicketResponse.md)
+[**GetTicketResponse1**](GetTicketResponse1.md)
 
 ### Authorization
 
@@ -5939,11 +5879,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTickets"></a>
 # **getTickets**
-> GetTicketsResponse getTickets(tenantId).userId(userId).state(state).skip(skip).limit(limit).execute();
+> GetTicketsResponse1 getTickets(tenantId).userId(userId).state(state).skip(skip).limit(limit).execute();
 
 
 
@@ -5975,7 +5914,7 @@ public class Example {
     Double skip = 3.4D; // Double | 
     Double limit = 3.4D; // Double | 
     try {
-      GetTicketsResponse result = apiInstance.getTickets(tenantId)
+      GetTicketsResponse1 result = apiInstance.getTickets(tenantId)
             .userId(userId)
             .state(state)
             .skip(skip)
@@ -6005,7 +5944,7 @@ public class Example {
 
 ### Return type
 
-[**GetTicketsResponse**](GetTicketsResponse.md)
+[**GetTicketsResponse1**](GetTicketsResponse1.md)
 
 ### Authorization
 
@@ -6020,11 +5959,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUser"></a>
 # **getUser**
-> GetUserResponse getUser(tenantId, id).execute();
+> GetUserResponse1 getUser(tenantId, id).execute();
 
 
 
@@ -6053,7 +5991,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetUserResponse result = apiInstance.getUser(tenantId, id)
+      GetUserResponse1 result = apiInstance.getUser(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -6076,7 +6014,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserResponse**](GetUserResponse.md)
+[**GetUserResponse1**](GetUserResponse1.md)
 
 ### Authorization
 
@@ -6091,11 +6029,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserBadge"></a>
 # **getUserBadge**
-> APIGetUserBadgeResponse getUserBadge(tenantId, id).execute();
+> GetUserBadgeResponse getUserBadge(tenantId, id).execute();
 
 
 
@@ -6124,7 +6061,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIGetUserBadgeResponse result = apiInstance.getUserBadge(tenantId, id)
+      GetUserBadgeResponse result = apiInstance.getUserBadge(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -6147,7 +6084,7 @@ public class Example {
 
 ### Return type
 
-[**APIGetUserBadgeResponse**](APIGetUserBadgeResponse.md)
+[**GetUserBadgeResponse**](GetUserBadgeResponse.md)
 
 ### Authorization
 
@@ -6162,11 +6099,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserBadgeProgressById"></a>
 # **getUserBadgeProgressById**
-> APIGetUserBadgeProgressResponse getUserBadgeProgressById(tenantId, id).execute();
+> GetUserBadgeProgressByIdResponse getUserBadgeProgressById(tenantId, id).execute();
 
 
 
@@ -6195,7 +6131,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      APIGetUserBadgeProgressResponse result = apiInstance.getUserBadgeProgressById(tenantId, id)
+      GetUserBadgeProgressByIdResponse result = apiInstance.getUserBadgeProgressById(tenantId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -6218,7 +6154,7 @@ public class Example {
 
 ### Return type
 
-[**APIGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
+[**GetUserBadgeProgressByIdResponse**](GetUserBadgeProgressByIdResponse.md)
 
 ### Authorization
 
@@ -6233,11 +6169,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserBadgeProgressByUserId"></a>
 # **getUserBadgeProgressByUserId**
-> APIGetUserBadgeProgressResponse getUserBadgeProgressByUserId(tenantId, userId).execute();
+> GetUserBadgeProgressByUserIdResponse getUserBadgeProgressByUserId(tenantId, userId).execute();
 
 
 
@@ -6266,7 +6201,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String userId = "userId_example"; // String | 
     try {
-      APIGetUserBadgeProgressResponse result = apiInstance.getUserBadgeProgressByUserId(tenantId, userId)
+      GetUserBadgeProgressByUserIdResponse result = apiInstance.getUserBadgeProgressByUserId(tenantId, userId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -6289,7 +6224,7 @@ public class Example {
 
 ### Return type
 
-[**APIGetUserBadgeProgressResponse**](APIGetUserBadgeProgressResponse.md)
+[**GetUserBadgeProgressByUserIdResponse**](GetUserBadgeProgressByUserIdResponse.md)
 
 ### Authorization
 
@@ -6304,11 +6239,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserBadgeProgressList"></a>
 # **getUserBadgeProgressList**
-> APIGetUserBadgeProgressListResponse getUserBadgeProgressList(tenantId).userId(userId).limit(limit).skip(skip).execute();
+> GetUserBadgeProgressListResponse getUserBadgeProgressList(tenantId).userId(userId).limit(limit).skip(skip).execute();
 
 
 
@@ -6339,7 +6273,7 @@ public class Example {
     Double limit = 3.4D; // Double | 
     Double skip = 3.4D; // Double | 
     try {
-      APIGetUserBadgeProgressListResponse result = apiInstance.getUserBadgeProgressList(tenantId)
+      GetUserBadgeProgressListResponse result = apiInstance.getUserBadgeProgressList(tenantId)
             .userId(userId)
             .limit(limit)
             .skip(skip)
@@ -6367,7 +6301,7 @@ public class Example {
 
 ### Return type
 
-[**APIGetUserBadgeProgressListResponse**](APIGetUserBadgeProgressListResponse.md)
+[**GetUserBadgeProgressListResponse**](GetUserBadgeProgressListResponse.md)
 
 ### Authorization
 
@@ -6382,11 +6316,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserBadges"></a>
 # **getUserBadges**
-> APIGetUserBadgesResponse getUserBadges(tenantId).userId(userId).badgeId(badgeId).type(type).displayedOnComments(displayedOnComments).limit(limit).skip(skip).execute();
+> GetUserBadgesResponse getUserBadges(tenantId).userId(userId).badgeId(badgeId).type(type).displayedOnComments(displayedOnComments).limit(limit).skip(skip).execute();
 
 
 
@@ -6420,7 +6353,7 @@ public class Example {
     Double limit = 3.4D; // Double | 
     Double skip = 3.4D; // Double | 
     try {
-      APIGetUserBadgesResponse result = apiInstance.getUserBadges(tenantId)
+      GetUserBadgesResponse result = apiInstance.getUserBadges(tenantId)
             .userId(userId)
             .badgeId(badgeId)
             .type(type)
@@ -6454,7 +6387,7 @@ public class Example {
 
 ### Return type
 
-[**APIGetUserBadgesResponse**](APIGetUserBadgesResponse.md)
+[**GetUserBadgesResponse**](GetUserBadgesResponse.md)
 
 ### Authorization
 
@@ -6469,11 +6402,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getVotes"></a>
 # **getVotes**
-> GetVotesResponse getVotes(tenantId, urlId).execute();
+> GetVotesResponse1 getVotes(tenantId, urlId).execute();
 
 
 
@@ -6502,7 +6434,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     try {
-      GetVotesResponse result = apiInstance.getVotes(tenantId, urlId)
+      GetVotesResponse1 result = apiInstance.getVotes(tenantId, urlId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -6525,7 +6457,7 @@ public class Example {
 
 ### Return type
 
-[**GetVotesResponse**](GetVotesResponse.md)
+[**GetVotesResponse1**](GetVotesResponse1.md)
 
 ### Authorization
 
@@ -6540,11 +6472,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getVotesForUser"></a>
 # **getVotesForUser**
-> GetVotesForUserResponse getVotesForUser(tenantId, urlId).userId(userId).anonUserId(anonUserId).execute();
+> GetVotesForUserResponse1 getVotesForUser(tenantId, urlId).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -6575,7 +6506,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      GetVotesForUserResponse result = apiInstance.getVotesForUser(tenantId, urlId)
+      GetVotesForUserResponse1 result = apiInstance.getVotesForUser(tenantId, urlId)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -6602,7 +6533,7 @@ public class Example {
 
 ### Return type
 
-[**GetVotesForUserResponse**](GetVotesForUserResponse.md)
+[**GetVotesForUserResponse1**](GetVotesForUserResponse1.md)
 
 ### Authorization
 
@@ -6617,7 +6548,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="patchDomainConfig"></a>
 # **patchDomainConfig**
@@ -6693,7 +6623,7 @@ public class Example {
 
 <a id="patchHashTag"></a>
 # **patchHashTag**
-> UpdateHashTagResponse patchHashTag(tag).tenantId(tenantId).updateHashTagBody(updateHashTagBody).execute();
+> PatchHashTagResponse patchHashTag(tag).tenantId(tenantId).updateHashTagBody(updateHashTagBody).execute();
 
 
 
@@ -6723,7 +6653,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     UpdateHashTagBody updateHashTagBody = new UpdateHashTagBody(); // UpdateHashTagBody | 
     try {
-      UpdateHashTagResponse result = apiInstance.patchHashTag(tag)
+      PatchHashTagResponse result = apiInstance.patchHashTag(tag)
             .tenantId(tenantId)
             .updateHashTagBody(updateHashTagBody)
             .execute();
@@ -6749,7 +6679,7 @@ public class Example {
 
 ### Return type
 
-[**UpdateHashTagResponse**](UpdateHashTagResponse.md)
+[**PatchHashTagResponse**](PatchHashTagResponse.md)
 
 ### Authorization
 
@@ -6764,7 +6694,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="patchPage"></a>
 # **patchPage**
@@ -7062,7 +6991,7 @@ public class Example {
 
 <a id="renderEmailTemplate"></a>
 # **renderEmailTemplate**
-> RenderEmailTemplateResponse renderEmailTemplate(tenantId, renderEmailTemplateBody).locale(locale).execute();
+> RenderEmailTemplateResponse1 renderEmailTemplate(tenantId, renderEmailTemplateBody).locale(locale).execute();
 
 
 
@@ -7092,7 +7021,7 @@ public class Example {
     RenderEmailTemplateBody renderEmailTemplateBody = new RenderEmailTemplateBody(); // RenderEmailTemplateBody | 
     String locale = "locale_example"; // String | 
     try {
-      RenderEmailTemplateResponse result = apiInstance.renderEmailTemplate(tenantId, renderEmailTemplateBody)
+      RenderEmailTemplateResponse1 result = apiInstance.renderEmailTemplate(tenantId, renderEmailTemplateBody)
             .locale(locale)
             .execute();
       System.out.println(result);
@@ -7117,7 +7046,7 @@ public class Example {
 
 ### Return type
 
-[**RenderEmailTemplateResponse**](RenderEmailTemplateResponse.md)
+[**RenderEmailTemplateResponse1**](RenderEmailTemplateResponse1.md)
 
 ### Authorization
 
@@ -7132,11 +7061,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="replaceTenantPackage"></a>
 # **replaceTenantPackage**
-> APIEmptyResponse replaceTenantPackage(tenantId, id, replaceTenantPackageBody).execute();
+> ReplaceTenantPackageResponse replaceTenantPackage(tenantId, id, replaceTenantPackageBody).execute();
 
 
 
@@ -7166,7 +7094,7 @@ public class Example {
     String id = "id_example"; // String | 
     ReplaceTenantPackageBody replaceTenantPackageBody = new ReplaceTenantPackageBody(); // ReplaceTenantPackageBody | 
     try {
-      APIEmptyResponse result = apiInstance.replaceTenantPackage(tenantId, id, replaceTenantPackageBody)
+      ReplaceTenantPackageResponse result = apiInstance.replaceTenantPackage(tenantId, id, replaceTenantPackageBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -7190,7 +7118,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**ReplaceTenantPackageResponse**](ReplaceTenantPackageResponse.md)
 
 ### Authorization
 
@@ -7205,11 +7133,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="replaceTenantUser"></a>
 # **replaceTenantUser**
-> APIEmptyResponse replaceTenantUser(tenantId, id, replaceTenantUserBody).updateComments(updateComments).execute();
+> ReplaceTenantUserResponse replaceTenantUser(tenantId, id, replaceTenantUserBody).updateComments(updateComments).execute();
 
 
 
@@ -7240,7 +7167,7 @@ public class Example {
     ReplaceTenantUserBody replaceTenantUserBody = new ReplaceTenantUserBody(); // ReplaceTenantUserBody | 
     String updateComments = "updateComments_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.replaceTenantUser(tenantId, id, replaceTenantUserBody)
+      ReplaceTenantUserResponse result = apiInstance.replaceTenantUser(tenantId, id, replaceTenantUserBody)
             .updateComments(updateComments)
             .execute();
       System.out.println(result);
@@ -7266,7 +7193,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**ReplaceTenantUserResponse**](ReplaceTenantUserResponse.md)
 
 ### Authorization
 
@@ -7281,11 +7208,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="saveComment"></a>
 # **saveComment**
-> APISaveCommentResponse saveComment(tenantId, createCommentParams).isLive(isLive).doSpamCheck(doSpamCheck).sendEmails(sendEmails).populateNotifications(populateNotifications).execute();
+> SaveCommentResponse saveComment(tenantId, createCommentParams).isLive(isLive).doSpamCheck(doSpamCheck).sendEmails(sendEmails).populateNotifications(populateNotifications).execute();
 
 
 
@@ -7318,7 +7244,7 @@ public class Example {
     Boolean sendEmails = true; // Boolean | 
     Boolean populateNotifications = true; // Boolean | 
     try {
-      APISaveCommentResponse result = apiInstance.saveComment(tenantId, createCommentParams)
+      SaveCommentResponse result = apiInstance.saveComment(tenantId, createCommentParams)
             .isLive(isLive)
             .doSpamCheck(doSpamCheck)
             .sendEmails(sendEmails)
@@ -7349,7 +7275,7 @@ public class Example {
 
 ### Return type
 
-[**APISaveCommentResponse**](APISaveCommentResponse.md)
+[**SaveCommentResponse**](SaveCommentResponse.md)
 
 ### Authorization
 
@@ -7364,7 +7290,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="saveCommentsBulk"></a>
 # **saveCommentsBulk**
@@ -7450,7 +7375,7 @@ public class Example {
 
 <a id="sendInvite"></a>
 # **sendInvite**
-> APIEmptyResponse sendInvite(tenantId, id, fromName).execute();
+> SendInviteResponse sendInvite(tenantId, id, fromName).execute();
 
 
 
@@ -7480,7 +7405,7 @@ public class Example {
     String id = "id_example"; // String | 
     String fromName = "fromName_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.sendInvite(tenantId, id, fromName)
+      SendInviteResponse result = apiInstance.sendInvite(tenantId, id, fromName)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -7504,7 +7429,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**SendInviteResponse**](SendInviteResponse.md)
 
 ### Authorization
 
@@ -7519,11 +7444,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="sendLoginLink"></a>
 # **sendLoginLink**
-> APIEmptyResponse sendLoginLink(tenantId, id).redirectURL(redirectURL).execute();
+> SendLoginLinkResponse sendLoginLink(tenantId, id).redirectURL(redirectURL).execute();
 
 
 
@@ -7553,7 +7477,7 @@ public class Example {
     String id = "id_example"; // String | 
     String redirectURL = "redirectURL_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.sendLoginLink(tenantId, id)
+      SendLoginLinkResponse result = apiInstance.sendLoginLink(tenantId, id)
             .redirectURL(redirectURL)
             .execute();
       System.out.println(result);
@@ -7578,7 +7502,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**SendLoginLinkResponse**](SendLoginLinkResponse.md)
 
 ### Authorization
 
@@ -7593,11 +7517,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="unBlockUserFromComment"></a>
 # **unBlockUserFromComment**
-> UnblockSuccess unBlockUserFromComment(tenantId, id, unBlockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
+> UnBlockUserFromCommentResponse unBlockUserFromComment(tenantId, id, unBlockFromCommentParams).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -7629,7 +7552,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      UnblockSuccess result = apiInstance.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
+      UnBlockUserFromCommentResponse result = apiInstance.unBlockUserFromComment(tenantId, id, unBlockFromCommentParams)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -7657,7 +7580,7 @@ public class Example {
 
 ### Return type
 
-[**UnblockSuccess**](UnblockSuccess.md)
+[**UnBlockUserFromCommentResponse**](UnBlockUserFromCommentResponse.md)
 
 ### Authorization
 
@@ -7672,11 +7595,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="unFlagComment"></a>
 # **unFlagComment**
-> FlagCommentResponse unFlagComment(tenantId, id).userId(userId).anonUserId(anonUserId).execute();
+> UnFlagCommentResponse unFlagComment(tenantId, id).userId(userId).anonUserId(anonUserId).execute();
 
 
 
@@ -7707,7 +7629,7 @@ public class Example {
     String userId = "userId_example"; // String | 
     String anonUserId = "anonUserId_example"; // String | 
     try {
-      FlagCommentResponse result = apiInstance.unFlagComment(tenantId, id)
+      UnFlagCommentResponse result = apiInstance.unFlagComment(tenantId, id)
             .userId(userId)
             .anonUserId(anonUserId)
             .execute();
@@ -7734,7 +7656,7 @@ public class Example {
 
 ### Return type
 
-[**FlagCommentResponse**](FlagCommentResponse.md)
+[**UnFlagCommentResponse**](UnFlagCommentResponse.md)
 
 ### Authorization
 
@@ -7749,11 +7671,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateComment"></a>
 # **updateComment**
-> APIEmptyResponse updateComment(tenantId, id, updatableCommentParams).contextUserId(contextUserId).doSpamCheck(doSpamCheck).isLive(isLive).execute();
+> UpdateCommentResponse updateComment(tenantId, id, updatableCommentParams).contextUserId(contextUserId).doSpamCheck(doSpamCheck).isLive(isLive).execute();
 
 
 
@@ -7786,7 +7707,7 @@ public class Example {
     Boolean doSpamCheck = true; // Boolean | 
     Boolean isLive = true; // Boolean | 
     try {
-      APIEmptyResponse result = apiInstance.updateComment(tenantId, id, updatableCommentParams)
+      UpdateCommentResponse result = apiInstance.updateComment(tenantId, id, updatableCommentParams)
             .contextUserId(contextUserId)
             .doSpamCheck(doSpamCheck)
             .isLive(isLive)
@@ -7816,7 +7737,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateCommentResponse**](UpdateCommentResponse.md)
 
 ### Authorization
 
@@ -7831,11 +7752,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateEmailTemplate"></a>
 # **updateEmailTemplate**
-> APIEmptyResponse updateEmailTemplate(tenantId, id, updateEmailTemplateBody).execute();
+> UpdateEmailTemplateResponse updateEmailTemplate(tenantId, id, updateEmailTemplateBody).execute();
 
 
 
@@ -7865,7 +7785,7 @@ public class Example {
     String id = "id_example"; // String | 
     UpdateEmailTemplateBody updateEmailTemplateBody = new UpdateEmailTemplateBody(); // UpdateEmailTemplateBody | 
     try {
-      APIEmptyResponse result = apiInstance.updateEmailTemplate(tenantId, id, updateEmailTemplateBody)
+      UpdateEmailTemplateResponse result = apiInstance.updateEmailTemplate(tenantId, id, updateEmailTemplateBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -7889,7 +7809,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateEmailTemplateResponse**](UpdateEmailTemplateResponse.md)
 
 ### Authorization
 
@@ -7904,11 +7824,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateFeedPost"></a>
 # **updateFeedPost**
-> APIEmptyResponse updateFeedPost(tenantId, id, feedPost).execute();
+> UpdateFeedPostResponse updateFeedPost(tenantId, id, feedPost).execute();
 
 
 
@@ -7938,7 +7857,7 @@ public class Example {
     String id = "id_example"; // String | 
     FeedPost feedPost = new FeedPost(); // FeedPost | 
     try {
-      APIEmptyResponse result = apiInstance.updateFeedPost(tenantId, id, feedPost)
+      UpdateFeedPostResponse result = apiInstance.updateFeedPost(tenantId, id, feedPost)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -7962,7 +7881,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateFeedPostResponse**](UpdateFeedPostResponse.md)
 
 ### Authorization
 
@@ -7977,11 +7896,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateModerator"></a>
 # **updateModerator**
-> APIEmptyResponse updateModerator(tenantId, id, updateModeratorBody).execute();
+> UpdateModeratorResponse updateModerator(tenantId, id, updateModeratorBody).execute();
 
 
 
@@ -8011,7 +7929,7 @@ public class Example {
     String id = "id_example"; // String | 
     UpdateModeratorBody updateModeratorBody = new UpdateModeratorBody(); // UpdateModeratorBody | 
     try {
-      APIEmptyResponse result = apiInstance.updateModerator(tenantId, id, updateModeratorBody)
+      UpdateModeratorResponse result = apiInstance.updateModerator(tenantId, id, updateModeratorBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -8035,7 +7953,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateModeratorResponse**](UpdateModeratorResponse.md)
 
 ### Authorization
 
@@ -8050,11 +7968,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateNotification"></a>
 # **updateNotification**
-> APIEmptyResponse updateNotification(tenantId, id, updateNotificationBody).userId(userId).execute();
+> UpdateNotificationResponse updateNotification(tenantId, id, updateNotificationBody).userId(userId).execute();
 
 
 
@@ -8085,7 +8002,7 @@ public class Example {
     UpdateNotificationBody updateNotificationBody = new UpdateNotificationBody(); // UpdateNotificationBody | 
     String userId = "userId_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.updateNotification(tenantId, id, updateNotificationBody)
+      UpdateNotificationResponse result = apiInstance.updateNotification(tenantId, id, updateNotificationBody)
             .userId(userId)
             .execute();
       System.out.println(result);
@@ -8111,7 +8028,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateNotificationResponse**](UpdateNotificationResponse.md)
 
 ### Authorization
 
@@ -8126,11 +8043,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateQuestionConfig"></a>
 # **updateQuestionConfig**
-> APIEmptyResponse updateQuestionConfig(tenantId, id, updateQuestionConfigBody).execute();
+> UpdateQuestionConfigResponse updateQuestionConfig(tenantId, id, updateQuestionConfigBody).execute();
 
 
 
@@ -8160,7 +8076,7 @@ public class Example {
     String id = "id_example"; // String | 
     UpdateQuestionConfigBody updateQuestionConfigBody = new UpdateQuestionConfigBody(); // UpdateQuestionConfigBody | 
     try {
-      APIEmptyResponse result = apiInstance.updateQuestionConfig(tenantId, id, updateQuestionConfigBody)
+      UpdateQuestionConfigResponse result = apiInstance.updateQuestionConfig(tenantId, id, updateQuestionConfigBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -8184,7 +8100,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateQuestionConfigResponse**](UpdateQuestionConfigResponse.md)
 
 ### Authorization
 
@@ -8199,11 +8115,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateQuestionResult"></a>
 # **updateQuestionResult**
-> APIEmptyResponse updateQuestionResult(tenantId, id, updateQuestionResultBody).execute();
+> UpdateQuestionResultResponse updateQuestionResult(tenantId, id, updateQuestionResultBody).execute();
 
 
 
@@ -8233,7 +8148,7 @@ public class Example {
     String id = "id_example"; // String | 
     UpdateQuestionResultBody updateQuestionResultBody = new UpdateQuestionResultBody(); // UpdateQuestionResultBody | 
     try {
-      APIEmptyResponse result = apiInstance.updateQuestionResult(tenantId, id, updateQuestionResultBody)
+      UpdateQuestionResultResponse result = apiInstance.updateQuestionResult(tenantId, id, updateQuestionResultBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -8257,7 +8172,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateQuestionResultResponse**](UpdateQuestionResultResponse.md)
 
 ### Authorization
 
@@ -8272,7 +8187,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateSubscription"></a>
 # **updateSubscription**
@@ -8351,7 +8265,7 @@ public class Example {
 
 <a id="updateTenant"></a>
 # **updateTenant**
-> APIEmptyResponse updateTenant(tenantId, id, updateTenantBody).execute();
+> UpdateTenantResponse updateTenant(tenantId, id, updateTenantBody).execute();
 
 
 
@@ -8381,7 +8295,7 @@ public class Example {
     String id = "id_example"; // String | 
     UpdateTenantBody updateTenantBody = new UpdateTenantBody(); // UpdateTenantBody | 
     try {
-      APIEmptyResponse result = apiInstance.updateTenant(tenantId, id, updateTenantBody)
+      UpdateTenantResponse result = apiInstance.updateTenant(tenantId, id, updateTenantBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -8405,7 +8319,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateTenantResponse**](UpdateTenantResponse.md)
 
 ### Authorization
 
@@ -8420,11 +8334,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateTenantPackage"></a>
 # **updateTenantPackage**
-> APIEmptyResponse updateTenantPackage(tenantId, id, updateTenantPackageBody).execute();
+> UpdateTenantPackageResponse updateTenantPackage(tenantId, id, updateTenantPackageBody).execute();
 
 
 
@@ -8454,7 +8367,7 @@ public class Example {
     String id = "id_example"; // String | 
     UpdateTenantPackageBody updateTenantPackageBody = new UpdateTenantPackageBody(); // UpdateTenantPackageBody | 
     try {
-      APIEmptyResponse result = apiInstance.updateTenantPackage(tenantId, id, updateTenantPackageBody)
+      UpdateTenantPackageResponse result = apiInstance.updateTenantPackage(tenantId, id, updateTenantPackageBody)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -8478,7 +8391,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateTenantPackageResponse**](UpdateTenantPackageResponse.md)
 
 ### Authorization
 
@@ -8493,11 +8406,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateTenantUser"></a>
 # **updateTenantUser**
-> APIEmptyResponse updateTenantUser(tenantId, id, updateTenantUserBody).updateComments(updateComments).execute();
+> UpdateTenantUserResponse updateTenantUser(tenantId, id, updateTenantUserBody).updateComments(updateComments).execute();
 
 
 
@@ -8528,7 +8440,7 @@ public class Example {
     UpdateTenantUserBody updateTenantUserBody = new UpdateTenantUserBody(); // UpdateTenantUserBody | 
     String updateComments = "updateComments_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.updateTenantUser(tenantId, id, updateTenantUserBody)
+      UpdateTenantUserResponse result = apiInstance.updateTenantUser(tenantId, id, updateTenantUserBody)
             .updateComments(updateComments)
             .execute();
       System.out.println(result);
@@ -8554,7 +8466,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UpdateTenantUserResponse**](UpdateTenantUserResponse.md)
 
 ### Authorization
 
@@ -8569,11 +8481,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateUserBadge"></a>
 # **updateUserBadge**
-> APIEmptySuccessResponse updateUserBadge(tenantId, id, updateUserBadgeParams).execute();
+> UpdateUserBadgeResponse updateUserBadge(tenantId, id, updateUserBadgeParams).execute();
 
 
 
@@ -8603,7 +8514,7 @@ public class Example {
     String id = "id_example"; // String | 
     UpdateUserBadgeParams updateUserBadgeParams = new UpdateUserBadgeParams(); // UpdateUserBadgeParams | 
     try {
-      APIEmptySuccessResponse result = apiInstance.updateUserBadge(tenantId, id, updateUserBadgeParams)
+      UpdateUserBadgeResponse result = apiInstance.updateUserBadge(tenantId, id, updateUserBadgeParams)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -8627,7 +8538,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptySuccessResponse**](APIEmptySuccessResponse.md)
+[**UpdateUserBadgeResponse**](UpdateUserBadgeResponse.md)
 
 ### Authorization
 
@@ -8642,5 +8553,4 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 

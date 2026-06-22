@@ -13,7 +13,9 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.APIError;
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GifSearchInternalError;
 import com.fastcomments.model.GifSearchResponse;
 import com.fastcomments.model.GifSearchResponseImagesInnerInner;
@@ -65,6 +67,54 @@ public class GetGifsSearchResponseTest {
     @Test
     public void codeTest() {
         // TODO: test code
+    }
+
+    /**
+     * Test the property 'reason'
+     */
+    @Test
+    public void reasonTest() {
+        // TODO: test reason
+    }
+
+    /**
+     * Test the property 'secondaryCode'
+     */
+    @Test
+    public void secondaryCodeTest() {
+        // TODO: test secondaryCode
+    }
+
+    /**
+     * Test the property 'bannedUntil'
+     */
+    @Test
+    public void bannedUntilTest() {
+        // TODO: test bannedUntil
+    }
+
+    /**
+     * Test the property 'maxCharacterLength'
+     */
+    @Test
+    public void maxCharacterLengthTest() {
+        // TODO: test maxCharacterLength
+    }
+
+    /**
+     * Test the property 'translatedError'
+     */
+    @Test
+    public void translatedErrorTest() {
+        // TODO: test translatedError
+    }
+
+    /**
+     * Test the property 'customConfig'
+     */
+    @Test
+    public void customConfigTest() {
+        // TODO: test customConfig
     }
 
 }

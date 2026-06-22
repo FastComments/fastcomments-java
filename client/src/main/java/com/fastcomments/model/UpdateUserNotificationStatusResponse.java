@@ -14,7 +14,9 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.APIError;
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.IgnoredResponse;
 import com.fastcomments.model.UserNotificationWriteResponse;
 import com.google.gson.TypeAdapter;
@@ -74,6 +76,7 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<UserNotificationWriteResponse> adapterUserNotificationWriteResponse = gson.getDelegateAdapter(this, TypeToken.get(UserNotificationWriteResponse.class));
             final TypeAdapter<IgnoredResponse> adapterIgnoredResponse = gson.getDelegateAdapter(this, TypeToken.get(IgnoredResponse.class));
+            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
             return (TypeAdapter<T>) new TypeAdapter<UpdateUserNotificationStatusResponse>() {
                 @Override
@@ -95,7 +98,13 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: IgnoredResponse, UserNotificationWriteResponse");
+                    // check if the actual instance is of the type `APIError`
+                    if (value.getActualInstance() instanceof APIError) {
+                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, IgnoredResponse, UserNotificationWriteResponse");
                 }
 
                 @Override
@@ -132,6 +141,19 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for IgnoredResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'IgnoredResponse'", e);
                     }
+                    // deserialize APIError
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        APIError.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAPIError;
+                        UpdateUserNotificationStatusResponse ret = new UpdateUserNotificationStatusResponse();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
+                    }
 
                     throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for UpdateUserNotificationStatusResponse: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
@@ -154,6 +176,7 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
     static {
         schemas.put("UserNotificationWriteResponse", UserNotificationWriteResponse.class);
         schemas.put("IgnoredResponse", IgnoredResponse.class);
+        schemas.put("APIError", APIError.class);
     }
 
     @Override
@@ -164,7 +187,7 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * IgnoredResponse, UserNotificationWriteResponse
+     * APIError, IgnoredResponse, UserNotificationWriteResponse
      *
      * It could be an instance of the 'anyOf' schemas.
      */
@@ -180,14 +203,19 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be IgnoredResponse, UserNotificationWriteResponse");
+        if (instance instanceof APIError) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be APIError, IgnoredResponse, UserNotificationWriteResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * IgnoredResponse, UserNotificationWriteResponse
+     * APIError, IgnoredResponse, UserNotificationWriteResponse
      *
-     * @return The actual instance (IgnoredResponse, UserNotificationWriteResponse)
+     * @return The actual instance (APIError, IgnoredResponse, UserNotificationWriteResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -218,6 +246,17 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
     }
 
     /**
+     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `APIError`
+     * @throws ClassCastException if the instance is not `APIError`
+     */
+    public APIError getAPIError() throws ClassCastException {
+        return (APIError)super.getActualInstance();
+    }
+
+    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -242,7 +281,15 @@ public class UpdateUserNotificationStatusResponse extends AbstractOpenApiSchema 
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for IgnoredResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for UpdateUserNotificationStatusResponse with anyOf schemas: IgnoredResponse, UserNotificationWriteResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        // validate the json string with APIError
+        try {
+            APIError.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for UpdateUserNotificationStatusResponse with anyOf schemas: APIError, IgnoredResponse, UserNotificationWriteResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

@@ -16,58 +16,68 @@ package com.fastcomments.api;
 import com.fastcomments.invoker.ApiException;
 import com.fastcomments.model.APIEmptyResponse;
 import com.fastcomments.model.APIError;
-import com.fastcomments.model.BlockSuccess;
-import com.fastcomments.model.ChangeCommentPinStatusResponse;
-import com.fastcomments.model.CheckBlockedCommentsResponse;
+import com.fastcomments.model.BlockFromCommentPublicResponse;
+import com.fastcomments.model.CheckedCommentsForBlockedResponse;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
+import com.fastcomments.model.CreateCommentPublicResponse;
 import com.fastcomments.model.CreateFeedPostParams;
-import com.fastcomments.model.CreateFeedPostResponse;
-import com.fastcomments.model.CreateV1PageReact;
+import com.fastcomments.model.CreateFeedPostPublicResponse;
+import com.fastcomments.model.CreateV1PageReactResponse;
+import com.fastcomments.model.CreateV2PageReactResponse;
+import com.fastcomments.model.DeleteCommentPublicResponse;
+import com.fastcomments.model.DeleteCommentVoteResponse;
 import com.fastcomments.model.DeleteFeedPostPublicResponse;
-import com.fastcomments.model.FeedPostsStatsResponse;
+import com.fastcomments.model.DeleteV1PageReactResponse;
+import com.fastcomments.model.DeleteV2PageReactResponse;
 import java.io.File;
-import com.fastcomments.model.GetCommentVoteUserNamesSuccessResponse;
-import com.fastcomments.model.GetCommentsForUserResponse;
-import com.fastcomments.model.GetCommentsResponseWithPresencePublicComment;
-import com.fastcomments.model.GetEventLogResponse;
+import com.fastcomments.model.FlagCommentPublicResponse;
+import com.fastcomments.model.GetCommentTextResponse1;
+import com.fastcomments.model.GetCommentVoteUserNamesResponse;
+import com.fastcomments.model.GetCommentsForUserResponse1;
+import com.fastcomments.model.GetCommentsPublicResponse;
+import com.fastcomments.model.GetEventLogResponse1;
+import com.fastcomments.model.GetFeedPostsPublicResponse;
+import com.fastcomments.model.GetFeedPostsStatsResponse;
+import com.fastcomments.model.GetGifLargeResponse;
 import com.fastcomments.model.GetGifsSearchResponse;
 import com.fastcomments.model.GetGifsTrendingResponse;
-import com.fastcomments.model.GetMyNotificationsResponse;
-import com.fastcomments.model.GetPublicPagesResponse;
-import com.fastcomments.model.GetTranslationsResponse;
-import com.fastcomments.model.GetUserNotificationCountResponse;
-import com.fastcomments.model.GetUserPresenceStatusesResponse;
-import com.fastcomments.model.GetV1PageLikes;
-import com.fastcomments.model.GetV2PageReactUsersResponse;
-import com.fastcomments.model.GetV2PageReacts;
-import com.fastcomments.model.GifGetLargeResponse;
-import com.fastcomments.model.PageUsersInfoResponse;
-import com.fastcomments.model.PageUsersOfflineResponse;
-import com.fastcomments.model.PageUsersOnlineResponse;
+import com.fastcomments.model.GetGlobalEventLogResponse;
+import com.fastcomments.model.GetOfflineUsersResponse;
+import com.fastcomments.model.GetOnlineUsersResponse;
+import com.fastcomments.model.GetPagesPublicResponse;
+import com.fastcomments.model.GetTranslationsResponse1;
+import com.fastcomments.model.GetUserNotificationCountResponse1;
+import com.fastcomments.model.GetUserNotificationsResponse;
+import com.fastcomments.model.GetUserPresenceStatusesResponse1;
+import com.fastcomments.model.GetUserReactsPublicResponse;
+import com.fastcomments.model.GetUsersInfoResponse;
+import com.fastcomments.model.GetV1PageLikesResponse;
+import com.fastcomments.model.GetV2PageReactUsersResponse1;
+import com.fastcomments.model.GetV2PageReactsResponse;
+import com.fastcomments.model.LockCommentResponse;
 import com.fastcomments.model.PagesSortBy;
-import com.fastcomments.model.PublicAPIDeleteCommentResponse;
-import com.fastcomments.model.PublicAPIGetCommentTextResponse;
-import com.fastcomments.model.PublicAPISetCommentTextResponse;
+import com.fastcomments.model.PinCommentResponse;
 import com.fastcomments.model.PublicBlockFromCommentParams;
-import com.fastcomments.model.PublicFeedPostsResponse;
 import com.fastcomments.model.ReactBodyParams;
-import com.fastcomments.model.ReactFeedPostResponse;
-import com.fastcomments.model.ResetUserNotificationsResponse;
-import com.fastcomments.model.SaveCommentsResponseWithPresence;
-import com.fastcomments.model.SearchUsersResult;
+import com.fastcomments.model.ReactFeedPostPublicResponse;
+import com.fastcomments.model.ResetUserNotificationCountResponse;
+import com.fastcomments.model.ResetUserNotificationsResponse1;
+import com.fastcomments.model.SearchUsersResponse1;
+import com.fastcomments.model.SetCommentTextResponse1;
 import com.fastcomments.model.SizePreset;
 import com.fastcomments.model.SortDirections;
-import com.fastcomments.model.UnblockSuccess;
+import com.fastcomments.model.UnBlockCommentPublicResponse;
+import com.fastcomments.model.UnLockCommentResponse;
+import com.fastcomments.model.UnPinCommentResponse;
 import com.fastcomments.model.UpdateFeedPostParams;
+import com.fastcomments.model.UpdateFeedPostPublicResponse;
 import com.fastcomments.model.UpdateUserNotificationCommentSubscriptionStatusResponse;
 import com.fastcomments.model.UpdateUserNotificationPageSubscriptionStatusResponse;
 import com.fastcomments.model.UpdateUserNotificationStatusResponse;
 import com.fastcomments.model.UploadImageResponse;
-import com.fastcomments.model.UserReactsResponse;
 import com.fastcomments.model.VoteBodyParams;
-import com.fastcomments.model.VoteDeleteResponse;
-import com.fastcomments.model.VoteResponse;
+import com.fastcomments.model.VoteCommentResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -93,7 +103,7 @@ public class PublicApiTest {
         String commentId = null;
         PublicBlockFromCommentParams publicBlockFromCommentParams = null;
         String sso = null;
-        BlockSuccess response = api.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
+        BlockFromCommentPublicResponse response = api.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -107,7 +117,7 @@ public class PublicApiTest {
         String tenantId = null;
         String commentIds = null;
         String sso = null;
-        CheckBlockedCommentsResponse response = api.checkedCommentsForBlocked(tenantId, commentIds)
+        CheckedCommentsForBlockedResponse response = api.checkedCommentsForBlocked(tenantId, commentIds)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -124,7 +134,7 @@ public class PublicApiTest {
         CommentData commentData = null;
         String sessionId = null;
         String sso = null;
-        SaveCommentsResponseWithPresence response = api.createCommentPublic(tenantId, urlId, broadcastId, commentData)
+        CreateCommentPublicResponse response = api.createCommentPublic(tenantId, urlId, broadcastId, commentData)
                 .sessionId(sessionId)
                 .sso(sso)
                 .execute();
@@ -140,7 +150,7 @@ public class PublicApiTest {
         CreateFeedPostParams createFeedPostParams = null;
         String broadcastId = null;
         String sso = null;
-        CreateFeedPostResponse response = api.createFeedPostPublic(tenantId, createFeedPostParams)
+        CreateFeedPostPublicResponse response = api.createFeedPostPublic(tenantId, createFeedPostParams)
                 .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
@@ -155,7 +165,7 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String title = null;
-        CreateV1PageReact response = api.createV1PageReact(tenantId, urlId)
+        CreateV1PageReactResponse response = api.createV1PageReact(tenantId, urlId)
                 .title(title)
                 .execute();
         // TODO: test validations
@@ -170,7 +180,7 @@ public class PublicApiTest {
         String urlId = null;
         String id = null;
         String title = null;
-        CreateV1PageReact response = api.createV2PageReact(tenantId, urlId, id)
+        CreateV2PageReactResponse response = api.createV2PageReact(tenantId, urlId, id)
                 .title(title)
                 .execute();
         // TODO: test validations
@@ -186,7 +196,7 @@ public class PublicApiTest {
         String broadcastId = null;
         String editKey = null;
         String sso = null;
-        PublicAPIDeleteCommentResponse response = api.deleteCommentPublic(tenantId, commentId, broadcastId)
+        DeleteCommentPublicResponse response = api.deleteCommentPublic(tenantId, commentId, broadcastId)
                 .editKey(editKey)
                 .sso(sso)
                 .execute();
@@ -205,7 +215,7 @@ public class PublicApiTest {
         String broadcastId = null;
         String editKey = null;
         String sso = null;
-        VoteDeleteResponse response = api.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
+        DeleteCommentVoteResponse response = api.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
                 .editKey(editKey)
                 .sso(sso)
                 .execute();
@@ -235,7 +245,7 @@ public class PublicApiTest {
     public void deleteV1PageReactTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
-        CreateV1PageReact response = api.deleteV1PageReact(tenantId, urlId)
+        DeleteV1PageReactResponse response = api.deleteV1PageReact(tenantId, urlId)
                 .execute();
         // TODO: test validations
     }
@@ -248,7 +258,7 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String id = null;
-        CreateV1PageReact response = api.deleteV2PageReact(tenantId, urlId, id)
+        DeleteV2PageReactResponse response = api.deleteV2PageReact(tenantId, urlId, id)
                 .execute();
         // TODO: test validations
     }
@@ -262,7 +272,7 @@ public class PublicApiTest {
         String commentId = null;
         Boolean isFlagged = null;
         String sso = null;
-        APIEmptyResponse response = api.flagCommentPublic(tenantId, commentId, isFlagged)
+        FlagCommentPublicResponse response = api.flagCommentPublic(tenantId, commentId, isFlagged)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -277,7 +287,7 @@ public class PublicApiTest {
         String commentId = null;
         String editKey = null;
         String sso = null;
-        PublicAPIGetCommentTextResponse response = api.getCommentText(tenantId, commentId)
+        GetCommentTextResponse1 response = api.getCommentText(tenantId, commentId)
                 .editKey(editKey)
                 .sso(sso)
                 .execute();
@@ -293,7 +303,7 @@ public class PublicApiTest {
         String commentId = null;
         Integer dir = null;
         String sso = null;
-        GetCommentVoteUserNamesSuccessResponse response = api.getCommentVoteUserNames(tenantId, commentId, dir)
+        GetCommentVoteUserNamesResponse response = api.getCommentVoteUserNames(tenantId, commentId, dir)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -311,7 +321,7 @@ public class PublicApiTest {
         Boolean includei10n = null;
         String locale = null;
         Boolean isCrawler = null;
-        GetCommentsForUserResponse response = api.getCommentsForUser()
+        GetCommentsForUserResponse1 response = api.getCommentsForUser()
                 .userId(userId)
                 .direction(direction)
                 .repliesToUserId(repliesToUserId)
@@ -358,7 +368,7 @@ public class PublicApiTest {
         String customConfigStr = null;
         String afterCommentId = null;
         String beforeCommentId = null;
-        GetCommentsResponseWithPresencePublicComment response = api.getCommentsPublic(tenantId, urlId)
+        GetCommentsPublicResponse response = api.getCommentsPublic(tenantId, urlId)
                 .page(page)
                 .direction(direction)
                 .sso(sso)
@@ -401,7 +411,7 @@ public class PublicApiTest {
         String userIdWS = null;
         Long startTime = null;
         Long endTime = null;
-        GetEventLogResponse response = api.getEventLog(tenantId, urlId, userIdWS, startTime)
+        GetEventLogResponse1 response = api.getEventLog(tenantId, urlId, userIdWS, startTime)
                 .endTime(endTime)
                 .execute();
         // TODO: test validations
@@ -421,7 +431,7 @@ public class PublicApiTest {
         String sso = null;
         Boolean isCrawler = null;
         Boolean includeUserInfo = null;
-        PublicFeedPostsResponse response = api.getFeedPostsPublic(tenantId)
+        GetFeedPostsPublicResponse response = api.getFeedPostsPublic(tenantId)
                 .afterId(afterId)
                 .limit(limit)
                 .tags(tags)
@@ -440,7 +450,7 @@ public class PublicApiTest {
         String tenantId = null;
         List<String> postIds = null;
         String sso = null;
-        FeedPostsStatsResponse response = api.getFeedPostsStats(tenantId, postIds)
+        GetFeedPostsStatsResponse response = api.getFeedPostsStats(tenantId, postIds)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -453,7 +463,7 @@ public class PublicApiTest {
     public void getGifLargeTest() throws ApiException {
         String tenantId = null;
         String largeInternalURLSanitized = null;
-        GifGetLargeResponse response = api.getGifLarge(tenantId, largeInternalURLSanitized)
+        GetGifLargeResponse response = api.getGifLarge(tenantId, largeInternalURLSanitized)
                 .execute();
         // TODO: test validations
     }
@@ -505,7 +515,7 @@ public class PublicApiTest {
         String userIdWS = null;
         Long startTime = null;
         Long endTime = null;
-        GetEventLogResponse response = api.getGlobalEventLog(tenantId, urlId, userIdWS, startTime)
+        GetGlobalEventLogResponse response = api.getGlobalEventLog(tenantId, urlId, userIdWS, startTime)
                 .endTime(endTime)
                 .execute();
         // TODO: test validations
@@ -522,7 +532,7 @@ public class PublicApiTest {
         String urlId = null;
         String afterName = null;
         String afterUserId = null;
-        PageUsersOfflineResponse response = api.getOfflineUsers(tenantId, urlId)
+        GetOfflineUsersResponse response = api.getOfflineUsers(tenantId, urlId)
                 .afterName(afterName)
                 .afterUserId(afterUserId)
                 .execute();
@@ -540,7 +550,7 @@ public class PublicApiTest {
         String urlId = null;
         String afterName = null;
         String afterUserId = null;
-        PageUsersOnlineResponse response = api.getOnlineUsers(tenantId, urlId)
+        GetOnlineUsersResponse response = api.getOnlineUsers(tenantId, urlId)
                 .afterName(afterName)
                 .afterUserId(afterUserId)
                 .execute();
@@ -560,7 +570,7 @@ public class PublicApiTest {
         String q = null;
         PagesSortBy sortBy = null;
         Boolean hasComments = null;
-        GetPublicPagesResponse response = api.getPagesPublic(tenantId)
+        GetPagesPublicResponse response = api.getPagesPublic(tenantId)
                 .cursor(cursor)
                 .limit(limit)
                 .q(q)
@@ -579,7 +589,7 @@ public class PublicApiTest {
         String component = null;
         String locale = null;
         Boolean useFullTranslationIds = null;
-        GetTranslationsResponse response = api.getTranslations(namespace, component)
+        GetTranslationsResponse1 response = api.getTranslations(namespace, component)
                 .locale(locale)
                 .useFullTranslationIds(useFullTranslationIds)
                 .execute();
@@ -593,7 +603,7 @@ public class PublicApiTest {
     public void getUserNotificationCountTest() throws ApiException {
         String tenantId = null;
         String sso = null;
-        GetUserNotificationCountResponse response = api.getUserNotificationCount(tenantId)
+        GetUserNotificationCountResponse1 response = api.getUserNotificationCount(tenantId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -616,7 +626,7 @@ public class PublicApiTest {
         Boolean includeTranslations = null;
         Boolean includeTenantNotifications = null;
         String sso = null;
-        GetMyNotificationsResponse response = api.getUserNotifications(tenantId)
+        GetUserNotificationsResponse response = api.getUserNotifications(tenantId)
                 .urlId(urlId)
                 .pageSize(pageSize)
                 .afterId(afterId)
@@ -640,7 +650,7 @@ public class PublicApiTest {
         String tenantId = null;
         String urlIdWS = null;
         String userIds = null;
-        GetUserPresenceStatusesResponse response = api.getUserPresenceStatuses(tenantId, urlIdWS, userIds)
+        GetUserPresenceStatusesResponse1 response = api.getUserPresenceStatuses(tenantId, urlIdWS, userIds)
                 .execute();
         // TODO: test validations
     }
@@ -653,7 +663,7 @@ public class PublicApiTest {
         String tenantId = null;
         List<String> postIds = null;
         String sso = null;
-        UserReactsResponse response = api.getUserReactsPublic(tenantId)
+        GetUserReactsPublicResponse response = api.getUserReactsPublic(tenantId)
                 .postIds(postIds)
                 .sso(sso)
                 .execute();
@@ -669,7 +679,7 @@ public class PublicApiTest {
     public void getUsersInfoTest() throws ApiException {
         String tenantId = null;
         String ids = null;
-        PageUsersInfoResponse response = api.getUsersInfo(tenantId, ids)
+        GetUsersInfoResponse response = api.getUsersInfo(tenantId, ids)
                 .execute();
         // TODO: test validations
     }
@@ -681,7 +691,7 @@ public class PublicApiTest {
     public void getV1PageLikesTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
-        GetV1PageLikes response = api.getV1PageLikes(tenantId, urlId)
+        GetV1PageLikesResponse response = api.getV1PageLikes(tenantId, urlId)
                 .execute();
         // TODO: test validations
     }
@@ -694,7 +704,7 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String id = null;
-        GetV2PageReactUsersResponse response = api.getV2PageReactUsers(tenantId, urlId, id)
+        GetV2PageReactUsersResponse1 response = api.getV2PageReactUsers(tenantId, urlId, id)
                 .execute();
         // TODO: test validations
     }
@@ -706,7 +716,7 @@ public class PublicApiTest {
     public void getV2PageReactsTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
-        GetV2PageReacts response = api.getV2PageReacts(tenantId, urlId)
+        GetV2PageReactsResponse response = api.getV2PageReacts(tenantId, urlId)
                 .execute();
         // TODO: test validations
     }
@@ -720,7 +730,7 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        APIEmptyResponse response = api.lockComment(tenantId, commentId, broadcastId)
+        LockCommentResponse response = api.lockComment(tenantId, commentId, broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -745,7 +755,7 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        ChangeCommentPinStatusResponse response = api.pinComment(tenantId, commentId, broadcastId)
+        PinCommentResponse response = api.pinComment(tenantId, commentId, broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -762,7 +772,7 @@ public class PublicApiTest {
         Boolean isUndo = null;
         String broadcastId = null;
         String sso = null;
-        ReactFeedPostResponse response = api.reactFeedPostPublic(tenantId, postId, reactBodyParams)
+        ReactFeedPostPublicResponse response = api.reactFeedPostPublic(tenantId, postId, reactBodyParams)
                 .isUndo(isUndo)
                 .broadcastId(broadcastId)
                 .sso(sso)
@@ -777,7 +787,7 @@ public class PublicApiTest {
     public void resetUserNotificationCountTest() throws ApiException {
         String tenantId = null;
         String sso = null;
-        ResetUserNotificationsResponse response = api.resetUserNotificationCount(tenantId)
+        ResetUserNotificationCountResponse response = api.resetUserNotificationCount(tenantId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -795,7 +805,7 @@ public class PublicApiTest {
         Boolean dmOnly = null;
         Boolean noDm = null;
         String sso = null;
-        ResetUserNotificationsResponse response = api.resetUserNotifications(tenantId)
+        ResetUserNotificationsResponse1 response = api.resetUserNotifications(tenantId)
                 .afterId(afterId)
                 .afterCreatedAt(afterCreatedAt)
                 .unreadOnly(unreadOnly)
@@ -817,7 +827,7 @@ public class PublicApiTest {
         List<String> mentionGroupIds = null;
         String sso = null;
         String searchSection = null;
-        SearchUsersResult response = api.searchUsers(tenantId, urlId)
+        SearchUsersResponse1 response = api.searchUsers(tenantId, urlId)
                 .usernameStartsWith(usernameStartsWith)
                 .mentionGroupIds(mentionGroupIds)
                 .sso(sso)
@@ -837,7 +847,7 @@ public class PublicApiTest {
         CommentTextUpdateRequest commentTextUpdateRequest = null;
         String editKey = null;
         String sso = null;
-        PublicAPISetCommentTextResponse response = api.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
+        SetCommentTextResponse1 response = api.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
                 .editKey(editKey)
                 .sso(sso)
                 .execute();
@@ -853,7 +863,7 @@ public class PublicApiTest {
         String commentId = null;
         PublicBlockFromCommentParams publicBlockFromCommentParams = null;
         String sso = null;
-        UnblockSuccess response = api.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
+        UnBlockCommentPublicResponse response = api.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -868,7 +878,7 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        APIEmptyResponse response = api.unLockComment(tenantId, commentId, broadcastId)
+        UnLockCommentResponse response = api.unLockComment(tenantId, commentId, broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -883,7 +893,7 @@ public class PublicApiTest {
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        ChangeCommentPinStatusResponse response = api.unPinComment(tenantId, commentId, broadcastId)
+        UnPinCommentResponse response = api.unPinComment(tenantId, commentId, broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -899,7 +909,7 @@ public class PublicApiTest {
         UpdateFeedPostParams updateFeedPostParams = null;
         String broadcastId = null;
         String sso = null;
-        CreateFeedPostResponse response = api.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
+        UpdateFeedPostPublicResponse response = api.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
                 .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
@@ -988,7 +998,7 @@ public class PublicApiTest {
         VoteBodyParams voteBodyParams = null;
         String sessionId = null;
         String sso = null;
-        VoteResponse response = api.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
+        VoteCommentResponse response = api.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
                 .sessionId(sessionId)
                 .sso(sso)
                 .execute();

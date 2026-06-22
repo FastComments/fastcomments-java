@@ -61,7 +61,7 @@ All URIs are relative to *https://fastcomments.com*
 
 <a id="blockFromCommentPublic"></a>
 # **blockFromCommentPublic**
-> BlockSuccess blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
+> BlockFromCommentPublicResponse blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -85,7 +85,7 @@ public class Example {
     PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      BlockSuccess result = apiInstance.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
+      BlockFromCommentPublicResponse result = apiInstance.blockFromCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -111,7 +111,7 @@ public class Example {
 
 ### Return type
 
-[**BlockSuccess**](BlockSuccess.md)
+[**BlockFromCommentPublicResponse**](BlockFromCommentPublicResponse.md)
 
 ### Authorization
 
@@ -126,11 +126,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="checkedCommentsForBlocked"></a>
 # **checkedCommentsForBlocked**
-> CheckBlockedCommentsResponse checkedCommentsForBlocked(tenantId, commentIds).sso(sso).execute();
+> CheckedCommentsForBlockedResponse checkedCommentsForBlocked(tenantId, commentIds).sso(sso).execute();
 
 
 
@@ -153,7 +152,7 @@ public class Example {
     String commentIds = "commentIds_example"; // String | A comma separated list of comment ids.
     String sso = "sso_example"; // String | 
     try {
-      CheckBlockedCommentsResponse result = apiInstance.checkedCommentsForBlocked(tenantId, commentIds)
+      CheckedCommentsForBlockedResponse result = apiInstance.checkedCommentsForBlocked(tenantId, commentIds)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -178,7 +177,7 @@ public class Example {
 
 ### Return type
 
-[**CheckBlockedCommentsResponse**](CheckBlockedCommentsResponse.md)
+[**CheckedCommentsForBlockedResponse**](CheckedCommentsForBlockedResponse.md)
 
 ### Authorization
 
@@ -193,11 +192,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createCommentPublic"></a>
 # **createCommentPublic**
-> SaveCommentsResponseWithPresence createCommentPublic(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
+> CreateCommentPublicResponse createCommentPublic(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
 
 
 
@@ -223,7 +221,7 @@ public class Example {
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SaveCommentsResponseWithPresence result = apiInstance.createCommentPublic(tenantId, urlId, broadcastId, commentData)
+      CreateCommentPublicResponse result = apiInstance.createCommentPublic(tenantId, urlId, broadcastId, commentData)
             .sessionId(sessionId)
             .sso(sso)
             .execute();
@@ -252,7 +250,7 @@ public class Example {
 
 ### Return type
 
-[**SaveCommentsResponseWithPresence**](SaveCommentsResponseWithPresence.md)
+[**CreateCommentPublicResponse**](CreateCommentPublicResponse.md)
 
 ### Authorization
 
@@ -267,11 +265,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createFeedPostPublic"></a>
 # **createFeedPostPublic**
-> CreateFeedPostResponse createFeedPostPublic(tenantId, createFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
+> CreateFeedPostPublicResponse createFeedPostPublic(tenantId, createFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -295,7 +292,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      CreateFeedPostResponse result = apiInstance.createFeedPostPublic(tenantId, createFeedPostParams)
+      CreateFeedPostPublicResponse result = apiInstance.createFeedPostPublic(tenantId, createFeedPostParams)
             .broadcastId(broadcastId)
             .sso(sso)
             .execute();
@@ -322,7 +319,7 @@ public class Example {
 
 ### Return type
 
-[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**CreateFeedPostPublicResponse**](CreateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -337,11 +334,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createV1PageReact"></a>
 # **createV1PageReact**
-> CreateV1PageReact createV1PageReact(tenantId, urlId).title(title).execute();
+> CreateV1PageReactResponse createV1PageReact(tenantId, urlId).title(title).execute();
 
 
 
@@ -364,7 +360,7 @@ public class Example {
     String urlId = "urlId_example"; // String | 
     String title = "title_example"; // String | 
     try {
-      CreateV1PageReact result = apiInstance.createV1PageReact(tenantId, urlId)
+      CreateV1PageReactResponse result = apiInstance.createV1PageReact(tenantId, urlId)
             .title(title)
             .execute();
       System.out.println(result);
@@ -389,7 +385,7 @@ public class Example {
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**CreateV1PageReactResponse**](CreateV1PageReactResponse.md)
 
 ### Authorization
 
@@ -404,11 +400,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="createV2PageReact"></a>
 # **createV2PageReact**
-> CreateV1PageReact createV2PageReact(tenantId, urlId, id).title(title).execute();
+> CreateV2PageReactResponse createV2PageReact(tenantId, urlId, id).title(title).execute();
 
 
 
@@ -432,7 +427,7 @@ public class Example {
     String id = "id_example"; // String | 
     String title = "title_example"; // String | 
     try {
-      CreateV1PageReact result = apiInstance.createV2PageReact(tenantId, urlId, id)
+      CreateV2PageReactResponse result = apiInstance.createV2PageReact(tenantId, urlId, id)
             .title(title)
             .execute();
       System.out.println(result);
@@ -458,7 +453,7 @@ public class Example {
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**CreateV2PageReactResponse**](CreateV2PageReactResponse.md)
 
 ### Authorization
 
@@ -473,11 +468,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteCommentPublic"></a>
 # **deleteCommentPublic**
-> PublicAPIDeleteCommentResponse deleteCommentPublic(tenantId, commentId, broadcastId).editKey(editKey).sso(sso).execute();
+> DeleteCommentPublicResponse deleteCommentPublic(tenantId, commentId, broadcastId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -502,7 +496,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PublicAPIDeleteCommentResponse result = apiInstance.deleteCommentPublic(tenantId, commentId, broadcastId)
+      DeleteCommentPublicResponse result = apiInstance.deleteCommentPublic(tenantId, commentId, broadcastId)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -530,7 +524,7 @@ public class Example {
 
 ### Return type
 
-[**PublicAPIDeleteCommentResponse**](PublicAPIDeleteCommentResponse.md)
+[**DeleteCommentPublicResponse**](DeleteCommentPublicResponse.md)
 
 ### Authorization
 
@@ -545,11 +539,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteCommentVote"></a>
 # **deleteCommentVote**
-> VoteDeleteResponse deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId).editKey(editKey).sso(sso).execute();
+> DeleteCommentVoteResponse deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -576,7 +569,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteDeleteResponse result = apiInstance.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
+      DeleteCommentVoteResponse result = apiInstance.deleteCommentVote(tenantId, commentId, voteId, urlId, broadcastId)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -606,7 +599,7 @@ public class Example {
 
 ### Return type
 
-[**VoteDeleteResponse**](VoteDeleteResponse.md)
+[**DeleteCommentVoteResponse**](DeleteCommentVoteResponse.md)
 
 ### Authorization
 
@@ -621,7 +614,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteFeedPostPublic"></a>
 # **deleteFeedPostPublic**
@@ -691,11 +683,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteV1PageReact"></a>
 # **deleteV1PageReact**
-> CreateV1PageReact deleteV1PageReact(tenantId, urlId).execute();
+> DeleteV1PageReactResponse deleteV1PageReact(tenantId, urlId).execute();
 
 
 
@@ -717,7 +708,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     try {
-      CreateV1PageReact result = apiInstance.deleteV1PageReact(tenantId, urlId)
+      DeleteV1PageReactResponse result = apiInstance.deleteV1PageReact(tenantId, urlId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -740,7 +731,7 @@ public class Example {
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**DeleteV1PageReactResponse**](DeleteV1PageReactResponse.md)
 
 ### Authorization
 
@@ -755,11 +746,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="deleteV2PageReact"></a>
 # **deleteV2PageReact**
-> CreateV1PageReact deleteV2PageReact(tenantId, urlId, id).execute();
+> DeleteV2PageReactResponse deleteV2PageReact(tenantId, urlId, id).execute();
 
 
 
@@ -782,7 +772,7 @@ public class Example {
     String urlId = "urlId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      CreateV1PageReact result = apiInstance.deleteV2PageReact(tenantId, urlId, id)
+      DeleteV2PageReactResponse result = apiInstance.deleteV2PageReact(tenantId, urlId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -806,7 +796,7 @@ public class Example {
 
 ### Return type
 
-[**CreateV1PageReact**](CreateV1PageReact.md)
+[**DeleteV2PageReactResponse**](DeleteV2PageReactResponse.md)
 
 ### Authorization
 
@@ -821,11 +811,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="flagCommentPublic"></a>
 # **flagCommentPublic**
-> APIEmptyResponse flagCommentPublic(tenantId, commentId, isFlagged).sso(sso).execute();
+> FlagCommentPublicResponse flagCommentPublic(tenantId, commentId, isFlagged).sso(sso).execute();
 
 
 
@@ -849,7 +838,7 @@ public class Example {
     Boolean isFlagged = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.flagCommentPublic(tenantId, commentId, isFlagged)
+      FlagCommentPublicResponse result = apiInstance.flagCommentPublic(tenantId, commentId, isFlagged)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -875,7 +864,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**FlagCommentPublicResponse**](FlagCommentPublicResponse.md)
 
 ### Authorization
 
@@ -890,11 +879,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCommentText"></a>
 # **getCommentText**
-> PublicAPIGetCommentTextResponse getCommentText(tenantId, commentId).editKey(editKey).sso(sso).execute();
+> GetCommentTextResponse1 getCommentText(tenantId, commentId).editKey(editKey).sso(sso).execute();
 
 
 
@@ -918,7 +906,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PublicAPIGetCommentTextResponse result = apiInstance.getCommentText(tenantId, commentId)
+      GetCommentTextResponse1 result = apiInstance.getCommentText(tenantId, commentId)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -945,7 +933,7 @@ public class Example {
 
 ### Return type
 
-[**PublicAPIGetCommentTextResponse**](PublicAPIGetCommentTextResponse.md)
+[**GetCommentTextResponse1**](GetCommentTextResponse1.md)
 
 ### Authorization
 
@@ -960,11 +948,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCommentVoteUserNames"></a>
 # **getCommentVoteUserNames**
-> GetCommentVoteUserNamesSuccessResponse getCommentVoteUserNames(tenantId, commentId, dir).sso(sso).execute();
+> GetCommentVoteUserNamesResponse getCommentVoteUserNames(tenantId, commentId, dir).sso(sso).execute();
 
 
 
@@ -988,7 +975,7 @@ public class Example {
     Integer dir = 56; // Integer | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentVoteUserNamesSuccessResponse result = apiInstance.getCommentVoteUserNames(tenantId, commentId, dir)
+      GetCommentVoteUserNamesResponse result = apiInstance.getCommentVoteUserNames(tenantId, commentId, dir)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1014,7 +1001,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentVoteUserNamesSuccessResponse**](GetCommentVoteUserNamesSuccessResponse.md)
+[**GetCommentVoteUserNamesResponse**](GetCommentVoteUserNamesResponse.md)
 
 ### Authorization
 
@@ -1029,11 +1016,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCommentsForUser"></a>
 # **getCommentsForUser**
-> GetCommentsForUserResponse getCommentsForUser().userId(userId).direction(direction).repliesToUserId(repliesToUserId).page(page).includei10n(includei10n).locale(locale).isCrawler(isCrawler).execute();
+> GetCommentsForUserResponse1 getCommentsForUser().userId(userId).direction(direction).repliesToUserId(repliesToUserId).page(page).includei10n(includei10n).locale(locale).isCrawler(isCrawler).execute();
 
 
 
@@ -1060,7 +1046,7 @@ public class Example {
     String locale = "locale_example"; // String | 
     Boolean isCrawler = true; // Boolean | 
     try {
-      GetCommentsForUserResponse result = apiInstance.getCommentsForUser()
+      GetCommentsForUserResponse1 result = apiInstance.getCommentsForUser()
             .userId(userId)
             .direction(direction)
             .repliesToUserId(repliesToUserId)
@@ -1095,7 +1081,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentsForUserResponse**](GetCommentsForUserResponse.md)
+[**GetCommentsForUserResponse1**](GetCommentsForUserResponse1.md)
 
 ### Authorization
 
@@ -1110,11 +1096,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getCommentsPublic"></a>
 # **getCommentsPublic**
-> GetCommentsResponseWithPresencePublicComment getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).afterCommentId(afterCommentId).beforeCommentId(beforeCommentId).execute();
+> GetCommentsPublicResponse getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).afterCommentId(afterCommentId).beforeCommentId(beforeCommentId).execute();
 
 
 
@@ -1164,7 +1149,7 @@ public class Example {
     String afterCommentId = "afterCommentId_example"; // String | 
     String beforeCommentId = "beforeCommentId_example"; // String | 
     try {
-      GetCommentsResponseWithPresencePublicComment result = apiInstance.getCommentsPublic(tenantId, urlId)
+      GetCommentsPublicResponse result = apiInstance.getCommentsPublic(tenantId, urlId)
             .page(page)
             .direction(direction)
             .sso(sso)
@@ -1239,7 +1224,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentsResponseWithPresencePublicComment**](GetCommentsResponseWithPresencePublicComment.md)
+[**GetCommentsPublicResponse**](GetCommentsPublicResponse.md)
 
 ### Authorization
 
@@ -1254,11 +1239,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getEventLog"></a>
 # **getEventLog**
-> GetEventLogResponse getEventLog(tenantId, urlId, userIdWS, startTime).endTime(endTime).execute();
+> GetEventLogResponse1 getEventLog(tenantId, urlId, userIdWS, startTime).endTime(endTime).execute();
 
 
 
@@ -1285,7 +1269,7 @@ public class Example {
     Long startTime = 56L; // Long | 
     Long endTime = 56L; // Long | 
     try {
-      GetEventLogResponse result = apiInstance.getEventLog(tenantId, urlId, userIdWS, startTime)
+      GetEventLogResponse1 result = apiInstance.getEventLog(tenantId, urlId, userIdWS, startTime)
             .endTime(endTime)
             .execute();
       System.out.println(result);
@@ -1312,7 +1296,7 @@ public class Example {
 
 ### Return type
 
-[**GetEventLogResponse**](GetEventLogResponse.md)
+[**GetEventLogResponse1**](GetEventLogResponse1.md)
 
 ### Authorization
 
@@ -1327,11 +1311,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getFeedPostsPublic"></a>
 # **getFeedPostsPublic**
-> PublicFeedPostsResponse getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).isCrawler(isCrawler).includeUserInfo(includeUserInfo).execute();
+> GetFeedPostsPublicResponse getFeedPostsPublic(tenantId).afterId(afterId).limit(limit).tags(tags).sso(sso).isCrawler(isCrawler).includeUserInfo(includeUserInfo).execute();
 
 
 
@@ -1360,7 +1343,7 @@ public class Example {
     Boolean isCrawler = true; // Boolean | 
     Boolean includeUserInfo = true; // Boolean | 
     try {
-      PublicFeedPostsResponse result = apiInstance.getFeedPostsPublic(tenantId)
+      GetFeedPostsPublicResponse result = apiInstance.getFeedPostsPublic(tenantId)
             .afterId(afterId)
             .limit(limit)
             .tags(tags)
@@ -1394,7 +1377,7 @@ public class Example {
 
 ### Return type
 
-[**PublicFeedPostsResponse**](PublicFeedPostsResponse.md)
+[**GetFeedPostsPublicResponse**](GetFeedPostsPublicResponse.md)
 
 ### Authorization
 
@@ -1409,11 +1392,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getFeedPostsStats"></a>
 # **getFeedPostsStats**
-> FeedPostsStatsResponse getFeedPostsStats(tenantId, postIds).sso(sso).execute();
+> GetFeedPostsStatsResponse getFeedPostsStats(tenantId, postIds).sso(sso).execute();
 
 
 
@@ -1436,7 +1418,7 @@ public class Example {
     List<String> postIds = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
     try {
-      FeedPostsStatsResponse result = apiInstance.getFeedPostsStats(tenantId, postIds)
+      GetFeedPostsStatsResponse result = apiInstance.getFeedPostsStats(tenantId, postIds)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1461,7 +1443,7 @@ public class Example {
 
 ### Return type
 
-[**FeedPostsStatsResponse**](FeedPostsStatsResponse.md)
+[**GetFeedPostsStatsResponse**](GetFeedPostsStatsResponse.md)
 
 ### Authorization
 
@@ -1476,11 +1458,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getGifLarge"></a>
 # **getGifLarge**
-> GifGetLargeResponse getGifLarge(tenantId, largeInternalURLSanitized).execute();
+> GetGifLargeResponse getGifLarge(tenantId, largeInternalURLSanitized).execute();
 
 
 
@@ -1502,7 +1483,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String largeInternalURLSanitized = "largeInternalURLSanitized_example"; // String | 
     try {
-      GifGetLargeResponse result = apiInstance.getGifLarge(tenantId, largeInternalURLSanitized)
+      GetGifLargeResponse result = apiInstance.getGifLarge(tenantId, largeInternalURLSanitized)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1525,7 +1506,7 @@ public class Example {
 
 ### Return type
 
-[**GifGetLargeResponse**](GifGetLargeResponse.md)
+[**GetGifLargeResponse**](GetGifLargeResponse.md)
 
 ### Authorization
 
@@ -1541,7 +1522,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **422** | Validation Failed |  -  |
-| **0** | Error |  -  |
 
 <a id="getGifsSearch"></a>
 # **getGifsSearch**
@@ -1615,7 +1595,6 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **422** | Validation Failed |  -  |
-| **0** | Error |  -  |
 
 <a id="getGifsTrending"></a>
 # **getGifsTrending**
@@ -1689,7 +1668,7 @@ No authorization required
 
 <a id="getGlobalEventLog"></a>
 # **getGlobalEventLog**
-> GetEventLogResponse getGlobalEventLog(tenantId, urlId, userIdWS, startTime).endTime(endTime).execute();
+> GetGlobalEventLogResponse getGlobalEventLog(tenantId, urlId, userIdWS, startTime).endTime(endTime).execute();
 
 
 
@@ -1716,7 +1695,7 @@ public class Example {
     Long startTime = 56L; // Long | 
     Long endTime = 56L; // Long | 
     try {
-      GetEventLogResponse result = apiInstance.getGlobalEventLog(tenantId, urlId, userIdWS, startTime)
+      GetGlobalEventLogResponse result = apiInstance.getGlobalEventLog(tenantId, urlId, userIdWS, startTime)
             .endTime(endTime)
             .execute();
       System.out.println(result);
@@ -1743,7 +1722,7 @@ public class Example {
 
 ### Return type
 
-[**GetEventLogResponse**](GetEventLogResponse.md)
+[**GetGlobalEventLogResponse**](GetGlobalEventLogResponse.md)
 
 ### Authorization
 
@@ -1758,11 +1737,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getOfflineUsers"></a>
 # **getOfflineUsers**
-> PageUsersOfflineResponse getOfflineUsers(tenantId, urlId).afterName(afterName).afterUserId(afterUserId).execute();
+> GetOfflineUsersResponse getOfflineUsers(tenantId, urlId).afterName(afterName).afterUserId(afterUserId).execute();
 
 
 
@@ -1788,7 +1766,7 @@ public class Example {
     String afterName = "afterName_example"; // String | Cursor: pass nextAfterName from the previous response.
     String afterUserId = "afterUserId_example"; // String | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
     try {
-      PageUsersOfflineResponse result = apiInstance.getOfflineUsers(tenantId, urlId)
+      GetOfflineUsersResponse result = apiInstance.getOfflineUsers(tenantId, urlId)
             .afterName(afterName)
             .afterUserId(afterUserId)
             .execute();
@@ -1815,7 +1793,7 @@ public class Example {
 
 ### Return type
 
-[**PageUsersOfflineResponse**](PageUsersOfflineResponse.md)
+[**GetOfflineUsersResponse**](GetOfflineUsersResponse.md)
 
 ### Authorization
 
@@ -1832,11 +1810,10 @@ No authorization required
 | **200** | Ok |  -  |
 | **403** | Forbidden |  -  |
 | **422** | Validation Failed |  -  |
-| **0** | Error |  -  |
 
 <a id="getOnlineUsers"></a>
 # **getOnlineUsers**
-> PageUsersOnlineResponse getOnlineUsers(tenantId, urlId).afterName(afterName).afterUserId(afterUserId).execute();
+> GetOnlineUsersResponse getOnlineUsers(tenantId, urlId).afterName(afterName).afterUserId(afterUserId).execute();
 
 
 
@@ -1862,7 +1839,7 @@ public class Example {
     String afterName = "afterName_example"; // String | Cursor: pass nextAfterName from the previous response.
     String afterUserId = "afterUserId_example"; // String | Cursor tiebreaker: pass nextAfterUserId from the previous response. Required when afterName is set so name-ties don't drop entries.
     try {
-      PageUsersOnlineResponse result = apiInstance.getOnlineUsers(tenantId, urlId)
+      GetOnlineUsersResponse result = apiInstance.getOnlineUsers(tenantId, urlId)
             .afterName(afterName)
             .afterUserId(afterUserId)
             .execute();
@@ -1889,7 +1866,7 @@ public class Example {
 
 ### Return type
 
-[**PageUsersOnlineResponse**](PageUsersOnlineResponse.md)
+[**GetOnlineUsersResponse**](GetOnlineUsersResponse.md)
 
 ### Authorization
 
@@ -1906,11 +1883,10 @@ No authorization required
 | **200** | Ok |  -  |
 | **403** | Forbidden |  -  |
 | **422** | Validation Failed |  -  |
-| **0** | Error |  -  |
 
 <a id="getPagesPublic"></a>
 # **getPagesPublic**
-> GetPublicPagesResponse getPagesPublic(tenantId).cursor(cursor).limit(limit).q(q).sortBy(sortBy).hasComments(hasComments).execute();
+> GetPagesPublicResponse getPagesPublic(tenantId).cursor(cursor).limit(limit).q(q).sortBy(sortBy).hasComments(hasComments).execute();
 
 
 
@@ -1938,7 +1914,7 @@ public class Example {
     PagesSortBy sortBy = PagesSortBy.fromValue("updatedAt"); // PagesSortBy | Sort order. `updatedAt` (default, newest first), `commentCount` (most comments first), or `title` (alphabetical).
     Boolean hasComments = true; // Boolean | If true, only return pages with at least one comment.
     try {
-      GetPublicPagesResponse result = apiInstance.getPagesPublic(tenantId)
+      GetPagesPublicResponse result = apiInstance.getPagesPublic(tenantId)
             .cursor(cursor)
             .limit(limit)
             .q(q)
@@ -1970,7 +1946,7 @@ public class Example {
 
 ### Return type
 
-[**GetPublicPagesResponse**](GetPublicPagesResponse.md)
+[**GetPagesPublicResponse**](GetPagesPublicResponse.md)
 
 ### Authorization
 
@@ -1985,11 +1961,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getTranslations"></a>
 # **getTranslations**
-> GetTranslationsResponse getTranslations(namespace, component).locale(locale).useFullTranslationIds(useFullTranslationIds).execute();
+> GetTranslationsResponse1 getTranslations(namespace, component).locale(locale).useFullTranslationIds(useFullTranslationIds).execute();
 
 
 
@@ -2013,7 +1988,7 @@ public class Example {
     String locale = "locale_example"; // String | 
     Boolean useFullTranslationIds = true; // Boolean | 
     try {
-      GetTranslationsResponse result = apiInstance.getTranslations(namespace, component)
+      GetTranslationsResponse1 result = apiInstance.getTranslations(namespace, component)
             .locale(locale)
             .useFullTranslationIds(useFullTranslationIds)
             .execute();
@@ -2040,7 +2015,7 @@ public class Example {
 
 ### Return type
 
-[**GetTranslationsResponse**](GetTranslationsResponse.md)
+[**GetTranslationsResponse1**](GetTranslationsResponse1.md)
 
 ### Authorization
 
@@ -2057,11 +2032,10 @@ No authorization required
 | **200** | Ok |  -  |
 | **422** | Validation Failed |  -  |
 | **500** | Internal |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserNotificationCount"></a>
 # **getUserNotificationCount**
-> GetUserNotificationCountResponse getUserNotificationCount(tenantId).sso(sso).execute();
+> GetUserNotificationCountResponse1 getUserNotificationCount(tenantId).sso(sso).execute();
 
 
 
@@ -2083,7 +2057,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserNotificationCountResponse result = apiInstance.getUserNotificationCount(tenantId)
+      GetUserNotificationCountResponse1 result = apiInstance.getUserNotificationCount(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2107,7 +2081,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserNotificationCountResponse**](GetUserNotificationCountResponse.md)
+[**GetUserNotificationCountResponse1**](GetUserNotificationCountResponse1.md)
 
 ### Authorization
 
@@ -2122,11 +2096,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserNotifications"></a>
 # **getUserNotifications**
-> GetMyNotificationsResponse getUserNotifications(tenantId).urlId(urlId).pageSize(pageSize).afterId(afterId).includeContext(includeContext).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).includeTranslations(includeTranslations).includeTenantNotifications(includeTenantNotifications).sso(sso).execute();
+> GetUserNotificationsResponse getUserNotifications(tenantId).urlId(urlId).pageSize(pageSize).afterId(afterId).includeContext(includeContext).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).includeTranslations(includeTranslations).includeTenantNotifications(includeTenantNotifications).sso(sso).execute();
 
 
 
@@ -2158,7 +2131,7 @@ public class Example {
     Boolean includeTenantNotifications = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      GetMyNotificationsResponse result = apiInstance.getUserNotifications(tenantId)
+      GetUserNotificationsResponse result = apiInstance.getUserNotifications(tenantId)
             .urlId(urlId)
             .pageSize(pageSize)
             .afterId(afterId)
@@ -2202,7 +2175,7 @@ public class Example {
 
 ### Return type
 
-[**GetMyNotificationsResponse**](GetMyNotificationsResponse.md)
+[**GetUserNotificationsResponse**](GetUserNotificationsResponse.md)
 
 ### Authorization
 
@@ -2217,11 +2190,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserPresenceStatuses"></a>
 # **getUserPresenceStatuses**
-> GetUserPresenceStatusesResponse getUserPresenceStatuses(tenantId, urlIdWS, userIds).execute();
+> GetUserPresenceStatusesResponse1 getUserPresenceStatuses(tenantId, urlIdWS, userIds).execute();
 
 
 
@@ -2244,7 +2216,7 @@ public class Example {
     String urlIdWS = "urlIdWS_example"; // String | 
     String userIds = "userIds_example"; // String | 
     try {
-      GetUserPresenceStatusesResponse result = apiInstance.getUserPresenceStatuses(tenantId, urlIdWS, userIds)
+      GetUserPresenceStatusesResponse1 result = apiInstance.getUserPresenceStatuses(tenantId, urlIdWS, userIds)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2268,7 +2240,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserPresenceStatusesResponse**](GetUserPresenceStatusesResponse.md)
+[**GetUserPresenceStatusesResponse1**](GetUserPresenceStatusesResponse1.md)
 
 ### Authorization
 
@@ -2284,11 +2256,10 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **422** | Validation Failed |  -  |
-| **0** | Error |  -  |
 
 <a id="getUserReactsPublic"></a>
 # **getUserReactsPublic**
-> UserReactsResponse getUserReactsPublic(tenantId).postIds(postIds).sso(sso).execute();
+> GetUserReactsPublicResponse getUserReactsPublic(tenantId).postIds(postIds).sso(sso).execute();
 
 
 
@@ -2311,7 +2282,7 @@ public class Example {
     List<String> postIds = Arrays.asList(); // List<String> | 
     String sso = "sso_example"; // String | 
     try {
-      UserReactsResponse result = apiInstance.getUserReactsPublic(tenantId)
+      GetUserReactsPublicResponse result = apiInstance.getUserReactsPublic(tenantId)
             .postIds(postIds)
             .sso(sso)
             .execute();
@@ -2337,7 +2308,7 @@ public class Example {
 
 ### Return type
 
-[**UserReactsResponse**](UserReactsResponse.md)
+[**GetUserReactsPublicResponse**](GetUserReactsPublicResponse.md)
 
 ### Authorization
 
@@ -2352,11 +2323,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getUsersInfo"></a>
 # **getUsersInfo**
-> PageUsersInfoResponse getUsersInfo(tenantId, ids).execute();
+> GetUsersInfoResponse getUsersInfo(tenantId, ids).execute();
 
 
 
@@ -2380,7 +2350,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String ids = "ids_example"; // String | Comma-delimited userIds.
     try {
-      PageUsersInfoResponse result = apiInstance.getUsersInfo(tenantId, ids)
+      GetUsersInfoResponse result = apiInstance.getUsersInfo(tenantId, ids)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2403,7 +2373,7 @@ public class Example {
 
 ### Return type
 
-[**PageUsersInfoResponse**](PageUsersInfoResponse.md)
+[**GetUsersInfoResponse**](GetUsersInfoResponse.md)
 
 ### Authorization
 
@@ -2419,11 +2389,10 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **422** | Validation Failed |  -  |
-| **0** | Error |  -  |
 
 <a id="getV1PageLikes"></a>
 # **getV1PageLikes**
-> GetV1PageLikes getV1PageLikes(tenantId, urlId).execute();
+> GetV1PageLikesResponse getV1PageLikes(tenantId, urlId).execute();
 
 
 
@@ -2445,7 +2414,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     try {
-      GetV1PageLikes result = apiInstance.getV1PageLikes(tenantId, urlId)
+      GetV1PageLikesResponse result = apiInstance.getV1PageLikes(tenantId, urlId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2468,7 +2437,7 @@ public class Example {
 
 ### Return type
 
-[**GetV1PageLikes**](GetV1PageLikes.md)
+[**GetV1PageLikesResponse**](GetV1PageLikesResponse.md)
 
 ### Authorization
 
@@ -2483,11 +2452,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getV2PageReactUsers"></a>
 # **getV2PageReactUsers**
-> GetV2PageReactUsersResponse getV2PageReactUsers(tenantId, urlId, id).execute();
+> GetV2PageReactUsersResponse1 getV2PageReactUsers(tenantId, urlId, id).execute();
 
 
 
@@ -2510,7 +2478,7 @@ public class Example {
     String urlId = "urlId_example"; // String | 
     String id = "id_example"; // String | 
     try {
-      GetV2PageReactUsersResponse result = apiInstance.getV2PageReactUsers(tenantId, urlId, id)
+      GetV2PageReactUsersResponse1 result = apiInstance.getV2PageReactUsers(tenantId, urlId, id)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2534,7 +2502,7 @@ public class Example {
 
 ### Return type
 
-[**GetV2PageReactUsersResponse**](GetV2PageReactUsersResponse.md)
+[**GetV2PageReactUsersResponse1**](GetV2PageReactUsersResponse1.md)
 
 ### Authorization
 
@@ -2549,11 +2517,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="getV2PageReacts"></a>
 # **getV2PageReacts**
-> GetV2PageReacts getV2PageReacts(tenantId, urlId).execute();
+> GetV2PageReactsResponse getV2PageReacts(tenantId, urlId).execute();
 
 
 
@@ -2575,7 +2542,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     try {
-      GetV2PageReacts result = apiInstance.getV2PageReacts(tenantId, urlId)
+      GetV2PageReactsResponse result = apiInstance.getV2PageReacts(tenantId, urlId)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2598,7 +2565,7 @@ public class Example {
 
 ### Return type
 
-[**GetV2PageReacts**](GetV2PageReacts.md)
+[**GetV2PageReactsResponse**](GetV2PageReactsResponse.md)
 
 ### Authorization
 
@@ -2613,11 +2580,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="lockComment"></a>
 # **lockComment**
-> APIEmptyResponse lockComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> LockCommentResponse lockComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -2641,7 +2607,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.lockComment(tenantId, commentId, broadcastId)
+      LockCommentResponse result = apiInstance.lockComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2667,7 +2633,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**LockCommentResponse**](LockCommentResponse.md)
 
 ### Authorization
 
@@ -2682,7 +2648,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="logoutPublic"></a>
 # **logoutPublic**
@@ -2743,7 +2708,7 @@ No authorization required
 
 <a id="pinComment"></a>
 # **pinComment**
-> ChangeCommentPinStatusResponse pinComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> PinCommentResponse pinComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -2767,7 +2732,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ChangeCommentPinStatusResponse result = apiInstance.pinComment(tenantId, commentId, broadcastId)
+      PinCommentResponse result = apiInstance.pinComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2793,7 +2758,7 @@ public class Example {
 
 ### Return type
 
-[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**PinCommentResponse**](PinCommentResponse.md)
 
 ### Authorization
 
@@ -2808,11 +2773,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="reactFeedPostPublic"></a>
 # **reactFeedPostPublic**
-> ReactFeedPostResponse reactFeedPostPublic(tenantId, postId, reactBodyParams).isUndo(isUndo).broadcastId(broadcastId).sso(sso).execute();
+> ReactFeedPostPublicResponse reactFeedPostPublic(tenantId, postId, reactBodyParams).isUndo(isUndo).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2838,7 +2802,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ReactFeedPostResponse result = apiInstance.reactFeedPostPublic(tenantId, postId, reactBodyParams)
+      ReactFeedPostPublicResponse result = apiInstance.reactFeedPostPublic(tenantId, postId, reactBodyParams)
             .isUndo(isUndo)
             .broadcastId(broadcastId)
             .sso(sso)
@@ -2868,7 +2832,7 @@ public class Example {
 
 ### Return type
 
-[**ReactFeedPostResponse**](ReactFeedPostResponse.md)
+[**ReactFeedPostPublicResponse**](ReactFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -2883,11 +2847,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="resetUserNotificationCount"></a>
 # **resetUserNotificationCount**
-> ResetUserNotificationsResponse resetUserNotificationCount(tenantId).sso(sso).execute();
+> ResetUserNotificationCountResponse resetUserNotificationCount(tenantId).sso(sso).execute();
 
 
 
@@ -2909,7 +2872,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ResetUserNotificationsResponse result = apiInstance.resetUserNotificationCount(tenantId)
+      ResetUserNotificationCountResponse result = apiInstance.resetUserNotificationCount(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2933,7 +2896,7 @@ public class Example {
 
 ### Return type
 
-[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**ResetUserNotificationCountResponse**](ResetUserNotificationCountResponse.md)
 
 ### Authorization
 
@@ -2948,11 +2911,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="resetUserNotifications"></a>
 # **resetUserNotifications**
-> ResetUserNotificationsResponse resetUserNotifications(tenantId).afterId(afterId).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).sso(sso).execute();
+> ResetUserNotificationsResponse1 resetUserNotifications(tenantId).afterId(afterId).afterCreatedAt(afterCreatedAt).unreadOnly(unreadOnly).dmOnly(dmOnly).noDm(noDm).sso(sso).execute();
 
 
 
@@ -2979,7 +2941,7 @@ public class Example {
     Boolean noDm = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      ResetUserNotificationsResponse result = apiInstance.resetUserNotifications(tenantId)
+      ResetUserNotificationsResponse1 result = apiInstance.resetUserNotifications(tenantId)
             .afterId(afterId)
             .afterCreatedAt(afterCreatedAt)
             .unreadOnly(unreadOnly)
@@ -3013,7 +2975,7 @@ public class Example {
 
 ### Return type
 
-[**ResetUserNotificationsResponse**](ResetUserNotificationsResponse.md)
+[**ResetUserNotificationsResponse1**](ResetUserNotificationsResponse1.md)
 
 ### Authorization
 
@@ -3028,11 +2990,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="searchUsers"></a>
 # **searchUsers**
-> SearchUsersResult searchUsers(tenantId, urlId).usernameStartsWith(usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).searchSection(searchSection).execute();
+> SearchUsersResponse1 searchUsers(tenantId, urlId).usernameStartsWith(usernameStartsWith).mentionGroupIds(mentionGroupIds).sso(sso).searchSection(searchSection).execute();
 
 
 
@@ -3058,7 +3019,7 @@ public class Example {
     String sso = "sso_example"; // String | 
     String searchSection = "fast"; // String | 
     try {
-      SearchUsersResult result = apiInstance.searchUsers(tenantId, urlId)
+      SearchUsersResponse1 result = apiInstance.searchUsers(tenantId, urlId)
             .usernameStartsWith(usernameStartsWith)
             .mentionGroupIds(mentionGroupIds)
             .sso(sso)
@@ -3089,7 +3050,7 @@ public class Example {
 
 ### Return type
 
-[**SearchUsersResult**](SearchUsersResult.md)
+[**SearchUsersResponse1**](SearchUsersResponse1.md)
 
 ### Authorization
 
@@ -3104,11 +3065,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="setCommentText"></a>
 # **setCommentText**
-> PublicAPISetCommentTextResponse setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest).editKey(editKey).sso(sso).execute();
+> SetCommentTextResponse1 setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest).editKey(editKey).sso(sso).execute();
 
 
 
@@ -3134,7 +3094,7 @@ public class Example {
     String editKey = "editKey_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PublicAPISetCommentTextResponse result = apiInstance.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
+      SetCommentTextResponse1 result = apiInstance.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
             .editKey(editKey)
             .sso(sso)
             .execute();
@@ -3163,7 +3123,7 @@ public class Example {
 
 ### Return type
 
-[**PublicAPISetCommentTextResponse**](PublicAPISetCommentTextResponse.md)
+[**SetCommentTextResponse1**](SetCommentTextResponse1.md)
 
 ### Authorization
 
@@ -3178,11 +3138,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="unBlockCommentPublic"></a>
 # **unBlockCommentPublic**
-> UnblockSuccess unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
+> UnBlockCommentPublicResponse unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams).sso(sso).execute();
 
 
 
@@ -3206,7 +3165,7 @@ public class Example {
     PublicBlockFromCommentParams publicBlockFromCommentParams = new PublicBlockFromCommentParams(); // PublicBlockFromCommentParams | 
     String sso = "sso_example"; // String | 
     try {
-      UnblockSuccess result = apiInstance.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
+      UnBlockCommentPublicResponse result = apiInstance.unBlockCommentPublic(tenantId, commentId, publicBlockFromCommentParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -3232,7 +3191,7 @@ public class Example {
 
 ### Return type
 
-[**UnblockSuccess**](UnblockSuccess.md)
+[**UnBlockCommentPublicResponse**](UnBlockCommentPublicResponse.md)
 
 ### Authorization
 
@@ -3247,11 +3206,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="unLockComment"></a>
 # **unLockComment**
-> APIEmptyResponse unLockComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> UnLockCommentResponse unLockComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -3275,7 +3233,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.unLockComment(tenantId, commentId, broadcastId)
+      UnLockCommentResponse result = apiInstance.unLockComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -3301,7 +3259,7 @@ public class Example {
 
 ### Return type
 
-[**APIEmptyResponse**](APIEmptyResponse.md)
+[**UnLockCommentResponse**](UnLockCommentResponse.md)
 
 ### Authorization
 
@@ -3316,11 +3274,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="unPinComment"></a>
 # **unPinComment**
-> ChangeCommentPinStatusResponse unPinComment(tenantId, commentId, broadcastId).sso(sso).execute();
+> UnPinCommentResponse unPinComment(tenantId, commentId, broadcastId).sso(sso).execute();
 
 
 
@@ -3344,7 +3301,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ChangeCommentPinStatusResponse result = apiInstance.unPinComment(tenantId, commentId, broadcastId)
+      UnPinCommentResponse result = apiInstance.unPinComment(tenantId, commentId, broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -3370,7 +3327,7 @@ public class Example {
 
 ### Return type
 
-[**ChangeCommentPinStatusResponse**](ChangeCommentPinStatusResponse.md)
+[**UnPinCommentResponse**](UnPinCommentResponse.md)
 
 ### Authorization
 
@@ -3385,11 +3342,10 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateFeedPostPublic"></a>
 # **updateFeedPostPublic**
-> CreateFeedPostResponse updateFeedPostPublic(tenantId, postId, updateFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
+> UpdateFeedPostPublicResponse updateFeedPostPublic(tenantId, postId, updateFeedPostParams).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -3414,7 +3370,7 @@ public class Example {
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      CreateFeedPostResponse result = apiInstance.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
+      UpdateFeedPostPublicResponse result = apiInstance.updateFeedPostPublic(tenantId, postId, updateFeedPostParams)
             .broadcastId(broadcastId)
             .sso(sso)
             .execute();
@@ -3442,7 +3398,7 @@ public class Example {
 
 ### Return type
 
-[**CreateFeedPostResponse**](CreateFeedPostResponse.md)
+[**UpdateFeedPostPublicResponse**](UpdateFeedPostPublicResponse.md)
 
 ### Authorization
 
@@ -3457,7 +3413,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateUserNotificationCommentSubscriptionStatus"></a>
 # **updateUserNotificationCommentSubscriptionStatus**
@@ -3530,7 +3485,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateUserNotificationPageSubscriptionStatus"></a>
 # **updateUserNotificationPageSubscriptionStatus**
@@ -3605,7 +3559,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="updateUserNotificationStatus"></a>
 # **updateUserNotificationStatus**
@@ -3674,7 +3627,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
 <a id="uploadImage"></a>
 # **uploadImage**
@@ -3749,7 +3701,7 @@ No authorization required
 
 <a id="voteComment"></a>
 # **voteComment**
-> VoteResponse voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams).sessionId(sessionId).sso(sso).execute();
+> VoteCommentResponse voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams).sessionId(sessionId).sso(sso).execute();
 
 
 
@@ -3776,7 +3728,7 @@ public class Example {
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteResponse result = apiInstance.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
+      VoteCommentResponse result = apiInstance.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
             .sessionId(sessionId)
             .sso(sso)
             .execute();
@@ -3806,7 +3758,7 @@ public class Example {
 
 ### Return type
 
-[**VoteResponse**](VoteResponse.md)
+[**VoteCommentResponse**](VoteCommentResponse.md)
 
 ### Authorization
 
@@ -3821,5 +3773,4 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **0** | Error |  -  |
 
