@@ -14,10 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
 import com.fastcomments.model.APIStatus;
-import com.fastcomments.model.CustomConfigParameters;
-import com.fastcomments.model.DeleteFeedPostPublicResponseAnyOf;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -26,244 +23,268 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
-
-
-import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.fastcomments.invoker.JSON;
 
+/**
+ * DeleteFeedPostPublicResponse
+ */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
-public class DeleteFeedPostPublicResponse extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(DeleteFeedPostPublicResponse.class.getName());
+public class DeleteFeedPostPublicResponse {
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
+  private APIStatus status;
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
-        @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DeleteFeedPostPublicResponse.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DeleteFeedPostPublicResponse' and its subtypes
-            }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DeleteFeedPostPublicResponseAnyOf> adapterDeleteFeedPostPublicResponseAnyOf = gson.getDelegateAdapter(this, TypeToken.get(DeleteFeedPostPublicResponseAnyOf.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
+  public DeleteFeedPostPublicResponse() {
+  }
 
-            return (TypeAdapter<T>) new TypeAdapter<DeleteFeedPostPublicResponse>() {
-                @Override
-                public void write(JsonWriter out, DeleteFeedPostPublicResponse value) throws IOException {
-                    if (value == null || value.getActualInstance() == null) {
-                        elementAdapter.write(out, null);
-                        return;
-                    }
+  public DeleteFeedPostPublicResponse status(@javax.annotation.Nonnull APIStatus status) {
+    this.status = status;
+    return this;
+  }
 
-                    // check if the actual instance is of the type `DeleteFeedPostPublicResponseAnyOf`
-                    if (value.getActualInstance() instanceof DeleteFeedPostPublicResponseAnyOf) {
-                        JsonElement element = adapterDeleteFeedPostPublicResponseAnyOf.toJsonTree((DeleteFeedPostPublicResponseAnyOf)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, DeleteFeedPostPublicResponseAnyOf");
-                }
+  /**
+   * Get status
+   * @return status
+   */
+  @javax.annotation.Nonnull
+  public APIStatus getStatus() {
+    return status;
+  }
 
-                @Override
-                public DeleteFeedPostPublicResponse read(JsonReader in) throws IOException {
-                    Object deserialized = null;
-                    JsonElement jsonElement = elementAdapter.read(in);
+  public void setStatus(@javax.annotation.Nonnull APIStatus status) {
+    this.status = status;
+  }
 
-                    ArrayList<String> errorMessages = new ArrayList<>();
-                    TypeAdapter actualAdapter = elementAdapter;
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
 
-                    // deserialize DeleteFeedPostPublicResponseAnyOf
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        DeleteFeedPostPublicResponseAnyOf.validateJsonElement(jsonElement);
-                        actualAdapter = adapterDeleteFeedPostPublicResponseAnyOf;
-                        DeleteFeedPostPublicResponse ret = new DeleteFeedPostPublicResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for DeleteFeedPostPublicResponseAnyOf failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'DeleteFeedPostPublicResponseAnyOf'", e);
-                    }
-                    // deserialize APIError
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
-                        DeleteFeedPostPublicResponse ret = new DeleteFeedPostPublicResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
-                    }
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the DeleteFeedPostPublicResponse instance itself
+   */
+  public DeleteFeedPostPublicResponse putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
 
-                    throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for DeleteFeedPostPublicResponse: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
-                }
-            }.nullSafe();
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DeleteFeedPostPublicResponse deleteFeedPostPublicResponse = (DeleteFeedPostPublicResponse) o;
+    return Objects.equals(this.status, deleteFeedPostPublicResponse.status)&&
+        Objects.equals(this.additionalProperties, deleteFeedPostPublicResponse.additionalProperties);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(status, additionalProperties);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DeleteFeedPostPublicResponse {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
+  }
+
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>(Arrays.asList("status"));
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
+  }
+
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to DeleteFeedPostPublicResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!DeleteFeedPostPublicResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DeleteFeedPostPublicResponse is not found in the empty JSON string", DeleteFeedPostPublicResponse.openapiRequiredFields.toString()));
         }
-    }
+      }
 
-    // store a list of schema names defined in anyOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
-
-    public DeleteFeedPostPublicResponse() {
-        super("anyOf", Boolean.FALSE);
-    }
-
-    public DeleteFeedPostPublicResponse(Object o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    static {
-        schemas.put("DeleteFeedPostPublicResponseAnyOf", DeleteFeedPostPublicResponseAnyOf.class);
-        schemas.put("APIError", APIError.class);
-    }
-
-    @Override
-    public Map<String, Class<?>> getSchemas() {
-        return DeleteFeedPostPublicResponse.schemas;
-    }
-
-    /**
-     * Set the instance that matches the anyOf child schema, check
-     * the instance parameter is valid against the anyOf child schemas:
-     * APIError, DeleteFeedPostPublicResponseAnyOf
-     *
-     * It could be an instance of the 'anyOf' schemas.
-     */
-    @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof DeleteFeedPostPublicResponseAnyOf) {
-            super.setActualInstance(instance);
-            return;
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : DeleteFeedPostPublicResponse.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `status`
+      APIStatus.validateJsonElement(jsonObj.get("status"));
+  }
 
-        if (instance instanceof APIError) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be APIError, DeleteFeedPostPublicResponseAnyOf");
-    }
-
-    /**
-     * Get the actual instance, which can be the following:
-     * APIError, DeleteFeedPostPublicResponseAnyOf
-     *
-     * @return The actual instance (APIError, DeleteFeedPostPublicResponseAnyOf)
-     */
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!DeleteFeedPostPublicResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteFeedPostPublicResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<DeleteFeedPostPublicResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteFeedPostPublicResponse.class));
 
-    /**
-     * Get the actual instance of `DeleteFeedPostPublicResponseAnyOf`. If the actual instance is not `DeleteFeedPostPublicResponseAnyOf`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `DeleteFeedPostPublicResponseAnyOf`
-     * @throws ClassCastException if the instance is not `DeleteFeedPostPublicResponseAnyOf`
-     */
-    public DeleteFeedPostPublicResponseAnyOf getDeleteFeedPostPublicResponseAnyOf() throws ClassCastException {
-        return (DeleteFeedPostPublicResponseAnyOf)super.getActualInstance();
-    }
+       return (TypeAdapter<T>) new TypeAdapter<DeleteFeedPostPublicResponse>() {
+           @Override
+           public void write(JsonWriter out, DeleteFeedPostPublicResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
+             elementAdapter.write(out, obj);
+           }
 
-    /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
-     */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
-    }
+           @Override
+           public DeleteFeedPostPublicResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             DeleteFeedPostPublicResponse instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
+           }
 
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to DeleteFeedPostPublicResponse
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate anyOf schemas one by one
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with DeleteFeedPostPublicResponseAnyOf
-        try {
-            DeleteFeedPostPublicResponseAnyOf.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for DeleteFeedPostPublicResponseAnyOf failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with APIError
-        try {
-            APIError.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for DeleteFeedPostPublicResponse with anyOf schemas: APIError, DeleteFeedPostPublicResponseAnyOf. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+       }.nullSafe();
     }
+  }
 
-    /**
-     * Create an instance of DeleteFeedPostPublicResponse given an JSON string
-     *
-     * @param jsonString JSON string
-     * @return An instance of DeleteFeedPostPublicResponse
-     * @throws IOException if the JSON string is invalid with respect to DeleteFeedPostPublicResponse
-     */
-    public static DeleteFeedPostPublicResponse fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, DeleteFeedPostPublicResponse.class);
-    }
+  /**
+   * Create an instance of DeleteFeedPostPublicResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of DeleteFeedPostPublicResponse
+   * @throws IOException if the JSON string is invalid with respect to DeleteFeedPostPublicResponse
+   */
+  public static DeleteFeedPostPublicResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteFeedPostPublicResponse.class);
+  }
 
-    /**
-     * Convert an instance of DeleteFeedPostPublicResponse to an JSON string
-     *
-     * @return JSON string
-     */
-    public String toJson() {
-        return JSON.getGson().toJson(this);
-    }
+  /**
+   * Convert an instance of DeleteFeedPostPublicResponse to an JSON string
+   *
+   * @return JSON string
+   */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

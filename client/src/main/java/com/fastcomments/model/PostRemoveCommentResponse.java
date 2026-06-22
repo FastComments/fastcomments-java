@@ -14,9 +14,6 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
-import com.fastcomments.model.APIStatus;
-import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.DeleteCommentResult;
 import com.fastcomments.model.RemoveCommentActionResponse;
 import com.google.gson.TypeAdapter;
@@ -76,7 +73,6 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<DeleteCommentResult> adapterDeleteCommentResult = gson.getDelegateAdapter(this, TypeToken.get(DeleteCommentResult.class));
             final TypeAdapter<RemoveCommentActionResponse> adapterRemoveCommentActionResponse = gson.getDelegateAdapter(this, TypeToken.get(RemoveCommentActionResponse.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
             return (TypeAdapter<T>) new TypeAdapter<PostRemoveCommentResponse>() {
                 @Override
@@ -98,13 +94,7 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, DeleteCommentResult, RemoveCommentActionResponse");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse");
                 }
 
                 @Override
@@ -141,19 +131,6 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for RemoveCommentActionResponse failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'RemoveCommentActionResponse'", e);
                     }
-                    // deserialize APIError
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
-                        PostRemoveCommentResponse ret = new PostRemoveCommentResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
-                    }
 
                     throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for PostRemoveCommentResponse: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
@@ -176,7 +153,6 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
     static {
         schemas.put("DeleteCommentResult", DeleteCommentResult.class);
         schemas.put("RemoveCommentActionResponse", RemoveCommentActionResponse.class);
-        schemas.put("APIError", APIError.class);
     }
 
     @Override
@@ -187,7 +163,7 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, DeleteCommentResult, RemoveCommentActionResponse
+     * DeleteCommentResult, RemoveCommentActionResponse
      *
      * It could be an instance of the 'anyOf' schemas.
      */
@@ -203,19 +179,14 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof APIError) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be APIError, DeleteCommentResult, RemoveCommentActionResponse");
+        throw new RuntimeException("Invalid instance type. Must be DeleteCommentResult, RemoveCommentActionResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, DeleteCommentResult, RemoveCommentActionResponse
+     * DeleteCommentResult, RemoveCommentActionResponse
      *
-     * @return The actual instance (APIError, DeleteCommentResult, RemoveCommentActionResponse)
+     * @return The actual instance (DeleteCommentResult, RemoveCommentActionResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -246,17 +217,6 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
-     */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
-    }
-
-    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -281,15 +241,7 @@ public class PostRemoveCommentResponse extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for RemoveCommentActionResponse failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with APIError
-        try {
-            APIError.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for PostRemoveCommentResponse with anyOf schemas: APIError, DeleteCommentResult, RemoveCommentActionResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for PostRemoveCommentResponse with anyOf schemas: DeleteCommentResult, RemoveCommentActionResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

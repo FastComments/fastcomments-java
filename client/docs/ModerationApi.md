@@ -52,7 +52,7 @@ All URIs are relative to *https://fastcomments.com*
 
 <a id="deleteModerationVote"></a>
 # **deleteModerationVote**
-> DeleteModerationVoteResponse deleteModerationVote(commentId, voteId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> VoteDeleteResponse deleteModerationVote(commentId, voteId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -77,7 +77,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      DeleteModerationVoteResponse result = apiInstance.deleteModerationVote(commentId, voteId)
+      VoteDeleteResponse result = apiInstance.deleteModerationVote(commentId, voteId)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
             .sso(sso)
@@ -106,7 +106,7 @@ public class Example {
 
 ### Return type
 
-[**DeleteModerationVoteResponse**](DeleteModerationVoteResponse.md)
+[**VoteDeleteResponse**](VoteDeleteResponse.md)
 
 ### Authorization
 
@@ -121,10 +121,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getApiComments"></a>
 # **getApiComments**
-> GetApiCommentsResponse getApiComments().page(page).count(count).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).demo(demo).tenantId(tenantId).sso(sso).execute();
+> ModerationAPIGetCommentsResponse getApiComments().page(page).count(count).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).demo(demo).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -154,7 +155,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetApiCommentsResponse result = apiInstance.getApiComments()
+      ModerationAPIGetCommentsResponse result = apiInstance.getApiComments()
             .page(page)
             .count(count)
             .textSearch(textSearch)
@@ -195,7 +196,7 @@ public class Example {
 
 ### Return type
 
-[**GetApiCommentsResponse**](GetApiCommentsResponse.md)
+[**ModerationAPIGetCommentsResponse**](ModerationAPIGetCommentsResponse.md)
 
 ### Authorization
 
@@ -210,10 +211,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getApiExportStatus"></a>
 # **getApiExportStatus**
-> GetApiExportStatusResponse getApiExportStatus().batchJobId(batchJobId).tenantId(tenantId).sso(sso).execute();
+> ModerationExportStatusResponse getApiExportStatus().batchJobId(batchJobId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -236,7 +238,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetApiExportStatusResponse result = apiInstance.getApiExportStatus()
+      ModerationExportStatusResponse result = apiInstance.getApiExportStatus()
             .batchJobId(batchJobId)
             .tenantId(tenantId)
             .sso(sso)
@@ -263,7 +265,7 @@ public class Example {
 
 ### Return type
 
-[**GetApiExportStatusResponse**](GetApiExportStatusResponse.md)
+[**ModerationExportStatusResponse**](ModerationExportStatusResponse.md)
 
 ### Authorization
 
@@ -278,10 +280,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getApiIds"></a>
 # **getApiIds**
-> GetApiIdsResponse getApiIds().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).afterId(afterId).demo(demo).tenantId(tenantId).sso(sso).execute();
+> ModerationAPIGetCommentIdsResponse getApiIds().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).afterId(afterId).demo(demo).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -309,7 +312,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetApiIdsResponse result = apiInstance.getApiIds()
+      ModerationAPIGetCommentIdsResponse result = apiInstance.getApiIds()
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filters(filters)
@@ -346,7 +349,7 @@ public class Example {
 
 ### Return type
 
-[**GetApiIdsResponse**](GetApiIdsResponse.md)
+[**ModerationAPIGetCommentIdsResponse**](ModerationAPIGetCommentIdsResponse.md)
 
 ### Authorization
 
@@ -361,10 +364,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getBanUsersFromComment"></a>
 # **getBanUsersFromComment**
-> GetBanUsersFromCommentResponse getBanUsersFromComment(commentId).tenantId(tenantId).sso(sso).execute();
+> GetBannedUsersFromCommentResponse getBanUsersFromComment(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -387,7 +391,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetBanUsersFromCommentResponse result = apiInstance.getBanUsersFromComment(commentId)
+      GetBannedUsersFromCommentResponse result = apiInstance.getBanUsersFromComment(commentId)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -413,7 +417,7 @@ public class Example {
 
 ### Return type
 
-[**GetBanUsersFromCommentResponse**](GetBanUsersFromCommentResponse.md)
+[**GetBannedUsersFromCommentResponse**](GetBannedUsersFromCommentResponse.md)
 
 ### Authorization
 
@@ -428,10 +432,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getCommentBanStatus"></a>
 # **getCommentBanStatus**
-> GetCommentBanStatusResponse1 getCommentBanStatus(commentId).tenantId(tenantId).sso(sso).execute();
+> GetCommentBanStatusResponse getCommentBanStatus(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -454,7 +459,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentBanStatusResponse1 result = apiInstance.getCommentBanStatus(commentId)
+      GetCommentBanStatusResponse result = apiInstance.getCommentBanStatus(commentId)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -480,7 +485,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentBanStatusResponse1**](GetCommentBanStatusResponse1.md)
+[**GetCommentBanStatusResponse**](GetCommentBanStatusResponse.md)
 
 ### Authorization
 
@@ -495,10 +500,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getCommentChildren"></a>
 # **getCommentChildren**
-> GetCommentChildrenResponse getCommentChildren(commentId).tenantId(tenantId).sso(sso).execute();
+> ModerationAPIChildCommentsResponse getCommentChildren(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -521,7 +527,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentChildrenResponse result = apiInstance.getCommentChildren(commentId)
+      ModerationAPIChildCommentsResponse result = apiInstance.getCommentChildren(commentId)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -547,7 +553,7 @@ public class Example {
 
 ### Return type
 
-[**GetCommentChildrenResponse**](GetCommentChildrenResponse.md)
+[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
 
 ### Authorization
 
@@ -562,10 +568,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getCount"></a>
 # **getCount**
-> GetCountResponse getCount().textSearch(textSearch).byIPFromComment(byIPFromComment).filter(filter).searchFilters(searchFilters).demo(demo).tenantId(tenantId).sso(sso).execute();
+> ModerationAPICountCommentsResponse getCount().textSearch(textSearch).byIPFromComment(byIPFromComment).filter(filter).searchFilters(searchFilters).demo(demo).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -592,7 +599,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCountResponse result = apiInstance.getCount()
+      ModerationAPICountCommentsResponse result = apiInstance.getCount()
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filter(filter)
@@ -627,7 +634,7 @@ public class Example {
 
 ### Return type
 
-[**GetCountResponse**](GetCountResponse.md)
+[**ModerationAPICountCommentsResponse**](ModerationAPICountCommentsResponse.md)
 
 ### Authorization
 
@@ -642,10 +649,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getCounts"></a>
 # **getCounts**
-> GetCountsResponse getCounts().tenantId(tenantId).sso(sso).execute();
+> GetBannedUsersCountResponse getCounts().tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -667,7 +675,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCountsResponse result = apiInstance.getCounts()
+      GetBannedUsersCountResponse result = apiInstance.getCounts()
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -692,7 +700,7 @@ public class Example {
 
 ### Return type
 
-[**GetCountsResponse**](GetCountsResponse.md)
+[**GetBannedUsersCountResponse**](GetBannedUsersCountResponse.md)
 
 ### Authorization
 
@@ -707,10 +715,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getLogs"></a>
 # **getLogs**
-> GetLogsResponse getLogs(commentId).tenantId(tenantId).sso(sso).execute();
+> ModerationAPIGetLogsResponse getLogs(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -733,7 +742,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetLogsResponse result = apiInstance.getLogs(commentId)
+      ModerationAPIGetLogsResponse result = apiInstance.getLogs(commentId)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -759,7 +768,7 @@ public class Example {
 
 ### Return type
 
-[**GetLogsResponse**](GetLogsResponse.md)
+[**ModerationAPIGetLogsResponse**](ModerationAPIGetLogsResponse.md)
 
 ### Authorization
 
@@ -774,10 +783,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getManualBadges"></a>
 # **getManualBadges**
-> GetManualBadgesResponse getManualBadges().tenantId(tenantId).sso(sso).execute();
+> GetTenantManualBadgesResponse getManualBadges().tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -799,7 +809,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetManualBadgesResponse result = apiInstance.getManualBadges()
+      GetTenantManualBadgesResponse result = apiInstance.getManualBadges()
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -824,7 +834,7 @@ public class Example {
 
 ### Return type
 
-[**GetManualBadgesResponse**](GetManualBadgesResponse.md)
+[**GetTenantManualBadgesResponse**](GetTenantManualBadgesResponse.md)
 
 ### Authorization
 
@@ -839,10 +849,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getManualBadgesForUser"></a>
 # **getManualBadgesForUser**
-> GetManualBadgesForUserResponse getManualBadgesForUser().badgesUserId(badgesUserId).commentId(commentId).tenantId(tenantId).sso(sso).execute();
+> GetUserManualBadgesResponse getManualBadgesForUser().badgesUserId(badgesUserId).commentId(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -866,7 +877,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetManualBadgesForUserResponse result = apiInstance.getManualBadgesForUser()
+      GetUserManualBadgesResponse result = apiInstance.getManualBadgesForUser()
             .badgesUserId(badgesUserId)
             .commentId(commentId)
             .tenantId(tenantId)
@@ -895,7 +906,7 @@ public class Example {
 
 ### Return type
 
-[**GetManualBadgesForUserResponse**](GetManualBadgesForUserResponse.md)
+[**GetUserManualBadgesResponse**](GetUserManualBadgesResponse.md)
 
 ### Authorization
 
@@ -910,10 +921,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getModerationComment"></a>
 # **getModerationComment**
-> GetModerationCommentResponse getModerationComment(commentId).includeEmail(includeEmail).includeIP(includeIP).tenantId(tenantId).sso(sso).execute();
+> ModerationAPICommentResponse getModerationComment(commentId).includeEmail(includeEmail).includeIP(includeIP).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -938,7 +950,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetModerationCommentResponse result = apiInstance.getModerationComment(commentId)
+      ModerationAPICommentResponse result = apiInstance.getModerationComment(commentId)
             .includeEmail(includeEmail)
             .includeIP(includeIP)
             .tenantId(tenantId)
@@ -968,7 +980,7 @@ public class Example {
 
 ### Return type
 
-[**GetModerationCommentResponse**](GetModerationCommentResponse.md)
+[**ModerationAPICommentResponse**](ModerationAPICommentResponse.md)
 
 ### Authorization
 
@@ -983,10 +995,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getModerationCommentText"></a>
 # **getModerationCommentText**
-> GetModerationCommentTextResponse getModerationCommentText(commentId).tenantId(tenantId).sso(sso).execute();
+> GetCommentTextResponse getModerationCommentText(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1009,7 +1022,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetModerationCommentTextResponse result = apiInstance.getModerationCommentText(commentId)
+      GetCommentTextResponse result = apiInstance.getModerationCommentText(commentId)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -1035,7 +1048,7 @@ public class Example {
 
 ### Return type
 
-[**GetModerationCommentTextResponse**](GetModerationCommentTextResponse.md)
+[**GetCommentTextResponse**](GetCommentTextResponse.md)
 
 ### Authorization
 
@@ -1050,10 +1063,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getPreBanSummary"></a>
 # **getPreBanSummary**
-> GetPreBanSummaryResponse getPreBanSummary(commentId).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).tenantId(tenantId).sso(sso).execute();
+> PreBanSummary getPreBanSummary(commentId).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1079,7 +1093,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetPreBanSummaryResponse result = apiInstance.getPreBanSummary(commentId)
+      PreBanSummary result = apiInstance.getPreBanSummary(commentId)
             .includeByUserIdAndEmail(includeByUserIdAndEmail)
             .includeByIP(includeByIP)
             .includeByEmailDomain(includeByEmailDomain)
@@ -1111,7 +1125,7 @@ public class Example {
 
 ### Return type
 
-[**GetPreBanSummaryResponse**](GetPreBanSummaryResponse.md)
+[**PreBanSummary**](PreBanSummary.md)
 
 ### Authorization
 
@@ -1126,10 +1140,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getSearchCommentsSummary"></a>
 # **getSearchCommentsSummary**
-> GetSearchCommentsSummaryResponse getSearchCommentsSummary().value(value).filters(filters).searchFilters(searchFilters).tenantId(tenantId).sso(sso).execute();
+> ModerationCommentSearchResponse getSearchCommentsSummary().value(value).filters(filters).searchFilters(searchFilters).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1154,7 +1169,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetSearchCommentsSummaryResponse result = apiInstance.getSearchCommentsSummary()
+      ModerationCommentSearchResponse result = apiInstance.getSearchCommentsSummary()
             .value(value)
             .filters(filters)
             .searchFilters(searchFilters)
@@ -1185,7 +1200,7 @@ public class Example {
 
 ### Return type
 
-[**GetSearchCommentsSummaryResponse**](GetSearchCommentsSummaryResponse.md)
+[**ModerationCommentSearchResponse**](ModerationCommentSearchResponse.md)
 
 ### Authorization
 
@@ -1200,10 +1215,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getSearchPages"></a>
 # **getSearchPages**
-> GetSearchPagesResponse getSearchPages().value(value).tenantId(tenantId).sso(sso).execute();
+> ModerationPageSearchResponse getSearchPages().value(value).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1226,7 +1242,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetSearchPagesResponse result = apiInstance.getSearchPages()
+      ModerationPageSearchResponse result = apiInstance.getSearchPages()
             .value(value)
             .tenantId(tenantId)
             .sso(sso)
@@ -1253,7 +1269,7 @@ public class Example {
 
 ### Return type
 
-[**GetSearchPagesResponse**](GetSearchPagesResponse.md)
+[**ModerationPageSearchResponse**](ModerationPageSearchResponse.md)
 
 ### Authorization
 
@@ -1268,10 +1284,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getSearchSites"></a>
 # **getSearchSites**
-> GetSearchSitesResponse getSearchSites().value(value).tenantId(tenantId).sso(sso).execute();
+> ModerationSiteSearchResponse getSearchSites().value(value).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1294,7 +1311,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetSearchSitesResponse result = apiInstance.getSearchSites()
+      ModerationSiteSearchResponse result = apiInstance.getSearchSites()
             .value(value)
             .tenantId(tenantId)
             .sso(sso)
@@ -1321,7 +1338,7 @@ public class Example {
 
 ### Return type
 
-[**GetSearchSitesResponse**](GetSearchSitesResponse.md)
+[**ModerationSiteSearchResponse**](ModerationSiteSearchResponse.md)
 
 ### Authorization
 
@@ -1336,10 +1353,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getSearchSuggest"></a>
 # **getSearchSuggest**
-> GetSearchSuggestResponse getSearchSuggest().textSearch(textSearch).tenantId(tenantId).sso(sso).execute();
+> ModerationSuggestResponse getSearchSuggest().textSearch(textSearch).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1362,7 +1380,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetSearchSuggestResponse result = apiInstance.getSearchSuggest()
+      ModerationSuggestResponse result = apiInstance.getSearchSuggest()
             .textSearch(textSearch)
             .tenantId(tenantId)
             .sso(sso)
@@ -1389,7 +1407,7 @@ public class Example {
 
 ### Return type
 
-[**GetSearchSuggestResponse**](GetSearchSuggestResponse.md)
+[**ModerationSuggestResponse**](ModerationSuggestResponse.md)
 
 ### Authorization
 
@@ -1404,10 +1422,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getSearchUsers"></a>
 # **getSearchUsers**
-> GetSearchUsersResponse getSearchUsers().value(value).tenantId(tenantId).sso(sso).execute();
+> ModerationUserSearchResponse getSearchUsers().value(value).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1430,7 +1449,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetSearchUsersResponse result = apiInstance.getSearchUsers()
+      ModerationUserSearchResponse result = apiInstance.getSearchUsers()
             .value(value)
             .tenantId(tenantId)
             .sso(sso)
@@ -1457,7 +1476,7 @@ public class Example {
 
 ### Return type
 
-[**GetSearchUsersResponse**](GetSearchUsersResponse.md)
+[**ModerationUserSearchResponse**](ModerationUserSearchResponse.md)
 
 ### Authorization
 
@@ -1472,10 +1491,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getTrustFactor"></a>
 # **getTrustFactor**
-> GetTrustFactorResponse getTrustFactor().userId(userId).tenantId(tenantId).sso(sso).execute();
+> GetUserTrustFactorResponse getTrustFactor().userId(userId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1498,7 +1518,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetTrustFactorResponse result = apiInstance.getTrustFactor()
+      GetUserTrustFactorResponse result = apiInstance.getTrustFactor()
             .userId(userId)
             .tenantId(tenantId)
             .sso(sso)
@@ -1525,7 +1545,7 @@ public class Example {
 
 ### Return type
 
-[**GetTrustFactorResponse**](GetTrustFactorResponse.md)
+[**GetUserTrustFactorResponse**](GetUserTrustFactorResponse.md)
 
 ### Authorization
 
@@ -1540,10 +1560,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getUserBanPreference"></a>
 # **getUserBanPreference**
-> GetUserBanPreferenceResponse getUserBanPreference().tenantId(tenantId).sso(sso).execute();
+> APIModerateGetUserBanPreferencesResponse getUserBanPreference().tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1565,7 +1586,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserBanPreferenceResponse result = apiInstance.getUserBanPreference()
+      APIModerateGetUserBanPreferencesResponse result = apiInstance.getUserBanPreference()
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -1590,7 +1611,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserBanPreferenceResponse**](GetUserBanPreferenceResponse.md)
+[**APIModerateGetUserBanPreferencesResponse**](APIModerateGetUserBanPreferencesResponse.md)
 
 ### Authorization
 
@@ -1605,10 +1626,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="getUserInternalProfile"></a>
 # **getUserInternalProfile**
-> GetUserInternalProfileResponse1 getUserInternalProfile().commentId(commentId).tenantId(tenantId).sso(sso).execute();
+> GetUserInternalProfileResponse getUserInternalProfile().commentId(commentId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1631,7 +1653,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserInternalProfileResponse1 result = apiInstance.getUserInternalProfile()
+      GetUserInternalProfileResponse result = apiInstance.getUserInternalProfile()
             .commentId(commentId)
             .tenantId(tenantId)
             .sso(sso)
@@ -1658,7 +1680,7 @@ public class Example {
 
 ### Return type
 
-[**GetUserInternalProfileResponse1**](GetUserInternalProfileResponse1.md)
+[**GetUserInternalProfileResponse**](GetUserInternalProfileResponse.md)
 
 ### Authorization
 
@@ -1673,10 +1695,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postAdjustCommentVotes"></a>
 # **postAdjustCommentVotes**
-> PostAdjustCommentVotesResponse postAdjustCommentVotes(commentId, adjustCommentVotesParams).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> AdjustVotesResponse postAdjustCommentVotes(commentId, adjustCommentVotesParams).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1701,7 +1724,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostAdjustCommentVotesResponse result = apiInstance.postAdjustCommentVotes(commentId, adjustCommentVotesParams)
+      AdjustVotesResponse result = apiInstance.postAdjustCommentVotes(commentId, adjustCommentVotesParams)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
             .sso(sso)
@@ -1730,7 +1753,7 @@ public class Example {
 
 ### Return type
 
-[**PostAdjustCommentVotesResponse**](PostAdjustCommentVotesResponse.md)
+[**AdjustVotesResponse**](AdjustVotesResponse.md)
 
 ### Authorization
 
@@ -1745,10 +1768,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postApiExport"></a>
 # **postApiExport**
-> PostApiExportResponse postApiExport().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).tenantId(tenantId).sso(sso).execute();
+> ModerationExportResponse postApiExport().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1775,7 +1799,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostApiExportResponse result = apiInstance.postApiExport()
+      ModerationExportResponse result = apiInstance.postApiExport()
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filters(filters)
@@ -1810,7 +1834,7 @@ public class Example {
 
 ### Return type
 
-[**PostApiExportResponse**](PostApiExportResponse.md)
+[**ModerationExportResponse**](ModerationExportResponse.md)
 
 ### Authorization
 
@@ -1825,10 +1849,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postBanUserFromComment"></a>
 # **postBanUserFromComment**
-> PostBanUserFromCommentResponse postBanUserFromComment(commentId).banEmail(banEmail).banEmailDomain(banEmailDomain).banIP(banIP).deleteAllUsersComments(deleteAllUsersComments).bannedUntil(bannedUntil).isShadowBan(isShadowBan).updateId(updateId).banReason(banReason).tenantId(tenantId).sso(sso).execute();
+> BanUserFromCommentResult postBanUserFromComment(commentId).banEmail(banEmail).banEmailDomain(banEmailDomain).banIP(banIP).deleteAllUsersComments(deleteAllUsersComments).bannedUntil(bannedUntil).isShadowBan(isShadowBan).updateId(updateId).banReason(banReason).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1859,7 +1884,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostBanUserFromCommentResponse result = apiInstance.postBanUserFromComment(commentId)
+      BanUserFromCommentResult result = apiInstance.postBanUserFromComment(commentId)
             .banEmail(banEmail)
             .banEmailDomain(banEmailDomain)
             .banIP(banIP)
@@ -1901,7 +1926,7 @@ public class Example {
 
 ### Return type
 
-[**PostBanUserFromCommentResponse**](PostBanUserFromCommentResponse.md)
+[**BanUserFromCommentResult**](BanUserFromCommentResult.md)
 
 ### Authorization
 
@@ -1916,10 +1941,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postBanUserUndo"></a>
 # **postBanUserUndo**
-> PostBanUserUndoResponse postBanUserUndo(banUserUndoParams).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse postBanUserUndo(banUserUndoParams).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -1942,7 +1968,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostBanUserUndoResponse result = apiInstance.postBanUserUndo(banUserUndoParams)
+      APIEmptyResponse result = apiInstance.postBanUserUndo(banUserUndoParams)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -1968,7 +1994,7 @@ public class Example {
 
 ### Return type
 
-[**PostBanUserUndoResponse**](PostBanUserUndoResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -1983,10 +2009,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postBulkPreBanSummary"></a>
 # **postBulkPreBanSummary**
-> PostBulkPreBanSummaryResponse postBulkPreBanSummary(bulkPreBanParams).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).tenantId(tenantId).sso(sso).execute();
+> BulkPreBanSummary postBulkPreBanSummary(bulkPreBanParams).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2012,7 +2039,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostBulkPreBanSummaryResponse result = apiInstance.postBulkPreBanSummary(bulkPreBanParams)
+      BulkPreBanSummary result = apiInstance.postBulkPreBanSummary(bulkPreBanParams)
             .includeByUserIdAndEmail(includeByUserIdAndEmail)
             .includeByIP(includeByIP)
             .includeByEmailDomain(includeByEmailDomain)
@@ -2044,7 +2071,7 @@ public class Example {
 
 ### Return type
 
-[**PostBulkPreBanSummaryResponse**](PostBulkPreBanSummaryResponse.md)
+[**BulkPreBanSummary**](BulkPreBanSummary.md)
 
 ### Authorization
 
@@ -2059,10 +2086,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postCommentsByIds"></a>
 # **postCommentsByIds**
-> PostCommentsByIdsResponse postCommentsByIds(commentsByIdsParams).tenantId(tenantId).sso(sso).execute();
+> ModerationAPIChildCommentsResponse postCommentsByIds(commentsByIdsParams).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2085,7 +2113,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostCommentsByIdsResponse result = apiInstance.postCommentsByIds(commentsByIdsParams)
+      ModerationAPIChildCommentsResponse result = apiInstance.postCommentsByIds(commentsByIdsParams)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -2111,7 +2139,7 @@ public class Example {
 
 ### Return type
 
-[**PostCommentsByIdsResponse**](PostCommentsByIdsResponse.md)
+[**ModerationAPIChildCommentsResponse**](ModerationAPIChildCommentsResponse.md)
 
 ### Authorization
 
@@ -2126,10 +2154,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postFlagComment"></a>
 # **postFlagComment**
-> PostFlagCommentResponse postFlagComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse postFlagComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2153,7 +2182,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostFlagCommentResponse result = apiInstance.postFlagComment(commentId)
+      APIEmptyResponse result = apiInstance.postFlagComment(commentId)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
             .sso(sso)
@@ -2181,7 +2210,7 @@ public class Example {
 
 ### Return type
 
-[**PostFlagCommentResponse**](PostFlagCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2196,6 +2225,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postRemoveComment"></a>
 # **postRemoveComment**
@@ -2266,10 +2296,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postRestoreDeletedComment"></a>
 # **postRestoreDeletedComment**
-> PostRestoreDeletedCommentResponse postRestoreDeletedComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse postRestoreDeletedComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2293,7 +2324,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostRestoreDeletedCommentResponse result = apiInstance.postRestoreDeletedComment(commentId)
+      APIEmptyResponse result = apiInstance.postRestoreDeletedComment(commentId)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
             .sso(sso)
@@ -2321,7 +2352,7 @@ public class Example {
 
 ### Return type
 
-[**PostRestoreDeletedCommentResponse**](PostRestoreDeletedCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2336,10 +2367,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postSetCommentApprovalStatus"></a>
 # **postSetCommentApprovalStatus**
-> PostSetCommentApprovalStatusResponse postSetCommentApprovalStatus(commentId).approved(approved).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> SetCommentApprovedResponse postSetCommentApprovalStatus(commentId).approved(approved).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2364,7 +2396,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostSetCommentApprovalStatusResponse result = apiInstance.postSetCommentApprovalStatus(commentId)
+      SetCommentApprovedResponse result = apiInstance.postSetCommentApprovalStatus(commentId)
             .approved(approved)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
@@ -2394,7 +2426,7 @@ public class Example {
 
 ### Return type
 
-[**PostSetCommentApprovalStatusResponse**](PostSetCommentApprovalStatusResponse.md)
+[**SetCommentApprovedResponse**](SetCommentApprovedResponse.md)
 
 ### Authorization
 
@@ -2409,10 +2441,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postSetCommentReviewStatus"></a>
 # **postSetCommentReviewStatus**
-> PostSetCommentReviewStatusResponse postSetCommentReviewStatus(commentId).reviewed(reviewed).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse postSetCommentReviewStatus(commentId).reviewed(reviewed).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2437,7 +2470,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostSetCommentReviewStatusResponse result = apiInstance.postSetCommentReviewStatus(commentId)
+      APIEmptyResponse result = apiInstance.postSetCommentReviewStatus(commentId)
             .reviewed(reviewed)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
@@ -2467,7 +2500,7 @@ public class Example {
 
 ### Return type
 
-[**PostSetCommentReviewStatusResponse**](PostSetCommentReviewStatusResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2482,10 +2515,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postSetCommentSpamStatus"></a>
 # **postSetCommentSpamStatus**
-> PostSetCommentSpamStatusResponse postSetCommentSpamStatus(commentId).spam(spam).permNotSpam(permNotSpam).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse postSetCommentSpamStatus(commentId).spam(spam).permNotSpam(permNotSpam).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2511,7 +2545,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostSetCommentSpamStatusResponse result = apiInstance.postSetCommentSpamStatus(commentId)
+      APIEmptyResponse result = apiInstance.postSetCommentSpamStatus(commentId)
             .spam(spam)
             .permNotSpam(permNotSpam)
             .broadcastId(broadcastId)
@@ -2543,7 +2577,7 @@ public class Example {
 
 ### Return type
 
-[**PostSetCommentSpamStatusResponse**](PostSetCommentSpamStatusResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2558,10 +2592,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postSetCommentText"></a>
 # **postSetCommentText**
-> PostSetCommentTextResponse postSetCommentText(commentId, setCommentTextParams).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> SetCommentTextResponse postSetCommentText(commentId, setCommentTextParams).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2586,7 +2621,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostSetCommentTextResponse result = apiInstance.postSetCommentText(commentId, setCommentTextParams)
+      SetCommentTextResponse result = apiInstance.postSetCommentText(commentId, setCommentTextParams)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
             .sso(sso)
@@ -2615,7 +2650,7 @@ public class Example {
 
 ### Return type
 
-[**PostSetCommentTextResponse**](PostSetCommentTextResponse.md)
+[**SetCommentTextResponse**](SetCommentTextResponse.md)
 
 ### Authorization
 
@@ -2630,10 +2665,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postUnFlagComment"></a>
 # **postUnFlagComment**
-> PostUnFlagCommentResponse postUnFlagComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse postUnFlagComment(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2657,7 +2693,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostUnFlagCommentResponse result = apiInstance.postUnFlagComment(commentId)
+      APIEmptyResponse result = apiInstance.postUnFlagComment(commentId)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
             .sso(sso)
@@ -2685,7 +2721,7 @@ public class Example {
 
 ### Return type
 
-[**PostUnFlagCommentResponse**](PostUnFlagCommentResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2700,10 +2736,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="postVote"></a>
 # **postVote**
-> PostVoteResponse postVote(commentId).direction(direction).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> VoteResponse postVote(commentId).direction(direction).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2728,7 +2765,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostVoteResponse result = apiInstance.postVote(commentId)
+      VoteResponse result = apiInstance.postVote(commentId)
             .direction(direction)
             .broadcastId(broadcastId)
             .tenantId(tenantId)
@@ -2758,7 +2795,7 @@ public class Example {
 
 ### Return type
 
-[**PostVoteResponse**](PostVoteResponse.md)
+[**VoteResponse**](VoteResponse.md)
 
 ### Authorization
 
@@ -2773,10 +2810,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="putAwardBadge"></a>
 # **putAwardBadge**
-> PutAwardBadgeResponse putAwardBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> AwardUserBadgeResponse putAwardBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2802,7 +2840,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PutAwardBadgeResponse result = apiInstance.putAwardBadge(badgeId)
+      AwardUserBadgeResponse result = apiInstance.putAwardBadge(badgeId)
             .userId(userId)
             .commentId(commentId)
             .broadcastId(broadcastId)
@@ -2834,7 +2872,7 @@ public class Example {
 
 ### Return type
 
-[**PutAwardBadgeResponse**](PutAwardBadgeResponse.md)
+[**AwardUserBadgeResponse**](AwardUserBadgeResponse.md)
 
 ### Authorization
 
@@ -2849,10 +2887,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="putCloseThread"></a>
 # **putCloseThread**
-> PutCloseThreadResponse putCloseThread(urlId).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse putCloseThread(urlId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2875,7 +2914,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PutCloseThreadResponse result = apiInstance.putCloseThread(urlId)
+      APIEmptyResponse result = apiInstance.putCloseThread(urlId)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -2901,7 +2940,7 @@ public class Example {
 
 ### Return type
 
-[**PutCloseThreadResponse**](PutCloseThreadResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -2916,10 +2955,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="putRemoveBadge"></a>
 # **putRemoveBadge**
-> PutRemoveBadgeResponse putRemoveBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
+> RemoveUserBadgeResponse putRemoveBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -2945,7 +2985,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PutRemoveBadgeResponse result = apiInstance.putRemoveBadge(badgeId)
+      RemoveUserBadgeResponse result = apiInstance.putRemoveBadge(badgeId)
             .userId(userId)
             .commentId(commentId)
             .broadcastId(broadcastId)
@@ -2977,7 +3017,7 @@ public class Example {
 
 ### Return type
 
-[**PutRemoveBadgeResponse**](PutRemoveBadgeResponse.md)
+[**RemoveUserBadgeResponse**](RemoveUserBadgeResponse.md)
 
 ### Authorization
 
@@ -2992,10 +3032,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="putReopenThread"></a>
 # **putReopenThread**
-> PutReopenThreadResponse putReopenThread(urlId).tenantId(tenantId).sso(sso).execute();
+> APIEmptyResponse putReopenThread(urlId).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -3018,7 +3059,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PutReopenThreadResponse result = apiInstance.putReopenThread(urlId)
+      APIEmptyResponse result = apiInstance.putReopenThread(urlId)
             .tenantId(tenantId)
             .sso(sso)
             .execute();
@@ -3044,7 +3085,7 @@ public class Example {
 
 ### Return type
 
-[**PutReopenThreadResponse**](PutReopenThreadResponse.md)
+[**APIEmptyResponse**](APIEmptyResponse.md)
 
 ### Authorization
 
@@ -3059,10 +3100,11 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="setTrustFactor"></a>
 # **setTrustFactor**
-> SetTrustFactorResponse setTrustFactor().userId(userId).trustFactor(trustFactor).tenantId(tenantId).sso(sso).execute();
+> SetUserTrustFactorResponse setTrustFactor().userId(userId).trustFactor(trustFactor).tenantId(tenantId).sso(sso).execute();
 
 
 
@@ -3086,7 +3128,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetTrustFactorResponse result = apiInstance.setTrustFactor()
+      SetUserTrustFactorResponse result = apiInstance.setTrustFactor()
             .userId(userId)
             .trustFactor(trustFactor)
             .tenantId(tenantId)
@@ -3115,7 +3157,7 @@ public class Example {
 
 ### Return type
 
-[**SetTrustFactorResponse**](SetTrustFactorResponse.md)
+[**SetUserTrustFactorResponse**](SetUserTrustFactorResponse.md)
 
 ### Authorization
 
@@ -3130,4 +3172,5 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+| **0** | Error |  -  |
 

@@ -14,9 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
-import com.fastcomments.model.APIError;
 import com.fastcomments.model.APIStatus;
-import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GifSearchInternalError;
 import com.fastcomments.model.GifSearchResponse;
 import com.fastcomments.model.GifSearchResponseImagesInnerInner;
@@ -79,7 +77,6 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<GifSearchResponse> adapterGifSearchResponse = gson.getDelegateAdapter(this, TypeToken.get(GifSearchResponse.class));
             final TypeAdapter<GifSearchInternalError> adapterGifSearchInternalError = gson.getDelegateAdapter(this, TypeToken.get(GifSearchInternalError.class));
-            final TypeAdapter<APIError> adapterAPIError = gson.getDelegateAdapter(this, TypeToken.get(APIError.class));
 
             return (TypeAdapter<T>) new TypeAdapter<GetGifsSearchResponse>() {
                 @Override
@@ -101,13 +98,7 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `APIError`
-                    if (value.getActualInstance() instanceof APIError) {
-                        JsonElement element = adapterAPIError.toJsonTree((APIError)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: APIError, GifSearchInternalError, GifSearchResponse");
+                    throw new IOException("Failed to serialize as the type doesn't match anyOf schemas: GifSearchInternalError, GifSearchResponse");
                 }
 
                 @Override
@@ -144,19 +135,6 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
                         errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for GifSearchInternalError failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'GifSearchInternalError'", e);
                     }
-                    // deserialize APIError
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        APIError.validateJsonElement(jsonElement);
-                        actualAdapter = adapterAPIError;
-                        GetGifsSearchResponse ret = new GetGifsSearchResponse();
-                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                        return ret;
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'APIError'", e);
-                    }
 
                     throw new IOException(String.format(java.util.Locale.ROOT, "Failed deserialization for GetGifsSearchResponse: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
                 }
@@ -179,7 +157,6 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
     static {
         schemas.put("GifSearchResponse", GifSearchResponse.class);
         schemas.put("GifSearchInternalError", GifSearchInternalError.class);
-        schemas.put("APIError", APIError.class);
     }
 
     @Override
@@ -190,7 +167,7 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check
      * the instance parameter is valid against the anyOf child schemas:
-     * APIError, GifSearchInternalError, GifSearchResponse
+     * GifSearchInternalError, GifSearchResponse
      *
      * It could be an instance of the 'anyOf' schemas.
      */
@@ -206,19 +183,14 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof APIError) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be APIError, GifSearchInternalError, GifSearchResponse");
+        throw new RuntimeException("Invalid instance type. Must be GifSearchInternalError, GifSearchResponse");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * APIError, GifSearchInternalError, GifSearchResponse
+     * GifSearchInternalError, GifSearchResponse
      *
-     * @return The actual instance (APIError, GifSearchInternalError, GifSearchResponse)
+     * @return The actual instance (GifSearchInternalError, GifSearchResponse)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -249,17 +221,6 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `APIError`. If the actual instance is not `APIError`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `APIError`
-     * @throws ClassCastException if the instance is not `APIError`
-     */
-    public APIError getAPIError() throws ClassCastException {
-        return (APIError)super.getActualInstance();
-    }
-
-    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -284,15 +245,7 @@ public class GetGifsSearchResponse extends AbstractOpenApiSchema {
             errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for GifSearchInternalError failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with APIError
-        try {
-            APIError.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(String.format(java.util.Locale.ROOT, "Deserialization for APIError failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for GetGifsSearchResponse with anyOf schemas: APIError, GifSearchInternalError, GifSearchResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
+        throw new IOException(String.format(java.util.Locale.ROOT, "The JSON string is invalid for GetGifsSearchResponse with anyOf schemas: GifSearchInternalError, GifSearchResponse. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s", errorMessages, jsonElement.toString()));
     }
 
     /**

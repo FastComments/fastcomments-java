@@ -63,8 +63,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SearchUsersResponse_1"
+                $ref: "#/components/schemas/SearchUsersResult"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -100,7 +106,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserPresenceStatusesResponse_1"
+                $ref: "#/components/schemas/GetUserPresenceStatusesResponse"
           description: Ok
         "422":
           content:
@@ -108,6 +114,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIError"
           description: Validation Failed
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -209,8 +221,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserNotificationsResponse"
+                $ref: "#/components/schemas/GetMyNotificationsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -275,8 +293,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResetUserNotificationsResponse_1"
+                $ref: "#/components/schemas/ResetUserNotificationsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -305,8 +329,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserNotificationCountResponse_1"
+                $ref: "#/components/schemas/GetUserNotificationCountResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -335,8 +365,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ResetUserNotificationCountResponse"
+                $ref: "#/components/schemas/ResetUserNotificationsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -384,6 +420,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/UpdateUserNotificationStatusResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -439,6 +481,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/UpdateUserNotificationCommentSubscriptionStatusResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -503,6 +551,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/UpdateUserNotificationPageSubscriptionStatusResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -593,7 +647,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTranslationsResponse_1"
+                $ref: "#/components/schemas/GetTranslationsResponse"
           description: Ok
         "422":
           content:
@@ -607,6 +661,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIError"
           description: Internal
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -675,8 +735,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetPagesPublicResponse"
+                $ref: "#/components/schemas/GetPublicPagesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -726,7 +792,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetOnlineUsersResponse"
+                $ref: "#/components/schemas/PageUsersOnlineResponse"
           description: Ok
         "403":
           content:
@@ -740,6 +806,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIError"
           description: Validation Failed
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -791,7 +863,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetOfflineUsersResponse"
+                $ref: "#/components/schemas/PageUsersOfflineResponse"
           description: Ok
         "403":
           content:
@@ -805,6 +877,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIError"
           description: Validation Failed
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -838,7 +916,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUsersInfoResponse"
+                $ref: "#/components/schemas/PageUsersInfoResponse"
           description: Ok
         "422":
           content:
@@ -846,6 +924,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIError"
           description: Validation Failed
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -874,8 +958,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteV1PageReactResponse"
+                $ref: "#/components/schemas/DeleteV1PageReact"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -903,8 +993,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetV1PageLikesResponse"
+                $ref: "#/components/schemas/GetV1PageLikes"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -939,8 +1035,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateV1PageReactResponse"
+                $ref: "#/components/schemas/CreateV1PageReact"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -976,8 +1078,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetV2PageReactUsersResponse_1"
+                $ref: "#/components/schemas/GetV2PageReactUsersResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -1013,8 +1121,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteV2PageReactResponse"
+                $ref: "#/components/schemas/DeleteV2PageReact"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -1042,8 +1156,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetV2PageReactsResponse"
+                $ref: "#/components/schemas/GetV2PageReacts"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -1085,8 +1205,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateV2PageReactResponse"
+                $ref: "#/components/schemas/CreateV2PageReact"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -1150,8 +1276,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCountResponse"
+                $ref: "#/components/schemas/ModerationAPICountCommentsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1222,8 +1354,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetApiIdsResponse"
+                $ref: "#/components/schemas/ModerationAPIGetCommentIdsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1310,8 +1448,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetApiCommentsResponse"
+                $ref: "#/components/schemas/ModerationAPIGetCommentsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1375,8 +1519,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostApiExportResponse"
+                $ref: "#/components/schemas/ModerationExportResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1412,8 +1562,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetApiExportStatusResponse"
+                $ref: "#/components/schemas/ModerationExportStatusResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1449,8 +1605,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetSearchUsersResponse"
+                $ref: "#/components/schemas/ModerationUserSearchResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1486,8 +1648,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetSearchPagesResponse"
+                $ref: "#/components/schemas/ModerationPageSearchResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1523,8 +1691,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetSearchSitesResponse"
+                $ref: "#/components/schemas/ModerationSiteSearchResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1574,8 +1748,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetSearchCommentsSummaryResponse"
+                $ref: "#/components/schemas/ModerationCommentSearchResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1611,8 +1791,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetSearchSuggestResponse"
+                $ref: "#/components/schemas/ModerationSuggestResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1669,8 +1855,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetPreBanSummaryResponse"
+                $ref: "#/components/schemas/PreBanSummary"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1726,8 +1918,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostBulkPreBanSummaryResponse"
+                $ref: "#/components/schemas/BulkPreBanSummary"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1820,8 +2018,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostBanUserFromCommentResponse"
+                $ref: "#/components/schemas/BanUserFromCommentResult"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1857,8 +2061,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetBanUsersFromCommentResponse"
+                $ref: "#/components/schemas/GetBannedUsersFromCommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1893,8 +2103,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostBanUserUndoResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1940,6 +2156,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/PostRemoveCommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -1982,8 +2204,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostRestoreDeletedCommentResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2026,8 +2254,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostFlagCommentResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2070,8 +2304,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostUnFlagCommentResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2121,8 +2361,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostSetCommentReviewStatusResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2179,8 +2425,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostSetCommentSpamStatusResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2230,8 +2482,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostSetCommentApprovalStatusResponse"
+                $ref: "#/components/schemas/SetCommentApprovedResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2267,8 +2525,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetLogsResponse"
+                $ref: "#/components/schemas/ModerationAPIGetLogsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2318,8 +2582,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetModerationCommentResponse"
+                $ref: "#/components/schemas/ModerationAPICommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2354,8 +2624,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostCommentsByIdsResponse"
+                $ref: "#/components/schemas/ModerationAPIChildCommentsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2392,8 +2668,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentChildrenResponse"
+                $ref: "#/components/schemas/ModerationAPIChildCommentsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2429,8 +2711,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetModerationCommentTextResponse"
+                $ref: "#/components/schemas/GetCommentTextResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2479,8 +2767,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostSetCommentTextResponse"
+                $ref: "#/components/schemas/SetCommentTextResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2530,8 +2824,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostAdjustCommentVotesResponse"
+                $ref: "#/components/schemas/AdjustVotesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2582,8 +2882,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostVoteResponse"
+                $ref: "#/components/schemas/VoteResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2633,8 +2939,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteModerationVoteResponse"
+                $ref: "#/components/schemas/VoteDeleteResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2670,8 +2982,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentBanStatusResponse_1"
+                $ref: "#/components/schemas/GetCommentBanStatusResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2700,8 +3018,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserBanPreferenceResponse"
+                $ref: "#/components/schemas/APIModerateGetUserBanPreferencesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2730,8 +3054,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetManualBadgesResponse"
+                $ref: "#/components/schemas/GetTenantManualBadgesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2774,8 +3104,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetManualBadgesForUserResponse"
+                $ref: "#/components/schemas/GetUserManualBadgesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2832,8 +3168,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PutAwardBadgeResponse"
+                $ref: "#/components/schemas/AwardUserBadgeResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2890,8 +3232,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PutRemoveBadgeResponse"
+                $ref: "#/components/schemas/RemoveUserBadgeResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2927,8 +3275,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTrustFactorResponse"
+                $ref: "#/components/schemas/GetUserTrustFactorResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -2971,8 +3325,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SetTrustFactorResponse"
+                $ref: "#/components/schemas/SetUserTrustFactorResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -3008,8 +3368,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserInternalProfileResponse_1"
+                $ref: "#/components/schemas/GetUserInternalProfileResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -3045,8 +3411,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PutReopenThreadResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -3082,8 +3454,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PutCloseThreadResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -3112,8 +3490,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCountsResponse"
+                $ref: "#/components/schemas/GetBannedUsersCountResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Moderation
@@ -3217,6 +3601,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIError"
           description: Validation Failed
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3245,7 +3635,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetGifLargeResponse"
+                $ref: "#/components/schemas/GifGetLargeResponse"
           description: Ok
         "422":
           content:
@@ -3253,6 +3643,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/APIError"
           description: Validation Failed
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3295,8 +3691,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/FlagCommentPublicResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3368,8 +3770,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFeedPostsPublicResponse"
+                $ref: "#/components/schemas/PublicFeedPostsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3410,8 +3818,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateFeedPostPublicResponse"
+                $ref: "#/components/schemas/CreateFeedPostResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3468,8 +3882,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ReactFeedPostPublicResponse"
+                $ref: "#/components/schemas/ReactFeedPostResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3508,8 +3928,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserReactsPublicResponse"
+                $ref: "#/components/schemas/UserReactsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3554,6 +3980,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/DeleteFeedPostPublicResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3601,8 +4033,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateFeedPostPublicResponse"
+                $ref: "#/components/schemas/CreateFeedPostResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3641,8 +4079,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFeedPostsStatsResponse"
+                $ref: "#/components/schemas/FeedPostsStatsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3700,8 +4144,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetEventLogResponse_1"
+                $ref: "#/components/schemas/GetEventLogResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3759,8 +4209,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetGlobalEventLogResponse"
+                $ref: "#/components/schemas/GetEventLogResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3803,8 +4259,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentTextResponse_1"
+                $ref: "#/components/schemas/PublicAPIGetCommentTextResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3860,8 +4322,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SetCommentTextResponse_1"
+                $ref: "#/components/schemas/PublicAPISetCommentTextResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -3927,8 +4395,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentsForUserResponse_1"
+                $ref: "#/components/schemas/GetCommentsForUserResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4152,8 +4626,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentsPublicResponse"
+                $ref: "#/components/schemas/GetCommentsResponseWithPresence_PublicComment_"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4208,8 +4688,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateCommentPublicResponse"
+                $ref: "#/components/schemas/SaveCommentsResponseWithPresence"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4260,8 +4746,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteCommentPublicResponse"
+                $ref: "#/components/schemas/PublicAPIDeleteCommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4298,8 +4790,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CheckedCommentsForBlockedResponse"
+                $ref: "#/components/schemas/CheckBlockedCommentsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4362,8 +4860,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VoteCommentResponse"
+                $ref: "#/components/schemas/VoteResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4428,8 +4932,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteCommentVoteResponse"
+                $ref: "#/components/schemas/VoteDeleteResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4473,8 +4983,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentVoteUserNamesResponse"
+                $ref: "#/components/schemas/GetCommentVoteUserNamesSuccessResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4517,8 +5033,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PinCommentResponse"
+                $ref: "#/components/schemas/ChangeCommentPinStatusResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4561,8 +5083,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UnPinCommentResponse"
+                $ref: "#/components/schemas/ChangeCommentPinStatusResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4605,8 +5133,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/LockCommentResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4649,8 +5183,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UnLockCommentResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4692,8 +5232,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UnBlockCommentPublicResponse"
+                $ref: "#/components/schemas/UnblockSuccess"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -4735,8 +5281,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BlockFromCommentPublicResponse"
+                $ref: "#/components/schemas/BlockSuccess"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security: []
       tags:
       - Public
@@ -5303,8 +5855,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetVotesResponse_1"
+                $ref: "#/components/schemas/GetVotesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5355,8 +5913,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateVoteResponse"
+                $ref: "#/components/schemas/VoteResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5398,8 +5962,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetVotesForUserResponse_1"
+                $ref: "#/components/schemas/GetVotesForUserResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5434,8 +6004,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteVoteResponse"
+                $ref: "#/components/schemas/VoteDeleteResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5463,8 +6039,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserResponse_1"
+                $ref: "#/components/schemas/GetUserResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5492,8 +6074,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteUserBadgeResponse"
+                $ref: "#/components/schemas/APIEmptySuccessResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5520,8 +6108,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserBadgeResponse"
+                $ref: "#/components/schemas/APIGetUserBadgeResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5554,8 +6148,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateUserBadgeResponse"
+                $ref: "#/components/schemas/APIEmptySuccessResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -5622,8 +6222,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserBadgesResponse"
+                $ref: "#/components/schemas/APIGetUserBadgesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5649,8 +6255,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateUserBadgeResponse"
+                $ref: "#/components/schemas/APICreateUserBadgeResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -5679,8 +6291,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserBadgeProgressByIdResponse"
+                $ref: "#/components/schemas/APIGetUserBadgeProgressResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5724,8 +6342,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserBadgeProgressListResponse"
+                $ref: "#/components/schemas/APIGetUserBadgeProgressListResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5753,8 +6377,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetUserBadgeProgressByUserIdResponse"
+                $ref: "#/components/schemas/APIGetUserBadgeProgressResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5806,8 +6436,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTicketsResponse_1"
+                $ref: "#/components/schemas/GetTicketsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5840,8 +6476,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateTicketResponse_1"
+                $ref: "#/components/schemas/CreateTicketResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -5877,8 +6519,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTicketResponse_1"
+                $ref: "#/components/schemas/GetTicketResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5919,8 +6567,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ChangeTicketStateResponse_1"
+                $ref: "#/components/schemas/ChangeTicketStateResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -5956,8 +6610,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteTenantResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -5984,8 +6644,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTenantResponse_1"
+                $ref: "#/components/schemas/GetTenantResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6018,8 +6684,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateTenantResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6056,8 +6728,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTenantsResponse_1"
+                $ref: "#/components/schemas/GetTenantsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6083,8 +6761,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateTenantResponse_1"
+                $ref: "#/components/schemas/CreateTenantResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6127,8 +6811,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteTenantUserResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6155,8 +6845,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTenantUserResponse_1"
+                $ref: "#/components/schemas/GetTenantUserResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6196,8 +6892,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateTenantUserResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6238,8 +6940,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ReplaceTenantUserResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6269,8 +6977,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTenantUsersResponse_1"
+                $ref: "#/components/schemas/GetTenantUsersResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6296,8 +7010,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateTenantUserResponse_1"
+                $ref: "#/components/schemas/CreateTenantUserResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6333,8 +7053,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SendLoginLinkResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6362,8 +7088,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteTenantPackageResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6390,8 +7122,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTenantPackageResponse_1"
+                $ref: "#/components/schemas/GetTenantPackageResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6424,8 +7162,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateTenantPackageResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6459,8 +7203,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ReplaceTenantPackageResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6490,8 +7240,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTenantPackagesResponse_1"
+                $ref: "#/components/schemas/GetTenantPackagesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6517,8 +7273,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateTenantPackageResponse_1"
+                $ref: "#/components/schemas/CreateTenantPackageResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6572,8 +7334,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetTenantDailyUsagesResponse_1"
+                $ref: "#/components/schemas/GetTenantDailyUsagesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6601,8 +7369,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteQuestionResultResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6629,8 +7403,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetQuestionResultResponse_1"
+                $ref: "#/components/schemas/GetQuestionResultResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6663,8 +7443,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateQuestionResultResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6729,8 +7515,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetQuestionResultsResponse_1"
+                $ref: "#/components/schemas/GetQuestionResultsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6756,8 +7548,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateQuestionResultResponse_1"
+                $ref: "#/components/schemas/CreateQuestionResultResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6824,8 +7622,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AggregateQuestionResultsResponse_1"
+                $ref: "#/components/schemas/AggregateQuestionResultsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6859,8 +7663,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BulkAggregateQuestionResultsResponse_1"
+                $ref: "#/components/schemas/BulkAggregateQuestionResultsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -6944,8 +7754,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CombineCommentsWithQuestionResultsResponse"
+                $ref: "#/components/schemas/CombineQuestionResultsWithCommentsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -6973,8 +7789,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteQuestionConfigResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7001,8 +7823,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetQuestionConfigResponse_1"
+                $ref: "#/components/schemas/GetQuestionConfigResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7035,8 +7863,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateQuestionConfigResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7066,8 +7900,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetQuestionConfigsResponse_1"
+                $ref: "#/components/schemas/GetQuestionConfigsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7093,8 +7933,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateQuestionConfigResponse_1"
+                $ref: "#/components/schemas/CreateQuestionConfigResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7167,8 +8013,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetPendingWebhookEventsResponse_1"
+                $ref: "#/components/schemas/GetPendingWebhookEventsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7232,8 +8084,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetPendingWebhookEventCountResponse_1"
+                $ref: "#/components/schemas/GetPendingWebhookEventCountResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7261,8 +8119,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeletePendingWebhookEventResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7326,8 +8190,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetNotificationsResponse_1"
+                $ref: "#/components/schemas/GetNotificationsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7383,8 +8253,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetNotificationCountResponse_1"
+                $ref: "#/components/schemas/GetNotificationCountResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7425,8 +8301,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateNotificationResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7455,8 +8337,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteNotificationCountResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7483,8 +8371,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCachedNotificationCountResponse_1"
+                $ref: "#/components/schemas/GetCachedNotificationCountResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7519,8 +8413,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteModeratorResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7547,8 +8447,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetModeratorResponse_1"
+                $ref: "#/components/schemas/GetModeratorResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7581,8 +8487,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateModeratorResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7612,8 +8524,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetModeratorsResponse_1"
+                $ref: "#/components/schemas/GetModeratorsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7639,8 +8557,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateModeratorResponse_1"
+                $ref: "#/components/schemas/CreateModeratorResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7676,8 +8600,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SendInviteResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7706,8 +8636,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetHashTagsResponse_1"
+                $ref: "#/components/schemas/GetHashTagsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7733,8 +8669,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AddHashTagResponse"
+                $ref: "#/components/schemas/CreateHashTagResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7762,8 +8704,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/AddHashTagsBulkResponse"
+                $ref: "#/components/schemas/BulkCreateHashTagsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7798,8 +8746,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteHashTagResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7833,8 +8787,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PatchHashTagResponse"
+                $ref: "#/components/schemas/UpdateHashTagResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7885,8 +8845,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetFeedPostsResponse_1"
+                $ref: "#/components/schemas/GetFeedPostsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -7940,8 +8906,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateFeedPostResponse_1"
+                $ref: "#/components/schemas/CreateFeedPostsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7976,8 +8948,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateFeedPostResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -7999,8 +8977,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetEmailTemplateDefinitionsResponse_1"
+                $ref: "#/components/schemas/GetEmailTemplateDefinitionsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8036,8 +9020,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetEmailTemplateRenderErrorsResponse_1"
+                $ref: "#/components/schemas/GetEmailTemplateRenderErrorsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8072,8 +9062,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteEmailTemplateRenderErrorResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8101,8 +9097,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteEmailTemplateResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8129,8 +9131,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetEmailTemplateResponse_1"
+                $ref: "#/components/schemas/GetEmailTemplateResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8163,8 +9171,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateEmailTemplateResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -8194,8 +9208,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetEmailTemplatesResponse_1"
+                $ref: "#/components/schemas/GetEmailTemplatesResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8221,8 +9241,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateEmailTemplateResponse_1"
+                $ref: "#/components/schemas/CreateEmailTemplateResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -8257,8 +9283,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RenderEmailTemplateResponse_1"
+                $ref: "#/components/schemas/RenderEmailTemplateResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -8479,8 +9511,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DeleteCommentResponse"
+                $ref: "#/components/schemas/DeleteCommentResult"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8507,8 +9545,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentResponse"
+                $ref: "#/components/schemas/APIGetCommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8562,8 +9606,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UpdateCommentResponse"
+                $ref: "#/components/schemas/APIEmptyResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -8705,8 +9755,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetCommentsResponse"
+                $ref: "#/components/schemas/APIGetCommentsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8760,8 +9816,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SaveCommentResponse"
+                $ref: "#/components/schemas/APISaveCommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -8865,8 +9927,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/FlagCommentResponse_1"
+                $ref: "#/components/schemas/FlagCommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8908,8 +9976,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UnFlagCommentResponse"
+                $ref: "#/components/schemas/FlagCommentResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -8957,8 +10031,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BlockUserFromCommentResponse"
+                $ref: "#/components/schemas/BlockSuccess"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -9007,8 +10087,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UnBlockUserFromCommentResponse"
+                $ref: "#/components/schemas/UnblockSuccess"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-content-type: application/json
@@ -9069,8 +10155,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/GetAuditLogsResponse_1"
+                $ref: "#/components/schemas/GetAuditLogsResponse"
           description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
       security:
       - api_key: []
       x-accepts:
@@ -24812,53 +25904,20 @@ components:
       - operations
       - resourceName
       type: object
-    SearchUsersResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/SearchUsersResult"
-      - $ref: "#/components/schemas/APIError"
-      title: SearchUsersResponse
-    GetUserPresenceStatusesResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetUserPresenceStatusesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserPresenceStatusesResponse
-    GetUserNotificationsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetMyNotificationsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserNotificationsResponse
-    ResetUserNotificationsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/ResetUserNotificationsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: ResetUserNotificationsResponse
-    GetUserNotificationCountResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetUserNotificationCountResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserNotificationCountResponse
-    ResetUserNotificationCountResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ResetUserNotificationsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: ResetUserNotificationCountResponse
     UpdateUserNotificationStatusResponse:
       anyOf:
       - $ref: "#/components/schemas/UserNotificationWriteResponse"
       - $ref: "#/components/schemas/IgnoredResponse"
-      - $ref: "#/components/schemas/APIError"
       title: UpdateUserNotificationStatusResponse
     UpdateUserNotificationCommentSubscriptionStatusResponse:
       anyOf:
       - $ref: "#/components/schemas/UserNotificationWriteResponse"
       - $ref: "#/components/schemas/IgnoredResponse"
-      - $ref: "#/components/schemas/APIError"
       title: UpdateUserNotificationCommentSubscriptionStatusResponse
     UpdateUserNotificationPageSubscriptionStatusResponse:
       anyOf:
       - $ref: "#/components/schemas/UserNotificationWriteResponse"
       - $ref: "#/components/schemas/IgnoredResponse"
-      - $ref: "#/components/schemas/APIError"
       title: UpdateUserNotificationPageSubscriptionStatusResponse
     UploadImage_request:
       properties:
@@ -24868,282 +25927,11 @@ components:
       required:
       - file
       type: object
-    GetTranslationsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTranslationsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTranslationsResponse
-    GetPagesPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetPublicPagesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetPagesPublicResponse
-    GetOnlineUsersResponse:
-      anyOf:
-      - $ref: "#/components/schemas/PageUsersOnlineResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetOnlineUsersResponse
-    GetOfflineUsersResponse:
-      anyOf:
-      - $ref: "#/components/schemas/PageUsersOfflineResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetOfflineUsersResponse
-    GetUsersInfoResponse:
-      anyOf:
-      - $ref: "#/components/schemas/PageUsersInfoResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUsersInfoResponse
-    GetV1PageLikesResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetV1PageLikes"
-      - $ref: "#/components/schemas/APIError"
-      title: GetV1PageLikesResponse
-    CreateV1PageReactResponse:
-      anyOf:
-      - $ref: "#/components/schemas/CreateV1PageReact"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateV1PageReactResponse
-    DeleteV1PageReactResponse:
-      anyOf:
-      - $ref: "#/components/schemas/DeleteV1PageReact"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteV1PageReactResponse
-    GetV2PageReactUsersResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetV2PageReactUsersResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetV2PageReactUsersResponse
-    GetV2PageReactsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetV2PageReacts"
-      - $ref: "#/components/schemas/APIError"
-      title: GetV2PageReactsResponse
-    CreateV2PageReactResponse:
-      anyOf:
-      - $ref: "#/components/schemas/CreateV2PageReact"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateV2PageReactResponse
-    DeleteV2PageReactResponse:
-      anyOf:
-      - $ref: "#/components/schemas/DeleteV2PageReact"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteV2PageReactResponse
-    GetCountResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationAPICountCommentsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCountResponse
-    GetApiIdsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationAPIGetCommentIdsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetApiIdsResponse
-    GetApiCommentsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationAPIGetCommentsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetApiCommentsResponse
-    PostApiExportResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationExportResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostApiExportResponse
-    GetApiExportStatusResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationExportStatusResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetApiExportStatusResponse
-    GetSearchUsersResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationUserSearchResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetSearchUsersResponse
-    GetSearchPagesResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationPageSearchResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetSearchPagesResponse
-    GetSearchSitesResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationSiteSearchResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetSearchSitesResponse
-    GetSearchCommentsSummaryResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationCommentSearchResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetSearchCommentsSummaryResponse
-    GetSearchSuggestResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationSuggestResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetSearchSuggestResponse
-    GetPreBanSummaryResponse:
-      anyOf:
-      - $ref: "#/components/schemas/PreBanSummary"
-      - $ref: "#/components/schemas/APIError"
-      title: GetPreBanSummaryResponse
-    PostBulkPreBanSummaryResponse:
-      anyOf:
-      - $ref: "#/components/schemas/BulkPreBanSummary"
-      - $ref: "#/components/schemas/APIError"
-      title: PostBulkPreBanSummaryResponse
-    PostBanUserFromCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/BanUserFromCommentResult"
-      - $ref: "#/components/schemas/APIError"
-      title: PostBanUserFromCommentResponse
-    GetBanUsersFromCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetBannedUsersFromCommentResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetBanUsersFromCommentResponse
-    PostBanUserUndoResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostBanUserUndoResponse
     PostRemoveCommentResponse:
       anyOf:
       - $ref: "#/components/schemas/DeleteCommentResult"
       - $ref: "#/components/schemas/RemoveCommentActionResponse"
-      - $ref: "#/components/schemas/APIError"
       title: PostRemoveCommentResponse
-    PostRestoreDeletedCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostRestoreDeletedCommentResponse
-    PostFlagCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostFlagCommentResponse
-    PostUnFlagCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostUnFlagCommentResponse
-    PostSetCommentReviewStatusResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostSetCommentReviewStatusResponse
-    PostSetCommentSpamStatusResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostSetCommentSpamStatusResponse
-    PostSetCommentApprovalStatusResponse:
-      anyOf:
-      - $ref: "#/components/schemas/SetCommentApprovedResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostSetCommentApprovalStatusResponse
-    GetLogsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationAPIGetLogsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetLogsResponse
-    GetModerationCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationAPICommentResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetModerationCommentResponse
-    PostCommentsByIdsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationAPIChildCommentsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostCommentsByIdsResponse
-    GetCommentChildrenResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ModerationAPIChildCommentsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentChildrenResponse
-    GetModerationCommentTextResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetCommentTextResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetModerationCommentTextResponse
-    PostSetCommentTextResponse:
-      anyOf:
-      - $ref: "#/components/schemas/SetCommentTextResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostSetCommentTextResponse
-    PostAdjustCommentVotesResponse:
-      anyOf:
-      - $ref: "#/components/schemas/AdjustVotesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostAdjustCommentVotesResponse
-    PostVoteResponse:
-      anyOf:
-      - $ref: "#/components/schemas/VoteResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PostVoteResponse
-    DeleteModerationVoteResponse:
-      anyOf:
-      - $ref: "#/components/schemas/VoteDeleteResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteModerationVoteResponse
-    GetCommentBanStatusResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetCommentBanStatusResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentBanStatusResponse
-    GetUserBanPreferenceResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIModerateGetUserBanPreferencesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserBanPreferenceResponse
-    GetManualBadgesResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantManualBadgesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetManualBadgesResponse
-    GetManualBadgesForUserResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetUserManualBadgesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetManualBadgesForUserResponse
-    PutAwardBadgeResponse:
-      anyOf:
-      - $ref: "#/components/schemas/AwardUserBadgeResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PutAwardBadgeResponse
-    PutRemoveBadgeResponse:
-      anyOf:
-      - $ref: "#/components/schemas/RemoveUserBadgeResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PutRemoveBadgeResponse
-    GetTrustFactorResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetUserTrustFactorResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTrustFactorResponse
-    SetTrustFactorResponse:
-      anyOf:
-      - $ref: "#/components/schemas/SetUserTrustFactorResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: SetTrustFactorResponse
-    GetUserInternalProfileResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetUserInternalProfileResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserInternalProfileResponse
-    PutReopenThreadResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PutReopenThreadResponse
-    PutCloseThreadResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PutCloseThreadResponse
-    GetCountsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetBannedUsersCountResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCountsResponse
     GetGifsTrendingResponse:
       anyOf:
       - $ref: "#/components/schemas/GifSearchResponse"
@@ -25153,44 +25941,8 @@ components:
       anyOf:
       - $ref: "#/components/schemas/GifSearchResponse"
       - $ref: "#/components/schemas/GifSearchInternalError"
-      - $ref: "#/components/schemas/APIError"
       title: GetGifsSearchResponse
-    GetGifLargeResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GifGetLargeResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetGifLargeResponse
-    FlagCommentPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: FlagCommentPublicResponse
-    GetFeedPostsPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/PublicFeedPostsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetFeedPostsPublicResponse
-    CreateFeedPostPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/CreateFeedPostResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateFeedPostPublicResponse
-    ReactFeedPostPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ReactFeedPostResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: ReactFeedPostPublicResponse
-    GetUserReactsPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/UserReactsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserReactsPublicResponse
-    UpdateFeedPostPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/CreateFeedPostResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateFeedPostPublicResponse
-    DeleteFeedPostPublicResponse_anyOf:
+    DeleteFeedPostPublicResponse:
       example:
         status: success
       properties:
@@ -25198,107 +25950,8 @@ components:
           $ref: "#/components/schemas/APIStatus"
       required:
       - status
-      type: object
-    DeleteFeedPostPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/DeleteFeedPostPublicResponse_anyOf"
-      - $ref: "#/components/schemas/APIError"
       title: DeleteFeedPostPublicResponse
-    GetFeedPostsStatsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/FeedPostsStatsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetFeedPostsStatsResponse
-    GetEventLogResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetEventLogResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetEventLogResponse
-    GetGlobalEventLogResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetEventLogResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetGlobalEventLogResponse
-    GetCommentTextResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/PublicAPIGetCommentTextResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentTextResponse
-    SetCommentTextResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/PublicAPISetCommentTextResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: SetCommentTextResponse
-    GetCommentsForUserResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetCommentsForUserResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentsForUserResponse
-    GetCommentsPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetCommentsResponseWithPresence_PublicComment_"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentsPublicResponse
-    CreateCommentPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/SaveCommentsResponseWithPresence"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateCommentPublicResponse
-    DeleteCommentPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/PublicAPIDeleteCommentResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteCommentPublicResponse
-    CheckedCommentsForBlockedResponse:
-      anyOf:
-      - $ref: "#/components/schemas/CheckBlockedCommentsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CheckedCommentsForBlockedResponse
-    VoteCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/VoteResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: VoteCommentResponse
-    DeleteCommentVoteResponse:
-      anyOf:
-      - $ref: "#/components/schemas/VoteDeleteResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteCommentVoteResponse
-    GetCommentVoteUserNamesResponse:
-      anyOf:
-      - $ref: "#/components/schemas/GetCommentVoteUserNamesSuccessResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentVoteUserNamesResponse
-    PinCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ChangeCommentPinStatusResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PinCommentResponse
-    UnPinCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/ChangeCommentPinStatusResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UnPinCommentResponse
-    LockCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIError"
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      title: LockCommentResponse
-    UnLockCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIError"
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      title: UnLockCommentResponse
-    BlockFromCommentPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/BlockSuccess"
-      - $ref: "#/components/schemas/APIError"
-      title: BlockFromCommentPublicResponse
-    UnBlockCommentPublicResponse:
-      anyOf:
-      - $ref: "#/components/schemas/UnblockSuccess"
-      - $ref: "#/components/schemas/APIError"
-      title: UnBlockCommentPublicResponse
+      type: object
     GetSSOUsersResponse:
       example:
         users:
@@ -25359,336 +26012,6 @@ components:
       - users
       title: GetSSOUsersResponse
       type: object
-    GetVotesResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetVotesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetVotesResponse
-    CreateVoteResponse:
-      anyOf:
-      - $ref: "#/components/schemas/VoteResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateVoteResponse
-    GetVotesForUserResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetVotesForUserResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetVotesForUserResponse
-    DeleteVoteResponse:
-      anyOf:
-      - $ref: "#/components/schemas/VoteDeleteResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteVoteResponse
-    GetUserResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetUserResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserResponse
-    GetUserBadgeResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIGetUserBadgeResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserBadgeResponse
-    UpdateUserBadgeResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptySuccessResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateUserBadgeResponse
-    DeleteUserBadgeResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptySuccessResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteUserBadgeResponse
-    GetUserBadgesResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIGetUserBadgesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserBadgesResponse
-    CreateUserBadgeResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APICreateUserBadgeResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateUserBadgeResponse
-    GetUserBadgeProgressByIdResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIGetUserBadgeProgressResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserBadgeProgressByIdResponse
-    GetUserBadgeProgressListResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIGetUserBadgeProgressListResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserBadgeProgressListResponse
-    GetUserBadgeProgressByUserIdResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIGetUserBadgeProgressResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetUserBadgeProgressByUserIdResponse
-    GetTicketsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTicketsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTicketsResponse
-    CreateTicketResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateTicketResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateTicketResponse
-    GetTicketResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTicketResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTicketResponse
-    ChangeTicketStateResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/ChangeTicketStateResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: ChangeTicketStateResponse
-    GetTenantResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTenantResponse
-    DeleteTenantResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteTenantResponse
-    UpdateTenantResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateTenantResponse
-    GetTenantsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTenantsResponse
-    CreateTenantResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateTenantResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateTenantResponse
-    GetTenantUserResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantUserResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTenantUserResponse
-    ReplaceTenantUserResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: ReplaceTenantUserResponse
-    DeleteTenantUserResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteTenantUserResponse
-    UpdateTenantUserResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateTenantUserResponse
-    GetTenantUsersResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantUsersResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTenantUsersResponse
-    CreateTenantUserResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateTenantUserResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateTenantUserResponse
-    SendLoginLinkResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: SendLoginLinkResponse
-    GetTenantPackageResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantPackageResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTenantPackageResponse
-    ReplaceTenantPackageResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: ReplaceTenantPackageResponse
-    DeleteTenantPackageResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteTenantPackageResponse
-    UpdateTenantPackageResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateTenantPackageResponse
-    GetTenantPackagesResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantPackagesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTenantPackagesResponse
-    CreateTenantPackageResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateTenantPackageResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateTenantPackageResponse
-    GetTenantDailyUsagesResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetTenantDailyUsagesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetTenantDailyUsagesResponse
-    GetQuestionResultResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetQuestionResultResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetQuestionResultResponse
-    DeleteQuestionResultResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteQuestionResultResponse
-    UpdateQuestionResultResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateQuestionResultResponse
-    GetQuestionResultsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetQuestionResultsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetQuestionResultsResponse
-    CreateQuestionResultResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateQuestionResultResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateQuestionResultResponse
-    AggregateQuestionResultsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/AggregateQuestionResultsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: AggregateQuestionResultsResponse
-    BulkAggregateQuestionResultsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/BulkAggregateQuestionResultsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: BulkAggregateQuestionResultsResponse
-    CombineCommentsWithQuestionResultsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/CombineQuestionResultsWithCommentsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CombineCommentsWithQuestionResultsResponse
-    GetQuestionConfigResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetQuestionConfigResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetQuestionConfigResponse
-    DeleteQuestionConfigResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteQuestionConfigResponse
-    UpdateQuestionConfigResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateQuestionConfigResponse
-    GetQuestionConfigsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetQuestionConfigsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetQuestionConfigsResponse
-    CreateQuestionConfigResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateQuestionConfigResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateQuestionConfigResponse
-    GetPendingWebhookEventsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetPendingWebhookEventsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetPendingWebhookEventsResponse
-    GetPendingWebhookEventCountResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetPendingWebhookEventCountResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetPendingWebhookEventCountResponse
-    DeletePendingWebhookEventResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeletePendingWebhookEventResponse
-    GetNotificationsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetNotificationsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetNotificationsResponse
-    GetNotificationCountResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetNotificationCountResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetNotificationCountResponse
-    UpdateNotificationResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateNotificationResponse
-    GetCachedNotificationCountResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetCachedNotificationCountResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCachedNotificationCountResponse
-    DeleteNotificationCountResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteNotificationCountResponse
-    GetModeratorResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetModeratorResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetModeratorResponse
-    DeleteModeratorResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteModeratorResponse
-    UpdateModeratorResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateModeratorResponse
-    GetModeratorsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetModeratorsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetModeratorsResponse
-    CreateModeratorResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateModeratorResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateModeratorResponse
-    SendInviteResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: SendInviteResponse
-    GetHashTagsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetHashTagsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetHashTagsResponse
-    AddHashTagResponse:
-      anyOf:
-      - $ref: "#/components/schemas/CreateHashTagResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: AddHashTagResponse
-    AddHashTagsBulkResponse:
-      anyOf:
-      - $ref: "#/components/schemas/BulkCreateHashTagsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: AddHashTagsBulkResponse
     DeleteHashTagRequestBody:
       example:
         tenantId: tenantId
@@ -25697,76 +26020,6 @@ components:
           type: string
       title: DeleteHashTagRequestBody
       type: object
-    DeleteHashTagResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteHashTagResponse
-    PatchHashTagResponse:
-      anyOf:
-      - $ref: "#/components/schemas/UpdateHashTagResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: PatchHashTagResponse
-    GetFeedPostsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetFeedPostsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetFeedPostsResponse
-    CreateFeedPostResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateFeedPostsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateFeedPostResponse
-    UpdateFeedPostResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateFeedPostResponse
-    GetEmailTemplateDefinitionsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetEmailTemplateDefinitionsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetEmailTemplateDefinitionsResponse
-    GetEmailTemplateRenderErrorsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetEmailTemplateRenderErrorsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetEmailTemplateRenderErrorsResponse
-    DeleteEmailTemplateRenderErrorResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteEmailTemplateRenderErrorResponse
-    GetEmailTemplateResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetEmailTemplateResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetEmailTemplateResponse
-    DeleteEmailTemplateResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteEmailTemplateResponse
-    UpdateEmailTemplateResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateEmailTemplateResponse
-    GetEmailTemplatesResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetEmailTemplatesResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetEmailTemplatesResponse
-    CreateEmailTemplateResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/CreateEmailTemplateResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: CreateEmailTemplateResponse
-    RenderEmailTemplateResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/RenderEmailTemplateResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: RenderEmailTemplateResponse
     GetDomainConfigsResponse_anyOf:
       example:
         configurations: ""
@@ -25839,61 +26092,11 @@ components:
       - $ref: "#/components/schemas/AddDomainConfigResponse_anyOf"
       - $ref: "#/components/schemas/GetDomainConfigsResponse_anyOf_1"
       title: PatchDomainConfigResponse
-    GetCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIGetCommentResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentResponse
-    DeleteCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/DeleteCommentResult"
-      - $ref: "#/components/schemas/APIError"
-      title: DeleteCommentResponse
-    UpdateCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIEmptyResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UpdateCommentResponse
-    GetCommentsResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APIGetCommentsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetCommentsResponse
-    SaveCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/APISaveCommentResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: SaveCommentResponse
     SaveCommentsBulkResponse:
       anyOf:
       - $ref: "#/components/schemas/APISaveCommentResponse"
       - $ref: "#/components/schemas/APIError"
       title: SaveCommentsBulkResponse
-    FlagCommentResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/FlagCommentResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: FlagCommentResponse
-    UnFlagCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/FlagCommentResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: UnFlagCommentResponse
-    BlockUserFromCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/BlockSuccess"
-      - $ref: "#/components/schemas/APIError"
-      title: BlockUserFromCommentResponse
-    UnBlockUserFromCommentResponse:
-      anyOf:
-      - $ref: "#/components/schemas/UnblockSuccess"
-      - $ref: "#/components/schemas/APIError"
-      title: UnBlockUserFromCommentResponse
-    GetAuditLogsResponse_1:
-      anyOf:
-      - $ref: "#/components/schemas/GetAuditLogsResponse"
-      - $ref: "#/components/schemas/APIError"
-      title: GetAuditLogsResponse
     AggregateResponse:
       anyOf:
       - $ref: "#/components/schemas/AggregationResponse"
