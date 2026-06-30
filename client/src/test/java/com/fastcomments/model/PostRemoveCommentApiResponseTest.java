@@ -26,17 +26,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for PostRemoveCommentResponse
+ * Model tests for PostRemoveCommentApiResponse
  */
-public class PostRemoveCommentResponseTest {
-    private final PostRemoveCommentResponse model = new PostRemoveCommentResponse();
+public class PostRemoveCommentApiResponseTest {
+    private final PostRemoveCommentApiResponse model = new PostRemoveCommentApiResponse();
 
     /**
-     * Model tests for PostRemoveCommentResponse
+     * Model tests for PostRemoveCommentApiResponse
      */
     @Test
-    public void testPostRemoveCommentResponse() {
-        // TODO: test PostRemoveCommentResponse
+    public void testPostRemoveCommentApiResponse() {
+        // TODO: test PostRemoveCommentApiResponse
     }
 
     /**

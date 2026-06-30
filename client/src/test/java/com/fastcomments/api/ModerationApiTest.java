@@ -46,7 +46,7 @@ import com.fastcomments.model.ModerationPageSearchResponse;
 import com.fastcomments.model.ModerationSiteSearchResponse;
 import com.fastcomments.model.ModerationSuggestResponse;
 import com.fastcomments.model.ModerationUserSearchResponse;
-import com.fastcomments.model.PostRemoveCommentResponse;
+import com.fastcomments.model.PostRemoveCommentApiResponse;
 import com.fastcomments.model.PreBanSummary;
 import com.fastcomments.model.RemoveUserBadgeResponse;
 import com.fastcomments.model.SetCommentApprovedResponse;
@@ -76,10 +76,13 @@ public class ModerationApiTest {
      */
     @Test
     public void deleteModerationVoteTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String voteId = null;
+        String broadcastId = null;
         String sso = null;
-        VoteDeleteResponse response = api.deleteModerationVote(commentId, voteId)
+        VoteDeleteResponse response = api.deleteModerationVote(tenantId, commentId, voteId)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -90,6 +93,7 @@ public class ModerationApiTest {
      */
     @Test
     public void getApiCommentsTest() throws ApiException {
+        String tenantId = null;
         Double page = null;
         Double count = null;
         String textSearch = null;
@@ -99,7 +103,7 @@ public class ModerationApiTest {
         String sorts = null;
         Boolean demo = null;
         String sso = null;
-        ModerationAPIGetCommentsResponse response = api.getApiComments()
+        ModerationAPIGetCommentsResponse response = api.getApiComments(tenantId)
                 .page(page)
                 .count(count)
                 .textSearch(textSearch)
@@ -118,9 +122,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getApiExportStatusTest() throws ApiException {
+        String tenantId = null;
         String batchJobId = null;
         String sso = null;
-        ModerationExportStatusResponse response = api.getApiExportStatus()
+        ModerationExportStatusResponse response = api.getApiExportStatus(tenantId)
                 .batchJobId(batchJobId)
                 .sso(sso)
                 .execute();
@@ -132,6 +137,7 @@ public class ModerationApiTest {
      */
     @Test
     public void getApiIdsTest() throws ApiException {
+        String tenantId = null;
         String textSearch = null;
         String byIPFromComment = null;
         String filters = null;
@@ -139,7 +145,7 @@ public class ModerationApiTest {
         String afterId = null;
         Boolean demo = null;
         String sso = null;
-        ModerationAPIGetCommentIdsResponse response = api.getApiIds()
+        ModerationAPIGetCommentIdsResponse response = api.getApiIds(tenantId)
                 .textSearch(textSearch)
                 .byIPFromComment(byIPFromComment)
                 .filters(filters)
@@ -156,9 +162,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getBanUsersFromCommentTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String sso = null;
-        GetBannedUsersFromCommentResponse response = api.getBanUsersFromComment(commentId)
+        GetBannedUsersFromCommentResponse response = api.getBanUsersFromComment(tenantId, commentId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -169,9 +176,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getCommentBanStatusTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String sso = null;
-        GetCommentBanStatusResponse response = api.getCommentBanStatus(commentId)
+        GetCommentBanStatusResponse response = api.getCommentBanStatus(tenantId, commentId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -182,9 +190,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getCommentChildrenTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String sso = null;
-        ModerationAPIChildCommentsResponse response = api.getCommentChildren(commentId)
+        ModerationAPIChildCommentsResponse response = api.getCommentChildren(tenantId, commentId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -195,13 +204,14 @@ public class ModerationApiTest {
      */
     @Test
     public void getCountTest() throws ApiException {
+        String tenantId = null;
         String textSearch = null;
         String byIPFromComment = null;
         String filter = null;
         String searchFilters = null;
         Boolean demo = null;
         String sso = null;
-        ModerationAPICountCommentsResponse response = api.getCount()
+        ModerationAPICountCommentsResponse response = api.getCount(tenantId)
                 .textSearch(textSearch)
                 .byIPFromComment(byIPFromComment)
                 .filter(filter)
@@ -217,8 +227,9 @@ public class ModerationApiTest {
      */
     @Test
     public void getCountsTest() throws ApiException {
+        String tenantId = null;
         String sso = null;
-        GetBannedUsersCountResponse response = api.getCounts()
+        GetBannedUsersCountResponse response = api.getCounts(tenantId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -229,9 +240,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getLogsTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String sso = null;
-        ModerationAPIGetLogsResponse response = api.getLogs(commentId)
+        ModerationAPIGetLogsResponse response = api.getLogs(tenantId, commentId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -242,8 +254,9 @@ public class ModerationApiTest {
      */
     @Test
     public void getManualBadgesTest() throws ApiException {
+        String tenantId = null;
         String sso = null;
-        GetTenantManualBadgesResponse response = api.getManualBadges()
+        GetTenantManualBadgesResponse response = api.getManualBadges(tenantId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -254,10 +267,11 @@ public class ModerationApiTest {
      */
     @Test
     public void getManualBadgesForUserTest() throws ApiException {
+        String tenantId = null;
         String badgesUserId = null;
         String commentId = null;
         String sso = null;
-        GetUserManualBadgesResponse response = api.getManualBadgesForUser()
+        GetUserManualBadgesResponse response = api.getManualBadgesForUser(tenantId)
                 .badgesUserId(badgesUserId)
                 .commentId(commentId)
                 .sso(sso)
@@ -270,11 +284,12 @@ public class ModerationApiTest {
      */
     @Test
     public void getModerationCommentTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         Boolean includeEmail = null;
         Boolean includeIP = null;
         String sso = null;
-        ModerationAPICommentResponse response = api.getModerationComment(commentId)
+        ModerationAPICommentResponse response = api.getModerationComment(tenantId, commentId)
                 .includeEmail(includeEmail)
                 .includeIP(includeIP)
                 .sso(sso)
@@ -287,9 +302,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getModerationCommentTextTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String sso = null;
-        GetCommentTextResponse response = api.getModerationCommentText(commentId)
+        GetCommentTextResponse response = api.getModerationCommentText(tenantId, commentId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -300,12 +316,13 @@ public class ModerationApiTest {
      */
     @Test
     public void getPreBanSummaryTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         Boolean includeByUserIdAndEmail = null;
         Boolean includeByIP = null;
         Boolean includeByEmailDomain = null;
         String sso = null;
-        PreBanSummary response = api.getPreBanSummary(commentId)
+        PreBanSummary response = api.getPreBanSummary(tenantId, commentId)
                 .includeByUserIdAndEmail(includeByUserIdAndEmail)
                 .includeByIP(includeByIP)
                 .includeByEmailDomain(includeByEmailDomain)
@@ -319,11 +336,12 @@ public class ModerationApiTest {
      */
     @Test
     public void getSearchCommentsSummaryTest() throws ApiException {
+        String tenantId = null;
         String value = null;
         String filters = null;
         String searchFilters = null;
         String sso = null;
-        ModerationCommentSearchResponse response = api.getSearchCommentsSummary()
+        ModerationCommentSearchResponse response = api.getSearchCommentsSummary(tenantId)
                 .value(value)
                 .filters(filters)
                 .searchFilters(searchFilters)
@@ -337,9 +355,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getSearchPagesTest() throws ApiException {
+        String tenantId = null;
         String value = null;
         String sso = null;
-        ModerationPageSearchResponse response = api.getSearchPages()
+        ModerationPageSearchResponse response = api.getSearchPages(tenantId)
                 .value(value)
                 .sso(sso)
                 .execute();
@@ -351,9 +370,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getSearchSitesTest() throws ApiException {
+        String tenantId = null;
         String value = null;
         String sso = null;
-        ModerationSiteSearchResponse response = api.getSearchSites()
+        ModerationSiteSearchResponse response = api.getSearchSites(tenantId)
                 .value(value)
                 .sso(sso)
                 .execute();
@@ -365,9 +385,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getSearchSuggestTest() throws ApiException {
+        String tenantId = null;
         String textSearch = null;
         String sso = null;
-        ModerationSuggestResponse response = api.getSearchSuggest()
+        ModerationSuggestResponse response = api.getSearchSuggest(tenantId)
                 .textSearch(textSearch)
                 .sso(sso)
                 .execute();
@@ -379,9 +400,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getSearchUsersTest() throws ApiException {
+        String tenantId = null;
         String value = null;
         String sso = null;
-        ModerationUserSearchResponse response = api.getSearchUsers()
+        ModerationUserSearchResponse response = api.getSearchUsers(tenantId)
                 .value(value)
                 .sso(sso)
                 .execute();
@@ -393,9 +415,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getTrustFactorTest() throws ApiException {
+        String tenantId = null;
         String userId = null;
         String sso = null;
-        GetUserTrustFactorResponse response = api.getTrustFactor()
+        GetUserTrustFactorResponse response = api.getTrustFactor(tenantId)
                 .userId(userId)
                 .sso(sso)
                 .execute();
@@ -407,8 +430,9 @@ public class ModerationApiTest {
      */
     @Test
     public void getUserBanPreferenceTest() throws ApiException {
+        String tenantId = null;
         String sso = null;
-        APIModerateGetUserBanPreferencesResponse response = api.getUserBanPreference()
+        APIModerateGetUserBanPreferencesResponse response = api.getUserBanPreference(tenantId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -419,9 +443,10 @@ public class ModerationApiTest {
      */
     @Test
     public void getUserInternalProfileTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String sso = null;
-        GetUserInternalProfileResponse response = api.getUserInternalProfile()
+        GetUserInternalProfileResponse response = api.getUserInternalProfile(tenantId)
                 .commentId(commentId)
                 .sso(sso)
                 .execute();
@@ -433,10 +458,13 @@ public class ModerationApiTest {
      */
     @Test
     public void postAdjustCommentVotesTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         AdjustCommentVotesParams adjustCommentVotesParams = null;
+        String broadcastId = null;
         String sso = null;
-        AdjustVotesResponse response = api.postAdjustCommentVotes(commentId, adjustCommentVotesParams)
+        AdjustVotesResponse response = api.postAdjustCommentVotes(tenantId, commentId, adjustCommentVotesParams)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -447,13 +475,14 @@ public class ModerationApiTest {
      */
     @Test
     public void postApiExportTest() throws ApiException {
+        String tenantId = null;
         String textSearch = null;
         String byIPFromComment = null;
         String filters = null;
         String searchFilters = null;
         String sorts = null;
         String sso = null;
-        ModerationExportResponse response = api.postApiExport()
+        ModerationExportResponse response = api.postApiExport(tenantId)
                 .textSearch(textSearch)
                 .byIPFromComment(byIPFromComment)
                 .filters(filters)
@@ -469,6 +498,7 @@ public class ModerationApiTest {
      */
     @Test
     public void postBanUserFromCommentTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         Boolean banEmail = null;
         Boolean banEmailDomain = null;
@@ -479,7 +509,7 @@ public class ModerationApiTest {
         String updateId = null;
         String banReason = null;
         String sso = null;
-        BanUserFromCommentResult response = api.postBanUserFromComment(commentId)
+        BanUserFromCommentResult response = api.postBanUserFromComment(tenantId, commentId)
                 .banEmail(banEmail)
                 .banEmailDomain(banEmailDomain)
                 .banIP(banIP)
@@ -498,9 +528,10 @@ public class ModerationApiTest {
      */
     @Test
     public void postBanUserUndoTest() throws ApiException {
+        String tenantId = null;
         BanUserUndoParams banUserUndoParams = null;
         String sso = null;
-        APIEmptyResponse response = api.postBanUserUndo(banUserUndoParams)
+        APIEmptyResponse response = api.postBanUserUndo(tenantId, banUserUndoParams)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -511,12 +542,13 @@ public class ModerationApiTest {
      */
     @Test
     public void postBulkPreBanSummaryTest() throws ApiException {
+        String tenantId = null;
         BulkPreBanParams bulkPreBanParams = null;
         Boolean includeByUserIdAndEmail = null;
         Boolean includeByIP = null;
         Boolean includeByEmailDomain = null;
         String sso = null;
-        BulkPreBanSummary response = api.postBulkPreBanSummary(bulkPreBanParams)
+        BulkPreBanSummary response = api.postBulkPreBanSummary(tenantId, bulkPreBanParams)
                 .includeByUserIdAndEmail(includeByUserIdAndEmail)
                 .includeByIP(includeByIP)
                 .includeByEmailDomain(includeByEmailDomain)
@@ -530,9 +562,10 @@ public class ModerationApiTest {
      */
     @Test
     public void postCommentsByIdsTest() throws ApiException {
+        String tenantId = null;
         CommentsByIdsParams commentsByIdsParams = null;
         String sso = null;
-        ModerationAPIChildCommentsResponse response = api.postCommentsByIds(commentsByIdsParams)
+        ModerationAPIChildCommentsResponse response = api.postCommentsByIds(tenantId, commentsByIdsParams)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -543,9 +576,12 @@ public class ModerationApiTest {
      */
     @Test
     public void postFlagCommentTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
+        String broadcastId = null;
         String sso = null;
-        APIEmptyResponse response = api.postFlagComment(commentId)
+        APIEmptyResponse response = api.postFlagComment(tenantId, commentId)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -556,9 +592,12 @@ public class ModerationApiTest {
      */
     @Test
     public void postRemoveCommentTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
+        String broadcastId = null;
         String sso = null;
-        PostRemoveCommentResponse response = api.postRemoveComment(commentId)
+        PostRemoveCommentApiResponse response = api.postRemoveComment(tenantId, commentId)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -569,9 +608,12 @@ public class ModerationApiTest {
      */
     @Test
     public void postRestoreDeletedCommentTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
+        String broadcastId = null;
         String sso = null;
-        APIEmptyResponse response = api.postRestoreDeletedComment(commentId)
+        APIEmptyResponse response = api.postRestoreDeletedComment(tenantId, commentId)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -582,11 +624,14 @@ public class ModerationApiTest {
      */
     @Test
     public void postSetCommentApprovalStatusTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         Boolean approved = null;
+        String broadcastId = null;
         String sso = null;
-        SetCommentApprovedResponse response = api.postSetCommentApprovalStatus(commentId)
+        SetCommentApprovedResponse response = api.postSetCommentApprovalStatus(tenantId, commentId)
                 .approved(approved)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -597,11 +642,14 @@ public class ModerationApiTest {
      */
     @Test
     public void postSetCommentReviewStatusTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         Boolean reviewed = null;
+        String broadcastId = null;
         String sso = null;
-        APIEmptyResponse response = api.postSetCommentReviewStatus(commentId)
+        APIEmptyResponse response = api.postSetCommentReviewStatus(tenantId, commentId)
                 .reviewed(reviewed)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -612,13 +660,16 @@ public class ModerationApiTest {
      */
     @Test
     public void postSetCommentSpamStatusTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         Boolean spam = null;
         Boolean permNotSpam = null;
+        String broadcastId = null;
         String sso = null;
-        APIEmptyResponse response = api.postSetCommentSpamStatus(commentId)
+        APIEmptyResponse response = api.postSetCommentSpamStatus(tenantId, commentId)
                 .spam(spam)
                 .permNotSpam(permNotSpam)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -629,10 +680,13 @@ public class ModerationApiTest {
      */
     @Test
     public void postSetCommentTextTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         SetCommentTextParams setCommentTextParams = null;
+        String broadcastId = null;
         String sso = null;
-        SetCommentTextResponse response = api.postSetCommentText(commentId, setCommentTextParams)
+        SetCommentTextResponse response = api.postSetCommentText(tenantId, commentId, setCommentTextParams)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -643,9 +697,12 @@ public class ModerationApiTest {
      */
     @Test
     public void postUnFlagCommentTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
+        String broadcastId = null;
         String sso = null;
-        APIEmptyResponse response = api.postUnFlagComment(commentId)
+        APIEmptyResponse response = api.postUnFlagComment(tenantId, commentId)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -656,11 +713,14 @@ public class ModerationApiTest {
      */
     @Test
     public void postVoteTest() throws ApiException {
+        String tenantId = null;
         String commentId = null;
         String direction = null;
+        String broadcastId = null;
         String sso = null;
-        VoteResponse response = api.postVote(commentId)
+        VoteResponse response = api.postVote(tenantId, commentId)
                 .direction(direction)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -671,12 +731,13 @@ public class ModerationApiTest {
      */
     @Test
     public void putAwardBadgeTest() throws ApiException {
+        String tenantId = null;
         String badgeId = null;
         String userId = null;
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        AwardUserBadgeResponse response = api.putAwardBadge(badgeId)
+        AwardUserBadgeResponse response = api.putAwardBadge(tenantId, badgeId)
                 .userId(userId)
                 .commentId(commentId)
                 .broadcastId(broadcastId)
@@ -690,9 +751,10 @@ public class ModerationApiTest {
      */
     @Test
     public void putCloseThreadTest() throws ApiException {
+        String tenantId = null;
         String urlId = null;
         String sso = null;
-        APIEmptyResponse response = api.putCloseThread(urlId)
+        APIEmptyResponse response = api.putCloseThread(tenantId, urlId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -703,12 +765,13 @@ public class ModerationApiTest {
      */
     @Test
     public void putRemoveBadgeTest() throws ApiException {
+        String tenantId = null;
         String badgeId = null;
         String userId = null;
         String commentId = null;
         String broadcastId = null;
         String sso = null;
-        RemoveUserBadgeResponse response = api.putRemoveBadge(badgeId)
+        RemoveUserBadgeResponse response = api.putRemoveBadge(tenantId, badgeId)
                 .userId(userId)
                 .commentId(commentId)
                 .broadcastId(broadcastId)
@@ -722,9 +785,10 @@ public class ModerationApiTest {
      */
     @Test
     public void putReopenThreadTest() throws ApiException {
+        String tenantId = null;
         String urlId = null;
         String sso = null;
-        APIEmptyResponse response = api.putReopenThread(urlId)
+        APIEmptyResponse response = api.putReopenThread(tenantId, urlId)
                 .sso(sso)
                 .execute();
         // TODO: test validations
@@ -735,10 +799,11 @@ public class ModerationApiTest {
      */
     @Test
     public void setTrustFactorTest() throws ApiException {
+        String tenantId = null;
         String userId = null;
         String trustFactor = null;
         String sso = null;
-        SetUserTrustFactorResponse response = api.setTrustFactor()
+        SetUserTrustFactorResponse response = api.setTrustFactor(tenantId)
                 .userId(userId)
                 .trustFactor(trustFactor)
                 .sso(sso)

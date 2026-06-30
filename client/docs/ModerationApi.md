@@ -5,54 +5,54 @@ All URIs are relative to *https://fastcomments.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**deleteModerationVote**](ModerationApi.md#deleteModerationVote) | **DELETE** /auth/my-account/moderate-comments/vote/{commentId}/{voteId} |  |
-| [**getApiComments**](ModerationApi.md#getApiComments) | **GET** /auth/my-account/moderate-comments/api/comments |  |
-| [**getApiExportStatus**](ModerationApi.md#getApiExportStatus) | **GET** /auth/my-account/moderate-comments/api/export/status |  |
-| [**getApiIds**](ModerationApi.md#getApiIds) | **GET** /auth/my-account/moderate-comments/api/ids |  |
-| [**getBanUsersFromComment**](ModerationApi.md#getBanUsersFromComment) | **GET** /auth/my-account/moderate-comments/ban-users/from-comment/{commentId} |  |
-| [**getCommentBanStatus**](ModerationApi.md#getCommentBanStatus) | **GET** /auth/my-account/moderate-comments/get-comment-ban-status/{commentId} |  |
-| [**getCommentChildren**](ModerationApi.md#getCommentChildren) | **GET** /auth/my-account/moderate-comments/comment-children/{commentId} |  |
-| [**getCount**](ModerationApi.md#getCount) | **GET** /auth/my-account/moderate-comments/count |  |
-| [**getCounts**](ModerationApi.md#getCounts) | **GET** /auth/my-account/moderate-comments/banned-users/counts |  |
-| [**getLogs**](ModerationApi.md#getLogs) | **GET** /auth/my-account/moderate-comments/logs/{commentId} |  |
-| [**getManualBadges**](ModerationApi.md#getManualBadges) | **GET** /auth/my-account/moderate-comments/get-manual-badges |  |
-| [**getManualBadgesForUser**](ModerationApi.md#getManualBadgesForUser) | **GET** /auth/my-account/moderate-comments/get-manual-badges-for-user |  |
-| [**getModerationComment**](ModerationApi.md#getModerationComment) | **GET** /auth/my-account/moderate-comments/comment/{commentId} |  |
-| [**getModerationCommentText**](ModerationApi.md#getModerationCommentText) | **GET** /auth/my-account/moderate-comments/get-comment-text/{commentId} |  |
-| [**getPreBanSummary**](ModerationApi.md#getPreBanSummary) | **GET** /auth/my-account/moderate-comments/pre-ban-summary/{commentId} |  |
-| [**getSearchCommentsSummary**](ModerationApi.md#getSearchCommentsSummary) | **GET** /auth/my-account/moderate-comments/search/comments/summary |  |
-| [**getSearchPages**](ModerationApi.md#getSearchPages) | **GET** /auth/my-account/moderate-comments/search/pages |  |
-| [**getSearchSites**](ModerationApi.md#getSearchSites) | **GET** /auth/my-account/moderate-comments/search/sites |  |
-| [**getSearchSuggest**](ModerationApi.md#getSearchSuggest) | **GET** /auth/my-account/moderate-comments/search/suggest |  |
-| [**getSearchUsers**](ModerationApi.md#getSearchUsers) | **GET** /auth/my-account/moderate-comments/search/users |  |
-| [**getTrustFactor**](ModerationApi.md#getTrustFactor) | **GET** /auth/my-account/moderate-comments/get-trust-factor |  |
-| [**getUserBanPreference**](ModerationApi.md#getUserBanPreference) | **GET** /auth/my-account/moderate-comments/user-ban-preference |  |
-| [**getUserInternalProfile**](ModerationApi.md#getUserInternalProfile) | **GET** /auth/my-account/moderate-comments/get-user-internal-profile |  |
-| [**postAdjustCommentVotes**](ModerationApi.md#postAdjustCommentVotes) | **POST** /auth/my-account/moderate-comments/adjust-comment-votes/{commentId} |  |
-| [**postApiExport**](ModerationApi.md#postApiExport) | **POST** /auth/my-account/moderate-comments/api/export |  |
-| [**postBanUserFromComment**](ModerationApi.md#postBanUserFromComment) | **POST** /auth/my-account/moderate-comments/ban-user/from-comment/{commentId} |  |
-| [**postBanUserUndo**](ModerationApi.md#postBanUserUndo) | **POST** /auth/my-account/moderate-comments/ban-user/undo |  |
-| [**postBulkPreBanSummary**](ModerationApi.md#postBulkPreBanSummary) | **POST** /auth/my-account/moderate-comments/bulk-pre-ban-summary |  |
-| [**postCommentsByIds**](ModerationApi.md#postCommentsByIds) | **POST** /auth/my-account/moderate-comments/comments-by-ids |  |
-| [**postFlagComment**](ModerationApi.md#postFlagComment) | **POST** /auth/my-account/moderate-comments/flag-comment/{commentId} |  |
-| [**postRemoveComment**](ModerationApi.md#postRemoveComment) | **POST** /auth/my-account/moderate-comments/remove-comment/{commentId} |  |
-| [**postRestoreDeletedComment**](ModerationApi.md#postRestoreDeletedComment) | **POST** /auth/my-account/moderate-comments/restore-deleted-comment/{commentId} |  |
-| [**postSetCommentApprovalStatus**](ModerationApi.md#postSetCommentApprovalStatus) | **POST** /auth/my-account/moderate-comments/set-comment-approval-status/{commentId} |  |
-| [**postSetCommentReviewStatus**](ModerationApi.md#postSetCommentReviewStatus) | **POST** /auth/my-account/moderate-comments/set-comment-review-status/{commentId} |  |
-| [**postSetCommentSpamStatus**](ModerationApi.md#postSetCommentSpamStatus) | **POST** /auth/my-account/moderate-comments/set-comment-spam-status/{commentId} |  |
-| [**postSetCommentText**](ModerationApi.md#postSetCommentText) | **POST** /auth/my-account/moderate-comments/set-comment-text/{commentId} |  |
-| [**postUnFlagComment**](ModerationApi.md#postUnFlagComment) | **POST** /auth/my-account/moderate-comments/un-flag-comment/{commentId} |  |
-| [**postVote**](ModerationApi.md#postVote) | **POST** /auth/my-account/moderate-comments/vote/{commentId} |  |
-| [**putAwardBadge**](ModerationApi.md#putAwardBadge) | **PUT** /auth/my-account/moderate-comments/award-badge |  |
-| [**putCloseThread**](ModerationApi.md#putCloseThread) | **PUT** /auth/my-account/moderate-comments/close-thread |  |
-| [**putRemoveBadge**](ModerationApi.md#putRemoveBadge) | **PUT** /auth/my-account/moderate-comments/remove-badge |  |
-| [**putReopenThread**](ModerationApi.md#putReopenThread) | **PUT** /auth/my-account/moderate-comments/reopen-thread |  |
-| [**setTrustFactor**](ModerationApi.md#setTrustFactor) | **PUT** /auth/my-account/moderate-comments/set-trust-factor |  |
+| [**deleteModerationVote**](ModerationApi.md#deleteModerationVote) | **DELETE** /auth/my-account/moderate-comments/mod_api/vote/{commentId}/{voteId} |  |
+| [**getApiComments**](ModerationApi.md#getApiComments) | **GET** /auth/my-account/moderate-comments/mod_api/api/comments |  |
+| [**getApiExportStatus**](ModerationApi.md#getApiExportStatus) | **GET** /auth/my-account/moderate-comments/mod_api/api/export/status |  |
+| [**getApiIds**](ModerationApi.md#getApiIds) | **GET** /auth/my-account/moderate-comments/mod_api/api/ids |  |
+| [**getBanUsersFromComment**](ModerationApi.md#getBanUsersFromComment) | **GET** /auth/my-account/moderate-comments/mod_api/ban-users/from-comment/{commentId} |  |
+| [**getCommentBanStatus**](ModerationApi.md#getCommentBanStatus) | **GET** /auth/my-account/moderate-comments/mod_api/get-comment-ban-status/{commentId} |  |
+| [**getCommentChildren**](ModerationApi.md#getCommentChildren) | **GET** /auth/my-account/moderate-comments/mod_api/comment-children/{commentId} |  |
+| [**getCount**](ModerationApi.md#getCount) | **GET** /auth/my-account/moderate-comments/mod_api/count |  |
+| [**getCounts**](ModerationApi.md#getCounts) | **GET** /auth/my-account/moderate-comments/banned-users/mod_api/counts |  |
+| [**getLogs**](ModerationApi.md#getLogs) | **GET** /auth/my-account/moderate-comments/mod_api/logs/{commentId} |  |
+| [**getManualBadges**](ModerationApi.md#getManualBadges) | **GET** /auth/my-account/moderate-comments/mod_api/get-manual-badges |  |
+| [**getManualBadgesForUser**](ModerationApi.md#getManualBadgesForUser) | **GET** /auth/my-account/moderate-comments/mod_api/get-manual-badges-for-user |  |
+| [**getModerationComment**](ModerationApi.md#getModerationComment) | **GET** /auth/my-account/moderate-comments/mod_api/comment/{commentId} |  |
+| [**getModerationCommentText**](ModerationApi.md#getModerationCommentText) | **GET** /auth/my-account/moderate-comments/mod_api/get-comment-text/{commentId} |  |
+| [**getPreBanSummary**](ModerationApi.md#getPreBanSummary) | **GET** /auth/my-account/moderate-comments/mod_api/pre-ban-summary/{commentId} |  |
+| [**getSearchCommentsSummary**](ModerationApi.md#getSearchCommentsSummary) | **GET** /auth/my-account/moderate-comments/mod_api/search/comments/summary |  |
+| [**getSearchPages**](ModerationApi.md#getSearchPages) | **GET** /auth/my-account/moderate-comments/mod_api/search/pages |  |
+| [**getSearchSites**](ModerationApi.md#getSearchSites) | **GET** /auth/my-account/moderate-comments/mod_api/search/sites |  |
+| [**getSearchSuggest**](ModerationApi.md#getSearchSuggest) | **GET** /auth/my-account/moderate-comments/mod_api/search/suggest |  |
+| [**getSearchUsers**](ModerationApi.md#getSearchUsers) | **GET** /auth/my-account/moderate-comments/mod_api/search/users |  |
+| [**getTrustFactor**](ModerationApi.md#getTrustFactor) | **GET** /auth/my-account/moderate-comments/mod_api/get-trust-factor |  |
+| [**getUserBanPreference**](ModerationApi.md#getUserBanPreference) | **GET** /auth/my-account/moderate-comments/mod_api/user-ban-preference |  |
+| [**getUserInternalProfile**](ModerationApi.md#getUserInternalProfile) | **GET** /auth/my-account/moderate-comments/mod_api/get-user-internal-profile |  |
+| [**postAdjustCommentVotes**](ModerationApi.md#postAdjustCommentVotes) | **POST** /auth/my-account/moderate-comments/mod_api/adjust-comment-votes/{commentId} |  |
+| [**postApiExport**](ModerationApi.md#postApiExport) | **POST** /auth/my-account/moderate-comments/mod_api/api/export |  |
+| [**postBanUserFromComment**](ModerationApi.md#postBanUserFromComment) | **POST** /auth/my-account/moderate-comments/mod_api/ban-user/from-comment/{commentId} |  |
+| [**postBanUserUndo**](ModerationApi.md#postBanUserUndo) | **POST** /auth/my-account/moderate-comments/mod_api/ban-user/undo |  |
+| [**postBulkPreBanSummary**](ModerationApi.md#postBulkPreBanSummary) | **POST** /auth/my-account/moderate-comments/mod_api/bulk-pre-ban-summary |  |
+| [**postCommentsByIds**](ModerationApi.md#postCommentsByIds) | **POST** /auth/my-account/moderate-comments/mod_api/comments-by-ids |  |
+| [**postFlagComment**](ModerationApi.md#postFlagComment) | **POST** /auth/my-account/moderate-comments/mod_api/flag-comment/{commentId} |  |
+| [**postRemoveComment**](ModerationApi.md#postRemoveComment) | **POST** /auth/my-account/moderate-comments/mod_api/remove-comment/{commentId} |  |
+| [**postRestoreDeletedComment**](ModerationApi.md#postRestoreDeletedComment) | **POST** /auth/my-account/moderate-comments/mod_api/restore-deleted-comment/{commentId} |  |
+| [**postSetCommentApprovalStatus**](ModerationApi.md#postSetCommentApprovalStatus) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-approval-status/{commentId} |  |
+| [**postSetCommentReviewStatus**](ModerationApi.md#postSetCommentReviewStatus) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-review-status/{commentId} |  |
+| [**postSetCommentSpamStatus**](ModerationApi.md#postSetCommentSpamStatus) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-spam-status/{commentId} |  |
+| [**postSetCommentText**](ModerationApi.md#postSetCommentText) | **POST** /auth/my-account/moderate-comments/mod_api/set-comment-text/{commentId} |  |
+| [**postUnFlagComment**](ModerationApi.md#postUnFlagComment) | **POST** /auth/my-account/moderate-comments/mod_api/un-flag-comment/{commentId} |  |
+| [**postVote**](ModerationApi.md#postVote) | **POST** /auth/my-account/moderate-comments/mod_api/vote/{commentId} |  |
+| [**putAwardBadge**](ModerationApi.md#putAwardBadge) | **PUT** /auth/my-account/moderate-comments/mod_api/award-badge |  |
+| [**putCloseThread**](ModerationApi.md#putCloseThread) | **PUT** /auth/my-account/moderate-comments/mod_api/close-thread |  |
+| [**putRemoveBadge**](ModerationApi.md#putRemoveBadge) | **PUT** /auth/my-account/moderate-comments/mod_api/remove-badge |  |
+| [**putReopenThread**](ModerationApi.md#putReopenThread) | **PUT** /auth/my-account/moderate-comments/mod_api/reopen-thread |  |
+| [**setTrustFactor**](ModerationApi.md#setTrustFactor) | **PUT** /auth/my-account/moderate-comments/mod_api/set-trust-factor |  |
 
 
 <a id="deleteModerationVote"></a>
 # **deleteModerationVote**
-> VoteDeleteResponse deleteModerationVote(commentId, voteId).sso(sso).execute();
+> VoteDeleteResponse deleteModerationVote(tenantId, commentId, voteId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -71,11 +71,14 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String voteId = "voteId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteDeleteResponse result = apiInstance.deleteModerationVote(commentId, voteId)
+      VoteDeleteResponse result = apiInstance.deleteModerationVote(tenantId, commentId, voteId)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -94,8 +97,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **voteId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -119,7 +124,7 @@ No authorization required
 
 <a id="getApiComments"></a>
 # **getApiComments**
-> ModerationAPIGetCommentsResponse getApiComments().page(page).count(count).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).demo(demo).sso(sso).execute();
+> ModerationAPIGetCommentsResponse getApiComments(tenantId).page(page).count(count).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).demo(demo).sso(sso).execute();
 
 
 
@@ -138,6 +143,7 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     Double page = 3.4D; // Double | 
     Double count = 3.4D; // Double | 
     String textSearch = "textSearch_example"; // String | 
@@ -148,7 +154,7 @@ public class Example {
     Boolean demo = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIGetCommentsResponse result = apiInstance.getApiComments()
+      ModerationAPIGetCommentsResponse result = apiInstance.getApiComments(tenantId)
             .page(page)
             .count(count)
             .textSearch(textSearch)
@@ -175,6 +181,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **page** | **Double**|  | [optional] |
 | **count** | **Double**|  | [optional] |
 | **textSearch** | **String**|  | [optional] |
@@ -206,7 +213,7 @@ No authorization required
 
 <a id="getApiExportStatus"></a>
 # **getApiExportStatus**
-> ModerationExportStatusResponse getApiExportStatus().batchJobId(batchJobId).sso(sso).execute();
+> ModerationExportStatusResponse getApiExportStatus(tenantId).batchJobId(batchJobId).sso(sso).execute();
 
 
 
@@ -225,10 +232,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String batchJobId = "batchJobId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationExportStatusResponse result = apiInstance.getApiExportStatus()
+      ModerationExportStatusResponse result = apiInstance.getApiExportStatus(tenantId)
             .batchJobId(batchJobId)
             .sso(sso)
             .execute();
@@ -248,6 +256,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **batchJobId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
@@ -272,7 +281,7 @@ No authorization required
 
 <a id="getApiIds"></a>
 # **getApiIds**
-> ModerationAPIGetCommentIdsResponse getApiIds().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).afterId(afterId).demo(demo).sso(sso).execute();
+> ModerationAPIGetCommentIdsResponse getApiIds(tenantId).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).afterId(afterId).demo(demo).sso(sso).execute();
 
 
 
@@ -291,6 +300,7 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String textSearch = "textSearch_example"; // String | 
     String byIPFromComment = "byIPFromComment_example"; // String | 
     String filters = "filters_example"; // String | 
@@ -299,7 +309,7 @@ public class Example {
     Boolean demo = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIGetCommentIdsResponse result = apiInstance.getApiIds()
+      ModerationAPIGetCommentIdsResponse result = apiInstance.getApiIds(tenantId)
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filters(filters)
@@ -324,6 +334,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **textSearch** | **String**|  | [optional] |
 | **byIPFromComment** | **String**|  | [optional] |
 | **filters** | **String**|  | [optional] |
@@ -353,7 +364,7 @@ No authorization required
 
 <a id="getBanUsersFromComment"></a>
 # **getBanUsersFromComment**
-> GetBannedUsersFromCommentResponse getBanUsersFromComment(commentId).sso(sso).execute();
+> GetBannedUsersFromCommentResponse getBanUsersFromComment(tenantId, commentId).sso(sso).execute();
 
 
 
@@ -372,10 +383,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetBannedUsersFromCommentResponse result = apiInstance.getBanUsersFromComment(commentId)
+      GetBannedUsersFromCommentResponse result = apiInstance.getBanUsersFromComment(tenantId, commentId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -394,6 +406,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -418,7 +431,7 @@ No authorization required
 
 <a id="getCommentBanStatus"></a>
 # **getCommentBanStatus**
-> GetCommentBanStatusResponse getCommentBanStatus(commentId).sso(sso).execute();
+> GetCommentBanStatusResponse getCommentBanStatus(tenantId, commentId).sso(sso).execute();
 
 
 
@@ -437,10 +450,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentBanStatusResponse result = apiInstance.getCommentBanStatus(commentId)
+      GetCommentBanStatusResponse result = apiInstance.getCommentBanStatus(tenantId, commentId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -459,6 +473,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -483,7 +498,7 @@ No authorization required
 
 <a id="getCommentChildren"></a>
 # **getCommentChildren**
-> ModerationAPIChildCommentsResponse getCommentChildren(commentId).sso(sso).execute();
+> ModerationAPIChildCommentsResponse getCommentChildren(tenantId, commentId).sso(sso).execute();
 
 
 
@@ -502,10 +517,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIChildCommentsResponse result = apiInstance.getCommentChildren(commentId)
+      ModerationAPIChildCommentsResponse result = apiInstance.getCommentChildren(tenantId, commentId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -524,6 +540,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -548,7 +565,7 @@ No authorization required
 
 <a id="getCount"></a>
 # **getCount**
-> ModerationAPICountCommentsResponse getCount().textSearch(textSearch).byIPFromComment(byIPFromComment).filter(filter).searchFilters(searchFilters).demo(demo).sso(sso).execute();
+> ModerationAPICountCommentsResponse getCount(tenantId).textSearch(textSearch).byIPFromComment(byIPFromComment).filter(filter).searchFilters(searchFilters).demo(demo).sso(sso).execute();
 
 
 
@@ -567,6 +584,7 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String textSearch = "textSearch_example"; // String | 
     String byIPFromComment = "byIPFromComment_example"; // String | 
     String filter = "filter_example"; // String | 
@@ -574,7 +592,7 @@ public class Example {
     Boolean demo = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPICountCommentsResponse result = apiInstance.getCount()
+      ModerationAPICountCommentsResponse result = apiInstance.getCount(tenantId)
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filter(filter)
@@ -598,6 +616,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **textSearch** | **String**|  | [optional] |
 | **byIPFromComment** | **String**|  | [optional] |
 | **filter** | **String**|  | [optional] |
@@ -626,7 +645,7 @@ No authorization required
 
 <a id="getCounts"></a>
 # **getCounts**
-> GetBannedUsersCountResponse getCounts().sso(sso).execute();
+> GetBannedUsersCountResponse getCounts(tenantId).sso(sso).execute();
 
 
 
@@ -645,9 +664,10 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetBannedUsersCountResponse result = apiInstance.getCounts()
+      GetBannedUsersCountResponse result = apiInstance.getCounts(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -666,6 +686,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -689,7 +710,7 @@ No authorization required
 
 <a id="getLogs"></a>
 # **getLogs**
-> ModerationAPIGetLogsResponse getLogs(commentId).sso(sso).execute();
+> ModerationAPIGetLogsResponse getLogs(tenantId, commentId).sso(sso).execute();
 
 
 
@@ -708,10 +729,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIGetLogsResponse result = apiInstance.getLogs(commentId)
+      ModerationAPIGetLogsResponse result = apiInstance.getLogs(tenantId, commentId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -730,6 +752,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -754,7 +777,7 @@ No authorization required
 
 <a id="getManualBadges"></a>
 # **getManualBadges**
-> GetTenantManualBadgesResponse getManualBadges().sso(sso).execute();
+> GetTenantManualBadgesResponse getManualBadges(tenantId).sso(sso).execute();
 
 
 
@@ -773,9 +796,10 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetTenantManualBadgesResponse result = apiInstance.getManualBadges()
+      GetTenantManualBadgesResponse result = apiInstance.getManualBadges(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -794,6 +818,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -817,7 +842,7 @@ No authorization required
 
 <a id="getManualBadgesForUser"></a>
 # **getManualBadgesForUser**
-> GetUserManualBadgesResponse getManualBadgesForUser().badgesUserId(badgesUserId).commentId(commentId).sso(sso).execute();
+> GetUserManualBadgesResponse getManualBadgesForUser(tenantId).badgesUserId(badgesUserId).commentId(commentId).sso(sso).execute();
 
 
 
@@ -836,11 +861,12 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String badgesUserId = "badgesUserId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserManualBadgesResponse result = apiInstance.getManualBadgesForUser()
+      GetUserManualBadgesResponse result = apiInstance.getManualBadgesForUser(tenantId)
             .badgesUserId(badgesUserId)
             .commentId(commentId)
             .sso(sso)
@@ -861,6 +887,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **badgesUserId** | **String**|  | [optional] |
 | **commentId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
@@ -886,7 +913,7 @@ No authorization required
 
 <a id="getModerationComment"></a>
 # **getModerationComment**
-> ModerationAPICommentResponse getModerationComment(commentId).includeEmail(includeEmail).includeIP(includeIP).sso(sso).execute();
+> ModerationAPICommentResponse getModerationComment(tenantId, commentId).includeEmail(includeEmail).includeIP(includeIP).sso(sso).execute();
 
 
 
@@ -905,12 +932,13 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     Boolean includeEmail = true; // Boolean | 
     Boolean includeIP = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPICommentResponse result = apiInstance.getModerationComment(commentId)
+      ModerationAPICommentResponse result = apiInstance.getModerationComment(tenantId, commentId)
             .includeEmail(includeEmail)
             .includeIP(includeIP)
             .sso(sso)
@@ -931,6 +959,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **includeEmail** | **Boolean**|  | [optional] |
 | **includeIP** | **Boolean**|  | [optional] |
@@ -957,7 +986,7 @@ No authorization required
 
 <a id="getModerationCommentText"></a>
 # **getModerationCommentText**
-> GetCommentTextResponse getModerationCommentText(commentId).sso(sso).execute();
+> GetCommentTextResponse getModerationCommentText(tenantId, commentId).sso(sso).execute();
 
 
 
@@ -976,10 +1005,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetCommentTextResponse result = apiInstance.getModerationCommentText(commentId)
+      GetCommentTextResponse result = apiInstance.getModerationCommentText(tenantId, commentId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -998,6 +1028,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -1022,7 +1053,7 @@ No authorization required
 
 <a id="getPreBanSummary"></a>
 # **getPreBanSummary**
-> PreBanSummary getPreBanSummary(commentId).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).sso(sso).execute();
+> PreBanSummary getPreBanSummary(tenantId, commentId).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).sso(sso).execute();
 
 
 
@@ -1041,13 +1072,14 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     Boolean includeByUserIdAndEmail = true; // Boolean | 
     Boolean includeByIP = true; // Boolean | 
     Boolean includeByEmailDomain = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      PreBanSummary result = apiInstance.getPreBanSummary(commentId)
+      PreBanSummary result = apiInstance.getPreBanSummary(tenantId, commentId)
             .includeByUserIdAndEmail(includeByUserIdAndEmail)
             .includeByIP(includeByIP)
             .includeByEmailDomain(includeByEmailDomain)
@@ -1069,6 +1101,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **includeByUserIdAndEmail** | **Boolean**|  | [optional] |
 | **includeByIP** | **Boolean**|  | [optional] |
@@ -1096,7 +1129,7 @@ No authorization required
 
 <a id="getSearchCommentsSummary"></a>
 # **getSearchCommentsSummary**
-> ModerationCommentSearchResponse getSearchCommentsSummary().value(value).filters(filters).searchFilters(searchFilters).sso(sso).execute();
+> ModerationCommentSearchResponse getSearchCommentsSummary(tenantId).value(value).filters(filters).searchFilters(searchFilters).sso(sso).execute();
 
 
 
@@ -1115,12 +1148,13 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String value = "value_example"; // String | 
     String filters = "filters_example"; // String | 
     String searchFilters = "searchFilters_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationCommentSearchResponse result = apiInstance.getSearchCommentsSummary()
+      ModerationCommentSearchResponse result = apiInstance.getSearchCommentsSummary(tenantId)
             .value(value)
             .filters(filters)
             .searchFilters(searchFilters)
@@ -1142,6 +1176,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **value** | **String**|  | [optional] |
 | **filters** | **String**|  | [optional] |
 | **searchFilters** | **String**|  | [optional] |
@@ -1168,7 +1203,7 @@ No authorization required
 
 <a id="getSearchPages"></a>
 # **getSearchPages**
-> ModerationPageSearchResponse getSearchPages().value(value).sso(sso).execute();
+> ModerationPageSearchResponse getSearchPages(tenantId).value(value).sso(sso).execute();
 
 
 
@@ -1187,10 +1222,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String value = "value_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationPageSearchResponse result = apiInstance.getSearchPages()
+      ModerationPageSearchResponse result = apiInstance.getSearchPages(tenantId)
             .value(value)
             .sso(sso)
             .execute();
@@ -1210,6 +1246,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **value** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
@@ -1234,7 +1271,7 @@ No authorization required
 
 <a id="getSearchSites"></a>
 # **getSearchSites**
-> ModerationSiteSearchResponse getSearchSites().value(value).sso(sso).execute();
+> ModerationSiteSearchResponse getSearchSites(tenantId).value(value).sso(sso).execute();
 
 
 
@@ -1253,10 +1290,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String value = "value_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationSiteSearchResponse result = apiInstance.getSearchSites()
+      ModerationSiteSearchResponse result = apiInstance.getSearchSites(tenantId)
             .value(value)
             .sso(sso)
             .execute();
@@ -1276,6 +1314,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **value** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
@@ -1300,7 +1339,7 @@ No authorization required
 
 <a id="getSearchSuggest"></a>
 # **getSearchSuggest**
-> ModerationSuggestResponse getSearchSuggest().textSearch(textSearch).sso(sso).execute();
+> ModerationSuggestResponse getSearchSuggest(tenantId).textSearch(textSearch).sso(sso).execute();
 
 
 
@@ -1319,10 +1358,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String textSearch = "textSearch_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationSuggestResponse result = apiInstance.getSearchSuggest()
+      ModerationSuggestResponse result = apiInstance.getSearchSuggest(tenantId)
             .textSearch(textSearch)
             .sso(sso)
             .execute();
@@ -1342,6 +1382,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **textSearch** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
@@ -1366,7 +1407,7 @@ No authorization required
 
 <a id="getSearchUsers"></a>
 # **getSearchUsers**
-> ModerationUserSearchResponse getSearchUsers().value(value).sso(sso).execute();
+> ModerationUserSearchResponse getSearchUsers(tenantId).value(value).sso(sso).execute();
 
 
 
@@ -1385,10 +1426,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String value = "value_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationUserSearchResponse result = apiInstance.getSearchUsers()
+      ModerationUserSearchResponse result = apiInstance.getSearchUsers(tenantId)
             .value(value)
             .sso(sso)
             .execute();
@@ -1408,6 +1450,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **value** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
@@ -1432,7 +1475,7 @@ No authorization required
 
 <a id="getTrustFactor"></a>
 # **getTrustFactor**
-> GetUserTrustFactorResponse getTrustFactor().userId(userId).sso(sso).execute();
+> GetUserTrustFactorResponse getTrustFactor(tenantId).userId(userId).sso(sso).execute();
 
 
 
@@ -1451,10 +1494,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String userId = "userId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserTrustFactorResponse result = apiInstance.getTrustFactor()
+      GetUserTrustFactorResponse result = apiInstance.getTrustFactor(tenantId)
             .userId(userId)
             .sso(sso)
             .execute();
@@ -1474,6 +1518,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **userId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
@@ -1498,7 +1543,7 @@ No authorization required
 
 <a id="getUserBanPreference"></a>
 # **getUserBanPreference**
-> APIModerateGetUserBanPreferencesResponse getUserBanPreference().sso(sso).execute();
+> APIModerateGetUserBanPreferencesResponse getUserBanPreference(tenantId).sso(sso).execute();
 
 
 
@@ -1517,9 +1562,10 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIModerateGetUserBanPreferencesResponse result = apiInstance.getUserBanPreference()
+      APIModerateGetUserBanPreferencesResponse result = apiInstance.getUserBanPreference(tenantId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1538,6 +1584,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -1561,7 +1608,7 @@ No authorization required
 
 <a id="getUserInternalProfile"></a>
 # **getUserInternalProfile**
-> GetUserInternalProfileResponse getUserInternalProfile().commentId(commentId).sso(sso).execute();
+> GetUserInternalProfileResponse getUserInternalProfile(tenantId).commentId(commentId).sso(sso).execute();
 
 
 
@@ -1580,10 +1627,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      GetUserInternalProfileResponse result = apiInstance.getUserInternalProfile()
+      GetUserInternalProfileResponse result = apiInstance.getUserInternalProfile(tenantId)
             .commentId(commentId)
             .sso(sso)
             .execute();
@@ -1603,6 +1651,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
@@ -1627,7 +1676,7 @@ No authorization required
 
 <a id="postAdjustCommentVotes"></a>
 # **postAdjustCommentVotes**
-> AdjustVotesResponse postAdjustCommentVotes(commentId, adjustCommentVotesParams).sso(sso).execute();
+> AdjustVotesResponse postAdjustCommentVotes(tenantId, commentId, adjustCommentVotesParams).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -1646,11 +1695,14 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     AdjustCommentVotesParams adjustCommentVotesParams = new AdjustCommentVotesParams(); // AdjustCommentVotesParams | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      AdjustVotesResponse result = apiInstance.postAdjustCommentVotes(commentId, adjustCommentVotesParams)
+      AdjustVotesResponse result = apiInstance.postAdjustCommentVotes(tenantId, commentId, adjustCommentVotesParams)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1669,8 +1721,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **adjustCommentVotesParams** | [**AdjustCommentVotesParams**](AdjustCommentVotesParams.md)|  | |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -1694,7 +1748,7 @@ No authorization required
 
 <a id="postApiExport"></a>
 # **postApiExport**
-> ModerationExportResponse postApiExport().textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).sso(sso).execute();
+> ModerationExportResponse postApiExport(tenantId).textSearch(textSearch).byIPFromComment(byIPFromComment).filters(filters).searchFilters(searchFilters).sorts(sorts).sso(sso).execute();
 
 
 
@@ -1713,6 +1767,7 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String textSearch = "textSearch_example"; // String | 
     String byIPFromComment = "byIPFromComment_example"; // String | 
     String filters = "filters_example"; // String | 
@@ -1720,7 +1775,7 @@ public class Example {
     String sorts = "sorts_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationExportResponse result = apiInstance.postApiExport()
+      ModerationExportResponse result = apiInstance.postApiExport(tenantId)
             .textSearch(textSearch)
             .byIPFromComment(byIPFromComment)
             .filters(filters)
@@ -1744,6 +1799,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **textSearch** | **String**|  | [optional] |
 | **byIPFromComment** | **String**|  | [optional] |
 | **filters** | **String**|  | [optional] |
@@ -1772,7 +1828,7 @@ No authorization required
 
 <a id="postBanUserFromComment"></a>
 # **postBanUserFromComment**
-> BanUserFromCommentResult postBanUserFromComment(commentId).banEmail(banEmail).banEmailDomain(banEmailDomain).banIP(banIP).deleteAllUsersComments(deleteAllUsersComments).bannedUntil(bannedUntil).isShadowBan(isShadowBan).updateId(updateId).banReason(banReason).sso(sso).execute();
+> BanUserFromCommentResult postBanUserFromComment(tenantId, commentId).banEmail(banEmail).banEmailDomain(banEmailDomain).banIP(banIP).deleteAllUsersComments(deleteAllUsersComments).bannedUntil(bannedUntil).isShadowBan(isShadowBan).updateId(updateId).banReason(banReason).sso(sso).execute();
 
 
 
@@ -1791,6 +1847,7 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     Boolean banEmail = true; // Boolean | 
     Boolean banEmailDomain = true; // Boolean | 
@@ -1802,7 +1859,7 @@ public class Example {
     String banReason = "banReason_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      BanUserFromCommentResult result = apiInstance.postBanUserFromComment(commentId)
+      BanUserFromCommentResult result = apiInstance.postBanUserFromComment(tenantId, commentId)
             .banEmail(banEmail)
             .banEmailDomain(banEmailDomain)
             .banIP(banIP)
@@ -1829,6 +1886,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **banEmail** | **Boolean**|  | [optional] |
 | **banEmailDomain** | **Boolean**|  | [optional] |
@@ -1861,7 +1919,7 @@ No authorization required
 
 <a id="postBanUserUndo"></a>
 # **postBanUserUndo**
-> APIEmptyResponse postBanUserUndo(banUserUndoParams).sso(sso).execute();
+> APIEmptyResponse postBanUserUndo(tenantId, banUserUndoParams).sso(sso).execute();
 
 
 
@@ -1880,10 +1938,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     BanUserUndoParams banUserUndoParams = new BanUserUndoParams(); // BanUserUndoParams | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postBanUserUndo(banUserUndoParams)
+      APIEmptyResponse result = apiInstance.postBanUserUndo(tenantId, banUserUndoParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -1902,6 +1961,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **banUserUndoParams** | [**BanUserUndoParams**](BanUserUndoParams.md)|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -1926,7 +1986,7 @@ No authorization required
 
 <a id="postBulkPreBanSummary"></a>
 # **postBulkPreBanSummary**
-> BulkPreBanSummary postBulkPreBanSummary(bulkPreBanParams).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).sso(sso).execute();
+> BulkPreBanSummary postBulkPreBanSummary(tenantId, bulkPreBanParams).includeByUserIdAndEmail(includeByUserIdAndEmail).includeByIP(includeByIP).includeByEmailDomain(includeByEmailDomain).sso(sso).execute();
 
 
 
@@ -1945,13 +2005,14 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     BulkPreBanParams bulkPreBanParams = new BulkPreBanParams(); // BulkPreBanParams | 
     Boolean includeByUserIdAndEmail = true; // Boolean | 
     Boolean includeByIP = true; // Boolean | 
     Boolean includeByEmailDomain = true; // Boolean | 
     String sso = "sso_example"; // String | 
     try {
-      BulkPreBanSummary result = apiInstance.postBulkPreBanSummary(bulkPreBanParams)
+      BulkPreBanSummary result = apiInstance.postBulkPreBanSummary(tenantId, bulkPreBanParams)
             .includeByUserIdAndEmail(includeByUserIdAndEmail)
             .includeByIP(includeByIP)
             .includeByEmailDomain(includeByEmailDomain)
@@ -1973,6 +2034,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **bulkPreBanParams** | [**BulkPreBanParams**](BulkPreBanParams.md)|  | |
 | **includeByUserIdAndEmail** | **Boolean**|  | [optional] |
 | **includeByIP** | **Boolean**|  | [optional] |
@@ -2000,7 +2062,7 @@ No authorization required
 
 <a id="postCommentsByIds"></a>
 # **postCommentsByIds**
-> ModerationAPIChildCommentsResponse postCommentsByIds(commentsByIdsParams).sso(sso).execute();
+> ModerationAPIChildCommentsResponse postCommentsByIds(tenantId, commentsByIdsParams).sso(sso).execute();
 
 
 
@@ -2019,10 +2081,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     CommentsByIdsParams commentsByIdsParams = new CommentsByIdsParams(); // CommentsByIdsParams | 
     String sso = "sso_example"; // String | 
     try {
-      ModerationAPIChildCommentsResponse result = apiInstance.postCommentsByIds(commentsByIdsParams)
+      ModerationAPIChildCommentsResponse result = apiInstance.postCommentsByIds(tenantId, commentsByIdsParams)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2041,6 +2104,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentsByIdsParams** | [**CommentsByIdsParams**](CommentsByIdsParams.md)|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -2065,7 +2129,7 @@ No authorization required
 
 <a id="postFlagComment"></a>
 # **postFlagComment**
-> APIEmptyResponse postFlagComment(commentId).sso(sso).execute();
+> APIEmptyResponse postFlagComment(tenantId, commentId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2084,10 +2148,13 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postFlagComment(commentId)
+      APIEmptyResponse result = apiInstance.postFlagComment(tenantId, commentId)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2106,7 +2173,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2130,7 +2199,7 @@ No authorization required
 
 <a id="postRemoveComment"></a>
 # **postRemoveComment**
-> PostRemoveCommentResponse postRemoveComment(commentId).sso(sso).execute();
+> PostRemoveCommentApiResponse postRemoveComment(tenantId, commentId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2149,10 +2218,13 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      PostRemoveCommentResponse result = apiInstance.postRemoveComment(commentId)
+      PostRemoveCommentApiResponse result = apiInstance.postRemoveComment(tenantId, commentId)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2171,12 +2243,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
 
-[**PostRemoveCommentResponse**](PostRemoveCommentResponse.md)
+[**PostRemoveCommentApiResponse**](PostRemoveCommentApiResponse.md)
 
 ### Authorization
 
@@ -2195,7 +2269,7 @@ No authorization required
 
 <a id="postRestoreDeletedComment"></a>
 # **postRestoreDeletedComment**
-> APIEmptyResponse postRestoreDeletedComment(commentId).sso(sso).execute();
+> APIEmptyResponse postRestoreDeletedComment(tenantId, commentId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2214,10 +2288,13 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postRestoreDeletedComment(commentId)
+      APIEmptyResponse result = apiInstance.postRestoreDeletedComment(tenantId, commentId)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2236,7 +2313,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2260,7 +2339,7 @@ No authorization required
 
 <a id="postSetCommentApprovalStatus"></a>
 # **postSetCommentApprovalStatus**
-> SetCommentApprovedResponse postSetCommentApprovalStatus(commentId).approved(approved).sso(sso).execute();
+> SetCommentApprovedResponse postSetCommentApprovalStatus(tenantId, commentId).approved(approved).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2279,12 +2358,15 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     Boolean approved = true; // Boolean | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetCommentApprovedResponse result = apiInstance.postSetCommentApprovalStatus(commentId)
+      SetCommentApprovedResponse result = apiInstance.postSetCommentApprovalStatus(tenantId, commentId)
             .approved(approved)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2303,8 +2385,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **approved** | **Boolean**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2328,7 +2412,7 @@ No authorization required
 
 <a id="postSetCommentReviewStatus"></a>
 # **postSetCommentReviewStatus**
-> APIEmptyResponse postSetCommentReviewStatus(commentId).reviewed(reviewed).sso(sso).execute();
+> APIEmptyResponse postSetCommentReviewStatus(tenantId, commentId).reviewed(reviewed).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2347,12 +2431,15 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     Boolean reviewed = true; // Boolean | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postSetCommentReviewStatus(commentId)
+      APIEmptyResponse result = apiInstance.postSetCommentReviewStatus(tenantId, commentId)
             .reviewed(reviewed)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2371,8 +2458,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **reviewed** | **Boolean**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2396,7 +2485,7 @@ No authorization required
 
 <a id="postSetCommentSpamStatus"></a>
 # **postSetCommentSpamStatus**
-> APIEmptyResponse postSetCommentSpamStatus(commentId).spam(spam).permNotSpam(permNotSpam).sso(sso).execute();
+> APIEmptyResponse postSetCommentSpamStatus(tenantId, commentId).spam(spam).permNotSpam(permNotSpam).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2415,14 +2504,17 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     Boolean spam = true; // Boolean | 
     Boolean permNotSpam = true; // Boolean | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postSetCommentSpamStatus(commentId)
+      APIEmptyResponse result = apiInstance.postSetCommentSpamStatus(tenantId, commentId)
             .spam(spam)
             .permNotSpam(permNotSpam)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2441,9 +2533,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **spam** | **Boolean**|  | [optional] |
 | **permNotSpam** | **Boolean**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2467,7 +2561,7 @@ No authorization required
 
 <a id="postSetCommentText"></a>
 # **postSetCommentText**
-> SetCommentTextResponse postSetCommentText(commentId, setCommentTextParams).sso(sso).execute();
+> SetCommentTextResponse postSetCommentText(tenantId, commentId, setCommentTextParams).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2486,11 +2580,14 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     SetCommentTextParams setCommentTextParams = new SetCommentTextParams(); // SetCommentTextParams | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetCommentTextResponse result = apiInstance.postSetCommentText(commentId, setCommentTextParams)
+      SetCommentTextResponse result = apiInstance.postSetCommentText(tenantId, commentId, setCommentTextParams)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2509,8 +2606,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **setCommentTextParams** | [**SetCommentTextParams**](SetCommentTextParams.md)|  | |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2534,7 +2633,7 @@ No authorization required
 
 <a id="postUnFlagComment"></a>
 # **postUnFlagComment**
-> APIEmptyResponse postUnFlagComment(commentId).sso(sso).execute();
+> APIEmptyResponse postUnFlagComment(tenantId, commentId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2553,10 +2652,13 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.postUnFlagComment(commentId)
+      APIEmptyResponse result = apiInstance.postUnFlagComment(tenantId, commentId)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2575,7 +2677,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2599,7 +2703,7 @@ No authorization required
 
 <a id="postVote"></a>
 # **postVote**
-> VoteResponse postVote(commentId).direction(direction).sso(sso).execute();
+> VoteResponse postVote(tenantId, commentId).direction(direction).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2618,12 +2722,15 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String direction = "direction_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      VoteResponse result = apiInstance.postVote(commentId)
+      VoteResponse result = apiInstance.postVote(tenantId, commentId)
             .direction(direction)
+            .broadcastId(broadcastId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2642,8 +2749,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **commentId** | **String**|  | |
 | **direction** | **String**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
 
 ### Return type
@@ -2667,7 +2776,7 @@ No authorization required
 
 <a id="putAwardBadge"></a>
 # **putAwardBadge**
-> AwardUserBadgeResponse putAwardBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).sso(sso).execute();
+> AwardUserBadgeResponse putAwardBadge(tenantId, badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2686,13 +2795,14 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String badgeId = "badgeId_example"; // String | 
     String userId = "userId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      AwardUserBadgeResponse result = apiInstance.putAwardBadge(badgeId)
+      AwardUserBadgeResponse result = apiInstance.putAwardBadge(tenantId, badgeId)
             .userId(userId)
             .commentId(commentId)
             .broadcastId(broadcastId)
@@ -2714,6 +2824,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **badgeId** | **String**|  | |
 | **userId** | **String**|  | [optional] |
 | **commentId** | **String**|  | [optional] |
@@ -2741,7 +2852,7 @@ No authorization required
 
 <a id="putCloseThread"></a>
 # **putCloseThread**
-> APIEmptyResponse putCloseThread(urlId).sso(sso).execute();
+> APIEmptyResponse putCloseThread(tenantId, urlId).sso(sso).execute();
 
 
 
@@ -2760,10 +2871,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.putCloseThread(urlId)
+      APIEmptyResponse result = apiInstance.putCloseThread(tenantId, urlId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2782,6 +2894,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -2806,7 +2919,7 @@ No authorization required
 
 <a id="putRemoveBadge"></a>
 # **putRemoveBadge**
-> RemoveUserBadgeResponse putRemoveBadge(badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).sso(sso).execute();
+> RemoveUserBadgeResponse putRemoveBadge(tenantId, badgeId).userId(userId).commentId(commentId).broadcastId(broadcastId).sso(sso).execute();
 
 
 
@@ -2825,13 +2938,14 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String badgeId = "badgeId_example"; // String | 
     String userId = "userId_example"; // String | 
     String commentId = "commentId_example"; // String | 
     String broadcastId = "broadcastId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      RemoveUserBadgeResponse result = apiInstance.putRemoveBadge(badgeId)
+      RemoveUserBadgeResponse result = apiInstance.putRemoveBadge(tenantId, badgeId)
             .userId(userId)
             .commentId(commentId)
             .broadcastId(broadcastId)
@@ -2853,6 +2967,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **badgeId** | **String**|  | |
 | **userId** | **String**|  | [optional] |
 | **commentId** | **String**|  | [optional] |
@@ -2880,7 +2995,7 @@ No authorization required
 
 <a id="putReopenThread"></a>
 # **putReopenThread**
-> APIEmptyResponse putReopenThread(urlId).sso(sso).execute();
+> APIEmptyResponse putReopenThread(tenantId, urlId).sso(sso).execute();
 
 
 
@@ -2899,10 +3014,11 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      APIEmptyResponse result = apiInstance.putReopenThread(urlId)
+      APIEmptyResponse result = apiInstance.putReopenThread(tenantId, urlId)
             .sso(sso)
             .execute();
       System.out.println(result);
@@ -2921,6 +3037,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
 | **sso** | **String**|  | [optional] |
 
@@ -2945,7 +3062,7 @@ No authorization required
 
 <a id="setTrustFactor"></a>
 # **setTrustFactor**
-> SetUserTrustFactorResponse setTrustFactor().userId(userId).trustFactor(trustFactor).sso(sso).execute();
+> SetUserTrustFactorResponse setTrustFactor(tenantId).userId(userId).trustFactor(trustFactor).sso(sso).execute();
 
 
 
@@ -2964,11 +3081,12 @@ public class Example {
     defaultClient.setBasePath("https://fastcomments.com");
 
     ModerationApi apiInstance = new ModerationApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
     String userId = "userId_example"; // String | 
     String trustFactor = "trustFactor_example"; // String | 
     String sso = "sso_example"; // String | 
     try {
-      SetUserTrustFactorResponse result = apiInstance.setTrustFactor()
+      SetUserTrustFactorResponse result = apiInstance.setTrustFactor(tenantId)
             .userId(userId)
             .trustFactor(trustFactor)
             .sso(sso)
@@ -2989,6 +3107,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **userId** | **String**|  | [optional] |
 | **trustFactor** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |

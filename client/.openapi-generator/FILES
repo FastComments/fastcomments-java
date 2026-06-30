@@ -266,7 +266,7 @@ docs/PatchDomainConfigResponse.md
 docs/PatchPageAPIResponse.md
 docs/PatchSSOUserAPIResponse.md
 docs/PendingCommentToSyncOutbound.md
-docs/PostRemoveCommentResponse.md
+docs/PostRemoveCommentApiResponse.md
 docs/PreBanSummary.md
 docs/PubSubComment.md
 docs/PubSubCommentBase.md
@@ -657,7 +657,7 @@ src/main/java/com/fastcomments/model/PatchDomainConfigResponse.java
 src/main/java/com/fastcomments/model/PatchPageAPIResponse.java
 src/main/java/com/fastcomments/model/PatchSSOUserAPIResponse.java
 src/main/java/com/fastcomments/model/PendingCommentToSyncOutbound.java
-src/main/java/com/fastcomments/model/PostRemoveCommentResponse.java
+src/main/java/com/fastcomments/model/PostRemoveCommentApiResponse.java
 src/main/java/com/fastcomments/model/PreBanSummary.java
 src/main/java/com/fastcomments/model/PubSubComment.java
 src/main/java/com/fastcomments/model/PubSubCommentBase.java
@@ -1020,7 +1020,7 @@ src/test/java/com/fastcomments/model/PatchDomainConfigResponseTest.java
 src/test/java/com/fastcomments/model/PatchPageAPIResponseTest.java
 src/test/java/com/fastcomments/model/PatchSSOUserAPIResponseTest.java
 src/test/java/com/fastcomments/model/PendingCommentToSyncOutboundTest.java
-src/test/java/com/fastcomments/model/PostRemoveCommentResponseTest.java
+src/test/java/com/fastcomments/model/PostRemoveCommentApiResponseTest.java
 src/test/java/com/fastcomments/model/PreBanSummaryTest.java
 src/test/java/com/fastcomments/model/PubSubCommentBaseTest.java
 src/test/java/com/fastcomments/model/PubSubCommentTest.java

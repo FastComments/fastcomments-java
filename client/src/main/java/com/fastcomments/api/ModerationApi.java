@@ -59,7 +59,7 @@ import com.fastcomments.model.ModerationPageSearchResponse;
 import com.fastcomments.model.ModerationSiteSearchResponse;
 import com.fastcomments.model.ModerationSuggestResponse;
 import com.fastcomments.model.ModerationUserSearchResponse;
-import com.fastcomments.model.PostRemoveCommentResponse;
+import com.fastcomments.model.PostRemoveCommentApiResponse;
 import com.fastcomments.model.PreBanSummary;
 import com.fastcomments.model.RemoveUserBadgeResponse;
 import com.fastcomments.model.SetCommentApprovedResponse;
@@ -112,7 +112,7 @@ public class ModerationApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call deleteModerationVoteCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteModerationVoteCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -129,7 +129,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/vote/{commentId}/{voteId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/vote/{commentId}/{voteId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()))
             .replace("{" + "voteId" + "}", localVarApiClient.escapeString(voteId.toString()));
 
@@ -138,6 +138,14 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -163,7 +171,12 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteModerationVoteValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteModerationVoteValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteModerationVote(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling deleteModerationVote(Async)");
@@ -174,20 +187,20 @@ public class ModerationApi {
             throw new ApiException("Missing the required parameter 'voteId' when calling deleteModerationVote(Async)");
         }
 
-        return deleteModerationVoteCall(commentId, voteId, sso, _callback);
+        return deleteModerationVoteCall(tenantId, commentId, voteId, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<VoteDeleteResponse> deleteModerationVoteWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = deleteModerationVoteValidateBeforeCall(commentId, voteId, sso, null);
+    private ApiResponse<VoteDeleteResponse> deleteModerationVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = deleteModerationVoteValidateBeforeCall(tenantId, commentId, voteId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<VoteDeleteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteModerationVoteAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String sso, final ApiCallback<VoteDeleteResponse> _callback) throws ApiException {
+    private okhttp3.Call deleteModerationVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<VoteDeleteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteModerationVoteValidateBeforeCall(commentId, voteId, sso, _callback);
+        okhttp3.Call localVarCall = deleteModerationVoteValidateBeforeCall(tenantId, commentId, voteId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<VoteDeleteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -195,15 +208,30 @@ public class ModerationApi {
 
     public class APIdeleteModerationVoteRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nonnull
         private final String voteId;
         @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
         private String sso;
 
-        private APIdeleteModerationVoteRequest(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId) {
+        private APIdeleteModerationVoteRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
             this.voteId = voteId;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIdeleteModerationVoteRequest
+         */
+        public APIdeleteModerationVoteRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
         }
 
         /**
@@ -230,7 +258,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteModerationVoteCall(commentId, voteId, sso, _callback);
+            return deleteModerationVoteCall(tenantId, commentId, voteId, broadcastId, sso, _callback);
         }
 
         /**
@@ -246,7 +274,7 @@ public class ModerationApi {
          </table>
          */
         public VoteDeleteResponse execute() throws ApiException {
-            ApiResponse<VoteDeleteResponse> localVarResp = deleteModerationVoteWithHttpInfo(commentId, voteId, sso);
+            ApiResponse<VoteDeleteResponse> localVarResp = deleteModerationVoteWithHttpInfo(tenantId, commentId, voteId, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -263,7 +291,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<VoteDeleteResponse> executeWithHttpInfo() throws ApiException {
-            return deleteModerationVoteWithHttpInfo(commentId, voteId, sso);
+            return deleteModerationVoteWithHttpInfo(tenantId, commentId, voteId, broadcastId, sso);
         }
 
         /**
@@ -280,13 +308,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<VoteDeleteResponse> _callback) throws ApiException {
-            return deleteModerationVoteAsync(commentId, voteId, sso, _callback);
+            return deleteModerationVoteAsync(tenantId, commentId, voteId, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @param voteId  (required)
      * @return APIdeleteModerationVoteRequest
@@ -298,10 +327,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteModerationVoteRequest deleteModerationVote(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId) {
-        return new APIdeleteModerationVoteRequest(commentId, voteId);
+    public APIdeleteModerationVoteRequest deleteModerationVote(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String voteId) {
+        return new APIdeleteModerationVoteRequest(tenantId, commentId, voteId);
     }
-    private okhttp3.Call getApiCommentsCall(@javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApiCommentsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -318,13 +347,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/api/comments";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/api/comments";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
@@ -382,27 +415,34 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApiCommentsValidateBeforeCall(@javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getApiCommentsCall(page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
+    private okhttp3.Call getApiCommentsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getApiComments(Async)");
+        }
+
+        return getApiCommentsCall(tenantId, page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationAPIGetCommentsResponse> getApiCommentsWithHttpInfo(@javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getApiCommentsValidateBeforeCall(page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, null);
+    private ApiResponse<ModerationAPIGetCommentsResponse> getApiCommentsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getApiCommentsValidateBeforeCall(tenantId, page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, null);
         Type localVarReturnType = new TypeToken<ModerationAPIGetCommentsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getApiCommentsAsync(@javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIGetCommentsResponse> _callback) throws ApiException {
+    private okhttp3.Call getApiCommentsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable Double page, @javax.annotation.Nullable Double count, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIGetCommentsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApiCommentsValidateBeforeCall(page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
+        okhttp3.Call localVarCall = getApiCommentsValidateBeforeCall(tenantId, page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationAPIGetCommentsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetApiCommentsRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private Double page;
         @javax.annotation.Nullable
@@ -422,7 +462,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetApiCommentsRequest() {
+        private APIgetApiCommentsRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -529,7 +570,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getApiCommentsCall(page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
+            return getApiCommentsCall(tenantId, page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
         }
 
         /**
@@ -545,7 +586,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationAPIGetCommentsResponse execute() throws ApiException {
-            ApiResponse<ModerationAPIGetCommentsResponse> localVarResp = getApiCommentsWithHttpInfo(page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso);
+            ApiResponse<ModerationAPIGetCommentsResponse> localVarResp = getApiCommentsWithHttpInfo(tenantId, page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso);
             return localVarResp.getData();
         }
 
@@ -562,7 +603,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationAPIGetCommentsResponse> executeWithHttpInfo() throws ApiException {
-            return getApiCommentsWithHttpInfo(page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso);
+            return getApiCommentsWithHttpInfo(tenantId, page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso);
         }
 
         /**
@@ -579,13 +620,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationAPIGetCommentsResponse> _callback) throws ApiException {
-            return getApiCommentsAsync(page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
+            return getApiCommentsAsync(tenantId, page, count, textSearch, byIPFromComment, filters, searchFilters, sorts, demo, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetApiCommentsRequest
      * @http.response.details
      <table border="1">
@@ -595,10 +637,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetApiCommentsRequest getApiComments() {
-        return new APIgetApiCommentsRequest();
+    public APIgetApiCommentsRequest getApiComments(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetApiCommentsRequest(tenantId);
     }
-    private okhttp3.Call getApiExportStatusCall(@javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApiExportStatusCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -615,13 +657,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/api/export/status";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/api/export/status";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (batchJobId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("batchJobId", batchJobId));
@@ -651,33 +697,41 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApiExportStatusValidateBeforeCall(@javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getApiExportStatusCall(batchJobId, sso, _callback);
+    private okhttp3.Call getApiExportStatusValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getApiExportStatus(Async)");
+        }
+
+        return getApiExportStatusCall(tenantId, batchJobId, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationExportStatusResponse> getApiExportStatusWithHttpInfo(@javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getApiExportStatusValidateBeforeCall(batchJobId, sso, null);
+    private ApiResponse<ModerationExportStatusResponse> getApiExportStatusWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getApiExportStatusValidateBeforeCall(tenantId, batchJobId, sso, null);
         Type localVarReturnType = new TypeToken<ModerationExportStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getApiExportStatusAsync(@javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso, final ApiCallback<ModerationExportStatusResponse> _callback) throws ApiException {
+    private okhttp3.Call getApiExportStatusAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String batchJobId, @javax.annotation.Nullable String sso, final ApiCallback<ModerationExportStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApiExportStatusValidateBeforeCall(batchJobId, sso, _callback);
+        okhttp3.Call localVarCall = getApiExportStatusValidateBeforeCall(tenantId, batchJobId, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationExportStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetApiExportStatusRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String batchJobId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetApiExportStatusRequest() {
+        private APIgetApiExportStatusRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -714,7 +768,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getApiExportStatusCall(batchJobId, sso, _callback);
+            return getApiExportStatusCall(tenantId, batchJobId, sso, _callback);
         }
 
         /**
@@ -730,7 +784,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationExportStatusResponse execute() throws ApiException {
-            ApiResponse<ModerationExportStatusResponse> localVarResp = getApiExportStatusWithHttpInfo(batchJobId, sso);
+            ApiResponse<ModerationExportStatusResponse> localVarResp = getApiExportStatusWithHttpInfo(tenantId, batchJobId, sso);
             return localVarResp.getData();
         }
 
@@ -747,7 +801,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationExportStatusResponse> executeWithHttpInfo() throws ApiException {
-            return getApiExportStatusWithHttpInfo(batchJobId, sso);
+            return getApiExportStatusWithHttpInfo(tenantId, batchJobId, sso);
         }
 
         /**
@@ -764,13 +818,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationExportStatusResponse> _callback) throws ApiException {
-            return getApiExportStatusAsync(batchJobId, sso, _callback);
+            return getApiExportStatusAsync(tenantId, batchJobId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetApiExportStatusRequest
      * @http.response.details
      <table border="1">
@@ -780,10 +835,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetApiExportStatusRequest getApiExportStatus() {
-        return new APIgetApiExportStatusRequest();
+    public APIgetApiExportStatusRequest getApiExportStatus(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetApiExportStatusRequest(tenantId);
     }
-    private okhttp3.Call getApiIdsCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApiIdsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -800,13 +855,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/api/ids";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/api/ids";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (textSearch != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("text-search", textSearch));
@@ -856,27 +915,34 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApiIdsValidateBeforeCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getApiIdsCall(textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
+    private okhttp3.Call getApiIdsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getApiIds(Async)");
+        }
+
+        return getApiIdsCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationAPIGetCommentIdsResponse> getApiIdsWithHttpInfo(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getApiIdsValidateBeforeCall(textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, null);
+    private ApiResponse<ModerationAPIGetCommentIdsResponse> getApiIdsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getApiIdsValidateBeforeCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, null);
         Type localVarReturnType = new TypeToken<ModerationAPIGetCommentIdsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getApiIdsAsync(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIGetCommentIdsResponse> _callback) throws ApiException {
+    private okhttp3.Call getApiIdsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String afterId, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIGetCommentIdsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getApiIdsValidateBeforeCall(textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
+        okhttp3.Call localVarCall = getApiIdsValidateBeforeCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationAPIGetCommentIdsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetApiIdsRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String textSearch;
         @javax.annotation.Nullable
@@ -892,7 +958,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetApiIdsRequest() {
+        private APIgetApiIdsRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -979,7 +1046,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getApiIdsCall(textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
+            return getApiIdsCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
         }
 
         /**
@@ -995,7 +1062,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationAPIGetCommentIdsResponse execute() throws ApiException {
-            ApiResponse<ModerationAPIGetCommentIdsResponse> localVarResp = getApiIdsWithHttpInfo(textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso);
+            ApiResponse<ModerationAPIGetCommentIdsResponse> localVarResp = getApiIdsWithHttpInfo(tenantId, textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso);
             return localVarResp.getData();
         }
 
@@ -1012,7 +1079,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationAPIGetCommentIdsResponse> executeWithHttpInfo() throws ApiException {
-            return getApiIdsWithHttpInfo(textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso);
+            return getApiIdsWithHttpInfo(tenantId, textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso);
         }
 
         /**
@@ -1029,13 +1096,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationAPIGetCommentIdsResponse> _callback) throws ApiException {
-            return getApiIdsAsync(textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
+            return getApiIdsAsync(tenantId, textSearch, byIPFromComment, filters, searchFilters, afterId, demo, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetApiIdsRequest
      * @http.response.details
      <table border="1">
@@ -1045,10 +1113,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetApiIdsRequest getApiIds() {
-        return new APIgetApiIdsRequest();
+    public APIgetApiIdsRequest getApiIds(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetApiIdsRequest(tenantId);
     }
-    private okhttp3.Call getBanUsersFromCommentCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBanUsersFromCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1065,7 +1133,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/ban-users/from-comment/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/ban-users/from-comment/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1073,6 +1141,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -1098,26 +1170,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getBanUsersFromCommentValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getBanUsersFromCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getBanUsersFromComment(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getBanUsersFromComment(Async)");
         }
 
-        return getBanUsersFromCommentCall(commentId, sso, _callback);
+        return getBanUsersFromCommentCall(tenantId, commentId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetBannedUsersFromCommentResponse> getBanUsersFromCommentWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getBanUsersFromCommentValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<GetBannedUsersFromCommentResponse> getBanUsersFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getBanUsersFromCommentValidateBeforeCall(tenantId, commentId, sso, null);
         Type localVarReturnType = new TypeToken<GetBannedUsersFromCommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getBanUsersFromCommentAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetBannedUsersFromCommentResponse> _callback) throws ApiException {
+    private okhttp3.Call getBanUsersFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetBannedUsersFromCommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getBanUsersFromCommentValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = getBanUsersFromCommentValidateBeforeCall(tenantId, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetBannedUsersFromCommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1125,11 +1202,14 @@ public class ModerationApi {
 
     public class APIgetBanUsersFromCommentRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetBanUsersFromCommentRequest(@javax.annotation.Nonnull String commentId) {
+        private APIgetBanUsersFromCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -1157,7 +1237,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getBanUsersFromCommentCall(commentId, sso, _callback);
+            return getBanUsersFromCommentCall(tenantId, commentId, sso, _callback);
         }
 
         /**
@@ -1173,7 +1253,7 @@ public class ModerationApi {
          </table>
          */
         public GetBannedUsersFromCommentResponse execute() throws ApiException {
-            ApiResponse<GetBannedUsersFromCommentResponse> localVarResp = getBanUsersFromCommentWithHttpInfo(commentId, sso);
+            ApiResponse<GetBannedUsersFromCommentResponse> localVarResp = getBanUsersFromCommentWithHttpInfo(tenantId, commentId, sso);
             return localVarResp.getData();
         }
 
@@ -1190,7 +1270,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetBannedUsersFromCommentResponse> executeWithHttpInfo() throws ApiException {
-            return getBanUsersFromCommentWithHttpInfo(commentId, sso);
+            return getBanUsersFromCommentWithHttpInfo(tenantId, commentId, sso);
         }
 
         /**
@@ -1207,13 +1287,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetBannedUsersFromCommentResponse> _callback) throws ApiException {
-            return getBanUsersFromCommentAsync(commentId, sso, _callback);
+            return getBanUsersFromCommentAsync(tenantId, commentId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIgetBanUsersFromCommentRequest
      * @http.response.details
@@ -1224,10 +1305,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetBanUsersFromCommentRequest getBanUsersFromComment(@javax.annotation.Nonnull String commentId) {
-        return new APIgetBanUsersFromCommentRequest(commentId);
+    public APIgetBanUsersFromCommentRequest getBanUsersFromComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetBanUsersFromCommentRequest(tenantId, commentId);
     }
-    private okhttp3.Call getCommentBanStatusCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentBanStatusCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1244,7 +1325,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/get-comment-ban-status/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/get-comment-ban-status/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1252,6 +1333,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -1277,26 +1362,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentBanStatusValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentBanStatusValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getCommentBanStatus(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getCommentBanStatus(Async)");
         }
 
-        return getCommentBanStatusCall(commentId, sso, _callback);
+        return getCommentBanStatusCall(tenantId, commentId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetCommentBanStatusResponse> getCommentBanStatusWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getCommentBanStatusValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<GetCommentBanStatusResponse> getCommentBanStatusWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getCommentBanStatusValidateBeforeCall(tenantId, commentId, sso, null);
         Type localVarReturnType = new TypeToken<GetCommentBanStatusResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentBanStatusAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetCommentBanStatusResponse> _callback) throws ApiException {
+    private okhttp3.Call getCommentBanStatusAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetCommentBanStatusResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentBanStatusValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = getCommentBanStatusValidateBeforeCall(tenantId, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetCommentBanStatusResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1304,11 +1394,14 @@ public class ModerationApi {
 
     public class APIgetCommentBanStatusRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetCommentBanStatusRequest(@javax.annotation.Nonnull String commentId) {
+        private APIgetCommentBanStatusRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -1336,7 +1429,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCommentBanStatusCall(commentId, sso, _callback);
+            return getCommentBanStatusCall(tenantId, commentId, sso, _callback);
         }
 
         /**
@@ -1352,7 +1445,7 @@ public class ModerationApi {
          </table>
          */
         public GetCommentBanStatusResponse execute() throws ApiException {
-            ApiResponse<GetCommentBanStatusResponse> localVarResp = getCommentBanStatusWithHttpInfo(commentId, sso);
+            ApiResponse<GetCommentBanStatusResponse> localVarResp = getCommentBanStatusWithHttpInfo(tenantId, commentId, sso);
             return localVarResp.getData();
         }
 
@@ -1369,7 +1462,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetCommentBanStatusResponse> executeWithHttpInfo() throws ApiException {
-            return getCommentBanStatusWithHttpInfo(commentId, sso);
+            return getCommentBanStatusWithHttpInfo(tenantId, commentId, sso);
         }
 
         /**
@@ -1386,13 +1479,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetCommentBanStatusResponse> _callback) throws ApiException {
-            return getCommentBanStatusAsync(commentId, sso, _callback);
+            return getCommentBanStatusAsync(tenantId, commentId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIgetCommentBanStatusRequest
      * @http.response.details
@@ -1403,10 +1497,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCommentBanStatusRequest getCommentBanStatus(@javax.annotation.Nonnull String commentId) {
-        return new APIgetCommentBanStatusRequest(commentId);
+    public APIgetCommentBanStatusRequest getCommentBanStatus(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetCommentBanStatusRequest(tenantId, commentId);
     }
-    private okhttp3.Call getCommentChildrenCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentChildrenCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1423,7 +1517,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/comment-children/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/comment-children/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1431,6 +1525,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -1456,26 +1554,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentChildrenValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentChildrenValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getCommentChildren(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getCommentChildren(Async)");
         }
 
-        return getCommentChildrenCall(commentId, sso, _callback);
+        return getCommentChildrenCall(tenantId, commentId, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationAPIChildCommentsResponse> getCommentChildrenWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getCommentChildrenValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<ModerationAPIChildCommentsResponse> getCommentChildrenWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getCommentChildrenValidateBeforeCall(tenantId, commentId, sso, null);
         Type localVarReturnType = new TypeToken<ModerationAPIChildCommentsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentChildrenAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIChildCommentsResponse> _callback) throws ApiException {
+    private okhttp3.Call getCommentChildrenAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIChildCommentsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentChildrenValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = getCommentChildrenValidateBeforeCall(tenantId, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationAPIChildCommentsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1483,11 +1586,14 @@ public class ModerationApi {
 
     public class APIgetCommentChildrenRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetCommentChildrenRequest(@javax.annotation.Nonnull String commentId) {
+        private APIgetCommentChildrenRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -1515,7 +1621,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCommentChildrenCall(commentId, sso, _callback);
+            return getCommentChildrenCall(tenantId, commentId, sso, _callback);
         }
 
         /**
@@ -1531,7 +1637,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationAPIChildCommentsResponse execute() throws ApiException {
-            ApiResponse<ModerationAPIChildCommentsResponse> localVarResp = getCommentChildrenWithHttpInfo(commentId, sso);
+            ApiResponse<ModerationAPIChildCommentsResponse> localVarResp = getCommentChildrenWithHttpInfo(tenantId, commentId, sso);
             return localVarResp.getData();
         }
 
@@ -1548,7 +1654,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationAPIChildCommentsResponse> executeWithHttpInfo() throws ApiException {
-            return getCommentChildrenWithHttpInfo(commentId, sso);
+            return getCommentChildrenWithHttpInfo(tenantId, commentId, sso);
         }
 
         /**
@@ -1565,13 +1671,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationAPIChildCommentsResponse> _callback) throws ApiException {
-            return getCommentChildrenAsync(commentId, sso, _callback);
+            return getCommentChildrenAsync(tenantId, commentId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIgetCommentChildrenRequest
      * @http.response.details
@@ -1582,10 +1689,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCommentChildrenRequest getCommentChildren(@javax.annotation.Nonnull String commentId) {
-        return new APIgetCommentChildrenRequest(commentId);
+    public APIgetCommentChildrenRequest getCommentChildren(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetCommentChildrenRequest(tenantId, commentId);
     }
-    private okhttp3.Call getCountCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCountCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1602,13 +1709,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/count";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/count";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (textSearch != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("text-search", textSearch));
@@ -1654,27 +1765,34 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCountValidateBeforeCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getCountCall(textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
+    private okhttp3.Call getCountValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getCount(Async)");
+        }
+
+        return getCountCall(tenantId, textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationAPICountCommentsResponse> getCountWithHttpInfo(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getCountValidateBeforeCall(textSearch, byIPFromComment, filter, searchFilters, demo, sso, null);
+    private ApiResponse<ModerationAPICountCommentsResponse> getCountWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getCountValidateBeforeCall(tenantId, textSearch, byIPFromComment, filter, searchFilters, demo, sso, null);
         Type localVarReturnType = new TypeToken<ModerationAPICountCommentsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCountAsync(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPICountCommentsResponse> _callback) throws ApiException {
+    private okhttp3.Call getCountAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filter, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable Boolean demo, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPICountCommentsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCountValidateBeforeCall(textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
+        okhttp3.Call localVarCall = getCountValidateBeforeCall(tenantId, textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationAPICountCommentsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetCountRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String textSearch;
         @javax.annotation.Nullable
@@ -1688,7 +1806,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetCountRequest() {
+        private APIgetCountRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -1765,7 +1884,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCountCall(textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
+            return getCountCall(tenantId, textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
         }
 
         /**
@@ -1781,7 +1900,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationAPICountCommentsResponse execute() throws ApiException {
-            ApiResponse<ModerationAPICountCommentsResponse> localVarResp = getCountWithHttpInfo(textSearch, byIPFromComment, filter, searchFilters, demo, sso);
+            ApiResponse<ModerationAPICountCommentsResponse> localVarResp = getCountWithHttpInfo(tenantId, textSearch, byIPFromComment, filter, searchFilters, demo, sso);
             return localVarResp.getData();
         }
 
@@ -1798,7 +1917,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationAPICountCommentsResponse> executeWithHttpInfo() throws ApiException {
-            return getCountWithHttpInfo(textSearch, byIPFromComment, filter, searchFilters, demo, sso);
+            return getCountWithHttpInfo(tenantId, textSearch, byIPFromComment, filter, searchFilters, demo, sso);
         }
 
         /**
@@ -1815,13 +1934,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationAPICountCommentsResponse> _callback) throws ApiException {
-            return getCountAsync(textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
+            return getCountAsync(tenantId, textSearch, byIPFromComment, filter, searchFilters, demo, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetCountRequest
      * @http.response.details
      <table border="1">
@@ -1831,10 +1951,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCountRequest getCount() {
-        return new APIgetCountRequest();
+    public APIgetCountRequest getCount(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetCountRequest(tenantId);
     }
-    private okhttp3.Call getCountsCall(@javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCountsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1851,13 +1971,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/banned-users/counts";
+        String localVarPath = "/auth/my-account/moderate-comments/banned-users/mod_api/counts";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -1883,31 +2007,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCountsValidateBeforeCall(@javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getCountsCall(sso, _callback);
+    private okhttp3.Call getCountsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getCounts(Async)");
+        }
+
+        return getCountsCall(tenantId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetBannedUsersCountResponse> getCountsWithHttpInfo(@javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getCountsValidateBeforeCall(sso, null);
+    private ApiResponse<GetBannedUsersCountResponse> getCountsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getCountsValidateBeforeCall(tenantId, sso, null);
         Type localVarReturnType = new TypeToken<GetBannedUsersCountResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCountsAsync(@javax.annotation.Nullable String sso, final ApiCallback<GetBannedUsersCountResponse> _callback) throws ApiException {
+    private okhttp3.Call getCountsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback<GetBannedUsersCountResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCountsValidateBeforeCall(sso, _callback);
+        okhttp3.Call localVarCall = getCountsValidateBeforeCall(tenantId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetBannedUsersCountResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetCountsRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetCountsRequest() {
+        private APIgetCountsRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -1934,7 +2066,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCountsCall(sso, _callback);
+            return getCountsCall(tenantId, sso, _callback);
         }
 
         /**
@@ -1950,7 +2082,7 @@ public class ModerationApi {
          </table>
          */
         public GetBannedUsersCountResponse execute() throws ApiException {
-            ApiResponse<GetBannedUsersCountResponse> localVarResp = getCountsWithHttpInfo(sso);
+            ApiResponse<GetBannedUsersCountResponse> localVarResp = getCountsWithHttpInfo(tenantId, sso);
             return localVarResp.getData();
         }
 
@@ -1967,7 +2099,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetBannedUsersCountResponse> executeWithHttpInfo() throws ApiException {
-            return getCountsWithHttpInfo(sso);
+            return getCountsWithHttpInfo(tenantId, sso);
         }
 
         /**
@@ -1984,13 +2116,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetBannedUsersCountResponse> _callback) throws ApiException {
-            return getCountsAsync(sso, _callback);
+            return getCountsAsync(tenantId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetCountsRequest
      * @http.response.details
      <table border="1">
@@ -2000,10 +2133,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetCountsRequest getCounts() {
-        return new APIgetCountsRequest();
+    public APIgetCountsRequest getCounts(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetCountsRequest(tenantId);
     }
-    private okhttp3.Call getLogsCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLogsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2020,7 +2153,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/logs/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/logs/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2028,6 +2161,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -2053,26 +2190,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLogsValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getLogsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getLogs(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getLogs(Async)");
         }
 
-        return getLogsCall(commentId, sso, _callback);
+        return getLogsCall(tenantId, commentId, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationAPIGetLogsResponse> getLogsWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getLogsValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<ModerationAPIGetLogsResponse> getLogsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getLogsValidateBeforeCall(tenantId, commentId, sso, null);
         Type localVarReturnType = new TypeToken<ModerationAPIGetLogsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getLogsAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIGetLogsResponse> _callback) throws ApiException {
+    private okhttp3.Call getLogsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIGetLogsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLogsValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = getLogsValidateBeforeCall(tenantId, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationAPIGetLogsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2080,11 +2222,14 @@ public class ModerationApi {
 
     public class APIgetLogsRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetLogsRequest(@javax.annotation.Nonnull String commentId) {
+        private APIgetLogsRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -2112,7 +2257,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getLogsCall(commentId, sso, _callback);
+            return getLogsCall(tenantId, commentId, sso, _callback);
         }
 
         /**
@@ -2128,7 +2273,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationAPIGetLogsResponse execute() throws ApiException {
-            ApiResponse<ModerationAPIGetLogsResponse> localVarResp = getLogsWithHttpInfo(commentId, sso);
+            ApiResponse<ModerationAPIGetLogsResponse> localVarResp = getLogsWithHttpInfo(tenantId, commentId, sso);
             return localVarResp.getData();
         }
 
@@ -2145,7 +2290,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationAPIGetLogsResponse> executeWithHttpInfo() throws ApiException {
-            return getLogsWithHttpInfo(commentId, sso);
+            return getLogsWithHttpInfo(tenantId, commentId, sso);
         }
 
         /**
@@ -2162,13 +2307,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationAPIGetLogsResponse> _callback) throws ApiException {
-            return getLogsAsync(commentId, sso, _callback);
+            return getLogsAsync(tenantId, commentId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIgetLogsRequest
      * @http.response.details
@@ -2179,10 +2325,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetLogsRequest getLogs(@javax.annotation.Nonnull String commentId) {
-        return new APIgetLogsRequest(commentId);
+    public APIgetLogsRequest getLogs(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetLogsRequest(tenantId, commentId);
     }
-    private okhttp3.Call getManualBadgesCall(@javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getManualBadgesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2199,13 +2345,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/get-manual-badges";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/get-manual-badges";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -2231,31 +2381,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getManualBadgesValidateBeforeCall(@javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getManualBadgesCall(sso, _callback);
+    private okhttp3.Call getManualBadgesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getManualBadges(Async)");
+        }
+
+        return getManualBadgesCall(tenantId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetTenantManualBadgesResponse> getManualBadgesWithHttpInfo(@javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getManualBadgesValidateBeforeCall(sso, null);
+    private ApiResponse<GetTenantManualBadgesResponse> getManualBadgesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getManualBadgesValidateBeforeCall(tenantId, sso, null);
         Type localVarReturnType = new TypeToken<GetTenantManualBadgesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getManualBadgesAsync(@javax.annotation.Nullable String sso, final ApiCallback<GetTenantManualBadgesResponse> _callback) throws ApiException {
+    private okhttp3.Call getManualBadgesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback<GetTenantManualBadgesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getManualBadgesValidateBeforeCall(sso, _callback);
+        okhttp3.Call localVarCall = getManualBadgesValidateBeforeCall(tenantId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetTenantManualBadgesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetManualBadgesRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetManualBadgesRequest() {
+        private APIgetManualBadgesRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -2282,7 +2440,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getManualBadgesCall(sso, _callback);
+            return getManualBadgesCall(tenantId, sso, _callback);
         }
 
         /**
@@ -2298,7 +2456,7 @@ public class ModerationApi {
          </table>
          */
         public GetTenantManualBadgesResponse execute() throws ApiException {
-            ApiResponse<GetTenantManualBadgesResponse> localVarResp = getManualBadgesWithHttpInfo(sso);
+            ApiResponse<GetTenantManualBadgesResponse> localVarResp = getManualBadgesWithHttpInfo(tenantId, sso);
             return localVarResp.getData();
         }
 
@@ -2315,7 +2473,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetTenantManualBadgesResponse> executeWithHttpInfo() throws ApiException {
-            return getManualBadgesWithHttpInfo(sso);
+            return getManualBadgesWithHttpInfo(tenantId, sso);
         }
 
         /**
@@ -2332,13 +2490,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetTenantManualBadgesResponse> _callback) throws ApiException {
-            return getManualBadgesAsync(sso, _callback);
+            return getManualBadgesAsync(tenantId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetManualBadgesRequest
      * @http.response.details
      <table border="1">
@@ -2348,10 +2507,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetManualBadgesRequest getManualBadges() {
-        return new APIgetManualBadgesRequest();
+    public APIgetManualBadgesRequest getManualBadges(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetManualBadgesRequest(tenantId);
     }
-    private okhttp3.Call getManualBadgesForUserCall(@javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getManualBadgesForUserCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2368,13 +2527,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/get-manual-badges-for-user";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/get-manual-badges-for-user";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (badgesUserId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("badgesUserId", badgesUserId));
@@ -2408,27 +2571,34 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getManualBadgesForUserValidateBeforeCall(@javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getManualBadgesForUserCall(badgesUserId, commentId, sso, _callback);
+    private okhttp3.Call getManualBadgesForUserValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getManualBadgesForUser(Async)");
+        }
+
+        return getManualBadgesForUserCall(tenantId, badgesUserId, commentId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetUserManualBadgesResponse> getManualBadgesForUserWithHttpInfo(@javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getManualBadgesForUserValidateBeforeCall(badgesUserId, commentId, sso, null);
+    private ApiResponse<GetUserManualBadgesResponse> getManualBadgesForUserWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getManualBadgesForUserValidateBeforeCall(tenantId, badgesUserId, commentId, sso, null);
         Type localVarReturnType = new TypeToken<GetUserManualBadgesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getManualBadgesForUserAsync(@javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetUserManualBadgesResponse> _callback) throws ApiException {
+    private okhttp3.Call getManualBadgesForUserAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String badgesUserId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetUserManualBadgesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getManualBadgesForUserValidateBeforeCall(badgesUserId, commentId, sso, _callback);
+        okhttp3.Call localVarCall = getManualBadgesForUserValidateBeforeCall(tenantId, badgesUserId, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserManualBadgesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetManualBadgesForUserRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String badgesUserId;
         @javax.annotation.Nullable
@@ -2436,7 +2606,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetManualBadgesForUserRequest() {
+        private APIgetManualBadgesForUserRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -2483,7 +2654,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getManualBadgesForUserCall(badgesUserId, commentId, sso, _callback);
+            return getManualBadgesForUserCall(tenantId, badgesUserId, commentId, sso, _callback);
         }
 
         /**
@@ -2499,7 +2670,7 @@ public class ModerationApi {
          </table>
          */
         public GetUserManualBadgesResponse execute() throws ApiException {
-            ApiResponse<GetUserManualBadgesResponse> localVarResp = getManualBadgesForUserWithHttpInfo(badgesUserId, commentId, sso);
+            ApiResponse<GetUserManualBadgesResponse> localVarResp = getManualBadgesForUserWithHttpInfo(tenantId, badgesUserId, commentId, sso);
             return localVarResp.getData();
         }
 
@@ -2516,7 +2687,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetUserManualBadgesResponse> executeWithHttpInfo() throws ApiException {
-            return getManualBadgesForUserWithHttpInfo(badgesUserId, commentId, sso);
+            return getManualBadgesForUserWithHttpInfo(tenantId, badgesUserId, commentId, sso);
         }
 
         /**
@@ -2533,13 +2704,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetUserManualBadgesResponse> _callback) throws ApiException {
-            return getManualBadgesForUserAsync(badgesUserId, commentId, sso, _callback);
+            return getManualBadgesForUserAsync(tenantId, badgesUserId, commentId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetManualBadgesForUserRequest
      * @http.response.details
      <table border="1">
@@ -2549,10 +2721,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetManualBadgesForUserRequest getManualBadgesForUser() {
-        return new APIgetManualBadgesForUserRequest();
+    public APIgetManualBadgesForUserRequest getManualBadgesForUser(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetManualBadgesForUserRequest(tenantId);
     }
-    private okhttp3.Call getModerationCommentCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModerationCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2569,7 +2741,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/comment/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/comment/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2577,6 +2749,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (includeEmail != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeEmail", includeEmail));
@@ -2610,32 +2786,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getModerationCommentValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModerationCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getModerationComment(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getModerationComment(Async)");
         }
 
-        return getModerationCommentCall(commentId, includeEmail, includeIP, sso, _callback);
+        return getModerationCommentCall(tenantId, commentId, includeEmail, includeIP, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationAPICommentResponse> getModerationCommentWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getModerationCommentValidateBeforeCall(commentId, includeEmail, includeIP, sso, null);
+    private ApiResponse<ModerationAPICommentResponse> getModerationCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getModerationCommentValidateBeforeCall(tenantId, commentId, includeEmail, includeIP, sso, null);
         Type localVarReturnType = new TypeToken<ModerationAPICommentResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getModerationCommentAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPICommentResponse> _callback) throws ApiException {
+    private okhttp3.Call getModerationCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeEmail, @javax.annotation.Nullable Boolean includeIP, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPICommentResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getModerationCommentValidateBeforeCall(commentId, includeEmail, includeIP, sso, _callback);
+        okhttp3.Call localVarCall = getModerationCommentValidateBeforeCall(tenantId, commentId, includeEmail, includeIP, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationAPICommentResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetModerationCommentRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
@@ -2645,7 +2828,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetModerationCommentRequest(@javax.annotation.Nonnull String commentId) {
+        private APIgetModerationCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -2693,7 +2877,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getModerationCommentCall(commentId, includeEmail, includeIP, sso, _callback);
+            return getModerationCommentCall(tenantId, commentId, includeEmail, includeIP, sso, _callback);
         }
 
         /**
@@ -2709,7 +2893,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationAPICommentResponse execute() throws ApiException {
-            ApiResponse<ModerationAPICommentResponse> localVarResp = getModerationCommentWithHttpInfo(commentId, includeEmail, includeIP, sso);
+            ApiResponse<ModerationAPICommentResponse> localVarResp = getModerationCommentWithHttpInfo(tenantId, commentId, includeEmail, includeIP, sso);
             return localVarResp.getData();
         }
 
@@ -2726,7 +2910,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationAPICommentResponse> executeWithHttpInfo() throws ApiException {
-            return getModerationCommentWithHttpInfo(commentId, includeEmail, includeIP, sso);
+            return getModerationCommentWithHttpInfo(tenantId, commentId, includeEmail, includeIP, sso);
         }
 
         /**
@@ -2743,13 +2927,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationAPICommentResponse> _callback) throws ApiException {
-            return getModerationCommentAsync(commentId, includeEmail, includeIP, sso, _callback);
+            return getModerationCommentAsync(tenantId, commentId, includeEmail, includeIP, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIgetModerationCommentRequest
      * @http.response.details
@@ -2760,10 +2945,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetModerationCommentRequest getModerationComment(@javax.annotation.Nonnull String commentId) {
-        return new APIgetModerationCommentRequest(commentId);
+    public APIgetModerationCommentRequest getModerationComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetModerationCommentRequest(tenantId, commentId);
     }
-    private okhttp3.Call getModerationCommentTextCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModerationCommentTextCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2780,7 +2965,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/get-comment-text/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/get-comment-text/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2788,6 +2973,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -2813,26 +3002,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getModerationCommentTextValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getModerationCommentTextValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getModerationCommentText(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getModerationCommentText(Async)");
         }
 
-        return getModerationCommentTextCall(commentId, sso, _callback);
+        return getModerationCommentTextCall(tenantId, commentId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetCommentTextResponse> getModerationCommentTextWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getModerationCommentTextValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<GetCommentTextResponse> getModerationCommentTextWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getModerationCommentTextValidateBeforeCall(tenantId, commentId, sso, null);
         Type localVarReturnType = new TypeToken<GetCommentTextResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getModerationCommentTextAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetCommentTextResponse> _callback) throws ApiException {
+    private okhttp3.Call getModerationCommentTextAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetCommentTextResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getModerationCommentTextValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = getModerationCommentTextValidateBeforeCall(tenantId, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetCommentTextResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2840,11 +3034,14 @@ public class ModerationApi {
 
     public class APIgetModerationCommentTextRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetModerationCommentTextRequest(@javax.annotation.Nonnull String commentId) {
+        private APIgetModerationCommentTextRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -2872,7 +3069,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getModerationCommentTextCall(commentId, sso, _callback);
+            return getModerationCommentTextCall(tenantId, commentId, sso, _callback);
         }
 
         /**
@@ -2888,7 +3085,7 @@ public class ModerationApi {
          </table>
          */
         public GetCommentTextResponse execute() throws ApiException {
-            ApiResponse<GetCommentTextResponse> localVarResp = getModerationCommentTextWithHttpInfo(commentId, sso);
+            ApiResponse<GetCommentTextResponse> localVarResp = getModerationCommentTextWithHttpInfo(tenantId, commentId, sso);
             return localVarResp.getData();
         }
 
@@ -2905,7 +3102,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetCommentTextResponse> executeWithHttpInfo() throws ApiException {
-            return getModerationCommentTextWithHttpInfo(commentId, sso);
+            return getModerationCommentTextWithHttpInfo(tenantId, commentId, sso);
         }
 
         /**
@@ -2922,13 +3119,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetCommentTextResponse> _callback) throws ApiException {
-            return getModerationCommentTextAsync(commentId, sso, _callback);
+            return getModerationCommentTextAsync(tenantId, commentId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIgetModerationCommentTextRequest
      * @http.response.details
@@ -2939,10 +3137,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetModerationCommentTextRequest getModerationCommentText(@javax.annotation.Nonnull String commentId) {
-        return new APIgetModerationCommentTextRequest(commentId);
+    public APIgetModerationCommentTextRequest getModerationCommentText(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetModerationCommentTextRequest(tenantId, commentId);
     }
-    private okhttp3.Call getPreBanSummaryCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPreBanSummaryCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2959,7 +3157,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/pre-ban-summary/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/pre-ban-summary/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2967,6 +3165,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (includeByUserIdAndEmail != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeByUserIdAndEmail", includeByUserIdAndEmail));
@@ -3004,32 +3206,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPreBanSummaryValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPreBanSummaryValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getPreBanSummary(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling getPreBanSummary(Async)");
         }
 
-        return getPreBanSummaryCall(commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+        return getPreBanSummaryCall(tenantId, commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
 
     }
 
 
-    private ApiResponse<PreBanSummary> getPreBanSummaryWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getPreBanSummaryValidateBeforeCall(commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, null);
+    private ApiResponse<PreBanSummary> getPreBanSummaryWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getPreBanSummaryValidateBeforeCall(tenantId, commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, null);
         Type localVarReturnType = new TypeToken<PreBanSummary>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getPreBanSummaryAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback<PreBanSummary> _callback) throws ApiException {
+    private okhttp3.Call getPreBanSummaryAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback<PreBanSummary> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPreBanSummaryValidateBeforeCall(commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+        okhttp3.Call localVarCall = getPreBanSummaryValidateBeforeCall(tenantId, commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
         Type localVarReturnType = new TypeToken<PreBanSummary>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetPreBanSummaryRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
@@ -3041,7 +3250,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetPreBanSummaryRequest(@javax.annotation.Nonnull String commentId) {
+        private APIgetPreBanSummaryRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -3099,7 +3309,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getPreBanSummaryCall(commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+            return getPreBanSummaryCall(tenantId, commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
         }
 
         /**
@@ -3115,7 +3325,7 @@ public class ModerationApi {
          </table>
          */
         public PreBanSummary execute() throws ApiException {
-            ApiResponse<PreBanSummary> localVarResp = getPreBanSummaryWithHttpInfo(commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
+            ApiResponse<PreBanSummary> localVarResp = getPreBanSummaryWithHttpInfo(tenantId, commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
             return localVarResp.getData();
         }
 
@@ -3132,7 +3342,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<PreBanSummary> executeWithHttpInfo() throws ApiException {
-            return getPreBanSummaryWithHttpInfo(commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
+            return getPreBanSummaryWithHttpInfo(tenantId, commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
         }
 
         /**
@@ -3149,13 +3359,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<PreBanSummary> _callback) throws ApiException {
-            return getPreBanSummaryAsync(commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+            return getPreBanSummaryAsync(tenantId, commentId, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIgetPreBanSummaryRequest
      * @http.response.details
@@ -3166,10 +3377,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetPreBanSummaryRequest getPreBanSummary(@javax.annotation.Nonnull String commentId) {
-        return new APIgetPreBanSummaryRequest(commentId);
+    public APIgetPreBanSummaryRequest getPreBanSummary(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetPreBanSummaryRequest(tenantId, commentId);
     }
-    private okhttp3.Call getSearchCommentsSummaryCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSearchCommentsSummaryCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3186,13 +3397,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/search/comments/summary";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/search/comments/summary";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (value != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("value", value));
@@ -3230,27 +3445,34 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSearchCommentsSummaryValidateBeforeCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getSearchCommentsSummaryCall(value, filters, searchFilters, sso, _callback);
+    private okhttp3.Call getSearchCommentsSummaryValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSearchCommentsSummary(Async)");
+        }
+
+        return getSearchCommentsSummaryCall(tenantId, value, filters, searchFilters, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationCommentSearchResponse> getSearchCommentsSummaryWithHttpInfo(@javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getSearchCommentsSummaryValidateBeforeCall(value, filters, searchFilters, sso, null);
+    private ApiResponse<ModerationCommentSearchResponse> getSearchCommentsSummaryWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getSearchCommentsSummaryValidateBeforeCall(tenantId, value, filters, searchFilters, sso, null);
         Type localVarReturnType = new TypeToken<ModerationCommentSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSearchCommentsSummaryAsync(@javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso, final ApiCallback<ModerationCommentSearchResponse> _callback) throws ApiException {
+    private okhttp3.Call getSearchCommentsSummaryAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sso, final ApiCallback<ModerationCommentSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSearchCommentsSummaryValidateBeforeCall(value, filters, searchFilters, sso, _callback);
+        okhttp3.Call localVarCall = getSearchCommentsSummaryValidateBeforeCall(tenantId, value, filters, searchFilters, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationCommentSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetSearchCommentsSummaryRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String value;
         @javax.annotation.Nullable
@@ -3260,7 +3482,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetSearchCommentsSummaryRequest() {
+        private APIgetSearchCommentsSummaryRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -3317,7 +3540,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getSearchCommentsSummaryCall(value, filters, searchFilters, sso, _callback);
+            return getSearchCommentsSummaryCall(tenantId, value, filters, searchFilters, sso, _callback);
         }
 
         /**
@@ -3333,7 +3556,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationCommentSearchResponse execute() throws ApiException {
-            ApiResponse<ModerationCommentSearchResponse> localVarResp = getSearchCommentsSummaryWithHttpInfo(value, filters, searchFilters, sso);
+            ApiResponse<ModerationCommentSearchResponse> localVarResp = getSearchCommentsSummaryWithHttpInfo(tenantId, value, filters, searchFilters, sso);
             return localVarResp.getData();
         }
 
@@ -3350,7 +3573,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationCommentSearchResponse> executeWithHttpInfo() throws ApiException {
-            return getSearchCommentsSummaryWithHttpInfo(value, filters, searchFilters, sso);
+            return getSearchCommentsSummaryWithHttpInfo(tenantId, value, filters, searchFilters, sso);
         }
 
         /**
@@ -3367,13 +3590,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationCommentSearchResponse> _callback) throws ApiException {
-            return getSearchCommentsSummaryAsync(value, filters, searchFilters, sso, _callback);
+            return getSearchCommentsSummaryAsync(tenantId, value, filters, searchFilters, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetSearchCommentsSummaryRequest
      * @http.response.details
      <table border="1">
@@ -3383,10 +3607,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSearchCommentsSummaryRequest getSearchCommentsSummary() {
-        return new APIgetSearchCommentsSummaryRequest();
+    public APIgetSearchCommentsSummaryRequest getSearchCommentsSummary(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetSearchCommentsSummaryRequest(tenantId);
     }
-    private okhttp3.Call getSearchPagesCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSearchPagesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3403,13 +3627,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/search/pages";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/search/pages";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (value != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("value", value));
@@ -3439,33 +3667,41 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSearchPagesValidateBeforeCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getSearchPagesCall(value, sso, _callback);
+    private okhttp3.Call getSearchPagesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSearchPages(Async)");
+        }
+
+        return getSearchPagesCall(tenantId, value, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationPageSearchResponse> getSearchPagesWithHttpInfo(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getSearchPagesValidateBeforeCall(value, sso, null);
+    private ApiResponse<ModerationPageSearchResponse> getSearchPagesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getSearchPagesValidateBeforeCall(tenantId, value, sso, null);
         Type localVarReturnType = new TypeToken<ModerationPageSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSearchPagesAsync(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback<ModerationPageSearchResponse> _callback) throws ApiException {
+    private okhttp3.Call getSearchPagesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback<ModerationPageSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSearchPagesValidateBeforeCall(value, sso, _callback);
+        okhttp3.Call localVarCall = getSearchPagesValidateBeforeCall(tenantId, value, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationPageSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetSearchPagesRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String value;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetSearchPagesRequest() {
+        private APIgetSearchPagesRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -3502,7 +3738,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getSearchPagesCall(value, sso, _callback);
+            return getSearchPagesCall(tenantId, value, sso, _callback);
         }
 
         /**
@@ -3518,7 +3754,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationPageSearchResponse execute() throws ApiException {
-            ApiResponse<ModerationPageSearchResponse> localVarResp = getSearchPagesWithHttpInfo(value, sso);
+            ApiResponse<ModerationPageSearchResponse> localVarResp = getSearchPagesWithHttpInfo(tenantId, value, sso);
             return localVarResp.getData();
         }
 
@@ -3535,7 +3771,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationPageSearchResponse> executeWithHttpInfo() throws ApiException {
-            return getSearchPagesWithHttpInfo(value, sso);
+            return getSearchPagesWithHttpInfo(tenantId, value, sso);
         }
 
         /**
@@ -3552,13 +3788,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationPageSearchResponse> _callback) throws ApiException {
-            return getSearchPagesAsync(value, sso, _callback);
+            return getSearchPagesAsync(tenantId, value, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetSearchPagesRequest
      * @http.response.details
      <table border="1">
@@ -3568,10 +3805,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSearchPagesRequest getSearchPages() {
-        return new APIgetSearchPagesRequest();
+    public APIgetSearchPagesRequest getSearchPages(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetSearchPagesRequest(tenantId);
     }
-    private okhttp3.Call getSearchSitesCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSearchSitesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3588,13 +3825,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/search/sites";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/search/sites";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (value != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("value", value));
@@ -3624,33 +3865,41 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSearchSitesValidateBeforeCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getSearchSitesCall(value, sso, _callback);
+    private okhttp3.Call getSearchSitesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSearchSites(Async)");
+        }
+
+        return getSearchSitesCall(tenantId, value, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationSiteSearchResponse> getSearchSitesWithHttpInfo(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getSearchSitesValidateBeforeCall(value, sso, null);
+    private ApiResponse<ModerationSiteSearchResponse> getSearchSitesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getSearchSitesValidateBeforeCall(tenantId, value, sso, null);
         Type localVarReturnType = new TypeToken<ModerationSiteSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSearchSitesAsync(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback<ModerationSiteSearchResponse> _callback) throws ApiException {
+    private okhttp3.Call getSearchSitesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback<ModerationSiteSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSearchSitesValidateBeforeCall(value, sso, _callback);
+        okhttp3.Call localVarCall = getSearchSitesValidateBeforeCall(tenantId, value, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationSiteSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetSearchSitesRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String value;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetSearchSitesRequest() {
+        private APIgetSearchSitesRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -3687,7 +3936,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getSearchSitesCall(value, sso, _callback);
+            return getSearchSitesCall(tenantId, value, sso, _callback);
         }
 
         /**
@@ -3703,7 +3952,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationSiteSearchResponse execute() throws ApiException {
-            ApiResponse<ModerationSiteSearchResponse> localVarResp = getSearchSitesWithHttpInfo(value, sso);
+            ApiResponse<ModerationSiteSearchResponse> localVarResp = getSearchSitesWithHttpInfo(tenantId, value, sso);
             return localVarResp.getData();
         }
 
@@ -3720,7 +3969,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationSiteSearchResponse> executeWithHttpInfo() throws ApiException {
-            return getSearchSitesWithHttpInfo(value, sso);
+            return getSearchSitesWithHttpInfo(tenantId, value, sso);
         }
 
         /**
@@ -3737,13 +3986,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationSiteSearchResponse> _callback) throws ApiException {
-            return getSearchSitesAsync(value, sso, _callback);
+            return getSearchSitesAsync(tenantId, value, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetSearchSitesRequest
      * @http.response.details
      <table border="1">
@@ -3753,10 +4003,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSearchSitesRequest getSearchSites() {
-        return new APIgetSearchSitesRequest();
+    public APIgetSearchSitesRequest getSearchSites(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetSearchSitesRequest(tenantId);
     }
-    private okhttp3.Call getSearchSuggestCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSearchSuggestCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3773,13 +4023,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/search/suggest";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/search/suggest";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (textSearch != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("text-search", textSearch));
@@ -3809,33 +4063,41 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSearchSuggestValidateBeforeCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getSearchSuggestCall(textSearch, sso, _callback);
+    private okhttp3.Call getSearchSuggestValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSearchSuggest(Async)");
+        }
+
+        return getSearchSuggestCall(tenantId, textSearch, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationSuggestResponse> getSearchSuggestWithHttpInfo(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getSearchSuggestValidateBeforeCall(textSearch, sso, null);
+    private ApiResponse<ModerationSuggestResponse> getSearchSuggestWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getSearchSuggestValidateBeforeCall(tenantId, textSearch, sso, null);
         Type localVarReturnType = new TypeToken<ModerationSuggestResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSearchSuggestAsync(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso, final ApiCallback<ModerationSuggestResponse> _callback) throws ApiException {
+    private okhttp3.Call getSearchSuggestAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String sso, final ApiCallback<ModerationSuggestResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSearchSuggestValidateBeforeCall(textSearch, sso, _callback);
+        okhttp3.Call localVarCall = getSearchSuggestValidateBeforeCall(tenantId, textSearch, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationSuggestResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetSearchSuggestRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String textSearch;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetSearchSuggestRequest() {
+        private APIgetSearchSuggestRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -3872,7 +4134,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getSearchSuggestCall(textSearch, sso, _callback);
+            return getSearchSuggestCall(tenantId, textSearch, sso, _callback);
         }
 
         /**
@@ -3888,7 +4150,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationSuggestResponse execute() throws ApiException {
-            ApiResponse<ModerationSuggestResponse> localVarResp = getSearchSuggestWithHttpInfo(textSearch, sso);
+            ApiResponse<ModerationSuggestResponse> localVarResp = getSearchSuggestWithHttpInfo(tenantId, textSearch, sso);
             return localVarResp.getData();
         }
 
@@ -3905,7 +4167,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationSuggestResponse> executeWithHttpInfo() throws ApiException {
-            return getSearchSuggestWithHttpInfo(textSearch, sso);
+            return getSearchSuggestWithHttpInfo(tenantId, textSearch, sso);
         }
 
         /**
@@ -3922,13 +4184,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationSuggestResponse> _callback) throws ApiException {
-            return getSearchSuggestAsync(textSearch, sso, _callback);
+            return getSearchSuggestAsync(tenantId, textSearch, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetSearchSuggestRequest
      * @http.response.details
      <table border="1">
@@ -3938,10 +4201,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSearchSuggestRequest getSearchSuggest() {
-        return new APIgetSearchSuggestRequest();
+    public APIgetSearchSuggestRequest getSearchSuggest(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetSearchSuggestRequest(tenantId);
     }
-    private okhttp3.Call getSearchUsersCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSearchUsersCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3958,13 +4221,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/search/users";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/search/users";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (value != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("value", value));
@@ -3994,33 +4261,41 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSearchUsersValidateBeforeCall(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getSearchUsersCall(value, sso, _callback);
+    private okhttp3.Call getSearchUsersValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getSearchUsers(Async)");
+        }
+
+        return getSearchUsersCall(tenantId, value, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationUserSearchResponse> getSearchUsersWithHttpInfo(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getSearchUsersValidateBeforeCall(value, sso, null);
+    private ApiResponse<ModerationUserSearchResponse> getSearchUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getSearchUsersValidateBeforeCall(tenantId, value, sso, null);
         Type localVarReturnType = new TypeToken<ModerationUserSearchResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getSearchUsersAsync(@javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback<ModerationUserSearchResponse> _callback) throws ApiException {
+    private okhttp3.Call getSearchUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String value, @javax.annotation.Nullable String sso, final ApiCallback<ModerationUserSearchResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSearchUsersValidateBeforeCall(value, sso, _callback);
+        okhttp3.Call localVarCall = getSearchUsersValidateBeforeCall(tenantId, value, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationUserSearchResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetSearchUsersRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String value;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetSearchUsersRequest() {
+        private APIgetSearchUsersRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -4057,7 +4332,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getSearchUsersCall(value, sso, _callback);
+            return getSearchUsersCall(tenantId, value, sso, _callback);
         }
 
         /**
@@ -4073,7 +4348,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationUserSearchResponse execute() throws ApiException {
-            ApiResponse<ModerationUserSearchResponse> localVarResp = getSearchUsersWithHttpInfo(value, sso);
+            ApiResponse<ModerationUserSearchResponse> localVarResp = getSearchUsersWithHttpInfo(tenantId, value, sso);
             return localVarResp.getData();
         }
 
@@ -4090,7 +4365,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationUserSearchResponse> executeWithHttpInfo() throws ApiException {
-            return getSearchUsersWithHttpInfo(value, sso);
+            return getSearchUsersWithHttpInfo(tenantId, value, sso);
         }
 
         /**
@@ -4107,13 +4382,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationUserSearchResponse> _callback) throws ApiException {
-            return getSearchUsersAsync(value, sso, _callback);
+            return getSearchUsersAsync(tenantId, value, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetSearchUsersRequest
      * @http.response.details
      <table border="1">
@@ -4123,10 +4399,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetSearchUsersRequest getSearchUsers() {
-        return new APIgetSearchUsersRequest();
+    public APIgetSearchUsersRequest getSearchUsers(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetSearchUsersRequest(tenantId);
     }
-    private okhttp3.Call getTrustFactorCall(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getTrustFactorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4143,13 +4419,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/get-trust-factor";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/get-trust-factor";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (userId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
@@ -4179,33 +4459,41 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getTrustFactorValidateBeforeCall(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getTrustFactorCall(userId, sso, _callback);
+    private okhttp3.Call getTrustFactorValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getTrustFactor(Async)");
+        }
+
+        return getTrustFactorCall(tenantId, userId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetUserTrustFactorResponse> getTrustFactorWithHttpInfo(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getTrustFactorValidateBeforeCall(userId, sso, null);
+    private ApiResponse<GetUserTrustFactorResponse> getTrustFactorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getTrustFactorValidateBeforeCall(tenantId, userId, sso, null);
         Type localVarReturnType = new TypeToken<GetUserTrustFactorResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getTrustFactorAsync(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso, final ApiCallback<GetUserTrustFactorResponse> _callback) throws ApiException {
+    private okhttp3.Call getTrustFactorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String sso, final ApiCallback<GetUserTrustFactorResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getTrustFactorValidateBeforeCall(userId, sso, _callback);
+        okhttp3.Call localVarCall = getTrustFactorValidateBeforeCall(tenantId, userId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserTrustFactorResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetTrustFactorRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String userId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetTrustFactorRequest() {
+        private APIgetTrustFactorRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -4242,7 +4530,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getTrustFactorCall(userId, sso, _callback);
+            return getTrustFactorCall(tenantId, userId, sso, _callback);
         }
 
         /**
@@ -4258,7 +4546,7 @@ public class ModerationApi {
          </table>
          */
         public GetUserTrustFactorResponse execute() throws ApiException {
-            ApiResponse<GetUserTrustFactorResponse> localVarResp = getTrustFactorWithHttpInfo(userId, sso);
+            ApiResponse<GetUserTrustFactorResponse> localVarResp = getTrustFactorWithHttpInfo(tenantId, userId, sso);
             return localVarResp.getData();
         }
 
@@ -4275,7 +4563,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetUserTrustFactorResponse> executeWithHttpInfo() throws ApiException {
-            return getTrustFactorWithHttpInfo(userId, sso);
+            return getTrustFactorWithHttpInfo(tenantId, userId, sso);
         }
 
         /**
@@ -4292,13 +4580,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetUserTrustFactorResponse> _callback) throws ApiException {
-            return getTrustFactorAsync(userId, sso, _callback);
+            return getTrustFactorAsync(tenantId, userId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetTrustFactorRequest
      * @http.response.details
      <table border="1">
@@ -4308,10 +4597,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetTrustFactorRequest getTrustFactor() {
-        return new APIgetTrustFactorRequest();
+    public APIgetTrustFactorRequest getTrustFactor(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetTrustFactorRequest(tenantId);
     }
-    private okhttp3.Call getUserBanPreferenceCall(@javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserBanPreferenceCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4328,13 +4617,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/user-ban-preference";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/user-ban-preference";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -4360,31 +4653,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserBanPreferenceValidateBeforeCall(@javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getUserBanPreferenceCall(sso, _callback);
+    private okhttp3.Call getUserBanPreferenceValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserBanPreference(Async)");
+        }
+
+        return getUserBanPreferenceCall(tenantId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIModerateGetUserBanPreferencesResponse> getUserBanPreferenceWithHttpInfo(@javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getUserBanPreferenceValidateBeforeCall(sso, null);
+    private ApiResponse<APIModerateGetUserBanPreferencesResponse> getUserBanPreferenceWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getUserBanPreferenceValidateBeforeCall(tenantId, sso, null);
         Type localVarReturnType = new TypeToken<APIModerateGetUserBanPreferencesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserBanPreferenceAsync(@javax.annotation.Nullable String sso, final ApiCallback<APIModerateGetUserBanPreferencesResponse> _callback) throws ApiException {
+    private okhttp3.Call getUserBanPreferenceAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String sso, final ApiCallback<APIModerateGetUserBanPreferencesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserBanPreferenceValidateBeforeCall(sso, _callback);
+        okhttp3.Call localVarCall = getUserBanPreferenceValidateBeforeCall(tenantId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIModerateGetUserBanPreferencesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetUserBanPreferenceRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetUserBanPreferenceRequest() {
+        private APIgetUserBanPreferenceRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -4411,7 +4712,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getUserBanPreferenceCall(sso, _callback);
+            return getUserBanPreferenceCall(tenantId, sso, _callback);
         }
 
         /**
@@ -4427,7 +4728,7 @@ public class ModerationApi {
          </table>
          */
         public APIModerateGetUserBanPreferencesResponse execute() throws ApiException {
-            ApiResponse<APIModerateGetUserBanPreferencesResponse> localVarResp = getUserBanPreferenceWithHttpInfo(sso);
+            ApiResponse<APIModerateGetUserBanPreferencesResponse> localVarResp = getUserBanPreferenceWithHttpInfo(tenantId, sso);
             return localVarResp.getData();
         }
 
@@ -4444,7 +4745,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIModerateGetUserBanPreferencesResponse> executeWithHttpInfo() throws ApiException {
-            return getUserBanPreferenceWithHttpInfo(sso);
+            return getUserBanPreferenceWithHttpInfo(tenantId, sso);
         }
 
         /**
@@ -4461,13 +4762,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIModerateGetUserBanPreferencesResponse> _callback) throws ApiException {
-            return getUserBanPreferenceAsync(sso, _callback);
+            return getUserBanPreferenceAsync(tenantId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetUserBanPreferenceRequest
      * @http.response.details
      <table border="1">
@@ -4477,10 +4779,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserBanPreferenceRequest getUserBanPreference() {
-        return new APIgetUserBanPreferenceRequest();
+    public APIgetUserBanPreferenceRequest getUserBanPreference(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetUserBanPreferenceRequest(tenantId);
     }
-    private okhttp3.Call getUserInternalProfileCall(@javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUserInternalProfileCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4497,13 +4799,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/get-user-internal-profile";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/get-user-internal-profile";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (commentId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("commentId", commentId));
@@ -4533,33 +4839,41 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserInternalProfileValidateBeforeCall(@javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return getUserInternalProfileCall(commentId, sso, _callback);
+    private okhttp3.Call getUserInternalProfileValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getUserInternalProfile(Async)");
+        }
+
+        return getUserInternalProfileCall(tenantId, commentId, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetUserInternalProfileResponse> getUserInternalProfileWithHttpInfo(@javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = getUserInternalProfileValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<GetUserInternalProfileResponse> getUserInternalProfileWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getUserInternalProfileValidateBeforeCall(tenantId, commentId, sso, null);
         Type localVarReturnType = new TypeToken<GetUserInternalProfileResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getUserInternalProfileAsync(@javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetUserInternalProfileResponse> _callback) throws ApiException {
+    private okhttp3.Call getUserInternalProfileAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String sso, final ApiCallback<GetUserInternalProfileResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getUserInternalProfileValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = getUserInternalProfileValidateBeforeCall(tenantId, commentId, sso, _callback);
         Type localVarReturnType = new TypeToken<GetUserInternalProfileResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIgetUserInternalProfileRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String commentId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIgetUserInternalProfileRequest() {
+        private APIgetUserInternalProfileRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -4596,7 +4910,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getUserInternalProfileCall(commentId, sso, _callback);
+            return getUserInternalProfileCall(tenantId, commentId, sso, _callback);
         }
 
         /**
@@ -4612,7 +4926,7 @@ public class ModerationApi {
          </table>
          */
         public GetUserInternalProfileResponse execute() throws ApiException {
-            ApiResponse<GetUserInternalProfileResponse> localVarResp = getUserInternalProfileWithHttpInfo(commentId, sso);
+            ApiResponse<GetUserInternalProfileResponse> localVarResp = getUserInternalProfileWithHttpInfo(tenantId, commentId, sso);
             return localVarResp.getData();
         }
 
@@ -4629,7 +4943,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<GetUserInternalProfileResponse> executeWithHttpInfo() throws ApiException {
-            return getUserInternalProfileWithHttpInfo(commentId, sso);
+            return getUserInternalProfileWithHttpInfo(tenantId, commentId, sso);
         }
 
         /**
@@ -4646,13 +4960,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetUserInternalProfileResponse> _callback) throws ApiException {
-            return getUserInternalProfileAsync(commentId, sso, _callback);
+            return getUserInternalProfileAsync(tenantId, commentId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIgetUserInternalProfileRequest
      * @http.response.details
      <table border="1">
@@ -4662,10 +4977,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIgetUserInternalProfileRequest getUserInternalProfile() {
-        return new APIgetUserInternalProfileRequest();
+    public APIgetUserInternalProfileRequest getUserInternalProfile(@javax.annotation.Nonnull String tenantId) {
+        return new APIgetUserInternalProfileRequest(tenantId);
     }
-    private okhttp3.Call postAdjustCommentVotesCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postAdjustCommentVotesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4682,7 +4997,7 @@ public class ModerationApi {
         Object localVarPostBody = adjustCommentVotesParams;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/adjust-comment-votes/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/adjust-comment-votes/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -4690,6 +5005,14 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -4716,7 +5039,12 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postAdjustCommentVotesValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postAdjustCommentVotesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postAdjustCommentVotes(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postAdjustCommentVotes(Async)");
@@ -4727,20 +5055,20 @@ public class ModerationApi {
             throw new ApiException("Missing the required parameter 'adjustCommentVotesParams' when calling postAdjustCommentVotes(Async)");
         }
 
-        return postAdjustCommentVotesCall(commentId, adjustCommentVotesParams, sso, _callback);
+        return postAdjustCommentVotesCall(tenantId, commentId, adjustCommentVotesParams, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<AdjustVotesResponse> postAdjustCommentVotesWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postAdjustCommentVotesValidateBeforeCall(commentId, adjustCommentVotesParams, sso, null);
+    private ApiResponse<AdjustVotesResponse> postAdjustCommentVotesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postAdjustCommentVotesValidateBeforeCall(tenantId, commentId, adjustCommentVotesParams, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<AdjustVotesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postAdjustCommentVotesAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String sso, final ApiCallback<AdjustVotesResponse> _callback) throws ApiException {
+    private okhttp3.Call postAdjustCommentVotesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<AdjustVotesResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postAdjustCommentVotesValidateBeforeCall(commentId, adjustCommentVotesParams, sso, _callback);
+        okhttp3.Call localVarCall = postAdjustCommentVotesValidateBeforeCall(tenantId, commentId, adjustCommentVotesParams, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<AdjustVotesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4748,15 +5076,30 @@ public class ModerationApi {
 
     public class APIpostAdjustCommentVotesRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nonnull
         private final AdjustCommentVotesParams adjustCommentVotesParams;
         @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
         private String sso;
 
-        private APIpostAdjustCommentVotesRequest(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams) {
+        private APIpostAdjustCommentVotesRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
             this.adjustCommentVotesParams = adjustCommentVotesParams;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostAdjustCommentVotesRequest
+         */
+        public APIpostAdjustCommentVotesRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
         }
 
         /**
@@ -4783,7 +5126,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postAdjustCommentVotesCall(commentId, adjustCommentVotesParams, sso, _callback);
+            return postAdjustCommentVotesCall(tenantId, commentId, adjustCommentVotesParams, broadcastId, sso, _callback);
         }
 
         /**
@@ -4799,7 +5142,7 @@ public class ModerationApi {
          </table>
          */
         public AdjustVotesResponse execute() throws ApiException {
-            ApiResponse<AdjustVotesResponse> localVarResp = postAdjustCommentVotesWithHttpInfo(commentId, adjustCommentVotesParams, sso);
+            ApiResponse<AdjustVotesResponse> localVarResp = postAdjustCommentVotesWithHttpInfo(tenantId, commentId, adjustCommentVotesParams, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -4816,7 +5159,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<AdjustVotesResponse> executeWithHttpInfo() throws ApiException {
-            return postAdjustCommentVotesWithHttpInfo(commentId, adjustCommentVotesParams, sso);
+            return postAdjustCommentVotesWithHttpInfo(tenantId, commentId, adjustCommentVotesParams, broadcastId, sso);
         }
 
         /**
@@ -4833,13 +5176,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<AdjustVotesResponse> _callback) throws ApiException {
-            return postAdjustCommentVotesAsync(commentId, adjustCommentVotesParams, sso, _callback);
+            return postAdjustCommentVotesAsync(tenantId, commentId, adjustCommentVotesParams, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @param adjustCommentVotesParams  (required)
      * @return APIpostAdjustCommentVotesRequest
@@ -4851,10 +5195,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostAdjustCommentVotesRequest postAdjustCommentVotes(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams) {
-        return new APIpostAdjustCommentVotesRequest(commentId, adjustCommentVotesParams);
+    public APIpostAdjustCommentVotesRequest postAdjustCommentVotes(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull AdjustCommentVotesParams adjustCommentVotesParams) {
+        return new APIpostAdjustCommentVotesRequest(tenantId, commentId, adjustCommentVotesParams);
     }
-    private okhttp3.Call postApiExportCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postApiExportCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4871,13 +5215,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/api/export";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/api/export";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (textSearch != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("text-search", textSearch));
@@ -4923,27 +5271,34 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postApiExportValidateBeforeCall(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return postApiExportCall(textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
+    private okhttp3.Call postApiExportValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postApiExport(Async)");
+        }
+
+        return postApiExportCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationExportResponse> postApiExportWithHttpInfo(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postApiExportValidateBeforeCall(textSearch, byIPFromComment, filters, searchFilters, sorts, sso, null);
+    private ApiResponse<ModerationExportResponse> postApiExportWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postApiExportValidateBeforeCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, sorts, sso, null);
         Type localVarReturnType = new TypeToken<ModerationExportResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postApiExportAsync(@javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso, final ApiCallback<ModerationExportResponse> _callback) throws ApiException {
+    private okhttp3.Call postApiExportAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String textSearch, @javax.annotation.Nullable String byIPFromComment, @javax.annotation.Nullable String filters, @javax.annotation.Nullable String searchFilters, @javax.annotation.Nullable String sorts, @javax.annotation.Nullable String sso, final ApiCallback<ModerationExportResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postApiExportValidateBeforeCall(textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
+        okhttp3.Call localVarCall = postApiExportValidateBeforeCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationExportResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIpostApiExportRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String textSearch;
         @javax.annotation.Nullable
@@ -4957,7 +5312,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostApiExportRequest() {
+        private APIpostApiExportRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -5034,7 +5390,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postApiExportCall(textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
+            return postApiExportCall(tenantId, textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
         }
 
         /**
@@ -5050,7 +5406,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationExportResponse execute() throws ApiException {
-            ApiResponse<ModerationExportResponse> localVarResp = postApiExportWithHttpInfo(textSearch, byIPFromComment, filters, searchFilters, sorts, sso);
+            ApiResponse<ModerationExportResponse> localVarResp = postApiExportWithHttpInfo(tenantId, textSearch, byIPFromComment, filters, searchFilters, sorts, sso);
             return localVarResp.getData();
         }
 
@@ -5067,7 +5423,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationExportResponse> executeWithHttpInfo() throws ApiException {
-            return postApiExportWithHttpInfo(textSearch, byIPFromComment, filters, searchFilters, sorts, sso);
+            return postApiExportWithHttpInfo(tenantId, textSearch, byIPFromComment, filters, searchFilters, sorts, sso);
         }
 
         /**
@@ -5084,13 +5440,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationExportResponse> _callback) throws ApiException {
-            return postApiExportAsync(textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
+            return postApiExportAsync(tenantId, textSearch, byIPFromComment, filters, searchFilters, sorts, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIpostApiExportRequest
      * @http.response.details
      <table border="1">
@@ -5100,10 +5457,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostApiExportRequest postApiExport() {
-        return new APIpostApiExportRequest();
+    public APIpostApiExportRequest postApiExport(@javax.annotation.Nonnull String tenantId) {
+        return new APIpostApiExportRequest(tenantId);
     }
-    private okhttp3.Call postBanUserFromCommentCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postBanUserFromCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5120,7 +5477,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/ban-user/from-comment/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/ban-user/from-comment/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -5128,6 +5485,10 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (banEmail != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("banEmail", banEmail));
@@ -5185,32 +5546,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postBanUserFromCommentValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postBanUserFromCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postBanUserFromComment(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postBanUserFromComment(Async)");
         }
 
-        return postBanUserFromCommentCall(commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
+        return postBanUserFromCommentCall(tenantId, commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
 
     }
 
 
-    private ApiResponse<BanUserFromCommentResult> postBanUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postBanUserFromCommentValidateBeforeCall(commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, null);
+    private ApiResponse<BanUserFromCommentResult> postBanUserFromCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postBanUserFromCommentValidateBeforeCall(tenantId, commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, null);
         Type localVarReturnType = new TypeToken<BanUserFromCommentResult>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postBanUserFromCommentAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso, final ApiCallback<BanUserFromCommentResult> _callback) throws ApiException {
+    private okhttp3.Call postBanUserFromCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean banEmail, @javax.annotation.Nullable Boolean banEmailDomain, @javax.annotation.Nullable Boolean banIP, @javax.annotation.Nullable Boolean deleteAllUsersComments, @javax.annotation.Nullable String bannedUntil, @javax.annotation.Nullable Boolean isShadowBan, @javax.annotation.Nullable String updateId, @javax.annotation.Nullable String banReason, @javax.annotation.Nullable String sso, final ApiCallback<BanUserFromCommentResult> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postBanUserFromCommentValidateBeforeCall(commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
+        okhttp3.Call localVarCall = postBanUserFromCommentValidateBeforeCall(tenantId, commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
         Type localVarReturnType = new TypeToken<BanUserFromCommentResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIpostBanUserFromCommentRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
@@ -5232,7 +5600,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostBanUserFromCommentRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostBanUserFromCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -5340,7 +5709,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postBanUserFromCommentCall(commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
+            return postBanUserFromCommentCall(tenantId, commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
         }
 
         /**
@@ -5356,7 +5725,7 @@ public class ModerationApi {
          </table>
          */
         public BanUserFromCommentResult execute() throws ApiException {
-            ApiResponse<BanUserFromCommentResult> localVarResp = postBanUserFromCommentWithHttpInfo(commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso);
+            ApiResponse<BanUserFromCommentResult> localVarResp = postBanUserFromCommentWithHttpInfo(tenantId, commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso);
             return localVarResp.getData();
         }
 
@@ -5373,7 +5742,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<BanUserFromCommentResult> executeWithHttpInfo() throws ApiException {
-            return postBanUserFromCommentWithHttpInfo(commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso);
+            return postBanUserFromCommentWithHttpInfo(tenantId, commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso);
         }
 
         /**
@@ -5390,13 +5759,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<BanUserFromCommentResult> _callback) throws ApiException {
-            return postBanUserFromCommentAsync(commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
+            return postBanUserFromCommentAsync(tenantId, commentId, banEmail, banEmailDomain, banIP, deleteAllUsersComments, bannedUntil, isShadowBan, updateId, banReason, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostBanUserFromCommentRequest
      * @http.response.details
@@ -5407,10 +5777,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostBanUserFromCommentRequest postBanUserFromComment(@javax.annotation.Nonnull String commentId) {
-        return new APIpostBanUserFromCommentRequest(commentId);
+    public APIpostBanUserFromCommentRequest postBanUserFromComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostBanUserFromCommentRequest(tenantId, commentId);
     }
-    private okhttp3.Call postBanUserUndoCall(@javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postBanUserUndoCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5427,13 +5797,17 @@ public class ModerationApi {
         Object localVarPostBody = banUserUndoParams;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/ban-user/undo";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/ban-user/undo";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -5460,26 +5834,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postBanUserUndoValidateBeforeCall(@javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postBanUserUndoValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postBanUserUndo(Async)");
+        }
+
         // verify the required parameter 'banUserUndoParams' is set
         if (banUserUndoParams == null) {
             throw new ApiException("Missing the required parameter 'banUserUndoParams' when calling postBanUserUndo(Async)");
         }
 
-        return postBanUserUndoCall(banUserUndoParams, sso, _callback);
+        return postBanUserUndoCall(tenantId, banUserUndoParams, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> postBanUserUndoWithHttpInfo(@javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postBanUserUndoValidateBeforeCall(banUserUndoParams, sso, null);
+    private ApiResponse<APIEmptyResponse> postBanUserUndoWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postBanUserUndoValidateBeforeCall(tenantId, banUserUndoParams, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postBanUserUndoAsync(@javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call postBanUserUndoAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BanUserUndoParams banUserUndoParams, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postBanUserUndoValidateBeforeCall(banUserUndoParams, sso, _callback);
+        okhttp3.Call localVarCall = postBanUserUndoValidateBeforeCall(tenantId, banUserUndoParams, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5487,11 +5866,14 @@ public class ModerationApi {
 
     public class APIpostBanUserUndoRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final BanUserUndoParams banUserUndoParams;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostBanUserUndoRequest(@javax.annotation.Nonnull BanUserUndoParams banUserUndoParams) {
+        private APIpostBanUserUndoRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BanUserUndoParams banUserUndoParams) {
+            this.tenantId = tenantId;
             this.banUserUndoParams = banUserUndoParams;
         }
 
@@ -5519,7 +5901,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postBanUserUndoCall(banUserUndoParams, sso, _callback);
+            return postBanUserUndoCall(tenantId, banUserUndoParams, sso, _callback);
         }
 
         /**
@@ -5535,7 +5917,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = postBanUserUndoWithHttpInfo(banUserUndoParams, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = postBanUserUndoWithHttpInfo(tenantId, banUserUndoParams, sso);
             return localVarResp.getData();
         }
 
@@ -5552,7 +5934,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return postBanUserUndoWithHttpInfo(banUserUndoParams, sso);
+            return postBanUserUndoWithHttpInfo(tenantId, banUserUndoParams, sso);
         }
 
         /**
@@ -5569,13 +5951,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return postBanUserUndoAsync(banUserUndoParams, sso, _callback);
+            return postBanUserUndoAsync(tenantId, banUserUndoParams, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param banUserUndoParams  (required)
      * @return APIpostBanUserUndoRequest
      * @http.response.details
@@ -5586,10 +5969,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostBanUserUndoRequest postBanUserUndo(@javax.annotation.Nonnull BanUserUndoParams banUserUndoParams) {
-        return new APIpostBanUserUndoRequest(banUserUndoParams);
+    public APIpostBanUserUndoRequest postBanUserUndo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BanUserUndoParams banUserUndoParams) {
+        return new APIpostBanUserUndoRequest(tenantId, banUserUndoParams);
     }
-    private okhttp3.Call postBulkPreBanSummaryCall(@javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postBulkPreBanSummaryCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5606,13 +5989,17 @@ public class ModerationApi {
         Object localVarPostBody = bulkPreBanParams;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/bulk-pre-ban-summary";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/bulk-pre-ban-summary";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (includeByUserIdAndEmail != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeByUserIdAndEmail", includeByUserIdAndEmail));
@@ -5651,32 +6038,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postBulkPreBanSummaryValidateBeforeCall(@javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postBulkPreBanSummaryValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postBulkPreBanSummary(Async)");
+        }
+
         // verify the required parameter 'bulkPreBanParams' is set
         if (bulkPreBanParams == null) {
             throw new ApiException("Missing the required parameter 'bulkPreBanParams' when calling postBulkPreBanSummary(Async)");
         }
 
-        return postBulkPreBanSummaryCall(bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+        return postBulkPreBanSummaryCall(tenantId, bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
 
     }
 
 
-    private ApiResponse<BulkPreBanSummary> postBulkPreBanSummaryWithHttpInfo(@javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postBulkPreBanSummaryValidateBeforeCall(bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, null);
+    private ApiResponse<BulkPreBanSummary> postBulkPreBanSummaryWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postBulkPreBanSummaryValidateBeforeCall(tenantId, bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, null);
         Type localVarReturnType = new TypeToken<BulkPreBanSummary>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postBulkPreBanSummaryAsync(@javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback<BulkPreBanSummary> _callback) throws ApiException {
+    private okhttp3.Call postBulkPreBanSummaryAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams, @javax.annotation.Nullable Boolean includeByUserIdAndEmail, @javax.annotation.Nullable Boolean includeByIP, @javax.annotation.Nullable Boolean includeByEmailDomain, @javax.annotation.Nullable String sso, final ApiCallback<BulkPreBanSummary> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postBulkPreBanSummaryValidateBeforeCall(bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+        okhttp3.Call localVarCall = postBulkPreBanSummaryValidateBeforeCall(tenantId, bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
         Type localVarReturnType = new TypeToken<BulkPreBanSummary>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIpostBulkPreBanSummaryRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nonnull
         private final BulkPreBanParams bulkPreBanParams;
         @javax.annotation.Nullable
@@ -5688,7 +6082,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostBulkPreBanSummaryRequest(@javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams) {
+        private APIpostBulkPreBanSummaryRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams) {
+            this.tenantId = tenantId;
             this.bulkPreBanParams = bulkPreBanParams;
         }
 
@@ -5746,7 +6141,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postBulkPreBanSummaryCall(bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+            return postBulkPreBanSummaryCall(tenantId, bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
         }
 
         /**
@@ -5762,7 +6157,7 @@ public class ModerationApi {
          </table>
          */
         public BulkPreBanSummary execute() throws ApiException {
-            ApiResponse<BulkPreBanSummary> localVarResp = postBulkPreBanSummaryWithHttpInfo(bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
+            ApiResponse<BulkPreBanSummary> localVarResp = postBulkPreBanSummaryWithHttpInfo(tenantId, bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
             return localVarResp.getData();
         }
 
@@ -5779,7 +6174,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<BulkPreBanSummary> executeWithHttpInfo() throws ApiException {
-            return postBulkPreBanSummaryWithHttpInfo(bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
+            return postBulkPreBanSummaryWithHttpInfo(tenantId, bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso);
         }
 
         /**
@@ -5796,13 +6191,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<BulkPreBanSummary> _callback) throws ApiException {
-            return postBulkPreBanSummaryAsync(bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
+            return postBulkPreBanSummaryAsync(tenantId, bulkPreBanParams, includeByUserIdAndEmail, includeByIP, includeByEmailDomain, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param bulkPreBanParams  (required)
      * @return APIpostBulkPreBanSummaryRequest
      * @http.response.details
@@ -5813,10 +6209,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostBulkPreBanSummaryRequest postBulkPreBanSummary(@javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams) {
-        return new APIpostBulkPreBanSummaryRequest(bulkPreBanParams);
+    public APIpostBulkPreBanSummaryRequest postBulkPreBanSummary(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull BulkPreBanParams bulkPreBanParams) {
+        return new APIpostBulkPreBanSummaryRequest(tenantId, bulkPreBanParams);
     }
-    private okhttp3.Call postCommentsByIdsCall(@javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postCommentsByIdsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5833,13 +6229,17 @@ public class ModerationApi {
         Object localVarPostBody = commentsByIdsParams;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/comments-by-ids";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/comments-by-ids";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -5866,26 +6266,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postCommentsByIdsValidateBeforeCall(@javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postCommentsByIdsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postCommentsByIds(Async)");
+        }
+
         // verify the required parameter 'commentsByIdsParams' is set
         if (commentsByIdsParams == null) {
             throw new ApiException("Missing the required parameter 'commentsByIdsParams' when calling postCommentsByIds(Async)");
         }
 
-        return postCommentsByIdsCall(commentsByIdsParams, sso, _callback);
+        return postCommentsByIdsCall(tenantId, commentsByIdsParams, sso, _callback);
 
     }
 
 
-    private ApiResponse<ModerationAPIChildCommentsResponse> postCommentsByIdsWithHttpInfo(@javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postCommentsByIdsValidateBeforeCall(commentsByIdsParams, sso, null);
+    private ApiResponse<ModerationAPIChildCommentsResponse> postCommentsByIdsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postCommentsByIdsValidateBeforeCall(tenantId, commentsByIdsParams, sso, null);
         Type localVarReturnType = new TypeToken<ModerationAPIChildCommentsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postCommentsByIdsAsync(@javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIChildCommentsResponse> _callback) throws ApiException {
+    private okhttp3.Call postCommentsByIdsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams, @javax.annotation.Nullable String sso, final ApiCallback<ModerationAPIChildCommentsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postCommentsByIdsValidateBeforeCall(commentsByIdsParams, sso, _callback);
+        okhttp3.Call localVarCall = postCommentsByIdsValidateBeforeCall(tenantId, commentsByIdsParams, sso, _callback);
         Type localVarReturnType = new TypeToken<ModerationAPIChildCommentsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5893,11 +6298,14 @@ public class ModerationApi {
 
     public class APIpostCommentsByIdsRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final CommentsByIdsParams commentsByIdsParams;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostCommentsByIdsRequest(@javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams) {
+        private APIpostCommentsByIdsRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams) {
+            this.tenantId = tenantId;
             this.commentsByIdsParams = commentsByIdsParams;
         }
 
@@ -5925,7 +6333,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postCommentsByIdsCall(commentsByIdsParams, sso, _callback);
+            return postCommentsByIdsCall(tenantId, commentsByIdsParams, sso, _callback);
         }
 
         /**
@@ -5941,7 +6349,7 @@ public class ModerationApi {
          </table>
          */
         public ModerationAPIChildCommentsResponse execute() throws ApiException {
-            ApiResponse<ModerationAPIChildCommentsResponse> localVarResp = postCommentsByIdsWithHttpInfo(commentsByIdsParams, sso);
+            ApiResponse<ModerationAPIChildCommentsResponse> localVarResp = postCommentsByIdsWithHttpInfo(tenantId, commentsByIdsParams, sso);
             return localVarResp.getData();
         }
 
@@ -5958,7 +6366,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<ModerationAPIChildCommentsResponse> executeWithHttpInfo() throws ApiException {
-            return postCommentsByIdsWithHttpInfo(commentsByIdsParams, sso);
+            return postCommentsByIdsWithHttpInfo(tenantId, commentsByIdsParams, sso);
         }
 
         /**
@@ -5975,13 +6383,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<ModerationAPIChildCommentsResponse> _callback) throws ApiException {
-            return postCommentsByIdsAsync(commentsByIdsParams, sso, _callback);
+            return postCommentsByIdsAsync(tenantId, commentsByIdsParams, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentsByIdsParams  (required)
      * @return APIpostCommentsByIdsRequest
      * @http.response.details
@@ -5992,10 +6401,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostCommentsByIdsRequest postCommentsByIds(@javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams) {
-        return new APIpostCommentsByIdsRequest(commentsByIdsParams);
+    public APIpostCommentsByIdsRequest postCommentsByIds(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CommentsByIdsParams commentsByIdsParams) {
+        return new APIpostCommentsByIdsRequest(tenantId, commentsByIdsParams);
     }
-    private okhttp3.Call postFlagCommentCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postFlagCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6012,7 +6421,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/flag-comment/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/flag-comment/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6020,6 +6429,14 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -6045,26 +6462,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postFlagCommentValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postFlagCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postFlagComment(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postFlagComment(Async)");
         }
 
-        return postFlagCommentCall(commentId, sso, _callback);
+        return postFlagCommentCall(tenantId, commentId, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> postFlagCommentWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postFlagCommentValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<APIEmptyResponse> postFlagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postFlagCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postFlagCommentAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call postFlagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postFlagCommentValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = postFlagCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6072,12 +6494,27 @@ public class ModerationApi {
 
     public class APIpostFlagCommentRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
+        @javax.annotation.Nullable
+        private String broadcastId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostFlagCommentRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostFlagCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostFlagCommentRequest
+         */
+        public APIpostFlagCommentRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
         }
 
         /**
@@ -6104,7 +6541,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postFlagCommentCall(commentId, sso, _callback);
+            return postFlagCommentCall(tenantId, commentId, broadcastId, sso, _callback);
         }
 
         /**
@@ -6120,7 +6557,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = postFlagCommentWithHttpInfo(commentId, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = postFlagCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -6137,7 +6574,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return postFlagCommentWithHttpInfo(commentId, sso);
+            return postFlagCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
         }
 
         /**
@@ -6154,13 +6591,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return postFlagCommentAsync(commentId, sso, _callback);
+            return postFlagCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostFlagCommentRequest
      * @http.response.details
@@ -6171,10 +6609,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostFlagCommentRequest postFlagComment(@javax.annotation.Nonnull String commentId) {
-        return new APIpostFlagCommentRequest(commentId);
+    public APIpostFlagCommentRequest postFlagComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostFlagCommentRequest(tenantId, commentId);
     }
-    private okhttp3.Call postRemoveCommentCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postRemoveCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6191,7 +6629,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/remove-comment/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/remove-comment/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6199,6 +6637,14 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -6224,39 +6670,59 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postRemoveCommentValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postRemoveCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postRemoveComment(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postRemoveComment(Async)");
         }
 
-        return postRemoveCommentCall(commentId, sso, _callback);
+        return postRemoveCommentCall(tenantId, commentId, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<PostRemoveCommentResponse> postRemoveCommentWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postRemoveCommentValidateBeforeCall(commentId, sso, null);
-        Type localVarReturnType = new TypeToken<PostRemoveCommentResponse>(){}.getType();
+    private ApiResponse<PostRemoveCommentApiResponse> postRemoveCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postRemoveCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
+        Type localVarReturnType = new TypeToken<PostRemoveCommentApiResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postRemoveCommentAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<PostRemoveCommentResponse> _callback) throws ApiException {
+    private okhttp3.Call postRemoveCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<PostRemoveCommentApiResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postRemoveCommentValidateBeforeCall(commentId, sso, _callback);
-        Type localVarReturnType = new TypeToken<PostRemoveCommentResponse>(){}.getType();
+        okhttp3.Call localVarCall = postRemoveCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
+        Type localVarReturnType = new TypeToken<PostRemoveCommentApiResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIpostRemoveCommentRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
+        @javax.annotation.Nullable
+        private String broadcastId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostRemoveCommentRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostRemoveCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostRemoveCommentRequest
+         */
+        public APIpostRemoveCommentRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
         }
 
         /**
@@ -6283,12 +6749,12 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postRemoveCommentCall(commentId, sso, _callback);
+            return postRemoveCommentCall(tenantId, commentId, broadcastId, sso, _callback);
         }
 
         /**
          * Execute postRemoveComment request
-         * @return PostRemoveCommentResponse
+         * @return PostRemoveCommentApiResponse
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -6298,14 +6764,14 @@ public class ModerationApi {
             <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public PostRemoveCommentResponse execute() throws ApiException {
-            ApiResponse<PostRemoveCommentResponse> localVarResp = postRemoveCommentWithHttpInfo(commentId, sso);
+        public PostRemoveCommentApiResponse execute() throws ApiException {
+            ApiResponse<PostRemoveCommentApiResponse> localVarResp = postRemoveCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
             return localVarResp.getData();
         }
 
         /**
          * Execute postRemoveComment request with HTTP info returned
-         * @return ApiResponse&lt;PostRemoveCommentResponse&gt;
+         * @return ApiResponse&lt;PostRemoveCommentApiResponse&gt;
          * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
          * @http.response.details
          <table border="1">
@@ -6315,8 +6781,8 @@ public class ModerationApi {
             <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public ApiResponse<PostRemoveCommentResponse> executeWithHttpInfo() throws ApiException {
-            return postRemoveCommentWithHttpInfo(commentId, sso);
+        public ApiResponse<PostRemoveCommentApiResponse> executeWithHttpInfo() throws ApiException {
+            return postRemoveCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
         }
 
         /**
@@ -6332,14 +6798,15 @@ public class ModerationApi {
             <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
          </table>
          */
-        public okhttp3.Call executeAsync(final ApiCallback<PostRemoveCommentResponse> _callback) throws ApiException {
-            return postRemoveCommentAsync(commentId, sso, _callback);
+        public okhttp3.Call executeAsync(final ApiCallback<PostRemoveCommentApiResponse> _callback) throws ApiException {
+            return postRemoveCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostRemoveCommentRequest
      * @http.response.details
@@ -6350,10 +6817,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostRemoveCommentRequest postRemoveComment(@javax.annotation.Nonnull String commentId) {
-        return new APIpostRemoveCommentRequest(commentId);
+    public APIpostRemoveCommentRequest postRemoveComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostRemoveCommentRequest(tenantId, commentId);
     }
-    private okhttp3.Call postRestoreDeletedCommentCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postRestoreDeletedCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6370,7 +6837,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/restore-deleted-comment/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/restore-deleted-comment/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6378,6 +6845,14 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -6403,26 +6878,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postRestoreDeletedCommentValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postRestoreDeletedCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postRestoreDeletedComment(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postRestoreDeletedComment(Async)");
         }
 
-        return postRestoreDeletedCommentCall(commentId, sso, _callback);
+        return postRestoreDeletedCommentCall(tenantId, commentId, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> postRestoreDeletedCommentWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postRestoreDeletedCommentValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<APIEmptyResponse> postRestoreDeletedCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postRestoreDeletedCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postRestoreDeletedCommentAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call postRestoreDeletedCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postRestoreDeletedCommentValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = postRestoreDeletedCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6430,12 +6910,27 @@ public class ModerationApi {
 
     public class APIpostRestoreDeletedCommentRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
+        @javax.annotation.Nullable
+        private String broadcastId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostRestoreDeletedCommentRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostRestoreDeletedCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostRestoreDeletedCommentRequest
+         */
+        public APIpostRestoreDeletedCommentRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
         }
 
         /**
@@ -6462,7 +6957,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postRestoreDeletedCommentCall(commentId, sso, _callback);
+            return postRestoreDeletedCommentCall(tenantId, commentId, broadcastId, sso, _callback);
         }
 
         /**
@@ -6478,7 +6973,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = postRestoreDeletedCommentWithHttpInfo(commentId, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = postRestoreDeletedCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -6495,7 +6990,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return postRestoreDeletedCommentWithHttpInfo(commentId, sso);
+            return postRestoreDeletedCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
         }
 
         /**
@@ -6512,13 +7007,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return postRestoreDeletedCommentAsync(commentId, sso, _callback);
+            return postRestoreDeletedCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostRestoreDeletedCommentRequest
      * @http.response.details
@@ -6529,10 +7025,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostRestoreDeletedCommentRequest postRestoreDeletedComment(@javax.annotation.Nonnull String commentId) {
-        return new APIpostRestoreDeletedCommentRequest(commentId);
+    public APIpostRestoreDeletedCommentRequest postRestoreDeletedComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostRestoreDeletedCommentRequest(tenantId, commentId);
     }
-    private okhttp3.Call postSetCommentApprovalStatusCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentApprovalStatusCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6549,7 +7045,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/set-comment-approval-status/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/set-comment-approval-status/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6558,8 +7054,16 @@ public class ModerationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
         if (approved != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("approved", approved));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
         }
 
         if (sso != null) {
@@ -6586,26 +7090,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postSetCommentApprovalStatusValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentApprovalStatusValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postSetCommentApprovalStatus(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postSetCommentApprovalStatus(Async)");
         }
 
-        return postSetCommentApprovalStatusCall(commentId, approved, sso, _callback);
+        return postSetCommentApprovalStatusCall(tenantId, commentId, approved, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<SetCommentApprovedResponse> postSetCommentApprovalStatusWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postSetCommentApprovalStatusValidateBeforeCall(commentId, approved, sso, null);
+    private ApiResponse<SetCommentApprovedResponse> postSetCommentApprovalStatusWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postSetCommentApprovalStatusValidateBeforeCall(tenantId, commentId, approved, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<SetCommentApprovedResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postSetCommentApprovalStatusAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String sso, final ApiCallback<SetCommentApprovedResponse> _callback) throws ApiException {
+    private okhttp3.Call postSetCommentApprovalStatusAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean approved, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<SetCommentApprovedResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postSetCommentApprovalStatusValidateBeforeCall(commentId, approved, sso, _callback);
+        okhttp3.Call localVarCall = postSetCommentApprovalStatusValidateBeforeCall(tenantId, commentId, approved, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<SetCommentApprovedResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6613,13 +7122,18 @@ public class ModerationApi {
 
     public class APIpostSetCommentApprovalStatusRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private Boolean approved;
         @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
         private String sso;
 
-        private APIpostSetCommentApprovalStatusRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostSetCommentApprovalStatusRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -6630,6 +7144,16 @@ public class ModerationApi {
          */
         public APIpostSetCommentApprovalStatusRequest approved(@javax.annotation.Nullable Boolean approved) {
             this.approved = approved;
+            return this;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostSetCommentApprovalStatusRequest
+         */
+        public APIpostSetCommentApprovalStatusRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
             return this;
         }
 
@@ -6657,7 +7181,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postSetCommentApprovalStatusCall(commentId, approved, sso, _callback);
+            return postSetCommentApprovalStatusCall(tenantId, commentId, approved, broadcastId, sso, _callback);
         }
 
         /**
@@ -6673,7 +7197,7 @@ public class ModerationApi {
          </table>
          */
         public SetCommentApprovedResponse execute() throws ApiException {
-            ApiResponse<SetCommentApprovedResponse> localVarResp = postSetCommentApprovalStatusWithHttpInfo(commentId, approved, sso);
+            ApiResponse<SetCommentApprovedResponse> localVarResp = postSetCommentApprovalStatusWithHttpInfo(tenantId, commentId, approved, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -6690,7 +7214,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<SetCommentApprovedResponse> executeWithHttpInfo() throws ApiException {
-            return postSetCommentApprovalStatusWithHttpInfo(commentId, approved, sso);
+            return postSetCommentApprovalStatusWithHttpInfo(tenantId, commentId, approved, broadcastId, sso);
         }
 
         /**
@@ -6707,13 +7231,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<SetCommentApprovedResponse> _callback) throws ApiException {
-            return postSetCommentApprovalStatusAsync(commentId, approved, sso, _callback);
+            return postSetCommentApprovalStatusAsync(tenantId, commentId, approved, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostSetCommentApprovalStatusRequest
      * @http.response.details
@@ -6724,10 +7249,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostSetCommentApprovalStatusRequest postSetCommentApprovalStatus(@javax.annotation.Nonnull String commentId) {
-        return new APIpostSetCommentApprovalStatusRequest(commentId);
+    public APIpostSetCommentApprovalStatusRequest postSetCommentApprovalStatus(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostSetCommentApprovalStatusRequest(tenantId, commentId);
     }
-    private okhttp3.Call postSetCommentReviewStatusCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentReviewStatusCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6744,7 +7269,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/set-comment-review-status/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/set-comment-review-status/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6753,8 +7278,16 @@ public class ModerationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
         if (reviewed != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("reviewed", reviewed));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
         }
 
         if (sso != null) {
@@ -6781,26 +7314,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postSetCommentReviewStatusValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentReviewStatusValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postSetCommentReviewStatus(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postSetCommentReviewStatus(Async)");
         }
 
-        return postSetCommentReviewStatusCall(commentId, reviewed, sso, _callback);
+        return postSetCommentReviewStatusCall(tenantId, commentId, reviewed, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> postSetCommentReviewStatusWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postSetCommentReviewStatusValidateBeforeCall(commentId, reviewed, sso, null);
+    private ApiResponse<APIEmptyResponse> postSetCommentReviewStatusWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postSetCommentReviewStatusValidateBeforeCall(tenantId, commentId, reviewed, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postSetCommentReviewStatusAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call postSetCommentReviewStatusAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean reviewed, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postSetCommentReviewStatusValidateBeforeCall(commentId, reviewed, sso, _callback);
+        okhttp3.Call localVarCall = postSetCommentReviewStatusValidateBeforeCall(tenantId, commentId, reviewed, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6808,13 +7346,18 @@ public class ModerationApi {
 
     public class APIpostSetCommentReviewStatusRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private Boolean reviewed;
         @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
         private String sso;
 
-        private APIpostSetCommentReviewStatusRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostSetCommentReviewStatusRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -6825,6 +7368,16 @@ public class ModerationApi {
          */
         public APIpostSetCommentReviewStatusRequest reviewed(@javax.annotation.Nullable Boolean reviewed) {
             this.reviewed = reviewed;
+            return this;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostSetCommentReviewStatusRequest
+         */
+        public APIpostSetCommentReviewStatusRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
             return this;
         }
 
@@ -6852,7 +7405,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postSetCommentReviewStatusCall(commentId, reviewed, sso, _callback);
+            return postSetCommentReviewStatusCall(tenantId, commentId, reviewed, broadcastId, sso, _callback);
         }
 
         /**
@@ -6868,7 +7421,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = postSetCommentReviewStatusWithHttpInfo(commentId, reviewed, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = postSetCommentReviewStatusWithHttpInfo(tenantId, commentId, reviewed, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -6885,7 +7438,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return postSetCommentReviewStatusWithHttpInfo(commentId, reviewed, sso);
+            return postSetCommentReviewStatusWithHttpInfo(tenantId, commentId, reviewed, broadcastId, sso);
         }
 
         /**
@@ -6902,13 +7455,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return postSetCommentReviewStatusAsync(commentId, reviewed, sso, _callback);
+            return postSetCommentReviewStatusAsync(tenantId, commentId, reviewed, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostSetCommentReviewStatusRequest
      * @http.response.details
@@ -6919,10 +7473,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostSetCommentReviewStatusRequest postSetCommentReviewStatus(@javax.annotation.Nonnull String commentId) {
-        return new APIpostSetCommentReviewStatusRequest(commentId);
+    public APIpostSetCommentReviewStatusRequest postSetCommentReviewStatus(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostSetCommentReviewStatusRequest(tenantId, commentId);
     }
-    private okhttp3.Call postSetCommentSpamStatusCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentSpamStatusCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6939,7 +7493,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/set-comment-spam-status/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/set-comment-spam-status/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -6948,12 +7502,20 @@ public class ModerationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
         if (spam != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("spam", spam));
         }
 
         if (permNotSpam != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("permNotSpam", permNotSpam));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
         }
 
         if (sso != null) {
@@ -6980,26 +7542,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postSetCommentSpamStatusValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentSpamStatusValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postSetCommentSpamStatus(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postSetCommentSpamStatus(Async)");
         }
 
-        return postSetCommentSpamStatusCall(commentId, spam, permNotSpam, sso, _callback);
+        return postSetCommentSpamStatusCall(tenantId, commentId, spam, permNotSpam, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> postSetCommentSpamStatusWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postSetCommentSpamStatusValidateBeforeCall(commentId, spam, permNotSpam, sso, null);
+    private ApiResponse<APIEmptyResponse> postSetCommentSpamStatusWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postSetCommentSpamStatusValidateBeforeCall(tenantId, commentId, spam, permNotSpam, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postSetCommentSpamStatusAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call postSetCommentSpamStatusAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable Boolean spam, @javax.annotation.Nullable Boolean permNotSpam, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postSetCommentSpamStatusValidateBeforeCall(commentId, spam, permNotSpam, sso, _callback);
+        okhttp3.Call localVarCall = postSetCommentSpamStatusValidateBeforeCall(tenantId, commentId, spam, permNotSpam, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7007,15 +7574,20 @@ public class ModerationApi {
 
     public class APIpostSetCommentSpamStatusRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private Boolean spam;
         @javax.annotation.Nullable
         private Boolean permNotSpam;
         @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
         private String sso;
 
-        private APIpostSetCommentSpamStatusRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostSetCommentSpamStatusRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -7036,6 +7608,16 @@ public class ModerationApi {
          */
         public APIpostSetCommentSpamStatusRequest permNotSpam(@javax.annotation.Nullable Boolean permNotSpam) {
             this.permNotSpam = permNotSpam;
+            return this;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostSetCommentSpamStatusRequest
+         */
+        public APIpostSetCommentSpamStatusRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
             return this;
         }
 
@@ -7063,7 +7645,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postSetCommentSpamStatusCall(commentId, spam, permNotSpam, sso, _callback);
+            return postSetCommentSpamStatusCall(tenantId, commentId, spam, permNotSpam, broadcastId, sso, _callback);
         }
 
         /**
@@ -7079,7 +7661,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = postSetCommentSpamStatusWithHttpInfo(commentId, spam, permNotSpam, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = postSetCommentSpamStatusWithHttpInfo(tenantId, commentId, spam, permNotSpam, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -7096,7 +7678,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return postSetCommentSpamStatusWithHttpInfo(commentId, spam, permNotSpam, sso);
+            return postSetCommentSpamStatusWithHttpInfo(tenantId, commentId, spam, permNotSpam, broadcastId, sso);
         }
 
         /**
@@ -7113,13 +7695,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return postSetCommentSpamStatusAsync(commentId, spam, permNotSpam, sso, _callback);
+            return postSetCommentSpamStatusAsync(tenantId, commentId, spam, permNotSpam, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostSetCommentSpamStatusRequest
      * @http.response.details
@@ -7130,10 +7713,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostSetCommentSpamStatusRequest postSetCommentSpamStatus(@javax.annotation.Nonnull String commentId) {
-        return new APIpostSetCommentSpamStatusRequest(commentId);
+    public APIpostSetCommentSpamStatusRequest postSetCommentSpamStatus(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostSetCommentSpamStatusRequest(tenantId, commentId);
     }
-    private okhttp3.Call postSetCommentTextCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentTextCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7150,7 +7733,7 @@ public class ModerationApi {
         Object localVarPostBody = setCommentTextParams;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/set-comment-text/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/set-comment-text/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7158,6 +7741,14 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -7184,7 +7775,12 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postSetCommentTextValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postSetCommentTextValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postSetCommentText(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postSetCommentText(Async)");
@@ -7195,20 +7791,20 @@ public class ModerationApi {
             throw new ApiException("Missing the required parameter 'setCommentTextParams' when calling postSetCommentText(Async)");
         }
 
-        return postSetCommentTextCall(commentId, setCommentTextParams, sso, _callback);
+        return postSetCommentTextCall(tenantId, commentId, setCommentTextParams, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<SetCommentTextResponse> postSetCommentTextWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postSetCommentTextValidateBeforeCall(commentId, setCommentTextParams, sso, null);
+    private ApiResponse<SetCommentTextResponse> postSetCommentTextWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postSetCommentTextValidateBeforeCall(tenantId, commentId, setCommentTextParams, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<SetCommentTextResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postSetCommentTextAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String sso, final ApiCallback<SetCommentTextResponse> _callback) throws ApiException {
+    private okhttp3.Call postSetCommentTextAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<SetCommentTextResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postSetCommentTextValidateBeforeCall(commentId, setCommentTextParams, sso, _callback);
+        okhttp3.Call localVarCall = postSetCommentTextValidateBeforeCall(tenantId, commentId, setCommentTextParams, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<SetCommentTextResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7216,15 +7812,30 @@ public class ModerationApi {
 
     public class APIpostSetCommentTextRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nonnull
         private final SetCommentTextParams setCommentTextParams;
         @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
         private String sso;
 
-        private APIpostSetCommentTextRequest(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams) {
+        private APIpostSetCommentTextRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
             this.setCommentTextParams = setCommentTextParams;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostSetCommentTextRequest
+         */
+        public APIpostSetCommentTextRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
         }
 
         /**
@@ -7251,7 +7862,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postSetCommentTextCall(commentId, setCommentTextParams, sso, _callback);
+            return postSetCommentTextCall(tenantId, commentId, setCommentTextParams, broadcastId, sso, _callback);
         }
 
         /**
@@ -7267,7 +7878,7 @@ public class ModerationApi {
          </table>
          */
         public SetCommentTextResponse execute() throws ApiException {
-            ApiResponse<SetCommentTextResponse> localVarResp = postSetCommentTextWithHttpInfo(commentId, setCommentTextParams, sso);
+            ApiResponse<SetCommentTextResponse> localVarResp = postSetCommentTextWithHttpInfo(tenantId, commentId, setCommentTextParams, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -7284,7 +7895,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<SetCommentTextResponse> executeWithHttpInfo() throws ApiException {
-            return postSetCommentTextWithHttpInfo(commentId, setCommentTextParams, sso);
+            return postSetCommentTextWithHttpInfo(tenantId, commentId, setCommentTextParams, broadcastId, sso);
         }
 
         /**
@@ -7301,13 +7912,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<SetCommentTextResponse> _callback) throws ApiException {
-            return postSetCommentTextAsync(commentId, setCommentTextParams, sso, _callback);
+            return postSetCommentTextAsync(tenantId, commentId, setCommentTextParams, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @param setCommentTextParams  (required)
      * @return APIpostSetCommentTextRequest
@@ -7319,10 +7931,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostSetCommentTextRequest postSetCommentText(@javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams) {
-        return new APIpostSetCommentTextRequest(commentId, setCommentTextParams);
+    public APIpostSetCommentTextRequest postSetCommentText(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull SetCommentTextParams setCommentTextParams) {
+        return new APIpostSetCommentTextRequest(tenantId, commentId, setCommentTextParams);
     }
-    private okhttp3.Call postUnFlagCommentCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postUnFlagCommentCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7339,7 +7951,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/un-flag-comment/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/un-flag-comment/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7347,6 +7959,14 @@ public class ModerationApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
 
         if (sso != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
@@ -7372,26 +7992,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postUnFlagCommentValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postUnFlagCommentValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postUnFlagComment(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postUnFlagComment(Async)");
         }
 
-        return postUnFlagCommentCall(commentId, sso, _callback);
+        return postUnFlagCommentCall(tenantId, commentId, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> postUnFlagCommentWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postUnFlagCommentValidateBeforeCall(commentId, sso, null);
+    private ApiResponse<APIEmptyResponse> postUnFlagCommentWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postUnFlagCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postUnFlagCommentAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call postUnFlagCommentAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postUnFlagCommentValidateBeforeCall(commentId, sso, _callback);
+        okhttp3.Call localVarCall = postUnFlagCommentValidateBeforeCall(tenantId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7399,12 +8024,27 @@ public class ModerationApi {
 
     public class APIpostUnFlagCommentRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
+        @javax.annotation.Nullable
+        private String broadcastId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIpostUnFlagCommentRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostUnFlagCommentRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostUnFlagCommentRequest
+         */
+        public APIpostUnFlagCommentRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
         }
 
         /**
@@ -7431,7 +8071,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postUnFlagCommentCall(commentId, sso, _callback);
+            return postUnFlagCommentCall(tenantId, commentId, broadcastId, sso, _callback);
         }
 
         /**
@@ -7447,7 +8087,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = postUnFlagCommentWithHttpInfo(commentId, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = postUnFlagCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -7464,7 +8104,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return postUnFlagCommentWithHttpInfo(commentId, sso);
+            return postUnFlagCommentWithHttpInfo(tenantId, commentId, broadcastId, sso);
         }
 
         /**
@@ -7481,13 +8121,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return postUnFlagCommentAsync(commentId, sso, _callback);
+            return postUnFlagCommentAsync(tenantId, commentId, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostUnFlagCommentRequest
      * @http.response.details
@@ -7498,10 +8139,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostUnFlagCommentRequest postUnFlagComment(@javax.annotation.Nonnull String commentId) {
-        return new APIpostUnFlagCommentRequest(commentId);
+    public APIpostUnFlagCommentRequest postUnFlagComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostUnFlagCommentRequest(tenantId, commentId);
     }
-    private okhttp3.Call postVoteCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postVoteCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7518,7 +8159,7 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/vote/{commentId}"
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/vote/{commentId}"
             .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -7527,8 +8168,16 @@ public class ModerationApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
+
         if (direction != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("direction", direction));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
         }
 
         if (sso != null) {
@@ -7555,26 +8204,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call postVoteValidateBeforeCall(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call postVoteValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling postVote(Async)");
+        }
+
         // verify the required parameter 'commentId' is set
         if (commentId == null) {
             throw new ApiException("Missing the required parameter 'commentId' when calling postVote(Async)");
         }
 
-        return postVoteCall(commentId, direction, sso, _callback);
+        return postVoteCall(tenantId, commentId, direction, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<VoteResponse> postVoteWithHttpInfo(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = postVoteValidateBeforeCall(commentId, direction, sso, null);
+    private ApiResponse<VoteResponse> postVoteWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = postVoteValidateBeforeCall(tenantId, commentId, direction, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<VoteResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call postVoteAsync(@javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String sso, final ApiCallback<VoteResponse> _callback) throws ApiException {
+    private okhttp3.Call postVoteAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String direction, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<VoteResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = postVoteValidateBeforeCall(commentId, direction, sso, _callback);
+        okhttp3.Call localVarCall = postVoteValidateBeforeCall(tenantId, commentId, direction, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<VoteResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7582,13 +8236,18 @@ public class ModerationApi {
 
     public class APIpostVoteRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String commentId;
         @javax.annotation.Nullable
         private String direction;
         @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
         private String sso;
 
-        private APIpostVoteRequest(@javax.annotation.Nonnull String commentId) {
+        private APIpostVoteRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
             this.commentId = commentId;
         }
 
@@ -7599,6 +8258,16 @@ public class ModerationApi {
          */
         public APIpostVoteRequest direction(@javax.annotation.Nullable String direction) {
             this.direction = direction;
+            return this;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIpostVoteRequest
+         */
+        public APIpostVoteRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
             return this;
         }
 
@@ -7626,7 +8295,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return postVoteCall(commentId, direction, sso, _callback);
+            return postVoteCall(tenantId, commentId, direction, broadcastId, sso, _callback);
         }
 
         /**
@@ -7642,7 +8311,7 @@ public class ModerationApi {
          </table>
          */
         public VoteResponse execute() throws ApiException {
-            ApiResponse<VoteResponse> localVarResp = postVoteWithHttpInfo(commentId, direction, sso);
+            ApiResponse<VoteResponse> localVarResp = postVoteWithHttpInfo(tenantId, commentId, direction, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -7659,7 +8328,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<VoteResponse> executeWithHttpInfo() throws ApiException {
-            return postVoteWithHttpInfo(commentId, direction, sso);
+            return postVoteWithHttpInfo(tenantId, commentId, direction, broadcastId, sso);
         }
 
         /**
@@ -7676,13 +8345,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<VoteResponse> _callback) throws ApiException {
-            return postVoteAsync(commentId, direction, sso, _callback);
+            return postVoteAsync(tenantId, commentId, direction, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param commentId  (required)
      * @return APIpostVoteRequest
      * @http.response.details
@@ -7693,10 +8363,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpostVoteRequest postVote(@javax.annotation.Nonnull String commentId) {
-        return new APIpostVoteRequest(commentId);
+    public APIpostVoteRequest postVote(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIpostVoteRequest(tenantId, commentId);
     }
-    private okhttp3.Call putAwardBadgeCall(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putAwardBadgeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7713,13 +8383,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/award-badge";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/award-badge";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (badgeId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("badgeId", badgeId));
@@ -7761,32 +8435,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putAwardBadgeValidateBeforeCall(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putAwardBadgeValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling putAwardBadge(Async)");
+        }
+
         // verify the required parameter 'badgeId' is set
         if (badgeId == null) {
             throw new ApiException("Missing the required parameter 'badgeId' when calling putAwardBadge(Async)");
         }
 
-        return putAwardBadgeCall(badgeId, userId, commentId, broadcastId, sso, _callback);
+        return putAwardBadgeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<AwardUserBadgeResponse> putAwardBadgeWithHttpInfo(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = putAwardBadgeValidateBeforeCall(badgeId, userId, commentId, broadcastId, sso, null);
+    private ApiResponse<AwardUserBadgeResponse> putAwardBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = putAwardBadgeValidateBeforeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<AwardUserBadgeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call putAwardBadgeAsync(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<AwardUserBadgeResponse> _callback) throws ApiException {
+    private okhttp3.Call putAwardBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<AwardUserBadgeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putAwardBadgeValidateBeforeCall(badgeId, userId, commentId, broadcastId, sso, _callback);
+        okhttp3.Call localVarCall = putAwardBadgeValidateBeforeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<AwardUserBadgeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIputAwardBadgeRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nonnull
         private final String badgeId;
         @javax.annotation.Nullable
@@ -7798,7 +8479,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIputAwardBadgeRequest(@javax.annotation.Nonnull String badgeId) {
+        private APIputAwardBadgeRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId) {
+            this.tenantId = tenantId;
             this.badgeId = badgeId;
         }
 
@@ -7856,7 +8538,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return putAwardBadgeCall(badgeId, userId, commentId, broadcastId, sso, _callback);
+            return putAwardBadgeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
         }
 
         /**
@@ -7872,7 +8554,7 @@ public class ModerationApi {
          </table>
          */
         public AwardUserBadgeResponse execute() throws ApiException {
-            ApiResponse<AwardUserBadgeResponse> localVarResp = putAwardBadgeWithHttpInfo(badgeId, userId, commentId, broadcastId, sso);
+            ApiResponse<AwardUserBadgeResponse> localVarResp = putAwardBadgeWithHttpInfo(tenantId, badgeId, userId, commentId, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -7889,7 +8571,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<AwardUserBadgeResponse> executeWithHttpInfo() throws ApiException {
-            return putAwardBadgeWithHttpInfo(badgeId, userId, commentId, broadcastId, sso);
+            return putAwardBadgeWithHttpInfo(tenantId, badgeId, userId, commentId, broadcastId, sso);
         }
 
         /**
@@ -7906,13 +8588,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<AwardUserBadgeResponse> _callback) throws ApiException {
-            return putAwardBadgeAsync(badgeId, userId, commentId, broadcastId, sso, _callback);
+            return putAwardBadgeAsync(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param badgeId  (required)
      * @return APIputAwardBadgeRequest
      * @http.response.details
@@ -7923,10 +8606,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIputAwardBadgeRequest putAwardBadge(@javax.annotation.Nonnull String badgeId) {
-        return new APIputAwardBadgeRequest(badgeId);
+    public APIputAwardBadgeRequest putAwardBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId) {
+        return new APIputAwardBadgeRequest(tenantId, badgeId);
     }
-    private okhttp3.Call putCloseThreadCall(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putCloseThreadCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7943,13 +8626,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/close-thread";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/close-thread";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (urlId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
@@ -7979,26 +8666,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putCloseThreadValidateBeforeCall(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putCloseThreadValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling putCloseThread(Async)");
+        }
+
         // verify the required parameter 'urlId' is set
         if (urlId == null) {
             throw new ApiException("Missing the required parameter 'urlId' when calling putCloseThread(Async)");
         }
 
-        return putCloseThreadCall(urlId, sso, _callback);
+        return putCloseThreadCall(tenantId, urlId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> putCloseThreadWithHttpInfo(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = putCloseThreadValidateBeforeCall(urlId, sso, null);
+    private ApiResponse<APIEmptyResponse> putCloseThreadWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = putCloseThreadValidateBeforeCall(tenantId, urlId, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call putCloseThreadAsync(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call putCloseThreadAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putCloseThreadValidateBeforeCall(urlId, sso, _callback);
+        okhttp3.Call localVarCall = putCloseThreadValidateBeforeCall(tenantId, urlId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8006,11 +8698,14 @@ public class ModerationApi {
 
     public class APIputCloseThreadRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String urlId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIputCloseThreadRequest(@javax.annotation.Nonnull String urlId) {
+        private APIputCloseThreadRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
+            this.tenantId = tenantId;
             this.urlId = urlId;
         }
 
@@ -8038,7 +8733,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return putCloseThreadCall(urlId, sso, _callback);
+            return putCloseThreadCall(tenantId, urlId, sso, _callback);
         }
 
         /**
@@ -8054,7 +8749,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = putCloseThreadWithHttpInfo(urlId, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = putCloseThreadWithHttpInfo(tenantId, urlId, sso);
             return localVarResp.getData();
         }
 
@@ -8071,7 +8766,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return putCloseThreadWithHttpInfo(urlId, sso);
+            return putCloseThreadWithHttpInfo(tenantId, urlId, sso);
         }
 
         /**
@@ -8088,13 +8783,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return putCloseThreadAsync(urlId, sso, _callback);
+            return putCloseThreadAsync(tenantId, urlId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param urlId  (required)
      * @return APIputCloseThreadRequest
      * @http.response.details
@@ -8105,10 +8801,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIputCloseThreadRequest putCloseThread(@javax.annotation.Nonnull String urlId) {
-        return new APIputCloseThreadRequest(urlId);
+    public APIputCloseThreadRequest putCloseThread(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
+        return new APIputCloseThreadRequest(tenantId, urlId);
     }
-    private okhttp3.Call putRemoveBadgeCall(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putRemoveBadgeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8125,13 +8821,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/remove-badge";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/remove-badge";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (badgeId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("badgeId", badgeId));
@@ -8173,32 +8873,39 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putRemoveBadgeValidateBeforeCall(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putRemoveBadgeValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling putRemoveBadge(Async)");
+        }
+
         // verify the required parameter 'badgeId' is set
         if (badgeId == null) {
             throw new ApiException("Missing the required parameter 'badgeId' when calling putRemoveBadge(Async)");
         }
 
-        return putRemoveBadgeCall(badgeId, userId, commentId, broadcastId, sso, _callback);
+        return putRemoveBadgeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
 
     }
 
 
-    private ApiResponse<RemoveUserBadgeResponse> putRemoveBadgeWithHttpInfo(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = putRemoveBadgeValidateBeforeCall(badgeId, userId, commentId, broadcastId, sso, null);
+    private ApiResponse<RemoveUserBadgeResponse> putRemoveBadgeWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = putRemoveBadgeValidateBeforeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, null);
         Type localVarReturnType = new TypeToken<RemoveUserBadgeResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call putRemoveBadgeAsync(@javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<RemoveUserBadgeResponse> _callback) throws ApiException {
+    private okhttp3.Call putRemoveBadgeAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String commentId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<RemoveUserBadgeResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putRemoveBadgeValidateBeforeCall(badgeId, userId, commentId, broadcastId, sso, _callback);
+        okhttp3.Call localVarCall = putRemoveBadgeValidateBeforeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
         Type localVarReturnType = new TypeToken<RemoveUserBadgeResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIputRemoveBadgeRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nonnull
         private final String badgeId;
         @javax.annotation.Nullable
@@ -8210,7 +8917,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIputRemoveBadgeRequest(@javax.annotation.Nonnull String badgeId) {
+        private APIputRemoveBadgeRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId) {
+            this.tenantId = tenantId;
             this.badgeId = badgeId;
         }
 
@@ -8268,7 +8976,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return putRemoveBadgeCall(badgeId, userId, commentId, broadcastId, sso, _callback);
+            return putRemoveBadgeCall(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
         }
 
         /**
@@ -8284,7 +8992,7 @@ public class ModerationApi {
          </table>
          */
         public RemoveUserBadgeResponse execute() throws ApiException {
-            ApiResponse<RemoveUserBadgeResponse> localVarResp = putRemoveBadgeWithHttpInfo(badgeId, userId, commentId, broadcastId, sso);
+            ApiResponse<RemoveUserBadgeResponse> localVarResp = putRemoveBadgeWithHttpInfo(tenantId, badgeId, userId, commentId, broadcastId, sso);
             return localVarResp.getData();
         }
 
@@ -8301,7 +9009,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<RemoveUserBadgeResponse> executeWithHttpInfo() throws ApiException {
-            return putRemoveBadgeWithHttpInfo(badgeId, userId, commentId, broadcastId, sso);
+            return putRemoveBadgeWithHttpInfo(tenantId, badgeId, userId, commentId, broadcastId, sso);
         }
 
         /**
@@ -8318,13 +9026,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<RemoveUserBadgeResponse> _callback) throws ApiException {
-            return putRemoveBadgeAsync(badgeId, userId, commentId, broadcastId, sso, _callback);
+            return putRemoveBadgeAsync(tenantId, badgeId, userId, commentId, broadcastId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param badgeId  (required)
      * @return APIputRemoveBadgeRequest
      * @http.response.details
@@ -8335,10 +9044,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIputRemoveBadgeRequest putRemoveBadge(@javax.annotation.Nonnull String badgeId) {
-        return new APIputRemoveBadgeRequest(badgeId);
+    public APIputRemoveBadgeRequest putRemoveBadge(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String badgeId) {
+        return new APIputRemoveBadgeRequest(tenantId, badgeId);
     }
-    private okhttp3.Call putReopenThreadCall(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putReopenThreadCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8355,13 +9064,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/reopen-thread";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/reopen-thread";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (urlId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
@@ -8391,26 +9104,31 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call putReopenThreadValidateBeforeCall(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call putReopenThreadValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling putReopenThread(Async)");
+        }
+
         // verify the required parameter 'urlId' is set
         if (urlId == null) {
             throw new ApiException("Missing the required parameter 'urlId' when calling putReopenThread(Async)");
         }
 
-        return putReopenThreadCall(urlId, sso, _callback);
+        return putReopenThreadCall(tenantId, urlId, sso, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> putReopenThreadWithHttpInfo(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = putReopenThreadValidateBeforeCall(urlId, sso, null);
+    private ApiResponse<APIEmptyResponse> putReopenThreadWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = putReopenThreadValidateBeforeCall(tenantId, urlId, sso, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call putReopenThreadAsync(@javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call putReopenThreadAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = putReopenThreadValidateBeforeCall(urlId, sso, _callback);
+        okhttp3.Call localVarCall = putReopenThreadValidateBeforeCall(tenantId, urlId, sso, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8418,11 +9136,14 @@ public class ModerationApi {
 
     public class APIputReopenThreadRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String urlId;
         @javax.annotation.Nullable
         private String sso;
 
-        private APIputReopenThreadRequest(@javax.annotation.Nonnull String urlId) {
+        private APIputReopenThreadRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
+            this.tenantId = tenantId;
             this.urlId = urlId;
         }
 
@@ -8450,7 +9171,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return putReopenThreadCall(urlId, sso, _callback);
+            return putReopenThreadCall(tenantId, urlId, sso, _callback);
         }
 
         /**
@@ -8466,7 +9187,7 @@ public class ModerationApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = putReopenThreadWithHttpInfo(urlId, sso);
+            ApiResponse<APIEmptyResponse> localVarResp = putReopenThreadWithHttpInfo(tenantId, urlId, sso);
             return localVarResp.getData();
         }
 
@@ -8483,7 +9204,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return putReopenThreadWithHttpInfo(urlId, sso);
+            return putReopenThreadWithHttpInfo(tenantId, urlId, sso);
         }
 
         /**
@@ -8500,13 +9221,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return putReopenThreadAsync(urlId, sso, _callback);
+            return putReopenThreadAsync(tenantId, urlId, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param urlId  (required)
      * @return APIputReopenThreadRequest
      * @http.response.details
@@ -8517,10 +9239,10 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIputReopenThreadRequest putReopenThread(@javax.annotation.Nonnull String urlId) {
-        return new APIputReopenThreadRequest(urlId);
+    public APIputReopenThreadRequest putReopenThread(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
+        return new APIputReopenThreadRequest(tenantId, urlId);
     }
-    private okhttp3.Call setTrustFactorCall(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call setTrustFactorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -8537,13 +9259,17 @@ public class ModerationApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/auth/my-account/moderate-comments/set-trust-factor";
+        String localVarPath = "/auth/my-account/moderate-comments/mod_api/set-trust-factor";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenantId", tenantId));
+        }
 
         if (userId != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("userId", userId));
@@ -8577,27 +9303,34 @@ public class ModerationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call setTrustFactorValidateBeforeCall(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
-        return setTrustFactorCall(userId, trustFactor, sso, _callback);
+    private okhttp3.Call setTrustFactorValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling setTrustFactor(Async)");
+        }
+
+        return setTrustFactorCall(tenantId, userId, trustFactor, sso, _callback);
 
     }
 
 
-    private ApiResponse<SetUserTrustFactorResponse> setTrustFactorWithHttpInfo(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = setTrustFactorValidateBeforeCall(userId, trustFactor, sso, null);
+    private ApiResponse<SetUserTrustFactorResponse> setTrustFactorWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = setTrustFactorValidateBeforeCall(tenantId, userId, trustFactor, sso, null);
         Type localVarReturnType = new TypeToken<SetUserTrustFactorResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call setTrustFactorAsync(@javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso, final ApiCallback<SetUserTrustFactorResponse> _callback) throws ApiException {
+    private okhttp3.Call setTrustFactorAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String trustFactor, @javax.annotation.Nullable String sso, final ApiCallback<SetUserTrustFactorResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = setTrustFactorValidateBeforeCall(userId, trustFactor, sso, _callback);
+        okhttp3.Call localVarCall = setTrustFactorValidateBeforeCall(tenantId, userId, trustFactor, sso, _callback);
         Type localVarReturnType = new TypeToken<SetUserTrustFactorResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     public class APIsetTrustFactorRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private String userId;
         @javax.annotation.Nullable
@@ -8605,7 +9338,8 @@ public class ModerationApi {
         @javax.annotation.Nullable
         private String sso;
 
-        private APIsetTrustFactorRequest() {
+        private APIsetTrustFactorRequest(@javax.annotation.Nonnull String tenantId) {
+            this.tenantId = tenantId;
         }
 
         /**
@@ -8652,7 +9386,7 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return setTrustFactorCall(userId, trustFactor, sso, _callback);
+            return setTrustFactorCall(tenantId, userId, trustFactor, sso, _callback);
         }
 
         /**
@@ -8668,7 +9402,7 @@ public class ModerationApi {
          </table>
          */
         public SetUserTrustFactorResponse execute() throws ApiException {
-            ApiResponse<SetUserTrustFactorResponse> localVarResp = setTrustFactorWithHttpInfo(userId, trustFactor, sso);
+            ApiResponse<SetUserTrustFactorResponse> localVarResp = setTrustFactorWithHttpInfo(tenantId, userId, trustFactor, sso);
             return localVarResp.getData();
         }
 
@@ -8685,7 +9419,7 @@ public class ModerationApi {
          </table>
          */
         public ApiResponse<SetUserTrustFactorResponse> executeWithHttpInfo() throws ApiException {
-            return setTrustFactorWithHttpInfo(userId, trustFactor, sso);
+            return setTrustFactorWithHttpInfo(tenantId, userId, trustFactor, sso);
         }
 
         /**
@@ -8702,13 +9436,14 @@ public class ModerationApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<SetUserTrustFactorResponse> _callback) throws ApiException {
-            return setTrustFactorAsync(userId, trustFactor, sso, _callback);
+            return setTrustFactorAsync(tenantId, userId, trustFactor, sso, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIsetTrustFactorRequest
      * @http.response.details
      <table border="1">
@@ -8718,7 +9453,7 @@ public class ModerationApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIsetTrustFactorRequest setTrustFactor() {
-        return new APIsetTrustFactorRequest();
+    public APIsetTrustFactorRequest setTrustFactor(@javax.annotation.Nonnull String tenantId) {
+        return new APIsetTrustFactorRequest(tenantId);
     }
 }
