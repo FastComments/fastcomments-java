@@ -193,7 +193,7 @@ public class Example {
 
 <a id="addHashTag"></a>
 # **addHashTag**
-> CreateHashTagResponse addHashTag().tenantId(tenantId).createHashTagBody(createHashTagBody).execute();
+> CreateHashTagResponse addHashTag(tenantId).createHashTagBody(createHashTagBody).execute();
 
 
 
@@ -222,8 +222,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     CreateHashTagBody createHashTagBody = new CreateHashTagBody(); // CreateHashTagBody | 
     try {
-      CreateHashTagResponse result = apiInstance.addHashTag()
-            .tenantId(tenantId)
+      CreateHashTagResponse result = apiInstance.addHashTag(tenantId)
             .createHashTagBody(createHashTagBody)
             .execute();
       System.out.println(result);
@@ -242,7 +241,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | |
 | **createHashTagBody** | [**CreateHashTagBody**](CreateHashTagBody.md)|  | [optional] |
 
 ### Return type
@@ -266,7 +265,7 @@ public class Example {
 
 <a id="addHashTagsBulk"></a>
 # **addHashTagsBulk**
-> BulkCreateHashTagsResponse addHashTagsBulk().tenantId(tenantId).bulkCreateHashTagsBody(bulkCreateHashTagsBody).execute();
+> BulkCreateHashTagsResponse addHashTagsBulk(tenantId).bulkCreateHashTagsBody(bulkCreateHashTagsBody).execute();
 
 
 
@@ -295,8 +294,7 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     BulkCreateHashTagsBody bulkCreateHashTagsBody = new BulkCreateHashTagsBody(); // BulkCreateHashTagsBody | 
     try {
-      BulkCreateHashTagsResponse result = apiInstance.addHashTagsBulk()
-            .tenantId(tenantId)
+      BulkCreateHashTagsResponse result = apiInstance.addHashTagsBulk(tenantId)
             .bulkCreateHashTagsBody(bulkCreateHashTagsBody)
             .execute();
       System.out.println(result);
@@ -315,7 +313,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**|  | [optional] |
+| **tenantId** | **String**|  | |
 | **bulkCreateHashTagsBody** | [**BulkCreateHashTagsBody**](BulkCreateHashTagsBody.md)|  | [optional] |
 
 ### Return type
@@ -2129,7 +2127,7 @@ public class Example {
 
 <a id="deleteHashTag"></a>
 # **deleteHashTag**
-> APIEmptyResponse deleteHashTag(tag).tenantId(tenantId).deleteHashTagRequestBody(deleteHashTagRequestBody).execute();
+> APIEmptyResponse deleteHashTag(tenantId, tag).deleteHashTagRequestBody(deleteHashTagRequestBody).execute();
 
 
 
@@ -2155,12 +2153,11 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String tag = "tag_example"; // String | 
     String tenantId = "tenantId_example"; // String | 
+    String tag = "tag_example"; // String | 
     DeleteHashTagRequestBody deleteHashTagRequestBody = new DeleteHashTagRequestBody(); // DeleteHashTagRequestBody | 
     try {
-      APIEmptyResponse result = apiInstance.deleteHashTag(tag)
-            .tenantId(tenantId)
+      APIEmptyResponse result = apiInstance.deleteHashTag(tenantId, tag)
             .deleteHashTagRequestBody(deleteHashTagRequestBody)
             .execute();
       System.out.println(result);
@@ -2179,8 +2176,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **tag** | **String**|  | |
-| **tenantId** | **String**|  | [optional] |
 | **deleteHashTagRequestBody** | [**DeleteHashTagRequestBody**](DeleteHashTagRequestBody.md)|  | [optional] |
 
 ### Return type
@@ -6693,7 +6690,7 @@ public class Example {
 
 <a id="patchHashTag"></a>
 # **patchHashTag**
-> UpdateHashTagResponse patchHashTag(tag).tenantId(tenantId).updateHashTagBody(updateHashTagBody).execute();
+> UpdateHashTagResponse patchHashTag(tenantId, tag).updateHashTagBody(updateHashTagBody).execute();
 
 
 
@@ -6719,12 +6716,11 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String tag = "tag_example"; // String | 
     String tenantId = "tenantId_example"; // String | 
+    String tag = "tag_example"; // String | 
     UpdateHashTagBody updateHashTagBody = new UpdateHashTagBody(); // UpdateHashTagBody | 
     try {
-      UpdateHashTagResponse result = apiInstance.patchHashTag(tag)
-            .tenantId(tenantId)
+      UpdateHashTagResponse result = apiInstance.patchHashTag(tenantId, tag)
             .updateHashTagBody(updateHashTagBody)
             .execute();
       System.out.println(result);
@@ -6743,8 +6739,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
 | **tag** | **String**|  | |
-| **tenantId** | **String**|  | [optional] |
 | **updateHashTagBody** | [**UpdateHashTagBody**](UpdateHashTagBody.md)|  | [optional] |
 
 ### Return type

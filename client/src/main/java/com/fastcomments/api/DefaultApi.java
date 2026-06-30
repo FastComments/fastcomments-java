@@ -377,7 +377,7 @@ public class DefaultApi {
     public APIaddDomainConfigRequest addDomainConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull AddDomainConfigParams addDomainConfigParams) {
         return new APIaddDomainConfigRequest(tenantId, addDomainConfigParams);
     }
-    private okhttp3.Call addHashTagCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -427,19 +427,24 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addHashTagValidateBeforeCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling addHashTag(Async)");
+        }
+
         return addHashTagCall(tenantId, createHashTagBody, _callback);
 
     }
 
 
-    private ApiResponse<CreateHashTagResponse> addHashTagWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody) throws ApiException {
+    private ApiResponse<CreateHashTagResponse> addHashTagWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody) throws ApiException {
         okhttp3.Call localVarCall = addHashTagValidateBeforeCall(tenantId, createHashTagBody, null);
         Type localVarReturnType = new TypeToken<CreateHashTagResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addHashTagAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback<CreateHashTagResponse> _callback) throws ApiException {
+    private okhttp3.Call addHashTagAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable CreateHashTagBody createHashTagBody, final ApiCallback<CreateHashTagResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addHashTagValidateBeforeCall(tenantId, createHashTagBody, _callback);
         Type localVarReturnType = new TypeToken<CreateHashTagResponse>(){}.getType();
@@ -448,22 +453,13 @@ public class DefaultApi {
     }
 
     public class APIaddHashTagRequest {
-        @javax.annotation.Nullable
-        private String tenantId;
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private CreateHashTagBody createHashTagBody;
 
-        private APIaddHashTagRequest() {
-        }
-
-        /**
-         * Set tenantId
-         * @param tenantId  (optional)
-         * @return APIaddHashTagRequest
-         */
-        public APIaddHashTagRequest tenantId(@javax.annotation.Nullable String tenantId) {
+        private APIaddHashTagRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
-            return this;
         }
 
         /**
@@ -547,6 +543,7 @@ public class DefaultApi {
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIaddHashTagRequest
      * @http.response.details
      <table border="1">
@@ -556,10 +553,10 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIaddHashTagRequest addHashTag() {
-        return new APIaddHashTagRequest();
+    public APIaddHashTagRequest addHashTag(@javax.annotation.Nonnull String tenantId) {
+        return new APIaddHashTagRequest(tenantId);
     }
-    private okhttp3.Call addHashTagsBulkCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagsBulkCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -609,19 +606,24 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call addHashTagsBulkValidateBeforeCall(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call addHashTagsBulkValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling addHashTagsBulk(Async)");
+        }
+
         return addHashTagsBulkCall(tenantId, bulkCreateHashTagsBody, _callback);
 
     }
 
 
-    private ApiResponse<BulkCreateHashTagsResponse> addHashTagsBulkWithHttpInfo(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody) throws ApiException {
+    private ApiResponse<BulkCreateHashTagsResponse> addHashTagsBulkWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody) throws ApiException {
         okhttp3.Call localVarCall = addHashTagsBulkValidateBeforeCall(tenantId, bulkCreateHashTagsBody, null);
         Type localVarReturnType = new TypeToken<BulkCreateHashTagsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call addHashTagsBulkAsync(@javax.annotation.Nullable String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback<BulkCreateHashTagsResponse> _callback) throws ApiException {
+    private okhttp3.Call addHashTagsBulkAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nullable BulkCreateHashTagsBody bulkCreateHashTagsBody, final ApiCallback<BulkCreateHashTagsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = addHashTagsBulkValidateBeforeCall(tenantId, bulkCreateHashTagsBody, _callback);
         Type localVarReturnType = new TypeToken<BulkCreateHashTagsResponse>(){}.getType();
@@ -630,22 +632,13 @@ public class DefaultApi {
     }
 
     public class APIaddHashTagsBulkRequest {
-        @javax.annotation.Nullable
-        private String tenantId;
+        @javax.annotation.Nonnull
+        private final String tenantId;
         @javax.annotation.Nullable
         private BulkCreateHashTagsBody bulkCreateHashTagsBody;
 
-        private APIaddHashTagsBulkRequest() {
-        }
-
-        /**
-         * Set tenantId
-         * @param tenantId  (optional)
-         * @return APIaddHashTagsBulkRequest
-         */
-        public APIaddHashTagsBulkRequest tenantId(@javax.annotation.Nullable String tenantId) {
+        private APIaddHashTagsBulkRequest(@javax.annotation.Nonnull String tenantId) {
             this.tenantId = tenantId;
-            return this;
         }
 
         /**
@@ -729,6 +722,7 @@ public class DefaultApi {
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @return APIaddHashTagsBulkRequest
      * @http.response.details
      <table border="1">
@@ -738,8 +732,8 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIaddHashTagsBulkRequest addHashTagsBulk() {
-        return new APIaddHashTagsBulkRequest();
+    public APIaddHashTagsBulkRequest addHashTagsBulk(@javax.annotation.Nonnull String tenantId) {
+        return new APIaddHashTagsBulkRequest(tenantId);
     }
     private okhttp3.Call addPageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateAPIPageData createAPIPageData, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -5424,7 +5418,7 @@ public class DefaultApi {
     public APIdeleteEmailTemplateRenderErrorRequest deleteEmailTemplateRenderError(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull String errorId) {
         return new APIdeleteEmailTemplateRenderErrorRequest(tenantId, id, errorId);
     }
-    private okhttp3.Call deleteHashTagCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5475,26 +5469,31 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteHashTagValidateBeforeCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling deleteHashTag(Async)");
+        }
+
         // verify the required parameter 'tag' is set
         if (tag == null) {
             throw new ApiException("Missing the required parameter 'tag' when calling deleteHashTag(Async)");
         }
 
-        return deleteHashTagCall(tag, tenantId, deleteHashTagRequestBody, _callback);
+        return deleteHashTagCall(tenantId, tag, deleteHashTagRequestBody, _callback);
 
     }
 
 
-    private ApiResponse<APIEmptyResponse> deleteHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequestBody, null);
+    private ApiResponse<APIEmptyResponse> deleteHashTagWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tenantId, tag, deleteHashTagRequestBody, null);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
+    private okhttp3.Call deleteHashTagAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable DeleteHashTagRequestBody deleteHashTagRequestBody, final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tag, tenantId, deleteHashTagRequestBody, _callback);
+        okhttp3.Call localVarCall = deleteHashTagValidateBeforeCall(tenantId, tag, deleteHashTagRequestBody, _callback);
         Type localVarReturnType = new TypeToken<APIEmptyResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5502,24 +5501,15 @@ public class DefaultApi {
 
     public class APIdeleteHashTagRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String tag;
-        @javax.annotation.Nullable
-        private String tenantId;
         @javax.annotation.Nullable
         private DeleteHashTagRequestBody deleteHashTagRequestBody;
 
-        private APIdeleteHashTagRequest(@javax.annotation.Nonnull String tag) {
-            this.tag = tag;
-        }
-
-        /**
-         * Set tenantId
-         * @param tenantId  (optional)
-         * @return APIdeleteHashTagRequest
-         */
-        public APIdeleteHashTagRequest tenantId(@javax.annotation.Nullable String tenantId) {
+        private APIdeleteHashTagRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag) {
             this.tenantId = tenantId;
-            return this;
+            this.tag = tag;
         }
 
         /**
@@ -5546,7 +5536,7 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteHashTagCall(tag, tenantId, deleteHashTagRequestBody, _callback);
+            return deleteHashTagCall(tenantId, tag, deleteHashTagRequestBody, _callback);
         }
 
         /**
@@ -5562,7 +5552,7 @@ public class DefaultApi {
          </table>
          */
         public APIEmptyResponse execute() throws ApiException {
-            ApiResponse<APIEmptyResponse> localVarResp = deleteHashTagWithHttpInfo(tag, tenantId, deleteHashTagRequestBody);
+            ApiResponse<APIEmptyResponse> localVarResp = deleteHashTagWithHttpInfo(tenantId, tag, deleteHashTagRequestBody);
             return localVarResp.getData();
         }
 
@@ -5579,7 +5569,7 @@ public class DefaultApi {
          </table>
          */
         public ApiResponse<APIEmptyResponse> executeWithHttpInfo() throws ApiException {
-            return deleteHashTagWithHttpInfo(tag, tenantId, deleteHashTagRequestBody);
+            return deleteHashTagWithHttpInfo(tenantId, tag, deleteHashTagRequestBody);
         }
 
         /**
@@ -5596,13 +5586,14 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<APIEmptyResponse> _callback) throws ApiException {
-            return deleteHashTagAsync(tag, tenantId, deleteHashTagRequestBody, _callback);
+            return deleteHashTagAsync(tenantId, tag, deleteHashTagRequestBody, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param tag  (required)
      * @return APIdeleteHashTagRequest
      * @http.response.details
@@ -5613,8 +5604,8 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIdeleteHashTagRequest deleteHashTag(@javax.annotation.Nonnull String tag) {
-        return new APIdeleteHashTagRequest(tag);
+    public APIdeleteHashTagRequest deleteHashTag(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag) {
+        return new APIdeleteHashTagRequest(tenantId, tag);
     }
     private okhttp3.Call deleteModeratorCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sendEmail, final ApiCallback _callback) throws ApiException {
         String basePath = null;
@@ -17415,7 +17406,7 @@ public class DefaultApi {
     public APIpatchDomainConfigRequest patchDomainConfig(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String domainToUpdate, @javax.annotation.Nonnull PatchDomainConfigParams patchDomainConfigParams) {
         return new APIpatchDomainConfigRequest(tenantId, domainToUpdate, patchDomainConfigParams);
     }
-    private okhttp3.Call patchHashTagCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchHashTagCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -17466,26 +17457,31 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchHashTagValidateBeforeCall(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchHashTagValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling patchHashTag(Async)");
+        }
+
         // verify the required parameter 'tag' is set
         if (tag == null) {
             throw new ApiException("Missing the required parameter 'tag' when calling patchHashTag(Async)");
         }
 
-        return patchHashTagCall(tag, tenantId, updateHashTagBody, _callback);
+        return patchHashTagCall(tenantId, tag, updateHashTagBody, _callback);
 
     }
 
 
-    private ApiResponse<UpdateHashTagResponse> patchHashTagWithHttpInfo(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody) throws ApiException {
-        okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tag, tenantId, updateHashTagBody, null);
+    private ApiResponse<UpdateHashTagResponse> patchHashTagWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody) throws ApiException {
+        okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tenantId, tag, updateHashTagBody, null);
         Type localVarReturnType = new TypeToken<UpdateHashTagResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchHashTagAsync(@javax.annotation.Nonnull String tag, @javax.annotation.Nullable String tenantId, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback<UpdateHashTagResponse> _callback) throws ApiException {
+    private okhttp3.Call patchHashTagAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag, @javax.annotation.Nullable UpdateHashTagBody updateHashTagBody, final ApiCallback<UpdateHashTagResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tag, tenantId, updateHashTagBody, _callback);
+        okhttp3.Call localVarCall = patchHashTagValidateBeforeCall(tenantId, tag, updateHashTagBody, _callback);
         Type localVarReturnType = new TypeToken<UpdateHashTagResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -17493,24 +17489,15 @@ public class DefaultApi {
 
     public class APIpatchHashTagRequest {
         @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
         private final String tag;
-        @javax.annotation.Nullable
-        private String tenantId;
         @javax.annotation.Nullable
         private UpdateHashTagBody updateHashTagBody;
 
-        private APIpatchHashTagRequest(@javax.annotation.Nonnull String tag) {
-            this.tag = tag;
-        }
-
-        /**
-         * Set tenantId
-         * @param tenantId  (optional)
-         * @return APIpatchHashTagRequest
-         */
-        public APIpatchHashTagRequest tenantId(@javax.annotation.Nullable String tenantId) {
+        private APIpatchHashTagRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag) {
             this.tenantId = tenantId;
-            return this;
+            this.tag = tag;
         }
 
         /**
@@ -17537,7 +17524,7 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return patchHashTagCall(tag, tenantId, updateHashTagBody, _callback);
+            return patchHashTagCall(tenantId, tag, updateHashTagBody, _callback);
         }
 
         /**
@@ -17553,7 +17540,7 @@ public class DefaultApi {
          </table>
          */
         public UpdateHashTagResponse execute() throws ApiException {
-            ApiResponse<UpdateHashTagResponse> localVarResp = patchHashTagWithHttpInfo(tag, tenantId, updateHashTagBody);
+            ApiResponse<UpdateHashTagResponse> localVarResp = patchHashTagWithHttpInfo(tenantId, tag, updateHashTagBody);
             return localVarResp.getData();
         }
 
@@ -17570,7 +17557,7 @@ public class DefaultApi {
          </table>
          */
         public ApiResponse<UpdateHashTagResponse> executeWithHttpInfo() throws ApiException {
-            return patchHashTagWithHttpInfo(tag, tenantId, updateHashTagBody);
+            return patchHashTagWithHttpInfo(tenantId, tag, updateHashTagBody);
         }
 
         /**
@@ -17587,13 +17574,14 @@ public class DefaultApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<UpdateHashTagResponse> _callback) throws ApiException {
-            return patchHashTagAsync(tag, tenantId, updateHashTagBody, _callback);
+            return patchHashTagAsync(tenantId, tag, updateHashTagBody, _callback);
         }
     }
 
     /**
      * 
      * 
+     * @param tenantId  (required)
      * @param tag  (required)
      * @return APIpatchHashTagRequest
      * @http.response.details
@@ -17604,8 +17592,8 @@ public class DefaultApi {
         <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
      </table>
      */
-    public APIpatchHashTagRequest patchHashTag(@javax.annotation.Nonnull String tag) {
-        return new APIpatchHashTagRequest(tag);
+    public APIpatchHashTagRequest patchHashTag(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String tag) {
+        return new APIpatchHashTagRequest(tenantId, tag);
     }
     private okhttp3.Call patchPageCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String id, @javax.annotation.Nonnull UpdateAPIPageData updateAPIPageData, final ApiCallback _callback) throws ApiException {
         String basePath = null;

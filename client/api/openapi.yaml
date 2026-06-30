@@ -1218,10 +1218,17 @@ paths:
       - Public
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/count:
+  /auth/my-account/moderate-comments/mod_api/count:
     get:
-      operationId: GetCount
+      operationId: getCount
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: text-search
@@ -1259,13 +1266,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -1289,10 +1289,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/api/ids:
+  /auth/my-account/moderate-comments/mod_api/api/ids:
     get:
-      operationId: GetApiIds
+      operationId: getApiIds
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: text-search
@@ -1337,13 +1344,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -1367,10 +1367,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/api/comments:
+  /auth/my-account/moderate-comments/mod_api/api/comments:
     get:
-      operationId: GetApiComments
+      operationId: getApiComments
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: page
@@ -1431,13 +1438,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -1461,10 +1461,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/api/export:
+  /auth/my-account/moderate-comments/mod_api/api/export:
     post:
-      operationId: PostApiExport
+      operationId: postApiExport
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: text-search
@@ -1502,13 +1509,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -1532,20 +1532,20 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/api/export/status:
+  /auth/my-account/moderate-comments/mod_api/api/export/status:
     get:
-      operationId: GetApiExportStatus
+      operationId: getApiExportStatus
       parameters:
       - explode: true
         in: query
-        name: batchJobId
-        required: false
+        name: tenantId
+        required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: batchJobId
         required: false
         schema:
           type: string
@@ -1575,20 +1575,20 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/search/users:
+  /auth/my-account/moderate-comments/mod_api/search/users:
     get:
-      operationId: GetSearchUsers
+      operationId: getSearchUsers
       parameters:
       - explode: true
         in: query
-        name: value
-        required: false
+        name: tenantId
+        required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: value
         required: false
         schema:
           type: string
@@ -1618,20 +1618,20 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/search/pages:
+  /auth/my-account/moderate-comments/mod_api/search/pages:
     get:
-      operationId: GetSearchPages
+      operationId: getSearchPages
       parameters:
       - explode: true
         in: query
-        name: value
-        required: false
+        name: tenantId
+        required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: value
         required: false
         schema:
           type: string
@@ -1661,20 +1661,20 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/search/sites:
+  /auth/my-account/moderate-comments/mod_api/search/sites:
     get:
-      operationId: GetSearchSites
+      operationId: getSearchSites
       parameters:
       - explode: true
         in: query
-        name: value
-        required: false
+        name: tenantId
+        required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: value
         required: false
         schema:
           type: string
@@ -1704,10 +1704,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/search/comments/summary:
+  /auth/my-account/moderate-comments/mod_api/search/comments/summary:
     get:
-      operationId: GetSearchCommentsSummary
+      operationId: getSearchCommentsSummary
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: value
@@ -1725,13 +1732,6 @@ paths:
       - explode: true
         in: query
         name: searchFilters
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -1761,20 +1761,20 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/search/suggest:
+  /auth/my-account/moderate-comments/mod_api/search/suggest:
     get:
-      operationId: GetSearchSuggest
+      operationId: getSearchSuggest
       parameters:
       - explode: true
         in: query
-        name: text-search
-        required: false
+        name: tenantId
+        required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: text-search
         required: false
         schema:
           type: string
@@ -1804,10 +1804,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/pre-ban-summary/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/pre-ban-summary/{commentId}:
     get:
-      operationId: GetPreBanSummary
+      operationId: getPreBanSummary
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -1838,13 +1845,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -1868,10 +1868,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/bulk-pre-ban-summary:
+  /auth/my-account/moderate-comments/mod_api/bulk-pre-ban-summary:
     post:
-      operationId: PostBulkPreBanSummary
+      operationId: postBulkPreBanSummary
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: includeByUserIdAndEmail
@@ -1892,13 +1899,6 @@ paths:
         required: false
         schema:
           type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
         style: form
       - explode: true
         in: query
@@ -1932,10 +1932,17 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/ban-user/from-comment/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/ban-user/from-comment/{commentId}:
     post:
-      operationId: PostBanUserFromComment
+      operationId: postBanUserFromComment
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2001,13 +2008,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -2031,10 +2031,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/ban-users/from-comment/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/ban-users/from-comment/{commentId}:
     get:
-      operationId: GetBanUsersFromComment
+      operationId: getBanUsersFromComment
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2042,13 +2049,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: sso
@@ -2074,14 +2074,14 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/ban-user/undo:
+  /auth/my-account/moderate-comments/mod_api/ban-user/undo:
     post:
-      operationId: PostBanUserUndo
+      operationId: postBanUserUndo
       parameters:
       - explode: true
         in: query
         name: tenantId
-        required: false
+        required: true
         schema:
           type: string
         style: form
@@ -2117,10 +2117,17 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/remove-comment/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/remove-comment/{commentId}:
     post:
-      operationId: PostRemoveComment
+      operationId: postRemoveComment
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2131,13 +2138,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2154,7 +2154,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/PostRemoveCommentResponse"
+                $ref: "#/components/schemas/PostRemoveCommentApiResponse"
           description: Ok
         default:
           content:
@@ -2167,10 +2167,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/restore-deleted-comment/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/restore-deleted-comment/{commentId}:
     post:
-      operationId: PostRestoreDeletedComment
+      operationId: postRestoreDeletedComment
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2181,63 +2188,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: sso
-        required: false
-        schema:
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/APIEmptyResponse"
-          description: Ok
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/APIError"
-          description: Error
-      security: []
-      tags:
-      - Moderation
-      x-accepts:
-      - application/json
-  /auth/my-account/moderate-comments/flag-comment/{commentId}:
-    post:
-      operationId: PostFlagComment
-      parameters:
-      - explode: false
-        in: path
-        name: commentId
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2267,10 +2217,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/un-flag-comment/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/flag-comment/{commentId}:
     post:
-      operationId: PostUnFlagComment
+      operationId: postFlagComment
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2281,13 +2238,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2317,10 +2267,67 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/set-comment-review-status/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/un-flag-comment/{commentId}:
     post:
-      operationId: PostSetCommentReviewStatus
+      operationId: postUnFlagComment
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIEmptyResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security: []
+      tags:
+      - Moderation
+      x-accepts:
+      - application/json
+  /auth/my-account/moderate-comments/mod_api/set-comment-review-status/{commentId}:
+    post:
+      operationId: postSetCommentReviewStatus
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2344,13 +2351,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -2374,10 +2374,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/set-comment-spam-status/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/set-comment-spam-status/{commentId}:
     post:
-      operationId: PostSetCommentSpamStatus
+      operationId: postSetCommentSpamStatus
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2408,13 +2415,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -2438,10 +2438,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/set-comment-approval-status/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/set-comment-approval-status/{commentId}:
     post:
-      operationId: PostSetCommentApprovalStatus
+      operationId: postSetCommentApprovalStatus
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2459,13 +2466,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2495,10 +2495,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/logs/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/logs/{commentId}:
     get:
-      operationId: GetLogs
+      operationId: getLogs
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2506,13 +2513,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: sso
@@ -2538,10 +2538,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/comment/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/comment/{commentId}:
     get:
-      operationId: GetModerationComment
+      operationId: getModerationComment
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2562,13 +2569,6 @@ paths:
         required: false
         schema:
           type: boolean
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
         style: form
       - explode: true
         in: query
@@ -2595,14 +2595,14 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/comments-by-ids:
+  /auth/my-account/moderate-comments/mod_api/comments-by-ids:
     post:
-      operationId: PostCommentsByIds
+      operationId: postCommentsByIds
       parameters:
       - explode: true
         in: query
         name: tenantId
-        required: false
+        required: true
         schema:
           type: string
         style: form
@@ -2638,10 +2638,17 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/comment-children/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/comment-children/{commentId}:
     get:
-      operationId: GetCommentChildren
+      operationId: getCommentChildren
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2649,13 +2656,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: sso
@@ -2681,10 +2681,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/get-comment-text/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/get-comment-text/{commentId}:
     get:
-      operationId: GetModerationCommentText
+      operationId: getModerationCommentText
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2692,13 +2699,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: sso
@@ -2724,10 +2724,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/set-comment-text/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/set-comment-text/{commentId}:
     post:
-      operationId: PostSetCommentText
+      operationId: postSetCommentText
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2738,13 +2745,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2781,10 +2781,17 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/adjust-comment-votes/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/adjust-comment-votes/{commentId}:
     post:
-      operationId: PostAdjustCommentVotes
+      operationId: postAdjustCommentVotes
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2795,13 +2802,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2838,10 +2838,17 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/vote/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/vote/{commentId}:
     post:
-      operationId: PostVote
+      operationId: postVote
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2859,13 +2866,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2895,10 +2895,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/vote/{commentId}/{voteId}:
+  /auth/my-account/moderate-comments/mod_api/vote/{commentId}/{voteId}:
     delete:
-      operationId: DeleteModerationVote
+      operationId: deleteModerationVote
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2916,13 +2923,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -2952,10 +2952,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/get-comment-ban-status/{commentId}:
+  /auth/my-account/moderate-comments/mod_api/get-comment-ban-status/{commentId}:
     get:
-      operationId: GetCommentBanStatus
+      operationId: getCommentBanStatus
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: commentId
@@ -2963,13 +2970,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
       - explode: true
         in: query
         name: sso
@@ -2995,14 +2995,14 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/user-ban-preference:
+  /auth/my-account/moderate-comments/mod_api/user-ban-preference:
     get:
-      operationId: GetUserBanPreference
+      operationId: getUserBanPreference
       parameters:
       - explode: true
         in: query
         name: tenantId
-        required: false
+        required: true
         schema:
           type: string
         style: form
@@ -3031,14 +3031,14 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/get-manual-badges:
+  /auth/my-account/moderate-comments/mod_api/get-manual-badges:
     get:
-      operationId: GetManualBadges
+      operationId: getManualBadges
       parameters:
       - explode: true
         in: query
         name: tenantId
-        required: false
+        required: true
         schema:
           type: string
         style: form
@@ -3067,10 +3067,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/get-manual-badges-for-user:
+  /auth/my-account/moderate-comments/mod_api/get-manual-badges-for-user:
     get:
-      operationId: GetManualBadgesForUser
+      operationId: getManualBadgesForUser
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: badgesUserId
@@ -3081,13 +3088,6 @@ paths:
       - explode: true
         in: query
         name: commentId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -3117,10 +3117,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/award-badge:
+  /auth/my-account/moderate-comments/mod_api/award-badge:
     put:
-      operationId: PutAwardBadge
+      operationId: putAwardBadge
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: badgeId
@@ -3145,13 +3152,6 @@ paths:
       - explode: true
         in: query
         name: broadcastId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -3181,10 +3181,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/remove-badge:
+  /auth/my-account/moderate-comments/mod_api/remove-badge:
     put:
-      operationId: PutRemoveBadge
+      operationId: putRemoveBadge
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: badgeId
@@ -3215,13 +3222,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: sso
         required: false
         schema:
@@ -3245,20 +3245,20 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/get-trust-factor:
+  /auth/my-account/moderate-comments/mod_api/get-trust-factor:
     get:
-      operationId: GetTrustFactor
+      operationId: getTrustFactor
       parameters:
       - explode: true
         in: query
-        name: userId
-        required: false
+        name: tenantId
+        required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: userId
         required: false
         schema:
           type: string
@@ -3288,10 +3288,17 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/set-trust-factor:
+  /auth/my-account/moderate-comments/mod_api/set-trust-factor:
     put:
-      operationId: SetTrustFactor
+      operationId: setTrustFactor
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: true
         in: query
         name: userId
@@ -3302,13 +3309,6 @@ paths:
       - explode: true
         in: query
         name: trustFactor
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: tenantId
         required: false
         schema:
           type: string
@@ -3338,20 +3338,20 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/get-user-internal-profile:
+  /auth/my-account/moderate-comments/mod_api/get-user-internal-profile:
     get:
-      operationId: GetUserInternalProfile
+      operationId: getUserInternalProfile
       parameters:
       - explode: true
         in: query
-        name: commentId
-        required: false
+        name: tenantId
+        required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
+        name: commentId
         required: false
         schema:
           type: string
@@ -3381,21 +3381,21 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/reopen-thread:
+  /auth/my-account/moderate-comments/mod_api/reopen-thread:
     put:
-      operationId: PutReopenThread
+      operationId: putReopenThread
       parameters:
       - explode: true
         in: query
-        name: urlId
+        name: tenantId
         required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
+        name: urlId
+        required: true
         schema:
           type: string
         style: form
@@ -3424,21 +3424,21 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/close-thread:
+  /auth/my-account/moderate-comments/mod_api/close-thread:
     put:
-      operationId: PutCloseThread
+      operationId: putCloseThread
       parameters:
       - explode: true
         in: query
-        name: urlId
+        name: tenantId
         required: true
         schema:
           type: string
         style: form
       - explode: true
         in: query
-        name: tenantId
-        required: false
+        name: urlId
+        required: true
         schema:
           type: string
         style: form
@@ -3467,14 +3467,14 @@ paths:
       - Moderation
       x-accepts:
       - application/json
-  /auth/my-account/moderate-comments/banned-users/counts:
+  /auth/my-account/moderate-comments/banned-users/mod_api/counts:
     get:
-      operationId: GetCounts
+      operationId: getCounts
       parameters:
       - explode: true
         in: query
         name: tenantId
-        required: false
+        required: true
         schema:
           type: string
         style: form
@@ -8654,7 +8654,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: false
+        required: true
         schema:
           type: string
         style: form
@@ -8689,7 +8689,7 @@ paths:
       - explode: true
         in: query
         name: tenantId
-        required: false
+        required: true
         schema:
           type: string
         style: form
@@ -8721,6 +8721,13 @@ paths:
     delete:
       operationId: DeleteHashTag
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: tag
@@ -8728,13 +8735,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
           application/json:
@@ -8762,6 +8762,13 @@ paths:
     patch:
       operationId: PatchHashTag
       parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
       - explode: false
         in: path
         name: tag
@@ -8769,13 +8776,6 @@ paths:
         schema:
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: tenantId
-        required: false
-        schema:
-          type: string
-        style: form
       requestBody:
         content:
           application/json:
@@ -25927,11 +25927,11 @@ components:
       required:
       - file
       type: object
-    PostRemoveCommentResponse:
+    PostRemoveCommentApiResponse:
       anyOf:
       - $ref: "#/components/schemas/DeleteCommentResult"
       - $ref: "#/components/schemas/RemoveCommentActionResponse"
-      title: PostRemoveCommentResponse
+      title: PostRemoveCommentApiResponse
     GetGifsTrendingResponse:
       anyOf:
       - $ref: "#/components/schemas/GifSearchResponse"

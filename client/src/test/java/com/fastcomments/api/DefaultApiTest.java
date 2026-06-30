@@ -184,8 +184,7 @@ public class DefaultApiTest {
     public void addHashTagTest() throws ApiException {
         String tenantId = null;
         CreateHashTagBody createHashTagBody = null;
-        CreateHashTagResponse response = api.addHashTag()
-                .tenantId(tenantId)
+        CreateHashTagResponse response = api.addHashTag(tenantId)
                 .createHashTagBody(createHashTagBody)
                 .execute();
         // TODO: test validations
@@ -198,8 +197,7 @@ public class DefaultApiTest {
     public void addHashTagsBulkTest() throws ApiException {
         String tenantId = null;
         BulkCreateHashTagsBody bulkCreateHashTagsBody = null;
-        BulkCreateHashTagsResponse response = api.addHashTagsBulk()
-                .tenantId(tenantId)
+        BulkCreateHashTagsResponse response = api.addHashTagsBulk(tenantId)
                 .bulkCreateHashTagsBody(bulkCreateHashTagsBody)
                 .execute();
         // TODO: test validations
@@ -558,11 +556,10 @@ public class DefaultApiTest {
      */
     @Test
     public void deleteHashTagTest() throws ApiException {
-        String tag = null;
         String tenantId = null;
+        String tag = null;
         DeleteHashTagRequestBody deleteHashTagRequestBody = null;
-        APIEmptyResponse response = api.deleteHashTag(tag)
-                .tenantId(tenantId)
+        APIEmptyResponse response = api.deleteHashTag(tenantId, tag)
                 .deleteHashTagRequestBody(deleteHashTagRequestBody)
                 .execute();
         // TODO: test validations
@@ -1462,11 +1459,10 @@ public class DefaultApiTest {
      */
     @Test
     public void patchHashTagTest() throws ApiException {
-        String tag = null;
         String tenantId = null;
+        String tag = null;
         UpdateHashTagBody updateHashTagBody = null;
-        UpdateHashTagResponse response = api.patchHashTag(tag)
-                .tenantId(tenantId)
+        UpdateHashTagResponse response = api.patchHashTag(tenantId, tag)
                 .updateHashTagBody(updateHashTagBody)
                 .execute();
         // TODO: test validations
