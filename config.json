@@ -1,7 +1,7 @@
 {
   "groupId": "com.fastcomments",
   "artifactId": "client",
-  "artifactVersion": "3.0.0",
+  "artifactVersion": "3.0.1",
   "packageName": "com.fastcomments",
   "apiPackage": "com.fastcomments.api",
   "modelPackage": "com.fastcomments.model",
