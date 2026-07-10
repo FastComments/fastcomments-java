@@ -202,7 +202,7 @@ public class LiveEventSubscriber {
 
             // Fetch missed events if we have a last event time
             if (lastEventTime > 0) {
-                fetchEventLog(tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
+                fetchEventLog(config.region, tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
                         events -> processEvents(events, canSeeCommentsCallback, handleLiveEvent));
             }
 
@@ -253,7 +253,7 @@ public class LiveEventSubscriber {
 
             // Fetch missed events if we have a last event time
             if (lastEventTime > 0) {
-                fetchEventLog(tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
+                fetchEventLog(config.region, tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
                         events -> processEvents(events, canSeeCommentsCallback, handleLiveEvent));
             }
         }
@@ -323,6 +323,7 @@ public class LiveEventSubscriber {
      * Fetch event log from API using PublicApi client
      */
     private static void fetchEventLog(
+            String region,
             String tenantId,
             String urlId,
             String userIdWS,
@@ -331,8 +332,13 @@ public class LiveEventSubscriber {
             Consumer<List<LiveEvent>> callback
     ) {
         try {
-            // Create PublicApi instance with its own HTTP client
-            PublicApi publicApi = new PublicApi(new ApiClient(httpClient));
+            // Create PublicApi instance with its own HTTP client, pointed at the region's host
+            // so the "fetch missed events" fallback queries EU infra for EU tenants instead of US.
+            ApiClient apiClient = new ApiClient(httpClient);
+            if (Objects.equals(region, "eu")) {
+                apiClient.setBasePath("https://eu.fastcomments.com");
+            }
+            PublicApi publicApi = new PublicApi(apiClient);
 
             // Create API request
             PublicApi.APIgetEventLogRequest request =
