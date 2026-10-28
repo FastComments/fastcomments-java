@@ -4,6 +4,8 @@ import com.fastcomments.core.callbacks.*;
 import com.fastcomments.core.sso.FastCommentsSSO;
 import com.fastcomments.model.CustomConfigParameters;
 import com.fastcomments.model.GifRating;
+import com.fastcomments.model.PollCreationMode;
+import com.fastcomments.model.PollVotingMode;
 import com.fastcomments.model.SortDirections;
 
 import java.util.List;
@@ -350,6 +352,16 @@ public class CommentWidgetConfig {
      * Enables a search box to search for comments on the current page.
      */
     public Boolean enableSearch;
+    /**
+     * Who may attach a poll to a comment. NUMBER_0 (disabled), NUMBER_1 (admins and moderators only), NUMBER_2 (everyone).
+     * Null means polls are disabled.
+     */
+    public PollCreationMode pollCreation;
+    /**
+     * Who may vote on polls. NUMBER_0 (logged in users only), NUMBER_1 (anyone, including anonymous users).
+     * Null means logged in users only.
+     */
+    public PollVotingMode pollVoting;
 
     /**
      * Basic construction of the widget configuration - we need your account (tenant) and page/article id (urlId).
@@ -523,6 +535,12 @@ public class CommentWidgetConfig {
         }
         if (parameters.getEnableSearch() != null && enableSearch == null) {
             enableSearch = parameters.getEnableSearch();
+        }
+        if (parameters.getPollCreation() != null && pollCreation == null) {
+            pollCreation = parameters.getPollCreation();
+        }
+        if (parameters.getPollVoting() != null && pollVoting == null) {
+            pollVoting = parameters.getPollVoting();
         }
     }
 }
