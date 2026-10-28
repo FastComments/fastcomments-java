@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.CommentPoll;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -183,6 +184,11 @@ public class PublicComment {
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
   @javax.annotation.Nullable
   private List<String> feedbackIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_POLL = "poll";
+  @SerializedName(SERIALIZED_NAME_POLL)
+  @javax.annotation.Nullable
+  private CommentPoll poll;
 
   public static final String SERIALIZED_NAME_REQUIRES_VERIFICATION = "requiresVerification";
   @SerializedName(SERIALIZED_NAME_REQUIRES_VERIFICATION)
@@ -767,6 +773,25 @@ public class PublicComment {
   }
 
 
+  public PublicComment poll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+    return this;
+  }
+
+  /**
+   * Get poll
+   * @return poll
+   */
+  @javax.annotation.Nullable
+  public CommentPoll getPoll() {
+    return poll;
+  }
+
+  public void setPoll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+  }
+
+
   public PublicComment requiresVerification(@javax.annotation.Nullable Boolean requiresVerification) {
     this.requiresVerification = requiresVerification;
     return this;
@@ -1129,6 +1154,7 @@ public class PublicComment {
         Objects.equals(this.isSpam, publicComment.isSpam) &&
         Objects.equals(this.anonUserId, publicComment.anonUserId) &&
         Objects.equals(this.feedbackIds, publicComment.feedbackIds) &&
+        Objects.equals(this.poll, publicComment.poll) &&
         Objects.equals(this.requiresVerification, publicComment.requiresVerification) &&
         Objects.equals(this.editKey, publicComment.editKey) &&
         Objects.equals(this.approved, publicComment.approved) &&
@@ -1148,7 +1174,7 @@ public class PublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, commenterName, commenterLink, commentHTML, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, requiresVerification, editKey, approved, isUnread, myPollVotes, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked, additionalProperties);
+    return Objects.hash(id, userId, commenterName, commenterLink, commentHTML, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, poll, requiresVerification, editKey, approved, isUnread, myPollVotes, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked, additionalProperties);
   }
 
   @Override
@@ -1181,6 +1207,7 @@ public class PublicComment {
     sb.append("    isSpam: ").append(toIndentedString(isSpam)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
+    sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("    requiresVerification: ").append(toIndentedString(requiresVerification)).append("\n");
     sb.append("    editKey: ").append(toIndentedString(editKey)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
@@ -1214,7 +1241,7 @@ public class PublicComment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "commenterName", "commenterLink", "commentHTML", "parentId", "date", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "requiresVerification", "editKey", "approved", "isUnread", "myPollVotes", "myVoteId", "isVotedDown", "isVotedUp", "hasChildren", "nestedChildrenCount", "childCount", "children", "isFlagged", "isBlocked"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "commenterName", "commenterLink", "commentHTML", "parentId", "date", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "poll", "requiresVerification", "editKey", "approved", "isUnread", "myPollVotes", "myVoteId", "isVotedDown", "isVotedUp", "hasChildren", "nestedChildrenCount", "childCount", "children", "isFlagged", "isBlocked"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "commenterName", "commentHTML", "date", "verified"));
@@ -1284,6 +1311,10 @@ public class PublicComment {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      // validate the optional field `poll`
+      if (jsonObj.get("poll") != null && !jsonObj.get("poll").isJsonNull()) {
+        CommentPoll.validateJsonElement(jsonObj.get("poll"));
       }
       if ((jsonObj.get("editKey") != null && !jsonObj.get("editKey").isJsonNull()) && !jsonObj.get("editKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `editKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editKey").toString()));

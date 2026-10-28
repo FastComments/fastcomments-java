@@ -210,6 +210,7 @@ docs/GetPendingWebhookEventCountResponse.md
 docs/GetPendingWebhookEventsResponse.md
 docs/GetPollResponse.md
 docs/GetPollVoteResponse.md
+docs/GetPollVoterNamesSuccessResponse.md
 docs/GetPollVotesResponse.md
 docs/GetPublicFeedPostsResponse.md
 docs/GetPublicPagesResponse.md
@@ -312,6 +313,7 @@ docs/PendingCommentToSyncOutbound.md
 docs/PickCommentPollOptionsOrTotalVotesOrClosesAt.md
 docs/PollCreationMode.md
 docs/PollPrivacy.md
+docs/PollVoterEntry.md
 docs/PollVotingMode.md
 docs/PostRemoveCommentApiResponse.md
 docs/PreBanSummary.md
@@ -420,6 +422,8 @@ docs/UserSessionInfo.md
 docs/UsersListLocation.md
 docs/VoteBodyParams.md
 docs/VoteDeleteResponse.md
+docs/VotePollBody.md
+docs/VotePollResponse.md
 docs/VoteResponse.md
 docs/VoteResponseUser.md
 docs/VoteStyle.md
@@ -661,6 +665,7 @@ src/main/java/com/fastcomments/model/GetPendingWebhookEventCountResponse.java
 src/main/java/com/fastcomments/model/GetPendingWebhookEventsResponse.java
 src/main/java/com/fastcomments/model/GetPollResponse.java
 src/main/java/com/fastcomments/model/GetPollVoteResponse.java
+src/main/java/com/fastcomments/model/GetPollVoterNamesSuccessResponse.java
 src/main/java/com/fastcomments/model/GetPollVotesResponse.java
 src/main/java/com/fastcomments/model/GetPublicFeedPostsResponse.java
 src/main/java/com/fastcomments/model/GetPublicPagesResponse.java
@@ -762,6 +767,7 @@ src/main/java/com/fastcomments/model/PendingCommentToSyncOutbound.java
 src/main/java/com/fastcomments/model/PickCommentPollOptionsOrTotalVotesOrClosesAt.java
 src/main/java/com/fastcomments/model/PollCreationMode.java
 src/main/java/com/fastcomments/model/PollPrivacy.java
+src/main/java/com/fastcomments/model/PollVoterEntry.java
 src/main/java/com/fastcomments/model/PollVotingMode.java
 src/main/java/com/fastcomments/model/PostRemoveCommentApiResponse.java
 src/main/java/com/fastcomments/model/PreBanSummary.java
@@ -869,6 +875,8 @@ src/main/java/com/fastcomments/model/UserSessionInfo.java
 src/main/java/com/fastcomments/model/UsersListLocation.java
 src/main/java/com/fastcomments/model/VoteBodyParams.java
 src/main/java/com/fastcomments/model/VoteDeleteResponse.java
+src/main/java/com/fastcomments/model/VotePollBody.java
+src/main/java/com/fastcomments/model/VotePollResponse.java
 src/main/java/com/fastcomments/model/VoteResponse.java
 src/main/java/com/fastcomments/model/VoteResponseUser.java
 src/main/java/com/fastcomments/model/VoteStyle.java
@@ -1083,6 +1091,7 @@ src/test/java/com/fastcomments/model/GetPendingWebhookEventCountResponseTest.jav
 src/test/java/com/fastcomments/model/GetPendingWebhookEventsResponseTest.java
 src/test/java/com/fastcomments/model/GetPollResponseTest.java
 src/test/java/com/fastcomments/model/GetPollVoteResponseTest.java
+src/test/java/com/fastcomments/model/GetPollVoterNamesSuccessResponseTest.java
 src/test/java/com/fastcomments/model/GetPollVotesResponseTest.java
 src/test/java/com/fastcomments/model/GetPublicFeedPostsResponseTest.java
 src/test/java/com/fastcomments/model/GetPublicPagesResponseTest.java
@@ -1184,6 +1193,7 @@ src/test/java/com/fastcomments/model/PendingCommentToSyncOutboundTest.java
 src/test/java/com/fastcomments/model/PickCommentPollOptionsOrTotalVotesOrClosesAtTest.java
 src/test/java/com/fastcomments/model/PollCreationModeTest.java
 src/test/java/com/fastcomments/model/PollPrivacyTest.java
+src/test/java/com/fastcomments/model/PollVoterEntryTest.java
 src/test/java/com/fastcomments/model/PollVotingModeTest.java
 src/test/java/com/fastcomments/model/PostRemoveCommentApiResponseTest.java
 src/test/java/com/fastcomments/model/PreBanSummaryTest.java
@@ -1291,6 +1301,8 @@ src/test/java/com/fastcomments/model/UserTest.java
 src/test/java/com/fastcomments/model/UsersListLocationTest.java
 src/test/java/com/fastcomments/model/VoteBodyParamsTest.java
 src/test/java/com/fastcomments/model/VoteDeleteResponseTest.java
+src/test/java/com/fastcomments/model/VotePollBodyTest.java
+src/test/java/com/fastcomments/model/VotePollResponseTest.java
 src/test/java/com/fastcomments/model/VoteResponseTest.java
 src/test/java/com/fastcomments/model/VoteResponseUserTest.java
 src/test/java/com/fastcomments/model/VoteStyleTest.java

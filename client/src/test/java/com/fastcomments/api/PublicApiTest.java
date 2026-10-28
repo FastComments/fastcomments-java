@@ -36,6 +36,7 @@ import com.fastcomments.model.GetEventLogResponse;
 import com.fastcomments.model.GetGifsSearchResponse;
 import com.fastcomments.model.GetGifsTrendingResponse;
 import com.fastcomments.model.GetMyNotificationsResponse;
+import com.fastcomments.model.GetPollVoterNamesSuccessResponse;
 import com.fastcomments.model.GetPublicPagesResponse;
 import com.fastcomments.model.GetTranslationsResponse;
 import com.fastcomments.model.GetUserNotificationCountResponse;
@@ -70,6 +71,8 @@ import com.fastcomments.model.UploadImageResponse;
 import com.fastcomments.model.UserReactsResponse;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteDeleteResponse;
+import com.fastcomments.model.VotePollBody;
+import com.fastcomments.model.VotePollResponse;
 import com.fastcomments.model.VoteResponse;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -588,6 +591,28 @@ public class PublicApiTest {
     }
 
     /**
+     * Who voted for which option. Anonymous polls never answer, admins-only polls answer only for an admin or moderator.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPollVotersTest() throws ApiException {
+        String tenantId = null;
+        String commentId = null;
+        String urlId = null;
+        Integer page = null;
+        String search = null;
+        String sso = null;
+        GetPollVoterNamesSuccessResponse response = api.getPollVoters(tenantId, commentId)
+                .urlId(urlId)
+                .page(page)
+                .search(search)
+                .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -1036,6 +1061,25 @@ public class PublicApiTest {
         String sso = null;
         VoteResponse response = api.voteComment(tenantId, commentId, urlId, broadcastId, voteBodyParams)
                 .sessionId(sessionId)
+                .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void votePollTest() throws ApiException {
+        String tenantId = null;
+        String commentId = null;
+        VotePollBody votePollBody = null;
+        String urlId = null;
+        String broadcastId = null;
+        String sso = null;
+        VotePollResponse response = api.votePoll(tenantId, commentId, votePollBody)
+                .urlId(urlId)
+                .broadcastId(broadcastId)
                 .sso(sso)
                 .execute();
         // TODO: test validations

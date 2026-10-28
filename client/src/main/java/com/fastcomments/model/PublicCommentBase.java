@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.CommentPoll;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -183,6 +184,11 @@ public class PublicCommentBase {
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
   @javax.annotation.Nullable
   private List<String> feedbackIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_POLL = "poll";
+  @SerializedName(SERIALIZED_NAME_POLL)
+  @javax.annotation.Nullable
+  private CommentPoll poll;
 
   public static final String SERIALIZED_NAME_REQUIRES_VERIFICATION = "requiresVerification";
   @SerializedName(SERIALIZED_NAME_REQUIRES_VERIFICATION)
@@ -712,6 +718,25 @@ public class PublicCommentBase {
   }
 
 
+  public PublicCommentBase poll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+    return this;
+  }
+
+  /**
+   * Get poll
+   * @return poll
+   */
+  @javax.annotation.Nullable
+  public CommentPoll getPoll() {
+    return poll;
+  }
+
+  public void setPoll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+  }
+
+
   public PublicCommentBase requiresVerification(@javax.annotation.Nullable Boolean requiresVerification) {
     this.requiresVerification = requiresVerification;
     return this;
@@ -805,6 +830,7 @@ public class PublicCommentBase {
         Objects.equals(this.isSpam, publicCommentBase.isSpam) &&
         Objects.equals(this.anonUserId, publicCommentBase.anonUserId) &&
         Objects.equals(this.feedbackIds, publicCommentBase.feedbackIds) &&
+        Objects.equals(this.poll, publicCommentBase.poll) &&
         Objects.equals(this.requiresVerification, publicCommentBase.requiresVerification) &&
         Objects.equals(this.editKey, publicCommentBase.editKey) &&
         Objects.equals(this.approved, publicCommentBase.approved);
@@ -812,7 +838,7 @@ public class PublicCommentBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, commenterName, commenterLink, commentHTML, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, requiresVerification, editKey, approved);
+    return Objects.hash(id, userId, commenterName, commenterLink, commentHTML, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, poll, requiresVerification, editKey, approved);
   }
 
   @Override
@@ -845,6 +871,7 @@ public class PublicCommentBase {
     sb.append("    isSpam: ").append(toIndentedString(isSpam)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
+    sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("    requiresVerification: ").append(toIndentedString(requiresVerification)).append("\n");
     sb.append("    editKey: ").append(toIndentedString(editKey)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
@@ -866,7 +893,7 @@ public class PublicCommentBase {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "commenterName", "commenterLink", "commentHTML", "parentId", "date", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "requiresVerification", "editKey", "approved"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "commenterName", "commenterLink", "commentHTML", "parentId", "date", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "poll", "requiresVerification", "editKey", "approved"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "commenterName", "commentHTML", "date", "verified"));
@@ -944,6 +971,10 @@ public class PublicCommentBase {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      // validate the optional field `poll`
+      if (jsonObj.get("poll") != null && !jsonObj.get("poll").isJsonNull()) {
+        CommentPoll.validateJsonElement(jsonObj.get("poll"));
       }
       if ((jsonObj.get("editKey") != null && !jsonObj.get("editKey").isJsonNull()) && !jsonObj.get("editKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `editKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editKey").toString()));

@@ -1319,6 +1319,171 @@
 				],
 				"type": "object"
 			},
+			"CommentPollOption": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"label": {
+						"type": "string"
+					},
+					"votes": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"required": [
+					"id",
+					"label",
+					"votes"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PollPrivacy": {
+				"description": "Who may see which voter picked which option. Chosen by the poll's author when they build the poll, so it\nlives on the poll itself rather than in the widget config. Anonymous is the default and is never stored on\nthe poll or sent to the client, so an unset value means Anonymous.",
+				"enum": [
+					0,
+					1,
+					2
+				],
+				"type": "integer"
+			},
+			"CommentPoll": {
+				"description": "A poll attached to a comment. Vote counts are denormalized here; individual votes live in PollVote.",
+				"properties": {
+					"question": {
+						"type": "string"
+					},
+					"options": {
+						"items": {
+							"$ref": "#/components/schemas/CommentPollOption"
+						},
+						"type": "array"
+					},
+					"totalVotes": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"closesAt": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"privacy": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/PollPrivacy"
+							}
+						],
+						"nullable": true
+					},
+					"requireVoteToSeeResults": {
+						"type": "boolean",
+						"nullable": true
+					}
+				},
+				"required": [
+					"question",
+					"options",
+					"totalVotes"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"VotePollResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPoll"
+					},
+					"myPollVotes": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"voterId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status",
+					"poll",
+					"myPollVotes",
+					"voterId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"VotePollBody": {
+				"properties": {
+					"optionId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"optionId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PollVoterEntry": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"optionLabel": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"optionLabel"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetPollVoterNamesSuccessResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"voters": {
+						"items": {
+							"$ref": "#/components/schemas/PollVoterEntry"
+						},
+						"type": "array"
+					},
+					"page": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"pageSize": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"total": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"hasMore": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"status",
+					"voters",
+					"page",
+					"pageSize",
+					"total",
+					"hasMore"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"PageReactUser": {
 				"properties": {
 					"avatarSrc": {
@@ -3947,78 +4112,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"CommentPollOption": {
-				"properties": {
-					"id": {
-						"type": "string"
-					},
-					"label": {
-						"type": "string"
-					},
-					"votes": {
-						"type": "integer",
-						"format": "int32"
-					}
-				},
-				"required": [
-					"id",
-					"label",
-					"votes"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"PollPrivacy": {
-				"description": "Who may see which voter picked which option. Chosen by the poll's author when they build the poll, so it\nlives on the poll itself rather than in the widget config. Anonymous is the default and is never stored on\nthe poll or sent to the client, so an unset value means Anonymous.",
-				"enum": [
-					0,
-					1,
-					2
-				],
-				"type": "integer"
-			},
-			"CommentPoll": {
-				"description": "A poll attached to a comment. Vote counts are denormalized here; individual votes live in PollVote.",
-				"properties": {
-					"question": {
-						"type": "string"
-					},
-					"options": {
-						"items": {
-							"$ref": "#/components/schemas/CommentPollOption"
-						},
-						"type": "array"
-					},
-					"totalVotes": {
-						"type": "integer",
-						"format": "int32"
-					},
-					"closesAt": {
-						"type": "string",
-						"format": "date-time",
-						"nullable": true
-					},
-					"privacy": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/PollPrivacy"
-							}
-						],
-						"nullable": true
-					},
-					"requireVoteToSeeResults": {
-						"type": "boolean",
-						"nullable": true
-					}
-				},
-				"required": [
-					"question",
-					"options",
-					"totalVotes"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"FDomain": {
 				"type": "string"
 			},
@@ -4694,6 +4787,14 @@
 							"type": "string"
 						},
 						"type": "array"
+					},
+					"poll": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CommentPoll"
+							}
+						],
+						"nullable": true
 					},
 					"requiresVerification": {
 						"type": "boolean"
@@ -14345,6 +14446,172 @@
 						"in": "query",
 						"name": "ids",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/polls/{tenantId}/{commentId}/vote": {
+			"put": {
+				"operationId": "VotePoll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/VotePollResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Public"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "urlId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "broadcastId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/VotePollBody"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/polls/{tenantId}/{commentId}/voters": {
+			"get": {
+				"operationId": "GetPollVoters",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPollVoterNamesSuccessResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Who voted for which option. Anonymous polls never answer, admins-only polls answer only for an admin or moderator.",
+				"tags": [
+					"Public"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "urlId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"format": "int32",
+							"type": "integer"
+						}
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}

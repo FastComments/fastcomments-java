@@ -287,6 +287,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPendingWebhookEventsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPollResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPollVoteResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPollVoterNamesSuccessResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPollVotesResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPublicFeedPostsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.GetPublicPagesResponse.CustomTypeAdapterFactory());
@@ -372,6 +373,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PatchSSOUserAPIResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PendingCommentToSyncOutbound.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PickCommentPollOptionsOrTotalVotesOrClosesAt.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PollVoterEntry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PostRemoveCommentApiResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PreBanSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.PubSubComment.CustomTypeAdapterFactory());
@@ -466,6 +468,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.UserSessionInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VoteBodyParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VoteDeleteResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VotePollBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VotePollResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VoteResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.VoteResponseUser.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.fastcomments.model.WebhookComment.CustomTypeAdapterFactory());

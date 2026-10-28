@@ -49,6 +49,7 @@ import com.fastcomments.model.GetEventLogResponse;
 import com.fastcomments.model.GetGifsSearchResponse;
 import com.fastcomments.model.GetGifsTrendingResponse;
 import com.fastcomments.model.GetMyNotificationsResponse;
+import com.fastcomments.model.GetPollVoterNamesSuccessResponse;
 import com.fastcomments.model.GetPublicPagesResponse;
 import com.fastcomments.model.GetTranslationsResponse;
 import com.fastcomments.model.GetUserNotificationCountResponse;
@@ -83,6 +84,8 @@ import com.fastcomments.model.UploadImageResponse;
 import com.fastcomments.model.UserReactsResponse;
 import com.fastcomments.model.VoteBodyParams;
 import com.fastcomments.model.VoteDeleteResponse;
+import com.fastcomments.model.VotePollBody;
+import com.fastcomments.model.VotePollResponse;
 import com.fastcomments.model.VoteResponse;
 
 import java.lang.reflect.Type;
@@ -6150,6 +6153,243 @@ public class PublicApi {
     public APIgetPagesPublicRequest getPagesPublic(@javax.annotation.Nonnull String tenantId) {
         return new APIgetPagesPublicRequest(tenantId);
     }
+    private okhttp3.Call getPollVotersCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/polls/{tenantId}/{commentId}/voters"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getPollVotersValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling getPollVoters(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling getPollVoters(Async)");
+        }
+
+        return getPollVotersCall(tenantId, commentId, urlId, page, search, sso, _callback);
+
+    }
+
+
+    private ApiResponse<GetPollVoterNamesSuccessResponse> getPollVotersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getPollVotersValidateBeforeCall(tenantId, commentId, urlId, page, search, sso, null);
+        Type localVarReturnType = new TypeToken<GetPollVoterNamesSuccessResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getPollVotersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable String search, @javax.annotation.Nullable String sso, final ApiCallback<GetPollVoterNamesSuccessResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getPollVotersValidateBeforeCall(tenantId, commentId, urlId, page, search, sso, _callback);
+        Type localVarReturnType = new TypeToken<GetPollVoterNamesSuccessResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetPollVotersRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
+        private final String commentId;
+        @javax.annotation.Nullable
+        private String urlId;
+        @javax.annotation.Nullable
+        private Integer page;
+        @javax.annotation.Nullable
+        private String search;
+        @javax.annotation.Nullable
+        private String sso;
+
+        private APIgetPollVotersRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+        }
+
+        /**
+         * Set urlId
+         * @param urlId  (optional)
+         * @return APIgetPollVotersRequest
+         */
+        public APIgetPollVotersRequest urlId(@javax.annotation.Nullable String urlId) {
+            this.urlId = urlId;
+            return this;
+        }
+
+        /**
+         * Set page
+         * @param page  (optional)
+         * @return APIgetPollVotersRequest
+         */
+        public APIgetPollVotersRequest page(@javax.annotation.Nullable Integer page) {
+            this.page = page;
+            return this;
+        }
+
+        /**
+         * Set search
+         * @param search  (optional)
+         * @return APIgetPollVotersRequest
+         */
+        public APIgetPollVotersRequest search(@javax.annotation.Nullable String search) {
+            this.search = search;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetPollVotersRequest
+         */
+        public APIgetPollVotersRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for getPollVoters
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getPollVotersCall(tenantId, commentId, urlId, page, search, sso, _callback);
+        }
+
+        /**
+         * Execute getPollVoters request
+         * @return GetPollVoterNamesSuccessResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetPollVoterNamesSuccessResponse execute() throws ApiException {
+            ApiResponse<GetPollVoterNamesSuccessResponse> localVarResp = getPollVotersWithHttpInfo(tenantId, commentId, urlId, page, search, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getPollVoters request with HTTP info returned
+         * @return ApiResponse&lt;GetPollVoterNamesSuccessResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetPollVoterNamesSuccessResponse> executeWithHttpInfo() throws ApiException {
+            return getPollVotersWithHttpInfo(tenantId, commentId, urlId, page, search, sso);
+        }
+
+        /**
+         * Execute getPollVoters request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetPollVoterNamesSuccessResponse> _callback) throws ApiException {
+            return getPollVotersAsync(tenantId, commentId, urlId, page, search, sso, _callback);
+        }
+    }
+
+    /**
+     * 
+     * Who voted for which option. Anonymous polls never answer, admins-only polls answer only for an admin or moderator.
+     * @param tenantId  (required)
+     * @param commentId  (required)
+     * @return APIgetPollVotersRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetPollVotersRequest getPollVoters(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId) {
+        return new APIgetPollVotersRequest(tenantId, commentId);
+    }
     private okhttp3.Call getTranslationsCall(@javax.annotation.Nonnull String namespace, @javax.annotation.Nonnull String component, @javax.annotation.Nullable String locale, @javax.annotation.Nullable Boolean useFullTranslationIds, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -11909,5 +12149,236 @@ public class PublicApi {
      */
     public APIvoteCommentRequest voteComment(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull VoteBodyParams voteBodyParams) {
         return new APIvoteCommentRequest(tenantId, commentId, urlId, broadcastId, voteBodyParams);
+    }
+    private okhttp3.Call votePollCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull VotePollBody votePollBody, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = votePollBody;
+
+        // create path and map variables
+        String localVarPath = "/polls/{tenantId}/{commentId}/vote"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()))
+            .replace("{" + "commentId" + "}", localVarApiClient.escapeString(commentId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (broadcastId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("broadcastId", broadcastId));
+        }
+
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call votePollValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull VotePollBody votePollBody, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling votePoll(Async)");
+        }
+
+        // verify the required parameter 'commentId' is set
+        if (commentId == null) {
+            throw new ApiException("Missing the required parameter 'commentId' when calling votePoll(Async)");
+        }
+
+        // verify the required parameter 'votePollBody' is set
+        if (votePollBody == null) {
+            throw new ApiException("Missing the required parameter 'votePollBody' when calling votePoll(Async)");
+        }
+
+        return votePollCall(tenantId, commentId, votePollBody, urlId, broadcastId, sso, _callback);
+
+    }
+
+
+    private ApiResponse<VotePollResponse> votePollWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull VotePollBody votePollBody, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = votePollValidateBeforeCall(tenantId, commentId, votePollBody, urlId, broadcastId, sso, null);
+        Type localVarReturnType = new TypeToken<VotePollResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call votePollAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull VotePollBody votePollBody, @javax.annotation.Nullable String urlId, @javax.annotation.Nullable String broadcastId, @javax.annotation.Nullable String sso, final ApiCallback<VotePollResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = votePollValidateBeforeCall(tenantId, commentId, votePollBody, urlId, broadcastId, sso, _callback);
+        Type localVarReturnType = new TypeToken<VotePollResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIvotePollRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
+        private final String commentId;
+        @javax.annotation.Nonnull
+        private final VotePollBody votePollBody;
+        @javax.annotation.Nullable
+        private String urlId;
+        @javax.annotation.Nullable
+        private String broadcastId;
+        @javax.annotation.Nullable
+        private String sso;
+
+        private APIvotePollRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull VotePollBody votePollBody) {
+            this.tenantId = tenantId;
+            this.commentId = commentId;
+            this.votePollBody = votePollBody;
+        }
+
+        /**
+         * Set urlId
+         * @param urlId  (optional)
+         * @return APIvotePollRequest
+         */
+        public APIvotePollRequest urlId(@javax.annotation.Nullable String urlId) {
+            this.urlId = urlId;
+            return this;
+        }
+
+        /**
+         * Set broadcastId
+         * @param broadcastId  (optional)
+         * @return APIvotePollRequest
+         */
+        public APIvotePollRequest broadcastId(@javax.annotation.Nullable String broadcastId) {
+            this.broadcastId = broadcastId;
+            return this;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIvotePollRequest
+         */
+        public APIvotePollRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Build call for votePoll
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return votePollCall(tenantId, commentId, votePollBody, urlId, broadcastId, sso, _callback);
+        }
+
+        /**
+         * Execute votePoll request
+         * @return VotePollResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public VotePollResponse execute() throws ApiException {
+            ApiResponse<VotePollResponse> localVarResp = votePollWithHttpInfo(tenantId, commentId, votePollBody, urlId, broadcastId, sso);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute votePoll request with HTTP info returned
+         * @return ApiResponse&lt;VotePollResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<VotePollResponse> executeWithHttpInfo() throws ApiException {
+            return votePollWithHttpInfo(tenantId, commentId, votePollBody, urlId, broadcastId, sso);
+        }
+
+        /**
+         * Execute votePoll request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<VotePollResponse> _callback) throws ApiException {
+            return votePollAsync(tenantId, commentId, votePollBody, urlId, broadcastId, sso, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param tenantId  (required)
+     * @param commentId  (required)
+     * @param votePollBody  (required)
+     * @return APIvotePollRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIvotePollRequest votePoll(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull VotePollBody votePollBody) {
+        return new APIvotePollRequest(tenantId, commentId, votePollBody);
     }
 }
