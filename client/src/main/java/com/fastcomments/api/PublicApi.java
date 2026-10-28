@@ -34,6 +34,8 @@ import com.fastcomments.model.ChangeCommentPinStatusResponse;
 import com.fastcomments.model.CheckBlockedCommentsResponse;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
+import com.fastcomments.model.CommentTranslationsRequest;
+import com.fastcomments.model.CommentTranslationsResponse;
 import com.fastcomments.model.CreateFeedPostParams;
 import com.fastcomments.model.CreateFeedPostResponse;
 import com.fastcomments.model.CreateV1PageReact;
@@ -55,6 +57,7 @@ import com.fastcomments.model.GetV1PageLikes;
 import com.fastcomments.model.GetV2PageReactUsersResponse;
 import com.fastcomments.model.GetV2PageReacts;
 import com.fastcomments.model.GifGetLargeResponse;
+import com.fastcomments.model.PageReactIncludeUserInfo;
 import com.fastcomments.model.PageUsersInfoResponse;
 import com.fastcomments.model.PageUsersOfflineResponse;
 import com.fastcomments.model.PageUsersOnlineResponse;
@@ -522,7 +525,7 @@ public class PublicApi {
     public APIcheckedCommentsForBlockedRequest checkedCommentsForBlocked(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentIds) {
         return new APIcheckedCommentsForBlockedRequest(tenantId, commentIds);
     }
-    private okhttp3.Call createCommentPublicCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCommentPublicCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -564,6 +567,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
         }
 
+        if (locale != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("locale", locale));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -585,7 +592,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createCommentPublicValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCommentPublicValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createCommentPublic(Async)");
@@ -606,20 +613,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'commentData' when calling createCommentPublic(Async)");
         }
 
-        return createCommentPublicCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+        return createCommentPublicCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, locale, _callback);
 
     }
 
 
-    private ApiResponse<SaveCommentsResponseWithPresence> createCommentPublicWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso) throws ApiException {
-        okhttp3.Call localVarCall = createCommentPublicValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, null);
+    private ApiResponse<SaveCommentsResponseWithPresence> createCommentPublicWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale) throws ApiException {
+        okhttp3.Call localVarCall = createCommentPublicValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, locale, null);
         Type localVarReturnType = new TypeToken<SaveCommentsResponseWithPresence>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createCommentPublicAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso, final ApiCallback<SaveCommentsResponseWithPresence> _callback) throws ApiException {
+    private okhttp3.Call createCommentPublicAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData, @javax.annotation.Nullable String sessionId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale, final ApiCallback<SaveCommentsResponseWithPresence> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createCommentPublicValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+        okhttp3.Call localVarCall = createCommentPublicValidateBeforeCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, locale, _callback);
         Type localVarReturnType = new TypeToken<SaveCommentsResponseWithPresence>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -638,6 +645,8 @@ public class PublicApi {
         private String sessionId;
         @javax.annotation.Nullable
         private String sso;
+        @javax.annotation.Nullable
+        private String locale;
 
         private APIcreateCommentPublicRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentData commentData) {
             this.tenantId = tenantId;
@@ -667,6 +676,16 @@ public class PublicApi {
         }
 
         /**
+         * Set locale
+         * @param locale  (optional)
+         * @return APIcreateCommentPublicRequest
+         */
+        public APIcreateCommentPublicRequest locale(@javax.annotation.Nullable String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+        /**
          * Build call for createCommentPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -680,7 +699,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createCommentPublicCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+            return createCommentPublicCall(tenantId, urlId, broadcastId, commentData, sessionId, sso, locale, _callback);
         }
 
         /**
@@ -696,7 +715,7 @@ public class PublicApi {
          </table>
          */
         public SaveCommentsResponseWithPresence execute() throws ApiException {
-            ApiResponse<SaveCommentsResponseWithPresence> localVarResp = createCommentPublicWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+            ApiResponse<SaveCommentsResponseWithPresence> localVarResp = createCommentPublicWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso, locale);
             return localVarResp.getData();
         }
 
@@ -713,7 +732,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<SaveCommentsResponseWithPresence> executeWithHttpInfo() throws ApiException {
-            return createCommentPublicWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso);
+            return createCommentPublicWithHttpInfo(tenantId, urlId, broadcastId, commentData, sessionId, sso, locale);
         }
 
         /**
@@ -730,7 +749,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<SaveCommentsResponseWithPresence> _callback) throws ApiException {
-            return createCommentPublicAsync(tenantId, urlId, broadcastId, commentData, sessionId, sso, _callback);
+            return createCommentPublicAsync(tenantId, urlId, broadcastId, commentData, sessionId, sso, locale, _callback);
         }
     }
 
@@ -958,7 +977,7 @@ public class PublicApi {
     public APIcreateFeedPostPublicRequest createFeedPostPublic(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull CreateFeedPostParams createFeedPostParams) {
         return new APIcreateFeedPostPublicRequest(tenantId, createFeedPostParams);
     }
-    private okhttp3.Call createV1PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createV1PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -992,6 +1011,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("title", title));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1012,7 +1035,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createV1PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createV1PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createV1PageReact(Async)");
@@ -1023,20 +1046,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling createV1PageReact(Async)");
         }
 
-        return createV1PageReactCall(tenantId, urlId, title, _callback);
+        return createV1PageReactCall(tenantId, urlId, title, sso, _callback);
 
     }
 
 
-    private ApiResponse<CreateV1PageReact> createV1PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title) throws ApiException {
-        okhttp3.Call localVarCall = createV1PageReactValidateBeforeCall(tenantId, urlId, title, null);
+    private ApiResponse<CreateV1PageReact> createV1PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = createV1PageReactValidateBeforeCall(tenantId, urlId, title, sso, null);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createV1PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
+    private okhttp3.Call createV1PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createV1PageReactValidateBeforeCall(tenantId, urlId, title, _callback);
+        okhttp3.Call localVarCall = createV1PageReactValidateBeforeCall(tenantId, urlId, title, sso, _callback);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1049,6 +1072,8 @@ public class PublicApi {
         private final String urlId;
         @javax.annotation.Nullable
         private String title;
+        @javax.annotation.Nullable
+        private String sso;
 
         private APIcreateV1PageReactRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
@@ -1066,6 +1091,16 @@ public class PublicApi {
         }
 
         /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIcreateV1PageReactRequest
+         */
+        public APIcreateV1PageReactRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
          * Build call for createV1PageReact
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1079,7 +1114,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createV1PageReactCall(tenantId, urlId, title, _callback);
+            return createV1PageReactCall(tenantId, urlId, title, sso, _callback);
         }
 
         /**
@@ -1095,7 +1130,7 @@ public class PublicApi {
          </table>
          */
         public CreateV1PageReact execute() throws ApiException {
-            ApiResponse<CreateV1PageReact> localVarResp = createV1PageReactWithHttpInfo(tenantId, urlId, title);
+            ApiResponse<CreateV1PageReact> localVarResp = createV1PageReactWithHttpInfo(tenantId, urlId, title, sso);
             return localVarResp.getData();
         }
 
@@ -1112,7 +1147,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<CreateV1PageReact> executeWithHttpInfo() throws ApiException {
-            return createV1PageReactWithHttpInfo(tenantId, urlId, title);
+            return createV1PageReactWithHttpInfo(tenantId, urlId, title, sso);
         }
 
         /**
@@ -1129,7 +1164,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
-            return createV1PageReactAsync(tenantId, urlId, title, _callback);
+            return createV1PageReactAsync(tenantId, urlId, title, sso, _callback);
         }
     }
 
@@ -1150,7 +1185,7 @@ public class PublicApi {
     public APIcreateV1PageReactRequest createV1PageReact(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
         return new APIcreateV1PageReactRequest(tenantId, urlId);
     }
-    private okhttp3.Call createV2PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createV2PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1188,6 +1223,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("title", title));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1208,7 +1247,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createV2PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createV2PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling createV2PageReact(Async)");
@@ -1224,20 +1263,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'id' when calling createV2PageReact(Async)");
         }
 
-        return createV2PageReactCall(tenantId, urlId, id, title, _callback);
+        return createV2PageReactCall(tenantId, urlId, id, title, sso, _callback);
 
     }
 
 
-    private ApiResponse<CreateV1PageReact> createV2PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title) throws ApiException {
-        okhttp3.Call localVarCall = createV2PageReactValidateBeforeCall(tenantId, urlId, id, title, null);
+    private ApiResponse<CreateV1PageReact> createV2PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = createV2PageReactValidateBeforeCall(tenantId, urlId, id, title, sso, null);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createV2PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
+    private okhttp3.Call createV2PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String title, @javax.annotation.Nullable String sso, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createV2PageReactValidateBeforeCall(tenantId, urlId, id, title, _callback);
+        okhttp3.Call localVarCall = createV2PageReactValidateBeforeCall(tenantId, urlId, id, title, sso, _callback);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1252,6 +1291,8 @@ public class PublicApi {
         private final String id;
         @javax.annotation.Nullable
         private String title;
+        @javax.annotation.Nullable
+        private String sso;
 
         private APIcreateV2PageReactRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
@@ -1270,6 +1311,16 @@ public class PublicApi {
         }
 
         /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIcreateV2PageReactRequest
+         */
+        public APIcreateV2PageReactRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
          * Build call for createV2PageReact
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -1283,7 +1334,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createV2PageReactCall(tenantId, urlId, id, title, _callback);
+            return createV2PageReactCall(tenantId, urlId, id, title, sso, _callback);
         }
 
         /**
@@ -1299,7 +1350,7 @@ public class PublicApi {
          </table>
          */
         public CreateV1PageReact execute() throws ApiException {
-            ApiResponse<CreateV1PageReact> localVarResp = createV2PageReactWithHttpInfo(tenantId, urlId, id, title);
+            ApiResponse<CreateV1PageReact> localVarResp = createV2PageReactWithHttpInfo(tenantId, urlId, id, title, sso);
             return localVarResp.getData();
         }
 
@@ -1316,7 +1367,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<CreateV1PageReact> executeWithHttpInfo() throws ApiException {
-            return createV2PageReactWithHttpInfo(tenantId, urlId, id, title);
+            return createV2PageReactWithHttpInfo(tenantId, urlId, id, title, sso);
         }
 
         /**
@@ -1333,7 +1384,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
-            return createV2PageReactAsync(tenantId, urlId, id, title, _callback);
+            return createV2PageReactAsync(tenantId, urlId, id, title, sso, _callback);
         }
     }
 
@@ -2019,7 +2070,7 @@ public class PublicApi {
     public APIdeleteFeedPostPublicRequest deleteFeedPostPublic(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String postId) {
         return new APIdeleteFeedPostPublicRequest(tenantId, postId);
     }
-    private okhttp3.Call deleteV1PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteV1PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2049,6 +2100,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2069,7 +2124,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteV1PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteV1PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteV1PageReact(Async)");
@@ -2080,20 +2135,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling deleteV1PageReact(Async)");
         }
 
-        return deleteV1PageReactCall(tenantId, urlId, _callback);
+        return deleteV1PageReactCall(tenantId, urlId, sso, _callback);
 
     }
 
 
-    private ApiResponse<CreateV1PageReact> deleteV1PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) throws ApiException {
-        okhttp3.Call localVarCall = deleteV1PageReactValidateBeforeCall(tenantId, urlId, null);
+    private ApiResponse<CreateV1PageReact> deleteV1PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = deleteV1PageReactValidateBeforeCall(tenantId, urlId, sso, null);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteV1PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
+    private okhttp3.Call deleteV1PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteV1PageReactValidateBeforeCall(tenantId, urlId, _callback);
+        okhttp3.Call localVarCall = deleteV1PageReactValidateBeforeCall(tenantId, urlId, sso, _callback);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2104,10 +2159,22 @@ public class PublicApi {
         private final String tenantId;
         @javax.annotation.Nonnull
         private final String urlId;
+        @javax.annotation.Nullable
+        private String sso;
 
         private APIdeleteV1PageReactRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIdeleteV1PageReactRequest
+         */
+        public APIdeleteV1PageReactRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
         }
 
         /**
@@ -2124,7 +2191,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteV1PageReactCall(tenantId, urlId, _callback);
+            return deleteV1PageReactCall(tenantId, urlId, sso, _callback);
         }
 
         /**
@@ -2140,7 +2207,7 @@ public class PublicApi {
          </table>
          */
         public CreateV1PageReact execute() throws ApiException {
-            ApiResponse<CreateV1PageReact> localVarResp = deleteV1PageReactWithHttpInfo(tenantId, urlId);
+            ApiResponse<CreateV1PageReact> localVarResp = deleteV1PageReactWithHttpInfo(tenantId, urlId, sso);
             return localVarResp.getData();
         }
 
@@ -2157,7 +2224,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<CreateV1PageReact> executeWithHttpInfo() throws ApiException {
-            return deleteV1PageReactWithHttpInfo(tenantId, urlId);
+            return deleteV1PageReactWithHttpInfo(tenantId, urlId, sso);
         }
 
         /**
@@ -2174,7 +2241,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
-            return deleteV1PageReactAsync(tenantId, urlId, _callback);
+            return deleteV1PageReactAsync(tenantId, urlId, sso, _callback);
         }
     }
 
@@ -2195,7 +2262,7 @@ public class PublicApi {
     public APIdeleteV1PageReactRequest deleteV1PageReact(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
         return new APIdeleteV1PageReactRequest(tenantId, urlId);
     }
-    private okhttp3.Call deleteV2PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteV2PageReactCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2229,6 +2296,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2249,7 +2320,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteV2PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteV2PageReactValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling deleteV2PageReact(Async)");
@@ -2265,20 +2336,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'id' when calling deleteV2PageReact(Async)");
         }
 
-        return deleteV2PageReactCall(tenantId, urlId, id, _callback);
+        return deleteV2PageReactCall(tenantId, urlId, id, sso, _callback);
 
     }
 
 
-    private ApiResponse<CreateV1PageReact> deleteV2PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = deleteV2PageReactValidateBeforeCall(tenantId, urlId, id, null);
+    private ApiResponse<CreateV1PageReact> deleteV2PageReactWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = deleteV2PageReactValidateBeforeCall(tenantId, urlId, id, sso, null);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteV2PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
+    private okhttp3.Call deleteV2PageReactAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso, final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteV2PageReactValidateBeforeCall(tenantId, urlId, id, _callback);
+        okhttp3.Call localVarCall = deleteV2PageReactValidateBeforeCall(tenantId, urlId, id, sso, _callback);
         Type localVarReturnType = new TypeToken<CreateV1PageReact>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2291,11 +2362,23 @@ public class PublicApi {
         private final String urlId;
         @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
+        private String sso;
 
         private APIdeleteV2PageReactRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.urlId = urlId;
             this.id = id;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIdeleteV2PageReactRequest
+         */
+        public APIdeleteV2PageReactRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
         }
 
         /**
@@ -2312,7 +2395,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteV2PageReactCall(tenantId, urlId, id, _callback);
+            return deleteV2PageReactCall(tenantId, urlId, id, sso, _callback);
         }
 
         /**
@@ -2328,7 +2411,7 @@ public class PublicApi {
          </table>
          */
         public CreateV1PageReact execute() throws ApiException {
-            ApiResponse<CreateV1PageReact> localVarResp = deleteV2PageReactWithHttpInfo(tenantId, urlId, id);
+            ApiResponse<CreateV1PageReact> localVarResp = deleteV2PageReactWithHttpInfo(tenantId, urlId, id, sso);
             return localVarResp.getData();
         }
 
@@ -2345,7 +2428,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<CreateV1PageReact> executeWithHttpInfo() throws ApiException {
-            return deleteV2PageReactWithHttpInfo(tenantId, urlId, id);
+            return deleteV2PageReactWithHttpInfo(tenantId, urlId, id, sso);
         }
 
         /**
@@ -2362,7 +2445,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<CreateV1PageReact> _callback) throws ApiException {
-            return deleteV2PageReactAsync(tenantId, urlId, id, _callback);
+            return deleteV2PageReactAsync(tenantId, urlId, id, sso, _callback);
         }
     }
 
@@ -3261,7 +3344,7 @@ public class PublicApi {
     public APIgetCommentsForUserRequest getCommentsForUser() {
         return new APIgetCommentsForUserRequest();
     }
-    private okhttp3.Call getCommentsPublicCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable Integer questionValue, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3395,6 +3478,14 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("beforeCommentId", beforeCommentId));
         }
 
+        if (questionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("questionId", questionId));
+        }
+
+        if (questionValue != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("questionValue", questionValue));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3415,7 +3506,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCommentsPublicValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable Integer questionValue, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getCommentsPublic(Async)");
@@ -3426,20 +3517,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling getCommentsPublic(Async)");
         }
 
-        return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
+        return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, questionId, questionValue, _callback);
 
     }
 
 
-    private ApiResponse<GetCommentsResponseWithPresencePublicComment> getCommentsPublicWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId) throws ApiException {
-        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, null);
+    private ApiResponse<GetCommentsResponseWithPresencePublicComment> getCommentsPublicWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable Integer questionValue) throws ApiException {
+        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, questionId, questionValue, null);
         Type localVarReturnType = new TypeToken<GetCommentsResponseWithPresencePublicComment>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getCommentsPublicAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId, final ApiCallback<GetCommentsResponseWithPresencePublicComment> _callback) throws ApiException {
+    private okhttp3.Call getCommentsPublicAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable Integer page, @javax.annotation.Nullable SortDirections direction, @javax.annotation.Nullable String sso, @javax.annotation.Nullable Integer skip, @javax.annotation.Nullable Integer skipChildren, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer limitChildren, @javax.annotation.Nullable Boolean countChildren, @javax.annotation.Nullable String fetchPageForCommentId, @javax.annotation.Nullable Boolean includeConfig, @javax.annotation.Nullable Boolean countAll, @javax.annotation.Nullable Boolean includei10n, @javax.annotation.Nullable String locale, @javax.annotation.Nullable String modules, @javax.annotation.Nullable Boolean isCrawler, @javax.annotation.Nullable Boolean includeNotificationCount, @javax.annotation.Nullable Boolean asTree, @javax.annotation.Nullable Integer maxTreeDepth, @javax.annotation.Nullable Boolean useFullTranslationIds, @javax.annotation.Nullable String parentId, @javax.annotation.Nullable String searchText, @javax.annotation.Nullable List<String> hashTags, @javax.annotation.Nullable String userId, @javax.annotation.Nullable String customConfigStr, @javax.annotation.Nullable String afterCommentId, @javax.annotation.Nullable String beforeCommentId, @javax.annotation.Nullable String questionId, @javax.annotation.Nullable Integer questionValue, final ApiCallback<GetCommentsResponseWithPresencePublicComment> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
+        okhttp3.Call localVarCall = getCommentsPublicValidateBeforeCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, questionId, questionValue, _callback);
         Type localVarReturnType = new TypeToken<GetCommentsResponseWithPresencePublicComment>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3502,6 +3593,10 @@ public class PublicApi {
         private String afterCommentId;
         @javax.annotation.Nullable
         private String beforeCommentId;
+        @javax.annotation.Nullable
+        private String questionId;
+        @javax.annotation.Nullable
+        private Integer questionValue;
 
         private APIgetCommentsPublicRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
@@ -3769,6 +3864,26 @@ public class PublicApi {
         }
 
         /**
+         * Set questionId
+         * @param questionId  (optional)
+         * @return APIgetCommentsPublicRequest
+         */
+        public APIgetCommentsPublicRequest questionId(@javax.annotation.Nullable String questionId) {
+            this.questionId = questionId;
+            return this;
+        }
+
+        /**
+         * Set questionValue
+         * @param questionValue  (optional)
+         * @return APIgetCommentsPublicRequest
+         */
+        public APIgetCommentsPublicRequest questionValue(@javax.annotation.Nullable Integer questionValue) {
+            this.questionValue = questionValue;
+            return this;
+        }
+
+        /**
          * Build call for getCommentsPublic
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -3782,7 +3897,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
+            return getCommentsPublicCall(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, questionId, questionValue, _callback);
         }
 
         /**
@@ -3798,7 +3913,7 @@ public class PublicApi {
          </table>
          */
         public GetCommentsResponseWithPresencePublicComment execute() throws ApiException {
-            ApiResponse<GetCommentsResponseWithPresencePublicComment> localVarResp = getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId);
+            ApiResponse<GetCommentsResponseWithPresencePublicComment> localVarResp = getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, questionId, questionValue);
             return localVarResp.getData();
         }
 
@@ -3815,7 +3930,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetCommentsResponseWithPresencePublicComment> executeWithHttpInfo() throws ApiException {
-            return getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId);
+            return getCommentsPublicWithHttpInfo(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, questionId, questionValue);
         }
 
         /**
@@ -3832,7 +3947,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetCommentsResponseWithPresencePublicComment> _callback) throws ApiException {
-            return getCommentsPublicAsync(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, _callback);
+            return getCommentsPublicAsync(tenantId, urlId, page, direction, sso, skip, skipChildren, limit, limitChildren, countChildren, fetchPageForCommentId, includeConfig, countAll, includei10n, locale, modules, isCrawler, includeNotificationCount, asTree, maxTreeDepth, useFullTranslationIds, parentId, searchText, hashTags, userId, customConfigStr, afterCommentId, beforeCommentId, questionId, questionValue, _callback);
         }
     }
 
@@ -7347,7 +7462,7 @@ public class PublicApi {
     public APIgetUsersInfoRequest getUsersInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String ids) {
         return new APIgetUsersInfoRequest(tenantId, ids);
     }
-    private okhttp3.Call getV1PageLikesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getV1PageLikesCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7377,6 +7492,14 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
+        if (includeUserInfo != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeUserInfo", includeUserInfo));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -7397,7 +7520,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getV1PageLikesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getV1PageLikesValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getV1PageLikes(Async)");
@@ -7408,20 +7531,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling getV1PageLikes(Async)");
         }
 
-        return getV1PageLikesCall(tenantId, urlId, _callback);
+        return getV1PageLikesCall(tenantId, urlId, sso, includeUserInfo, _callback);
 
     }
 
 
-    private ApiResponse<GetV1PageLikes> getV1PageLikesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) throws ApiException {
-        okhttp3.Call localVarCall = getV1PageLikesValidateBeforeCall(tenantId, urlId, null);
+    private ApiResponse<GetV1PageLikes> getV1PageLikesWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo) throws ApiException {
+        okhttp3.Call localVarCall = getV1PageLikesValidateBeforeCall(tenantId, urlId, sso, includeUserInfo, null);
         Type localVarReturnType = new TypeToken<GetV1PageLikes>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getV1PageLikesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback<GetV1PageLikes> _callback) throws ApiException {
+    private okhttp3.Call getV1PageLikesAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo, final ApiCallback<GetV1PageLikes> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getV1PageLikesValidateBeforeCall(tenantId, urlId, _callback);
+        okhttp3.Call localVarCall = getV1PageLikesValidateBeforeCall(tenantId, urlId, sso, includeUserInfo, _callback);
         Type localVarReturnType = new TypeToken<GetV1PageLikes>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7432,10 +7555,34 @@ public class PublicApi {
         private final String tenantId;
         @javax.annotation.Nonnull
         private final String urlId;
+        @javax.annotation.Nullable
+        private String sso;
+        @javax.annotation.Nullable
+        private PageReactIncludeUserInfo includeUserInfo;
 
         private APIgetV1PageLikesRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetV1PageLikesRequest
+         */
+        public APIgetV1PageLikesRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Set includeUserInfo
+         * @param includeUserInfo When set, returns the users who liked the page (avatars and usernames). Only \&quot;public\&quot; is accepted, which omits private profiles. (optional)
+         * @return APIgetV1PageLikesRequest
+         */
+        public APIgetV1PageLikesRequest includeUserInfo(@javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo) {
+            this.includeUserInfo = includeUserInfo;
+            return this;
         }
 
         /**
@@ -7452,7 +7599,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getV1PageLikesCall(tenantId, urlId, _callback);
+            return getV1PageLikesCall(tenantId, urlId, sso, includeUserInfo, _callback);
         }
 
         /**
@@ -7468,7 +7615,7 @@ public class PublicApi {
          </table>
          */
         public GetV1PageLikes execute() throws ApiException {
-            ApiResponse<GetV1PageLikes> localVarResp = getV1PageLikesWithHttpInfo(tenantId, urlId);
+            ApiResponse<GetV1PageLikes> localVarResp = getV1PageLikesWithHttpInfo(tenantId, urlId, sso, includeUserInfo);
             return localVarResp.getData();
         }
 
@@ -7485,7 +7632,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetV1PageLikes> executeWithHttpInfo() throws ApiException {
-            return getV1PageLikesWithHttpInfo(tenantId, urlId);
+            return getV1PageLikesWithHttpInfo(tenantId, urlId, sso, includeUserInfo);
         }
 
         /**
@@ -7502,7 +7649,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetV1PageLikes> _callback) throws ApiException {
-            return getV1PageLikesAsync(tenantId, urlId, _callback);
+            return getV1PageLikesAsync(tenantId, urlId, sso, includeUserInfo, _callback);
         }
     }
 
@@ -7523,7 +7670,7 @@ public class PublicApi {
     public APIgetV1PageLikesRequest getV1PageLikes(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
         return new APIgetV1PageLikesRequest(tenantId, urlId);
     }
-    private okhttp3.Call getV2PageReactUsersCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getV2PageReactUsersCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7557,6 +7704,10 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -7577,7 +7728,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getV2PageReactUsersValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getV2PageReactUsersValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getV2PageReactUsers(Async)");
@@ -7593,20 +7744,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'id' when calling getV2PageReactUsers(Async)");
         }
 
-        return getV2PageReactUsersCall(tenantId, urlId, id, _callback);
+        return getV2PageReactUsersCall(tenantId, urlId, id, sso, _callback);
 
     }
 
 
-    private ApiResponse<GetV2PageReactUsersResponse> getV2PageReactUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = getV2PageReactUsersValidateBeforeCall(tenantId, urlId, id, null);
+    private ApiResponse<GetV2PageReactUsersResponse> getV2PageReactUsersWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso) throws ApiException {
+        okhttp3.Call localVarCall = getV2PageReactUsersValidateBeforeCall(tenantId, urlId, id, sso, null);
         Type localVarReturnType = new TypeToken<GetV2PageReactUsersResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getV2PageReactUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, final ApiCallback<GetV2PageReactUsersResponse> _callback) throws ApiException {
+    private okhttp3.Call getV2PageReactUsersAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id, @javax.annotation.Nullable String sso, final ApiCallback<GetV2PageReactUsersResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getV2PageReactUsersValidateBeforeCall(tenantId, urlId, id, _callback);
+        okhttp3.Call localVarCall = getV2PageReactUsersValidateBeforeCall(tenantId, urlId, id, sso, _callback);
         Type localVarReturnType = new TypeToken<GetV2PageReactUsersResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7619,11 +7770,23 @@ public class PublicApi {
         private final String urlId;
         @javax.annotation.Nonnull
         private final String id;
+        @javax.annotation.Nullable
+        private String sso;
 
         private APIgetV2PageReactUsersRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id) {
             this.tenantId = tenantId;
             this.urlId = urlId;
             this.id = id;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetV2PageReactUsersRequest
+         */
+        public APIgetV2PageReactUsersRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
         }
 
         /**
@@ -7640,7 +7803,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getV2PageReactUsersCall(tenantId, urlId, id, _callback);
+            return getV2PageReactUsersCall(tenantId, urlId, id, sso, _callback);
         }
 
         /**
@@ -7656,7 +7819,7 @@ public class PublicApi {
          </table>
          */
         public GetV2PageReactUsersResponse execute() throws ApiException {
-            ApiResponse<GetV2PageReactUsersResponse> localVarResp = getV2PageReactUsersWithHttpInfo(tenantId, urlId, id);
+            ApiResponse<GetV2PageReactUsersResponse> localVarResp = getV2PageReactUsersWithHttpInfo(tenantId, urlId, id, sso);
             return localVarResp.getData();
         }
 
@@ -7673,7 +7836,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetV2PageReactUsersResponse> executeWithHttpInfo() throws ApiException {
-            return getV2PageReactUsersWithHttpInfo(tenantId, urlId, id);
+            return getV2PageReactUsersWithHttpInfo(tenantId, urlId, id, sso);
         }
 
         /**
@@ -7690,7 +7853,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetV2PageReactUsersResponse> _callback) throws ApiException {
-            return getV2PageReactUsersAsync(tenantId, urlId, id, _callback);
+            return getV2PageReactUsersAsync(tenantId, urlId, id, sso, _callback);
         }
     }
 
@@ -7712,7 +7875,7 @@ public class PublicApi {
     public APIgetV2PageReactUsersRequest getV2PageReactUsers(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull String id) {
         return new APIgetV2PageReactUsersRequest(tenantId, urlId, id);
     }
-    private okhttp3.Call getV2PageReactsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getV2PageReactsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7742,6 +7905,14 @@ public class PublicApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
         }
 
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
+        if (includeUserInfo != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("includeUserInfo", includeUserInfo));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -7762,7 +7933,7 @@ public class PublicApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getV2PageReactsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getV2PageReactsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getV2PageReacts(Async)");
@@ -7773,20 +7944,20 @@ public class PublicApi {
             throw new ApiException("Missing the required parameter 'urlId' when calling getV2PageReacts(Async)");
         }
 
-        return getV2PageReactsCall(tenantId, urlId, _callback);
+        return getV2PageReactsCall(tenantId, urlId, sso, includeUserInfo, _callback);
 
     }
 
 
-    private ApiResponse<GetV2PageReacts> getV2PageReactsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) throws ApiException {
-        okhttp3.Call localVarCall = getV2PageReactsValidateBeforeCall(tenantId, urlId, null);
+    private ApiResponse<GetV2PageReacts> getV2PageReactsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo) throws ApiException {
+        okhttp3.Call localVarCall = getV2PageReactsValidateBeforeCall(tenantId, urlId, sso, includeUserInfo, null);
         Type localVarReturnType = new TypeToken<GetV2PageReacts>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call getV2PageReactsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, final ApiCallback<GetV2PageReacts> _callback) throws ApiException {
+    private okhttp3.Call getV2PageReactsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nullable String sso, @javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo, final ApiCallback<GetV2PageReacts> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getV2PageReactsValidateBeforeCall(tenantId, urlId, _callback);
+        okhttp3.Call localVarCall = getV2PageReactsValidateBeforeCall(tenantId, urlId, sso, includeUserInfo, _callback);
         Type localVarReturnType = new TypeToken<GetV2PageReacts>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7797,10 +7968,34 @@ public class PublicApi {
         private final String tenantId;
         @javax.annotation.Nonnull
         private final String urlId;
+        @javax.annotation.Nullable
+        private String sso;
+        @javax.annotation.Nullable
+        private PageReactIncludeUserInfo includeUserInfo;
 
         private APIgetV2PageReactsRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId) {
             this.tenantId = tenantId;
             this.urlId = urlId;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APIgetV2PageReactsRequest
+         */
+        public APIgetV2PageReactsRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Set includeUserInfo
+         * @param includeUserInfo When set, returns the users for each react id (avatars and usernames). Only \&quot;public\&quot; is accepted, which omits private profiles. (optional)
+         * @return APIgetV2PageReactsRequest
+         */
+        public APIgetV2PageReactsRequest includeUserInfo(@javax.annotation.Nullable PageReactIncludeUserInfo includeUserInfo) {
+            this.includeUserInfo = includeUserInfo;
+            return this;
         }
 
         /**
@@ -7817,7 +8012,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return getV2PageReactsCall(tenantId, urlId, _callback);
+            return getV2PageReactsCall(tenantId, urlId, sso, includeUserInfo, _callback);
         }
 
         /**
@@ -7833,7 +8028,7 @@ public class PublicApi {
          </table>
          */
         public GetV2PageReacts execute() throws ApiException {
-            ApiResponse<GetV2PageReacts> localVarResp = getV2PageReactsWithHttpInfo(tenantId, urlId);
+            ApiResponse<GetV2PageReacts> localVarResp = getV2PageReactsWithHttpInfo(tenantId, urlId, sso, includeUserInfo);
             return localVarResp.getData();
         }
 
@@ -7850,7 +8045,7 @@ public class PublicApi {
          </table>
          */
         public ApiResponse<GetV2PageReacts> executeWithHttpInfo() throws ApiException {
-            return getV2PageReactsWithHttpInfo(tenantId, urlId);
+            return getV2PageReactsWithHttpInfo(tenantId, urlId, sso, includeUserInfo);
         }
 
         /**
@@ -7867,7 +8062,7 @@ public class PublicApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<GetV2PageReacts> _callback) throws ApiException {
-            return getV2PageReactsAsync(tenantId, urlId, _callback);
+            return getV2PageReactsAsync(tenantId, urlId, sso, includeUserInfo, _callback);
         }
     }
 
@@ -9582,6 +9777,224 @@ public class PublicApi {
      */
     public APIsetCommentTextRequest setCommentText(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull String broadcastId, @javax.annotation.Nonnull CommentTextUpdateRequest commentTextUpdateRequest) {
         return new APIsetCommentTextRequest(tenantId, commentId, broadcastId, commentTextUpdateRequest);
+    }
+    private okhttp3.Call translateCommentsCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull CommentTranslationsRequest commentTranslationsRequest, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = commentTranslationsRequest;
+
+        // create path and map variables
+        String localVarPath = "/comments/{tenantId}/translations"
+            .replace("{" + "tenantId" + "}", localVarApiClient.escapeString(tenantId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (urlId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("urlId", urlId));
+        }
+
+        if (sso != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sso", sso));
+        }
+
+        if (locale != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("locale", locale));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call translateCommentsValidateBeforeCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull CommentTranslationsRequest commentTranslationsRequest, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'tenantId' is set
+        if (tenantId == null) {
+            throw new ApiException("Missing the required parameter 'tenantId' when calling translateComments(Async)");
+        }
+
+        // verify the required parameter 'urlId' is set
+        if (urlId == null) {
+            throw new ApiException("Missing the required parameter 'urlId' when calling translateComments(Async)");
+        }
+
+        // verify the required parameter 'commentTranslationsRequest' is set
+        if (commentTranslationsRequest == null) {
+            throw new ApiException("Missing the required parameter 'commentTranslationsRequest' when calling translateComments(Async)");
+        }
+
+        return translateCommentsCall(tenantId, urlId, commentTranslationsRequest, sso, locale, _callback);
+
+    }
+
+
+    private ApiResponse<CommentTranslationsResponse> translateCommentsWithHttpInfo(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull CommentTranslationsRequest commentTranslationsRequest, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale) throws ApiException {
+        okhttp3.Call localVarCall = translateCommentsValidateBeforeCall(tenantId, urlId, commentTranslationsRequest, sso, locale, null);
+        Type localVarReturnType = new TypeToken<CommentTranslationsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call translateCommentsAsync(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull CommentTranslationsRequest commentTranslationsRequest, @javax.annotation.Nullable String sso, @javax.annotation.Nullable String locale, final ApiCallback<CommentTranslationsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = translateCommentsValidateBeforeCall(tenantId, urlId, commentTranslationsRequest, sso, locale, _callback);
+        Type localVarReturnType = new TypeToken<CommentTranslationsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APItranslateCommentsRequest {
+        @javax.annotation.Nonnull
+        private final String tenantId;
+        @javax.annotation.Nonnull
+        private final String urlId;
+        @javax.annotation.Nonnull
+        private final CommentTranslationsRequest commentTranslationsRequest;
+        @javax.annotation.Nullable
+        private String sso;
+        @javax.annotation.Nullable
+        private String locale;
+
+        private APItranslateCommentsRequest(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull CommentTranslationsRequest commentTranslationsRequest) {
+            this.tenantId = tenantId;
+            this.urlId = urlId;
+            this.commentTranslationsRequest = commentTranslationsRequest;
+        }
+
+        /**
+         * Set sso
+         * @param sso  (optional)
+         * @return APItranslateCommentsRequest
+         */
+        public APItranslateCommentsRequest sso(@javax.annotation.Nullable String sso) {
+            this.sso = sso;
+            return this;
+        }
+
+        /**
+         * Set locale
+         * @param locale  (optional)
+         * @return APItranslateCommentsRequest
+         */
+        public APItranslateCommentsRequest locale(@javax.annotation.Nullable String locale) {
+            this.locale = locale;
+            return this;
+        }
+
+        /**
+         * Build call for translateComments
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return translateCommentsCall(tenantId, urlId, commentTranslationsRequest, sso, locale, _callback);
+        }
+
+        /**
+         * Execute translateComments request
+         * @return CommentTranslationsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public CommentTranslationsResponse execute() throws ApiException {
+            ApiResponse<CommentTranslationsResponse> localVarResp = translateCommentsWithHttpInfo(tenantId, urlId, commentTranslationsRequest, sso, locale);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute translateComments request with HTTP info returned
+         * @return ApiResponse&lt;CommentTranslationsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CommentTranslationsResponse> executeWithHttpInfo() throws ApiException {
+            return translateCommentsWithHttpInfo(tenantId, urlId, commentTranslationsRequest, sso, locale);
+        }
+
+        /**
+         * Execute translateComments request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table border="1">
+       <caption>Response Details</caption>
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+            <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CommentTranslationsResponse> _callback) throws ApiException {
+            return translateCommentsAsync(tenantId, urlId, commentTranslationsRequest, sso, locale, _callback);
+        }
+    }
+
+    /**
+     * 
+     * Translates the given comments into the widget locale. Only available when the matching widget customization rule has Comment Translation set to Automatic or Manual.
+     * @param tenantId  (required)
+     * @param urlId  (required)
+     * @param commentTranslationsRequest  (required)
+     * @return APItranslateCommentsRequest
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Ok </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public APItranslateCommentsRequest translateComments(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String urlId, @javax.annotation.Nonnull CommentTranslationsRequest commentTranslationsRequest) {
+        return new APItranslateCommentsRequest(tenantId, urlId, commentTranslationsRequest);
     }
     private okhttp3.Call unBlockCommentPublicCall(@javax.annotation.Nonnull String tenantId, @javax.annotation.Nonnull String commentId, @javax.annotation.Nonnull PublicBlockFromCommentParams publicBlockFromCommentParams, @javax.annotation.Nullable String sso, final ApiCallback _callback) throws ApiException {
         String basePath = null;

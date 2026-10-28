@@ -49,6 +49,8 @@
 |**hasCode** | **Boolean** |  |  [optional] |
 |**approved** | **Boolean** |  |  |
 |**locale** | **String** |  |  |
+|**detectedLanguage** | **String** |  |  [optional] |
+|**translations** | [**Map&lt;String, CommentTranslation&gt;**](CommentTranslation.md) | Construct a type with a set of properties K of type T |  [optional] |
 |**isDeleted** | **Boolean** |  |  [optional] |
 |**isDeletedUser** | **Boolean** |  |  [optional] |
 |**isBannedUser** | **Boolean** |  |  [optional] |
@@ -73,6 +75,7 @@
 |**autoplayJobId** | **String** |  |  [optional] |
 |**autoplayDelayMS** | **Long** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
+|**poll** | [**CommentPoll**](CommentPoll.md) |  |  [optional] |
 |**logs** | [**List&lt;CommentLogEntry&gt;**](CommentLogEntry.md) |  |  [optional] |
 |**groupIds** | **List&lt;String&gt;** |  |  [optional] |
 |**viewCount** | **Long** |  |  [optional] |

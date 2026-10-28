@@ -18,6 +18,7 @@ import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.LiveEventExtraInfo;
 import com.fastcomments.model.LiveEventType;
+import com.fastcomments.model.PickCommentPollOptionsOrTotalVotesOrClosesAt;
 import com.fastcomments.model.PubSubComment;
 import com.fastcomments.model.PubSubVote;
 import com.fastcomments.model.UserNotification;
@@ -110,6 +111,16 @@ public class LiveEvent {
   @SerializedName(SERIALIZED_NAME_FEED_POST)
   @javax.annotation.Nullable
   private FeedPost feedPost;
+
+  public static final String SERIALIZED_NAME_COMMENT_ID = "commentId";
+  @SerializedName(SERIALIZED_NAME_COMMENT_ID)
+  @javax.annotation.Nullable
+  private String commentId;
+
+  public static final String SERIALIZED_NAME_POLL = "poll";
+  @SerializedName(SERIALIZED_NAME_POLL)
+  @javax.annotation.Nullable
+  private PickCommentPollOptionsOrTotalVotesOrClosesAt poll;
 
   public static final String SERIALIZED_NAME_EXTRA_INFO = "extraInfo";
   @SerializedName(SERIALIZED_NAME_EXTRA_INFO)
@@ -347,6 +358,44 @@ public class LiveEvent {
   }
 
 
+  public LiveEvent commentId(@javax.annotation.Nullable String commentId) {
+    this.commentId = commentId;
+    return this;
+  }
+
+  /**
+   * Get commentId
+   * @return commentId
+   */
+  @javax.annotation.Nullable
+  public String getCommentId() {
+    return commentId;
+  }
+
+  public void setCommentId(@javax.annotation.Nullable String commentId) {
+    this.commentId = commentId;
+  }
+
+
+  public LiveEvent poll(@javax.annotation.Nullable PickCommentPollOptionsOrTotalVotesOrClosesAt poll) {
+    this.poll = poll;
+    return this;
+  }
+
+  /**
+   * Get poll
+   * @return poll
+   */
+  @javax.annotation.Nullable
+  public PickCommentPollOptionsOrTotalVotesOrClosesAt getPoll() {
+    return poll;
+  }
+
+  public void setPoll(@javax.annotation.Nullable PickCommentPollOptionsOrTotalVotesOrClosesAt poll) {
+    this.poll = poll;
+  }
+
+
   public LiveEvent extraInfo(@javax.annotation.Nullable LiveEventExtraInfo extraInfo) {
     this.extraInfo = extraInfo;
     return this;
@@ -524,6 +573,8 @@ public class LiveEvent {
         Objects.equals(this.vote, liveEvent.vote) &&
         Objects.equals(this.comment, liveEvent.comment) &&
         Objects.equals(this.feedPost, liveEvent.feedPost) &&
+        Objects.equals(this.commentId, liveEvent.commentId) &&
+        Objects.equals(this.poll, liveEvent.poll) &&
         Objects.equals(this.extraInfo, liveEvent.extraInfo) &&
         Objects.equals(this.config, liveEvent.config) &&
         Objects.equals(this.isClosed, liveEvent.isClosed) &&
@@ -535,7 +586,7 @@ public class LiveEvent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, timestamp, ts, broadcastId, userId, badges, notification, vote, comment, feedPost, extraInfo, config, isClosed, uj, ul, sc, changes);
+    return Objects.hash(type, timestamp, ts, broadcastId, userId, badges, notification, vote, comment, feedPost, commentId, poll, extraInfo, config, isClosed, uj, ul, sc, changes);
   }
 
   @Override
@@ -552,6 +603,8 @@ public class LiveEvent {
     sb.append("    vote: ").append(toIndentedString(vote)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    feedPost: ").append(toIndentedString(feedPost)).append("\n");
+    sb.append("    commentId: ").append(toIndentedString(commentId)).append("\n");
+    sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("    extraInfo: ").append(toIndentedString(extraInfo)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    isClosed: ").append(toIndentedString(isClosed)).append("\n");
@@ -577,7 +630,7 @@ public class LiveEvent {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("type", "timestamp", "ts", "broadcastId", "userId", "badges", "notification", "vote", "comment", "feedPost", "extraInfo", "config", "isClosed", "uj", "ul", "sc", "changes"));
+    openapiFields = new HashSet<String>(Arrays.asList("type", "timestamp", "ts", "broadcastId", "userId", "badges", "notification", "vote", "comment", "feedPost", "commentId", "poll", "extraInfo", "config", "isClosed", "uj", "ul", "sc", "changes"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
@@ -648,6 +701,13 @@ public class LiveEvent {
       // validate the optional field `feedPost`
       if (jsonObj.get("feedPost") != null && !jsonObj.get("feedPost").isJsonNull()) {
         FeedPost.validateJsonElement(jsonObj.get("feedPost"));
+      }
+      if ((jsonObj.get("commentId") != null && !jsonObj.get("commentId").isJsonNull()) && !jsonObj.get("commentId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentId").toString()));
+      }
+      // validate the optional field `poll`
+      if (jsonObj.get("poll") != null && !jsonObj.get("poll").isJsonNull()) {
+        PickCommentPollOptionsOrTotalVotesOrClosesAt.validateJsonElement(jsonObj.get("poll"));
       }
       // validate the optional field `extraInfo`
       if (jsonObj.get("extraInfo") != null && !jsonObj.get("extraInfo").isJsonNull()) {

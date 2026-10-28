@@ -60,8 +60,13 @@ public class CreateQuestionResultBody {
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private Double value;
+
+  public static final String SERIALIZED_NAME_VALUES = "values";
+  @SerializedName(SERIALIZED_NAME_VALUES)
+  @javax.annotation.Nullable
+  private List<Double> values = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_QUESTION_ID = "questionId";
   @SerializedName(SERIALIZED_NAME_QUESTION_ID)
@@ -110,22 +115,49 @@ public class CreateQuestionResultBody {
   }
 
 
-  public CreateQuestionResultBody value(@javax.annotation.Nonnull Double value) {
+  public CreateQuestionResultBody value(@javax.annotation.Nullable Double value) {
     this.value = value;
     return this;
   }
 
   /**
-   * Get value
+   * Required unless values is given. For multi-choice questions this is derived from values.
    * @return value
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public Double getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nonnull Double value) {
+  public void setValue(@javax.annotation.Nullable Double value) {
     this.value = value;
+  }
+
+
+  public CreateQuestionResultBody values(@javax.annotation.Nullable List<Double> values) {
+    this.values = values;
+    return this;
+  }
+
+  public CreateQuestionResultBody addValuesItem(Double valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+  /**
+   * Selected option indexes for multi-choice questions.
+   * @return values
+   */
+  @javax.annotation.Nullable
+  public List<Double> getValues() {
+    return values;
+  }
+
+  public void setValues(@javax.annotation.Nullable List<Double> values) {
+    this.values = values;
   }
 
 
@@ -288,6 +320,7 @@ public class CreateQuestionResultBody {
     CreateQuestionResultBody createQuestionResultBody = (CreateQuestionResultBody) o;
     return Objects.equals(this.urlId, createQuestionResultBody.urlId) &&
         Objects.equals(this.value, createQuestionResultBody.value) &&
+        Objects.equals(this.values, createQuestionResultBody.values) &&
         Objects.equals(this.questionId, createQuestionResultBody.questionId) &&
         Objects.equals(this.anonUserId, createQuestionResultBody.anonUserId) &&
         Objects.equals(this.userId, createQuestionResultBody.userId) &&
@@ -298,7 +331,7 @@ public class CreateQuestionResultBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(urlId, value, questionId, anonUserId, userId, commentId, meta, additionalProperties);
+    return Objects.hash(urlId, value, values, questionId, anonUserId, userId, commentId, meta, additionalProperties);
   }
 
   @Override
@@ -307,6 +340,7 @@ public class CreateQuestionResultBody {
     sb.append("class CreateQuestionResultBody {\n");
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    questionId: ").append(toIndentedString(questionId)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -331,10 +365,10 @@ public class CreateQuestionResultBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("urlId", "value", "questionId", "anonUserId", "userId", "commentId", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("urlId", "value", "values", "questionId", "anonUserId", "userId", "commentId", "meta"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("urlId", "value", "questionId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("urlId", "questionId"));
   }
 
   /**
@@ -359,6 +393,10 @@ public class CreateQuestionResultBody {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("urlId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `urlId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlId").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("values") != null && !jsonObj.get("values").isJsonNull() && !jsonObj.get("values").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `values` to be an array in the JSON string but got `%s`", jsonObj.get("values").toString()));
       }
       if (!jsonObj.get("questionId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `questionId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("questionId").toString()));

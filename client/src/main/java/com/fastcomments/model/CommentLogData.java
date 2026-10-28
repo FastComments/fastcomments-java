@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.NotificationSkipReason;
 import com.fastcomments.model.RepeatCommentCheckIgnoredReason;
 import com.fastcomments.model.RepeatCommentHandlingAction;
 import com.fastcomments.model.SpamRule;
@@ -194,6 +195,11 @@ public class CommentLogData {
   @javax.annotation.Nullable
   private RepeatCommentCheckIgnoredReason reason;
 
+  public static final String SERIALIZED_NAME_SKIP_REASON = "skipReason";
+  @SerializedName(SERIALIZED_NAME_SKIP_REASON)
+  @javax.annotation.Nullable
+  private String skipReason;
+
   public static final String SERIALIZED_NAME_OTHER_DATA = "otherData";
   @SerializedName(SERIALIZED_NAME_OTHER_DATA)
   @javax.annotation.Nullable
@@ -338,6 +344,21 @@ public class CommentLogData {
   @SerializedName(SERIALIZED_NAME_DETECTED_LANGUAGE)
   @javax.annotation.Nullable
   private String detectedLanguage;
+
+  public static final String SERIALIZED_NAME_RECIPIENT_USER_ID = "recipientUserId";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_USER_ID)
+  @javax.annotation.Nullable
+  private String recipientUserId;
+
+  public static final String SERIALIZED_NAME_NOTIFY_SKIP_REASON = "notifySkipReason";
+  @SerializedName(SERIALIZED_NAME_NOTIFY_SKIP_REASON)
+  @javax.annotation.Nullable
+  private NotificationSkipReason notifySkipReason;
+
+  public static final String SERIALIZED_NAME_EMAIL_QUEUED = "emailQueued";
+  @SerializedName(SERIALIZED_NAME_EMAIL_QUEUED)
+  @javax.annotation.Nullable
+  private Boolean emailQueued;
 
   public CommentLogData() {
   }
@@ -874,6 +895,25 @@ public class CommentLogData {
   }
 
 
+  public CommentLogData skipReason(@javax.annotation.Nullable String skipReason) {
+    this.skipReason = skipReason;
+    return this;
+  }
+
+  /**
+   * Get skipReason
+   * @return skipReason
+   */
+  @javax.annotation.Nullable
+  public String getSkipReason() {
+    return skipReason;
+  }
+
+  public void setSkipReason(@javax.annotation.Nullable String skipReason) {
+    this.skipReason = skipReason;
+  }
+
+
   public CommentLogData otherData(@javax.annotation.Nullable Object otherData) {
     this.otherData = otherData;
     return this;
@@ -1235,6 +1275,63 @@ public class CommentLogData {
   }
 
 
+  public CommentLogData recipientUserId(@javax.annotation.Nullable String recipientUserId) {
+    this.recipientUserId = recipientUserId;
+    return this;
+  }
+
+  /**
+   * Get recipientUserId
+   * @return recipientUserId
+   */
+  @javax.annotation.Nullable
+  public String getRecipientUserId() {
+    return recipientUserId;
+  }
+
+  public void setRecipientUserId(@javax.annotation.Nullable String recipientUserId) {
+    this.recipientUserId = recipientUserId;
+  }
+
+
+  public CommentLogData notifySkipReason(@javax.annotation.Nullable NotificationSkipReason notifySkipReason) {
+    this.notifySkipReason = notifySkipReason;
+    return this;
+  }
+
+  /**
+   * Get notifySkipReason
+   * @return notifySkipReason
+   */
+  @javax.annotation.Nullable
+  public NotificationSkipReason getNotifySkipReason() {
+    return notifySkipReason;
+  }
+
+  public void setNotifySkipReason(@javax.annotation.Nullable NotificationSkipReason notifySkipReason) {
+    this.notifySkipReason = notifySkipReason;
+  }
+
+
+  public CommentLogData emailQueued(@javax.annotation.Nullable Boolean emailQueued) {
+    this.emailQueued = emailQueued;
+    return this;
+  }
+
+  /**
+   * Get emailQueued
+   * @return emailQueued
+   */
+  @javax.annotation.Nullable
+  public Boolean getEmailQueued() {
+    return emailQueued;
+  }
+
+  public void setEmailQueued(@javax.annotation.Nullable Boolean emailQueued) {
+    this.emailQueued = emailQueued;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1273,6 +1370,7 @@ public class CommentLogData {
         Objects.equals(this.votesDownAfter, commentLogData.votesDownAfter) &&
         Objects.equals(this.repeatAction, commentLogData.repeatAction) &&
         Objects.equals(this.reason, commentLogData.reason) &&
+        Objects.equals(this.skipReason, commentLogData.skipReason) &&
         Objects.equals(this.otherData, commentLogData.otherData) &&
         Objects.equals(this.spamBefore, commentLogData.spamBefore) &&
         Objects.equals(this.spamAfter, commentLogData.spamAfter) &&
@@ -1291,12 +1389,15 @@ public class CommentLogData {
         Objects.equals(this.referencedCommentId, commentLogData.referencedCommentId) &&
         Objects.equals(this.invalidLocale, commentLogData.invalidLocale) &&
         Objects.equals(this.detectedLocale, commentLogData.detectedLocale) &&
-        Objects.equals(this.detectedLanguage, commentLogData.detectedLanguage);
+        Objects.equals(this.detectedLanguage, commentLogData.detectedLanguage) &&
+        Objects.equals(this.recipientUserId, commentLogData.recipientUserId) &&
+        Objects.equals(this.notifySkipReason, commentLogData.notifySkipReason) &&
+        Objects.equals(this.emailQueued, commentLogData.emailQueued);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clearContent, isDeletedUser, phrase, badWord, word, locale, tenantBadgeId, badgeId, wasLoggedIn, foundUser, verified, engine, engineResponse, engineTokens, trustFactor, source, rule, userId, subscribers, notificationCount, votesBefore, votesUpBefore, votesDownBefore, votesAfter, votesUpAfter, votesDownAfter, repeatAction, reason, otherData, spamBefore, spamAfter, permanentFlag, approvedBefore, approvedAfter, reviewedBefore, reviewedAfter, textBefore, textAfter, expireBefore, expireAfter, flagCountBefore, trustFactorBefore, trustFactorAfter, referencedCommentId, invalidLocale, detectedLocale, detectedLanguage);
+    return Objects.hash(clearContent, isDeletedUser, phrase, badWord, word, locale, tenantBadgeId, badgeId, wasLoggedIn, foundUser, verified, engine, engineResponse, engineTokens, trustFactor, source, rule, userId, subscribers, notificationCount, votesBefore, votesUpBefore, votesDownBefore, votesAfter, votesUpAfter, votesDownAfter, repeatAction, reason, skipReason, otherData, spamBefore, spamAfter, permanentFlag, approvedBefore, approvedAfter, reviewedBefore, reviewedAfter, textBefore, textAfter, expireBefore, expireAfter, flagCountBefore, trustFactorBefore, trustFactorAfter, referencedCommentId, invalidLocale, detectedLocale, detectedLanguage, recipientUserId, notifySkipReason, emailQueued);
   }
 
   @Override
@@ -1331,6 +1432,7 @@ public class CommentLogData {
     sb.append("    votesDownAfter: ").append(toIndentedString(votesDownAfter)).append("\n");
     sb.append("    repeatAction: ").append(toIndentedString(repeatAction)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    skipReason: ").append(toIndentedString(skipReason)).append("\n");
     sb.append("    otherData: ").append(toIndentedString(otherData)).append("\n");
     sb.append("    spamBefore: ").append(toIndentedString(spamBefore)).append("\n");
     sb.append("    spamAfter: ").append(toIndentedString(spamAfter)).append("\n");
@@ -1350,6 +1452,9 @@ public class CommentLogData {
     sb.append("    invalidLocale: ").append(toIndentedString(invalidLocale)).append("\n");
     sb.append("    detectedLocale: ").append(toIndentedString(detectedLocale)).append("\n");
     sb.append("    detectedLanguage: ").append(toIndentedString(detectedLanguage)).append("\n");
+    sb.append("    recipientUserId: ").append(toIndentedString(recipientUserId)).append("\n");
+    sb.append("    notifySkipReason: ").append(toIndentedString(notifySkipReason)).append("\n");
+    sb.append("    emailQueued: ").append(toIndentedString(emailQueued)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1368,7 +1473,7 @@ public class CommentLogData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "source", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId", "invalidLocale", "detectedLocale", "detectedLanguage"));
+    openapiFields = new HashSet<String>(Arrays.asList("clearContent", "isDeletedUser", "phrase", "badWord", "word", "locale", "tenantBadgeId", "badgeId", "wasLoggedIn", "foundUser", "verified", "engine", "engineResponse", "engineTokens", "trustFactor", "source", "rule", "userId", "subscribers", "notificationCount", "votesBefore", "votesUpBefore", "votesDownBefore", "votesAfter", "votesUpAfter", "votesDownAfter", "repeatAction", "reason", "skipReason", "otherData", "spamBefore", "spamAfter", "permanentFlag", "approvedBefore", "approvedAfter", "reviewedBefore", "reviewedAfter", "textBefore", "textAfter", "expireBefore", "expireAfter", "flagCountBefore", "trustFactorBefore", "trustFactorAfter", "referencedCommentId", "invalidLocale", "detectedLocale", "detectedLanguage", "recipientUserId", "notifySkipReason", "emailQueued"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1437,6 +1542,9 @@ public class CommentLogData {
       if (jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) {
         RepeatCommentCheckIgnoredReason.validateJsonElement(jsonObj.get("reason"));
       }
+      if ((jsonObj.get("skipReason") != null && !jsonObj.get("skipReason").isJsonNull()) && !jsonObj.get("skipReason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skipReason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skipReason").toString()));
+      }
       if ((jsonObj.get("permanentFlag") != null && !jsonObj.get("permanentFlag").isJsonNull()) && !jsonObj.get("permanentFlag").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `permanentFlag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("permanentFlag").toString()));
       }
@@ -1461,6 +1569,13 @@ public class CommentLogData {
       }
       if ((jsonObj.get("detectedLanguage") != null && !jsonObj.get("detectedLanguage").isJsonNull()) && !jsonObj.get("detectedLanguage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detectedLanguage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detectedLanguage").toString()));
+      }
+      if ((jsonObj.get("recipientUserId") != null && !jsonObj.get("recipientUserId").isJsonNull()) && !jsonObj.get("recipientUserId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recipientUserId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recipientUserId").toString()));
+      }
+      // validate the optional field `notifySkipReason`
+      if (jsonObj.get("notifySkipReason") != null && !jsonObj.get("notifySkipReason").isJsonNull()) {
+        NotificationSkipReason.validateJsonElement(jsonObj.get("notifySkipReason"));
       }
   }
 

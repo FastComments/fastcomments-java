@@ -53,7 +53,11 @@ public enum NotificationType {
   
   NUMBER_9(9),
   
-  NUMBER_10(10);
+  NUMBER_10(10),
+  
+  NUMBER_11(11),
+  
+  NUMBER_12(12);
 
   private Integer value;
 

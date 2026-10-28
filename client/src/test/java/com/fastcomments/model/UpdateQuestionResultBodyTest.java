@@ -73,6 +73,14 @@ public class UpdateQuestionResultBodyTest {
     }
 
     /**
+     * Test the property 'values'
+     */
+    @Test
+    public void valuesTest() {
+        // TODO: test values
+    }
+
+    /**
      * Test the property 'commentId'
      */
     @Test

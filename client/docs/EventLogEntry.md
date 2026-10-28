@@ -13,6 +13,7 @@
 |**urlId** | **String** |  |  |
 |**broadcastId** | **String** |  |  |
 |**data** | **String** |  |  |
+|**domain** | **String** |  |  [optional] |
 
 
 

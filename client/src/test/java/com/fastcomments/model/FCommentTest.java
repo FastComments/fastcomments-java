@@ -14,6 +14,8 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.CommentLogEntry;
+import com.fastcomments.model.CommentPoll;
+import com.fastcomments.model.CommentTranslation;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
@@ -27,7 +29,9 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -382,6 +386,22 @@ public class FCommentTest {
     }
 
     /**
+     * Test the property 'detectedLanguage'
+     */
+    @Test
+    public void detectedLanguageTest() {
+        // TODO: test detectedLanguage
+    }
+
+    /**
+     * Test the property 'translations'
+     */
+    @Test
+    public void translationsTest() {
+        // TODO: test translations
+    }
+
+    /**
      * Test the property 'isDeleted'
      */
     @Test
@@ -571,6 +591,14 @@ public class FCommentTest {
     @Test
     public void feedbackIdsTest() {
         // TODO: test feedbackIds
+    }
+
+    /**
+     * Test the property 'poll'
+     */
+    @Test
+    public void pollTest() {
+        // TODO: test poll
     }
 
     /**

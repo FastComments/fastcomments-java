@@ -53,6 +53,11 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetTranslationsResponse {
+  public static final String SERIALIZED_NAME_LOCALE = "locale";
+  @SerializedName(SERIALIZED_NAME_LOCALE)
+  @javax.annotation.Nonnull
+  private String locale;
+
   public static final String SERIALIZED_NAME_TRANSLATIONS = "translations";
   @SerializedName(SERIALIZED_NAME_TRANSLATIONS)
   @javax.annotation.Nonnull
@@ -65,6 +70,25 @@ public class GetTranslationsResponse {
 
   public GetTranslationsResponse() {
   }
+
+  public GetTranslationsResponse locale(@javax.annotation.Nonnull String locale) {
+    this.locale = locale;
+    return this;
+  }
+
+  /**
+   * The locale the translations were resolved for. Clients use it to set text direction.
+   * @return locale
+   */
+  @javax.annotation.Nonnull
+  public String getLocale() {
+    return locale;
+  }
+
+  public void setLocale(@javax.annotation.Nonnull String locale) {
+    this.locale = locale;
+  }
+
 
   public GetTranslationsResponse translations(@javax.annotation.Nonnull Map<String, String> translations) {
     this.translations = translations;
@@ -166,20 +190,22 @@ public class GetTranslationsResponse {
       return false;
     }
     GetTranslationsResponse getTranslationsResponse = (GetTranslationsResponse) o;
-    return Objects.equals(this.translations, getTranslationsResponse.translations) &&
+    return Objects.equals(this.locale, getTranslationsResponse.locale) &&
+        Objects.equals(this.translations, getTranslationsResponse.translations) &&
         Objects.equals(this.status, getTranslationsResponse.status)&&
         Objects.equals(this.additionalProperties, getTranslationsResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(translations, status, additionalProperties);
+    return Objects.hash(locale, translations, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTranslationsResponse {\n");
+    sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
     sb.append("    translations: ").append(toIndentedString(translations)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -201,10 +227,10 @@ public class GetTranslationsResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("translations", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("locale", "translations", "status"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("translations", "status"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("locale", "translations", "status"));
   }
 
   /**
@@ -227,6 +253,9 @@ public class GetTranslationsResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("locale").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
+      }
       // validate the required field `status`
       APIStatus.validateJsonElement(jsonObj.get("status"));
   }

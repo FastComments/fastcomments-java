@@ -282,6 +282,14 @@ public class PublicCommentTest {
     }
 
     /**
+     * Test the property 'myPollVotes'
+     */
+    @Test
+    public void myPollVotesTest() {
+        // TODO: test myPollVotes
+    }
+
+    /**
      * Test the property 'myVoteId'
      */
     @Test

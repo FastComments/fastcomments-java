@@ -19,6 +19,10 @@
 |**description** | **String** |  |  [optional] |
 |**serverStartDate** | **OffsetDateTime** |  |  [optional] |
 |**objectDetails** | **Map&lt;String, Object&gt;** | Construct a type with a set of properties K of type T |  [optional] |
+|**targetId** | **String** |  |  [optional] |
+|**targetLabel** | **String** |  |  [optional] |
+|**ua** | **String** |  |  [optional] |
+|**sIdHashed** | **String** |  |  [optional] |
 
 
 

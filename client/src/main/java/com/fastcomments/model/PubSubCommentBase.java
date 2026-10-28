@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.CommentPoll;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -198,6 +199,11 @@ public class PubSubCommentBase {
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
   @javax.annotation.Nullable
   private List<String> feedbackIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_POLL = "poll";
+  @SerializedName(SERIALIZED_NAME_POLL)
+  @javax.annotation.Nullable
+  private CommentPoll poll;
 
   public static final String SERIALIZED_NAME_FLAG_COUNT = "flagCount";
   @SerializedName(SERIALIZED_NAME_FLAG_COUNT)
@@ -824,6 +830,25 @@ public class PubSubCommentBase {
   }
 
 
+  public PubSubCommentBase poll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+    return this;
+  }
+
+  /**
+   * Get poll
+   * @return poll
+   */
+  @javax.annotation.Nullable
+  public CommentPoll getPoll() {
+    return poll;
+  }
+
+  public void setPoll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+  }
+
+
   public PubSubCommentBase flagCount(@javax.annotation.Nullable Integer flagCount) {
     this.flagCount = flagCount;
     return this;
@@ -1080,6 +1105,7 @@ public class PubSubCommentBase {
         Objects.equals(this.isSpam, pubSubCommentBase.isSpam) &&
         Objects.equals(this.anonUserId, pubSubCommentBase.anonUserId) &&
         Objects.equals(this.feedbackIds, pubSubCommentBase.feedbackIds) &&
+        Objects.equals(this.poll, pubSubCommentBase.poll) &&
         Objects.equals(this.flagCount, pubSubCommentBase.flagCount) &&
         Objects.equals(this.domain, pubSubCommentBase.domain) &&
         Objects.equals(this.url, pubSubCommentBase.url) &&
@@ -1095,7 +1121,7 @@ public class PubSubCommentBase {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, userId, urlId, commenterName, commenterLink, commentHTML, comment, parentId, votes, votesUp, votesDown, verified, avatarSrc, hasImages, hasLinks, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, flagCount, domain, url, pageTitle, expireAt, reviewed, hasCode, approved, locale, isBannedUser, groupIds);
+    return Objects.hash(id, tenantId, userId, urlId, commenterName, commenterLink, commentHTML, comment, parentId, votes, votesUp, votesDown, verified, avatarSrc, hasImages, hasLinks, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, poll, flagCount, domain, url, pageTitle, expireAt, reviewed, hasCode, approved, locale, isBannedUser, groupIds);
   }
 
   @Override
@@ -1131,6 +1157,7 @@ public class PubSubCommentBase {
     sb.append("    isSpam: ").append(toIndentedString(isSpam)).append("\n");
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
+    sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("    flagCount: ").append(toIndentedString(flagCount)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
@@ -1160,7 +1187,7 @@ public class PubSubCommentBase {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "userId", "urlId", "commenterName", "commenterLink", "commentHTML", "comment", "parentId", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "hasLinks", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "flagCount", "domain", "url", "pageTitle", "expireAt", "reviewed", "hasCode", "approved", "locale", "isBannedUser", "groupIds"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "userId", "urlId", "commenterName", "commenterLink", "commentHTML", "comment", "parentId", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "hasLinks", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "poll", "flagCount", "domain", "url", "pageTitle", "expireAt", "reviewed", "hasCode", "approved", "locale", "isBannedUser", "groupIds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "urlId", "commenterName", "commentHTML", "comment", "verified", "url", "approved", "locale"));
@@ -1247,6 +1274,10 @@ public class PubSubCommentBase {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      // validate the optional field `poll`
+      if (jsonObj.get("poll") != null && !jsonObj.get("poll").isJsonNull()) {
+        CommentPoll.validateJsonElement(jsonObj.get("poll"));
       }
       if ((jsonObj.get("domain") != null && !jsonObj.get("domain").isJsonNull()) && !jsonObj.get("domain").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain").toString()));

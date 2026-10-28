@@ -14,7 +14,9 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.QuestionCondition;
 import com.fastcomments.model.QuestionConfigCustomOptionsInner;
+import com.fastcomments.model.SubQuestionCondition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -118,6 +120,21 @@ public class CreateQuestionConfigBody {
   @javax.annotation.Nullable
   private Boolean alwaysShowSubQuestions;
 
+  public static final String SERIALIZED_NAME_SUB_QUESTION_CONDITIONS = "subQuestionConditions";
+  @SerializedName(SERIALIZED_NAME_SUB_QUESTION_CONDITIONS)
+  @javax.annotation.Nullable
+  private List<SubQuestionCondition> subQuestionConditions = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_COMMENT_BOX_CONDITION = "commentBoxCondition";
+  @SerializedName(SERIALIZED_NAME_COMMENT_BOX_CONDITION)
+  @javax.annotation.Nullable
+  private QuestionCondition commentBoxCondition;
+
+  public static final String SERIALIZED_NAME_COMMENT_BOX_PROMPT = "commentBoxPrompt";
+  @SerializedName(SERIALIZED_NAME_COMMENT_BOX_PROMPT)
+  @javax.annotation.Nullable
+  private String commentBoxPrompt;
+
   public static final String SERIALIZED_NAME_REPORTING_ORDER = "reportingOrder";
   @SerializedName(SERIALIZED_NAME_REPORTING_ORDER)
   @javax.annotation.Nonnull
@@ -189,7 +206,7 @@ public class CreateQuestionConfigBody {
   }
 
   /**
-   * Get type
+   * One of nps, slider, star, thumbs, choice, multi, emoji, scale. choice, multi, emoji and scale take their labels from customOptions (choice/multi 2-20 options, emoji/scale 3-7).
    * @return type
    */
   @javax.annotation.Nonnull
@@ -389,6 +406,71 @@ public class CreateQuestionConfigBody {
   }
 
 
+  public CreateQuestionConfigBody subQuestionConditions(@javax.annotation.Nullable List<SubQuestionCondition> subQuestionConditions) {
+    this.subQuestionConditions = subQuestionConditions;
+    return this;
+  }
+
+  public CreateQuestionConfigBody addSubQuestionConditionsItem(SubQuestionCondition subQuestionConditionsItem) {
+    if (this.subQuestionConditions == null) {
+      this.subQuestionConditions = new ArrayList<>();
+    }
+    this.subQuestionConditions.add(subQuestionConditionsItem);
+    return this;
+  }
+
+  /**
+   * Show a sub-question only when this question&#39;s answer matches its rule.
+   * @return subQuestionConditions
+   */
+  @javax.annotation.Nullable
+  public List<SubQuestionCondition> getSubQuestionConditions() {
+    return subQuestionConditions;
+  }
+
+  public void setSubQuestionConditions(@javax.annotation.Nullable List<SubQuestionCondition> subQuestionConditions) {
+    this.subQuestionConditions = subQuestionConditions;
+  }
+
+
+  public CreateQuestionConfigBody commentBoxCondition(@javax.annotation.Nullable QuestionCondition commentBoxCondition) {
+    this.commentBoxCondition = commentBoxCondition;
+    return this;
+  }
+
+  /**
+   * Get commentBoxCondition
+   * @return commentBoxCondition
+   */
+  @javax.annotation.Nullable
+  public QuestionCondition getCommentBoxCondition() {
+    return commentBoxCondition;
+  }
+
+  public void setCommentBoxCondition(@javax.annotation.Nullable QuestionCondition commentBoxCondition) {
+    this.commentBoxCondition = commentBoxCondition;
+  }
+
+
+  public CreateQuestionConfigBody commentBoxPrompt(@javax.annotation.Nullable String commentBoxPrompt) {
+    this.commentBoxPrompt = commentBoxPrompt;
+    return this;
+  }
+
+  /**
+   * Comment box placeholder when commentBoxCondition reveals it.
+   * @return commentBoxPrompt
+   */
+  @javax.annotation.Nullable
+  public String getCommentBoxPrompt() {
+    return commentBoxPrompt;
+  }
+
+  public void setCommentBoxPrompt(@javax.annotation.Nullable String commentBoxPrompt) {
+    this.commentBoxPrompt = commentBoxPrompt;
+  }
+
+
   public CreateQuestionConfigBody reportingOrder(@javax.annotation.Nonnull Double reportingOrder) {
     this.reportingOrder = reportingOrder;
     return this;
@@ -475,13 +557,16 @@ public class CreateQuestionConfigBody {
         Objects.equals(this.customOptions, createQuestionConfigBody.customOptions) &&
         Objects.equals(this.subQuestionIds, createQuestionConfigBody.subQuestionIds) &&
         Objects.equals(this.alwaysShowSubQuestions, createQuestionConfigBody.alwaysShowSubQuestions) &&
+        Objects.equals(this.subQuestionConditions, createQuestionConfigBody.subQuestionConditions) &&
+        Objects.equals(this.commentBoxCondition, createQuestionConfigBody.commentBoxCondition) &&
+        Objects.equals(this.commentBoxPrompt, createQuestionConfigBody.commentBoxPrompt) &&
         Objects.equals(this.reportingOrder, createQuestionConfigBody.reportingOrder)&&
         Objects.equals(this.additionalProperties, createQuestionConfigBody.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, question, helpText, type, numStars, min, max, defaultValue, labelNegative, labelPositive, customOptions, subQuestionIds, alwaysShowSubQuestions, reportingOrder, additionalProperties);
+    return Objects.hash(name, question, helpText, type, numStars, min, max, defaultValue, labelNegative, labelPositive, customOptions, subQuestionIds, alwaysShowSubQuestions, subQuestionConditions, commentBoxCondition, commentBoxPrompt, reportingOrder, additionalProperties);
   }
 
   @Override
@@ -501,6 +586,9 @@ public class CreateQuestionConfigBody {
     sb.append("    customOptions: ").append(toIndentedString(customOptions)).append("\n");
     sb.append("    subQuestionIds: ").append(toIndentedString(subQuestionIds)).append("\n");
     sb.append("    alwaysShowSubQuestions: ").append(toIndentedString(alwaysShowSubQuestions)).append("\n");
+    sb.append("    subQuestionConditions: ").append(toIndentedString(subQuestionConditions)).append("\n");
+    sb.append("    commentBoxCondition: ").append(toIndentedString(commentBoxCondition)).append("\n");
+    sb.append("    commentBoxPrompt: ").append(toIndentedString(commentBoxPrompt)).append("\n");
     sb.append("    reportingOrder: ").append(toIndentedString(reportingOrder)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -521,7 +609,7 @@ public class CreateQuestionConfigBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "question", "helpText", "type", "numStars", "min", "max", "defaultValue", "labelNegative", "labelPositive", "customOptions", "subQuestionIds", "alwaysShowSubQuestions", "reportingOrder"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "question", "helpText", "type", "numStars", "min", "max", "defaultValue", "labelNegative", "labelPositive", "customOptions", "subQuestionIds", "alwaysShowSubQuestions", "subQuestionConditions", "commentBoxCondition", "commentBoxPrompt", "reportingOrder"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "question", "type", "reportingOrder"));
@@ -582,6 +670,27 @@ public class CreateQuestionConfigBody {
       // ensure the optional json data is an array if present
       if (jsonObj.get("subQuestionIds") != null && !jsonObj.get("subQuestionIds").isJsonNull() && !jsonObj.get("subQuestionIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subQuestionIds` to be an array in the JSON string but got `%s`", jsonObj.get("subQuestionIds").toString()));
+      }
+      if (jsonObj.get("subQuestionConditions") != null && !jsonObj.get("subQuestionConditions").isJsonNull()) {
+        JsonArray jsonArraysubQuestionConditions = jsonObj.getAsJsonArray("subQuestionConditions");
+        if (jsonArraysubQuestionConditions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("subQuestionConditions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subQuestionConditions` to be an array in the JSON string but got `%s`", jsonObj.get("subQuestionConditions").toString()));
+          }
+
+          // validate the optional field `subQuestionConditions` (array)
+          for (int i = 0; i < jsonArraysubQuestionConditions.size(); i++) {
+            SubQuestionCondition.validateJsonElement(jsonArraysubQuestionConditions.get(i));
+          };
+        }
+      }
+      // validate the optional field `commentBoxCondition`
+      if (jsonObj.get("commentBoxCondition") != null && !jsonObj.get("commentBoxCondition").isJsonNull()) {
+        QuestionCondition.validateJsonElement(jsonObj.get("commentBoxCondition"));
+      }
+      if ((jsonObj.get("commentBoxPrompt") != null && !jsonObj.get("commentBoxPrompt").isJsonNull()) && !jsonObj.get("commentBoxPrompt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commentBoxPrompt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentBoxPrompt").toString()));
       }
   }
 

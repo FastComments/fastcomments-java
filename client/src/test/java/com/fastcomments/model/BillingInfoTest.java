@@ -101,4 +101,12 @@ public class BillingInfoTest {
         // TODO: test email
     }
 
+    /**
+     * Test the property 'vatId'
+     */
+    @Test
+    public void vatIdTest() {
+        // TODO: test vatId
+    }
+
 }

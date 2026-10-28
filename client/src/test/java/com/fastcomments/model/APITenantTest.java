@@ -245,6 +245,14 @@ public class APITenantTest {
     }
 
     /**
+     * Test the property 'hasDebranding'
+     */
+    @Test
+    public void hasDebrandingTest() {
+        // TODO: test hasDebranding
+    }
+
+    /**
      * Test the property 'flexLastBilledAmount'
      */
     @Test

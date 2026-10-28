@@ -14,7 +14,6 @@
 |**paymentFrequency** | **Double** |  |  [optional] |
 |**billingInfoValid** | **Boolean** |  |  [optional] |
 |**billingHandledExternally** | **Boolean** |  |  [optional] |
-|**createdBy** | **String** |  |  [optional] |
 |**isSetup** | **Boolean** |  |  [optional] |
 |**domainConfiguration** | [**List&lt;APIDomainConfiguration&gt;**](APIDomainConfiguration.md) |  |  [optional] |
 |**billingInfo** | [**BillingInfo**](BillingInfo.md) |  |  [optional] |

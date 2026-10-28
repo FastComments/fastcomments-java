@@ -15,13 +15,16 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.PageReactUser;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,6 +54,11 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetV1PageLikes {
+  public static final String SERIALIZED_NAME_USERS = "users";
+  @SerializedName(SERIALIZED_NAME_USERS)
+  @javax.annotation.Nullable
+  private List<PageReactUser> users = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_URL_ID_W_S = "urlIdWS";
   @SerializedName(SERIALIZED_NAME_URL_ID_W_S)
   @javax.annotation.Nonnull
@@ -78,6 +86,33 @@ public class GetV1PageLikes {
 
   public GetV1PageLikes() {
   }
+
+  public GetV1PageLikes users(@javax.annotation.Nullable List<PageReactUser> users) {
+    this.users = users;
+    return this;
+  }
+
+  public GetV1PageLikes addUsersItem(PageReactUser usersItem) {
+    if (this.users == null) {
+      this.users = new ArrayList<>();
+    }
+    this.users.add(usersItem);
+    return this;
+  }
+
+  /**
+   * Most recent first. Present when includeUserInfo is passed. Capped at 100 reacts.
+   * @return users
+   */
+  @javax.annotation.Nullable
+  public List<PageReactUser> getUsers() {
+    return users;
+  }
+
+  public void setUsers(@javax.annotation.Nullable List<PageReactUser> users) {
+    this.users = users;
+  }
+
 
   public GetV1PageLikes urlIdWS(@javax.annotation.Nonnull String urlIdWS) {
     this.urlIdWS = urlIdWS;
@@ -228,7 +263,8 @@ public class GetV1PageLikes {
       return false;
     }
     GetV1PageLikes getV1PageLikes = (GetV1PageLikes) o;
-    return Objects.equals(this.urlIdWS, getV1PageLikes.urlIdWS) &&
+    return Objects.equals(this.users, getV1PageLikes.users) &&
+        Objects.equals(this.urlIdWS, getV1PageLikes.urlIdWS) &&
         Objects.equals(this.didLike, getV1PageLikes.didLike) &&
         Objects.equals(this.commentCount, getV1PageLikes.commentCount) &&
         Objects.equals(this.likeCount, getV1PageLikes.likeCount) &&
@@ -238,13 +274,14 @@ public class GetV1PageLikes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(urlIdWS, didLike, commentCount, likeCount, status, additionalProperties);
+    return Objects.hash(users, urlIdWS, didLike, commentCount, likeCount, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetV1PageLikes {\n");
+    sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("    urlIdWS: ").append(toIndentedString(urlIdWS)).append("\n");
     sb.append("    didLike: ").append(toIndentedString(didLike)).append("\n");
     sb.append("    commentCount: ").append(toIndentedString(commentCount)).append("\n");
@@ -269,7 +306,7 @@ public class GetV1PageLikes {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("urlIdWS", "didLike", "commentCount", "likeCount", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("users", "urlIdWS", "didLike", "commentCount", "likeCount", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("urlIdWS", "didLike", "commentCount", "likeCount", "status"));
@@ -295,6 +332,20 @@ public class GetV1PageLikes {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("users") != null && !jsonObj.get("users").isJsonNull()) {
+        JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
+        if (jsonArrayusers != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("users").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+          }
+
+          // validate the optional field `users` (array)
+          for (int i = 0; i < jsonArrayusers.size(); i++) {
+            PageReactUser.validateJsonElement(jsonArrayusers.get(i));
+          };
+        }
+      }
       if (!jsonObj.get("urlIdWS").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `urlIdWS` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlIdWS").toString()));
       }

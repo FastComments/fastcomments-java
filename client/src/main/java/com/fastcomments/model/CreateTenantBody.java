@@ -96,11 +96,6 @@ public class CreateTenantBody {
   @javax.annotation.Nullable
   private Boolean billingHandledExternally;
 
-  public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
-  @SerializedName(SERIALIZED_NAME_CREATED_BY)
-  @javax.annotation.Nullable
-  private String createdBy;
-
   public static final String SERIALIZED_NAME_IS_SETUP = "isSetup";
   @SerializedName(SERIALIZED_NAME_IS_SETUP)
   @javax.annotation.Nullable
@@ -331,25 +326,6 @@ public class CreateTenantBody {
 
   public void setBillingHandledExternally(@javax.annotation.Nullable Boolean billingHandledExternally) {
     this.billingHandledExternally = billingHandledExternally;
-  }
-
-
-  public CreateTenantBody createdBy(@javax.annotation.Nullable String createdBy) {
-    this.createdBy = createdBy;
-    return this;
-  }
-
-  /**
-   * Get createdBy
-   * @return createdBy
-   */
-  @javax.annotation.Nullable
-  public String getCreatedBy() {
-    return createdBy;
-  }
-
-  public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
-    this.createdBy = createdBy;
   }
 
 
@@ -645,7 +621,6 @@ public class CreateTenantBody {
         Objects.equals(this.paymentFrequency, createTenantBody.paymentFrequency) &&
         Objects.equals(this.billingInfoValid, createTenantBody.billingInfoValid) &&
         Objects.equals(this.billingHandledExternally, createTenantBody.billingHandledExternally) &&
-        Objects.equals(this.createdBy, createTenantBody.createdBy) &&
         Objects.equals(this.isSetup, createTenantBody.isSetup) &&
         Objects.equals(this.billingInfo, createTenantBody.billingInfo) &&
         Objects.equals(this.stripeCustomerId, createTenantBody.stripeCustomerId) &&
@@ -664,7 +639,7 @@ public class CreateTenantBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, domainConfiguration, email, signUpDate, packageId, paymentFrequency, billingInfoValid, billingHandledExternally, createdBy, isSetup, billingInfo, stripeCustomerId, stripeSubscriptionId, stripePlanId, enableProfanityFilter, enableSpamFilter, removeUnverifiedComments, unverifiedCommentsTTLms, commentsRequireApproval, autoApproveCommentOnVerification, sendProfaneToSpam, deAnonIpAddr, meta);
+    return Objects.hash(name, domainConfiguration, email, signUpDate, packageId, paymentFrequency, billingInfoValid, billingHandledExternally, isSetup, billingInfo, stripeCustomerId, stripeSubscriptionId, stripePlanId, enableProfanityFilter, enableSpamFilter, removeUnverifiedComments, unverifiedCommentsTTLms, commentsRequireApproval, autoApproveCommentOnVerification, sendProfaneToSpam, deAnonIpAddr, meta);
   }
 
   @Override
@@ -679,7 +654,6 @@ public class CreateTenantBody {
     sb.append("    paymentFrequency: ").append(toIndentedString(paymentFrequency)).append("\n");
     sb.append("    billingInfoValid: ").append(toIndentedString(billingInfoValid)).append("\n");
     sb.append("    billingHandledExternally: ").append(toIndentedString(billingHandledExternally)).append("\n");
-    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    isSetup: ").append(toIndentedString(isSetup)).append("\n");
     sb.append("    billingInfo: ").append(toIndentedString(billingInfo)).append("\n");
     sb.append("    stripeCustomerId: ").append(toIndentedString(stripeCustomerId)).append("\n");
@@ -712,7 +686,7 @@ public class CreateTenantBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "domainConfiguration", "email", "signUpDate", "packageId", "paymentFrequency", "billingInfoValid", "billingHandledExternally", "createdBy", "isSetup", "billingInfo", "stripeCustomerId", "stripeSubscriptionId", "stripePlanId", "enableProfanityFilter", "enableSpamFilter", "removeUnverifiedComments", "unverifiedCommentsTTLms", "commentsRequireApproval", "autoApproveCommentOnVerification", "sendProfaneToSpam", "deAnonIpAddr", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "domainConfiguration", "email", "signUpDate", "packageId", "paymentFrequency", "billingInfoValid", "billingHandledExternally", "isSetup", "billingInfo", "stripeCustomerId", "stripeSubscriptionId", "stripePlanId", "enableProfanityFilter", "enableSpamFilter", "removeUnverifiedComments", "unverifiedCommentsTTLms", "commentsRequireApproval", "autoApproveCommentOnVerification", "sendProfaneToSpam", "deAnonIpAddr", "meta"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "domainConfiguration"));
@@ -764,9 +738,6 @@ public class CreateTenantBody {
       }
       if ((jsonObj.get("packageId") != null && !jsonObj.get("packageId").isJsonNull()) && !jsonObj.get("packageId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `packageId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("packageId").toString()));
-      }
-      if ((jsonObj.get("createdBy") != null && !jsonObj.get("createdBy").isJsonNull()) && !jsonObj.get("createdBy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `createdBy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("createdBy").toString()));
       }
       // validate the optional field `billingInfo`
       if (jsonObj.get("billingInfo") != null && !jsonObj.get("billingInfo").isJsonNull()) {

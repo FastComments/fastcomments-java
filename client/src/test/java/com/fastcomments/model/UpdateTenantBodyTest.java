@@ -100,14 +100,6 @@ public class UpdateTenantBodyTest {
     }
 
     /**
-     * Test the property 'createdBy'
-     */
-    @Test
-    public void createdByTest() {
-        // TODO: test createdBy
-    }
-
-    /**
      * Test the property 'isSetup'
      */
     @Test

@@ -14,9 +14,10 @@
 package com.fastcomments.model;
 
 import java.util.Objects;
+import com.fastcomments.model.CommentPollInput;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.GifSearchResponseImagesInnerInner;
+import com.fastcomments.model.RecordStringStringOrNumberOrNumberArrayValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -175,7 +176,12 @@ public class CreateCommentParams {
   public static final String SERIALIZED_NAME_QUESTION_VALUES = "questionValues";
   @SerializedName(SERIALIZED_NAME_QUESTION_VALUES)
   @javax.annotation.Nullable
-  private Map<String, GifSearchResponseImagesInnerInner> questionValues = new HashMap<>();
+  private Map<String, RecordStringStringOrNumberOrNumberArrayValue> questionValues = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_POLL = "poll";
+  @SerializedName(SERIALIZED_NAME_POLL)
+  @javax.annotation.Nullable
+  private CommentPollInput poll;
 
   public static final String SERIALIZED_NAME_TOS = "tos";
   @SerializedName(SERIALIZED_NAME_TOS)
@@ -709,12 +715,12 @@ public class CreateCommentParams {
   }
 
 
-  public CreateCommentParams questionValues(@javax.annotation.Nullable Map<String, GifSearchResponseImagesInnerInner> questionValues) {
+  public CreateCommentParams questionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberOrNumberArrayValue> questionValues) {
     this.questionValues = questionValues;
     return this;
   }
 
-  public CreateCommentParams putQuestionValuesItem(String key, GifSearchResponseImagesInnerInner questionValuesItem) {
+  public CreateCommentParams putQuestionValuesItem(String key, RecordStringStringOrNumberOrNumberArrayValue questionValuesItem) {
     if (this.questionValues == null) {
       this.questionValues = new HashMap<>();
     }
@@ -727,12 +733,31 @@ public class CreateCommentParams {
    * @return questionValues
    */
   @javax.annotation.Nullable
-  public Map<String, GifSearchResponseImagesInnerInner> getQuestionValues() {
+  public Map<String, RecordStringStringOrNumberOrNumberArrayValue> getQuestionValues() {
     return questionValues;
   }
 
-  public void setQuestionValues(@javax.annotation.Nullable Map<String, GifSearchResponseImagesInnerInner> questionValues) {
+  public void setQuestionValues(@javax.annotation.Nullable Map<String, RecordStringStringOrNumberOrNumberArrayValue> questionValues) {
     this.questionValues = questionValues;
+  }
+
+
+  public CreateCommentParams poll(@javax.annotation.Nullable CommentPollInput poll) {
+    this.poll = poll;
+    return this;
+  }
+
+  /**
+   * Get poll
+   * @return poll
+   */
+  @javax.annotation.Nullable
+  public CommentPollInput getPoll() {
+    return poll;
+  }
+
+  public void setPoll(@javax.annotation.Nullable CommentPollInput poll) {
+    this.poll = poll;
   }
 
 
@@ -998,6 +1023,7 @@ public class CreateCommentParams {
         Objects.equals(this.autoplayDelayMS, createCommentParams.autoplayDelayMS) &&
         Objects.equals(this.feedbackIds, createCommentParams.feedbackIds) &&
         Objects.equals(this.questionValues, createCommentParams.questionValues) &&
+        Objects.equals(this.poll, createCommentParams.poll) &&
         Objects.equals(this.tos, createCommentParams.tos) &&
         Objects.equals(this.botId, createCommentParams.botId) &&
         Objects.equals(this.approved, createCommentParams.approved) &&
@@ -1014,7 +1040,7 @@ public class CreateCommentParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, tos, botId, approved, domain, ip, isPinned, locale, reviewed, verified, votes, votesDown, votesUp);
+    return Objects.hash(date, localDateString, localDateHours, commenterName, commenterEmail, commenterLink, comment, productId, userId, avatarSrc, parentId, mentions, hashTags, pageTitle, isFromMyAccountPage, url, urlId, meta, moderationGroupIds, rating, fromOfflineRestore, autoplayDelayMS, feedbackIds, questionValues, poll, tos, botId, approved, domain, ip, isPinned, locale, reviewed, verified, votes, votesDown, votesUp);
   }
 
   @Override
@@ -1045,6 +1071,7 @@ public class CreateCommentParams {
     sb.append("    autoplayDelayMS: ").append(toIndentedString(autoplayDelayMS)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
     sb.append("    questionValues: ").append(toIndentedString(questionValues)).append("\n");
+    sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    botId: ").append(toIndentedString(botId)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
@@ -1075,7 +1102,7 @@ public class CreateCommentParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "tos", "botId", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"));
+    openapiFields = new HashSet<String>(Arrays.asList("date", "localDateString", "localDateHours", "commenterName", "commenterEmail", "commenterLink", "comment", "productId", "userId", "avatarSrc", "parentId", "mentions", "hashTags", "pageTitle", "isFromMyAccountPage", "url", "urlId", "meta", "moderationGroupIds", "rating", "fromOfflineRestore", "autoplayDelayMS", "feedbackIds", "questionValues", "poll", "tos", "botId", "approved", "domain", "ip", "isPinned", "locale", "reviewed", "verified", "votes", "votesDown", "votesUp"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("commenterName", "comment", "url", "urlId", "locale"));
@@ -1177,6 +1204,10 @@ public class CreateCommentParams {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      // validate the optional field `poll`
+      if (jsonObj.get("poll") != null && !jsonObj.get("poll").isJsonNull()) {
+        CommentPollInput.validateJsonElement(jsonObj.get("poll"));
       }
       if ((jsonObj.get("botId") != null && !jsonObj.get("botId").isJsonNull()) && !jsonObj.get("botId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `botId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("botId").toString()));

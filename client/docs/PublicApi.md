@@ -48,6 +48,7 @@ All URIs are relative to *https://fastcomments.com*
 | [**resetUserNotifications**](PublicApi.md#resetUserNotifications) | **POST** /user-notifications/reset |  |
 | [**searchUsers**](PublicApi.md#searchUsers) | **GET** /user-search/{tenantId} |  |
 | [**setCommentText**](PublicApi.md#setCommentText) | **POST** /comments/{tenantId}/{commentId}/update-text |  |
+| [**translateComments**](PublicApi.md#translateComments) | **POST** /comments/{tenantId}/translations |  |
 | [**unBlockCommentPublic**](PublicApi.md#unBlockCommentPublic) | **DELETE** /block-from-comment/{commentId} |  |
 | [**unLockComment**](PublicApi.md#unLockComment) | **POST** /comments/{tenantId}/{commentId}/unlock |  |
 | [**unPinComment**](PublicApi.md#unPinComment) | **POST** /comments/{tenantId}/{commentId}/unpin |  |
@@ -197,7 +198,7 @@ No authorization required
 
 <a id="createCommentPublic"></a>
 # **createCommentPublic**
-> SaveCommentsResponseWithPresence createCommentPublic(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).execute();
+> SaveCommentsResponseWithPresence createCommentPublic(tenantId, urlId, broadcastId, commentData).sessionId(sessionId).sso(sso).locale(locale).execute();
 
 
 
@@ -222,10 +223,12 @@ public class Example {
     CommentData commentData = new CommentData(); // CommentData | 
     String sessionId = "sessionId_example"; // String | 
     String sso = "sso_example"; // String | 
+    String locale = "locale_example"; // String | 
     try {
       SaveCommentsResponseWithPresence result = apiInstance.createCommentPublic(tenantId, urlId, broadcastId, commentData)
             .sessionId(sessionId)
             .sso(sso)
+            .locale(locale)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -249,6 +252,7 @@ public class Example {
 | **commentData** | [**CommentData**](CommentData.md)|  | |
 | **sessionId** | **String**|  | [optional] |
 | **sso** | **String**|  | [optional] |
+| **locale** | **String**|  | [optional] |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 <a id="createV1PageReact"></a>
 # **createV1PageReact**
-> CreateV1PageReact createV1PageReact(tenantId, urlId).title(title).execute();
+> CreateV1PageReact createV1PageReact(tenantId, urlId).title(title).sso(sso).execute();
 
 
 
@@ -363,9 +367,11 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     String title = "title_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       CreateV1PageReact result = apiInstance.createV1PageReact(tenantId, urlId)
             .title(title)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -386,6 +392,7 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
 | **title** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -408,7 +415,7 @@ No authorization required
 
 <a id="createV2PageReact"></a>
 # **createV2PageReact**
-> CreateV1PageReact createV2PageReact(tenantId, urlId, id).title(title).execute();
+> CreateV1PageReact createV2PageReact(tenantId, urlId, id).title(title).sso(sso).execute();
 
 
 
@@ -431,9 +438,11 @@ public class Example {
     String urlId = "urlId_example"; // String | 
     String id = "id_example"; // String | 
     String title = "title_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       CreateV1PageReact result = apiInstance.createV2PageReact(tenantId, urlId, id)
             .title(title)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -455,6 +464,7 @@ public class Example {
 | **urlId** | **String**|  | |
 | **id** | **String**|  | |
 | **title** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -695,7 +705,7 @@ No authorization required
 
 <a id="deleteV1PageReact"></a>
 # **deleteV1PageReact**
-> CreateV1PageReact deleteV1PageReact(tenantId, urlId).execute();
+> CreateV1PageReact deleteV1PageReact(tenantId, urlId).sso(sso).execute();
 
 
 
@@ -716,8 +726,10 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       CreateV1PageReact result = apiInstance.deleteV1PageReact(tenantId, urlId)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -737,6 +749,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -759,7 +772,7 @@ No authorization required
 
 <a id="deleteV2PageReact"></a>
 # **deleteV2PageReact**
-> CreateV1PageReact deleteV2PageReact(tenantId, urlId, id).execute();
+> CreateV1PageReact deleteV2PageReact(tenantId, urlId, id).sso(sso).execute();
 
 
 
@@ -781,8 +794,10 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     String id = "id_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       CreateV1PageReact result = apiInstance.deleteV2PageReact(tenantId, urlId, id)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -803,6 +818,7 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
 | **id** | **String**|  | |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -1114,7 +1130,7 @@ No authorization required
 
 <a id="getCommentsPublic"></a>
 # **getCommentsPublic**
-> GetCommentsResponseWithPresencePublicComment getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).afterCommentId(afterCommentId).beforeCommentId(beforeCommentId).execute();
+> GetCommentsResponseWithPresencePublicComment getCommentsPublic(tenantId, urlId).page(page).direction(direction).sso(sso).skip(skip).skipChildren(skipChildren).limit(limit).limitChildren(limitChildren).countChildren(countChildren).fetchPageForCommentId(fetchPageForCommentId).includeConfig(includeConfig).countAll(countAll).includei10n(includei10n).locale(locale).modules(modules).isCrawler(isCrawler).includeNotificationCount(includeNotificationCount).asTree(asTree).maxTreeDepth(maxTreeDepth).useFullTranslationIds(useFullTranslationIds).parentId(parentId).searchText(searchText).hashTags(hashTags).userId(userId).customConfigStr(customConfigStr).afterCommentId(afterCommentId).beforeCommentId(beforeCommentId).questionId(questionId).questionValue(questionValue).execute();
 
 
 
@@ -1163,6 +1179,8 @@ public class Example {
     String customConfigStr = "customConfigStr_example"; // String | 
     String afterCommentId = "afterCommentId_example"; // String | 
     String beforeCommentId = "beforeCommentId_example"; // String | 
+    String questionId = "questionId_example"; // String | 
+    Integer questionValue = 56; // Integer | 
     try {
       GetCommentsResponseWithPresencePublicComment result = apiInstance.getCommentsPublic(tenantId, urlId)
             .page(page)
@@ -1191,6 +1209,8 @@ public class Example {
             .customConfigStr(customConfigStr)
             .afterCommentId(afterCommentId)
             .beforeCommentId(beforeCommentId)
+            .questionId(questionId)
+            .questionValue(questionValue)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -1236,6 +1256,8 @@ public class Example {
 | **customConfigStr** | **String**|  | [optional] |
 | **afterCommentId** | **String**|  | [optional] |
 | **beforeCommentId** | **String**|  | [optional] |
+| **questionId** | **String**|  | [optional] |
+| **questionValue** | **Integer**|  | [optional] |
 
 ### Return type
 
@@ -2423,7 +2445,7 @@ No authorization required
 
 <a id="getV1PageLikes"></a>
 # **getV1PageLikes**
-> GetV1PageLikes getV1PageLikes(tenantId, urlId).execute();
+> GetV1PageLikes getV1PageLikes(tenantId, urlId).sso(sso).includeUserInfo(includeUserInfo).execute();
 
 
 
@@ -2444,8 +2466,12 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
+    String sso = "sso_example"; // String | 
+    PageReactIncludeUserInfo includeUserInfo = PageReactIncludeUserInfo.fromValue("public"); // PageReactIncludeUserInfo | When set, returns the users who liked the page (avatars and usernames). Only \"public\" is accepted, which omits private profiles.
     try {
       GetV1PageLikes result = apiInstance.getV1PageLikes(tenantId, urlId)
+            .sso(sso)
+            .includeUserInfo(includeUserInfo)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2465,6 +2491,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
+| **sso** | **String**|  | [optional] |
+| **includeUserInfo** | [**PageReactIncludeUserInfo**](.md)| When set, returns the users who liked the page (avatars and usernames). Only \&quot;public\&quot; is accepted, which omits private profiles. | [optional] [enum: public, include-private] |
 
 ### Return type
 
@@ -2487,7 +2515,7 @@ No authorization required
 
 <a id="getV2PageReactUsers"></a>
 # **getV2PageReactUsers**
-> GetV2PageReactUsersResponse getV2PageReactUsers(tenantId, urlId, id).execute();
+> GetV2PageReactUsersResponse getV2PageReactUsers(tenantId, urlId, id).sso(sso).execute();
 
 
 
@@ -2509,8 +2537,10 @@ public class Example {
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
     String id = "id_example"; // String | 
+    String sso = "sso_example"; // String | 
     try {
       GetV2PageReactUsersResponse result = apiInstance.getV2PageReactUsers(tenantId, urlId, id)
+            .sso(sso)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2531,6 +2561,7 @@ public class Example {
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
 | **id** | **String**|  | |
+| **sso** | **String**|  | [optional] |
 
 ### Return type
 
@@ -2553,7 +2584,7 @@ No authorization required
 
 <a id="getV2PageReacts"></a>
 # **getV2PageReacts**
-> GetV2PageReacts getV2PageReacts(tenantId, urlId).execute();
+> GetV2PageReacts getV2PageReacts(tenantId, urlId).sso(sso).includeUserInfo(includeUserInfo).execute();
 
 
 
@@ -2574,8 +2605,12 @@ public class Example {
     PublicApi apiInstance = new PublicApi(defaultClient);
     String tenantId = "tenantId_example"; // String | 
     String urlId = "urlId_example"; // String | 
+    String sso = "sso_example"; // String | 
+    PageReactIncludeUserInfo includeUserInfo = PageReactIncludeUserInfo.fromValue("public"); // PageReactIncludeUserInfo | When set, returns the users for each react id (avatars and usernames). Only \"public\" is accepted, which omits private profiles.
     try {
       GetV2PageReacts result = apiInstance.getV2PageReacts(tenantId, urlId)
+            .sso(sso)
+            .includeUserInfo(includeUserInfo)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -2595,6 +2630,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **tenantId** | **String**|  | |
 | **urlId** | **String**|  | |
+| **sso** | **String**|  | [optional] |
+| **includeUserInfo** | [**PageReactIncludeUserInfo**](.md)| When set, returns the users for each react id (avatars and usernames). Only \&quot;public\&quot; is accepted, which omits private profiles. | [optional] [enum: public, include-private] |
 
 ### Return type
 
@@ -3164,6 +3201,80 @@ public class Example {
 ### Return type
 
 [**PublicAPISetCommentTextResponse**](PublicAPISetCommentTextResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="translateComments"></a>
+# **translateComments**
+> CommentTranslationsResponse translateComments(tenantId, urlId, commentTranslationsRequest).sso(sso).locale(locale).execute();
+
+
+
+Translates the given comments into the widget locale. Only available when the matching widget customization rule has Comment Translation set to Automatic or Manual.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    CommentTranslationsRequest commentTranslationsRequest = new CommentTranslationsRequest(); // CommentTranslationsRequest | 
+    String sso = "sso_example"; // String | 
+    String locale = "locale_example"; // String | 
+    try {
+      CommentTranslationsResponse result = apiInstance.translateComments(tenantId, urlId, commentTranslationsRequest)
+            .sso(sso)
+            .locale(locale)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#translateComments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **commentTranslationsRequest** | [**CommentTranslationsRequest**](CommentTranslationsRequest.md)|  | |
+| **sso** | **String**|  | [optional] |
+| **locale** | **String**|  | [optional] |
+
+### Return type
+
+[**CommentTranslationsResponse**](CommentTranslationsResponse.md)
 
 ### Authorization
 

@@ -13,9 +13,10 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.CommentPollInput;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
-import com.fastcomments.model.GifSearchResponseImagesInnerInner;
+import com.fastcomments.model.RecordStringStringOrNumberOrNumberArrayValue;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -234,6 +235,14 @@ public class CreateCommentParamsTest {
     @Test
     public void questionValuesTest() {
         // TODO: test questionValues
+    }
+
+    /**
+     * Test the property 'poll'
+     */
+    @Test
+    public void pollTest() {
+        // TODO: test poll
     }
 
     /**

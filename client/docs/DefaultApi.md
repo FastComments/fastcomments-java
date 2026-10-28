@@ -16,9 +16,11 @@ All URIs are relative to *https://fastcomments.com*
 | [**bulkAggregateQuestionResults**](DefaultApi.md#bulkAggregateQuestionResults) | **POST** /api/v1/question-results-aggregation/bulk |  |
 | [**changeTicketState**](DefaultApi.md#changeTicketState) | **PATCH** /api/v1/tickets/{id}/state |  |
 | [**combineCommentsWithQuestionResults**](DefaultApi.md#combineCommentsWithQuestionResults) | **GET** /api/v1/question-results-aggregation/combine/comments |  |
+| [**createAgentTenant**](DefaultApi.md#createAgentTenant) | **POST** /api/v1/agent-tenants |  |
 | [**createEmailTemplate**](DefaultApi.md#createEmailTemplate) | **POST** /api/v1/email-templates |  |
 | [**createFeedPost**](DefaultApi.md#createFeedPost) | **POST** /api/v1/feed-posts |  |
 | [**createModerator**](DefaultApi.md#createModerator) | **POST** /api/v1/moderators |  |
+| [**createPollVote**](DefaultApi.md#createPollVote) | **POST** /api/v1/poll-votes |  |
 | [**createQuestionConfig**](DefaultApi.md#createQuestionConfig) | **POST** /api/v1/question-configs |  |
 | [**createQuestionResult**](DefaultApi.md#createQuestionResult) | **POST** /api/v1/question-results |  |
 | [**createSubscription**](DefaultApi.md#createSubscription) | **POST** /api/v1/subscriptions |  |
@@ -28,6 +30,7 @@ All URIs are relative to *https://fastcomments.com*
 | [**createTicket**](DefaultApi.md#createTicket) | **POST** /api/v1/tickets |  |
 | [**createUserBadge**](DefaultApi.md#createUserBadge) | **POST** /api/v1/user-badges |  |
 | [**createVote**](DefaultApi.md#createVote) | **POST** /api/v1/votes |  |
+| [**createWebhook**](DefaultApi.md#createWebhook) | **POST** /api/v1/webhooks |  |
 | [**deleteComment**](DefaultApi.md#deleteComment) | **DELETE** /api/v1/comments/{id} |  |
 | [**deleteDomainConfig**](DefaultApi.md#deleteDomainConfig) | **DELETE** /api/v1/domain-configs/{domain} |  |
 | [**deleteEmailTemplate**](DefaultApi.md#deleteEmailTemplate) | **DELETE** /api/v1/email-templates/{id} |  |
@@ -37,6 +40,8 @@ All URIs are relative to *https://fastcomments.com*
 | [**deleteNotificationCount**](DefaultApi.md#deleteNotificationCount) | **DELETE** /api/v1/notification-count/{id} |  |
 | [**deletePage**](DefaultApi.md#deletePage) | **DELETE** /api/v1/pages/{id} |  |
 | [**deletePendingWebhookEvent**](DefaultApi.md#deletePendingWebhookEvent) | **DELETE** /api/v1/pending-webhook-events/{id} |  |
+| [**deletePoll**](DefaultApi.md#deletePoll) | **DELETE** /api/v1/polls/{commentId} |  |
+| [**deletePollVote**](DefaultApi.md#deletePollVote) | **DELETE** /api/v1/poll-votes/{id} |  |
 | [**deleteQuestionConfig**](DefaultApi.md#deleteQuestionConfig) | **DELETE** /api/v1/question-configs/{id} |  |
 | [**deleteQuestionResult**](DefaultApi.md#deleteQuestionResult) | **DELETE** /api/v1/question-results/{id} |  |
 | [**deleteSSOUser**](DefaultApi.md#deleteSSOUser) | **DELETE** /api/v1/sso-users/{id} |  |
@@ -46,8 +51,11 @@ All URIs are relative to *https://fastcomments.com*
 | [**deleteTenantUser**](DefaultApi.md#deleteTenantUser) | **DELETE** /api/v1/tenant-users/{id} |  |
 | [**deleteUserBadge**](DefaultApi.md#deleteUserBadge) | **DELETE** /api/v1/user-badges/{id} |  |
 | [**deleteVote**](DefaultApi.md#deleteVote) | **DELETE** /api/v1/votes/{id} |  |
+| [**deleteWebhook**](DefaultApi.md#deleteWebhook) | **DELETE** /api/v1/webhooks/{id} |  |
 | [**flagComment**](DefaultApi.md#flagComment) | **POST** /api/v1/comments/{id}/flag |  |
 | [**getAuditLogs**](DefaultApi.md#getAuditLogs) | **GET** /api/v1/audit-logs |  |
+| [**getBatchJob**](DefaultApi.md#getBatchJob) | **GET** /api/v1/batch-jobs/{id} |  |
+| [**getBatchJobs**](DefaultApi.md#getBatchJobs) | **GET** /api/v1/batch-jobs |  |
 | [**getCachedNotificationCount**](DefaultApi.md#getCachedNotificationCount) | **GET** /api/v1/notification-count/{id} |  |
 | [**getComment**](DefaultApi.md#getComment) | **GET** /api/v1/comments/{id} |  |
 | [**getComments**](DefaultApi.md#getComments) | **GET** /api/v1/comments |  |
@@ -59,14 +67,20 @@ All URIs are relative to *https://fastcomments.com*
 | [**getEmailTemplates**](DefaultApi.md#getEmailTemplates) | **GET** /api/v1/email-templates |  |
 | [**getFeedPosts**](DefaultApi.md#getFeedPosts) | **GET** /api/v1/feed-posts |  |
 | [**getHashTags**](DefaultApi.md#getHashTags) | **GET** /api/v1/hash-tags |  |
+| [**getMe**](DefaultApi.md#getMe) | **GET** /api/v1/me |  |
 | [**getModerator**](DefaultApi.md#getModerator) | **GET** /api/v1/moderators/{id} |  |
 | [**getModerators**](DefaultApi.md#getModerators) | **GET** /api/v1/moderators |  |
 | [**getNotificationCount**](DefaultApi.md#getNotificationCount) | **GET** /api/v1/notifications/count |  |
 | [**getNotifications**](DefaultApi.md#getNotifications) | **GET** /api/v1/notifications |  |
 | [**getPageByURLId**](DefaultApi.md#getPageByURLId) | **GET** /api/v1/pages/by-url-id |  |
+| [**getPageLikes**](DefaultApi.md#getPageLikes) | **GET** /api/v1/pages/likes |  |
+| [**getPageReacts**](DefaultApi.md#getPageReacts) | **GET** /api/v1/pages/reacts |  |
 | [**getPages**](DefaultApi.md#getPages) | **GET** /api/v1/pages |  |
 | [**getPendingWebhookEventCount**](DefaultApi.md#getPendingWebhookEventCount) | **GET** /api/v1/pending-webhook-events/count |  |
 | [**getPendingWebhookEvents**](DefaultApi.md#getPendingWebhookEvents) | **GET** /api/v1/pending-webhook-events |  |
+| [**getPoll**](DefaultApi.md#getPoll) | **GET** /api/v1/polls/{commentId} |  |
+| [**getPollVote**](DefaultApi.md#getPollVote) | **GET** /api/v1/poll-votes/{id} |  |
+| [**getPollVotes**](DefaultApi.md#getPollVotes) | **GET** /api/v1/poll-votes |  |
 | [**getQuestionConfig**](DefaultApi.md#getQuestionConfig) | **GET** /api/v1/question-configs/{id} |  |
 | [**getQuestionConfigs**](DefaultApi.md#getQuestionConfigs) | **GET** /api/v1/question-configs |  |
 | [**getQuestionResult**](DefaultApi.md#getQuestionResult) | **GET** /api/v1/question-results/{id} |  |
@@ -92,11 +106,16 @@ All URIs are relative to *https://fastcomments.com*
 | [**getUserBadges**](DefaultApi.md#getUserBadges) | **GET** /api/v1/user-badges |  |
 | [**getVotes**](DefaultApi.md#getVotes) | **GET** /api/v1/votes |  |
 | [**getVotesForUser**](DefaultApi.md#getVotesForUser) | **GET** /api/v1/votes/for-user |  |
+| [**getWebhookSamplePayloads**](DefaultApi.md#getWebhookSamplePayloads) | **GET** /api/v1/webhooks/sample-payloads |  |
+| [**getWebhooks**](DefaultApi.md#getWebhooks) | **GET** /api/v1/webhooks |  |
+| [**migratePages**](DefaultApi.md#migratePages) | **POST** /api/v1/pages/migrations |  |
 | [**patchDomainConfig**](DefaultApi.md#patchDomainConfig) | **PATCH** /api/v1/domain-configs/{domainToUpdate} |  |
 | [**patchHashTag**](DefaultApi.md#patchHashTag) | **PATCH** /api/v1/hash-tags/{tag} |  |
 | [**patchPage**](DefaultApi.md#patchPage) | **PATCH** /api/v1/pages/{id} |  |
+| [**patchPoll**](DefaultApi.md#patchPoll) | **PATCH** /api/v1/polls/{commentId} |  |
 | [**patchSSOUser**](DefaultApi.md#patchSSOUser) | **PATCH** /api/v1/sso-users/{id} |  |
 | [**putDomainConfig**](DefaultApi.md#putDomainConfig) | **PUT** /api/v1/domain-configs/{domainToUpdate} |  |
+| [**putPoll**](DefaultApi.md#putPoll) | **PUT** /api/v1/polls/{commentId} |  |
 | [**putSSOUser**](DefaultApi.md#putSSOUser) | **PUT** /api/v1/sso-users/{id} |  |
 | [**renderEmailTemplate**](DefaultApi.md#renderEmailTemplate) | **POST** /api/v1/email-templates/render |  |
 | [**replaceTenantPackage**](DefaultApi.md#replaceTenantPackage) | **PUT** /api/v1/tenant-packages/{id} |  |
@@ -107,6 +126,7 @@ All URIs are relative to *https://fastcomments.com*
 | [**sendLoginLink**](DefaultApi.md#sendLoginLink) | **POST** /api/v1/tenant-users/{id}/send-login-link |  |
 | [**unBlockUserFromComment**](DefaultApi.md#unBlockUserFromComment) | **POST** /api/v1/comments/{id}/un-block |  |
 | [**unFlagComment**](DefaultApi.md#unFlagComment) | **POST** /api/v1/comments/{id}/un-flag |  |
+| [**undoPageMigrations**](DefaultApi.md#undoPageMigrations) | **POST** /api/v1/pages/migrations/{undoId}/undo |  |
 | [**updateComment**](DefaultApi.md#updateComment) | **PATCH** /api/v1/comments/{id} |  |
 | [**updateEmailTemplate**](DefaultApi.md#updateEmailTemplate) | **PATCH** /api/v1/email-templates/{id} |  |
 | [**updateFeedPost**](DefaultApi.md#updateFeedPost) | **PATCH** /api/v1/feed-posts/{id} |  |
@@ -961,6 +981,70 @@ public class Example {
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
 
+<a id="createAgentTenant"></a>
+# **createAgentTenant**
+> CreateAgentTenantResponse createAgentTenant(createAgentTenantBody).execute();
+
+
+
+Creates a new trial account for an AI agent without a human signup. No API key is needed to call this.  The response contains the tenant id, an API key that works immediately against the REST API and the MCP server, and a claim URL. Give the claim URL to the human you are working for: opening it while logged in to FastComments attaches the account to them. Unclaimed accounts, and their keys, are deleted 72 hours after creation. Until claimed, the account has the standard trial limits.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    CreateAgentTenantBody createAgentTenantBody = new CreateAgentTenantBody(); // CreateAgentTenantBody | 
+    try {
+      CreateAgentTenantResponse result = apiInstance.createAgentTenant(createAgentTenantBody)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createAgentTenant");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createAgentTenantBody** | [**CreateAgentTenantBody**](CreateAgentTenantBody.md)|  | |
+
+### Return type
+
+[**CreateAgentTenantResponse**](CreateAgentTenantResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
 <a id="createEmailTemplate"></a>
 # **createEmailTemplate**
 > CreateEmailTemplateResponse createEmailTemplate(tenantId, createEmailTemplateBody).execute();
@@ -1170,6 +1254,79 @@ public class Example {
 ### Return type
 
 [**CreateModeratorResponse**](CreateModeratorResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="createPollVote"></a>
+# **createPollVote**
+> CreatePollVoteResponse createPollVote(tenantId, createPollVoteBody).execute();
+
+
+
+Record a vote on a poll, or move an existing one to a different option. A voter has at most one vote per poll, so calling this again for the same voter moves their vote rather than adding one.  This obeys the site&#39;s poll settings: if voting is set to logged-in users only, a vote with just an anonUserId is rejected, and anonymous votes are rate limited per IP per poll.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    CreatePollVoteBody createPollVoteBody = new CreatePollVoteBody(); // CreatePollVoteBody | 
+    try {
+      CreatePollVoteResponse result = apiInstance.createPollVote(tenantId, createPollVoteBody)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createPollVote");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **createPollVoteBody** | [**CreatePollVoteBody**](CreatePollVoteBody.md)|  | |
+
+### Return type
+
+[**CreatePollVoteResponse**](CreatePollVoteResponse.md)
 
 ### Authorization
 
@@ -1834,6 +1991,79 @@ public class Example {
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
 
+<a id="createWebhook"></a>
+# **createWebhook**
+> CreateWebhookResponse createWebhook(tenantId, createWebhookParams).execute();
+
+
+
+Subscribes a URL to a comment event (REST hook subscribe). Subscribing the same URL to the same event and domain again returns the existing subscription. Deliveries are HMAC signed, see the webhooks guide; the legacy &#x60;token&#x60; header is never sent to API subscriptions.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    CreateWebhookParams createWebhookParams = new CreateWebhookParams(); // CreateWebhookParams | 
+    try {
+      CreateWebhookResponse result = apiInstance.createWebhook(tenantId, createWebhookParams)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#createWebhook");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **createWebhookParams** | [**CreateWebhookParams**](CreateWebhookParams.md)|  | |
+
+### Return type
+
+[**CreateWebhookResponse**](CreateWebhookResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
 <a id="deleteComment"></a>
 # **deleteComment**
 > DeleteCommentResult deleteComment(tenantId, id).contextUserId(contextUserId).isLive(isLive).execute();
@@ -2469,6 +2699,152 @@ public class Example {
 ### Return type
 
 [**APIEmptyResponse**](APIEmptyResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="deletePoll"></a>
+# **deletePoll**
+> APIEmptyResponse deletePoll(tenantId, commentId).execute();
+
+
+
+Remove a poll from its comment, along with every vote cast on it. The comment itself is left alone.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String commentId = "commentId_example"; // String | 
+    try {
+      APIEmptyResponse result = apiInstance.deletePoll(tenantId, commentId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deletePoll");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **commentId** | **String**|  | |
+
+### Return type
+
+[**APIEmptyResponse**](APIEmptyResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="deletePollVote"></a>
+# **deletePollVote**
+> DeletePollVoteResponse deletePollVote(tenantId, id).execute();
+
+
+
+Retract a vote. The option it was cast on gives its tally back.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      DeletePollVoteResponse result = apiInstance.deletePollVote(tenantId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deletePollVote");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**DeletePollVoteResponse**](DeletePollVoteResponse.md)
 
 ### Authorization
 
@@ -3143,6 +3519,79 @@ public class Example {
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
 
+<a id="deleteWebhook"></a>
+# **deleteWebhook**
+> APIEmptyResponse deleteWebhook(tenantId, id).execute();
+
+
+
+Unsubscribes (REST hook unsubscribe). Only subscriptions created through this API can be deleted here; dashboard-managed webhooks are edited in the dashboard.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      APIEmptyResponse result = apiInstance.deleteWebhook(tenantId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#deleteWebhook");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**APIEmptyResponse**](APIEmptyResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
 <a id="flagComment"></a>
 # **flagComment**
 > FlagCommentResponse flagComment(tenantId, id).userId(userId).anonUserId(anonUserId).execute();
@@ -3222,7 +3671,7 @@ public class Example {
 
 <a id="getAuditLogs"></a>
 # **getAuditLogs**
-> GetAuditLogsResponse getAuditLogs(tenantId).limit(limit).skip(skip).order(order).after(after).before(before).execute();
+> GetAuditLogsResponse getAuditLogs(tenantId).limit(limit).skip(skip).order(order).after(after).before(before).username(username).ip(ip).crudType(crudType).resourceName(resourceName).targetId(targetId).target(target).includeManagedTenants(includeManagedTenants).execute();
 
 
 
@@ -3248,12 +3697,19 @@ public class Example {
     //api_key.setApiKeyPrefix("Token");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | 
-    Double limit = 3.4D; // Double | 
-    Double skip = 3.4D; // Double | 
-    SORTDIR order = SORTDIR.fromValue("ASC"); // SORTDIR | 
-    Double after = 3.4D; // Double | 
-    Double before = 3.4D; // Double | 
+    String tenantId = "tenantId_example"; // String | The tenant to read audit logs for.
+    Integer limit = 56; // Integer | How many logs to return. Max 10000, defaults to 1000.
+    Integer skip = 56; // Integer | How many logs to skip, for paging.
+    SORTDIR order = SORTDIR.fromValue("ASC"); // SORTDIR | Sort direction on the event time. Defaults to DESC (newest first).
+    Long after = 56L; // Long | 
+    Long before = 56L; // Long | 
+    String username = "username_example"; // String | Only return events performed by this username.
+    String ip = "ip_example"; // String | Only return events from this IP address.
+    String crudType = "crudType_example"; // String | Only return events of this type: c, r, u, d, or login.
+    String resourceName = "resourceName_example"; // String | Only return events for this resource, e.g. User or Moderator.
+    String targetId = "targetId_example"; // String | Only return events whose affected object has this id.
+    String target = "target_example"; // String | Case-insensitive substring match on the affected object's label, e.g. a username or email.
+    Boolean includeManagedTenants = true; // Boolean | Also return events from tenants this tenant manages.
     try {
       GetAuditLogsResponse result = apiInstance.getAuditLogs(tenantId)
             .limit(limit)
@@ -3261,6 +3717,13 @@ public class Example {
             .order(order)
             .after(after)
             .before(before)
+            .username(username)
+            .ip(ip)
+            .crudType(crudType)
+            .resourceName(resourceName)
+            .targetId(targetId)
+            .target(target)
+            .includeManagedTenants(includeManagedTenants)
             .execute();
       System.out.println(result);
     } catch (ApiException e) {
@@ -3278,12 +3741,19 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**|  | |
-| **limit** | **Double**|  | [optional] |
-| **skip** | **Double**|  | [optional] |
-| **order** | [**SORTDIR**](.md)|  | [optional] [enum: ASC, DESC] |
-| **after** | **Double**|  | [optional] |
-| **before** | **Double**|  | [optional] |
+| **tenantId** | **String**| The tenant to read audit logs for. | |
+| **limit** | **Integer**| How many logs to return. Max 10000, defaults to 1000. | [optional] |
+| **skip** | **Integer**| How many logs to skip, for paging. | [optional] |
+| **order** | [**SORTDIR**](.md)| Sort direction on the event time. Defaults to DESC (newest first). | [optional] [enum: ASC, DESC] |
+| **after** | **Long**|  | [optional] |
+| **before** | **Long**|  | [optional] |
+| **username** | **String**| Only return events performed by this username. | [optional] |
+| **ip** | **String**| Only return events from this IP address. | [optional] |
+| **crudType** | **String**| Only return events of this type: c, r, u, d, or login. | [optional] |
+| **resourceName** | **String**| Only return events for this resource, e.g. User or Moderator. | [optional] |
+| **targetId** | **String**| Only return events whose affected object has this id. | [optional] |
+| **target** | **String**| Case-insensitive substring match on the affected object&#39;s label, e.g. a username or email. | [optional] |
+| **includeManagedTenants** | **Boolean**| Also return events from tenants this tenant manages. | [optional] |
 
 ### Return type
 
@@ -3303,6 +3773,157 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
+
+<a id="getBatchJob"></a>
+# **getBatchJob**
+> GetBatchJobAPIResponse getBatchJob(tenantId, id).execute();
+
+
+
+Status, progress and, once done, the result of one batch job.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      GetBatchJobAPIResponse result = apiInstance.getBatchJob(tenantId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getBatchJob");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**GetBatchJobAPIResponse**](GetBatchJobAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getBatchJobs"></a>
+# **getBatchJobs**
+> GetBatchJobsAPIResponse getBatchJobs(tenantId).type(type).status(status).skip(skip).execute();
+
+
+
+The tenant&#39;s batch jobs (imports, exports, page migrations...), newest first.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String type = "type_example"; // String | Only jobs of this type, for example migrate-pages.
+    String status = "status_example"; // String | Only jobs in this status: requested, running, success or failed.
+    Integer skip = 56; // Integer | How many jobs to skip, for paging.
+    try {
+      GetBatchJobsAPIResponse result = apiInstance.getBatchJobs(tenantId)
+            .type(type)
+            .status(status)
+            .skip(skip)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getBatchJobs");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **type** | **String**| Only jobs of this type, for example migrate-pages. | [optional] |
+| **status** | **String**| Only jobs in this status: requested, running, success or failed. | [optional] |
+| **skip** | **Integer**| How many jobs to skip, for paging. | [optional] |
+
+### Return type
+
+[**GetBatchJobsAPIResponse**](GetBatchJobsAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
 
 <a id="getCachedNotificationCount"></a>
 # **getCachedNotificationCount**
@@ -4139,6 +4760,77 @@ public class Example {
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
 
+<a id="getMe"></a>
+# **getMe**
+> GetMeResponse getMe(tenantId).execute();
+
+
+
+Identifies the credential in use: the tenant it belongs to and, for OAuth tokens, the user who authorized it. Integrations use this to test a connection and label it.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    try {
+      GetMeResponse result = apiInstance.getMe(tenantId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getMe");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+
+### Return type
+
+[**GetMeResponse**](GetMeResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
 <a id="getModerator"></a>
 # **getModerator**
 > GetModeratorResponse getModerator(tenantId, id).execute();
@@ -4523,6 +5215,156 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
+<a id="getPageLikes"></a>
+# **getPageLikes**
+> GetPageLikesAPIResponse getPageLikes(tenantId, urlId).includeUserInfo(includeUserInfo).execute();
+
+
+
+Like count for a page, optionally with the users who liked it.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    PageReactIncludeUserInfo includeUserInfo = PageReactIncludeUserInfo.fromValue("public"); // PageReactIncludeUserInfo | \"public\" omits users with private profiles, \"include-private\" includes them.
+    try {
+      GetPageLikesAPIResponse result = apiInstance.getPageLikes(tenantId, urlId)
+            .includeUserInfo(includeUserInfo)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getPageLikes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **includeUserInfo** | [**PageReactIncludeUserInfo**](.md)| \&quot;public\&quot; omits users with private profiles, \&quot;include-private\&quot; includes them. | [optional] [enum: public, include-private] |
+
+### Return type
+
+[**GetPageLikesAPIResponse**](GetPageLikesAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+<a id="getPageReacts"></a>
+# **getPageReacts**
+> GetPageReactsAPIResponse getPageReacts(tenantId, urlId).includeUserInfo(includeUserInfo).execute();
+
+
+
+Custom react counts for a page, optionally with the users who reacted.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    PageReactIncludeUserInfo includeUserInfo = PageReactIncludeUserInfo.fromValue("public"); // PageReactIncludeUserInfo | \"public\" omits users with private profiles, \"include-private\" includes them.
+    try {
+      GetPageReactsAPIResponse result = apiInstance.getPageReacts(tenantId, urlId)
+            .includeUserInfo(includeUserInfo)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getPageReacts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **urlId** | **String**|  | |
+| **includeUserInfo** | [**PageReactIncludeUserInfo**](.md)| \&quot;public\&quot; omits users with private profiles, \&quot;include-private\&quot; includes them. | [optional] [enum: public, include-private] |
+
+### Return type
+
+[**GetPageReactsAPIResponse**](GetPageReactsAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
 <a id="getPages"></a>
 # **getPages**
 > GetPagesAPIResponse getPages(tenantId).execute();
@@ -4752,6 +5594,230 @@ public class Example {
 ### Return type
 
 [**GetPendingWebhookEventsResponse**](GetPendingWebhookEventsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getPoll"></a>
+# **getPoll**
+> GetPollResponse getPoll(tenantId, commentId).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String commentId = "commentId_example"; // String | 
+    try {
+      GetPollResponse result = apiInstance.getPoll(tenantId, commentId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getPoll");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **commentId** | **String**|  | |
+
+### Return type
+
+[**GetPollResponse**](GetPollResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getPollVote"></a>
+# **getPollVote**
+> GetPollVoteResponse getPollVote(tenantId, id).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String id = "id_example"; // String | 
+    try {
+      GetPollVoteResponse result = apiInstance.getPollVote(tenantId, id)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getPollVote");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**GetPollVoteResponse**](GetPollVoteResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getPollVotes"></a>
+# **getPollVotes**
+> GetPollVotesResponse getPollVotes(tenantId, commentId).voterId(voterId).optionId(optionId).skip(skip).execute();
+
+
+
+The individual votes behind one poll&#39;s tallies, oldest first.  A poll belongs to a comment, so votes are always read one poll at a time - commentId is required. That keeps every query on the indexes the collection already has.  Obeys the poll&#39;s privacy: an anonymous poll&#39;s votes cannot be read (poll-anonymous), here or by id.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String commentId = "commentId_example"; // String | 
+    String voterId = "voterId_example"; // String | 
+    String optionId = "optionId_example"; // String | 
+    Integer skip = 56; // Integer | 
+    try {
+      GetPollVotesResponse result = apiInstance.getPollVotes(tenantId, commentId)
+            .voterId(voterId)
+            .optionId(optionId)
+            .skip(skip)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getPollVotes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **commentId** | **String**|  | |
+| **voterId** | **String**|  | [optional] |
+| **optionId** | **String**|  | [optional] |
+| **skip** | **Integer**|  | [optional] |
+
+### Return type
+
+[**GetPollVotesResponse**](GetPollVotesResponse.md)
 
 ### Authorization
 
@@ -6616,6 +7682,238 @@ public class Example {
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
 
+<a id="getWebhookSamplePayloads"></a>
+# **getWebhookSamplePayloads**
+> GetWebhookSamplePayloadsResponse getWebhookSamplePayloads(tenantId).event(event).limit(limit).execute();
+
+
+
+Recent comments in exactly the shape webhook deliveries use, for building integrations (for example Zapier sample data). Every event delivers the same comment object, so &#x60;event&#x60; only has to be valid.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    WebhookEventName event = WebhookEventName.fromValue("comment-created"); // WebhookEventName | 
+    Double limit = 3.4D; // Double | 
+    try {
+      GetWebhookSamplePayloadsResponse result = apiInstance.getWebhookSamplePayloads(tenantId)
+            .event(event)
+            .limit(limit)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getWebhookSamplePayloads");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **event** | [**WebhookEventName**](.md)|  | [optional] [enum: comment-created, comment-updated, comment-deleted] |
+| **limit** | **Double**|  | [optional] |
+
+### Return type
+
+[**GetWebhookSamplePayloadsResponse**](GetWebhookSamplePayloadsResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="getWebhooks"></a>
+# **getWebhooks**
+> GetWebhooksResponse getWebhooks(tenantId).event(event).domain(domain).source(source).skip(skip).execute();
+
+
+
+Lists the webhooks configured for the tenant, both dashboard-managed rows and API subscriptions.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    WebhookEventName event = WebhookEventName.fromValue("comment-created"); // WebhookEventName | 
+    String domain = "domain_example"; // String | 
+    WebhookSource source = WebhookSource.fromValue("dashboard"); // WebhookSource | 
+    Double skip = 3.4D; // Double | 
+    try {
+      GetWebhooksResponse result = apiInstance.getWebhooks(tenantId)
+            .event(event)
+            .domain(domain)
+            .source(source)
+            .skip(skip)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#getWebhooks");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **event** | [**WebhookEventName**](.md)|  | [optional] [enum: comment-created, comment-updated, comment-deleted] |
+| **domain** | **String**|  | [optional] |
+| **source** | [**WebhookSource**](.md)|  | [optional] [enum: dashboard, api] |
+| **skip** | **Double**|  | [optional] |
+
+### Return type
+
+[**GetWebhooksResponse**](GetWebhooksResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="migratePages"></a>
+# **migratePages**
+> QueuePageMigrationJobAPIResponse migratePages(tenantId, migrateAPIPagesData).execute();
+
+
+
+Queues a batch job that moves comments, pages and related records from one urlId or domain to another. \&quot;urlId\&quot; migrations only match the exact urlId. \&quot;domain\&quot; migrations find/replace the value inside every urlId and url. Poll GET /api/v1/batch-jobs/{batchJobId}: once it is done it carries per-migration results and an undoId.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    MigrateAPIPagesData migrateAPIPagesData = new MigrateAPIPagesData(); // MigrateAPIPagesData | 
+    try {
+      QueuePageMigrationJobAPIResponse result = apiInstance.migratePages(tenantId, migrateAPIPagesData)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#migratePages");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **migrateAPIPagesData** | [**MigrateAPIPagesData**](MigrateAPIPagesData.md)|  | |
+
+### Return type
+
+[**QueuePageMigrationJobAPIResponse**](QueuePageMigrationJobAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
 <a id="patchDomainConfig"></a>
 # **patchDomainConfig**
 > PatchDomainConfigResponse patchDomainConfig(tenantId, domainToUpdate, patchDomainConfigParams).execute();
@@ -6834,6 +8132,81 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 
+<a id="patchPoll"></a>
+# **patchPoll**
+> SavePollResponse patchPoll(tenantId, commentId, commentPollPatch).execute();
+
+
+
+Edit a poll in place, keeping its tallies: change the question, relabel an option, close or reopen it, or change who may see the voters. Options are addressed by id - to add, remove or reorder them, PUT the full list.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String commentId = "commentId_example"; // String | 
+    CommentPollPatch commentPollPatch = new CommentPollPatch(); // CommentPollPatch | 
+    try {
+      SavePollResponse result = apiInstance.patchPoll(tenantId, commentId, commentPollPatch)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#patchPoll");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **commentId** | **String**|  | |
+| **commentPollPatch** | [**CommentPollPatch**](CommentPollPatch.md)|  | |
+
+### Return type
+
+[**SavePollResponse**](SavePollResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
 <a id="patchSSOUser"></a>
 # **patchSSOUser**
 > PatchSSOUserAPIResponse patchSSOUser(tenantId, id, updateAPISSOUserData).updateComments(updateComments).execute();
@@ -6980,6 +8353,84 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+
+<a id="putPoll"></a>
+# **putPoll**
+> SavePollResponse putPoll(tenantId, commentId, commentPollPutInput).replaceVotes(replaceVotes).execute();
+
+
+
+Attach a poll to a comment, or set the full state of the poll it already has.  Options are matched by id: an option sent with the id of an existing option keeps its votes (and takes the new label and position), an option sent without an id is added, and existing options left out of the list are removed along with the votes cast on them.  Keeping no existing option ids on a poll that has votes deletes all of them, so that needs replaceVotes&#x3D;true.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String commentId = "commentId_example"; // String | 
+    CommentPollPutInput commentPollPutInput = new CommentPollPutInput(); // CommentPollPutInput | 
+    Boolean replaceVotes = true; // Boolean | 
+    try {
+      SavePollResponse result = apiInstance.putPoll(tenantId, commentId, commentPollPutInput)
+            .replaceVotes(replaceVotes)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#putPoll");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **commentId** | **String**|  | |
+| **commentPollPutInput** | [**CommentPollPutInput**](CommentPollPutInput.md)|  | |
+| **replaceVotes** | **Boolean**|  | [optional] |
+
+### Return type
+
+[**SavePollResponse**](SavePollResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
 
 <a id="putSSOUser"></a>
 # **putSSOUser**
@@ -7746,6 +9197,78 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
+
+<a id="undoPageMigrations"></a>
+# **undoPageMigrations**
+> QueuePageMigrationJobAPIResponse undoPageMigrations(tenantId, undoId).execute();
+
+
+
+Queues a batch job that reverses every migration from one migrate-pages job, newest first. Available for 90 days. Records changed since the migration are left alone, so a later edit is never overwritten. Poll GET /api/v1/batch-jobs/{batchJobId} for the restored/skipped counts.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.auth.*;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.DefaultApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+    
+    // Configure API key authorization: api_key
+    ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
+    api_key.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //api_key.setApiKeyPrefix("Token");
+
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String undoId = "undoId_example"; // String | 
+    try {
+      QueuePageMigrationJobAPIResponse result = apiInstance.undoPageMigrations(tenantId, undoId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#undoPageMigrations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **undoId** | **String**|  | |
+
+### Return type
+
+[**QueuePageMigrationJobAPIResponse**](QueuePageMigrationJobAPIResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
 
 <a id="updateComment"></a>
 # **updateComment**

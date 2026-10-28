@@ -17,10 +17,13 @@ import com.fastcomments.model.CommentHTMLRenderingMode;
 import com.fastcomments.model.CommentQuestionResultsRenderingType;
 import com.fastcomments.model.CommentQuestionsRequired;
 import com.fastcomments.model.CommentThreadDeletionMode;
+import com.fastcomments.model.CommentTranslationMode;
 import com.fastcomments.model.CommenterNameFormats;
 import com.fastcomments.model.GifRating;
 import com.fastcomments.model.ImageContentProfanityLevel;
 import com.fastcomments.model.MentionAutoCompleteMode;
+import com.fastcomments.model.PollCreationMode;
+import com.fastcomments.model.PollVotingMode;
 import com.fastcomments.model.QuestionRenderingType;
 import com.fastcomments.model.QuestionSubQuestionVisibility;
 import com.fastcomments.model.QuestionWhenSave;
@@ -107,6 +110,14 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'autoGenerateUsername'
+     */
+    @Test
+    public void autoGenerateUsernameTest() {
+        // TODO: test autoGenerateUsername
+    }
+
+    /**
      * Test the property 'collapseReplies'
      */
     @Test
@@ -131,11 +142,35 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'commentsRequireApproval'
+     */
+    @Test
+    public void commentsRequireApprovalTest() {
+        // TODO: test commentsRequireApproval
+    }
+
+    /**
      * Test the property 'commentThreadDeleteMode'
      */
     @Test
     public void commentThreadDeleteModeTest() {
         // TODO: test commentThreadDeleteMode
+    }
+
+    /**
+     * Test the property 'pollCreation'
+     */
+    @Test
+    public void pollCreationTest() {
+        // TODO: test pollCreation
+    }
+
+    /**
+     * Test the property 'pollVoting'
+     */
+    @Test
+    public void pollVotingTest() {
+        // TODO: test pollVoting
     }
 
     /**
@@ -760,6 +795,14 @@ public class CustomConfigParametersTest {
     @Test
     public void tosTest() {
         // TODO: test tos
+    }
+
+    /**
+     * Test the property 'commentTranslation'
+     */
+    @Test
+    public void commentTranslationTest() {
+        // TODO: test commentTranslation
     }
 
 }

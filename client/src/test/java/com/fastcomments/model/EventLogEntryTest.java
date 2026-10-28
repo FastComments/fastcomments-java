@@ -86,4 +86,12 @@ public class EventLogEntryTest {
         // TODO: test data
     }
 
+    /**
+     * Test the property 'domain'
+     */
+    @Test
+    public void domainTest() {
+        // TODO: test domain
+    }
+
 }

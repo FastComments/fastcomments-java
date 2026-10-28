@@ -17,6 +17,8 @@
 |**vote** | [**PubSubVote**](PubSubVote.md) |  |  [optional] |
 |**comment** | [**PubSubComment**](PubSubComment.md) |  |  [optional] |
 |**feedPost** | [**FeedPost**](FeedPost.md) |  |  [optional] |
+|**commentId** | **String** |  |  [optional] |
+|**poll** | [**PickCommentPollOptionsOrTotalVotesOrClosesAt**](PickCommentPollOptionsOrTotalVotesOrClosesAt.md) |  |  [optional] |
 |**extraInfo** | [**LiveEventExtraInfo**](LiveEventExtraInfo.md) |  |  [optional] |
 |**config** | **Object** |  |  [optional] |
 |**isClosed** | **Boolean** |  |  [optional] |

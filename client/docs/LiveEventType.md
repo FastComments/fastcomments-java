@@ -51,5 +51,7 @@
 
 * `QUESTION_RESULT` (value: `"question-result"`)
 
+* `POLL_UPDATE` (value: `"poll-update"`)
+
 
 

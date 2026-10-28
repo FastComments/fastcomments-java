@@ -136,4 +136,36 @@ public class APIAuditLogTest {
         // TODO: test objectDetails
     }
 
+    /**
+     * Test the property 'targetId'
+     */
+    @Test
+    public void targetIdTest() {
+        // TODO: test targetId
+    }
+
+    /**
+     * Test the property 'targetLabel'
+     */
+    @Test
+    public void targetLabelTest() {
+        // TODO: test targetLabel
+    }
+
+    /**
+     * Test the property 'ua'
+     */
+    @Test
+    public void uaTest() {
+        // TODO: test ua
+    }
+
+    /**
+     * Test the property 'sIdHashed'
+     */
+    @Test
+    public void sIdHashedTest() {
+        // TODO: test sIdHashed
+    }
+
 }

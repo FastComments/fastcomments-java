@@ -36,6 +36,7 @@
 |**isSpam** | **Boolean** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
+|**poll** | [**CommentPoll**](CommentPoll.md) |  |  [optional] |
 |**flagCount** | **Integer** |  |  [optional] |
 |**domain** | **String** |  |  [optional] |
 |**url** | **String** |  |  |

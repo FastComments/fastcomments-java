@@ -13,10 +13,14 @@
 |**allowAnonFlag** | **Boolean** |  |  [optional] |
 |**allowAnonVotes** | **Boolean** |  |  [optional] |
 |**allowedLanguages** | **List&lt;String&gt;** |  |  [optional] |
+|**autoGenerateUsername** | **Boolean** | Serve each new visitor a unique generated username as the prefilled defaultUsername. |  [optional] |
 |**collapseReplies** | **Boolean** |  |  [optional] |
 |**commentCountFormat** | **String** |  |  [optional] |
 |**commentHTMLRenderingMode** | **CommentHTMLRenderingMode** |  |  [optional] |
+|**commentsRequireApproval** | **Boolean** | Hold every new or edited comment on this page or domain for moderation, like the tenant-wide setting but scoped. |  [optional] |
 |**commentThreadDeleteMode** | **CommentThreadDeletionMode** |  |  [optional] |
+|**pollCreation** | **PollCreationMode** |  |  [optional] |
+|**pollVoting** | **PollVotingMode** |  |  [optional] |
 |**commenterNameFormat** | **CommenterNameFormats** |  |  [optional] |
 |**countAboveToggle** | **Integer** |  |  [optional] |
 |**customCSS** | **String** |  |  [optional] |
@@ -95,6 +99,7 @@
 |**ticketMaxFileSize** | **Integer** |  |  [optional] |
 |**ticketAutoAssignUserIds** | **List&lt;String&gt;** |  |  [optional] |
 |**tos** | [**TOSConfig**](TOSConfig.md) |  |  [optional] |
+|**commentTranslation** | **CommentTranslationMode** |  |  [optional] |
 
 
 
