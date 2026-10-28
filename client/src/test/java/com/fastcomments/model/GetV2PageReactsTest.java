@@ -14,6 +14,7 @@
 package com.fastcomments.model;
 
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.PageCustomReactUser;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -40,6 +41,14 @@ public class GetV2PageReactsTest {
     @Test
     public void testGetV2PageReacts() {
         // TODO: test GetV2PageReacts
+    }
+
+    /**
+     * Test the property 'users'
+     */
+    @Test
+    public void usersTest() {
+        // TODO: test users
     }
 
     /**

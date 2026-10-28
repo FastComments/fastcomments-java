@@ -32,6 +32,7 @@
 |**sendProfaneToSpam** | **Boolean** |  |  [optional] |
 |**hasFlexPricing** | **Boolean** |  |  [optional] |
 |**hasAuditing** | **Boolean** |  |  [optional] |
+|**hasDebranding** | **Boolean** |  |  [optional] |
 |**flexLastBilledAmount** | **Double** |  |  [optional] |
 |**deAnonIpAddr** | **Double** |  |  [optional] |
 |**meta** | **Map&lt;String, String&gt;** | Construct a type with a set of properties K of type T |  [optional] |

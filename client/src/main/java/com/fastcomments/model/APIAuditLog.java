@@ -225,6 +225,26 @@ public class APIAuditLog {
   @javax.annotation.Nullable
   private Map<String, Object> objectDetails;
 
+  public static final String SERIALIZED_NAME_TARGET_ID = "targetId";
+  @SerializedName(SERIALIZED_NAME_TARGET_ID)
+  @javax.annotation.Nullable
+  private String targetId;
+
+  public static final String SERIALIZED_NAME_TARGET_LABEL = "targetLabel";
+  @SerializedName(SERIALIZED_NAME_TARGET_LABEL)
+  @javax.annotation.Nullable
+  private String targetLabel;
+
+  public static final String SERIALIZED_NAME_UA = "ua";
+  @SerializedName(SERIALIZED_NAME_UA)
+  @javax.annotation.Nullable
+  private String ua;
+
+  public static final String SERIALIZED_NAME_S_ID_HASHED = "sIdHashed";
+  @SerializedName(SERIALIZED_NAME_S_ID_HASHED)
+  @javax.annotation.Nullable
+  private String sIdHashed;
+
   public APIAuditLog() {
   }
 
@@ -464,6 +484,82 @@ public class APIAuditLog {
   }
 
 
+  public APIAuditLog targetId(@javax.annotation.Nullable String targetId) {
+    this.targetId = targetId;
+    return this;
+  }
+
+  /**
+   * Get targetId
+   * @return targetId
+   */
+  @javax.annotation.Nullable
+  public String getTargetId() {
+    return targetId;
+  }
+
+  public void setTargetId(@javax.annotation.Nullable String targetId) {
+    this.targetId = targetId;
+  }
+
+
+  public APIAuditLog targetLabel(@javax.annotation.Nullable String targetLabel) {
+    this.targetLabel = targetLabel;
+    return this;
+  }
+
+  /**
+   * Get targetLabel
+   * @return targetLabel
+   */
+  @javax.annotation.Nullable
+  public String getTargetLabel() {
+    return targetLabel;
+  }
+
+  public void setTargetLabel(@javax.annotation.Nullable String targetLabel) {
+    this.targetLabel = targetLabel;
+  }
+
+
+  public APIAuditLog ua(@javax.annotation.Nullable String ua) {
+    this.ua = ua;
+    return this;
+  }
+
+  /**
+   * Get ua
+   * @return ua
+   */
+  @javax.annotation.Nullable
+  public String getUa() {
+    return ua;
+  }
+
+  public void setUa(@javax.annotation.Nullable String ua) {
+    this.ua = ua;
+  }
+
+
+  public APIAuditLog sIdHashed(@javax.annotation.Nullable String sIdHashed) {
+    this.sIdHashed = sIdHashed;
+    return this;
+  }
+
+  /**
+   * Get sIdHashed
+   * @return sIdHashed
+   */
+  @javax.annotation.Nullable
+  public String getsIdHashed() {
+    return sIdHashed;
+  }
+
+  public void setsIdHashed(@javax.annotation.Nullable String sIdHashed) {
+    this.sIdHashed = sIdHashed;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -485,12 +581,16 @@ public class APIAuditLog {
         Objects.equals(this.when, apIAuditLog.when) &&
         Objects.equals(this.description, apIAuditLog.description) &&
         Objects.equals(this.serverStartDate, apIAuditLog.serverStartDate) &&
-        Objects.equals(this.objectDetails, apIAuditLog.objectDetails);
+        Objects.equals(this.objectDetails, apIAuditLog.objectDetails) &&
+        Objects.equals(this.targetId, apIAuditLog.targetId) &&
+        Objects.equals(this.targetLabel, apIAuditLog.targetLabel) &&
+        Objects.equals(this.ua, apIAuditLog.ua) &&
+        Objects.equals(this.sIdHashed, apIAuditLog.sIdHashed);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, username, resourceName, crudType, from, url, ip, when, description, serverStartDate, objectDetails);
+    return Objects.hash(id, userId, username, resourceName, crudType, from, url, ip, when, description, serverStartDate, objectDetails, targetId, targetLabel, ua, sIdHashed);
   }
 
   @Override
@@ -509,6 +609,10 @@ public class APIAuditLog {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    serverStartDate: ").append(toIndentedString(serverStartDate)).append("\n");
     sb.append("    objectDetails: ").append(toIndentedString(objectDetails)).append("\n");
+    sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
+    sb.append("    targetLabel: ").append(toIndentedString(targetLabel)).append("\n");
+    sb.append("    ua: ").append(toIndentedString(ua)).append("\n");
+    sb.append("    sIdHashed: ").append(toIndentedString(sIdHashed)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -527,7 +631,7 @@ public class APIAuditLog {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "username", "resourceName", "crudType", "from", "url", "ip", "when", "description", "serverStartDate", "objectDetails"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "username", "resourceName", "crudType", "from", "url", "ip", "when", "description", "serverStartDate", "objectDetails", "targetId", "targetLabel", "ua", "sIdHashed"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "resourceName", "crudType"));
@@ -593,6 +697,18 @@ public class APIAuditLog {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("targetId") != null && !jsonObj.get("targetId").isJsonNull()) && !jsonObj.get("targetId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `targetId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("targetId").toString()));
+      }
+      if ((jsonObj.get("targetLabel") != null && !jsonObj.get("targetLabel").isJsonNull()) && !jsonObj.get("targetLabel").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `targetLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("targetLabel").toString()));
+      }
+      if ((jsonObj.get("ua") != null && !jsonObj.get("ua").isJsonNull()) && !jsonObj.get("ua").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ua` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ua").toString()));
+      }
+      if ((jsonObj.get("sIdHashed") != null && !jsonObj.get("sIdHashed").isJsonNull()) && !jsonObj.get("sIdHashed").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sIdHashed` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sIdHashed").toString()));
       }
   }
 

@@ -21,6 +21,8 @@ import com.fastcomments.model.ChangeCommentPinStatusResponse;
 import com.fastcomments.model.CheckBlockedCommentsResponse;
 import com.fastcomments.model.CommentData;
 import com.fastcomments.model.CommentTextUpdateRequest;
+import com.fastcomments.model.CommentTranslationsRequest;
+import com.fastcomments.model.CommentTranslationsResponse;
 import com.fastcomments.model.CreateFeedPostParams;
 import com.fastcomments.model.CreateFeedPostResponse;
 import com.fastcomments.model.CreateV1PageReact;
@@ -42,6 +44,7 @@ import com.fastcomments.model.GetV1PageLikes;
 import com.fastcomments.model.GetV2PageReactUsersResponse;
 import com.fastcomments.model.GetV2PageReacts;
 import com.fastcomments.model.GifGetLargeResponse;
+import com.fastcomments.model.PageReactIncludeUserInfo;
 import com.fastcomments.model.PageUsersInfoResponse;
 import com.fastcomments.model.PageUsersOfflineResponse;
 import com.fastcomments.model.PageUsersOnlineResponse;
@@ -124,9 +127,11 @@ public class PublicApiTest {
         CommentData commentData = null;
         String sessionId = null;
         String sso = null;
+        String locale = null;
         SaveCommentsResponseWithPresence response = api.createCommentPublic(tenantId, urlId, broadcastId, commentData)
                 .sessionId(sessionId)
                 .sso(sso)
+                .locale(locale)
                 .execute();
         // TODO: test validations
     }
@@ -155,8 +160,10 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String title = null;
+        String sso = null;
         CreateV1PageReact response = api.createV1PageReact(tenantId, urlId)
                 .title(title)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -170,8 +177,10 @@ public class PublicApiTest {
         String urlId = null;
         String id = null;
         String title = null;
+        String sso = null;
         CreateV1PageReact response = api.createV2PageReact(tenantId, urlId, id)
                 .title(title)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -235,7 +244,9 @@ public class PublicApiTest {
     public void deleteV1PageReactTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
+        String sso = null;
         CreateV1PageReact response = api.deleteV1PageReact(tenantId, urlId)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -248,7 +259,9 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String id = null;
+        String sso = null;
         CreateV1PageReact response = api.deleteV2PageReact(tenantId, urlId, id)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -358,6 +371,8 @@ public class PublicApiTest {
         String customConfigStr = null;
         String afterCommentId = null;
         String beforeCommentId = null;
+        String questionId = null;
+        Integer questionValue = null;
         GetCommentsResponseWithPresencePublicComment response = api.getCommentsPublic(tenantId, urlId)
                 .page(page)
                 .direction(direction)
@@ -385,6 +400,8 @@ public class PublicApiTest {
                 .customConfigStr(customConfigStr)
                 .afterCommentId(afterCommentId)
                 .beforeCommentId(beforeCommentId)
+                .questionId(questionId)
+                .questionValue(questionValue)
                 .execute();
         // TODO: test validations
     }
@@ -681,7 +698,11 @@ public class PublicApiTest {
     public void getV1PageLikesTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
+        String sso = null;
+        PageReactIncludeUserInfo includeUserInfo = null;
         GetV1PageLikes response = api.getV1PageLikes(tenantId, urlId)
+                .sso(sso)
+                .includeUserInfo(includeUserInfo)
                 .execute();
         // TODO: test validations
     }
@@ -694,7 +715,9 @@ public class PublicApiTest {
         String tenantId = null;
         String urlId = null;
         String id = null;
+        String sso = null;
         GetV2PageReactUsersResponse response = api.getV2PageReactUsers(tenantId, urlId, id)
+                .sso(sso)
                 .execute();
         // TODO: test validations
     }
@@ -706,7 +729,11 @@ public class PublicApiTest {
     public void getV2PageReactsTest() throws ApiException {
         String tenantId = null;
         String urlId = null;
+        String sso = null;
+        PageReactIncludeUserInfo includeUserInfo = null;
         GetV2PageReacts response = api.getV2PageReacts(tenantId, urlId)
+                .sso(sso)
+                .includeUserInfo(includeUserInfo)
                 .execute();
         // TODO: test validations
     }
@@ -840,6 +867,25 @@ public class PublicApiTest {
         PublicAPISetCommentTextResponse response = api.setCommentText(tenantId, commentId, broadcastId, commentTextUpdateRequest)
                 .editKey(editKey)
                 .sso(sso)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Translates the given comments into the widget locale. Only available when the matching widget customization rule has Comment Translation set to Automatic or Manual.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void translateCommentsTest() throws ApiException {
+        String tenantId = null;
+        String urlId = null;
+        CommentTranslationsRequest commentTranslationsRequest = null;
+        String sso = null;
+        String locale = null;
+        CommentTranslationsResponse response = api.translateComments(tenantId, urlId, commentTranslationsRequest)
+                .sso(sso)
+                .locale(locale)
                 .execute();
         // TODO: test validations
     }

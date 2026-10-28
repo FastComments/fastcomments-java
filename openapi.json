@@ -134,6 +134,21 @@
 				],
 				"type": "integer"
 			},
+			"PollCreationMode": {
+				"enum": [
+					0,
+					1,
+					2
+				],
+				"type": "integer"
+			},
+			"PollVotingMode": {
+				"enum": [
+					0,
+					1
+				],
+				"type": "integer"
+			},
 			"CommenterNameFormats": {
 				"enum": [
 					0,
@@ -284,6 +299,14 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"CommentTranslationMode": {
+				"type": "string",
+				"enum": [
+					"off",
+					"auto",
+					"manual"
+				]
+			},
 			"CustomConfigParameters": {
 				"properties": {
 					"absoluteAndRelativeDates": {
@@ -308,6 +331,10 @@
 						"type": "array",
 						"nullable": true
 					},
+					"autoGenerateUsername": {
+						"type": "boolean",
+						"description": "Serve each new visitor a unique generated username as the prefilled defaultUsername."
+					},
 					"collapseReplies": {
 						"type": "boolean"
 					},
@@ -318,10 +345,30 @@
 					"commentHTMLRenderingMode": {
 						"$ref": "#/components/schemas/CommentHTMLRenderingMode"
 					},
+					"commentsRequireApproval": {
+						"type": "boolean",
+						"description": "Hold every new or edited comment on this page or domain for moderation, like the tenant-wide setting but scoped."
+					},
 					"commentThreadDeleteMode": {
 						"allOf": [
 							{
 								"$ref": "#/components/schemas/CommentThreadDeletionMode"
+							}
+						],
+						"nullable": true
+					},
+					"pollCreation": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/PollCreationMode"
+							}
+						],
+						"nullable": true
+					},
+					"pollVoting": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/PollVotingMode"
 							}
 						],
 						"nullable": true
@@ -607,6 +654,14 @@
 					},
 					"tos": {
 						"$ref": "#/components/schemas/TOSConfig"
+					},
+					"commentTranslation": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CommentTranslationMode"
+							}
+						],
+						"nullable": true
 					}
 				},
 				"type": "object",
@@ -694,7 +749,9 @@
 					81,
 					82,
 					9,
-					10
+					10,
+					11,
+					12
 				],
 				"type": "integer"
 			},
@@ -1079,6 +1136,10 @@
 			},
 			"GetTranslationsResponse": {
 				"properties": {
+					"locale": {
+						"type": "string",
+						"description": "The locale the translations were resolved for. Clients use it to set text direction."
+					},
 					"translations": {
 						"$ref": "#/components/schemas/Record_string.string_"
 					},
@@ -1087,6 +1148,7 @@
 					}
 				},
 				"required": [
+					"locale",
 					"translations",
 					"status"
 				],
@@ -1257,8 +1319,36 @@
 				],
 				"type": "object"
 			},
+			"PageReactUser": {
+				"properties": {
+					"avatarSrc": {
+						"type": "string"
+					},
+					"displayName": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"userId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"username",
+					"userId"
+				],
+				"type": "object"
+			},
 			"GetV1PageLikes": {
 				"properties": {
+					"users": {
+						"items": {
+							"$ref": "#/components/schemas/PageReactUser"
+						},
+						"type": "array",
+						"description": "Most recent first. Present when includeUserInfo is passed. Capped at 100 reacts."
+					},
 					"urlIdWS": {
 						"type": "string"
 					},
@@ -1285,6 +1375,14 @@
 					"status"
 				],
 				"type": "object"
+			},
+			"PageReactIncludeUserInfo": {
+				"type": "string",
+				"enum": [
+					"public",
+					"include-private"
+				],
+				"description": "public omits users with private profile activity; include-private requires an API key."
 			},
 			"GetV2PageReactUsersResponse": {
 				"properties": {
@@ -1313,8 +1411,40 @@
 				"type": "object",
 				"description": "Construct a type with a set of properties K of type T"
 			},
+			"PageCustomReactUser": {
+				"properties": {
+					"avatarSrc": {
+						"type": "string"
+					},
+					"displayName": {
+						"type": "string"
+					},
+					"username": {
+						"type": "string"
+					},
+					"userId": {
+						"type": "string"
+					},
+					"reactId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"username",
+					"userId",
+					"reactId"
+				],
+				"type": "object"
+			},
 			"GetV2PageReacts": {
 				"properties": {
+					"users": {
+						"items": {
+							"$ref": "#/components/schemas/PageCustomReactUser"
+						},
+						"type": "array",
+						"description": "One entry per react, most recent first. Present when includeUserInfo is passed. Capped at 100 reacts."
+					},
 					"reactedIds": {
 						"items": {
 							"type": "string"
@@ -3592,6 +3722,10 @@
 					},
 					"data": {
 						"type": "string"
+					},
+					"domain": {
+						"type": "string",
+						"nullable": true
 					}
 				},
 				"required": [
@@ -3647,7 +3781,8 @@
 					"updated-ticket-assignment",
 					"deleted-ticket",
 					"page-react",
-					"question-result"
+					"question-result",
+					"poll-update"
 				],
 				"type": "string"
 			},
@@ -3812,6 +3947,78 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"CommentPollOption": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"label": {
+						"type": "string"
+					},
+					"votes": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"required": [
+					"id",
+					"label",
+					"votes"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PollPrivacy": {
+				"description": "Who may see which voter picked which option. Chosen by the poll's author when they build the poll, so it\nlives on the poll itself rather than in the widget config. Anonymous is the default and is never stored on\nthe poll or sent to the client, so an unset value means Anonymous.",
+				"enum": [
+					0,
+					1,
+					2
+				],
+				"type": "integer"
+			},
+			"CommentPoll": {
+				"description": "A poll attached to a comment. Vote counts are denormalized here; individual votes live in PollVote.",
+				"properties": {
+					"question": {
+						"type": "string"
+					},
+					"options": {
+						"items": {
+							"$ref": "#/components/schemas/CommentPollOption"
+						},
+						"type": "array"
+					},
+					"totalVotes": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"closesAt": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"privacy": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/PollPrivacy"
+							}
+						],
+						"nullable": true
+					},
+					"requireVoteToSeeResults": {
+						"type": "boolean",
+						"nullable": true
+					}
+				},
+				"required": [
+					"question",
+					"options",
+					"totalVotes"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"FDomain": {
 				"type": "string"
 			},
@@ -3933,6 +4140,14 @@
 						},
 						"type": "array"
 					},
+					"poll": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CommentPoll"
+							}
+						],
+						"nullable": true
+					},
 					"flagCount": {
 						"type": "integer",
 						"format": "int32",
@@ -4021,6 +4236,33 @@
 					}
 				]
 			},
+			"Pick_CommentPoll.options-or-totalVotes-or-closesAt_": {
+				"properties": {
+					"options": {
+						"items": {
+							"$ref": "#/components/schemas/CommentPollOption"
+						},
+						"type": "array"
+					},
+					"totalVotes": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"closesAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"options",
+					"totalVotes"
+				],
+				"type": "object",
+				"description": "From T, pick a set of properties whose keys are in the union K"
+			},
+			"CommentPollUpdate": {
+				"$ref": "#/components/schemas/Pick_CommentPoll.options-or-totalVotes-or-closesAt_"
+			},
 			"Record_string._before-string-or-null--after-string-or-null__": {
 				"properties": {},
 				"additionalProperties": {
@@ -4082,6 +4324,12 @@
 					},
 					"feedPost": {
 						"$ref": "#/components/schemas/FeedPost"
+					},
+					"commentId": {
+						"type": "string"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPollUpdate"
 					},
 					"extraInfo": {
 						"properties": {
@@ -4285,6 +4533,13 @@
 						"properties": {
 							"isUnread": {
 								"type": "boolean"
+							},
+							"myPollVotes": {
+								"items": {
+									"type": "string"
+								},
+								"type": "array",
+								"description": "Ids of the options the current viewer voted for on this comment's poll. Only set when polls are enabled and they have voted."
 							},
 							"myVoteId": {
 								"type": "string"
@@ -4634,7 +4889,7 @@
 					}
 				]
 			},
-			"Record_string.string-or-number_": {
+			"Record_string.string-or-number-or-number-Array_": {
 				"properties": {},
 				"additionalProperties": {
 					"anyOf": [
@@ -4644,11 +4899,50 @@
 						{
 							"type": "number",
 							"format": "double"
+						},
+						{
+							"items": {
+								"type": "number",
+								"format": "double"
+							},
+							"type": "array"
 						}
 					]
 				},
 				"type": "object",
 				"description": "Construct a type with a set of properties K of type T"
+			},
+			"CommentPollInput": {
+				"properties": {
+					"question": {
+						"type": "string"
+					},
+					"options": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"closesAt": {
+						"type": "string",
+						"nullable": true
+					},
+					"privacy": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"requireVoteToSeeResults": {
+						"type": "boolean",
+						"nullable": true
+					}
+				},
+				"required": [
+					"question",
+					"options"
+				],
+				"type": "object",
+				"additionalProperties": false
 			},
 			"CommentData": {
 				"properties": {
@@ -4745,7 +5039,10 @@
 						"type": "array"
 					},
 					"questionValues": {
-						"$ref": "#/components/schemas/Record_string.string-or-number_"
+						"$ref": "#/components/schemas/Record_string.string-or-number-or-number-Array_"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPollInput"
 					},
 					"tos": {
 						"type": "boolean"
@@ -4869,6 +5166,79 @@
 					"status",
 					"voteUserNames",
 					"hasMore"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CommentTranslationPublic": {
+				"properties": {
+					"commentHTML": {
+						"type": "string"
+					},
+					"sourceLanguage": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"commentHTML",
+					"sourceLanguage"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Record_string.CommentTranslationPublic-or-null_": {
+				"properties": {},
+				"additionalProperties": {
+					"allOf": [
+						{
+							"$ref": "#/components/schemas/CommentTranslationPublic"
+						}
+					],
+					"nullable": true
+				},
+				"type": "object",
+				"description": "Construct a type with a set of properties K of type T"
+			},
+			"CommentTranslationsResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"locale": {
+						"type": "string"
+					},
+					"translations": {
+						"$ref": "#/components/schemas/Record_string.CommentTranslationPublic-or-null_",
+						"description": "null means the comment is already in the target language or cannot be translated."
+					},
+					"failed": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array",
+						"description": "Comment ids that failed transiently and may be retried."
+					}
+				},
+				"required": [
+					"status",
+					"locale",
+					"translations",
+					"failed"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CommentTranslationsRequest": {
+				"properties": {
+					"commentIds": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"commentIds"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -5533,6 +5903,61 @@
 				],
 				"type": "object"
 			},
+			"GetPageLikesAPIResponse": {
+				"properties": {
+					"reason": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"users": {
+						"items": {
+							"$ref": "#/components/schemas/PageReactUser"
+						},
+						"type": "array",
+						"description": "Most recent first. Present when includeUserInfo is passed. Capped at 100 reacts."
+					},
+					"likeCount": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status"
+				],
+				"type": "object"
+			},
+			"GetPageReactsAPIResponse": {
+				"properties": {
+					"reason": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"users": {
+						"items": {
+							"$ref": "#/components/schemas/PageCustomReactUser"
+						},
+						"type": "array",
+						"description": "One entry per react, most recent first. Present when includeUserInfo is passed. Capped at 100 reacts."
+					},
+					"counts": {
+						"$ref": "#/components/schemas/Record_string.number_"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status"
+				],
+				"type": "object"
+			},
 			"AddPageAPIResponse": {
 				"properties": {
 					"reason": {
@@ -5583,6 +6008,70 @@
 					"title",
 					"url",
 					"urlId"
+				],
+				"type": "object"
+			},
+			"QueuePageMigrationJobAPIResponse": {
+				"properties": {
+					"reason": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"batchJobId": {
+						"type": "string",
+						"description": "Poll GET /api/v1/batch-jobs/{batchJobId} for progress and the result."
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status"
+				],
+				"type": "object"
+			},
+			"PageMigrationType": {
+				"type": "string",
+				"enum": [
+					"urlId",
+					"domain"
+				],
+				"description": "\"urlId\" renames exact urlId matches only. \"domain\" find/replaces the value inside every urlId and url."
+			},
+			"PageMigration": {
+				"properties": {
+					"from": {
+						"type": "string"
+					},
+					"to": {
+						"type": "string"
+					},
+					"type": {
+						"$ref": "#/components/schemas/PageMigrationType"
+					}
+				},
+				"required": [
+					"from",
+					"to",
+					"type"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MigrateAPIPagesData": {
+				"properties": {
+					"migrations": {
+						"items": {
+							"$ref": "#/components/schemas/PageMigration"
+						},
+						"type": "array",
+						"description": "Run in the order given, so a -> b then b -> c works. At most 100."
+					}
+				},
+				"required": [
+					"migrations"
 				],
 				"type": "object"
 			},
@@ -5649,6 +6138,320 @@
 					"status"
 				],
 				"type": "object"
+			},
+			"WebhookEventName": {
+				"type": "string",
+				"enum": [
+					"comment-created",
+					"comment-updated",
+					"comment-deleted"
+				]
+			},
+			"WebhookHTTPMethod": {
+				"type": "string",
+				"enum": [
+					"PUT",
+					"DELETE",
+					"POST"
+				]
+			},
+			"WebhookSource": {
+				"type": "string",
+				"enum": [
+					"dashboard",
+					"api"
+				]
+			},
+			"PublicWebhook": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					},
+					"event": {
+						"$ref": "#/components/schemas/WebhookEventName"
+					},
+					"domain": {
+						"type": "string"
+					},
+					"method": {
+						"$ref": "#/components/schemas/WebhookHTTPMethod"
+					},
+					"source": {
+						"$ref": "#/components/schemas/WebhookSource"
+					},
+					"enabled": {
+						"type": "boolean"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"lastSuccessAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"lastFailureAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"failingSince": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"disabledAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"disabledReason": {
+						"type": "string",
+						"enum": [
+							"auto",
+							"manual"
+						]
+					}
+				},
+				"required": [
+					"id",
+					"url",
+					"event",
+					"domain",
+					"method",
+					"source",
+					"enabled",
+					"createdAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetWebhooksResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"webhooks": {
+						"items": {
+							"$ref": "#/components/schemas/PublicWebhook"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"status",
+					"webhooks"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"WebhookComment": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"urlId": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string",
+						"nullable": true
+					},
+					"userId": {
+						"type": "string",
+						"nullable": true
+					},
+					"commenterEmail": {
+						"type": "string",
+						"nullable": true
+					},
+					"commenterName": {
+						"type": "string"
+					},
+					"comment": {
+						"type": "string"
+					},
+					"commentHTML": {
+						"type": "string"
+					},
+					"externalId": {
+						"type": "string",
+						"nullable": true
+					},
+					"parentId": {
+						"type": "string",
+						"nullable": true
+					},
+					"date": {
+						"type": "string"
+					},
+					"votes": {
+						"type": "number",
+						"format": "double"
+					},
+					"votesUp": {
+						"type": "number",
+						"format": "double"
+					},
+					"votesDown": {
+						"type": "number",
+						"format": "double"
+					},
+					"verified": {
+						"type": "boolean"
+					},
+					"verifiedDate": {
+						"type": "string",
+						"nullable": true
+					},
+					"reviewed": {
+						"type": "boolean"
+					},
+					"avatarSrc": {
+						"type": "string",
+						"nullable": true
+					},
+					"isSpam": {
+						"type": "boolean"
+					},
+					"aiDeterminedSpam": {
+						"type": "boolean"
+					},
+					"hasImages": {
+						"type": "boolean"
+					},
+					"pageNumber": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"pageNumberOF": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"pageNumberNF": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"approved": {
+						"type": "boolean"
+					},
+					"locale": {
+						"type": "string",
+						"nullable": true
+					},
+					"mentions": {
+						"items": {
+							"$ref": "#/components/schemas/CommentUserMentionInfo"
+						},
+						"type": "array"
+					},
+					"domain": {
+						"type": "string",
+						"nullable": true
+					},
+					"moderationGroupIds": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"id",
+					"urlId",
+					"url",
+					"userId",
+					"commenterEmail",
+					"commenterName",
+					"comment",
+					"commentHTML",
+					"externalId",
+					"parentId",
+					"date",
+					"votes",
+					"votesUp",
+					"votesDown",
+					"verified",
+					"verifiedDate",
+					"reviewed",
+					"avatarSrc",
+					"isSpam",
+					"aiDeterminedSpam",
+					"hasImages",
+					"pageNumber",
+					"pageNumberOF",
+					"pageNumberNF",
+					"approved",
+					"locale",
+					"mentions",
+					"domain",
+					"moderationGroupIds"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetWebhookSamplePayloadsResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"payloads": {
+						"items": {
+							"$ref": "#/components/schemas/WebhookComment"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"status",
+					"payloads"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateWebhookResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"webhook": {
+						"$ref": "#/components/schemas/PublicWebhook"
+					}
+				},
+				"required": [
+					"status",
+					"webhook"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateWebhookParams": {
+				"properties": {
+					"url": {
+						"type": "string",
+						"description": "Where events are delivered. Must be http(s)."
+					},
+					"event": {
+						"$ref": "#/components/schemas/WebhookEventName"
+					},
+					"domain": {
+						"type": "string",
+						"description": "A domain from your account configuration, or '*' (the default) for every domain."
+					},
+					"method": {
+						"$ref": "#/components/schemas/WebhookHTTPMethod",
+						"description": "Defaults to POST."
+					}
+				},
+				"required": [
+					"url",
+					"event"
+				],
+				"type": "object",
+				"additionalProperties": false
 			},
 			"PublicVote": {
 				"properties": {
@@ -6452,7 +7255,8 @@
 			"ImportedSiteType": {
 				"enum": [
 					0,
-					1
+					1,
+					2
 				],
 				"type": "integer"
 			},
@@ -6551,6 +7355,11 @@
 					"email": {
 						"type": "string",
 						"description": "Email for invoices."
+					},
+					"vatId": {
+						"type": "string",
+						"nullable": true,
+						"description": "VAT / Tax ID for invoices. Only persisted once Stripe has accepted it."
 					}
 				},
 				"required": [
@@ -6647,6 +7456,9 @@
 						"type": "boolean"
 					},
 					"hasAuditing": {
+						"type": "boolean"
+					},
+					"hasDebranding": {
 						"type": "boolean"
 					},
 					"flexLastBilledAmount": {
@@ -6759,9 +7571,6 @@
 					"billingHandledExternally": {
 						"type": "boolean"
 					},
-					"createdBy": {
-						"type": "string"
-					},
 					"isSetup": {
 						"type": "boolean"
 					},
@@ -6838,9 +7647,6 @@
 					},
 					"billingHandledExternally": {
 						"type": "boolean"
-					},
-					"createdBy": {
-						"type": "string"
 					},
 					"isSetup": {
 						"type": "boolean"
@@ -7439,6 +8245,10 @@
 						"format": "double"
 					},
 					"flexSSOModeratorUnit": {
+						"type": "number",
+						"format": "double"
+					},
+					"flexFreeModerators": {
 						"type": "number",
 						"format": "double"
 					},
@@ -8193,7 +9003,16 @@
 					},
 					"value": {
 						"type": "integer",
-						"format": "int32"
+						"format": "int32",
+						"description": "The answer. For multi-choice questions this is the number of selected options and the options are in values."
+					},
+					"values": {
+						"items": {
+							"type": "number",
+							"format": "double"
+						},
+						"type": "array",
+						"description": "Selected option indexes, multi-choice questions only."
 					},
 					"commentId": {
 						"type": "string",
@@ -8285,7 +9104,16 @@
 					},
 					"value": {
 						"type": "number",
-						"format": "double"
+						"format": "double",
+						"description": "Required unless values is given. For multi-choice questions this is derived from values."
+					},
+					"values": {
+						"items": {
+							"type": "number",
+							"format": "double"
+						},
+						"type": "array",
+						"description": "Selected option indexes for multi-choice questions."
 					},
 					"questionId": {
 						"type": "string"
@@ -8309,7 +9137,6 @@
 				},
 				"required": [
 					"urlId",
-					"value",
 					"questionId"
 				],
 				"type": "object",
@@ -8329,6 +9156,14 @@
 					"value": {
 						"type": "number",
 						"format": "double"
+					},
+					"values": {
+						"items": {
+							"type": "number",
+							"format": "double"
+						},
+						"type": "array",
+						"description": "Selected option indexes for multi-choice questions."
 					},
 					"commentId": {
 						"type": "string"
@@ -8506,6 +9341,43 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"CommentTranslation": {
+				"properties": {
+					"comment": {
+						"type": "string"
+					},
+					"commentHTML": {
+						"type": "string"
+					},
+					"sourceLanguage": {
+						"type": "string"
+					},
+					"model": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"comment",
+					"commentHTML",
+					"sourceLanguage",
+					"model",
+					"createdAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Record_string.CommentTranslation_": {
+				"properties": {},
+				"additionalProperties": {
+					"$ref": "#/components/schemas/CommentTranslation"
+				},
+				"type": "object",
+				"description": "Construct a type with a set of properties K of type T"
+			},
 			"CommentLogType": {
 				"enum": [
 					0,
@@ -8563,7 +9435,17 @@
 					52,
 					53,
 					54,
-					55
+					55,
+					56,
+					57,
+					58,
+					59,
+					60,
+					61,
+					62,
+					63,
+					64,
+					65
 				],
 				"type": "integer"
 			},
@@ -8584,6 +9466,27 @@
 					4,
 					5,
 					6
+				],
+				"type": "integer"
+			},
+			"NotificationSkipReason": {
+				"enum": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15
 				],
 				"type": "integer"
 			},
@@ -8689,6 +9592,9 @@
 					"reason": {
 						"$ref": "#/components/schemas/RepeatCommentCheckIgnoredReason"
 					},
+					"skipReason": {
+						"type": "string"
+					},
 					"otherData": {},
 					"spamBefore": {
 						"type": "boolean"
@@ -8755,6 +9661,15 @@
 					},
 					"detectedLanguage": {
 						"type": "string"
+					},
+					"recipientUserId": {
+						"type": "string"
+					},
+					"notifySkipReason": {
+						"$ref": "#/components/schemas/NotificationSkipReason"
+					},
+					"emailQueued": {
+						"type": "boolean"
 					}
 				},
 				"type": "object",
@@ -8943,6 +9858,18 @@
 						"type": "string",
 						"nullable": true
 					},
+					"detectedLanguage": {
+						"type": "string",
+						"nullable": true
+					},
+					"translations": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/Record_string.CommentTranslation_"
+							}
+						],
+						"nullable": true
+					},
 					"isDeleted": {
 						"type": "boolean"
 					},
@@ -9059,6 +9986,14 @@
 						},
 						"type": "array"
 					},
+					"poll": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/CommentPoll"
+							}
+						],
+						"nullable": true
+					},
 					"logs": {
 						"items": {
 							"$ref": "#/components/schemas/CommentLogEntry"
@@ -9165,6 +10100,58 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"QuestionConditionOperator": {
+				"enum": [
+					"lt",
+					"lte",
+					"gt",
+					"gte",
+					"eq",
+					"neq",
+					"includes",
+					"excludes"
+				],
+				"type": "string"
+			},
+			"SubQuestionCondition": {
+				"properties": {
+					"operator": {
+						"$ref": "#/components/schemas/QuestionConditionOperator"
+					},
+					"value": {
+						"type": "number",
+						"format": "double"
+					},
+					"subQuestionId": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"operator",
+					"value",
+					"subQuestionId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"QuestionCondition": {
+				"description": "A rule evaluated against a question's answer. value is the score for nps/slider/star/emoji/scale, 1 or 0 for\nthumbs, and the option index for choice/multi.",
+				"properties": {
+					"operator": {
+						"$ref": "#/components/schemas/QuestionConditionOperator"
+					},
+					"value": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"operator",
+					"value"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"QuestionConfig": {
 				"properties": {
 					"_id": {
@@ -9201,7 +10188,8 @@
 						"format": "date-time"
 					},
 					"type": {
-						"type": "string"
+						"type": "string",
+						"description": "One of nps, slider, star, thumbs, choice, multi, emoji, scale. Answers: nps 0-10, slider min-max, star 1-numStars,\nthumbs 1 (up) or 0 (down), choice = option index, multi = option indexes (values), emoji/scale = option index + 1."
 					},
 					"numStars": {
 						"type": "number",
@@ -9241,7 +10229,8 @@
 							],
 							"type": "object"
 						},
-						"type": "array"
+						"type": "array",
+						"description": "Option labels for choice, multi, emoji and scale questions."
 					},
 					"subQuestionIds": {
 						"items": {
@@ -9251,6 +10240,21 @@
 					},
 					"alwaysShowSubQuestions": {
 						"type": "boolean"
+					},
+					"subQuestionConditions": {
+						"items": {
+							"$ref": "#/components/schemas/SubQuestionCondition"
+						},
+						"type": "array",
+						"description": "Sub-questions listed here only show when this question's answer matches. Others always show."
+					},
+					"commentBoxCondition": {
+						"$ref": "#/components/schemas/QuestionCondition",
+						"description": "When set, the comment box only shows when this question's answer matches."
+					},
+					"commentBoxPrompt": {
+						"type": "string",
+						"description": "Placeholder for the comment box when commentBoxCondition reveals it."
 					},
 					"reportingOrder": {
 						"type": "number",
@@ -9345,7 +10349,8 @@
 						"type": "string"
 					},
 					"type": {
-						"type": "string"
+						"type": "string",
+						"description": "One of nps, slider, star, thumbs, choice, multi, emoji, scale. choice, multi, emoji and scale take their labels\nfrom customOptions (choice/multi 2-20 options, emoji/scale 3-7)."
 					},
 					"numStars": {
 						"type": "number",
@@ -9395,6 +10400,21 @@
 					},
 					"alwaysShowSubQuestions": {
 						"type": "boolean"
+					},
+					"subQuestionConditions": {
+						"items": {
+							"$ref": "#/components/schemas/SubQuestionCondition"
+						},
+						"type": "array",
+						"description": "Show a sub-question only when this question's answer matches its rule."
+					},
+					"commentBoxCondition": {
+						"$ref": "#/components/schemas/QuestionCondition",
+						"description": "Show the comment box only when this question's answer matches."
+					},
+					"commentBoxPrompt": {
+						"type": "string",
+						"description": "Comment box placeholder when commentBoxCondition reveals it."
 					},
 					"reportingOrder": {
 						"type": "number",
@@ -9422,7 +10442,8 @@
 						"type": "string"
 					},
 					"type": {
-						"type": "string"
+						"type": "string",
+						"description": "One of nps, slider, star, thumbs, choice, multi, emoji, scale."
 					},
 					"numStars": {
 						"type": "number",
@@ -9473,6 +10494,18 @@
 					"alwaysShowSubQuestions": {
 						"type": "boolean"
 					},
+					"subQuestionConditions": {
+						"items": {
+							"$ref": "#/components/schemas/SubQuestionCondition"
+						},
+						"type": "array"
+					},
+					"commentBoxCondition": {
+						"$ref": "#/components/schemas/QuestionCondition"
+					},
+					"commentBoxPrompt": {
+						"type": "string"
+					},
 					"reportingOrder": {
 						"type": "number",
 						"format": "double"
@@ -9480,6 +10513,266 @@
 				},
 				"type": "object",
 				"additionalProperties": {}
+			},
+			"GetPollResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPoll"
+					}
+				},
+				"required": [
+					"status",
+					"poll"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SavePollResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPoll"
+					}
+				},
+				"required": [
+					"status",
+					"poll"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CommentPollOptionInput": {
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"label": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"label"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CommentPollPutInput": {
+				"properties": {
+					"question": {
+						"type": "string"
+					},
+					"options": {
+						"items": {
+							"$ref": "#/components/schemas/CommentPollOptionInput"
+						},
+						"type": "array"
+					},
+					"closesAt": {
+						"type": "string",
+						"nullable": true
+					},
+					"privacy": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"requireVoteToSeeResults": {
+						"type": "boolean",
+						"nullable": true
+					}
+				},
+				"required": [
+					"question",
+					"options"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CommentPollPatch": {
+				"properties": {
+					"question": {
+						"type": "string",
+						"nullable": true
+					},
+					"options": {
+						"items": {
+							"properties": {
+								"label": {
+									"type": "string"
+								},
+								"id": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"label",
+								"id"
+							],
+							"type": "object"
+						},
+						"type": "array",
+						"nullable": true
+					},
+					"closesAt": {
+						"type": "string",
+						"nullable": true
+					},
+					"privacy": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"requireVoteToSeeResults": {
+						"type": "boolean",
+						"nullable": true
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PublicPollVote": {
+				"description": "A single vote cast on a comment's poll.",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"tenantId": {
+						"type": "string"
+					},
+					"commentId": {
+						"type": "string"
+					},
+					"urlId": {
+						"type": "string"
+					},
+					"voterId": {
+						"type": "string"
+					},
+					"optionId": {
+						"type": "string"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"updatedAt": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"required": [
+					"id",
+					"tenantId",
+					"commentId",
+					"urlId",
+					"voterId",
+					"optionId",
+					"createdAt"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetPollVotesResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"pollVotes": {
+						"items": {
+							"$ref": "#/components/schemas/PublicPollVote"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"status",
+					"pollVotes"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GetPollVoteResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"pollVote": {
+						"$ref": "#/components/schemas/PublicPollVote"
+					}
+				},
+				"required": [
+					"status",
+					"pollVote"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreatePollVoteResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"pollVote": {
+						"$ref": "#/components/schemas/PublicPollVote"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPoll"
+					}
+				},
+				"required": [
+					"status",
+					"pollVote",
+					"poll"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreatePollVoteBody": {
+				"properties": {
+					"commentId": {
+						"type": "string"
+					},
+					"optionId": {
+						"type": "string"
+					},
+					"userId": {
+						"type": "string"
+					},
+					"anonUserId": {
+						"type": "string"
+					},
+					"ip": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"commentId",
+					"optionId"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"DeletePollVoteResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPoll"
+					}
+				},
+				"required": [
+					"status",
+					"poll"
+				],
+				"type": "object",
+				"additionalProperties": false
 			},
 			"PendingCommentToSyncOutbound": {
 				"properties": {
@@ -9870,6 +11163,62 @@
 				},
 				"type": "object",
 				"additionalProperties": {}
+			},
+			"MeAuthType": {
+				"type": "string",
+				"enum": [
+					"api-key",
+					"oauth"
+				]
+			},
+			"OAuthScope": {
+				"type": "string",
+				"enum": [
+					"read",
+					"write"
+				]
+			},
+			"GetMeResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"tenantId": {
+						"type": "string"
+					},
+					"tenantName": {
+						"type": "string"
+					},
+					"authType": {
+						"$ref": "#/components/schemas/MeAuthType",
+						"description": "Whether the request was authenticated with an API key or an OAuth access token."
+					},
+					"scopes": {
+						"items": {
+							"$ref": "#/components/schemas/OAuthScope"
+						},
+						"type": "array"
+					},
+					"userId": {
+						"type": "string",
+						"description": "Only present for OAuth tokens: the user who authorized the application."
+					},
+					"username": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status",
+					"tenantId",
+					"tenantName",
+					"authType",
+					"scopes"
+				],
+				"type": "object",
+				"additionalProperties": false
 			},
 			"TenantHashTag": {
 				"properties": {
@@ -11066,7 +12415,10 @@
 						"type": "array"
 					},
 					"questionValues": {
-						"$ref": "#/components/schemas/Record_string.string-or-number_"
+						"$ref": "#/components/schemas/Record_string.string-or-number-or-number-Array_"
+					},
+					"poll": {
+						"$ref": "#/components/schemas/CommentPollInput"
 					},
 					"tos": {
 						"type": "boolean"
@@ -11168,6 +12520,200 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"PageMigrationSuccess": {
+				"properties": {
+					"from": {
+						"type": "string"
+					},
+					"to": {
+						"type": "string"
+					},
+					"type": {
+						"$ref": "#/components/schemas/PageMigrationType"
+					},
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"commentsMigrated": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"required": [
+					"from",
+					"to",
+					"type",
+					"status",
+					"commentsMigrated"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PageMigrationFailure": {
+				"properties": {
+					"from": {
+						"type": "string"
+					},
+					"to": {
+						"type": "string"
+					},
+					"type": {
+						"$ref": "#/components/schemas/PageMigrationType"
+					},
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"code": {
+						"type": "string"
+					},
+					"reason": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"from",
+					"to",
+					"type",
+					"status",
+					"code",
+					"reason"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"PageMigrationUndoCounts": {
+				"properties": {
+					"restored": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Records put back to their pre-migration values."
+					},
+					"skipped": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Records left alone because they changed after the migration, or no longer exist."
+					},
+					"notRestorable": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Records a page merge or duplicate cleanup deleted during the migration. These cannot be brought back."
+					}
+				},
+				"required": [
+					"restored",
+					"skipped",
+					"notRestorable"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"APIBatchJob": {
+				"properties": {
+					"pageMigrationUndoResult": {
+						"$ref": "#/components/schemas/PageMigrationUndoCounts",
+						"description": "undo-page-migration: set once the job has finished."
+					},
+					"undoId": {
+						"type": "string",
+						"description": "migrate-pages: set once the job has finished. Pass to POST /api/v1/pages/migrations/{undoId}/undo within 90 days.\nundo-page-migration: the migration being undone."
+					},
+					"pageMigrationResults": {
+						"items": {
+							"anyOf": [
+								{
+									"$ref": "#/components/schemas/PageMigrationSuccess"
+								},
+								{
+									"$ref": "#/components/schemas/PageMigrationFailure"
+								}
+							]
+						},
+						"type": "array",
+						"description": "migrate-pages: one entry per finished migration, in request order."
+					},
+					"totalCount": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Total work, when known up front."
+					},
+					"processedCount": {
+						"type": "integer",
+						"format": "int32",
+						"description": "Work done so far. The unit depends on the type: migrations finished for migrate-pages, records restored for\nundo-page-migration, rows for imports and exports."
+					},
+					"completedAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"createdAt": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"status": {
+						"type": "string",
+						"description": "requested, running, success or failed."
+					},
+					"type": {
+						"type": "string",
+						"description": "For example migrate-pages, undo-page-migration, export, import."
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"processedCount",
+					"createdAt",
+					"status",
+					"type",
+					"id"
+				],
+				"type": "object"
+			},
+			"GetBatchJobsAPIResponse": {
+				"properties": {
+					"reason": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"batchJobs": {
+						"items": {
+							"$ref": "#/components/schemas/APIBatchJob"
+						},
+						"type": "array",
+						"description": "Newest first, 100 per page."
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status"
+				],
+				"type": "object"
+			},
+			"GetBatchJobAPIResponse": {
+				"properties": {
+					"reason": {
+						"type": "string"
+					},
+					"code": {
+						"type": "string"
+					},
+					"batchJob": {
+						"$ref": "#/components/schemas/APIBatchJob"
+					},
+					"status": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status"
+				],
+				"type": "object"
+			},
 			"APIAuditLog": {
 				"properties": {
 					"_id": {
@@ -11213,7 +12759,8 @@
 						"format": "date-time"
 					},
 					"description": {
-						"type": "string"
+						"type": "string",
+						"nullable": true
 					},
 					"serverStartDate": {
 						"type": "string",
@@ -11226,6 +12773,18 @@
 							}
 						],
 						"nullable": true
+					},
+					"targetId": {
+						"type": "string"
+					},
+					"targetLabel": {
+						"type": "string"
+					},
+					"ua": {
+						"type": "string"
+					},
+					"sIdHashed": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -11501,6 +13060,67 @@
 					"resourceName",
 					"operations"
 				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateAgentTenantResponse": {
+				"properties": {
+					"status": {
+						"$ref": "#/components/schemas/APIStatus"
+					},
+					"tenantId": {
+						"type": "string",
+						"description": "Pass as tenantId on every API and MCP call."
+					},
+					"apiKey": {
+						"type": "string",
+						"description": "Full-access key for this tenant. Works immediately. Keep it secret."
+					},
+					"claimUrl": {
+						"type": "string",
+						"description": "Give this to the human. Opening it while logged in attaches the tenant to their account."
+					},
+					"expiresAt": {
+						"type": "string",
+						"description": "ISO date. The tenant and its key are deleted at this time unless claimed."
+					},
+					"apiBaseUrl": {
+						"type": "string"
+					},
+					"mcpUrl": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"status",
+					"tenantId",
+					"apiKey",
+					"claimUrl",
+					"expiresAt",
+					"apiBaseUrl",
+					"mcpUrl"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateAgentTenantBody": {
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "Display name for the account. Defaults to the first domain."
+					},
+					"domains": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array",
+						"description": "Domains the comment widget will be embedded on, e.g. [\"example.com\"]. At most 5."
+					},
+					"agent": {
+						"type": "string",
+						"description": "Free-form identifier of the agent making the request, e.g. \"claude-code\"."
+					}
+				},
 				"type": "object",
 				"additionalProperties": false
 			}
@@ -12777,6 +14397,23 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "When set, returns the users who liked the page (avatars and usernames). Only \"public\" is accepted, which omits private profiles.",
+						"in": "query",
+						"name": "includeUserInfo",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/PageReactIncludeUserInfo"
+						}
 					}
 				]
 			},
@@ -12832,6 +14469,14 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			},
@@ -12876,6 +14521,14 @@
 						"in": "query",
 						"name": "urlId",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -12936,6 +14589,14 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			}
@@ -12984,6 +14645,23 @@
 						"required": true,
 						"schema": {
 							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "When set, returns the users for each react id (avatars and usernames). Only \"public\" is accepted, which omits private profiles.",
+						"in": "query",
+						"name": "includeUserInfo",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/PageReactIncludeUserInfo"
 						}
 					}
 				]
@@ -13048,6 +14726,14 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
 					}
 				]
 			},
@@ -13100,6 +14786,14 @@
 						"in": "query",
 						"name": "id",
 						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
 						"schema": {
 							"type": "string"
 						}
@@ -17516,6 +19210,23 @@
 						"schema": {
 							"type": "string"
 						}
+					},
+					{
+						"in": "query",
+						"name": "questionId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "questionValue",
+						"required": false,
+						"schema": {
+							"format": "int32",
+							"type": "integer"
+						}
 					}
 				]
 			},
@@ -17583,6 +19294,14 @@
 					{
 						"in": "query",
 						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "locale",
 						"required": false,
 						"schema": {
 							"type": "string"
@@ -17976,6 +19695,82 @@
 						}
 					}
 				]
+			}
+		},
+		"/comments/{tenantId}/translations": {
+			"post": {
+				"operationId": "TranslateComments",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CommentTranslationsResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Translates the given comments into the widget locale. Only available when the matching widget\ncustomization rule has Comment Translation set to Automatic or Manual.",
+				"tags": [
+					"Public"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "urlId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "sso",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "locale",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CommentTranslationsRequest"
+							}
+						}
+					}
+				}
 			}
 		},
 		"/comments/{tenantId}/{commentId}/pin": {
@@ -19033,6 +20828,190 @@
 				]
 			}
 		},
+		"/api/v1/pages/likes": {
+			"get": {
+				"operationId": "GetPageLikes",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPageLikesAPIResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Like count for a page, optionally with the users who liked it.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "urlId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "\"public\" omits users with private profiles, \"include-private\" includes them.",
+						"in": "query",
+						"name": "includeUserInfo",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/PageReactIncludeUserInfo"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/pages/reacts": {
+			"get": {
+				"operationId": "GetPageReacts",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPageReactsAPIResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Custom react counts for a page, optionally with the users who reacted.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "urlId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "\"public\" omits users with private profiles, \"include-private\" includes them.",
+						"in": "query",
+						"name": "includeUserInfo",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/PageReactIncludeUserInfo"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/pages/migrations": {
+			"post": {
+				"operationId": "MigratePages",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/QueuePageMigrationJobAPIResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Queues a batch job that moves comments, pages and related records from one urlId or domain to another.\n\"urlId\" migrations only match the exact urlId. \"domain\" migrations find/replace the value inside every urlId and url.\nPoll GET /api/v1/batch-jobs/{batchJobId}: once it is done it carries per-migration results and an undoId.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/MigrateAPIPagesData"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/pages/migrations/{undoId}/undo": {
+			"post": {
+				"operationId": "UndoPageMigrations",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/QueuePageMigrationJobAPIResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Queues a batch job that reverses every migration from one migrate-pages job, newest first. Available for 90 days.\nRecords changed since the migration are left alone, so a later edit is never overwritten.\nPoll GET /api/v1/batch-jobs/{batchJobId} for the restored/skipped counts.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "undoId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/api/v1/pages/{id}": {
 			"patch": {
 				"operationId": "PatchPage",
@@ -19096,6 +21075,244 @@
 						}
 					}
 				},
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/webhooks": {
+			"get": {
+				"operationId": "GetWebhooks",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetWebhooksResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Lists the webhooks configured for the tenant, both dashboard-managed rows and API subscriptions.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "event",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/WebhookEventName"
+						}
+					},
+					{
+						"in": "query",
+						"name": "domain",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "source",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/WebhookSource"
+						}
+					},
+					{
+						"in": "query",
+						"name": "skip",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreateWebhook",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateWebhookResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Subscribes a URL to a comment event (REST hook subscribe). Subscribing the same URL to the same\nevent and domain again returns the existing subscription. Deliveries are HMAC signed, see the\nwebhooks guide; the legacy `token` header is never sent to API subscriptions.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateWebhookParams"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/webhooks/sample-payloads": {
+			"get": {
+				"operationId": "GetWebhookSamplePayloads",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetWebhookSamplePayloadsResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Recent comments in exactly the shape webhook deliveries use, for building integrations (for example Zapier\nsample data). Every event delivers the same comment object, so `event` only has to be valid.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "event",
+						"required": false,
+						"schema": {
+							"$ref": "#/components/schemas/WebhookEventName"
+						}
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/webhooks/{id}": {
+			"delete": {
+				"operationId": "DeleteWebhook",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIEmptyResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Unsubscribes (REST hook unsubscribe). Only subscriptions created through this API can be\ndeleted here; dashboard-managed webhooks are edited in the dashboard.",
 				"security": [
 					{
 						"api_key": []
@@ -22041,6 +24258,457 @@
 				}
 			}
 		},
+		"/api/v1/polls/{commentId}": {
+			"get": {
+				"operationId": "GetPoll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPollResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"put": {
+				"operationId": "PutPoll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SavePollResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Attach a poll to a comment, or set the full state of the poll it already has.\n\nOptions are matched by id: an option sent with the id of an existing option keeps its votes (and takes the\nnew label and position), an option sent without an id is added, and existing options left out of the list\nare removed along with the votes cast on them.\n\nKeeping no existing option ids on a poll that has votes deletes all of them, so that needs replaceVotes=true.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "replaceVotes",
+						"required": false,
+						"schema": {
+							"type": "boolean"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CommentPollPutInput"
+							}
+						}
+					}
+				}
+			},
+			"patch": {
+				"operationId": "PatchPoll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SavePollResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Edit a poll in place, keeping its tallies: change the question, relabel an option, close or reopen it,\nor change who may see the voters. Options are addressed by id - to add, remove or reorder them, PUT the full list.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CommentPollPatch"
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"operationId": "DeletePoll",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIEmptyResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Remove a poll from its comment, along with every vote cast on it. The comment itself is left alone.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/poll-votes": {
+			"get": {
+				"operationId": "GetPollVotes",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPollVotesResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "The individual votes behind one poll's tallies, oldest first.\n\nA poll belongs to a comment, so votes are always read one poll at a time - commentId is required. That\nkeeps every query on the indexes the collection already has.\n\nObeys the poll's privacy: an anonymous poll's votes cannot be read (poll-anonymous), here or by id.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "commentId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "voterId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "optionId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "skip",
+						"required": false,
+						"schema": {
+							"format": "int32",
+							"type": "integer"
+						}
+					}
+				]
+			},
+			"post": {
+				"operationId": "CreatePollVote",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreatePollVoteResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Record a vote on a poll, or move an existing one to a different option. A voter has at most one vote per\npoll, so calling this again for the same voter moves their vote rather than adding one.\n\nThis obeys the site's poll settings: if voting is set to logged-in users only, a vote with just an\nanonUserId is rejected, and anonymous votes are rate limited per IP per poll.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreatePollVoteBody"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/poll-votes/{id}": {
+			"get": {
+				"operationId": "GetPollVote",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPollVoteResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			},
+			"delete": {
+				"operationId": "DeletePollVote",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DeletePollVoteResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Retract a vote. The option it was cast on gives its tally back.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/api/v1/pending-webhook-events": {
 			"get": {
 				"operationId": "GetPendingWebhookEvents",
@@ -22936,6 +25604,49 @@
 					{
 						"in": "query",
 						"name": "fromName",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/me": {
+			"get": {
+				"operationId": "GetMe",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetMeResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Identifies the credential in use: the tenant it belongs to and, for OAuth tokens, the user who authorized it.\nIntegrations use this to test a connection and label it.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -25143,6 +27854,108 @@
 				}
 			}
 		},
+		"/api/v1/batch-jobs": {
+			"get": {
+				"operationId": "GetBatchJobs",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetBatchJobsAPIResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "The tenant's batch jobs (imports, exports, page migrations...), newest first.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Only jobs of this type, for example migrate-pages.",
+						"in": "query",
+						"name": "type",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Only jobs in this status: requested, running, success or failed.",
+						"in": "query",
+						"name": "status",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "How many jobs to skip, for paging.",
+						"in": "query",
+						"name": "skip",
+						"required": false,
+						"schema": {
+							"format": "int32",
+							"type": "integer"
+						}
+					}
+				]
+			}
+		},
+		"/api/v1/batch-jobs/{id}": {
+			"get": {
+				"operationId": "GetBatchJob",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetBatchJobAPIResponse"
+								}
+							}
+						}
+					}
+				},
+				"description": "Status, progress and, once done, the result of one batch job.",
+				"security": [
+					{
+						"api_key": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "tenantId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/api/v1/audit-logs": {
 			"get": {
 				"operationId": "GetAuditLogs",
@@ -25175,6 +27988,7 @@
 				],
 				"parameters": [
 					{
+						"description": "The tenant to read audit logs for.",
 						"in": "query",
 						"name": "tenantId",
 						"required": true,
@@ -25183,24 +27997,27 @@
 						}
 					},
 					{
+						"description": "How many logs to return. Max 10000, defaults to 1000.",
 						"in": "query",
 						"name": "limit",
 						"required": false,
 						"schema": {
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer"
 						}
 					},
 					{
+						"description": "How many logs to skip, for paging.",
 						"in": "query",
 						"name": "skip",
 						"required": false,
 						"schema": {
-							"format": "double",
-							"type": "number"
+							"format": "int32",
+							"type": "integer"
 						}
 					},
 					{
+						"description": "Sort direction on the event time. Defaults to DESC (newest first).",
 						"in": "query",
 						"name": "order",
 						"required": false,
@@ -25213,8 +28030,8 @@
 						"name": "after",
 						"required": false,
 						"schema": {
-							"format": "double",
-							"type": "number"
+							"format": "int64",
+							"type": "integer"
 						}
 					},
 					{
@@ -25222,8 +28039,71 @@
 						"name": "before",
 						"required": false,
 						"schema": {
-							"format": "double",
-							"type": "number"
+							"format": "int64",
+							"type": "integer"
+						}
+					},
+					{
+						"description": "Only return events performed by this username.",
+						"in": "query",
+						"name": "username",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Only return events from this IP address.",
+						"in": "query",
+						"name": "ip",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Only return events of this type: c, r, u, d, or login.",
+						"in": "query",
+						"name": "crudType",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Only return events for this resource, e.g. User or Moderator.",
+						"in": "query",
+						"name": "resourceName",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Only return events whose affected object has this id.",
+						"in": "query",
+						"name": "targetId",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Case-insensitive substring match on the affected object's label, e.g. a username or email.",
+						"in": "query",
+						"name": "target",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "Also return events from tenants this tenant manages.",
+						"in": "query",
+						"name": "includeManagedTenants",
+						"required": false,
+						"schema": {
+							"type": "boolean"
 						}
 					}
 				]
@@ -25290,6 +28170,46 @@
 						"application/json": {
 							"schema": {
 								"$ref": "#/components/schemas/AggregationRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/agent-tenants": {
+			"post": {
+				"operationId": "CreateAgentTenant",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateAgentTenantResponse"
+								}
+							}
+						}
+					},
+					"default": {
+						"description": "Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/APIError"
+								}
+							}
+						}
+					}
+				},
+				"description": "Creates a new trial account for an AI agent without a human signup. No API key is needed to call this.\n\nThe response contains the tenant id, an API key that works immediately against the REST API and the\nMCP server, and a claim URL. Give the claim URL to the human you are working for: opening it while\nlogged in to FastComments attaches the account to them. Unclaimed accounts, and their keys, are\ndeleted 72 hours after creation. Until claimed, the account has the standard trial limits.",
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateAgentTenantBody"
 							}
 						}
 					}

@@ -17,6 +17,7 @@ import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.LiveEventExtraInfo;
 import com.fastcomments.model.LiveEventType;
+import com.fastcomments.model.PickCommentPollOptionsOrTotalVotesOrClosesAt;
 import com.fastcomments.model.PubSubComment;
 import com.fastcomments.model.PubSubVote;
 import com.fastcomments.model.UserNotification;
@@ -126,6 +127,22 @@ public class LiveEventTest {
     @Test
     public void feedPostTest() {
         // TODO: test feedPost
+    }
+
+    /**
+     * Test the property 'commentId'
+     */
+    @Test
+    public void commentIdTest() {
+        // TODO: test commentId
+    }
+
+    /**
+     * Test the property 'poll'
+     */
+    @Test
+    public void pollTest() {
+        // TODO: test poll
     }
 
     /**

@@ -18,10 +18,13 @@ import com.fastcomments.model.CommentHTMLRenderingMode;
 import com.fastcomments.model.CommentQuestionResultsRenderingType;
 import com.fastcomments.model.CommentQuestionsRequired;
 import com.fastcomments.model.CommentThreadDeletionMode;
+import com.fastcomments.model.CommentTranslationMode;
 import com.fastcomments.model.CommenterNameFormats;
 import com.fastcomments.model.GifRating;
 import com.fastcomments.model.ImageContentProfanityLevel;
 import com.fastcomments.model.MentionAutoCompleteMode;
+import com.fastcomments.model.PollCreationMode;
+import com.fastcomments.model.PollVotingMode;
 import com.fastcomments.model.QuestionRenderingType;
 import com.fastcomments.model.QuestionSubQuestionVisibility;
 import com.fastcomments.model.QuestionWhenSave;
@@ -101,6 +104,11 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private List<String> allowedLanguages;
 
+  public static final String SERIALIZED_NAME_AUTO_GENERATE_USERNAME = "autoGenerateUsername";
+  @SerializedName(SERIALIZED_NAME_AUTO_GENERATE_USERNAME)
+  @javax.annotation.Nullable
+  private Boolean autoGenerateUsername;
+
   public static final String SERIALIZED_NAME_COLLAPSE_REPLIES = "collapseReplies";
   @SerializedName(SERIALIZED_NAME_COLLAPSE_REPLIES)
   @javax.annotation.Nullable
@@ -116,10 +124,25 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private CommentHTMLRenderingMode commentHTMLRenderingMode;
 
+  public static final String SERIALIZED_NAME_COMMENTS_REQUIRE_APPROVAL = "commentsRequireApproval";
+  @SerializedName(SERIALIZED_NAME_COMMENTS_REQUIRE_APPROVAL)
+  @javax.annotation.Nullable
+  private Boolean commentsRequireApproval;
+
   public static final String SERIALIZED_NAME_COMMENT_THREAD_DELETE_MODE = "commentThreadDeleteMode";
   @SerializedName(SERIALIZED_NAME_COMMENT_THREAD_DELETE_MODE)
   @javax.annotation.Nullable
   private CommentThreadDeletionMode commentThreadDeleteMode;
+
+  public static final String SERIALIZED_NAME_POLL_CREATION = "pollCreation";
+  @SerializedName(SERIALIZED_NAME_POLL_CREATION)
+  @javax.annotation.Nullable
+  private PollCreationMode pollCreation;
+
+  public static final String SERIALIZED_NAME_POLL_VOTING = "pollVoting";
+  @SerializedName(SERIALIZED_NAME_POLL_VOTING)
+  @javax.annotation.Nullable
+  private PollVotingMode pollVoting;
 
   public static final String SERIALIZED_NAME_COMMENTER_NAME_FORMAT = "commenterNameFormat";
   @SerializedName(SERIALIZED_NAME_COMMENTER_NAME_FORMAT)
@@ -511,6 +534,11 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private TOSConfig tos;
 
+  public static final String SERIALIZED_NAME_COMMENT_TRANSLATION = "commentTranslation";
+  @SerializedName(SERIALIZED_NAME_COMMENT_TRANSLATION)
+  @javax.annotation.Nullable
+  private CommentTranslationMode commentTranslation;
+
   public CustomConfigParameters() {
   }
 
@@ -636,6 +664,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters autoGenerateUsername(@javax.annotation.Nullable Boolean autoGenerateUsername) {
+    this.autoGenerateUsername = autoGenerateUsername;
+    return this;
+  }
+
+  /**
+   * Serve each new visitor a unique generated username as the prefilled defaultUsername.
+   * @return autoGenerateUsername
+   */
+  @javax.annotation.Nullable
+  public Boolean getAutoGenerateUsername() {
+    return autoGenerateUsername;
+  }
+
+  public void setAutoGenerateUsername(@javax.annotation.Nullable Boolean autoGenerateUsername) {
+    this.autoGenerateUsername = autoGenerateUsername;
+  }
+
+
   public CustomConfigParameters collapseReplies(@javax.annotation.Nullable Boolean collapseReplies) {
     this.collapseReplies = collapseReplies;
     return this;
@@ -693,6 +740,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters commentsRequireApproval(@javax.annotation.Nullable Boolean commentsRequireApproval) {
+    this.commentsRequireApproval = commentsRequireApproval;
+    return this;
+  }
+
+  /**
+   * Hold every new or edited comment on this page or domain for moderation, like the tenant-wide setting but scoped.
+   * @return commentsRequireApproval
+   */
+  @javax.annotation.Nullable
+  public Boolean getCommentsRequireApproval() {
+    return commentsRequireApproval;
+  }
+
+  public void setCommentsRequireApproval(@javax.annotation.Nullable Boolean commentsRequireApproval) {
+    this.commentsRequireApproval = commentsRequireApproval;
+  }
+
+
   public CustomConfigParameters commentThreadDeleteMode(@javax.annotation.Nullable CommentThreadDeletionMode commentThreadDeleteMode) {
     this.commentThreadDeleteMode = commentThreadDeleteMode;
     return this;
@@ -709,6 +775,44 @@ public class CustomConfigParameters {
 
   public void setCommentThreadDeleteMode(@javax.annotation.Nullable CommentThreadDeletionMode commentThreadDeleteMode) {
     this.commentThreadDeleteMode = commentThreadDeleteMode;
+  }
+
+
+  public CustomConfigParameters pollCreation(@javax.annotation.Nullable PollCreationMode pollCreation) {
+    this.pollCreation = pollCreation;
+    return this;
+  }
+
+  /**
+   * Get pollCreation
+   * @return pollCreation
+   */
+  @javax.annotation.Nullable
+  public PollCreationMode getPollCreation() {
+    return pollCreation;
+  }
+
+  public void setPollCreation(@javax.annotation.Nullable PollCreationMode pollCreation) {
+    this.pollCreation = pollCreation;
+  }
+
+
+  public CustomConfigParameters pollVoting(@javax.annotation.Nullable PollVotingMode pollVoting) {
+    this.pollVoting = pollVoting;
+    return this;
+  }
+
+  /**
+   * Get pollVoting
+   * @return pollVoting
+   */
+  @javax.annotation.Nullable
+  public PollVotingMode getPollVoting() {
+    return pollVoting;
+  }
+
+  public void setPollVoting(@javax.annotation.Nullable PollVotingMode pollVoting) {
+    this.pollVoting = pollVoting;
   }
 
 
@@ -2234,6 +2338,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters commentTranslation(@javax.annotation.Nullable CommentTranslationMode commentTranslation) {
+    this.commentTranslation = commentTranslation;
+    return this;
+  }
+
+  /**
+   * Get commentTranslation
+   * @return commentTranslation
+   */
+  @javax.annotation.Nullable
+  public CommentTranslationMode getCommentTranslation() {
+    return commentTranslation;
+  }
+
+  public void setCommentTranslation(@javax.annotation.Nullable CommentTranslationMode commentTranslation) {
+    this.commentTranslation = commentTranslation;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -2250,10 +2373,14 @@ public class CustomConfigParameters {
         Objects.equals(this.allowAnonFlag, customConfigParameters.allowAnonFlag) &&
         Objects.equals(this.allowAnonVotes, customConfigParameters.allowAnonVotes) &&
         Objects.equals(this.allowedLanguages, customConfigParameters.allowedLanguages) &&
+        Objects.equals(this.autoGenerateUsername, customConfigParameters.autoGenerateUsername) &&
         Objects.equals(this.collapseReplies, customConfigParameters.collapseReplies) &&
         Objects.equals(this.commentCountFormat, customConfigParameters.commentCountFormat) &&
         Objects.equals(this.commentHTMLRenderingMode, customConfigParameters.commentHTMLRenderingMode) &&
+        Objects.equals(this.commentsRequireApproval, customConfigParameters.commentsRequireApproval) &&
         Objects.equals(this.commentThreadDeleteMode, customConfigParameters.commentThreadDeleteMode) &&
+        Objects.equals(this.pollCreation, customConfigParameters.pollCreation) &&
+        Objects.equals(this.pollVoting, customConfigParameters.pollVoting) &&
         Objects.equals(this.commenterNameFormat, customConfigParameters.commenterNameFormat) &&
         Objects.equals(this.countAboveToggle, customConfigParameters.countAboveToggle) &&
         Objects.equals(this.customCSS, customConfigParameters.customCSS) &&
@@ -2331,12 +2458,13 @@ public class CustomConfigParameters {
         Objects.equals(this.ticketFileUploadsEnabled, customConfigParameters.ticketFileUploadsEnabled) &&
         Objects.equals(this.ticketMaxFileSize, customConfigParameters.ticketMaxFileSize) &&
         Objects.equals(this.ticketAutoAssignUserIds, customConfigParameters.ticketAutoAssignUserIds) &&
-        Objects.equals(this.tos, customConfigParameters.tos);
+        Objects.equals(this.tos, customConfigParameters.tos) &&
+        Objects.equals(this.commentTranslation, customConfigParameters.commentTranslation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentThreadDeleteMode, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfileComments, disableProfileDirectMessages, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, mentionAutoCompleteMode, noImageUploads, allowEmbeds, allowedEmbedDomains, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableFChat, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionShowBreakdown, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap, usersListLocation, usersListIncludeOffline, ticketBaseUrl, ticketKBSearchEndpoint, ticketFileUploadsEnabled, ticketMaxFileSize, ticketAutoAssignUserIds, tos);
+    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, autoGenerateUsername, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentsRequireApproval, commentThreadDeleteMode, pollCreation, pollVoting, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfileComments, disableProfileDirectMessages, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, mentionAutoCompleteMode, noImageUploads, allowEmbeds, allowedEmbedDomains, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableFChat, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionShowBreakdown, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap, usersListLocation, usersListIncludeOffline, ticketBaseUrl, ticketKBSearchEndpoint, ticketFileUploadsEnabled, ticketMaxFileSize, ticketAutoAssignUserIds, tos, commentTranslation);
   }
 
   @Override
@@ -2349,10 +2477,14 @@ public class CustomConfigParameters {
     sb.append("    allowAnonFlag: ").append(toIndentedString(allowAnonFlag)).append("\n");
     sb.append("    allowAnonVotes: ").append(toIndentedString(allowAnonVotes)).append("\n");
     sb.append("    allowedLanguages: ").append(toIndentedString(allowedLanguages)).append("\n");
+    sb.append("    autoGenerateUsername: ").append(toIndentedString(autoGenerateUsername)).append("\n");
     sb.append("    collapseReplies: ").append(toIndentedString(collapseReplies)).append("\n");
     sb.append("    commentCountFormat: ").append(toIndentedString(commentCountFormat)).append("\n");
     sb.append("    commentHTMLRenderingMode: ").append(toIndentedString(commentHTMLRenderingMode)).append("\n");
+    sb.append("    commentsRequireApproval: ").append(toIndentedString(commentsRequireApproval)).append("\n");
     sb.append("    commentThreadDeleteMode: ").append(toIndentedString(commentThreadDeleteMode)).append("\n");
+    sb.append("    pollCreation: ").append(toIndentedString(pollCreation)).append("\n");
+    sb.append("    pollVoting: ").append(toIndentedString(pollVoting)).append("\n");
     sb.append("    commenterNameFormat: ").append(toIndentedString(commenterNameFormat)).append("\n");
     sb.append("    countAboveToggle: ").append(toIndentedString(countAboveToggle)).append("\n");
     sb.append("    customCSS: ").append(toIndentedString(customCSS)).append("\n");
@@ -2431,6 +2563,7 @@ public class CustomConfigParameters {
     sb.append("    ticketMaxFileSize: ").append(toIndentedString(ticketMaxFileSize)).append("\n");
     sb.append("    ticketAutoAssignUserIds: ").append(toIndentedString(ticketAutoAssignUserIds)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
+    sb.append("    commentTranslation: ").append(toIndentedString(commentTranslation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2449,7 +2582,7 @@ public class CustomConfigParameters {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentThreadDeleteMode", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "allowEmbeds", "allowedEmbedDomains", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableFChat", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "usersListLocation", "usersListIncludeOffline", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos"));
+    openapiFields = new HashSet<String>(Arrays.asList("absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "autoGenerateUsername", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentsRequireApproval", "commentThreadDeleteMode", "pollCreation", "pollVoting", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "allowEmbeds", "allowedEmbedDomains", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableFChat", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "usersListLocation", "usersListIncludeOffline", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos", "commentTranslation"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -2490,6 +2623,14 @@ public class CustomConfigParameters {
       // validate the optional field `commentThreadDeleteMode`
       if (jsonObj.get("commentThreadDeleteMode") != null && !jsonObj.get("commentThreadDeleteMode").isJsonNull()) {
         CommentThreadDeletionMode.validateJsonElement(jsonObj.get("commentThreadDeleteMode"));
+      }
+      // validate the optional field `pollCreation`
+      if (jsonObj.get("pollCreation") != null && !jsonObj.get("pollCreation").isJsonNull()) {
+        PollCreationMode.validateJsonElement(jsonObj.get("pollCreation"));
+      }
+      // validate the optional field `pollVoting`
+      if (jsonObj.get("pollVoting") != null && !jsonObj.get("pollVoting").isJsonNull()) {
+        PollVotingMode.validateJsonElement(jsonObj.get("pollVoting"));
       }
       // validate the optional field `commenterNameFormat`
       if (jsonObj.get("commenterNameFormat") != null && !jsonObj.get("commenterNameFormat").isJsonNull()) {
@@ -2599,6 +2740,10 @@ public class CustomConfigParameters {
       // validate the optional field `tos`
       if (jsonObj.get("tos") != null && !jsonObj.get("tos").isJsonNull()) {
         TOSConfig.validateJsonElement(jsonObj.get("tos"));
+      }
+      // validate the optional field `commentTranslation`
+      if (jsonObj.get("commentTranslation") != null && !jsonObj.get("commentTranslation").isJsonNull()) {
+        CommentTranslationMode.validateJsonElement(jsonObj.get("commentTranslation"));
       }
   }
 

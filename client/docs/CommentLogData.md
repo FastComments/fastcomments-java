@@ -35,6 +35,7 @@
 |**votesDownAfter** | **Double** |  |  [optional] |
 |**repeatAction** | **RepeatCommentHandlingAction** |  |  [optional] |
 |**reason** | **RepeatCommentCheckIgnoredReason** |  |  [optional] |
+|**skipReason** | **String** |  |  [optional] |
 |**otherData** | **Object** |  |  [optional] |
 |**spamBefore** | **Boolean** |  |  [optional] |
 |**spamAfter** | **Boolean** |  |  [optional] |
@@ -54,6 +55,9 @@
 |**invalidLocale** | **String** |  |  [optional] |
 |**detectedLocale** | **String** |  |  [optional] |
 |**detectedLanguage** | **String** |  |  [optional] |
+|**recipientUserId** | **String** |  |  [optional] |
+|**notifySkipReason** | **NotificationSkipReason** |  |  [optional] |
+|**emailQueued** | **Boolean** |  |  [optional] |
 
 
 

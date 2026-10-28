@@ -15,7 +15,6 @@
 |**paymentFrequency** | **Double** |  |  [optional] |
 |**billingInfoValid** | **Boolean** |  |  [optional] |
 |**billingHandledExternally** | **Boolean** |  |  [optional] |
-|**createdBy** | **String** |  |  [optional] |
 |**isSetup** | **Boolean** |  |  [optional] |
 |**billingInfo** | [**BillingInfo**](BillingInfo.md) |  |  [optional] |
 |**stripeCustomerId** | **String** |  |  [optional] |

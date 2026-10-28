@@ -13,6 +13,7 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.NotificationSkipReason;
 import com.fastcomments.model.RepeatCommentCheckIgnoredReason;
 import com.fastcomments.model.RepeatCommentHandlingAction;
 import com.fastcomments.model.SpamRule;
@@ -266,6 +267,14 @@ public class CommentLogDataTest {
     }
 
     /**
+     * Test the property 'skipReason'
+     */
+    @Test
+    public void skipReasonTest() {
+        // TODO: test skipReason
+    }
+
+    /**
      * Test the property 'otherData'
      */
     @Test
@@ -415,6 +424,30 @@ public class CommentLogDataTest {
     @Test
     public void detectedLanguageTest() {
         // TODO: test detectedLanguage
+    }
+
+    /**
+     * Test the property 'recipientUserId'
+     */
+    @Test
+    public void recipientUserIdTest() {
+        // TODO: test recipientUserId
+    }
+
+    /**
+     * Test the property 'notifySkipReason'
+     */
+    @Test
+    public void notifySkipReasonTest() {
+        // TODO: test notifySkipReason
+    }
+
+    /**
+     * Test the property 'emailQueued'
+     */
+    @Test
+    public void emailQueuedTest() {
+        // TODO: test emailQueued
     }
 
 }

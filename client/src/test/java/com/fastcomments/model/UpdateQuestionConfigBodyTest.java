@@ -13,7 +13,9 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.QuestionCondition;
 import com.fastcomments.model.QuestionConfigCustomOptionsInner;
+import com.fastcomments.model.SubQuestionCondition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -142,6 +144,30 @@ public class UpdateQuestionConfigBodyTest {
     @Test
     public void alwaysShowSubQuestionsTest() {
         // TODO: test alwaysShowSubQuestions
+    }
+
+    /**
+     * Test the property 'subQuestionConditions'
+     */
+    @Test
+    public void subQuestionConditionsTest() {
+        // TODO: test subQuestionConditions
+    }
+
+    /**
+     * Test the property 'commentBoxCondition'
+     */
+    @Test
+    public void commentBoxConditionTest() {
+        // TODO: test commentBoxCondition
+    }
+
+    /**
+     * Test the property 'commentBoxPrompt'
+     */
+    @Test
+    public void commentBoxPromptTest() {
+        // TODO: test commentBoxPrompt
     }
 
     /**

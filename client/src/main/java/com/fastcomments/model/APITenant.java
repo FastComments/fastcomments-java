@@ -182,6 +182,11 @@ public class APITenant {
   @javax.annotation.Nullable
   private Boolean hasAuditing;
 
+  public static final String SERIALIZED_NAME_HAS_DEBRANDING = "hasDebranding";
+  @SerializedName(SERIALIZED_NAME_HAS_DEBRANDING)
+  @javax.annotation.Nullable
+  private Boolean hasDebranding;
+
   public static final String SERIALIZED_NAME_FLEX_LAST_BILLED_AMOUNT = "flexLastBilledAmount";
   @SerializedName(SERIALIZED_NAME_FLEX_LAST_BILLED_AMOUNT)
   @javax.annotation.Nullable
@@ -683,6 +688,25 @@ public class APITenant {
   }
 
 
+  public APITenant hasDebranding(@javax.annotation.Nullable Boolean hasDebranding) {
+    this.hasDebranding = hasDebranding;
+    return this;
+  }
+
+  /**
+   * Get hasDebranding
+   * @return hasDebranding
+   */
+  @javax.annotation.Nullable
+  public Boolean getHasDebranding() {
+    return hasDebranding;
+  }
+
+  public void setHasDebranding(@javax.annotation.Nullable Boolean hasDebranding) {
+    this.hasDebranding = hasDebranding;
+  }
+
+
   public APITenant flexLastBilledAmount(@javax.annotation.Nullable Double flexLastBilledAmount) {
     this.flexLastBilledAmount = flexLastBilledAmount;
     return this;
@@ -783,6 +807,7 @@ public class APITenant {
         Objects.equals(this.sendProfaneToSpam, apITenant.sendProfaneToSpam) &&
         Objects.equals(this.hasFlexPricing, apITenant.hasFlexPricing) &&
         Objects.equals(this.hasAuditing, apITenant.hasAuditing) &&
+        Objects.equals(this.hasDebranding, apITenant.hasDebranding) &&
         Objects.equals(this.flexLastBilledAmount, apITenant.flexLastBilledAmount) &&
         Objects.equals(this.deAnonIpAddr, apITenant.deAnonIpAddr) &&
         Objects.equals(this.meta, apITenant.meta);
@@ -790,7 +815,7 @@ public class APITenant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, email, signUpDate, packageId, paymentFrequency, billingInfoValid, billingHandledExternally, createdBy, isSetup, domainConfiguration, billingInfo, stripeCustomerId, stripeSubscriptionId, stripePlanId, enableProfanityFilter, enableSpamFilter, lastBillingIssueReminderDate, removeUnverifiedComments, unverifiedCommentsTTLms, commentsRequireApproval, autoApproveCommentOnVerification, sendProfaneToSpam, hasFlexPricing, hasAuditing, flexLastBilledAmount, deAnonIpAddr, meta);
+    return Objects.hash(id, name, email, signUpDate, packageId, paymentFrequency, billingInfoValid, billingHandledExternally, createdBy, isSetup, domainConfiguration, billingInfo, stripeCustomerId, stripeSubscriptionId, stripePlanId, enableProfanityFilter, enableSpamFilter, lastBillingIssueReminderDate, removeUnverifiedComments, unverifiedCommentsTTLms, commentsRequireApproval, autoApproveCommentOnVerification, sendProfaneToSpam, hasFlexPricing, hasAuditing, hasDebranding, flexLastBilledAmount, deAnonIpAddr, meta);
   }
 
   @Override
@@ -822,6 +847,7 @@ public class APITenant {
     sb.append("    sendProfaneToSpam: ").append(toIndentedString(sendProfaneToSpam)).append("\n");
     sb.append("    hasFlexPricing: ").append(toIndentedString(hasFlexPricing)).append("\n");
     sb.append("    hasAuditing: ").append(toIndentedString(hasAuditing)).append("\n");
+    sb.append("    hasDebranding: ").append(toIndentedString(hasDebranding)).append("\n");
     sb.append("    flexLastBilledAmount: ").append(toIndentedString(flexLastBilledAmount)).append("\n");
     sb.append("    deAnonIpAddr: ").append(toIndentedString(deAnonIpAddr)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
@@ -843,7 +869,7 @@ public class APITenant {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "email", "signUpDate", "packageId", "paymentFrequency", "billingInfoValid", "billingHandledExternally", "createdBy", "isSetup", "domainConfiguration", "billingInfo", "stripeCustomerId", "stripeSubscriptionId", "stripePlanId", "enableProfanityFilter", "enableSpamFilter", "lastBillingIssueReminderDate", "removeUnverifiedComments", "unverifiedCommentsTTLms", "commentsRequireApproval", "autoApproveCommentOnVerification", "sendProfaneToSpam", "hasFlexPricing", "hasAuditing", "flexLastBilledAmount", "deAnonIpAddr", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "email", "signUpDate", "packageId", "paymentFrequency", "billingInfoValid", "billingHandledExternally", "createdBy", "isSetup", "domainConfiguration", "billingInfo", "stripeCustomerId", "stripeSubscriptionId", "stripePlanId", "enableProfanityFilter", "enableSpamFilter", "lastBillingIssueReminderDate", "removeUnverifiedComments", "unverifiedCommentsTTLms", "commentsRequireApproval", "autoApproveCommentOnVerification", "sendProfaneToSpam", "hasFlexPricing", "hasAuditing", "hasDebranding", "flexLastBilledAmount", "deAnonIpAddr", "meta"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "signUpDate", "packageId", "paymentFrequency", "billingInfoValid", "createdBy", "isSetup", "domainConfiguration", "enableProfanityFilter", "enableSpamFilter"));

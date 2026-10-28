@@ -489,6 +489,14 @@ public class TenantPackageTest {
     }
 
     /**
+     * Test the property 'flexFreeModerators'
+     */
+    @Test
+    public void flexFreeModeratorsTest() {
+        // TODO: test flexFreeModerators
+    }
+
+    /**
      * Test the property 'isSSOBillingMonthlyActiveUsers'
      */
     @Test

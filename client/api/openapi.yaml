@@ -953,6 +953,13 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -987,6 +994,22 @@ paths:
         required: true
         schema:
           type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "When set, returns the users who liked the page (avatars and\
+          \ usernames). Only \"public\" is accepted, which omits private profiles."
+        explode: true
+        in: query
+        name: includeUserInfo
+        required: false
+        schema:
+          $ref: "#/components/schemas/PageReactIncludeUserInfo"
         style: form
       responses:
         "200":
@@ -1026,6 +1049,13 @@ paths:
       - explode: true
         in: query
         name: title
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
         required: false
         schema:
           type: string
@@ -1073,6 +1103,13 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -1116,6 +1153,13 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -1150,6 +1194,22 @@ paths:
         required: true
         schema:
           type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "When set, returns the users for each react id (avatars and usernames).\
+          \ Only \"public\" is accepted, which omits private profiles."
+        explode: true
+        in: query
+        name: includeUserInfo
+        required: false
+        schema:
+          $ref: "#/components/schemas/PageReactIncludeUserInfo"
         style: form
       responses:
         "200":
@@ -1196,6 +1256,13 @@ paths:
       - explode: true
         in: query
         name: title
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
         required: false
         schema:
           type: string
@@ -4621,6 +4688,21 @@ paths:
         schema:
           type: string
         style: form
+      - explode: true
+        in: query
+        name: questionId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: questionValue
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -4673,6 +4755,13 @@ paths:
       - explode: true
         in: query
         name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: locale
         required: false
         schema:
           type: string
@@ -4994,6 +5083,66 @@ paths:
       security: []
       tags:
       - Public
+      x-accepts:
+      - application/json
+  /comments/{tenantId}/translations:
+    post:
+      description: |-
+        Translates the given comments into the widget locale. Only available when the matching widget
+        customization rule has Comment Translation set to Automatic or Manual.
+      operationId: TranslateComments
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentTranslationsRequest"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CommentTranslationsResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
       x-accepts:
       - application/json
   /comments/{tenantId}/{commentId}/pin:
@@ -5768,6 +5917,151 @@ paths:
       - api_key: []
       x-accepts:
       - application/json
+  /api/v1/pages/likes:
+    get:
+      description: "Like count for a page, optionally with the users who liked it."
+      operationId: GetPageLikes
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "\"public\" omits users with private profiles, \"include-private\"\
+          \ includes them."
+        explode: true
+        in: query
+        name: includeUserInfo
+        required: false
+        schema:
+          $ref: "#/components/schemas/PageReactIncludeUserInfo"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetPageLikesAPIResponse"
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/pages/reacts:
+    get:
+      description: "Custom react counts for a page, optionally with the users who\
+        \ reacted."
+      operationId: GetPageReacts
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: urlId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "\"public\" omits users with private profiles, \"include-private\"\
+          \ includes them."
+        explode: true
+        in: query
+        name: includeUserInfo
+        required: false
+        schema:
+          $ref: "#/components/schemas/PageReactIncludeUserInfo"
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetPageReactsAPIResponse"
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/pages/migrations:
+    post:
+      description: |-
+        Queues a batch job that moves comments, pages and related records from one urlId or domain to another.
+        "urlId" migrations only match the exact urlId. "domain" migrations find/replace the value inside every urlId and url.
+        Poll GET /api/v1/batch-jobs/{batchJobId}: once it is done it carries per-migration results and an undoId.
+      operationId: MigratePages
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MigrateAPIPagesData"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueuePageMigrationJobAPIResponse"
+          description: Ok
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/pages/migrations/{undoId}/undo:
+    post:
+      description: |-
+        Queues a batch job that reverses every migration from one migrate-pages job, newest first. Available for 90 days.
+        Records changed since the migration are left alone, so a later edit is never overwritten.
+        Poll GET /api/v1/batch-jobs/{batchJobId} for the restored/skipped counts.
+      operationId: UndoPageMigrations
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: undoId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/QueuePageMigrationJobAPIResponse"
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
   /api/v1/pages/{id}:
     delete:
       operationId: DeletePage
@@ -5830,6 +6124,187 @@ paths:
       security:
       - api_key: []
       x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/webhooks:
+    get:
+      description: "Lists the webhooks configured for the tenant, both dashboard-managed\
+        \ rows and API subscriptions."
+      operationId: GetWebhooks
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: event
+        required: false
+        schema:
+          $ref: "#/components/schemas/WebhookEventName"
+        style: form
+      - explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: source
+        required: false
+        schema:
+          $ref: "#/components/schemas/WebhookSource"
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWebhooksResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    post:
+      description: |-
+        Subscribes a URL to a comment event (REST hook subscribe). Subscribing the same URL to the same
+        event and domain again returns the existing subscription. Deliveries are HMAC signed, see the
+        webhooks guide; the legacy `token` header is never sent to API subscriptions.
+      operationId: CreateWebhook
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateWebhookParams"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateWebhookResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/webhooks/sample-payloads:
+    get:
+      description: |-
+        Recent comments in exactly the shape webhook deliveries use, for building integrations (for example Zapier
+        sample data). Every event delivers the same comment object, so `event` only has to be valid.
+      operationId: GetWebhookSamplePayloads
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: event
+        required: false
+        schema:
+          $ref: "#/components/schemas/WebhookEventName"
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: double
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWebhookSamplePayloadsResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/webhooks/{id}:
+    delete:
+      description: |-
+        Unsubscribes (REST hook unsubscribe). Only subscriptions created through this API can be
+        deleted here; dashboard-managed webhooks are edited in the dashboard.
+      operationId: DeleteWebhook
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIEmptyResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
       x-accepts:
       - application/json
   /api/v1/votes:
@@ -7946,6 +8421,351 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /api/v1/polls/{commentId}:
+    delete:
+      description: "Remove a poll from its comment, along with every vote cast on\
+        \ it. The comment itself is left alone."
+      operationId: DeletePoll
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIEmptyResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    get:
+      operationId: GetPoll
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetPollResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    patch:
+      description: |-
+        Edit a poll in place, keeping its tallies: change the question, relabel an option, close or reopen it,
+        or change who may see the voters. Options are addressed by id - to add, remove or reorder them, PUT the full list.
+      operationId: PatchPoll
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentPollPatch"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SavePollResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+    put:
+      description: |-
+        Attach a poll to a comment, or set the full state of the poll it already has.
+
+        Options are matched by id: an option sent with the id of an existing option keeps its votes (and takes the
+        new label and position), an option sent without an id is added, and existing options left out of the list
+        are removed along with the votes cast on them.
+
+        Keeping no existing option ids on a poll that has votes deletes all of them, so that needs replaceVotes=true.
+      operationId: PutPoll
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: replaceVotes
+        required: false
+        schema:
+          type: boolean
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CommentPollPutInput"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SavePollResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/poll-votes:
+    get:
+      description: |-
+        The individual votes behind one poll's tallies, oldest first.
+
+        A poll belongs to a comment, so votes are always read one poll at a time - commentId is required. That
+        keeps every query on the indexes the collection already has.
+
+        Obeys the poll's privacy: an anonymous poll's votes cannot be read (poll-anonymous), here or by id.
+      operationId: GetPollVotes
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: voterId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: optionId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetPollVotesResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    post:
+      description: |-
+        Record a vote on a poll, or move an existing one to a different option. A voter has at most one vote per
+        poll, so calling this again for the same voter moves their vote rather than adding one.
+
+        This obeys the site's poll settings: if voting is set to logged-in users only, a vote with just an
+        anonUserId is rejected, and anonymous votes are rate limited per IP per poll.
+      operationId: CreatePollVote
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePollVoteBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreatePollVoteResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/poll-votes/{id}:
+    delete:
+      description: Retract a vote. The option it was cast on gives its tally back.
+      operationId: DeletePollVote
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeletePollVoteResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+    get:
+      operationId: GetPollVote
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetPollVoteResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
   /api/v1/pending-webhook-events:
     get:
       operationId: GetPendingWebhookEvents
@@ -8601,6 +9421,37 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/APIEmptyResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/me:
+    get:
+      description: |-
+        Identifies the credential in use: the tenant it belongs to and, for OAuth tokens, the user who authorized it.
+        Integrations use this to test a connection and label it.
+      operationId: GetMe
+      parameters:
+      - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetMeResponse"
           description: Ok
         default:
           content:
@@ -10100,9 +10951,11 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
-  /api/v1/audit-logs:
+  /api/v1/batch-jobs:
     get:
-      operationId: GetAuditLogs
+      description: "The tenant's batch jobs (imports, exports, page migrations...),\
+        \ newest first."
+      operationId: GetBatchJobs
       parameters:
       - explode: true
         in: query
@@ -10111,23 +10964,104 @@ paths:
         schema:
           type: string
         style: form
-      - explode: true
+      - description: "Only jobs of this type, for example migrate-pages."
+        explode: true
         in: query
-        name: limit
+        name: type
         required: false
         schema:
-          format: double
-          type: number
+          type: string
         style: form
-      - explode: true
+      - description: "Only jobs in this status: requested, running, success or failed."
+        explode: true
+        in: query
+        name: status
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "How many jobs to skip, for paging."
+        explode: true
         in: query
         name: skip
         required: false
         schema:
-          format: double
-          type: number
+          format: int32
+          type: integer
         style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetBatchJobsAPIResponse"
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/batch-jobs/{id}:
+    get:
+      description: "Status, progress and, once done, the result of one batch job."
+      operationId: GetBatchJob
+      parameters:
       - explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetBatchJobAPIResponse"
+          description: Ok
+      security:
+      - api_key: []
+      x-accepts:
+      - application/json
+  /api/v1/audit-logs:
+    get:
+      operationId: GetAuditLogs
+      parameters:
+      - description: The tenant to read audit logs for.
+        explode: true
+        in: query
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "How many logs to return. Max 10000, defaults to 1000."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: "How many logs to skip, for paging."
+        explode: true
+        in: query
+        name: skip
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort direction on the event time. Defaults to DESC (newest first).
+        explode: true
         in: query
         name: order
         required: false
@@ -10139,16 +11073,73 @@ paths:
         name: after
         required: false
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
         style: form
       - explode: true
         in: query
         name: before
         required: false
         schema:
-          format: double
-          type: number
+          format: int64
+          type: integer
+        style: form
+      - description: Only return events performed by this username.
+        explode: true
+        in: query
+        name: username
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Only return events from this IP address.
+        explode: true
+        in: query
+        name: ip
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Only return events of this type: c, r, u, d, or login."
+        explode: true
+        in: query
+        name: crudType
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Only return events for this resource, e.g. User or Moderator."
+        explode: true
+        in: query
+        name: resourceName
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Only return events whose affected object has this id.
+        explode: true
+        in: query
+        name: targetId
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Case-insensitive substring match on the affected object's label,\
+          \ e.g. a username or email."
+        explode: true
+        in: query
+        name: target
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Also return events from tenants this tenant manages.
+        explode: true
+        in: query
+        name: includeManagedTenants
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -10210,6 +11201,40 @@ paths:
           description: Ok
       security:
       - api_key: []
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /api/v1/agent-tenants:
+    post:
+      description: |-
+        Creates a new trial account for an AI agent without a human signup. No API key is needed to call this.
+
+        The response contains the tenant id, an API key that works immediately against the REST API and the
+        MCP server, and a claim URL. Give the claim URL to the human you are working for: opening it while
+        logged in to FastComments attaches the account to them. Unclaimed accounts, and their keys, are
+        deleted 72 hours after creation. Until claimed, the account has the standard trial limits.
+      operationId: CreateAgentTenant
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAgentTenantBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateAgentTenantResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security: []
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -10352,6 +11377,17 @@ components:
       - 2
       - 3
       type: integer
+    PollCreationMode:
+      enum:
+      - 0
+      - 1
+      - 2
+      type: integer
+    PollVotingMode:
+      enum:
+      - 0
+      - 1
+      type: integer
     CommenterNameFormats:
       enum:
       - 0
@@ -10478,6 +11514,12 @@ components:
           format: date-time
           type: string
       type: object
+    CommentTranslationMode:
+      enum:
+      - "off"
+      - auto
+      - manual
+      type: string
     CustomConfigParameters:
       additionalProperties: false
       example:
@@ -10526,6 +11568,7 @@ components:
         disableBlocking: true
         disableEmailInputs: true
         widgetQuestionWhenToSave: 7
+        pollCreation: ""
         allowAnonFlag: true
         ticketKBSearchEndpoint: ticketKBSearchEndpoint
         widgetSubQuestionVisibility: 1
@@ -10538,16 +11581,19 @@ components:
         inputAfterComments: true
         allowAnonVotes: true
         commentThreadDeleteMode: ""
+        autoGenerateUsername: true
         commentCountFormat: commentCountFormat
         disableNotificationBell: true
         enableFChat: true
         voteStyle: 3
+        pollVoting: ""
         disableAutoAdminMigration: true
         disableProfileComments: true
         absoluteAndRelativeDates: true
         commenterNameFormat: ""
         enableThirdPartyCookieBypass: true
         ticketMaxFileSize: 6
+        commentTranslation: ""
         locale: locale
         showCommentSaveSuccess: true
         disableCommenterCommentEdit: true
@@ -10567,6 +11613,7 @@ components:
           enabled: true
         widgetQuestionShowBreakdown: true
         mentionAutoCompleteMode: ""
+        commentsRequireApproval: true
         customCSS: customCSS
         enableViewCounts: true
         headerHTML: headerHTML
@@ -10605,6 +11652,10 @@ components:
             type: string
           nullable: true
           type: array
+        autoGenerateUsername:
+          description: Serve each new visitor a unique generated username as the prefilled
+            defaultUsername.
+          type: boolean
         collapseReplies:
           type: boolean
         commentCountFormat:
@@ -10612,9 +11663,21 @@ components:
           type: string
         commentHTMLRenderingMode:
           $ref: "#/components/schemas/CommentHTMLRenderingMode"
+        commentsRequireApproval:
+          description: "Hold every new or edited comment on this page or domain for\
+            \ moderation, like the tenant-wide setting but scoped."
+          type: boolean
         commentThreadDeleteMode:
           allOf:
           - $ref: "#/components/schemas/CommentThreadDeletionMode"
+          nullable: true
+        pollCreation:
+          allOf:
+          - $ref: "#/components/schemas/PollCreationMode"
+          nullable: true
+        pollVoting:
+          allOf:
+          - $ref: "#/components/schemas/PollVotingMode"
           nullable: true
         commenterNameFormat:
           allOf:
@@ -10804,6 +11867,10 @@ components:
           type: array
         tos:
           $ref: "#/components/schemas/TOSConfig"
+        commentTranslation:
+          allOf:
+          - $ref: "#/components/schemas/CommentTranslationMode"
+          nullable: true
       type: object
     APIError:
       additionalProperties: false
@@ -10857,6 +11924,7 @@ components:
           disableBlocking: true
           disableEmailInputs: true
           widgetQuestionWhenToSave: 7
+          pollCreation: ""
           allowAnonFlag: true
           ticketKBSearchEndpoint: ticketKBSearchEndpoint
           widgetSubQuestionVisibility: 1
@@ -10869,16 +11937,19 @@ components:
           inputAfterComments: true
           allowAnonVotes: true
           commentThreadDeleteMode: ""
+          autoGenerateUsername: true
           commentCountFormat: commentCountFormat
           disableNotificationBell: true
           enableFChat: true
           voteStyle: 3
+          pollVoting: ""
           disableAutoAdminMigration: true
           disableProfileComments: true
           absoluteAndRelativeDates: true
           commenterNameFormat: ""
           enableThirdPartyCookieBypass: true
           ticketMaxFileSize: 6
+          commentTranslation: ""
           locale: locale
           showCommentSaveSuccess: true
           disableCommenterCommentEdit: true
@@ -10898,6 +11969,7 @@ components:
             enabled: true
           widgetQuestionShowBreakdown: true
           mentionAutoCompleteMode: ""
+          commentsRequireApproval: true
           customCSS: customCSS
           enableViewCounts: true
           headerHTML: headerHTML
@@ -10993,6 +12065,8 @@ components:
       - 82
       - 9
       - 10
+      - 11
+      - 12
       type: integer
     RenderableUserNotification:
       example:
@@ -11387,8 +12461,13 @@ components:
       example:
         translations:
           key: translations
+        locale: locale
         status: success
       properties:
+        locale:
+          description: The locale the translations were resolved for. Clients use
+            it to set text direction.
+          type: string
         translations:
           additionalProperties:
             type: string
@@ -11399,6 +12478,7 @@ components:
         status:
           $ref: "#/components/schemas/APIStatus"
       required:
+      - locale
       - status
       - translations
       type: object
@@ -11583,14 +12663,48 @@ components:
       - status
       - users
       type: object
+    PageReactUser:
+      example:
+        displayName: displayName
+        avatarSrc: avatarSrc
+        userId: userId
+        username: username
+      properties:
+        avatarSrc:
+          type: string
+        displayName:
+          type: string
+        username:
+          type: string
+        userId:
+          type: string
+      required:
+      - userId
+      - username
+      type: object
     GetV1PageLikes:
       example:
         urlIdWS: urlIdWS
         didLike: true
         likeCount: 6
+        users:
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
         commentCount: 0
         status: success
       properties:
+        users:
+          description: Most recent first. Present when includeUserInfo is passed.
+            Capped at 100 reacts.
+          items:
+            $ref: "#/components/schemas/PageReactUser"
+          type: array
         urlIdWS:
           type: string
         didLike:
@@ -11610,6 +12724,13 @@ components:
       - status
       - urlIdWS
       type: object
+    PageReactIncludeUserInfo:
+      description: public omits users with private profile activity; include-private
+        requires an API key.
+      enum:
+      - public
+      - include-private
+      type: string
     GetV2PageReactUsersResponse:
       example:
         userNames:
@@ -11634,6 +12755,29 @@ components:
       description: Construct a type with a set of properties K of type T
       properties: {}
       type: object
+    PageCustomReactUser:
+      example:
+        displayName: displayName
+        avatarSrc: avatarSrc
+        userId: userId
+        username: username
+        reactId: reactId
+      properties:
+        avatarSrc:
+          type: string
+        displayName:
+          type: string
+        username:
+          type: string
+        userId:
+          type: string
+        reactId:
+          type: string
+      required:
+      - reactId
+      - userId
+      - username
+      type: object
     GetV2PageReacts:
       example:
         reactedIds:
@@ -11641,8 +12785,25 @@ components:
         - reactedIds
         counts:
           key: 0.8008281904610115
+        users:
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
+          reactId: reactId
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
+          reactId: reactId
         status: success
       properties:
+        users:
+          description: "One entry per react, most recent first. Present when includeUserInfo\
+            \ is passed. Capped at 100 reacts."
+          items:
+            $ref: "#/components/schemas/PageCustomReactUser"
+          type: array
         reactedIds:
           items:
             type: string
@@ -14534,6 +15695,7 @@ components:
         createdAt: 2000-01-23T04:56:07.000+00:00
         data: data
         broadcastId: broadcastId
+        domain: domain
         tenantId: tenantId
         _id: _id
         urlId: urlId
@@ -14551,6 +15713,9 @@ components:
           type: string
         data:
           type: string
+        domain:
+          nullable: true
+          type: string
       required:
       - _id
       - broadcastId
@@ -14565,12 +15730,14 @@ components:
         - createdAt: 2000-01-23T04:56:07.000+00:00
           data: data
           broadcastId: broadcastId
+          domain: domain
           tenantId: tenantId
           _id: _id
           urlId: urlId
         - createdAt: 2000-01-23T04:56:07.000+00:00
           data: data
           broadcastId: broadcastId
+          domain: domain
           tenantId: tenantId
           _id: _id
           urlId: urlId
@@ -14611,6 +15778,7 @@ components:
       - deleted-ticket
       - page-react
       - question-result
+      - poll-update
       type: string
     TenantId:
       type: string
@@ -14761,6 +15929,78 @@ components:
       - urlIdRaw
       - verificationId
       type: object
+    CommentPollOption:
+      additionalProperties: false
+      example:
+        votes: 0
+        id: id
+        label: label
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        votes:
+          format: int32
+          type: integer
+      required:
+      - id
+      - label
+      - votes
+      type: object
+    PollPrivacy:
+      description: |-
+        Who may see which voter picked which option. Chosen by the poll's author when they build the poll, so it
+        lives on the poll itself rather than in the widget config. Anonymous is the default and is never stored on
+        the poll or sent to the client, so an unset value means Anonymous.
+      enum:
+      - 0
+      - 1
+      - 2
+      type: integer
+    CommentPoll:
+      additionalProperties: false
+      description: A poll attached to a comment. Vote counts are denormalized here;
+        individual votes live in PollVote.
+      example:
+        question: question
+        totalVotes: 6
+        options:
+        - votes: 0
+          id: id
+          label: label
+        - votes: 0
+          id: id
+          label: label
+        privacy: ""
+        closesAt: 2000-01-23T04:56:07.000+00:00
+        requireVoteToSeeResults: true
+      properties:
+        question:
+          type: string
+        options:
+          items:
+            $ref: "#/components/schemas/CommentPollOption"
+          type: array
+        totalVotes:
+          format: int32
+          type: integer
+        closesAt:
+          format: date-time
+          nullable: true
+          type: string
+        privacy:
+          allOf:
+          - $ref: "#/components/schemas/PollPrivacy"
+          nullable: true
+        requireVoteToSeeResults:
+          nullable: true
+          type: boolean
+      required:
+      - options
+      - question
+      - totalVotes
+      type: object
     FDomain:
       type: string
     PubSubCommentBase:
@@ -14848,6 +16088,10 @@ components:
           items:
             type: string
           type: array
+        poll:
+          allOf:
+          - $ref: "#/components/schemas/CommentPoll"
+          nullable: true
         flagCount:
           format: int32
           nullable: true
@@ -14906,6 +16150,25 @@ components:
         required:
         - date
         type: object
+    Pick_CommentPoll.options-or-totalVotes-or-closesAt_:
+      description: "From T, pick a set of properties whose keys are in the union K"
+      properties:
+        options:
+          items:
+            $ref: "#/components/schemas/CommentPollOption"
+          type: array
+        totalVotes:
+          format: int32
+          type: integer
+        closesAt:
+          format: date-time
+          type: string
+      required:
+      - options
+      - totalVotes
+      type: object
+    CommentPollUpdate:
+      $ref: "#/components/schemas/Pick_CommentPoll.options-or-totalVotes-or-closesAt_"
     Record_string._before-string-or-null--after-string-or-null__:
       additionalProperties:
         $ref: "#/components/schemas/Record_string__before_string_or_null__after_string_or_null___value"
@@ -14941,6 +16204,10 @@ components:
           $ref: "#/components/schemas/PubSubComment"
         feedPost:
           $ref: "#/components/schemas/FeedPost"
+        commentId:
+          type: string
+        poll:
+          $ref: "#/components/schemas/Pick_CommentPoll.options-or-totalVotes-or-closesAt_"
         extraInfo:
           $ref: "#/components/schemas/LiveEvent_extraInfo"
         config:
@@ -15125,6 +16392,12 @@ components:
       - properties:
           isUnread:
             type: boolean
+          myPollVotes:
+            description: Ids of the options the current viewer voted for on this comment's
+              poll. Only set when polls are enabled and they have voted.
+            items:
+              type: string
+            type: array
           myVoteId:
             type: string
           isVotedDown:
@@ -15160,6 +16433,9 @@ components:
         date: 2000-01-23T04:56:07.000+00:00
         editKey: editKey
         votesDown: 2
+        myPollVotes:
+        - myPollVotes
+        - myPollVotes
         hasChildren: true
         commenterName: commenterName
         isBlocked: true
@@ -15451,6 +16727,7 @@ components:
           disableBlocking: true
           disableEmailInputs: true
           widgetQuestionWhenToSave: 7
+          pollCreation: ""
           allowAnonFlag: true
           ticketKBSearchEndpoint: ticketKBSearchEndpoint
           widgetSubQuestionVisibility: 1
@@ -15463,16 +16740,19 @@ components:
           inputAfterComments: true
           allowAnonVotes: true
           commentThreadDeleteMode: ""
+          autoGenerateUsername: true
           commentCountFormat: commentCountFormat
           disableNotificationBell: true
           enableFChat: true
           voteStyle: 3
+          pollVoting: ""
           disableAutoAdminMigration: true
           disableProfileComments: true
           absoluteAndRelativeDates: true
           commenterNameFormat: ""
           enableThirdPartyCookieBypass: true
           ticketMaxFileSize: 6
+          commentTranslation: ""
           locale: locale
           showCommentSaveSuccess: true
           disableCommenterCommentEdit: true
@@ -15492,6 +16772,7 @@ components:
             enabled: true
           widgetQuestionShowBreakdown: true
           mentionAutoCompleteMode: ""
+          commentsRequireApproval: true
           customCSS: customCSS
           enableViewCounts: true
           headerHTML: headerHTML
@@ -15521,6 +16802,9 @@ components:
         - date: 2000-01-23T04:56:07.000+00:00
           editKey: editKey
           votesDown: 2
+          myPollVotes:
+          - myPollVotes
+          - myPollVotes
           hasChildren: true
           commenterName: commenterName
           isBlocked: true
@@ -15582,6 +16866,9 @@ components:
         - date: 2000-01-23T04:56:07.000+00:00
           editKey: editKey
           votesDown: 2
+          myPollVotes:
+          - myPollVotes
+          - myPollVotes
           hasChildren: true
           commenterName: commenterName
           isBlocked: true
@@ -15688,6 +16975,9 @@ components:
           date: 2000-01-23T04:56:07.000+00:00
           editKey: editKey
           votesDown: 2
+          myPollVotes:
+          - myPollVotes
+          - myPollVotes
           hasChildren: true
           commenterName: commenterName
           isBlocked: true
@@ -15751,11 +17041,42 @@ components:
           key: ""
         user: ""
         status: success
-    Record_string.string-or-number_:
+    Record_string.string-or-number-or-number-Array_:
       additionalProperties:
-        $ref: "#/components/schemas/GifSearchResponse_images_inner_inner"
+        $ref: "#/components/schemas/Record_string_string_or_number_or_number_Array__value"
       description: Construct a type with a set of properties K of type T
       properties: {}
+      type: object
+    CommentPollInput:
+      additionalProperties: false
+      example:
+        question: question
+        options:
+        - options
+        - options
+        privacy: 2
+        closesAt: closesAt
+        requireVoteToSeeResults: true
+      properties:
+        question:
+          type: string
+        options:
+          items:
+            type: string
+          type: array
+        closesAt:
+          nullable: true
+          type: string
+        privacy:
+          format: int32
+          nullable: true
+          type: integer
+        requireVoteToSeeResults:
+          nullable: true
+          type: boolean
+      required:
+      - options
+      - question
       type: object
     CommentData:
       additionalProperties: false
@@ -15765,6 +17086,14 @@ components:
         commenterName: commenterName
         rating: 5.962133916683182
         commenterLink: commenterLink
+        poll:
+          question: question
+          options:
+          - options
+          - options
+          privacy: 2
+          closesAt: closesAt
+          requireVoteToSeeResults: true
         urlId: urlId
         hashTags:
         - retain: true
@@ -15781,7 +17110,7 @@ components:
         botId: botId
         productId: 1
         questionValues:
-          key: GifSearchResponse_images_inner_inner
+          key: Record_string_string_or_number_or_number_Array__value
         feedbackIds:
         - feedbackIds
         - feedbackIds
@@ -15877,10 +17206,12 @@ components:
           type: array
         questionValues:
           additionalProperties:
-            $ref: "#/components/schemas/GifSearchResponse_images_inner_inner"
+            $ref: "#/components/schemas/Record_string_string_or_number_or_number_Array__value"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
+        poll:
+          $ref: "#/components/schemas/CommentPollInput"
         tos:
           type: boolean
         botId:
@@ -15999,6 +17330,73 @@ components:
       - hasMore
       - status
       - voteUserNames
+      type: object
+    CommentTranslationPublic:
+      additionalProperties: false
+      properties:
+        commentHTML:
+          type: string
+        sourceLanguage:
+          type: string
+      required:
+      - commentHTML
+      - sourceLanguage
+      type: object
+    Record_string.CommentTranslationPublic-or-null_:
+      additionalProperties:
+        allOf:
+        - $ref: "#/components/schemas/CommentTranslationPublic"
+        nullable: true
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
+    CommentTranslationsResponse:
+      additionalProperties: false
+      example:
+        translations:
+          key: ""
+        failed:
+        - failed
+        - failed
+        locale: locale
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        locale:
+          type: string
+        translations:
+          additionalProperties:
+            allOf:
+            - $ref: "#/components/schemas/CommentTranslationPublic"
+            nullable: true
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        failed:
+          description: Comment ids that failed transiently and may be retried.
+          items:
+            type: string
+          type: array
+      required:
+      - failed
+      - locale
+      - status
+      - translations
+      type: object
+    CommentTranslationsRequest:
+      additionalProperties: false
+      example:
+        commentIds:
+        - commentIds
+        - commentIds
+      properties:
+        commentIds:
+          items:
+            type: string
+          type: array
+      required:
+      - commentIds
       type: object
     ChangeCommentPinStatusResponse:
       example:
@@ -16809,6 +18207,81 @@ components:
       required:
       - status
       type: object
+    GetPageLikesAPIResponse:
+      example:
+        reason: reason
+        code: code
+        likeCount: 0
+        users:
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        users:
+          description: Most recent first. Present when includeUserInfo is passed.
+            Capped at 100 reacts.
+          items:
+            $ref: "#/components/schemas/PageReactUser"
+          type: array
+        likeCount:
+          format: int32
+          type: integer
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    GetPageReactsAPIResponse:
+      example:
+        reason: reason
+        code: code
+        counts:
+          key: 0.8008281904610115
+        users:
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
+          reactId: reactId
+        - displayName: displayName
+          avatarSrc: avatarSrc
+          userId: userId
+          username: username
+          reactId: reactId
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        users:
+          description: "One entry per react, most recent first. Present when includeUserInfo\
+            \ is passed. Capped at 100 reacts."
+          items:
+            $ref: "#/components/schemas/PageCustomReactUser"
+          type: array
+        counts:
+          additionalProperties:
+            format: double
+            type: number
+          description: Construct a type with a set of properties K of type T
+          properties: {}
+          type: object
+        status:
+          type: string
+      required:
+      - status
+      type: object
     AddPageAPIResponse:
       example:
         reason: reason
@@ -16869,6 +18342,70 @@ components:
       - title
       - url
       - urlId
+      type: object
+    QueuePageMigrationJobAPIResponse:
+      example:
+        reason: reason
+        code: code
+        batchJobId: batchJobId
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        batchJobId:
+          description: "Poll GET /api/v1/batch-jobs/{batchJobId} for progress and\
+            \ the result."
+          type: string
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    PageMigrationType:
+      description: '"urlId" renames exact urlId matches only. "domain" find/replaces
+        the value inside every urlId and url.'
+      enum:
+      - urlId
+      - domain
+      type: string
+    PageMigration:
+      additionalProperties: false
+      example:
+        from: from
+        to: to
+        type: urlId
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        type:
+          $ref: "#/components/schemas/PageMigrationType"
+      required:
+      - from
+      - to
+      - type
+      type: object
+    MigrateAPIPagesData:
+      example:
+        migrations:
+        - from: from
+          to: to
+          type: urlId
+        - from: from
+          to: to
+          type: urlId
+      properties:
+        migrations:
+          description: "Run in the order given, so a -> b then b -> c works. At most\
+            \ 100."
+          items:
+            $ref: "#/components/schemas/PageMigration"
+          type: array
+      required:
+      - migrations
       type: object
     PatchPageAPIResponse:
       example:
@@ -16940,6 +18477,430 @@ components:
           type: string
       required:
       - status
+      type: object
+    WebhookEventName:
+      enum:
+      - comment-created
+      - comment-updated
+      - comment-deleted
+      type: string
+    WebhookHTTPMethod:
+      enum:
+      - PUT
+      - DELETE
+      - POST
+      type: string
+    WebhookSource:
+      enum:
+      - dashboard
+      - api
+      type: string
+    PublicWebhook:
+      additionalProperties: false
+      example:
+        disabledReason: auto
+        method: PUT
+        lastFailureAt: 2000-01-23T04:56:07.000+00:00
+        failingSince: 2000-01-23T04:56:07.000+00:00
+        source: dashboard
+        url: url
+        enabled: true
+        disabledAt: 2000-01-23T04:56:07.000+00:00
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        lastSuccessAt: 2000-01-23T04:56:07.000+00:00
+        domain: domain
+        id: id
+        event: comment-created
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        event:
+          $ref: "#/components/schemas/WebhookEventName"
+        domain:
+          type: string
+        method:
+          $ref: "#/components/schemas/WebhookHTTPMethod"
+        source:
+          $ref: "#/components/schemas/WebhookSource"
+        enabled:
+          type: boolean
+        createdAt:
+          format: date-time
+          type: string
+        lastSuccessAt:
+          format: date-time
+          type: string
+        lastFailureAt:
+          format: date-time
+          type: string
+        failingSince:
+          format: date-time
+          type: string
+        disabledAt:
+          format: date-time
+          type: string
+        disabledReason:
+          enum:
+          - auto
+          - manual
+          type: string
+      required:
+      - createdAt
+      - domain
+      - enabled
+      - event
+      - id
+      - method
+      - source
+      - url
+      type: object
+    GetWebhooksResponse:
+      additionalProperties: false
+      example:
+        webhooks:
+        - disabledReason: auto
+          method: PUT
+          lastFailureAt: 2000-01-23T04:56:07.000+00:00
+          failingSince: 2000-01-23T04:56:07.000+00:00
+          source: dashboard
+          url: url
+          enabled: true
+          disabledAt: 2000-01-23T04:56:07.000+00:00
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          lastSuccessAt: 2000-01-23T04:56:07.000+00:00
+          domain: domain
+          id: id
+          event: comment-created
+        - disabledReason: auto
+          method: PUT
+          lastFailureAt: 2000-01-23T04:56:07.000+00:00
+          failingSince: 2000-01-23T04:56:07.000+00:00
+          source: dashboard
+          url: url
+          enabled: true
+          disabledAt: 2000-01-23T04:56:07.000+00:00
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          lastSuccessAt: 2000-01-23T04:56:07.000+00:00
+          domain: domain
+          id: id
+          event: comment-created
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        webhooks:
+          items:
+            $ref: "#/components/schemas/PublicWebhook"
+          type: array
+      required:
+      - status
+      - webhooks
+      type: object
+    WebhookComment:
+      additionalProperties: false
+      example:
+        date: date
+        pageNumber: 5.962133916683182
+        votesDown: 1.4658129805029452
+        commenterName: commenterName
+        urlId: urlId
+        locale: locale
+        commentHTML: commentHTML
+        approved: true
+        verifiedDate: verifiedDate
+        aiDeterminedSpam: true
+        reviewed: true
+        pageNumberOF: 5.637376656633329
+        id: id
+        votesUp: 6.027456183070403
+        pageNumberNF: 2.3021358869347655
+        verified: true
+        externalId: externalId
+        userId: userId
+        url: url
+        parentId: parentId
+        commenterEmail: commenterEmail
+        moderationGroupIds:
+        - moderationGroupIds
+        - moderationGroupIds
+        mentions:
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        - rawTag: rawTag
+          id: id
+          tag: tag
+          type: user
+          sent: true
+        domain: domain
+        avatarSrc: avatarSrc
+        hasImages: true
+        comment: comment
+        votes: 0.8008281904610115
+        isSpam: true
+      properties:
+        id:
+          type: string
+        urlId:
+          type: string
+        url:
+          nullable: true
+          type: string
+        userId:
+          nullable: true
+          type: string
+        commenterEmail:
+          nullable: true
+          type: string
+        commenterName:
+          type: string
+        comment:
+          type: string
+        commentHTML:
+          type: string
+        externalId:
+          nullable: true
+          type: string
+        parentId:
+          nullable: true
+          type: string
+        date:
+          type: string
+        votes:
+          format: double
+          type: number
+        votesUp:
+          format: double
+          type: number
+        votesDown:
+          format: double
+          type: number
+        verified:
+          type: boolean
+        verifiedDate:
+          nullable: true
+          type: string
+        reviewed:
+          type: boolean
+        avatarSrc:
+          nullable: true
+          type: string
+        isSpam:
+          type: boolean
+        aiDeterminedSpam:
+          type: boolean
+        hasImages:
+          type: boolean
+        pageNumber:
+          format: double
+          nullable: true
+          type: number
+        pageNumberOF:
+          format: double
+          nullable: true
+          type: number
+        pageNumberNF:
+          format: double
+          nullable: true
+          type: number
+        approved:
+          type: boolean
+        locale:
+          nullable: true
+          type: string
+        mentions:
+          items:
+            $ref: "#/components/schemas/CommentUserMentionInfo"
+          type: array
+        domain:
+          nullable: true
+          type: string
+        moderationGroupIds:
+          items:
+            type: string
+          type: array
+      required:
+      - aiDeterminedSpam
+      - approved
+      - avatarSrc
+      - comment
+      - commentHTML
+      - commenterEmail
+      - commenterName
+      - date
+      - domain
+      - externalId
+      - hasImages
+      - id
+      - isSpam
+      - locale
+      - mentions
+      - moderationGroupIds
+      - pageNumber
+      - pageNumberNF
+      - pageNumberOF
+      - parentId
+      - reviewed
+      - url
+      - urlId
+      - userId
+      - verified
+      - verifiedDate
+      - votes
+      - votesDown
+      - votesUp
+      type: object
+    GetWebhookSamplePayloadsResponse:
+      additionalProperties: false
+      example:
+        payloads:
+        - date: date
+          pageNumber: 5.962133916683182
+          votesDown: 1.4658129805029452
+          commenterName: commenterName
+          urlId: urlId
+          locale: locale
+          commentHTML: commentHTML
+          approved: true
+          verifiedDate: verifiedDate
+          aiDeterminedSpam: true
+          reviewed: true
+          pageNumberOF: 5.637376656633329
+          id: id
+          votesUp: 6.027456183070403
+          pageNumberNF: 2.3021358869347655
+          verified: true
+          externalId: externalId
+          userId: userId
+          url: url
+          parentId: parentId
+          commenterEmail: commenterEmail
+          moderationGroupIds:
+          - moderationGroupIds
+          - moderationGroupIds
+          mentions:
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          domain: domain
+          avatarSrc: avatarSrc
+          hasImages: true
+          comment: comment
+          votes: 0.8008281904610115
+          isSpam: true
+        - date: date
+          pageNumber: 5.962133916683182
+          votesDown: 1.4658129805029452
+          commenterName: commenterName
+          urlId: urlId
+          locale: locale
+          commentHTML: commentHTML
+          approved: true
+          verifiedDate: verifiedDate
+          aiDeterminedSpam: true
+          reviewed: true
+          pageNumberOF: 5.637376656633329
+          id: id
+          votesUp: 6.027456183070403
+          pageNumberNF: 2.3021358869347655
+          verified: true
+          externalId: externalId
+          userId: userId
+          url: url
+          parentId: parentId
+          commenterEmail: commenterEmail
+          moderationGroupIds:
+          - moderationGroupIds
+          - moderationGroupIds
+          mentions:
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          - rawTag: rawTag
+            id: id
+            tag: tag
+            type: user
+            sent: true
+          domain: domain
+          avatarSrc: avatarSrc
+          hasImages: true
+          comment: comment
+          votes: 0.8008281904610115
+          isSpam: true
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        payloads:
+          items:
+            $ref: "#/components/schemas/WebhookComment"
+          type: array
+      required:
+      - payloads
+      - status
+      type: object
+    CreateWebhookResponse:
+      additionalProperties: false
+      example:
+        webhook:
+          disabledReason: auto
+          method: PUT
+          lastFailureAt: 2000-01-23T04:56:07.000+00:00
+          failingSince: 2000-01-23T04:56:07.000+00:00
+          source: dashboard
+          url: url
+          enabled: true
+          disabledAt: 2000-01-23T04:56:07.000+00:00
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          lastSuccessAt: 2000-01-23T04:56:07.000+00:00
+          domain: domain
+          id: id
+          event: comment-created
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        webhook:
+          $ref: "#/components/schemas/PublicWebhook"
+      required:
+      - status
+      - webhook
+      type: object
+    CreateWebhookParams:
+      additionalProperties: false
+      example:
+        method: PUT
+        domain: domain
+        event: comment-created
+        url: url
+      properties:
+        url:
+          description: Where events are delivered. Must be http(s).
+          type: string
+        event:
+          $ref: "#/components/schemas/WebhookEventName"
+        domain:
+          description: "A domain from your account configuration, or '*' (the default)\
+            \ for every domain."
+          type: string
+        method:
+          $ref: "#/components/schemas/WebhookHTTPMethod"
+      required:
+      - event
+      - url
       type: object
     PublicVote:
       additionalProperties: false
@@ -18037,6 +19998,7 @@ components:
       enum:
       - 0
       - 1
+      - 2
       type: integer
     SiteType:
       $ref: "#/components/schemas/ImportedSiteType"
@@ -18116,6 +20078,7 @@ components:
         address: address
         city: city
         name: name
+        vatId: vatId
         currency: currency
         state: state
         email: email
@@ -18138,6 +20101,11 @@ components:
           type: string
         email:
           description: Email for invoices.
+          type: string
+        vatId:
+          description: VAT / Tax ID for invoices. Only persisted once Stripe has accepted
+            it.
+          nullable: true
           type: string
       required:
       - address
@@ -18209,9 +20177,11 @@ components:
           address: address
           city: city
           name: name
+          vatId: vatId
           currency: currency
           state: state
           email: email
+        hasDebranding: true
         createdBy: createdBy
         meta:
           key: meta
@@ -18276,6 +20246,8 @@ components:
         hasFlexPricing:
           type: boolean
         hasAuditing:
+          type: boolean
+        hasDebranding:
           type: boolean
         flexLastBilledAmount:
           format: double
@@ -18366,9 +20338,11 @@ components:
             address: address
             city: city
             name: name
+            vatId: vatId
             currency: currency
             state: state
             email: email
+          hasDebranding: true
           createdBy: createdBy
           meta:
             key: meta
@@ -18449,9 +20423,11 @@ components:
             address: address
             city: city
             name: name
+            vatId: vatId
             currency: currency
             state: state
             email: email
+          hasDebranding: true
           createdBy: createdBy
           meta:
             key: meta
@@ -18518,9 +20494,11 @@ components:
             address: address
             city: city
             name: name
+            vatId: vatId
             currency: currency
             state: state
             email: email
+          hasDebranding: true
           createdBy: createdBy
           meta:
             key: meta
@@ -18603,9 +20581,11 @@ components:
             address: address
             city: city
             name: name
+            vatId: vatId
             currency: currency
             state: state
             email: email
+          hasDebranding: true
           createdBy: createdBy
           meta:
             key: meta
@@ -18640,12 +20620,12 @@ components:
           address: address
           city: city
           name: name
+          vatId: vatId
           currency: currency
           state: state
           email: email
         stripeSubscriptionId: stripeSubscriptionId
         deAnonIpAddr: 5.962133916683182
-        createdBy: createdBy
         removeUnverifiedComments: true
         meta:
           key: meta
@@ -18711,8 +20691,6 @@ components:
           type: boolean
         billingHandledExternally:
           type: boolean
-        createdBy:
-          type: string
         isSetup:
           type: boolean
         billingInfo:
@@ -18769,12 +20747,12 @@ components:
           address: address
           city: city
           name: name
+          vatId: vatId
           currency: currency
           state: state
           email: email
         stripeSubscriptionId: stripeSubscriptionId
         deAnonIpAddr: 5.962133916683182
-        createdBy: createdBy
         removeUnverifiedComments: true
         meta:
           key: meta
@@ -18837,8 +20815,6 @@ components:
           type: boolean
         billingHandledExternally:
           type: boolean
-        createdBy:
-          type: string
         isSetup:
           type: boolean
         domainConfiguration:
@@ -19466,7 +21442,7 @@ components:
         flexManagedTenantCostCents: 3.0937452626664474
         flexSmallWidgetsCreditUnit: 8.762042012749001
         yearlyStripePlanId: yearlyStripePlanId
-        aiAgentDailyBudgetCents: 4.652396432933246
+        aiAgentDailyBudgetCents: 8.969578798196912
         maxSSOUsers: 3.616076749251911
         hasFlexPricing: true
         flexSSOModeratorCostCents: 7.058770351582356
@@ -19482,16 +21458,17 @@ components:
         flexLLMCostCents: 5.944895607614016
         name: name
         _id: _id
-        aiAgentMonthlyBudgetCents: 8.969578798196912
+        aiAgentMonthlyBudgetCents: 7.740351818741173
         flexModeratorUnit: 6.438423552598547
         flexChatGPTCostCents: 6.778324963048013
         flexSSOAdminCostCents: 7.143538047012306
         flexSSOUserCostCents: 4.965218492984954
         flexLLMUnit: 6.704019297950036
+        flexFreeModerators: 0.10263654006109402
         flexSSOModeratorUnit: 6.519180951018382
         maxDomains: 4.145608029883936
         maxMonthlyEventLogRequests: 1.2315135367772556
-        maxAIAgents: 0.10263654006109402
+        maxAIAgents: 4.652396432933246
         flexDomainUnit: 2.8841621266687802
         hasWhiteLabeling: true
         flexChatGPTUnit: 6.878052220127876
@@ -19679,6 +21656,9 @@ components:
         flexSSOModeratorUnit:
           format: double
           type: number
+        flexFreeModerators:
+          format: double
+          type: number
         isSSOBillingMonthlyActiveUsers:
           type: boolean
         hasAIAgents:
@@ -19735,7 +21715,7 @@ components:
           flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 4.652396432933246
+          aiAgentDailyBudgetCents: 8.969578798196912
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
           flexSSOModeratorCostCents: 7.058770351582356
@@ -19751,16 +21731,17 @@ components:
           flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 8.969578798196912
+          aiAgentMonthlyBudgetCents: 7.740351818741173
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
           flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
           flexLLMUnit: 6.704019297950036
+          flexFreeModerators: 0.10263654006109402
           flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 0.10263654006109402
+          maxAIAgents: 4.652396432933246
           flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
           flexChatGPTUnit: 6.878052220127876
@@ -19812,7 +21793,7 @@ components:
           flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 4.652396432933246
+          aiAgentDailyBudgetCents: 8.969578798196912
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
           flexSSOModeratorCostCents: 7.058770351582356
@@ -19828,16 +21809,17 @@ components:
           flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 8.969578798196912
+          aiAgentMonthlyBudgetCents: 7.740351818741173
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
           flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
           flexLLMUnit: 6.704019297950036
+          flexFreeModerators: 0.10263654006109402
           flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 0.10263654006109402
+          maxAIAgents: 4.652396432933246
           flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
           flexChatGPTUnit: 6.878052220127876
@@ -19875,7 +21857,7 @@ components:
           flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 4.652396432933246
+          aiAgentDailyBudgetCents: 8.969578798196912
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
           flexSSOModeratorCostCents: 7.058770351582356
@@ -19891,16 +21873,17 @@ components:
           flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 8.969578798196912
+          aiAgentMonthlyBudgetCents: 7.740351818741173
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
           flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
           flexLLMUnit: 6.704019297950036
+          flexFreeModerators: 0.10263654006109402
           flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 0.10263654006109402
+          maxAIAgents: 4.652396432933246
           flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
           flexChatGPTUnit: 6.878052220127876
@@ -19954,7 +21937,7 @@ components:
           flexManagedTenantCostCents: 3.0937452626664474
           flexSmallWidgetsCreditUnit: 8.762042012749001
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 4.652396432933246
+          aiAgentDailyBudgetCents: 8.969578798196912
           maxSSOUsers: 3.616076749251911
           hasFlexPricing: true
           flexSSOModeratorCostCents: 7.058770351582356
@@ -19970,16 +21953,17 @@ components:
           flexLLMCostCents: 5.944895607614016
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 8.969578798196912
+          aiAgentMonthlyBudgetCents: 7.740351818741173
           flexModeratorUnit: 6.438423552598547
           flexChatGPTCostCents: 6.778324963048013
           flexSSOAdminCostCents: 7.143538047012306
           flexSSOUserCostCents: 4.965218492984954
           flexLLMUnit: 6.704019297950036
+          flexFreeModerators: 0.10263654006109402
           flexSSOModeratorUnit: 6.519180951018382
           maxDomains: 4.145608029883936
           maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 0.10263654006109402
+          maxAIAgents: 4.652396432933246
           flexDomainUnit: 2.8841621266687802
           hasWhiteLabeling: true
           flexChatGPTUnit: 6.878052220127876
@@ -20687,6 +22671,9 @@ components:
           - values
           - values
           name: name
+        values:
+        - 6.027456183070403
+        - 6.027456183070403
         tenantId: tenantId
         anonUserId: anonUserId
         commentId: commentId
@@ -20710,8 +22697,16 @@ components:
           format: date-time
           type: string
         value:
+          description: The answer. For multi-choice questions this is the number of
+            selected options and the options are in values.
           format: int32
           type: integer
+        values:
+          description: "Selected option indexes, multi-choice questions only."
+          items:
+            format: double
+            type: number
+          type: array
         commentId:
           nullable: true
           type: string
@@ -20750,6 +22745,9 @@ components:
             - values
             - values
             name: name
+          values:
+          - 6.027456183070403
+          - 6.027456183070403
           tenantId: tenantId
           anonUserId: anonUserId
           commentId: commentId
@@ -20783,6 +22781,9 @@ components:
             - values
             - values
             name: name
+          values:
+          - 6.027456183070403
+          - 6.027456183070403
           tenantId: tenantId
           anonUserId: anonUserId
           commentId: commentId
@@ -20802,6 +22803,9 @@ components:
             - values
             - values
             name: name
+          values:
+          - 6.027456183070403
+          - 6.027456183070403
           tenantId: tenantId
           anonUserId: anonUserId
           commentId: commentId
@@ -20837,6 +22841,9 @@ components:
             - values
             - values
             name: name
+          values:
+          - 6.027456183070403
+          - 6.027456183070403
           tenantId: tenantId
           anonUserId: anonUserId
           commentId: commentId
@@ -20868,6 +22875,9 @@ components:
           - values
           - values
           name: name
+        values:
+        - 6.027456183070403
+        - 6.027456183070403
         anonUserId: anonUserId
         commentId: commentId
         urlId: urlId
@@ -20877,8 +22887,16 @@ components:
         urlId:
           type: string
         value:
+          description: Required unless values is given. For multi-choice questions
+            this is derived from values.
           format: double
           type: number
+        values:
+          description: Selected option indexes for multi-choice questions.
+          items:
+            format: double
+            type: number
+          type: array
         questionId:
           type: string
         anonUserId:
@@ -20895,7 +22913,6 @@ components:
       required:
       - questionId
       - urlId
-      - value
       type: object
     UpdateQuestionResultBody:
       additionalProperties: {}
@@ -20910,6 +22927,9 @@ components:
           - values
           - values
           name: name
+        values:
+        - 6.027456183070403
+        - 6.027456183070403
         anonUserId: anonUserId
         commentId: commentId
         urlId: urlId
@@ -20925,6 +22945,12 @@ components:
         value:
           format: double
           type: number
+        values:
+          description: Selected option indexes for multi-choice questions.
+          items:
+            format: double
+            type: number
+          type: array
         commentId:
           type: string
         questionId:
@@ -21152,6 +23178,33 @@ components:
       required:
       - aggregations
       type: object
+    CommentTranslation:
+      additionalProperties: false
+      properties:
+        comment:
+          type: string
+        commentHTML:
+          type: string
+        sourceLanguage:
+          type: string
+        model:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+      required:
+      - comment
+      - commentHTML
+      - createdAt
+      - model
+      - sourceLanguage
+      type: object
+    Record_string.CommentTranslation_:
+      additionalProperties:
+        $ref: "#/components/schemas/CommentTranslation"
+      description: Construct a type with a set of properties K of type T
+      properties: {}
+      type: object
     CommentLogType:
       enum:
       - 0
@@ -21210,6 +23263,16 @@ components:
       - 53
       - 54
       - 55
+      - 56
+      - 57
+      - 58
+      - 59
+      - 60
+      - 61
+      - 62
+      - 63
+      - 64
+      - 65
       type: integer
     RepeatCommentHandlingAction:
       enum:
@@ -21227,59 +23290,82 @@ components:
       - 5
       - 6
       type: integer
+    NotificationSkipReason:
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      type: integer
     CommentLogData:
       additionalProperties: false
       example:
         votesDownAfter: 9.369310271410669
         repeatAction: 6
         reason: 8
-        votesUpBefore: 1.1730742509559433
         tenantBadgeId: tenantBadgeId
+        detectedLanguage: detectedLanguage
+        expireBefore: 2000-01-23T04:56:07.000+00:00
+        textBefore: textBefore
+        source: source
+        spamBefore: true
+        foundUser: true
+        engineResponse: engineResponse
+        notificationCount: 6.84685269835264
+        subscribers: 1.4894159098541704
+        otherData: ""
+        clearContent: true
+        approvedAfter: true
+        recipientUserId: recipientUserId
+        phrase: phrase
+        isDeletedUser: true
+        votesUpAfter: 9.965781217890562
+        word: word
+        votesUpBefore: 1.1730742509559433
         badgeId: badgeId
         invalidLocale: invalidLocale
         reviewedBefore: true
         reviewedAfter: true
         trustFactorBefore: 6.438423552598547
         trustFactor: 1.0246457001441578
-        detectedLanguage: detectedLanguage
         engineTokens: 1.2315135367772556
         rule:
           commentContains: commentContains
           actions:
           - spam
           - spam
-        expireBefore: 2000-01-23T04:56:07.000+00:00
-        textBefore: textBefore
-        source: source
         detectedLocale: detectedLocale
         locale: locale
-        spamBefore: true
         votesBefore: 7.457744773683766
         votesDownBefore: 4.965218492984954
         spamAfter: true
-        foundUser: true
         textAfter: textAfter
         engine: engine
-        engineResponse: engineResponse
         trustFactorAfter: 3.5571952270680973
+        notifySkipReason: 6
         approvedBefore: true
-        notificationCount: 6.84685269835264
-        subscribers: 1.4894159098541704
-        otherData: ""
-        clearContent: true
         verified: true
         expireAfter: 2000-01-23T04:56:07.000+00:00
         flagCountBefore: 9.018348186070783
+        emailQueued: true
         userId: userId
-        approvedAfter: true
-        phrase: phrase
-        isDeletedUser: true
         votesAfter: 5.025004791520295
-        votesUpAfter: 9.965781217890562
         permanentFlag: permanent
         wasLoggedIn: true
+        skipReason: skipReason
         badWord: badWord
-        word: word
         referencedCommentId: referencedCommentId
       properties:
         clearContent:
@@ -21354,6 +23440,8 @@ components:
           $ref: "#/components/schemas/RepeatCommentHandlingAction"
         reason:
           $ref: "#/components/schemas/RepeatCommentCheckIgnoredReason"
+        skipReason:
+          type: string
         otherData: {}
         spamBefore:
           type: boolean
@@ -21402,6 +23490,12 @@ components:
           type: string
         detectedLanguage:
           type: string
+        recipientUserId:
+          type: string
+        notifySkipReason:
+          $ref: "#/components/schemas/NotificationSkipReason"
+        emailQueued:
+          type: boolean
       type: object
     CommentLogEntry:
       additionalProperties: false
@@ -21412,53 +23506,57 @@ components:
           votesDownAfter: 9.369310271410669
           repeatAction: 6
           reason: 8
-          votesUpBefore: 1.1730742509559433
           tenantBadgeId: tenantBadgeId
+          detectedLanguage: detectedLanguage
+          expireBefore: 2000-01-23T04:56:07.000+00:00
+          textBefore: textBefore
+          source: source
+          spamBefore: true
+          foundUser: true
+          engineResponse: engineResponse
+          notificationCount: 6.84685269835264
+          subscribers: 1.4894159098541704
+          otherData: ""
+          clearContent: true
+          approvedAfter: true
+          recipientUserId: recipientUserId
+          phrase: phrase
+          isDeletedUser: true
+          votesUpAfter: 9.965781217890562
+          word: word
+          votesUpBefore: 1.1730742509559433
           badgeId: badgeId
           invalidLocale: invalidLocale
           reviewedBefore: true
           reviewedAfter: true
           trustFactorBefore: 6.438423552598547
           trustFactor: 1.0246457001441578
-          detectedLanguage: detectedLanguage
           engineTokens: 1.2315135367772556
           rule:
             commentContains: commentContains
             actions:
             - spam
             - spam
-          expireBefore: 2000-01-23T04:56:07.000+00:00
-          textBefore: textBefore
-          source: source
           detectedLocale: detectedLocale
           locale: locale
-          spamBefore: true
           votesBefore: 7.457744773683766
           votesDownBefore: 4.965218492984954
           spamAfter: true
-          foundUser: true
           textAfter: textAfter
           engine: engine
-          engineResponse: engineResponse
           trustFactorAfter: 3.5571952270680973
+          notifySkipReason: 6
           approvedBefore: true
-          notificationCount: 6.84685269835264
-          subscribers: 1.4894159098541704
-          otherData: ""
-          clearContent: true
           verified: true
           expireAfter: 2000-01-23T04:56:07.000+00:00
           flagCountBefore: 9.018348186070783
+          emailQueued: true
           userId: userId
-          approvedAfter: true
-          phrase: phrase
-          isDeletedUser: true
           votesAfter: 5.025004791520295
-          votesUpAfter: 9.965781217890562
           permanentFlag: permanent
           wasLoggedIn: true
+          skipReason: skipReason
           badWord: badWord
-          word: word
           referencedCommentId: referencedCommentId
       properties:
         d:
@@ -21479,7 +23577,9 @@ components:
         editKey: editKey
         pageNumber: 5
         pageTitle: pageTitle
+        detectedLanguage: detectedLanguage
         rating: 3.616076749251911
+        poll: ""
         approved: true
         hashTags:
         - retain: true
@@ -21493,6 +23593,7 @@ components:
         localDateString: localDateString
         notificationSentForParentTenant: true
         verifiedDate: 2000-01-23T04:56:07.000+00:00
+        translations: ""
         isLocked: true
         groupIds:
         - groupIds
@@ -21506,53 +23607,57 @@ components:
             votesDownAfter: 9.369310271410669
             repeatAction: 6
             reason: 8
-            votesUpBefore: 1.1730742509559433
             tenantBadgeId: tenantBadgeId
+            detectedLanguage: detectedLanguage
+            expireBefore: 2000-01-23T04:56:07.000+00:00
+            textBefore: textBefore
+            source: source
+            spamBefore: true
+            foundUser: true
+            engineResponse: engineResponse
+            notificationCount: 6.84685269835264
+            subscribers: 1.4894159098541704
+            otherData: ""
+            clearContent: true
+            approvedAfter: true
+            recipientUserId: recipientUserId
+            phrase: phrase
+            isDeletedUser: true
+            votesUpAfter: 9.965781217890562
+            word: word
+            votesUpBefore: 1.1730742509559433
             badgeId: badgeId
             invalidLocale: invalidLocale
             reviewedBefore: true
             reviewedAfter: true
             trustFactorBefore: 6.438423552598547
             trustFactor: 1.0246457001441578
-            detectedLanguage: detectedLanguage
             engineTokens: 1.2315135367772556
             rule:
               commentContains: commentContains
               actions:
               - spam
               - spam
-            expireBefore: 2000-01-23T04:56:07.000+00:00
-            textBefore: textBefore
-            source: source
             detectedLocale: detectedLocale
             locale: locale
-            spamBefore: true
             votesBefore: 7.457744773683766
             votesDownBefore: 4.965218492984954
             spamAfter: true
-            foundUser: true
             textAfter: textAfter
             engine: engine
-            engineResponse: engineResponse
             trustFactorAfter: 3.5571952270680973
+            notifySkipReason: 6
             approvedBefore: true
-            notificationCount: 6.84685269835264
-            subscribers: 1.4894159098541704
-            otherData: ""
-            clearContent: true
             verified: true
             expireAfter: 2000-01-23T04:56:07.000+00:00
             flagCountBefore: 9.018348186070783
+            emailQueued: true
             userId: userId
-            approvedAfter: true
-            phrase: phrase
-            isDeletedUser: true
             votesAfter: 5.025004791520295
-            votesUpAfter: 9.965781217890562
             permanentFlag: permanent
             wasLoggedIn: true
+            skipReason: skipReason
             badWord: badWord
-            word: word
             referencedCommentId: referencedCommentId
         - d: 2000-01-23T04:56:07.000+00:00
           t: 7
@@ -21560,53 +23665,57 @@ components:
             votesDownAfter: 9.369310271410669
             repeatAction: 6
             reason: 8
-            votesUpBefore: 1.1730742509559433
             tenantBadgeId: tenantBadgeId
+            detectedLanguage: detectedLanguage
+            expireBefore: 2000-01-23T04:56:07.000+00:00
+            textBefore: textBefore
+            source: source
+            spamBefore: true
+            foundUser: true
+            engineResponse: engineResponse
+            notificationCount: 6.84685269835264
+            subscribers: 1.4894159098541704
+            otherData: ""
+            clearContent: true
+            approvedAfter: true
+            recipientUserId: recipientUserId
+            phrase: phrase
+            isDeletedUser: true
+            votesUpAfter: 9.965781217890562
+            word: word
+            votesUpBefore: 1.1730742509559433
             badgeId: badgeId
             invalidLocale: invalidLocale
             reviewedBefore: true
             reviewedAfter: true
             trustFactorBefore: 6.438423552598547
             trustFactor: 1.0246457001441578
-            detectedLanguage: detectedLanguage
             engineTokens: 1.2315135367772556
             rule:
               commentContains: commentContains
               actions:
               - spam
               - spam
-            expireBefore: 2000-01-23T04:56:07.000+00:00
-            textBefore: textBefore
-            source: source
             detectedLocale: detectedLocale
             locale: locale
-            spamBefore: true
             votesBefore: 7.457744773683766
             votesDownBefore: 4.965218492984954
             spamAfter: true
-            foundUser: true
             textAfter: textAfter
             engine: engine
-            engineResponse: engineResponse
             trustFactorAfter: 3.5571952270680973
+            notifySkipReason: 6
             approvedBefore: true
-            notificationCount: 6.84685269835264
-            subscribers: 1.4894159098541704
-            otherData: ""
-            clearContent: true
             verified: true
             expireAfter: 2000-01-23T04:56:07.000+00:00
             flagCountBefore: 9.018348186070783
+            emailQueued: true
             userId: userId
-            approvedAfter: true
-            phrase: phrase
-            isDeletedUser: true
             votesAfter: 5.025004791520295
-            votesUpAfter: 9.965781217890562
             permanentFlag: permanent
             wasLoggedIn: true
+            skipReason: skipReason
             badWord: badWord
-            word: word
             referencedCommentId: referencedCommentId
         fromProductId: 2
         flagCount: 9
@@ -21657,7 +23766,7 @@ components:
         permNotSpam: true
         pageNumberOF: 2
         localDateHours: 0
-        viewCount: 6
+        viewCount: 1
         botId: botId
         votesUp: 1
         displayLabel: displayLabel
@@ -21818,6 +23927,13 @@ components:
         locale:
           nullable: true
           type: string
+        detectedLanguage:
+          nullable: true
+          type: string
+        translations:
+          allOf:
+          - $ref: "#/components/schemas/Record_string.CommentTranslation_"
+          nullable: true
         isDeleted:
           type: boolean
         isDeletedUser:
@@ -21889,6 +24005,10 @@ components:
           items:
             type: string
           type: array
+        poll:
+          allOf:
+          - $ref: "#/components/schemas/CommentPoll"
+          nullable: true
         logs:
           items:
             $ref: "#/components/schemas/CommentLogEntry"
@@ -21940,6 +24060,9 @@ components:
             - values
             - values
             name: name
+          values:
+          - 6.027456183070403
+          - 6.027456183070403
           tenantId: tenantId
           anonUserId: anonUserId
           commentId: commentId
@@ -21977,6 +24100,9 @@ components:
               - values
               - values
               name: name
+            values:
+            - 6.027456183070403
+            - 6.027456183070403
             tenantId: tenantId
             anonUserId: anonUserId
             commentId: commentId
@@ -21998,6 +24124,9 @@ components:
               - values
               - values
               name: name
+            values:
+            - 6.027456183070403
+            - 6.027456183070403
             tenantId: tenantId
             anonUserId: anonUserId
             commentId: commentId
@@ -22037,6 +24166,9 @@ components:
                 - values
                 - values
                 name: name
+              values:
+              - 6.027456183070403
+              - 6.027456183070403
               tenantId: tenantId
               anonUserId: anonUserId
               commentId: commentId
@@ -22058,6 +24190,9 @@ components:
                 - values
                 - values
                 name: name
+              values:
+              - 6.027456183070403
+              - 6.027456183070403
               tenantId: tenantId
               anonUserId: anonUserId
               commentId: commentId
@@ -22077,9 +24212,60 @@ components:
       - data
       - status
       type: object
+    QuestionConditionOperator:
+      enum:
+      - lt
+      - lte
+      - gt
+      - gte
+      - eq
+      - neq
+      - includes
+      - excludes
+      type: string
+    SubQuestionCondition:
+      additionalProperties: false
+      example:
+        subQuestionId: subQuestionId
+        value: 2.3021358869347655
+        operator: lt
+      properties:
+        operator:
+          $ref: "#/components/schemas/QuestionConditionOperator"
+        value:
+          format: double
+          type: number
+        subQuestionId:
+          type: string
+      required:
+      - operator
+      - subQuestionId
+      - value
+      type: object
+    QuestionCondition:
+      additionalProperties: false
+      description: |-
+        A rule evaluated against a question's answer. value is the score for nps/slider/star/emoji/scale, 1 or 0 for
+        thumbs, and the option index for choice/multi.
+      example:
+        value: 7.061401241503109
+        operator: null
+      properties:
+        operator:
+          $ref: "#/components/schemas/QuestionConditionOperator"
+        value:
+          format: double
+          type: number
+      required:
+      - operator
+      - value
+      type: object
     QuestionConfig:
       additionalProperties: false
       example:
+        commentBoxCondition:
+          value: 7.061401241503109
+          operator: null
         helpText: helpText
         question: question
         summaryLabel: summaryLabel
@@ -22091,12 +24277,20 @@ components:
           imageSrc: imageSrc
         - name: name
           imageSrc: imageSrc
-        reportingOrder: 2.3021358869347655
+        commentBoxPrompt: commentBoxPrompt
+        reportingOrder: 9.301444243932576
         alwaysShowSubQuestions: true
         type: type
         lastUsed: 2000-01-23T04:56:07.000+00:00
         createdAt: 2000-01-23T04:56:07.000+00:00
         min: 1.4658129805029452
+        subQuestionConditions:
+        - subQuestionId: subQuestionId
+          value: 2.3021358869347655
+          operator: lt
+        - subQuestionId: subQuestionId
+          value: 2.3021358869347655
+          operator: lt
         createdBy: createdBy
         labelNegative: labelNegative
         tenantId: tenantId
@@ -22132,6 +24326,9 @@ components:
           format: date-time
           type: string
         type:
+          description: |-
+            One of nps, slider, star, thumbs, choice, multi, emoji, scale. Answers: nps 0-10, slider min-max, star 1-numStars,
+            thumbs 1 (up) or 0 (down), choice = option index, multi = option indexes (values), emoji/scale = option index + 1.
           type: string
         numStars:
           format: double
@@ -22150,6 +24347,7 @@ components:
         labelPositive:
           type: string
         customOptions:
+          description: "Option labels for choice, multi, emoji and scale questions."
           items:
             $ref: "#/components/schemas/QuestionConfig_customOptions_inner"
           type: array
@@ -22159,6 +24357,18 @@ components:
           type: array
         alwaysShowSubQuestions:
           type: boolean
+        subQuestionConditions:
+          description: Sub-questions listed here only show when this question's answer
+            matches. Others always show.
+          items:
+            $ref: "#/components/schemas/SubQuestionCondition"
+          type: array
+        commentBoxCondition:
+          $ref: "#/components/schemas/QuestionCondition"
+        commentBoxPrompt:
+          description: Placeholder for the comment box when commentBoxCondition reveals
+            it.
+          type: string
         reportingOrder:
           format: double
           type: number
@@ -22189,6 +24399,9 @@ components:
       example:
         status: success
         questionConfig:
+          commentBoxCondition:
+            value: 7.061401241503109
+            operator: null
           helpText: helpText
           question: question
           summaryLabel: summaryLabel
@@ -22200,12 +24413,20 @@ components:
             imageSrc: imageSrc
           - name: name
             imageSrc: imageSrc
-          reportingOrder: 2.3021358869347655
+          commentBoxPrompt: commentBoxPrompt
+          reportingOrder: 9.301444243932576
           alwaysShowSubQuestions: true
           type: type
           lastUsed: 2000-01-23T04:56:07.000+00:00
           createdAt: 2000-01-23T04:56:07.000+00:00
           min: 1.4658129805029452
+          subQuestionConditions:
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
           createdBy: createdBy
           labelNegative: labelNegative
           tenantId: tenantId
@@ -22229,7 +24450,10 @@ components:
       additionalProperties: false
       example:
         questionConfigs:
-        - helpText: helpText
+        - commentBoxCondition:
+            value: 7.061401241503109
+            operator: null
+          helpText: helpText
           question: question
           summaryLabel: summaryLabel
           max: 5.962133916683182
@@ -22240,12 +24464,20 @@ components:
             imageSrc: imageSrc
           - name: name
             imageSrc: imageSrc
-          reportingOrder: 2.3021358869347655
+          commentBoxPrompt: commentBoxPrompt
+          reportingOrder: 9.301444243932576
           alwaysShowSubQuestions: true
           type: type
           lastUsed: 2000-01-23T04:56:07.000+00:00
           createdAt: 2000-01-23T04:56:07.000+00:00
           min: 1.4658129805029452
+          subQuestionConditions:
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
           createdBy: createdBy
           labelNegative: labelNegative
           tenantId: tenantId
@@ -22256,7 +24488,10 @@ components:
           - subQuestionIds
           _id: _id
           usedCount: 0.8008281904610115
-        - helpText: helpText
+        - commentBoxCondition:
+            value: 7.061401241503109
+            operator: null
+          helpText: helpText
           question: question
           summaryLabel: summaryLabel
           max: 5.962133916683182
@@ -22267,12 +24502,20 @@ components:
             imageSrc: imageSrc
           - name: name
             imageSrc: imageSrc
-          reportingOrder: 2.3021358869347655
+          commentBoxPrompt: commentBoxPrompt
+          reportingOrder: 9.301444243932576
           alwaysShowSubQuestions: true
           type: type
           lastUsed: 2000-01-23T04:56:07.000+00:00
           createdAt: 2000-01-23T04:56:07.000+00:00
           min: 1.4658129805029452
+          subQuestionConditions:
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
           createdBy: createdBy
           labelNegative: labelNegative
           tenantId: tenantId
@@ -22300,6 +24543,9 @@ components:
       example:
         status: success
         questionConfig:
+          commentBoxCondition:
+            value: 7.061401241503109
+            operator: null
           helpText: helpText
           question: question
           summaryLabel: summaryLabel
@@ -22311,12 +24557,20 @@ components:
             imageSrc: imageSrc
           - name: name
             imageSrc: imageSrc
-          reportingOrder: 2.3021358869347655
+          commentBoxPrompt: commentBoxPrompt
+          reportingOrder: 9.301444243932576
           alwaysShowSubQuestions: true
           type: type
           lastUsed: 2000-01-23T04:56:07.000+00:00
           createdAt: 2000-01-23T04:56:07.000+00:00
           min: 1.4658129805029452
+          subQuestionConditions:
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
+          - subQuestionId: subQuestionId
+            value: 2.3021358869347655
+            operator: lt
           createdBy: createdBy
           labelNegative: labelNegative
           tenantId: tenantId
@@ -22339,6 +24593,9 @@ components:
     CreateQuestionConfigBody:
       additionalProperties: {}
       example:
+        commentBoxCondition:
+          value: 7.061401241503109
+          operator: null
         helpText: helpText
         question: question
         max: 1.4658129805029452
@@ -22349,10 +24606,18 @@ components:
           imageSrc: imageSrc
         - name: name
           imageSrc: imageSrc
+        commentBoxPrompt: commentBoxPrompt
         reportingOrder: 5.637376656633329
         alwaysShowSubQuestions: true
         type: type
         min: 6.027456183070403
+        subQuestionConditions:
+        - subQuestionId: subQuestionId
+          value: 2.3021358869347655
+          operator: lt
+        - subQuestionId: subQuestionId
+          value: 2.3021358869347655
+          operator: lt
         labelNegative: labelNegative
         name: name
         numStars: 0.8008281904610115
@@ -22367,6 +24632,9 @@ components:
         helpText:
           type: string
         type:
+          description: |-
+            One of nps, slider, star, thumbs, choice, multi, emoji, scale. choice, multi, emoji and scale take their labels
+            from customOptions (choice/multi 2-20 options, emoji/scale 3-7).
           type: string
         numStars:
           format: double
@@ -22394,6 +24662,17 @@ components:
           type: array
         alwaysShowSubQuestions:
           type: boolean
+        subQuestionConditions:
+          description: Show a sub-question only when this question's answer matches
+            its rule.
+          items:
+            $ref: "#/components/schemas/SubQuestionCondition"
+          type: array
+        commentBoxCondition:
+          $ref: "#/components/schemas/QuestionCondition"
+        commentBoxPrompt:
+          description: Comment box placeholder when commentBoxCondition reveals it.
+          type: string
         reportingOrder:
           format: double
           type: number
@@ -22406,6 +24685,9 @@ components:
     UpdateQuestionConfigBody:
       additionalProperties: {}
       example:
+        commentBoxCondition:
+          value: 7.061401241503109
+          operator: null
         helpText: helpText
         question: question
         max: 1.4658129805029452
@@ -22416,10 +24698,18 @@ components:
           imageSrc: imageSrc
         - name: name
           imageSrc: imageSrc
+        commentBoxPrompt: commentBoxPrompt
         reportingOrder: 5.637376656633329
         alwaysShowSubQuestions: true
         type: type
         min: 6.027456183070403
+        subQuestionConditions:
+        - subQuestionId: subQuestionId
+          value: 2.3021358869347655
+          operator: lt
+        - subQuestionId: subQuestionId
+          value: 2.3021358869347655
+          operator: lt
         labelNegative: labelNegative
         name: name
         numStars: 0.8008281904610115
@@ -22434,6 +24724,7 @@ components:
         helpText:
           type: string
         type:
+          description: "One of nps, slider, star, thumbs, choice, multi, emoji, scale."
           type: string
         numStars:
           format: double
@@ -22461,9 +24752,329 @@ components:
           type: array
         alwaysShowSubQuestions:
           type: boolean
+        subQuestionConditions:
+          items:
+            $ref: "#/components/schemas/SubQuestionCondition"
+          type: array
+        commentBoxCondition:
+          $ref: "#/components/schemas/QuestionCondition"
+        commentBoxPrompt:
+          type: string
         reportingOrder:
           format: double
           type: number
+      type: object
+    GetPollResponse:
+      additionalProperties: false
+      example:
+        poll:
+          question: question
+          totalVotes: 6
+          options:
+          - votes: 0
+            id: id
+            label: label
+          - votes: 0
+            id: id
+            label: label
+          privacy: ""
+          closesAt: 2000-01-23T04:56:07.000+00:00
+          requireVoteToSeeResults: true
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        poll:
+          $ref: "#/components/schemas/CommentPoll"
+      required:
+      - poll
+      - status
+      type: object
+    SavePollResponse:
+      additionalProperties: false
+      example:
+        poll:
+          question: question
+          totalVotes: 6
+          options:
+          - votes: 0
+            id: id
+            label: label
+          - votes: 0
+            id: id
+            label: label
+          privacy: ""
+          closesAt: 2000-01-23T04:56:07.000+00:00
+          requireVoteToSeeResults: true
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        poll:
+          $ref: "#/components/schemas/CommentPoll"
+      required:
+      - poll
+      - status
+      type: object
+    CommentPollOptionInput:
+      additionalProperties: false
+      example:
+        id: id
+        label: label
+      properties:
+        id:
+          nullable: true
+          type: string
+        label:
+          type: string
+      required:
+      - label
+      type: object
+    CommentPollPutInput:
+      additionalProperties: false
+      example:
+        question: question
+        options:
+        - id: id
+          label: label
+        - id: id
+          label: label
+        privacy: 0
+        closesAt: closesAt
+        requireVoteToSeeResults: true
+      properties:
+        question:
+          type: string
+        options:
+          items:
+            $ref: "#/components/schemas/CommentPollOptionInput"
+          type: array
+        closesAt:
+          nullable: true
+          type: string
+        privacy:
+          format: int32
+          nullable: true
+          type: integer
+        requireVoteToSeeResults:
+          nullable: true
+          type: boolean
+      required:
+      - options
+      - question
+      type: object
+    CommentPollPatch:
+      additionalProperties: false
+      example:
+        question: question
+        options:
+        - label: label
+          id: id
+        - label: label
+          id: id
+        privacy: 0
+        closesAt: closesAt
+        requireVoteToSeeResults: true
+      properties:
+        question:
+          nullable: true
+          type: string
+        options:
+          items:
+            $ref: "#/components/schemas/CommentPollPatch_options_inner"
+          nullable: true
+          type: array
+        closesAt:
+          nullable: true
+          type: string
+        privacy:
+          format: int32
+          nullable: true
+          type: integer
+        requireVoteToSeeResults:
+          nullable: true
+          type: boolean
+      type: object
+    PublicPollVote:
+      additionalProperties: false
+      description: A single vote cast on a comment's poll.
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        tenantId: tenantId
+        voterId: voterId
+        commentId: commentId
+        optionId: optionId
+        id: id
+        urlId: urlId
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          type: string
+        tenantId:
+          type: string
+        commentId:
+          type: string
+        urlId:
+          type: string
+        voterId:
+          type: string
+        optionId:
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        updatedAt:
+          format: date-time
+          type: string
+      required:
+      - commentId
+      - createdAt
+      - id
+      - optionId
+      - tenantId
+      - urlId
+      - voterId
+      type: object
+    GetPollVotesResponse:
+      additionalProperties: false
+      example:
+        pollVotes:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          voterId: voterId
+          commentId: commentId
+          optionId: optionId
+          id: id
+          urlId: urlId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          voterId: voterId
+          commentId: commentId
+          optionId: optionId
+          id: id
+          urlId: urlId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        pollVotes:
+          items:
+            $ref: "#/components/schemas/PublicPollVote"
+          type: array
+      required:
+      - pollVotes
+      - status
+      type: object
+    GetPollVoteResponse:
+      additionalProperties: false
+      example:
+        pollVote:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          voterId: voterId
+          commentId: commentId
+          optionId: optionId
+          id: id
+          urlId: urlId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        pollVote:
+          $ref: "#/components/schemas/PublicPollVote"
+      required:
+      - pollVote
+      - status
+      type: object
+    CreatePollVoteResponse:
+      additionalProperties: false
+      example:
+        pollVote:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          tenantId: tenantId
+          voterId: voterId
+          commentId: commentId
+          optionId: optionId
+          id: id
+          urlId: urlId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        poll:
+          question: question
+          totalVotes: 6
+          options:
+          - votes: 0
+            id: id
+            label: label
+          - votes: 0
+            id: id
+            label: label
+          privacy: ""
+          closesAt: 2000-01-23T04:56:07.000+00:00
+          requireVoteToSeeResults: true
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        pollVote:
+          $ref: "#/components/schemas/PublicPollVote"
+        poll:
+          $ref: "#/components/schemas/CommentPoll"
+      required:
+      - poll
+      - pollVote
+      - status
+      type: object
+    CreatePollVoteBody:
+      additionalProperties: false
+      example:
+        ip: ip
+        commentId: commentId
+        anonUserId: anonUserId
+        optionId: optionId
+        userId: userId
+      properties:
+        commentId:
+          type: string
+        optionId:
+          type: string
+        userId:
+          type: string
+        anonUserId:
+          type: string
+        ip:
+          type: string
+      required:
+      - commentId
+      - optionId
+      type: object
+    DeletePollVoteResponse:
+      additionalProperties: false
+      example:
+        poll:
+          question: question
+          totalVotes: 6
+          options:
+          - votes: 0
+            id: id
+            label: label
+          - votes: 0
+            id: id
+            label: label
+          privacy: ""
+          closesAt: 2000-01-23T04:56:07.000+00:00
+          requireVoteToSeeResults: true
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        poll:
+          $ref: "#/components/schemas/CommentPoll"
+      required:
+      - poll
+      - status
       type: object
     PendingCommentToSyncOutbound:
       additionalProperties: false
@@ -22471,10 +25082,10 @@ components:
         lastError: "{}"
         webhookId: webhookId
         externalId: externalId
-        attemptCount: 1.284659006116532
+        attemptCount: 2.8841621266687802
         nextAttemptAt: 2000-01-23T04:56:07.000+00:00
-        eventType: 2.8841621266687802
-        type: 6.778324963048013
+        eventType: 6.778324963048013
+        type: 6.878052220127876
         createdAt: 2000-01-23T04:56:07.000+00:00
         domain: domain
         tenantId: tenantId
@@ -22484,7 +25095,9 @@ components:
           editKey: editKey
           pageNumber: 5
           pageTitle: pageTitle
+          detectedLanguage: detectedLanguage
           rating: 3.616076749251911
+          poll: ""
           approved: true
           hashTags:
           - retain: true
@@ -22498,6 +25111,7 @@ components:
           localDateString: localDateString
           notificationSentForParentTenant: true
           verifiedDate: 2000-01-23T04:56:07.000+00:00
+          translations: ""
           isLocked: true
           groupIds:
           - groupIds
@@ -22511,53 +25125,57 @@ components:
               votesDownAfter: 9.369310271410669
               repeatAction: 6
               reason: 8
-              votesUpBefore: 1.1730742509559433
               tenantBadgeId: tenantBadgeId
+              detectedLanguage: detectedLanguage
+              expireBefore: 2000-01-23T04:56:07.000+00:00
+              textBefore: textBefore
+              source: source
+              spamBefore: true
+              foundUser: true
+              engineResponse: engineResponse
+              notificationCount: 6.84685269835264
+              subscribers: 1.4894159098541704
+              otherData: ""
+              clearContent: true
+              approvedAfter: true
+              recipientUserId: recipientUserId
+              phrase: phrase
+              isDeletedUser: true
+              votesUpAfter: 9.965781217890562
+              word: word
+              votesUpBefore: 1.1730742509559433
               badgeId: badgeId
               invalidLocale: invalidLocale
               reviewedBefore: true
               reviewedAfter: true
               trustFactorBefore: 6.438423552598547
               trustFactor: 1.0246457001441578
-              detectedLanguage: detectedLanguage
               engineTokens: 1.2315135367772556
               rule:
                 commentContains: commentContains
                 actions:
                 - spam
                 - spam
-              expireBefore: 2000-01-23T04:56:07.000+00:00
-              textBefore: textBefore
-              source: source
               detectedLocale: detectedLocale
               locale: locale
-              spamBefore: true
               votesBefore: 7.457744773683766
               votesDownBefore: 4.965218492984954
               spamAfter: true
-              foundUser: true
               textAfter: textAfter
               engine: engine
-              engineResponse: engineResponse
               trustFactorAfter: 3.5571952270680973
+              notifySkipReason: 6
               approvedBefore: true
-              notificationCount: 6.84685269835264
-              subscribers: 1.4894159098541704
-              otherData: ""
-              clearContent: true
               verified: true
               expireAfter: 2000-01-23T04:56:07.000+00:00
               flagCountBefore: 9.018348186070783
+              emailQueued: true
               userId: userId
-              approvedAfter: true
-              phrase: phrase
-              isDeletedUser: true
               votesAfter: 5.025004791520295
-              votesUpAfter: 9.965781217890562
               permanentFlag: permanent
               wasLoggedIn: true
+              skipReason: skipReason
               badWord: badWord
-              word: word
               referencedCommentId: referencedCommentId
           - d: 2000-01-23T04:56:07.000+00:00
             t: 7
@@ -22565,53 +25183,57 @@ components:
               votesDownAfter: 9.369310271410669
               repeatAction: 6
               reason: 8
-              votesUpBefore: 1.1730742509559433
               tenantBadgeId: tenantBadgeId
+              detectedLanguage: detectedLanguage
+              expireBefore: 2000-01-23T04:56:07.000+00:00
+              textBefore: textBefore
+              source: source
+              spamBefore: true
+              foundUser: true
+              engineResponse: engineResponse
+              notificationCount: 6.84685269835264
+              subscribers: 1.4894159098541704
+              otherData: ""
+              clearContent: true
+              approvedAfter: true
+              recipientUserId: recipientUserId
+              phrase: phrase
+              isDeletedUser: true
+              votesUpAfter: 9.965781217890562
+              word: word
+              votesUpBefore: 1.1730742509559433
               badgeId: badgeId
               invalidLocale: invalidLocale
               reviewedBefore: true
               reviewedAfter: true
               trustFactorBefore: 6.438423552598547
               trustFactor: 1.0246457001441578
-              detectedLanguage: detectedLanguage
               engineTokens: 1.2315135367772556
               rule:
                 commentContains: commentContains
                 actions:
                 - spam
                 - spam
-              expireBefore: 2000-01-23T04:56:07.000+00:00
-              textBefore: textBefore
-              source: source
               detectedLocale: detectedLocale
               locale: locale
-              spamBefore: true
               votesBefore: 7.457744773683766
               votesDownBefore: 4.965218492984954
               spamAfter: true
-              foundUser: true
               textAfter: textAfter
               engine: engine
-              engineResponse: engineResponse
               trustFactorAfter: 3.5571952270680973
+              notifySkipReason: 6
               approvedBefore: true
-              notificationCount: 6.84685269835264
-              subscribers: 1.4894159098541704
-              otherData: ""
-              clearContent: true
               verified: true
               expireAfter: 2000-01-23T04:56:07.000+00:00
               flagCountBefore: 9.018348186070783
+              emailQueued: true
               userId: userId
-              approvedAfter: true
-              phrase: phrase
-              isDeletedUser: true
               votesAfter: 5.025004791520295
-              votesUpAfter: 9.965781217890562
               permanentFlag: permanent
               wasLoggedIn: true
+              skipReason: skipReason
               badWord: badWord
-              word: word
               referencedCommentId: referencedCommentId
           fromProductId: 2
           flagCount: 9
@@ -22662,7 +25284,7 @@ components:
           permNotSpam: true
           pageNumberOF: 2
           localDateHours: 0
-          viewCount: 6
+          viewCount: 1
           botId: botId
           votesUp: 1
           displayLabel: displayLabel
@@ -22761,10 +25383,10 @@ components:
         - lastError: "{}"
           webhookId: webhookId
           externalId: externalId
-          attemptCount: 1.284659006116532
+          attemptCount: 2.8841621266687802
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
-          eventType: 2.8841621266687802
-          type: 6.778324963048013
+          eventType: 6.778324963048013
+          type: 6.878052220127876
           createdAt: 2000-01-23T04:56:07.000+00:00
           domain: domain
           tenantId: tenantId
@@ -22774,7 +25396,9 @@ components:
             editKey: editKey
             pageNumber: 5
             pageTitle: pageTitle
+            detectedLanguage: detectedLanguage
             rating: 3.616076749251911
+            poll: ""
             approved: true
             hashTags:
             - retain: true
@@ -22788,6 +25412,7 @@ components:
             localDateString: localDateString
             notificationSentForParentTenant: true
             verifiedDate: 2000-01-23T04:56:07.000+00:00
+            translations: ""
             isLocked: true
             groupIds:
             - groupIds
@@ -22801,53 +25426,57 @@ components:
                 votesDownAfter: 9.369310271410669
                 repeatAction: 6
                 reason: 8
-                votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
+                detectedLanguage: detectedLanguage
+                expireBefore: 2000-01-23T04:56:07.000+00:00
+                textBefore: textBefore
+                source: source
+                spamBefore: true
+                foundUser: true
+                engineResponse: engineResponse
+                notificationCount: 6.84685269835264
+                subscribers: 1.4894159098541704
+                otherData: ""
+                clearContent: true
+                approvedAfter: true
+                recipientUserId: recipientUserId
+                phrase: phrase
+                isDeletedUser: true
+                votesUpAfter: 9.965781217890562
+                word: word
+                votesUpBefore: 1.1730742509559433
                 badgeId: badgeId
                 invalidLocale: invalidLocale
                 reviewedBefore: true
                 reviewedAfter: true
                 trustFactorBefore: 6.438423552598547
                 trustFactor: 1.0246457001441578
-                detectedLanguage: detectedLanguage
                 engineTokens: 1.2315135367772556
                 rule:
                   commentContains: commentContains
                   actions:
                   - spam
                   - spam
-                expireBefore: 2000-01-23T04:56:07.000+00:00
-                textBefore: textBefore
-                source: source
                 detectedLocale: detectedLocale
                 locale: locale
-                spamBefore: true
                 votesBefore: 7.457744773683766
                 votesDownBefore: 4.965218492984954
                 spamAfter: true
-                foundUser: true
                 textAfter: textAfter
                 engine: engine
-                engineResponse: engineResponse
                 trustFactorAfter: 3.5571952270680973
+                notifySkipReason: 6
                 approvedBefore: true
-                notificationCount: 6.84685269835264
-                subscribers: 1.4894159098541704
-                otherData: ""
-                clearContent: true
                 verified: true
                 expireAfter: 2000-01-23T04:56:07.000+00:00
                 flagCountBefore: 9.018348186070783
+                emailQueued: true
                 userId: userId
-                approvedAfter: true
-                phrase: phrase
-                isDeletedUser: true
                 votesAfter: 5.025004791520295
-                votesUpAfter: 9.965781217890562
                 permanentFlag: permanent
                 wasLoggedIn: true
+                skipReason: skipReason
                 badWord: badWord
-                word: word
                 referencedCommentId: referencedCommentId
             - d: 2000-01-23T04:56:07.000+00:00
               t: 7
@@ -22855,53 +25484,57 @@ components:
                 votesDownAfter: 9.369310271410669
                 repeatAction: 6
                 reason: 8
-                votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
+                detectedLanguage: detectedLanguage
+                expireBefore: 2000-01-23T04:56:07.000+00:00
+                textBefore: textBefore
+                source: source
+                spamBefore: true
+                foundUser: true
+                engineResponse: engineResponse
+                notificationCount: 6.84685269835264
+                subscribers: 1.4894159098541704
+                otherData: ""
+                clearContent: true
+                approvedAfter: true
+                recipientUserId: recipientUserId
+                phrase: phrase
+                isDeletedUser: true
+                votesUpAfter: 9.965781217890562
+                word: word
+                votesUpBefore: 1.1730742509559433
                 badgeId: badgeId
                 invalidLocale: invalidLocale
                 reviewedBefore: true
                 reviewedAfter: true
                 trustFactorBefore: 6.438423552598547
                 trustFactor: 1.0246457001441578
-                detectedLanguage: detectedLanguage
                 engineTokens: 1.2315135367772556
                 rule:
                   commentContains: commentContains
                   actions:
                   - spam
                   - spam
-                expireBefore: 2000-01-23T04:56:07.000+00:00
-                textBefore: textBefore
-                source: source
                 detectedLocale: detectedLocale
                 locale: locale
-                spamBefore: true
                 votesBefore: 7.457744773683766
                 votesDownBefore: 4.965218492984954
                 spamAfter: true
-                foundUser: true
                 textAfter: textAfter
                 engine: engine
-                engineResponse: engineResponse
                 trustFactorAfter: 3.5571952270680973
+                notifySkipReason: 6
                 approvedBefore: true
-                notificationCount: 6.84685269835264
-                subscribers: 1.4894159098541704
-                otherData: ""
-                clearContent: true
                 verified: true
                 expireAfter: 2000-01-23T04:56:07.000+00:00
                 flagCountBefore: 9.018348186070783
+                emailQueued: true
                 userId: userId
-                approvedAfter: true
-                phrase: phrase
-                isDeletedUser: true
                 votesAfter: 5.025004791520295
-                votesUpAfter: 9.965781217890562
                 permanentFlag: permanent
                 wasLoggedIn: true
+                skipReason: skipReason
                 badWord: badWord
-                word: word
                 referencedCommentId: referencedCommentId
             fromProductId: 2
             flagCount: 9
@@ -22952,7 +25585,7 @@ components:
             permNotSpam: true
             pageNumberOF: 2
             localDateHours: 0
-            viewCount: 6
+            viewCount: 1
             botId: botId
             votesUp: 1
             displayLabel: displayLabel
@@ -23000,10 +25633,10 @@ components:
         - lastError: "{}"
           webhookId: webhookId
           externalId: externalId
-          attemptCount: 1.284659006116532
+          attemptCount: 2.8841621266687802
           nextAttemptAt: 2000-01-23T04:56:07.000+00:00
-          eventType: 2.8841621266687802
-          type: 6.778324963048013
+          eventType: 6.778324963048013
+          type: 6.878052220127876
           createdAt: 2000-01-23T04:56:07.000+00:00
           domain: domain
           tenantId: tenantId
@@ -23013,7 +25646,9 @@ components:
             editKey: editKey
             pageNumber: 5
             pageTitle: pageTitle
+            detectedLanguage: detectedLanguage
             rating: 3.616076749251911
+            poll: ""
             approved: true
             hashTags:
             - retain: true
@@ -23027,6 +25662,7 @@ components:
             localDateString: localDateString
             notificationSentForParentTenant: true
             verifiedDate: 2000-01-23T04:56:07.000+00:00
+            translations: ""
             isLocked: true
             groupIds:
             - groupIds
@@ -23040,53 +25676,57 @@ components:
                 votesDownAfter: 9.369310271410669
                 repeatAction: 6
                 reason: 8
-                votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
+                detectedLanguage: detectedLanguage
+                expireBefore: 2000-01-23T04:56:07.000+00:00
+                textBefore: textBefore
+                source: source
+                spamBefore: true
+                foundUser: true
+                engineResponse: engineResponse
+                notificationCount: 6.84685269835264
+                subscribers: 1.4894159098541704
+                otherData: ""
+                clearContent: true
+                approvedAfter: true
+                recipientUserId: recipientUserId
+                phrase: phrase
+                isDeletedUser: true
+                votesUpAfter: 9.965781217890562
+                word: word
+                votesUpBefore: 1.1730742509559433
                 badgeId: badgeId
                 invalidLocale: invalidLocale
                 reviewedBefore: true
                 reviewedAfter: true
                 trustFactorBefore: 6.438423552598547
                 trustFactor: 1.0246457001441578
-                detectedLanguage: detectedLanguage
                 engineTokens: 1.2315135367772556
                 rule:
                   commentContains: commentContains
                   actions:
                   - spam
                   - spam
-                expireBefore: 2000-01-23T04:56:07.000+00:00
-                textBefore: textBefore
-                source: source
                 detectedLocale: detectedLocale
                 locale: locale
-                spamBefore: true
                 votesBefore: 7.457744773683766
                 votesDownBefore: 4.965218492984954
                 spamAfter: true
-                foundUser: true
                 textAfter: textAfter
                 engine: engine
-                engineResponse: engineResponse
                 trustFactorAfter: 3.5571952270680973
+                notifySkipReason: 6
                 approvedBefore: true
-                notificationCount: 6.84685269835264
-                subscribers: 1.4894159098541704
-                otherData: ""
-                clearContent: true
                 verified: true
                 expireAfter: 2000-01-23T04:56:07.000+00:00
                 flagCountBefore: 9.018348186070783
+                emailQueued: true
                 userId: userId
-                approvedAfter: true
-                phrase: phrase
-                isDeletedUser: true
                 votesAfter: 5.025004791520295
-                votesUpAfter: 9.965781217890562
                 permanentFlag: permanent
                 wasLoggedIn: true
+                skipReason: skipReason
                 badWord: badWord
-                word: word
                 referencedCommentId: referencedCommentId
             - d: 2000-01-23T04:56:07.000+00:00
               t: 7
@@ -23094,53 +25734,57 @@ components:
                 votesDownAfter: 9.369310271410669
                 repeatAction: 6
                 reason: 8
-                votesUpBefore: 1.1730742509559433
                 tenantBadgeId: tenantBadgeId
+                detectedLanguage: detectedLanguage
+                expireBefore: 2000-01-23T04:56:07.000+00:00
+                textBefore: textBefore
+                source: source
+                spamBefore: true
+                foundUser: true
+                engineResponse: engineResponse
+                notificationCount: 6.84685269835264
+                subscribers: 1.4894159098541704
+                otherData: ""
+                clearContent: true
+                approvedAfter: true
+                recipientUserId: recipientUserId
+                phrase: phrase
+                isDeletedUser: true
+                votesUpAfter: 9.965781217890562
+                word: word
+                votesUpBefore: 1.1730742509559433
                 badgeId: badgeId
                 invalidLocale: invalidLocale
                 reviewedBefore: true
                 reviewedAfter: true
                 trustFactorBefore: 6.438423552598547
                 trustFactor: 1.0246457001441578
-                detectedLanguage: detectedLanguage
                 engineTokens: 1.2315135367772556
                 rule:
                   commentContains: commentContains
                   actions:
                   - spam
                   - spam
-                expireBefore: 2000-01-23T04:56:07.000+00:00
-                textBefore: textBefore
-                source: source
                 detectedLocale: detectedLocale
                 locale: locale
-                spamBefore: true
                 votesBefore: 7.457744773683766
                 votesDownBefore: 4.965218492984954
                 spamAfter: true
-                foundUser: true
                 textAfter: textAfter
                 engine: engine
-                engineResponse: engineResponse
                 trustFactorAfter: 3.5571952270680973
+                notifySkipReason: 6
                 approvedBefore: true
-                notificationCount: 6.84685269835264
-                subscribers: 1.4894159098541704
-                otherData: ""
-                clearContent: true
                 verified: true
                 expireAfter: 2000-01-23T04:56:07.000+00:00
                 flagCountBefore: 9.018348186070783
+                emailQueued: true
                 userId: userId
-                approvedAfter: true
-                phrase: phrase
-                isDeletedUser: true
                 votesAfter: 5.025004791520295
-                votesUpAfter: 9.965781217890562
                 permanentFlag: permanent
                 wasLoggedIn: true
+                skipReason: skipReason
                 badWord: badWord
-                word: word
                 referencedCommentId: referencedCommentId
             fromProductId: 2
             flagCount: 9
@@ -23191,7 +25835,7 @@ components:
             permNotSpam: true
             pageNumberOF: 2
             localDateHours: 0
-            viewCount: 6
+            viewCount: 1
             botId: botId
             votesUp: 1
             displayLabel: displayLabel
@@ -23680,6 +26324,57 @@ components:
           items:
             type: string
           type: array
+      type: object
+    MeAuthType:
+      enum:
+      - api-key
+      - oauth
+      type: string
+    OAuthScope:
+      enum:
+      - read
+      - write
+      type: string
+    GetMeResponse:
+      additionalProperties: false
+      example:
+        tenantName: tenantName
+        tenantId: tenantId
+        scopes:
+        - read
+        - read
+        authType: api-key
+        userId: userId
+        email: email
+        status: success
+        username: username
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        tenantId:
+          type: string
+        tenantName:
+          type: string
+        authType:
+          $ref: "#/components/schemas/MeAuthType"
+        scopes:
+          items:
+            $ref: "#/components/schemas/OAuthScope"
+          type: array
+        userId:
+          description: "Only present for OAuth tokens: the user who authorized the\
+            \ application."
+          type: string
+        username:
+          type: string
+        email:
+          type: string
+      required:
+      - authType
+      - scopes
+      - status
+      - tenantId
+      - tenantName
       type: object
     TenantHashTag:
       additionalProperties: false
@@ -25396,6 +28091,14 @@ components:
         commenterName: commenterName
         rating: 5.962133916683182
         commenterLink: commenterLink
+        poll:
+          question: question
+          options:
+          - options
+          - options
+          privacy: 2
+          closesAt: closesAt
+          requireVoteToSeeResults: true
         urlId: urlId
         locale: locale
         hashTags:
@@ -25416,7 +28119,7 @@ components:
         votesUp: 9
         productId: 1
         questionValues:
-          key: GifSearchResponse_images_inner_inner
+          key: Record_string_string_or_number_or_number_Array__value
         isPinned: true
         ip: ip
         feedbackIds:
@@ -25517,10 +28220,12 @@ components:
           type: array
         questionValues:
           additionalProperties:
-            $ref: "#/components/schemas/GifSearchResponse_images_inner_inner"
+            $ref: "#/components/schemas/Record_string_string_or_number_or_number_Array__value"
           description: Construct a type with a set of properties K of type T
           properties: {}
           type: object
+        poll:
+          $ref: "#/components/schemas/CommentPollInput"
         tos:
           type: boolean
         botId:
@@ -25603,20 +28308,278 @@ components:
             type: string
           type: array
       type: object
+    PageMigrationSuccess:
+      additionalProperties: false
+      example:
+        commentsMigrated: 5
+        from: from
+        to: to
+        type: urlId
+        status: success
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        type:
+          $ref: "#/components/schemas/PageMigrationType"
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        commentsMigrated:
+          format: int32
+          type: integer
+      required:
+      - commentsMigrated
+      - from
+      - status
+      - to
+      - type
+      type: object
+    PageMigrationFailure:
+      additionalProperties: false
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        type:
+          $ref: "#/components/schemas/PageMigrationType"
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        code:
+          type: string
+        reason:
+          type: string
+      required:
+      - code
+      - from
+      - reason
+      - status
+      - to
+      - type
+      type: object
+    PageMigrationUndoCounts:
+      additionalProperties: false
+      example:
+        notRestorable: 1
+        restored: 0
+        skipped: 6
+      properties:
+        restored:
+          description: Records put back to their pre-migration values.
+          format: int32
+          type: integer
+        skipped:
+          description: "Records left alone because they changed after the migration,\
+            \ or no longer exist."
+          format: int32
+          type: integer
+        notRestorable:
+          description: Records a page merge or duplicate cleanup deleted during the
+            migration. These cannot be brought back.
+          format: int32
+          type: integer
+      required:
+      - notRestorable
+      - restored
+      - skipped
+      type: object
+    APIBatchJob:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        completedAt: 2000-01-23T04:56:07.000+00:00
+        processedCount: 2
+        pageMigrationUndoResult:
+          notRestorable: 1
+          restored: 0
+          skipped: 6
+        undoId: undoId
+        id: id
+        totalCount: 5
+        type: type
+        pageMigrationResults:
+        - commentsMigrated: 5
+          from: from
+          to: to
+          type: urlId
+          status: success
+        - commentsMigrated: 5
+          from: from
+          to: to
+          type: urlId
+          status: success
+        status: status
+      properties:
+        pageMigrationUndoResult:
+          $ref: "#/components/schemas/PageMigrationUndoCounts"
+        undoId:
+          description: |-
+            migrate-pages: set once the job has finished. Pass to POST /api/v1/pages/migrations/{undoId}/undo within 90 days.
+            undo-page-migration: the migration being undone.
+          type: string
+        pageMigrationResults:
+          description: "migrate-pages: one entry per finished migration, in request\
+            \ order."
+          items:
+            $ref: "#/components/schemas/APIBatchJob_pageMigrationResults_inner"
+          type: array
+        totalCount:
+          description: "Total work, when known up front."
+          format: int32
+          type: integer
+        processedCount:
+          description: |-
+            Work done so far. The unit depends on the type: migrations finished for migrate-pages, records restored for
+            undo-page-migration, rows for imports and exports.
+          format: int32
+          type: integer
+        completedAt:
+          format: date-time
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+        status:
+          description: "requested, running, success or failed."
+          type: string
+        type:
+          description: "For example migrate-pages, undo-page-migration, export, import."
+          type: string
+        id:
+          type: string
+      required:
+      - createdAt
+      - id
+      - processedCount
+      - status
+      - type
+      type: object
+    GetBatchJobsAPIResponse:
+      example:
+        reason: reason
+        code: code
+        batchJobs:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          completedAt: 2000-01-23T04:56:07.000+00:00
+          processedCount: 2
+          pageMigrationUndoResult:
+            notRestorable: 1
+            restored: 0
+            skipped: 6
+          undoId: undoId
+          id: id
+          totalCount: 5
+          type: type
+          pageMigrationResults:
+          - commentsMigrated: 5
+            from: from
+            to: to
+            type: urlId
+            status: success
+          - commentsMigrated: 5
+            from: from
+            to: to
+            type: urlId
+            status: success
+          status: status
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          completedAt: 2000-01-23T04:56:07.000+00:00
+          processedCount: 2
+          pageMigrationUndoResult:
+            notRestorable: 1
+            restored: 0
+            skipped: 6
+          undoId: undoId
+          id: id
+          totalCount: 5
+          type: type
+          pageMigrationResults:
+          - commentsMigrated: 5
+            from: from
+            to: to
+            type: urlId
+            status: success
+          - commentsMigrated: 5
+            from: from
+            to: to
+            type: urlId
+            status: success
+          status: status
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        batchJobs:
+          description: "Newest first, 100 per page."
+          items:
+            $ref: "#/components/schemas/APIBatchJob"
+          type: array
+        status:
+          type: string
+      required:
+      - status
+      type: object
+    GetBatchJobAPIResponse:
+      example:
+        reason: reason
+        code: code
+        batchJob:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          completedAt: 2000-01-23T04:56:07.000+00:00
+          processedCount: 2
+          pageMigrationUndoResult:
+            notRestorable: 1
+            restored: 0
+            skipped: 6
+          undoId: undoId
+          id: id
+          totalCount: 5
+          type: type
+          pageMigrationResults:
+          - commentsMigrated: 5
+            from: from
+            to: to
+            type: urlId
+            status: success
+          - commentsMigrated: 5
+            from: from
+            to: to
+            type: urlId
+            status: success
+          status: status
+        status: status
+      properties:
+        reason:
+          type: string
+        code:
+          type: string
+        batchJob:
+          $ref: "#/components/schemas/APIBatchJob"
+        status:
+          type: string
+      required:
+      - status
+      type: object
     APIAuditLog:
       additionalProperties: false
       example:
-        crudType: c
-        serverStartDate: 2000-01-23T04:56:07.000+00:00
+        targetId: targetId
         ip: ip
+        targetLabel: targetLabel
         description: description
         resourceName: resourceName
-        from: ui
-        _id: _id
+        ua: ua
         userId: userId
         when: 2000-01-23T04:56:07.000+00:00
         url: url
         objectDetails: ""
+        crudType: c
+        serverStartDate: 2000-01-23T04:56:07.000+00:00
+        sIdHashed: sIdHashed
+        from: ui
+        _id: _id
         username: username
       properties:
         _id:
@@ -25651,6 +28614,7 @@ components:
           format: date-time
           type: string
         description:
+          nullable: true
           type: string
         serverStartDate:
           format: date-time
@@ -25659,6 +28623,14 @@ components:
           allOf:
           - $ref: "#/components/schemas/Record_string.any_"
           nullable: true
+        targetId:
+          type: string
+        targetLabel:
+          type: string
+        ua:
+          type: string
+        sIdHashed:
+          type: string
       required:
       - _id
       - crudType
@@ -25668,29 +28640,37 @@ components:
       additionalProperties: false
       example:
         auditLogs:
-        - crudType: c
-          serverStartDate: 2000-01-23T04:56:07.000+00:00
+        - targetId: targetId
           ip: ip
+          targetLabel: targetLabel
           description: description
           resourceName: resourceName
-          from: ui
-          _id: _id
+          ua: ua
           userId: userId
           when: 2000-01-23T04:56:07.000+00:00
           url: url
           objectDetails: ""
+          crudType: c
+          serverStartDate: 2000-01-23T04:56:07.000+00:00
+          sIdHashed: sIdHashed
+          from: ui
+          _id: _id
           username: username
-        - crudType: c
-          serverStartDate: 2000-01-23T04:56:07.000+00:00
+        - targetId: targetId
           ip: ip
+          targetLabel: targetLabel
           description: description
           resourceName: resourceName
-          from: ui
-          _id: _id
+          ua: ua
           userId: userId
           when: 2000-01-23T04:56:07.000+00:00
           url: url
           objectDetails: ""
+          crudType: c
+          serverStartDate: 2000-01-23T04:56:07.000+00:00
+          sIdHashed: sIdHashed
+          from: ui
+          _id: _id
           username: username
         status: success
       properties:
@@ -25903,6 +28883,70 @@ components:
       required:
       - operations
       - resourceName
+      type: object
+    CreateAgentTenantResponse:
+      additionalProperties: false
+      example:
+        apiBaseUrl: apiBaseUrl
+        mcpUrl: mcpUrl
+        apiKey: apiKey
+        claimUrl: claimUrl
+        tenantId: tenantId
+        expiresAt: expiresAt
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        tenantId:
+          description: Pass as tenantId on every API and MCP call.
+          type: string
+        apiKey:
+          description: Full-access key for this tenant. Works immediately. Keep it
+            secret.
+          type: string
+        claimUrl:
+          description: Give this to the human. Opening it while logged in attaches
+            the tenant to their account.
+          type: string
+        expiresAt:
+          description: ISO date. The tenant and its key are deleted at this time unless
+            claimed.
+          type: string
+        apiBaseUrl:
+          type: string
+        mcpUrl:
+          type: string
+      required:
+      - apiBaseUrl
+      - apiKey
+      - claimUrl
+      - expiresAt
+      - mcpUrl
+      - status
+      - tenantId
+      type: object
+    CreateAgentTenantBody:
+      additionalProperties: false
+      example:
+        agent: agent
+        name: name
+        domains:
+        - domains
+        - domains
+      properties:
+        name:
+          description: Display name for the account. Defaults to the first domain.
+          type: string
+        domains:
+          description: "Domains the comment widget will be embedded on, e.g. [\"example.com\"\
+            ]. At most 5."
+          items:
+            type: string
+          type: array
+        agent:
+          description: "Free-form identifier of the agent making the request, e.g.\
+            \ \"claude-code\"."
+          type: string
       type: object
     UpdateUserNotificationStatusResponse:
       anyOf:
@@ -26201,6 +29245,15 @@ components:
           properties: {}
           type: object
       type: object
+    Record_string_string_or_number_or_number_Array__value:
+      anyOf:
+      - type: string
+      - format: double
+        type: number
+      - items:
+          format: double
+          type: number
+        type: array
     FComment_meta:
       additionalProperties: {}
       example:
@@ -26228,6 +29281,19 @@ components:
       required:
       - imageSrc
       - name
+      type: object
+    CommentPollPatch_options_inner:
+      example:
+        label: label
+        id: id
+      properties:
+        label:
+          type: string
+        id:
+          type: string
+      required:
+      - id
+      - label
       type: object
     BulkCreateHashTagsResponse_results_inner:
       anyOf:
@@ -26257,6 +29323,10 @@ components:
         wpPostId:
           type: string
       type: object
+    APIBatchJob_pageMigrationResults_inner:
+      anyOf:
+      - $ref: "#/components/schemas/PageMigrationSuccess"
+      - $ref: "#/components/schemas/PageMigrationFailure"
     AggregationResponse_stats:
       example:
         scanned: 6

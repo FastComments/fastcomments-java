@@ -15,6 +15,7 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.APIStatus;
+import com.fastcomments.model.PageCustomReactUser;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,6 +56,11 @@ import com.fastcomments.invoker.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class GetV2PageReacts {
+  public static final String SERIALIZED_NAME_USERS = "users";
+  @SerializedName(SERIALIZED_NAME_USERS)
+  @javax.annotation.Nullable
+  private List<PageCustomReactUser> users = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_REACTED_IDS = "reactedIds";
   @SerializedName(SERIALIZED_NAME_REACTED_IDS)
   @javax.annotation.Nullable
@@ -72,6 +78,33 @@ public class GetV2PageReacts {
 
   public GetV2PageReacts() {
   }
+
+  public GetV2PageReacts users(@javax.annotation.Nullable List<PageCustomReactUser> users) {
+    this.users = users;
+    return this;
+  }
+
+  public GetV2PageReacts addUsersItem(PageCustomReactUser usersItem) {
+    if (this.users == null) {
+      this.users = new ArrayList<>();
+    }
+    this.users.add(usersItem);
+    return this;
+  }
+
+  /**
+   * One entry per react, most recent first. Present when includeUserInfo is passed. Capped at 100 reacts.
+   * @return users
+   */
+  @javax.annotation.Nullable
+  public List<PageCustomReactUser> getUsers() {
+    return users;
+  }
+
+  public void setUsers(@javax.annotation.Nullable List<PageCustomReactUser> users) {
+    this.users = users;
+  }
+
 
   public GetV2PageReacts reactedIds(@javax.annotation.Nullable List<String> reactedIds) {
     this.reactedIds = reactedIds;
@@ -200,7 +233,8 @@ public class GetV2PageReacts {
       return false;
     }
     GetV2PageReacts getV2PageReacts = (GetV2PageReacts) o;
-    return Objects.equals(this.reactedIds, getV2PageReacts.reactedIds) &&
+    return Objects.equals(this.users, getV2PageReacts.users) &&
+        Objects.equals(this.reactedIds, getV2PageReacts.reactedIds) &&
         Objects.equals(this.counts, getV2PageReacts.counts) &&
         Objects.equals(this.status, getV2PageReacts.status)&&
         Objects.equals(this.additionalProperties, getV2PageReacts.additionalProperties);
@@ -208,13 +242,14 @@ public class GetV2PageReacts {
 
   @Override
   public int hashCode() {
-    return Objects.hash(reactedIds, counts, status, additionalProperties);
+    return Objects.hash(users, reactedIds, counts, status, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetV2PageReacts {\n");
+    sb.append("    users: ").append(toIndentedString(users)).append("\n");
     sb.append("    reactedIds: ").append(toIndentedString(reactedIds)).append("\n");
     sb.append("    counts: ").append(toIndentedString(counts)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -237,7 +272,7 @@ public class GetV2PageReacts {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("reactedIds", "counts", "status"));
+    openapiFields = new HashSet<String>(Arrays.asList("users", "reactedIds", "counts", "status"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("status"));
@@ -263,6 +298,20 @@ public class GetV2PageReacts {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("users") != null && !jsonObj.get("users").isJsonNull()) {
+        JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
+        if (jsonArrayusers != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("users").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+          }
+
+          // validate the optional field `users` (array)
+          for (int i = 0; i < jsonArrayusers.size(); i++) {
+            PageCustomReactUser.validateJsonElement(jsonArrayusers.get(i));
+          };
+        }
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("reactedIds") != null && !jsonObj.get("reactedIds").isJsonNull() && !jsonObj.get("reactedIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reactedIds` to be an array in the JSON string but got `%s`", jsonObj.get("reactedIds").toString()));

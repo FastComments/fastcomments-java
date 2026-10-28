@@ -15,6 +15,8 @@ package com.fastcomments.model;
 
 import java.util.Objects;
 import com.fastcomments.model.CommentLogEntry;
+import com.fastcomments.model.CommentPoll;
+import com.fastcomments.model.CommentTranslation;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserHashTagInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
@@ -28,7 +30,9 @@ import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -268,6 +272,16 @@ public class FComment {
   @javax.annotation.Nullable
   private String locale;
 
+  public static final String SERIALIZED_NAME_DETECTED_LANGUAGE = "detectedLanguage";
+  @SerializedName(SERIALIZED_NAME_DETECTED_LANGUAGE)
+  @javax.annotation.Nullable
+  private String detectedLanguage;
+
+  public static final String SERIALIZED_NAME_TRANSLATIONS = "translations";
+  @SerializedName(SERIALIZED_NAME_TRANSLATIONS)
+  @javax.annotation.Nullable
+  private Map<String, CommentTranslation> translations;
+
   public static final String SERIALIZED_NAME_IS_DELETED = "isDeleted";
   @SerializedName(SERIALIZED_NAME_IS_DELETED)
   @javax.annotation.Nullable
@@ -387,6 +401,11 @@ public class FComment {
   @SerializedName(SERIALIZED_NAME_FEEDBACK_IDS)
   @javax.annotation.Nullable
   private List<String> feedbackIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_POLL = "poll";
+  @SerializedName(SERIALIZED_NAME_POLL)
+  @javax.annotation.Nullable
+  private CommentPoll poll;
 
   public static final String SERIALIZED_NAME_LOGS = "logs";
   @SerializedName(SERIALIZED_NAME_LOGS)
@@ -1224,6 +1243,52 @@ public class FComment {
   }
 
 
+  public FComment detectedLanguage(@javax.annotation.Nullable String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
+    return this;
+  }
+
+  /**
+   * Get detectedLanguage
+   * @return detectedLanguage
+   */
+  @javax.annotation.Nullable
+  public String getDetectedLanguage() {
+    return detectedLanguage;
+  }
+
+  public void setDetectedLanguage(@javax.annotation.Nullable String detectedLanguage) {
+    this.detectedLanguage = detectedLanguage;
+  }
+
+
+  public FComment translations(@javax.annotation.Nullable Map<String, CommentTranslation> translations) {
+    this.translations = translations;
+    return this;
+  }
+
+  public FComment putTranslationsItem(String key, CommentTranslation translationsItem) {
+    if (this.translations == null) {
+      this.translations = new HashMap<>();
+    }
+    this.translations.put(key, translationsItem);
+    return this;
+  }
+
+  /**
+   * Construct a type with a set of properties K of type T
+   * @return translations
+   */
+  @javax.annotation.Nullable
+  public Map<String, CommentTranslation> getTranslations() {
+    return translations;
+  }
+
+  public void setTranslations(@javax.annotation.Nullable Map<String, CommentTranslation> translations) {
+    this.translations = translations;
+  }
+
+
   public FComment isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
     this.isDeleted = isDeleted;
     return this;
@@ -1720,6 +1785,25 @@ public class FComment {
   }
 
 
+  public FComment poll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+    return this;
+  }
+
+  /**
+   * Get poll
+   * @return poll
+   */
+  @javax.annotation.Nullable
+  public CommentPoll getPoll() {
+    return poll;
+  }
+
+  public void setPoll(@javax.annotation.Nullable CommentPoll poll) {
+    this.poll = poll;
+  }
+
+
   public FComment logs(@javax.annotation.Nullable List<CommentLogEntry> logs) {
     this.logs = logs;
     return this;
@@ -1921,6 +2005,8 @@ public class FComment {
         Objects.equals(this.hasCode, fcomment.hasCode) &&
         Objects.equals(this.approved, fcomment.approved) &&
         Objects.equals(this.locale, fcomment.locale) &&
+        Objects.equals(this.detectedLanguage, fcomment.detectedLanguage) &&
+        Objects.equals(this.translations, fcomment.translations) &&
         Objects.equals(this.isDeleted, fcomment.isDeleted) &&
         Objects.equals(this.isDeletedUser, fcomment.isDeletedUser) &&
         Objects.equals(this.isBannedUser, fcomment.isBannedUser) &&
@@ -1945,6 +2031,7 @@ public class FComment {
         Objects.equals(this.autoplayJobId, fcomment.autoplayJobId) &&
         Objects.equals(this.autoplayDelayMS, fcomment.autoplayDelayMS) &&
         Objects.equals(this.feedbackIds, fcomment.feedbackIds) &&
+        Objects.equals(this.poll, fcomment.poll) &&
         Objects.equals(this.logs, fcomment.logs) &&
         Objects.equals(this.groupIds, fcomment.groupIds) &&
         Objects.equals(this.viewCount, fcomment.viewCount) &&
@@ -1956,7 +2043,7 @@ public class FComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, permNotSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, logs, groupIds, viewCount, requiresVerification, editKey, tosAcceptedAt, botId);
+    return Objects.hash(id, tenantId, urlId, urlIdRaw, url, pageTitle, userId, anonUserId, commenterEmail, commenterName, commenterLink, comment, commentHTML, parentId, date, localDateString, localDateHours, votes, votesUp, votesDown, expireAt, verified, verifiedDate, verificationId, notificationSentForParent, notificationSentForParentTenant, reviewed, imported, externalId, externalParentId, avatarSrc, isSpam, permNotSpam, aiDeterminedSpam, hasImages, pageNumber, pageNumberOF, pageNumberNF, hasLinks, hasCode, approved, locale, detectedLanguage, translations, isDeleted, isDeletedUser, isBannedUser, isByAdmin, isByModerator, isPinned, isLocked, flagCount, rating, displayLabel, fromProductId, meta, ipHash, mentions, hashTags, badges, domain, veteranBadgeProcessed, moderationGroupIds, didProcessBadges, fromOfflineRestore, autoplayJobId, autoplayDelayMS, feedbackIds, poll, logs, groupIds, viewCount, requiresVerification, editKey, tosAcceptedAt, botId);
   }
 
   @Override
@@ -2005,6 +2092,8 @@ public class FComment {
     sb.append("    hasCode: ").append(toIndentedString(hasCode)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    locale: ").append(toIndentedString(locale)).append("\n");
+    sb.append("    detectedLanguage: ").append(toIndentedString(detectedLanguage)).append("\n");
+    sb.append("    translations: ").append(toIndentedString(translations)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
     sb.append("    isDeletedUser: ").append(toIndentedString(isDeletedUser)).append("\n");
     sb.append("    isBannedUser: ").append(toIndentedString(isBannedUser)).append("\n");
@@ -2029,6 +2118,7 @@ public class FComment {
     sb.append("    autoplayJobId: ").append(toIndentedString(autoplayJobId)).append("\n");
     sb.append("    autoplayDelayMS: ").append(toIndentedString(autoplayDelayMS)).append("\n");
     sb.append("    feedbackIds: ").append(toIndentedString(feedbackIds)).append("\n");
+    sb.append("    poll: ").append(toIndentedString(poll)).append("\n");
     sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
     sb.append("    groupIds: ").append(toIndentedString(groupIds)).append("\n");
     sb.append("    viewCount: ").append(toIndentedString(viewCount)).append("\n");
@@ -2054,7 +2144,7 @@ public class FComment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "urlId", "urlIdRaw", "url", "pageTitle", "userId", "anonUserId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "verificationId", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "imported", "externalId", "externalParentId", "avatarSrc", "isSpam", "permNotSpam", "aiDeterminedSpam", "hasImages", "pageNumber", "pageNumberOF", "pageNumberNF", "hasLinks", "hasCode", "approved", "locale", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "fromProductId", "meta", "ipHash", "mentions", "hashTags", "badges", "domain", "veteranBadgeProcessed", "moderationGroupIds", "didProcessBadges", "fromOfflineRestore", "autoplayJobId", "autoplayDelayMS", "feedbackIds", "logs", "groupIds", "viewCount", "requiresVerification", "editKey", "tosAcceptedAt", "botId"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "urlId", "urlIdRaw", "url", "pageTitle", "userId", "anonUserId", "commenterEmail", "commenterName", "commenterLink", "comment", "commentHTML", "parentId", "date", "localDateString", "localDateHours", "votes", "votesUp", "votesDown", "expireAt", "verified", "verifiedDate", "verificationId", "notificationSentForParent", "notificationSentForParentTenant", "reviewed", "imported", "externalId", "externalParentId", "avatarSrc", "isSpam", "permNotSpam", "aiDeterminedSpam", "hasImages", "pageNumber", "pageNumberOF", "pageNumberNF", "hasLinks", "hasCode", "approved", "locale", "detectedLanguage", "translations", "isDeleted", "isDeletedUser", "isBannedUser", "isByAdmin", "isByModerator", "isPinned", "isLocked", "flagCount", "rating", "displayLabel", "fromProductId", "meta", "ipHash", "mentions", "hashTags", "badges", "domain", "veteranBadgeProcessed", "moderationGroupIds", "didProcessBadges", "fromOfflineRestore", "autoplayJobId", "autoplayDelayMS", "feedbackIds", "poll", "logs", "groupIds", "viewCount", "requiresVerification", "editKey", "tosAcceptedAt", "botId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "tenantId", "urlId", "url", "commenterName", "comment", "commentHTML", "date", "verified", "approved", "locale"));
@@ -2148,6 +2238,9 @@ public class FComment {
       if ((jsonObj.get("locale") != null && !jsonObj.get("locale").isJsonNull()) && !jsonObj.get("locale").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `locale` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locale").toString()));
       }
+      if ((jsonObj.get("detectedLanguage") != null && !jsonObj.get("detectedLanguage").isJsonNull()) && !jsonObj.get("detectedLanguage").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `detectedLanguage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("detectedLanguage").toString()));
+      }
       if ((jsonObj.get("displayLabel") != null && !jsonObj.get("displayLabel").isJsonNull()) && !jsonObj.get("displayLabel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `displayLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("displayLabel").toString()));
       }
@@ -2212,6 +2305,10 @@ public class FComment {
       // ensure the optional json data is an array if present
       if (jsonObj.get("feedbackIds") != null && !jsonObj.get("feedbackIds").isJsonNull() && !jsonObj.get("feedbackIds").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `feedbackIds` to be an array in the JSON string but got `%s`", jsonObj.get("feedbackIds").toString()));
+      }
+      // validate the optional field `poll`
+      if (jsonObj.get("poll") != null && !jsonObj.get("poll").isJsonNull()) {
+        CommentPoll.validateJsonElement(jsonObj.get("poll"));
       }
       if (jsonObj.get("logs") != null && !jsonObj.get("logs").isJsonNull()) {
         JsonArray jsonArraylogs = jsonObj.getAsJsonArray("logs");

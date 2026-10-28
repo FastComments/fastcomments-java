@@ -63,6 +63,7 @@
 |**flexSSOAdminUnit** | **Double** |  |  [optional] |
 |**flexSSOModeratorCostCents** | **Double** |  |  [optional] |
 |**flexSSOModeratorUnit** | **Double** |  |  [optional] |
+|**flexFreeModerators** | **Double** |  |  [optional] |
 |**isSSOBillingMonthlyActiveUsers** | **Boolean** |  |  [optional] |
 |**hasAIAgents** | **Boolean** |  |  [optional] |
 |**maxAIAgents** | **Double** |  |  [optional] |

@@ -81,6 +81,11 @@ public class EventLogEntry {
   @javax.annotation.Nonnull
   private String data;
 
+  public static final String SERIALIZED_NAME_DOMAIN = "domain";
+  @SerializedName(SERIALIZED_NAME_DOMAIN)
+  @javax.annotation.Nullable
+  private String domain;
+
   public EventLogEntry() {
   }
 
@@ -198,6 +203,25 @@ public class EventLogEntry {
   }
 
 
+  public EventLogEntry domain(@javax.annotation.Nullable String domain) {
+    this.domain = domain;
+    return this;
+  }
+
+  /**
+   * Get domain
+   * @return domain
+   */
+  @javax.annotation.Nullable
+  public String getDomain() {
+    return domain;
+  }
+
+  public void setDomain(@javax.annotation.Nullable String domain) {
+    this.domain = domain;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -213,12 +237,13 @@ public class EventLogEntry {
         Objects.equals(this.tenantId, eventLogEntry.tenantId) &&
         Objects.equals(this.urlId, eventLogEntry.urlId) &&
         Objects.equals(this.broadcastId, eventLogEntry.broadcastId) &&
-        Objects.equals(this.data, eventLogEntry.data);
+        Objects.equals(this.data, eventLogEntry.data) &&
+        Objects.equals(this.domain, eventLogEntry.domain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, createdAt, tenantId, urlId, broadcastId, data);
+    return Objects.hash(id, createdAt, tenantId, urlId, broadcastId, data, domain);
   }
 
   @Override
@@ -231,6 +256,7 @@ public class EventLogEntry {
     sb.append("    urlId: ").append(toIndentedString(urlId)).append("\n");
     sb.append("    broadcastId: ").append(toIndentedString(broadcastId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -249,7 +275,7 @@ public class EventLogEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "createdAt", "tenantId", "urlId", "broadcastId", "data"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "createdAt", "tenantId", "urlId", "broadcastId", "data", "domain"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "createdAt", "tenantId", "urlId", "broadcastId", "data"));
@@ -297,6 +323,9 @@ public class EventLogEntry {
       }
       if (!jsonObj.get("data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data").toString()));
+      }
+      if ((jsonObj.get("domain") != null && !jsonObj.get("domain").isJsonNull()) && !jsonObj.get("domain").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain").toString()));
       }
   }
 

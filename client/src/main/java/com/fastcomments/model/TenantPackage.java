@@ -333,6 +333,11 @@ public class TenantPackage {
   @javax.annotation.Nullable
   private Double flexSSOModeratorUnit;
 
+  public static final String SERIALIZED_NAME_FLEX_FREE_MODERATORS = "flexFreeModerators";
+  @SerializedName(SERIALIZED_NAME_FLEX_FREE_MODERATORS)
+  @javax.annotation.Nullable
+  private Double flexFreeModerators;
+
   public static final String SERIALIZED_NAME_IS_S_S_O_BILLING_MONTHLY_ACTIVE_USERS = "isSSOBillingMonthlyActiveUsers";
   @SerializedName(SERIALIZED_NAME_IS_S_S_O_BILLING_MONTHLY_ACTIVE_USERS)
   @javax.annotation.Nullable
@@ -1433,6 +1438,25 @@ public class TenantPackage {
   }
 
 
+  public TenantPackage flexFreeModerators(@javax.annotation.Nullable Double flexFreeModerators) {
+    this.flexFreeModerators = flexFreeModerators;
+    return this;
+  }
+
+  /**
+   * Get flexFreeModerators
+   * @return flexFreeModerators
+   */
+  @javax.annotation.Nullable
+  public Double getFlexFreeModerators() {
+    return flexFreeModerators;
+  }
+
+  public void setFlexFreeModerators(@javax.annotation.Nullable Double flexFreeModerators) {
+    this.flexFreeModerators = flexFreeModerators;
+  }
+
+
   public TenantPackage isSSOBillingMonthlyActiveUsers(@javax.annotation.Nullable Boolean isSSOBillingMonthlyActiveUsers) {
     this.isSSOBillingMonthlyActiveUsers = isSSOBillingMonthlyActiveUsers;
     return this;
@@ -1594,6 +1618,7 @@ public class TenantPackage {
         Objects.equals(this.flexSSOAdminUnit, tenantPackage.flexSSOAdminUnit) &&
         Objects.equals(this.flexSSOModeratorCostCents, tenantPackage.flexSSOModeratorCostCents) &&
         Objects.equals(this.flexSSOModeratorUnit, tenantPackage.flexSSOModeratorUnit) &&
+        Objects.equals(this.flexFreeModerators, tenantPackage.flexFreeModerators) &&
         Objects.equals(this.isSSOBillingMonthlyActiveUsers, tenantPackage.isSSOBillingMonthlyActiveUsers) &&
         Objects.equals(this.hasAIAgents, tenantPackage.hasAIAgents) &&
         Objects.equals(this.maxAIAgents, tenantPackage.maxAIAgents) &&
@@ -1603,7 +1628,7 @@ public class TenantPackage {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, tenantId, createdAt, templateId, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, isSSOBillingMonthlyActiveUsers, hasAIAgents, maxAIAgents, aiAgentDailyBudgetCents, aiAgentMonthlyBudgetCents);
+    return Objects.hash(id, name, tenantId, createdAt, templateId, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, flexFreeModerators, isSSOBillingMonthlyActiveUsers, hasAIAgents, maxAIAgents, aiAgentDailyBudgetCents, aiAgentMonthlyBudgetCents);
   }
 
   @Override
@@ -1666,6 +1691,7 @@ public class TenantPackage {
     sb.append("    flexSSOAdminUnit: ").append(toIndentedString(flexSSOAdminUnit)).append("\n");
     sb.append("    flexSSOModeratorCostCents: ").append(toIndentedString(flexSSOModeratorCostCents)).append("\n");
     sb.append("    flexSSOModeratorUnit: ").append(toIndentedString(flexSSOModeratorUnit)).append("\n");
+    sb.append("    flexFreeModerators: ").append(toIndentedString(flexFreeModerators)).append("\n");
     sb.append("    isSSOBillingMonthlyActiveUsers: ").append(toIndentedString(isSSOBillingMonthlyActiveUsers)).append("\n");
     sb.append("    hasAIAgents: ").append(toIndentedString(hasAIAgents)).append("\n");
     sb.append("    maxAIAgents: ").append(toIndentedString(maxAIAgents)).append("\n");
@@ -1689,7 +1715,7 @@ public class TenantPackage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "templateId", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "isSSOBillingMonthlyActiveUsers", "hasAIAgents", "maxAIAgents", "aiAgentDailyBudgetCents", "aiAgentMonthlyBudgetCents"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "templateId", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "flexFreeModerators", "isSSOBillingMonthlyActiveUsers", "hasAIAgents", "maxAIAgents", "aiAgentDailyBudgetCents", "aiAgentMonthlyBudgetCents"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing"));

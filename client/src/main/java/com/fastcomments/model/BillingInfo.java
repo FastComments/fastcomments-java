@@ -90,6 +90,11 @@ public class BillingInfo {
   @javax.annotation.Nullable
   private String email;
 
+  public static final String SERIALIZED_NAME_VAT_ID = "vatId";
+  @SerializedName(SERIALIZED_NAME_VAT_ID)
+  @javax.annotation.Nullable
+  private String vatId;
+
   public BillingInfo() {
   }
 
@@ -245,6 +250,25 @@ public class BillingInfo {
   }
 
 
+  public BillingInfo vatId(@javax.annotation.Nullable String vatId) {
+    this.vatId = vatId;
+    return this;
+  }
+
+  /**
+   * VAT / Tax ID for invoices. Only persisted once Stripe has accepted it.
+   * @return vatId
+   */
+  @javax.annotation.Nullable
+  public String getVatId() {
+    return vatId;
+  }
+
+  public void setVatId(@javax.annotation.Nullable String vatId) {
+    this.vatId = vatId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -262,12 +286,13 @@ public class BillingInfo {
         Objects.equals(this.zip, billingInfo.zip) &&
         Objects.equals(this.country, billingInfo.country) &&
         Objects.equals(this.currency, billingInfo.currency) &&
-        Objects.equals(this.email, billingInfo.email);
+        Objects.equals(this.email, billingInfo.email) &&
+        Objects.equals(this.vatId, billingInfo.vatId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, address, city, state, zip, country, currency, email);
+    return Objects.hash(name, address, city, state, zip, country, currency, email, vatId);
   }
 
   @Override
@@ -282,6 +307,7 @@ public class BillingInfo {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    vatId: ").append(toIndentedString(vatId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -300,7 +326,7 @@ public class BillingInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "address", "city", "state", "zip", "country", "currency", "email"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "address", "city", "state", "zip", "country", "currency", "email", "vatId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "address", "city", "state", "zip", "country"));
@@ -357,6 +383,9 @@ public class BillingInfo {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("vatId") != null && !jsonObj.get("vatId").isJsonNull()) && !jsonObj.get("vatId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `vatId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vatId").toString()));
       }
   }
 

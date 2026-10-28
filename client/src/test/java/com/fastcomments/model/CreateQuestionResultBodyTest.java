@@ -57,6 +57,14 @@ public class CreateQuestionResultBodyTest {
     }
 
     /**
+     * Test the property 'values'
+     */
+    @Test
+    public void valuesTest() {
+        // TODO: test values
+    }
+
+    /**
      * Test the property 'questionId'
      */
     @Test

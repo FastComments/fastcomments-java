@@ -204,6 +204,11 @@ public class PublicComment {
   @javax.annotation.Nullable
   private Boolean isUnread;
 
+  public static final String SERIALIZED_NAME_MY_POLL_VOTES = "myPollVotes";
+  @SerializedName(SERIALIZED_NAME_MY_POLL_VOTES)
+  @javax.annotation.Nullable
+  private List<String> myPollVotes = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_MY_VOTE_ID = "myVoteId";
   @SerializedName(SERIALIZED_NAME_MY_VOTE_ID)
   @javax.annotation.Nullable
@@ -838,6 +843,33 @@ public class PublicComment {
   }
 
 
+  public PublicComment myPollVotes(@javax.annotation.Nullable List<String> myPollVotes) {
+    this.myPollVotes = myPollVotes;
+    return this;
+  }
+
+  public PublicComment addMyPollVotesItem(String myPollVotesItem) {
+    if (this.myPollVotes == null) {
+      this.myPollVotes = new ArrayList<>();
+    }
+    this.myPollVotes.add(myPollVotesItem);
+    return this;
+  }
+
+  /**
+   * Ids of the options the current viewer voted for on this comment&#39;s poll. Only set when polls are enabled and they have voted.
+   * @return myPollVotes
+   */
+  @javax.annotation.Nullable
+  public List<String> getMyPollVotes() {
+    return myPollVotes;
+  }
+
+  public void setMyPollVotes(@javax.annotation.Nullable List<String> myPollVotes) {
+    this.myPollVotes = myPollVotes;
+  }
+
+
   public PublicComment myVoteId(@javax.annotation.Nullable String myVoteId) {
     this.myVoteId = myVoteId;
     return this;
@@ -1101,6 +1133,7 @@ public class PublicComment {
         Objects.equals(this.editKey, publicComment.editKey) &&
         Objects.equals(this.approved, publicComment.approved) &&
         Objects.equals(this.isUnread, publicComment.isUnread) &&
+        Objects.equals(this.myPollVotes, publicComment.myPollVotes) &&
         Objects.equals(this.myVoteId, publicComment.myVoteId) &&
         Objects.equals(this.isVotedDown, publicComment.isVotedDown) &&
         Objects.equals(this.isVotedUp, publicComment.isVotedUp) &&
@@ -1115,7 +1148,7 @@ public class PublicComment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, commenterName, commenterLink, commentHTML, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, requiresVerification, editKey, approved, isUnread, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked, additionalProperties);
+    return Objects.hash(id, userId, commenterName, commenterLink, commentHTML, parentId, date, votes, votesUp, votesDown, verified, avatarSrc, hasImages, isByAdmin, isByModerator, isPinned, isLocked, displayLabel, rating, badges, viewCount, isDeleted, isDeletedUser, isSpam, anonUserId, feedbackIds, requiresVerification, editKey, approved, isUnread, myPollVotes, myVoteId, isVotedDown, isVotedUp, hasChildren, nestedChildrenCount, childCount, children, isFlagged, isBlocked, additionalProperties);
   }
 
   @Override
@@ -1152,6 +1185,7 @@ public class PublicComment {
     sb.append("    editKey: ").append(toIndentedString(editKey)).append("\n");
     sb.append("    approved: ").append(toIndentedString(approved)).append("\n");
     sb.append("    isUnread: ").append(toIndentedString(isUnread)).append("\n");
+    sb.append("    myPollVotes: ").append(toIndentedString(myPollVotes)).append("\n");
     sb.append("    myVoteId: ").append(toIndentedString(myVoteId)).append("\n");
     sb.append("    isVotedDown: ").append(toIndentedString(isVotedDown)).append("\n");
     sb.append("    isVotedUp: ").append(toIndentedString(isVotedUp)).append("\n");
@@ -1180,7 +1214,7 @@ public class PublicComment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "commenterName", "commenterLink", "commentHTML", "parentId", "date", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "requiresVerification", "editKey", "approved", "isUnread", "myVoteId", "isVotedDown", "isVotedUp", "hasChildren", "nestedChildrenCount", "childCount", "children", "isFlagged", "isBlocked"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "userId", "commenterName", "commenterLink", "commentHTML", "parentId", "date", "votes", "votesUp", "votesDown", "verified", "avatarSrc", "hasImages", "isByAdmin", "isByModerator", "isPinned", "isLocked", "displayLabel", "rating", "badges", "viewCount", "isDeleted", "isDeletedUser", "isSpam", "anonUserId", "feedbackIds", "requiresVerification", "editKey", "approved", "isUnread", "myPollVotes", "myVoteId", "isVotedDown", "isVotedUp", "hasChildren", "nestedChildrenCount", "childCount", "children", "isFlagged", "isBlocked"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "commenterName", "commentHTML", "date", "verified"));
@@ -1253,6 +1287,10 @@ public class PublicComment {
       }
       if ((jsonObj.get("editKey") != null && !jsonObj.get("editKey").isJsonNull()) && !jsonObj.get("editKey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `editKey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("editKey").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("myPollVotes") != null && !jsonObj.get("myPollVotes").isJsonNull() && !jsonObj.get("myPollVotes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `myPollVotes` to be an array in the JSON string but got `%s`", jsonObj.get("myPollVotes").toString()));
       }
       if ((jsonObj.get("myVoteId") != null && !jsonObj.get("myVoteId").isJsonNull()) && !jsonObj.get("myVoteId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `myVoteId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("myVoteId").toString()));

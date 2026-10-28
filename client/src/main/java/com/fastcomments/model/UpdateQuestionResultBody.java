@@ -73,6 +73,11 @@ public class UpdateQuestionResultBody {
   @javax.annotation.Nullable
   private Double value;
 
+  public static final String SERIALIZED_NAME_VALUES = "values";
+  @SerializedName(SERIALIZED_NAME_VALUES)
+  @javax.annotation.Nullable
+  private List<Double> values = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_COMMENT_ID = "commentId";
   @SerializedName(SERIALIZED_NAME_COMMENT_ID)
   @javax.annotation.Nullable
@@ -164,6 +169,33 @@ public class UpdateQuestionResultBody {
 
   public void setValue(@javax.annotation.Nullable Double value) {
     this.value = value;
+  }
+
+
+  public UpdateQuestionResultBody values(@javax.annotation.Nullable List<Double> values) {
+    this.values = values;
+    return this;
+  }
+
+  public UpdateQuestionResultBody addValuesItem(Double valuesItem) {
+    if (this.values == null) {
+      this.values = new ArrayList<>();
+    }
+    this.values.add(valuesItem);
+    return this;
+  }
+
+  /**
+   * Selected option indexes for multi-choice questions.
+   * @return values
+   */
+  @javax.annotation.Nullable
+  public List<Double> getValues() {
+    return values;
+  }
+
+  public void setValues(@javax.annotation.Nullable List<Double> values) {
+    this.values = values;
   }
 
 
@@ -290,6 +322,7 @@ public class UpdateQuestionResultBody {
         Objects.equals(this.anonUserId, updateQuestionResultBody.anonUserId) &&
         Objects.equals(this.userId, updateQuestionResultBody.userId) &&
         Objects.equals(this.value, updateQuestionResultBody.value) &&
+        Objects.equals(this.values, updateQuestionResultBody.values) &&
         Objects.equals(this.commentId, updateQuestionResultBody.commentId) &&
         Objects.equals(this.questionId, updateQuestionResultBody.questionId) &&
         Objects.equals(this.meta, updateQuestionResultBody.meta)&&
@@ -298,7 +331,7 @@ public class UpdateQuestionResultBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(urlId, anonUserId, userId, value, commentId, questionId, meta, additionalProperties);
+    return Objects.hash(urlId, anonUserId, userId, value, values, commentId, questionId, meta, additionalProperties);
   }
 
   @Override
@@ -309,6 +342,7 @@ public class UpdateQuestionResultBody {
     sb.append("    anonUserId: ").append(toIndentedString(anonUserId)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("    commentId: ").append(toIndentedString(commentId)).append("\n");
     sb.append("    questionId: ").append(toIndentedString(questionId)).append("\n");
     sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
@@ -331,7 +365,7 @@ public class UpdateQuestionResultBody {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("urlId", "anonUserId", "userId", "value", "commentId", "questionId", "meta"));
+    openapiFields = new HashSet<String>(Arrays.asList("urlId", "anonUserId", "userId", "value", "values", "commentId", "questionId", "meta"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -358,6 +392,10 @@ public class UpdateQuestionResultBody {
       }
       if ((jsonObj.get("userId") != null && !jsonObj.get("userId").isJsonNull()) && !jsonObj.get("userId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `userId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("userId").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("values") != null && !jsonObj.get("values").isJsonNull() && !jsonObj.get("values").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `values` to be an array in the JSON string but got `%s`", jsonObj.get("values").toString()));
       }
       if ((jsonObj.get("commentId") != null && !jsonObj.get("commentId").isJsonNull()) && !jsonObj.get("commentId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `commentId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commentId").toString()));

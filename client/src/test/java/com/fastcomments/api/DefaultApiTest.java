@@ -42,9 +42,13 @@ import com.fastcomments.model.BulkCreateHashTagsResponse;
 import com.fastcomments.model.ChangeTicketStateBody;
 import com.fastcomments.model.ChangeTicketStateResponse;
 import com.fastcomments.model.CombineQuestionResultsWithCommentsResponse;
+import com.fastcomments.model.CommentPollPatch;
+import com.fastcomments.model.CommentPollPutInput;
 import com.fastcomments.model.CreateAPIPageData;
 import com.fastcomments.model.CreateAPISSOUserData;
 import com.fastcomments.model.CreateAPIUserSubscriptionData;
+import com.fastcomments.model.CreateAgentTenantBody;
+import com.fastcomments.model.CreateAgentTenantResponse;
 import com.fastcomments.model.CreateCommentParams;
 import com.fastcomments.model.CreateEmailTemplateBody;
 import com.fastcomments.model.CreateEmailTemplateResponse;
@@ -54,6 +58,8 @@ import com.fastcomments.model.CreateHashTagBody;
 import com.fastcomments.model.CreateHashTagResponse;
 import com.fastcomments.model.CreateModeratorBody;
 import com.fastcomments.model.CreateModeratorResponse;
+import com.fastcomments.model.CreatePollVoteBody;
+import com.fastcomments.model.CreatePollVoteResponse;
 import com.fastcomments.model.CreateQuestionConfigBody;
 import com.fastcomments.model.CreateQuestionConfigResponse;
 import com.fastcomments.model.CreateQuestionResultBody;
@@ -68,15 +74,20 @@ import com.fastcomments.model.CreateTenantUserResponse;
 import com.fastcomments.model.CreateTicketBody;
 import com.fastcomments.model.CreateTicketResponse;
 import com.fastcomments.model.CreateUserBadgeParams;
+import com.fastcomments.model.CreateWebhookParams;
+import com.fastcomments.model.CreateWebhookResponse;
 import com.fastcomments.model.DeleteCommentResult;
 import com.fastcomments.model.DeleteDomainConfigResponse;
 import com.fastcomments.model.DeleteHashTagRequestBody;
 import com.fastcomments.model.DeletePageAPIResponse;
+import com.fastcomments.model.DeletePollVoteResponse;
 import com.fastcomments.model.DeleteSSOUserAPIResponse;
 import com.fastcomments.model.DeleteSubscriptionAPIResponse;
 import com.fastcomments.model.FeedPost;
 import com.fastcomments.model.FlagCommentResponse;
 import com.fastcomments.model.GetAuditLogsResponse;
+import com.fastcomments.model.GetBatchJobAPIResponse;
+import com.fastcomments.model.GetBatchJobsAPIResponse;
 import com.fastcomments.model.GetCachedNotificationCountResponse;
 import com.fastcomments.model.GetDomainConfigResponse;
 import com.fastcomments.model.GetDomainConfigsResponse;
@@ -86,14 +97,20 @@ import com.fastcomments.model.GetEmailTemplateResponse;
 import com.fastcomments.model.GetEmailTemplatesResponse;
 import com.fastcomments.model.GetFeedPostsResponse;
 import com.fastcomments.model.GetHashTagsResponse;
+import com.fastcomments.model.GetMeResponse;
 import com.fastcomments.model.GetModeratorResponse;
 import com.fastcomments.model.GetModeratorsResponse;
 import com.fastcomments.model.GetNotificationCountResponse;
 import com.fastcomments.model.GetNotificationsResponse;
 import com.fastcomments.model.GetPageByURLIdAPIResponse;
+import com.fastcomments.model.GetPageLikesAPIResponse;
+import com.fastcomments.model.GetPageReactsAPIResponse;
 import com.fastcomments.model.GetPagesAPIResponse;
 import com.fastcomments.model.GetPendingWebhookEventCountResponse;
 import com.fastcomments.model.GetPendingWebhookEventsResponse;
+import com.fastcomments.model.GetPollResponse;
+import com.fastcomments.model.GetPollVoteResponse;
+import com.fastcomments.model.GetPollVotesResponse;
 import com.fastcomments.model.GetQuestionConfigResponse;
 import com.fastcomments.model.GetQuestionConfigsResponse;
 import com.fastcomments.model.GetQuestionResultResponse;
@@ -114,19 +131,25 @@ import com.fastcomments.model.GetTicketsResponse;
 import com.fastcomments.model.GetUserResponse;
 import com.fastcomments.model.GetVotesForUserResponse;
 import com.fastcomments.model.GetVotesResponse;
+import com.fastcomments.model.GetWebhookSamplePayloadsResponse;
+import com.fastcomments.model.GetWebhooksResponse;
+import com.fastcomments.model.MigrateAPIPagesData;
 import java.time.OffsetDateTime;
+import com.fastcomments.model.PageReactIncludeUserInfo;
 import com.fastcomments.model.PatchDomainConfigParams;
 import com.fastcomments.model.PatchDomainConfigResponse;
 import com.fastcomments.model.PatchPageAPIResponse;
 import com.fastcomments.model.PatchSSOUserAPIResponse;
 import com.fastcomments.model.PutDomainConfigResponse;
 import com.fastcomments.model.PutSSOUserAPIResponse;
+import com.fastcomments.model.QueuePageMigrationJobAPIResponse;
 import com.fastcomments.model.RenderEmailTemplateBody;
 import com.fastcomments.model.RenderEmailTemplateResponse;
 import com.fastcomments.model.ReplaceTenantPackageBody;
 import com.fastcomments.model.ReplaceTenantUserBody;
 import com.fastcomments.model.SORTDIR;
 import com.fastcomments.model.SaveCommentsBulkResponse;
+import com.fastcomments.model.SavePollResponse;
 import com.fastcomments.model.SortDirections;
 import com.fastcomments.model.UnBlockFromCommentParams;
 import com.fastcomments.model.UnblockSuccess;
@@ -149,6 +172,8 @@ import com.fastcomments.model.UpdateTenantUserBody;
 import com.fastcomments.model.UpdateUserBadgeParams;
 import com.fastcomments.model.VoteDeleteResponse;
 import com.fastcomments.model.VoteResponse;
+import com.fastcomments.model.WebhookEventName;
+import com.fastcomments.model.WebhookSource;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -341,6 +366,19 @@ public class DefaultApiTest {
     }
 
     /**
+     * Creates a new trial account for an AI agent without a human signup. No API key is needed to call this.  The response contains the tenant id, an API key that works immediately against the REST API and the MCP server, and a claim URL. Give the claim URL to the human you are working for: opening it while logged in to FastComments attaches the account to them. Unclaimed accounts, and their keys, are deleted 72 hours after creation. Until claimed, the account has the standard trial limits.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createAgentTenantTest() throws ApiException {
+        CreateAgentTenantBody createAgentTenantBody = null;
+        CreateAgentTenantResponse response = api.createAgentTenant(createAgentTenantBody)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -380,6 +418,20 @@ public class DefaultApiTest {
         String tenantId = null;
         CreateModeratorBody createModeratorBody = null;
         CreateModeratorResponse response = api.createModerator(tenantId, createModeratorBody)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Record a vote on a poll, or move an existing one to a different option. A voter has at most one vote per poll, so calling this again for the same voter moves their vote rather than adding one.  This obeys the site&#39;s poll settings: if voting is set to logged-in users only, a vote with just an anonUserId is rejected, and anonymous votes are rate limited per IP per poll.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createPollVoteTest() throws ApiException {
+        String tenantId = null;
+        CreatePollVoteBody createPollVoteBody = null;
+        CreatePollVoteResponse response = api.createPollVote(tenantId, createPollVoteBody)
                 .execute();
         // TODO: test validations
     }
@@ -499,6 +551,20 @@ public class DefaultApiTest {
     }
 
     /**
+     * Subscribes a URL to a comment event (REST hook subscribe). Subscribing the same URL to the same event and domain again returns the existing subscription. Deliveries are HMAC signed, see the webhooks guide; the legacy &#x60;token&#x60; header is never sent to API subscriptions.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createWebhookTest() throws ApiException {
+        String tenantId = null;
+        CreateWebhookParams createWebhookParams = null;
+        CreateWebhookResponse response = api.createWebhook(tenantId, createWebhookParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -611,6 +677,34 @@ public class DefaultApiTest {
         String tenantId = null;
         String id = null;
         APIEmptyResponse response = api.deletePendingWebhookEvent(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Remove a poll from its comment, along with every vote cast on it. The comment itself is left alone.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deletePollTest() throws ApiException {
+        String tenantId = null;
+        String commentId = null;
+        APIEmptyResponse response = api.deletePoll(tenantId, commentId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Retract a vote. The option it was cast on gives its tally back.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deletePollVoteTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        DeletePollVoteResponse response = api.deletePollVote(tenantId, id)
                 .execute();
         // TODO: test validations
     }
@@ -738,6 +832,20 @@ public class DefaultApiTest {
     }
 
     /**
+     * Unsubscribes (REST hook unsubscribe). Only subscriptions created through this API can be deleted here; dashboard-managed webhooks are edited in the dashboard.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteWebhookTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        APIEmptyResponse response = api.deleteWebhook(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -759,17 +867,64 @@ public class DefaultApiTest {
     @Test
     public void getAuditLogsTest() throws ApiException {
         String tenantId = null;
-        Double limit = null;
-        Double skip = null;
+        Integer limit = null;
+        Integer skip = null;
         SORTDIR order = null;
-        Double after = null;
-        Double before = null;
+        Long after = null;
+        Long before = null;
+        String username = null;
+        String ip = null;
+        String crudType = null;
+        String resourceName = null;
+        String targetId = null;
+        String target = null;
+        Boolean includeManagedTenants = null;
         GetAuditLogsResponse response = api.getAuditLogs(tenantId)
                 .limit(limit)
                 .skip(skip)
                 .order(order)
                 .after(after)
                 .before(before)
+                .username(username)
+                .ip(ip)
+                .crudType(crudType)
+                .resourceName(resourceName)
+                .targetId(targetId)
+                .target(target)
+                .includeManagedTenants(includeManagedTenants)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Status, progress and, once done, the result of one batch job.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getBatchJobTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        GetBatchJobAPIResponse response = api.getBatchJob(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * The tenant&#39;s batch jobs (imports, exports, page migrations...), newest first.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getBatchJobsTest() throws ApiException {
+        String tenantId = null;
+        String type = null;
+        String status = null;
+        Integer skip = null;
+        GetBatchJobsAPIResponse response = api.getBatchJobs(tenantId)
+                .type(type)
+                .status(status)
+                .skip(skip)
                 .execute();
         // TODO: test validations
     }
@@ -947,6 +1102,19 @@ public class DefaultApiTest {
     }
 
     /**
+     * Identifies the credential in use: the tenant it belongs to and, for OAuth tokens, the user who authorized it. Integrations use this to test a connection and label it.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getMeTest() throws ApiException {
+        String tenantId = null;
+        GetMeResponse response = api.getMe(tenantId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -1028,6 +1196,38 @@ public class DefaultApiTest {
     }
 
     /**
+     * Like count for a page, optionally with the users who liked it.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPageLikesTest() throws ApiException {
+        String tenantId = null;
+        String urlId = null;
+        PageReactIncludeUserInfo includeUserInfo = null;
+        GetPageLikesAPIResponse response = api.getPageLikes(tenantId, urlId)
+                .includeUserInfo(includeUserInfo)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Custom react counts for a page, optionally with the users who reacted.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPageReactsTest() throws ApiException {
+        String tenantId = null;
+        String urlId = null;
+        PageReactIncludeUserInfo includeUserInfo = null;
+        GetPageReactsAPIResponse response = api.getPageReacts(tenantId, urlId)
+                .includeUserInfo(includeUserInfo)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -1081,6 +1281,50 @@ public class DefaultApiTest {
                 .type(type)
                 .domain(domain)
                 .attemptCountGT(attemptCountGT)
+                .skip(skip)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPollTest() throws ApiException {
+        String tenantId = null;
+        String commentId = null;
+        GetPollResponse response = api.getPoll(tenantId, commentId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPollVoteTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        GetPollVoteResponse response = api.getPollVote(tenantId, id)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * The individual votes behind one poll&#39;s tallies, oldest first.  A poll belongs to a comment, so votes are always read one poll at a time - commentId is required. That keeps every query on the indexes the collection already has.  Obeys the poll&#39;s privacy: an anonymous poll&#39;s votes cannot be read (poll-anonymous), here or by id.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getPollVotesTest() throws ApiException {
+        String tenantId = null;
+        String commentId = null;
+        String voterId = null;
+        String optionId = null;
+        Integer skip = null;
+        GetPollVotesResponse response = api.getPollVotes(tenantId, commentId)
+                .voterId(voterId)
+                .optionId(optionId)
                 .skip(skip)
                 .execute();
         // TODO: test validations
@@ -1442,6 +1686,58 @@ public class DefaultApiTest {
     }
 
     /**
+     * Recent comments in exactly the shape webhook deliveries use, for building integrations (for example Zapier sample data). Every event delivers the same comment object, so &#x60;event&#x60; only has to be valid.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getWebhookSamplePayloadsTest() throws ApiException {
+        String tenantId = null;
+        WebhookEventName event = null;
+        Double limit = null;
+        GetWebhookSamplePayloadsResponse response = api.getWebhookSamplePayloads(tenantId)
+                .event(event)
+                .limit(limit)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Lists the webhooks configured for the tenant, both dashboard-managed rows and API subscriptions.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getWebhooksTest() throws ApiException {
+        String tenantId = null;
+        WebhookEventName event = null;
+        String domain = null;
+        WebhookSource source = null;
+        Double skip = null;
+        GetWebhooksResponse response = api.getWebhooks(tenantId)
+                .event(event)
+                .domain(domain)
+                .source(source)
+                .skip(skip)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Queues a batch job that moves comments, pages and related records from one urlId or domain to another. \&quot;urlId\&quot; migrations only match the exact urlId. \&quot;domain\&quot; migrations find/replace the value inside every urlId and url. Poll GET /api/v1/batch-jobs/{batchJobId}: once it is done it carries per-migration results and an undoId.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void migratePagesTest() throws ApiException {
+        String tenantId = null;
+        MigrateAPIPagesData migrateAPIPagesData = null;
+        QueuePageMigrationJobAPIResponse response = api.migratePages(tenantId, migrateAPIPagesData)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -1482,6 +1778,21 @@ public class DefaultApiTest {
     }
 
     /**
+     * Edit a poll in place, keeping its tallies: change the question, relabel an option, close or reopen it, or change who may see the voters. Options are addressed by id - to add, remove or reorder them, PUT the full list.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void patchPollTest() throws ApiException {
+        String tenantId = null;
+        String commentId = null;
+        CommentPollPatch commentPollPatch = null;
+        SavePollResponse response = api.patchPoll(tenantId, commentId, commentPollPatch)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
      * @throws ApiException if the Api call fails
      */
     @Test
@@ -1505,6 +1816,23 @@ public class DefaultApiTest {
         String domainToUpdate = null;
         UpdateDomainConfigParams updateDomainConfigParams = null;
         PutDomainConfigResponse response = api.putDomainConfig(tenantId, domainToUpdate, updateDomainConfigParams)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Attach a poll to a comment, or set the full state of the poll it already has.  Options are matched by id: an option sent with the id of an existing option keeps its votes (and takes the new label and position), an option sent without an id is added, and existing options left out of the list are removed along with the votes cast on them.  Keeping no existing option ids on a poll that has votes deletes all of them, so that needs replaceVotes&#x3D;true.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void putPollTest() throws ApiException {
+        String tenantId = null;
+        String commentId = null;
+        CommentPollPutInput commentPollPutInput = null;
+        Boolean replaceVotes = null;
+        SavePollResponse response = api.putPoll(tenantId, commentId, commentPollPutInput)
+                .replaceVotes(replaceVotes)
                 .execute();
         // TODO: test validations
     }
@@ -1662,6 +1990,20 @@ public class DefaultApiTest {
         FlagCommentResponse response = api.unFlagComment(tenantId, id)
                 .userId(userId)
                 .anonUserId(anonUserId)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * Queues a batch job that reverses every migration from one migrate-pages job, newest first. Available for 90 days. Records changed since the migration are left alone, so a later edit is never overwritten. Poll GET /api/v1/batch-jobs/{batchJobId} for the restored/skipped counts.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void undoPageMigrationsTest() throws ApiException {
+        String tenantId = null;
+        String undoId = null;
+        QueuePageMigrationJobAPIResponse response = api.undoPageMigrations(tenantId, undoId)
                 .execute();
         // TODO: test validations
     }

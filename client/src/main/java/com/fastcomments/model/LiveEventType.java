@@ -73,7 +73,9 @@ public enum LiveEventType {
   
   PAGE_REACT("page-react"),
   
-  QUESTION_RESULT("question-result");
+  QUESTION_RESULT("question-result"),
+  
+  POLL_UPDATE("poll-update");
 
   private String value;
 
