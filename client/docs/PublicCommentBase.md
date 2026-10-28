@@ -33,6 +33,7 @@
 |**isSpam** | **Boolean** |  |  [optional] |
 |**anonUserId** | **String** |  |  [optional] |
 |**feedbackIds** | **List&lt;String&gt;** |  |  [optional] |
+|**poll** | [**CommentPoll**](CommentPoll.md) |  |  [optional] |
 |**requiresVerification** | **Boolean** |  |  [optional] |
 |**editKey** | **String** |  |  [optional] |
 |**approved** | **Boolean** |  |  [optional] |

@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.fastcomments</groupId>
   <artifactId>client</artifactId>
-  <version>3.1.0</version>
+  <version>3.1.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.fastcomments:client:3.1.0"
+     implementation "com.fastcomments:client:3.1.1"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/client-3.1.0.jar`
+* `target/client-3.1.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -326,6 +326,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**getOfflineUsers**](docs/PublicApi.md#getOfflineUsers) | **GET** /pages/{tenantId}/users/offline | 
 *PublicApi* | [**getOnlineUsers**](docs/PublicApi.md#getOnlineUsers) | **GET** /pages/{tenantId}/users/online | 
 *PublicApi* | [**getPagesPublic**](docs/PublicApi.md#getPagesPublic) | **GET** /pages/{tenantId} | 
+*PublicApi* | [**getPollVoters**](docs/PublicApi.md#getPollVoters) | **GET** /polls/{tenantId}/{commentId}/voters | 
 *PublicApi* | [**getTranslations**](docs/PublicApi.md#getTranslations) | **GET** /translations/{namespace}/{component} | 
 *PublicApi* | [**getUserNotificationCount**](docs/PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count | 
 *PublicApi* | [**getUserNotifications**](docs/PublicApi.md#getUserNotifications) | **GET** /user-notifications | 
@@ -353,6 +354,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**updateUserNotificationStatus**](docs/PublicApi.md#updateUserNotificationStatus) | **POST** /user-notifications/{notificationId}/mark/{newStatus} | 
 *PublicApi* | [**uploadImage**](docs/PublicApi.md#uploadImage) | **POST** /upload-image/{tenantId} | 
 *PublicApi* | [**voteComment**](docs/PublicApi.md#voteComment) | **POST** /comments/{tenantId}/{commentId}/vote | 
+*PublicApi* | [**votePoll**](docs/PublicApi.md#votePoll) | **PUT** /polls/{tenantId}/{commentId}/vote | 
 
 
 ## Documentation for Models
@@ -561,6 +563,7 @@ Class | Method | HTTP request | Description
  - [GetPendingWebhookEventsResponse](docs/GetPendingWebhookEventsResponse.md)
  - [GetPollResponse](docs/GetPollResponse.md)
  - [GetPollVoteResponse](docs/GetPollVoteResponse.md)
+ - [GetPollVoterNamesSuccessResponse](docs/GetPollVoterNamesSuccessResponse.md)
  - [GetPollVotesResponse](docs/GetPollVotesResponse.md)
  - [GetPublicFeedPostsResponse](docs/GetPublicFeedPostsResponse.md)
  - [GetPublicPagesResponse](docs/GetPublicPagesResponse.md)
@@ -662,6 +665,7 @@ Class | Method | HTTP request | Description
  - [PickCommentPollOptionsOrTotalVotesOrClosesAt](docs/PickCommentPollOptionsOrTotalVotesOrClosesAt.md)
  - [PollCreationMode](docs/PollCreationMode.md)
  - [PollPrivacy](docs/PollPrivacy.md)
+ - [PollVoterEntry](docs/PollVoterEntry.md)
  - [PollVotingMode](docs/PollVotingMode.md)
  - [PostRemoveCommentApiResponse](docs/PostRemoveCommentApiResponse.md)
  - [PreBanSummary](docs/PreBanSummary.md)
@@ -769,6 +773,8 @@ Class | Method | HTTP request | Description
  - [UsersListLocation](docs/UsersListLocation.md)
  - [VoteBodyParams](docs/VoteBodyParams.md)
  - [VoteDeleteResponse](docs/VoteDeleteResponse.md)
+ - [VotePollBody](docs/VotePollBody.md)
+ - [VotePollResponse](docs/VotePollResponse.md)
  - [VoteResponse](docs/VoteResponse.md)
  - [VoteResponseUser](docs/VoteResponseUser.md)
  - [VoteStyle](docs/VoteStyle.md)

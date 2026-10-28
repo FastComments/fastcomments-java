@@ -935,6 +935,137 @@ paths:
       - Public
       x-accepts:
       - application/json
+  /polls/{tenantId}/{commentId}/vote:
+    put:
+      operationId: VotePoll
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: broadcastId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VotePollBody"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VotePollResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security: []
+      tags:
+      - Public
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /polls/{tenantId}/{commentId}/voters:
+    get:
+      description: "Who voted for which option. Anonymous polls never answer, admins-only\
+        \ polls answer only for an admin or moderator."
+      operationId: GetPollVoters
+      parameters:
+      - explode: false
+        in: path
+        name: tenantId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: urlId
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: search
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sso
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetPollVoterNamesSuccessResponse"
+          description: Ok
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/APIError"
+          description: Error
+      security: []
+      tags:
+      - Public
+      x-accepts:
+      - application/json
   /page-reacts/v1/likes/{tenantId}:
     delete:
       operationId: DeleteV1PageReact
@@ -12663,6 +12794,179 @@ components:
       - status
       - users
       type: object
+    CommentPollOption:
+      additionalProperties: false
+      example:
+        votes: 0
+        id: id
+        label: label
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        votes:
+          format: int32
+          type: integer
+      required:
+      - id
+      - label
+      - votes
+      type: object
+    PollPrivacy:
+      description: |-
+        Who may see which voter picked which option. Chosen by the poll's author when they build the poll, so it
+        lives on the poll itself rather than in the widget config. Anonymous is the default and is never stored on
+        the poll or sent to the client, so an unset value means Anonymous.
+      enum:
+      - 0
+      - 1
+      - 2
+      type: integer
+    CommentPoll:
+      additionalProperties: false
+      description: A poll attached to a comment. Vote counts are denormalized here;
+        individual votes live in PollVote.
+      example:
+        question: question
+        totalVotes: 6
+        options:
+        - votes: 0
+          id: id
+          label: label
+        - votes: 0
+          id: id
+          label: label
+        privacy: ""
+        closesAt: 2000-01-23T04:56:07.000+00:00
+        requireVoteToSeeResults: true
+      properties:
+        question:
+          type: string
+        options:
+          items:
+            $ref: "#/components/schemas/CommentPollOption"
+          type: array
+        totalVotes:
+          format: int32
+          type: integer
+        closesAt:
+          format: date-time
+          nullable: true
+          type: string
+        privacy:
+          allOf:
+          - $ref: "#/components/schemas/PollPrivacy"
+          nullable: true
+        requireVoteToSeeResults:
+          nullable: true
+          type: boolean
+      required:
+      - options
+      - question
+      - totalVotes
+      type: object
+    VotePollResponse:
+      additionalProperties: false
+      example:
+        myPollVotes:
+        - myPollVotes
+        - myPollVotes
+        voterId: voterId
+        poll:
+          question: question
+          totalVotes: 6
+          options:
+          - votes: 0
+            id: id
+            label: label
+          - votes: 0
+            id: id
+            label: label
+          privacy: ""
+          closesAt: 2000-01-23T04:56:07.000+00:00
+          requireVoteToSeeResults: true
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        poll:
+          $ref: "#/components/schemas/CommentPoll"
+        myPollVotes:
+          items:
+            type: string
+          type: array
+        voterId:
+          type: string
+      required:
+      - myPollVotes
+      - poll
+      - status
+      - voterId
+      type: object
+    VotePollBody:
+      additionalProperties: false
+      example:
+        optionId: optionId
+      properties:
+        optionId:
+          type: string
+      required:
+      - optionId
+      type: object
+    PollVoterEntry:
+      additionalProperties: false
+      example:
+        optionLabel: optionLabel
+        name: name
+      properties:
+        name:
+          type: string
+        optionLabel:
+          type: string
+      required:
+      - name
+      - optionLabel
+      type: object
+    GetPollVoterNamesSuccessResponse:
+      additionalProperties: false
+      example:
+        total: 1
+        voters:
+        - optionLabel: optionLabel
+          name: name
+        - optionLabel: optionLabel
+          name: name
+        hasMore: true
+        pageSize: 6
+        page: 0
+        status: success
+      properties:
+        status:
+          $ref: "#/components/schemas/APIStatus"
+        voters:
+          items:
+            $ref: "#/components/schemas/PollVoterEntry"
+          type: array
+        page:
+          format: int32
+          type: integer
+        pageSize:
+          format: int32
+          type: integer
+        total:
+          format: int32
+          type: integer
+        hasMore:
+          type: boolean
+      required:
+      - hasMore
+      - page
+      - pageSize
+      - status
+      - total
+      - voters
+      type: object
     PageReactUser:
       example:
         displayName: displayName
@@ -15929,78 +16233,6 @@ components:
       - urlIdRaw
       - verificationId
       type: object
-    CommentPollOption:
-      additionalProperties: false
-      example:
-        votes: 0
-        id: id
-        label: label
-      properties:
-        id:
-          type: string
-        label:
-          type: string
-        votes:
-          format: int32
-          type: integer
-      required:
-      - id
-      - label
-      - votes
-      type: object
-    PollPrivacy:
-      description: |-
-        Who may see which voter picked which option. Chosen by the poll's author when they build the poll, so it
-        lives on the poll itself rather than in the widget config. Anonymous is the default and is never stored on
-        the poll or sent to the client, so an unset value means Anonymous.
-      enum:
-      - 0
-      - 1
-      - 2
-      type: integer
-    CommentPoll:
-      additionalProperties: false
-      description: A poll attached to a comment. Vote counts are denormalized here;
-        individual votes live in PollVote.
-      example:
-        question: question
-        totalVotes: 6
-        options:
-        - votes: 0
-          id: id
-          label: label
-        - votes: 0
-          id: id
-          label: label
-        privacy: ""
-        closesAt: 2000-01-23T04:56:07.000+00:00
-        requireVoteToSeeResults: true
-      properties:
-        question:
-          type: string
-        options:
-          items:
-            $ref: "#/components/schemas/CommentPollOption"
-          type: array
-        totalVotes:
-          format: int32
-          type: integer
-        closesAt:
-          format: date-time
-          nullable: true
-          type: string
-        privacy:
-          allOf:
-          - $ref: "#/components/schemas/PollPrivacy"
-          nullable: true
-        requireVoteToSeeResults:
-          nullable: true
-          type: boolean
-      required:
-      - options
-      - question
-      - totalVotes
-      type: object
     FDomain:
       type: string
     PubSubCommentBase:
@@ -16443,6 +16675,7 @@ components:
         rating: 7.061401241503109
         commenterLink: commenterLink
         isVotedDown: true
+        poll: ""
         commentHTML: commentHTML
         approved: true
         isDeleted: true
@@ -16575,6 +16808,10 @@ components:
           items:
             type: string
           type: array
+        poll:
+          allOf:
+          - $ref: "#/components/schemas/CommentPoll"
+          nullable: true
         requiresVerification:
           type: boolean
         editKey:
@@ -16812,6 +17049,7 @@ components:
           rating: 7.061401241503109
           commenterLink: commenterLink
           isVotedDown: true
+          poll: ""
           commentHTML: commentHTML
           approved: true
           isDeleted: true
@@ -16876,6 +17114,7 @@ components:
           rating: 7.061401241503109
           commenterLink: commenterLink
           isVotedDown: true
+          poll: ""
           commentHTML: commentHTML
           approved: true
           isDeleted: true
@@ -16985,6 +17224,7 @@ components:
           rating: 7.061401241503109
           commenterLink: commenterLink
           isVotedDown: true
+          poll: ""
           commentHTML: commentHTML
           approved: true
           isDeleted: true

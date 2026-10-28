@@ -31,6 +31,7 @@ All URIs are relative to *https://fastcomments.com*
 | [**getOfflineUsers**](PublicApi.md#getOfflineUsers) | **GET** /pages/{tenantId}/users/offline |  |
 | [**getOnlineUsers**](PublicApi.md#getOnlineUsers) | **GET** /pages/{tenantId}/users/online |  |
 | [**getPagesPublic**](PublicApi.md#getPagesPublic) | **GET** /pages/{tenantId} |  |
+| [**getPollVoters**](PublicApi.md#getPollVoters) | **GET** /polls/{tenantId}/{commentId}/voters |  |
 | [**getTranslations**](PublicApi.md#getTranslations) | **GET** /translations/{namespace}/{component} |  |
 | [**getUserNotificationCount**](PublicApi.md#getUserNotificationCount) | **GET** /user-notifications/get-count |  |
 | [**getUserNotifications**](PublicApi.md#getUserNotifications) | **GET** /user-notifications |  |
@@ -58,6 +59,7 @@ All URIs are relative to *https://fastcomments.com*
 | [**updateUserNotificationStatus**](PublicApi.md#updateUserNotificationStatus) | **POST** /user-notifications/{notificationId}/mark/{newStatus} |  |
 | [**uploadImage**](PublicApi.md#uploadImage) | **POST** /upload-image/{tenantId} |  |
 | [**voteComment**](PublicApi.md#voteComment) | **POST** /comments/{tenantId}/{commentId}/vote |  |
+| [**votePoll**](PublicApi.md#votePoll) | **PUT** /polls/{tenantId}/{commentId}/vote |  |
 
 
 <a id="blockFromCommentPublic"></a>
@@ -2009,6 +2011,84 @@ No authorization required
 | **200** | Ok |  -  |
 | **0** | Error |  -  |
 
+<a id="getPollVoters"></a>
+# **getPollVoters**
+> GetPollVoterNamesSuccessResponse getPollVoters(tenantId, commentId).urlId(urlId).page(page).search(search).sso(sso).execute();
+
+
+
+Who voted for which option. Anonymous polls never answer, admins-only polls answer only for an admin or moderator.
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String commentId = "commentId_example"; // String | 
+    String urlId = "urlId_example"; // String | 
+    Integer page = 56; // Integer | 
+    String search = "search_example"; // String | 
+    String sso = "sso_example"; // String | 
+    try {
+      GetPollVoterNamesSuccessResponse result = apiInstance.getPollVoters(tenantId, commentId)
+            .urlId(urlId)
+            .page(page)
+            .search(search)
+            .sso(sso)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#getPollVoters");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **commentId** | **String**|  | |
+| **urlId** | **String**|  | [optional] |
+| **page** | **Integer**|  | [optional] |
+| **search** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
+
+### Return type
+
+[**GetPollVoterNamesSuccessResponse**](GetPollVoterNamesSuccessResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
 <a id="getTranslations"></a>
 # **getTranslations**
 > GetTranslationsResponse getTranslations(namespace, component).locale(locale).useFullTranslationIds(useFullTranslationIds).execute();
@@ -3918,6 +3998,81 @@ public class Example {
 ### Return type
 
 [**VoteResponse**](VoteResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **0** | Error |  -  |
+
+<a id="votePoll"></a>
+# **votePoll**
+> VotePollResponse votePoll(tenantId, commentId, votePollBody).urlId(urlId).broadcastId(broadcastId).sso(sso).execute();
+
+
+
+### Example
+```java
+// Import classes:
+import com.fastcomments.invoker.ApiClient;
+import com.fastcomments.invoker.ApiException;
+import com.fastcomments.invoker.Configuration;
+import com.fastcomments.invoker.models.*;
+import com.fastcomments.api.PublicApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://fastcomments.com");
+
+    PublicApi apiInstance = new PublicApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | 
+    String commentId = "commentId_example"; // String | 
+    VotePollBody votePollBody = new VotePollBody(); // VotePollBody | 
+    String urlId = "urlId_example"; // String | 
+    String broadcastId = "broadcastId_example"; // String | 
+    String sso = "sso_example"; // String | 
+    try {
+      VotePollResponse result = apiInstance.votePoll(tenantId, commentId, votePollBody)
+            .urlId(urlId)
+            .broadcastId(broadcastId)
+            .sso(sso)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling PublicApi#votePoll");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**|  | |
+| **commentId** | **String**|  | |
+| **votePollBody** | [**VotePollBody**](VotePollBody.md)|  | |
+| **urlId** | **String**|  | [optional] |
+| **broadcastId** | **String**|  | [optional] |
+| **sso** | **String**|  | [optional] |
+
+### Return type
+
+[**VotePollResponse**](VotePollResponse.md)
 
 ### Authorization
 

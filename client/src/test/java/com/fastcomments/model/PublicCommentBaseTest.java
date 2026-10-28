@@ -13,6 +13,7 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.CommentPoll;
 import com.fastcomments.model.CommentUserBadgeInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -247,6 +248,14 @@ public class PublicCommentBaseTest {
     @Test
     public void feedbackIdsTest() {
         // TODO: test feedbackIds
+    }
+
+    /**
+     * Test the property 'poll'
+     */
+    @Test
+    public void pollTest() {
+        // TODO: test poll
     }
 
     /**
