@@ -12,8 +12,11 @@
 |**tenantId** | **String** |  |  |
 |**createdAt** | **OffsetDateTime** |  |  |
 |**templateId** | **String** |  |  [optional] |
-|**monthlyCostUSD** | **Double** |  |  |
+|**monthlyCostUSD** | **Double** | Always the USD list price, also on regionally priced tenants (commissions and plan comparisons read it). |  |
 |**yearlyCostUSD** | **Double** |  |  |
+|**pricingCurrency** | **String** | Regional prices the tenant is charged, when pricingCurrency is set; the Stripe plan ids below are then in that currency. |  [optional] |
+|**monthlyCostLocal** | **Double** |  |  [optional] |
+|**yearlyCostLocal** | **Double** |  |  [optional] |
 |**monthlyStripePlanId** | **String** |  |  |
 |**yearlyStripePlanId** | **String** |  |  |
 |**maxMonthlyPageLoads** | **Double** |  |  |

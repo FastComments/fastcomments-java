@@ -13,6 +13,7 @@
 
 package com.fastcomments.model;
 
+import com.fastcomments.model.CommentUserBadgeInfo;
 import com.fastcomments.model.CommentUserMentionInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -270,6 +271,14 @@ public class WebhookCommentTest {
     @Test
     public void moderationGroupIdsTest() {
         // TODO: test moderationGroupIds
+    }
+
+    /**
+     * Test the property 'badges'
+     */
+    @Test
+    public void badgesTest() {
+        // TODO: test badges
     }
 
 }

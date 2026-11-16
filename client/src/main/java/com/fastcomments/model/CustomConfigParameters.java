@@ -104,10 +104,20 @@ public class CustomConfigParameters {
   @javax.annotation.Nullable
   private List<String> allowedLanguages;
 
+  public static final String SERIALIZED_NAME_ALLOW_SIMPLE_S_S_O_ADMINS = "allowSimpleSSOAdmins";
+  @SerializedName(SERIALIZED_NAME_ALLOW_SIMPLE_S_S_O_ADMINS)
+  @javax.annotation.Nullable
+  private Boolean allowSimpleSSOAdmins;
+
   public static final String SERIALIZED_NAME_AUTO_GENERATE_USERNAME = "autoGenerateUsername";
   @SerializedName(SERIALIZED_NAME_AUTO_GENERATE_USERNAME)
   @javax.annotation.Nullable
   private Boolean autoGenerateUsername;
+
+  public static final String SERIALIZED_NAME_AUTO_VERIFY_SIMPLE_S_S_O_COMMENTS = "autoVerifySimpleSSOComments";
+  @SerializedName(SERIALIZED_NAME_AUTO_VERIFY_SIMPLE_S_S_O_COMMENTS)
+  @javax.annotation.Nullable
+  private Boolean autoVerifySimpleSSOComments;
 
   public static final String SERIALIZED_NAME_COLLAPSE_REPLIES = "collapseReplies";
   @SerializedName(SERIALIZED_NAME_COLLAPSE_REPLIES)
@@ -664,6 +674,25 @@ public class CustomConfigParameters {
   }
 
 
+  public CustomConfigParameters allowSimpleSSOAdmins(@javax.annotation.Nullable Boolean allowSimpleSSOAdmins) {
+    this.allowSimpleSSOAdmins = allowSimpleSSOAdmins;
+    return this;
+  }
+
+  /**
+   * Simple SSO users on this page or domain can be admins and moderators: they keep those flags and pick them up from a matching email.
+   * @return allowSimpleSSOAdmins
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowSimpleSSOAdmins() {
+    return allowSimpleSSOAdmins;
+  }
+
+  public void setAllowSimpleSSOAdmins(@javax.annotation.Nullable Boolean allowSimpleSSOAdmins) {
+    this.allowSimpleSSOAdmins = allowSimpleSSOAdmins;
+  }
+
+
   public CustomConfigParameters autoGenerateUsername(@javax.annotation.Nullable Boolean autoGenerateUsername) {
     this.autoGenerateUsername = autoGenerateUsername;
     return this;
@@ -680,6 +709,25 @@ public class CustomConfigParameters {
 
   public void setAutoGenerateUsername(@javax.annotation.Nullable Boolean autoGenerateUsername) {
     this.autoGenerateUsername = autoGenerateUsername;
+  }
+
+
+  public CustomConfigParameters autoVerifySimpleSSOComments(@javax.annotation.Nullable Boolean autoVerifySimpleSSOComments) {
+    this.autoVerifySimpleSSOComments = autoVerifySimpleSSOComments;
+    return this;
+  }
+
+  /**
+   * Comments from Simple SSO users on this page or domain are verified right away, instead of through an emailed link.
+   * @return autoVerifySimpleSSOComments
+   */
+  @javax.annotation.Nullable
+  public Boolean getAutoVerifySimpleSSOComments() {
+    return autoVerifySimpleSSOComments;
+  }
+
+  public void setAutoVerifySimpleSSOComments(@javax.annotation.Nullable Boolean autoVerifySimpleSSOComments) {
+    this.autoVerifySimpleSSOComments = autoVerifySimpleSSOComments;
   }
 
 
@@ -2356,6 +2404,50 @@ public class CustomConfigParameters {
     this.commentTranslation = commentTranslation;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the CustomConfigParameters instance itself
+   */
+  public CustomConfigParameters putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -2373,7 +2465,9 @@ public class CustomConfigParameters {
         Objects.equals(this.allowAnonFlag, customConfigParameters.allowAnonFlag) &&
         Objects.equals(this.allowAnonVotes, customConfigParameters.allowAnonVotes) &&
         Objects.equals(this.allowedLanguages, customConfigParameters.allowedLanguages) &&
+        Objects.equals(this.allowSimpleSSOAdmins, customConfigParameters.allowSimpleSSOAdmins) &&
         Objects.equals(this.autoGenerateUsername, customConfigParameters.autoGenerateUsername) &&
+        Objects.equals(this.autoVerifySimpleSSOComments, customConfigParameters.autoVerifySimpleSSOComments) &&
         Objects.equals(this.collapseReplies, customConfigParameters.collapseReplies) &&
         Objects.equals(this.commentCountFormat, customConfigParameters.commentCountFormat) &&
         Objects.equals(this.commentHTMLRenderingMode, customConfigParameters.commentHTMLRenderingMode) &&
@@ -2459,12 +2553,13 @@ public class CustomConfigParameters {
         Objects.equals(this.ticketMaxFileSize, customConfigParameters.ticketMaxFileSize) &&
         Objects.equals(this.ticketAutoAssignUserIds, customConfigParameters.ticketAutoAssignUserIds) &&
         Objects.equals(this.tos, customConfigParameters.tos) &&
-        Objects.equals(this.commentTranslation, customConfigParameters.commentTranslation);
+        Objects.equals(this.commentTranslation, customConfigParameters.commentTranslation)&&
+        Objects.equals(this.additionalProperties, customConfigParameters.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, autoGenerateUsername, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentsRequireApproval, commentThreadDeleteMode, pollCreation, pollVoting, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfileComments, disableProfileDirectMessages, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, mentionAutoCompleteMode, noImageUploads, allowEmbeds, allowedEmbedDomains, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableFChat, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionShowBreakdown, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap, usersListLocation, usersListIncludeOffline, ticketBaseUrl, ticketKBSearchEndpoint, ticketFileUploadsEnabled, ticketMaxFileSize, ticketAutoAssignUserIds, tos, commentTranslation);
+    return Objects.hash(absoluteAndRelativeDates, absoluteDates, allowAnon, allowAnonFlag, allowAnonVotes, allowedLanguages, allowSimpleSSOAdmins, autoGenerateUsername, autoVerifySimpleSSOComments, collapseReplies, commentCountFormat, commentHTMLRenderingMode, commentsRequireApproval, commentThreadDeleteMode, pollCreation, pollVoting, commenterNameFormat, countAboveToggle, customCSS, defaultAvatarSrc, defaultSortDirection, defaultUsername, disableAutoAdminMigration, disableAutoHashTagCreation, disableBlocking, disableCommenterCommentDelete, disableCommenterCommentEdit, disableEmailInputs, disableLiveCommenting, disableNotificationBell, disableProfileComments, disableProfileDirectMessages, disableProfiles, disableSuccessMessage, disableToolbar, disableUnverifiedLabel, disableVoting, enableCommenterLinks, enableSearch, enableSpoilers, enableThirdPartyCookieBypass, enableViewCounts, enableVoteList, enableWYSIWYG, gifRating, hasDarkBackground, headerHTML, hideAvatars, hideCommentsUnderCountTextFormat, imageContentProfanityLevel, inputAfterComments, limitCommentsByGroups, locale, maxCommentCharacterLength, maxCommentCreatedCountPUPM, noCustomConfig, mentionAutoCompleteMode, noImageUploads, allowEmbeds, allowedEmbedDomains, noStyles, pageSize, readonly, noNewRootComments, requireSSO, enableFChat, enableResizeHandle, restrictedLinkDomains, showBadgesInTopBar, showCommentSaveSuccess, showLiveRightAway, showQuestion, spamRules, ssoSecLvl, translations, useShowCommentsToggle, useSingleLineCommentInput, voteStyle, widgetQuestionId, widgetQuestionResultsStyle, widgetQuestionShowBreakdown, widgetQuestionStyle, widgetQuestionWhenToSave, widgetQuestionsRequired, widgetSubQuestionVisibility, wrap, usersListLocation, usersListIncludeOffline, ticketBaseUrl, ticketKBSearchEndpoint, ticketFileUploadsEnabled, ticketMaxFileSize, ticketAutoAssignUserIds, tos, commentTranslation, additionalProperties);
   }
 
   @Override
@@ -2477,7 +2572,9 @@ public class CustomConfigParameters {
     sb.append("    allowAnonFlag: ").append(toIndentedString(allowAnonFlag)).append("\n");
     sb.append("    allowAnonVotes: ").append(toIndentedString(allowAnonVotes)).append("\n");
     sb.append("    allowedLanguages: ").append(toIndentedString(allowedLanguages)).append("\n");
+    sb.append("    allowSimpleSSOAdmins: ").append(toIndentedString(allowSimpleSSOAdmins)).append("\n");
     sb.append("    autoGenerateUsername: ").append(toIndentedString(autoGenerateUsername)).append("\n");
+    sb.append("    autoVerifySimpleSSOComments: ").append(toIndentedString(autoVerifySimpleSSOComments)).append("\n");
     sb.append("    collapseReplies: ").append(toIndentedString(collapseReplies)).append("\n");
     sb.append("    commentCountFormat: ").append(toIndentedString(commentCountFormat)).append("\n");
     sb.append("    commentHTMLRenderingMode: ").append(toIndentedString(commentHTMLRenderingMode)).append("\n");
@@ -2564,6 +2661,7 @@ public class CustomConfigParameters {
     sb.append("    ticketAutoAssignUserIds: ").append(toIndentedString(ticketAutoAssignUserIds)).append("\n");
     sb.append("    tos: ").append(toIndentedString(tos)).append("\n");
     sb.append("    commentTranslation: ").append(toIndentedString(commentTranslation)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -2582,7 +2680,7 @@ public class CustomConfigParameters {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "autoGenerateUsername", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentsRequireApproval", "commentThreadDeleteMode", "pollCreation", "pollVoting", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "allowEmbeds", "allowedEmbedDomains", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableFChat", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "usersListLocation", "usersListIncludeOffline", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos", "commentTranslation"));
+    openapiFields = new HashSet<String>(Arrays.asList("absoluteAndRelativeDates", "absoluteDates", "allowAnon", "allowAnonFlag", "allowAnonVotes", "allowedLanguages", "allowSimpleSSOAdmins", "autoGenerateUsername", "autoVerifySimpleSSOComments", "collapseReplies", "commentCountFormat", "commentHTMLRenderingMode", "commentsRequireApproval", "commentThreadDeleteMode", "pollCreation", "pollVoting", "commenterNameFormat", "countAboveToggle", "customCSS", "defaultAvatarSrc", "defaultSortDirection", "defaultUsername", "disableAutoAdminMigration", "disableAutoHashTagCreation", "disableBlocking", "disableCommenterCommentDelete", "disableCommenterCommentEdit", "disableEmailInputs", "disableLiveCommenting", "disableNotificationBell", "disableProfileComments", "disableProfileDirectMessages", "disableProfiles", "disableSuccessMessage", "disableToolbar", "disableUnverifiedLabel", "disableVoting", "enableCommenterLinks", "enableSearch", "enableSpoilers", "enableThirdPartyCookieBypass", "enableViewCounts", "enableVoteList", "enableWYSIWYG", "gifRating", "hasDarkBackground", "headerHTML", "hideAvatars", "hideCommentsUnderCountTextFormat", "imageContentProfanityLevel", "inputAfterComments", "limitCommentsByGroups", "locale", "maxCommentCharacterLength", "maxCommentCreatedCountPUPM", "noCustomConfig", "mentionAutoCompleteMode", "noImageUploads", "allowEmbeds", "allowedEmbedDomains", "noStyles", "pageSize", "readonly", "noNewRootComments", "requireSSO", "enableFChat", "enableResizeHandle", "restrictedLinkDomains", "showBadgesInTopBar", "showCommentSaveSuccess", "showLiveRightAway", "showQuestion", "spamRules", "ssoSecLvl", "translations", "useShowCommentsToggle", "useSingleLineCommentInput", "voteStyle", "widgetQuestionId", "widgetQuestionResultsStyle", "widgetQuestionShowBreakdown", "widgetQuestionStyle", "widgetQuestionWhenToSave", "widgetQuestionsRequired", "widgetSubQuestionVisibility", "wrap", "usersListLocation", "usersListIncludeOffline", "ticketBaseUrl", "ticketKBSearchEndpoint", "ticketFileUploadsEnabled", "ticketMaxFileSize", "ticketAutoAssignUserIds", "tos", "commentTranslation"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -2598,14 +2696,6 @@ public class CustomConfigParameters {
       if (jsonElement == null) {
         if (!CustomConfigParameters.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CustomConfigParameters is not found in the empty JSON string", CustomConfigParameters.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CustomConfigParameters.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomConfigParameters` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -2762,6 +2852,28 @@ public class CustomConfigParameters {
            @Override
            public void write(JsonWriter out, CustomConfigParameters value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -2769,7 +2881,28 @@ public class CustomConfigParameters {
            public CustomConfigParameters read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             CustomConfigParameters instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

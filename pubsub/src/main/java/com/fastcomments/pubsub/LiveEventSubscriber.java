@@ -13,15 +13,24 @@ import okhttp3.*;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
+import java.util.function.DoubleSupplier;
 
 /**
  * Main class for subscribing to FastComments live changes
  */
 public class LiveEventSubscriber {
 
-    private static final long RECONNECT_INTERVAL_BASE = 4000; // 4 seconds
+    private static final long RECONNECT_DELAY_INITIAL_MS = 4000;
+    private static final long RECONNECT_DELAY_MAX_MS = 60000;
+    // A rejected upgrade (4xx: auth, rate limit, bad params) won't clear up in seconds, so it's retried rarely instead.
+    private static final long REJECTED_RECONNECT_DELAY_MS = 5 * 60 * 1000;
 
     private static final long DEFAULT_PING_INTERVAL_SECONDS = 25;
     private static final long TESTING_PING_INTERVAL_SECONDS = 5;
@@ -36,6 +45,11 @@ public class LiveEventSubscriber {
         .dispatcher(new Dispatcher())
         .build();
     private final OkHttpClient client;
+    // Tests point this at a local server; null means the region's real host.
+    private final String wsHostOverride;
+    private final ScheduledThreadPoolExecutor reconnectScheduler = newReconnectScheduler();
+    // Tests pin this to make reconnect timing deterministic.
+    private final DoubleSupplier jitter;
 
     private final Map<String, Timer> debouncers = new ConcurrentHashMap<>();
     private ConnectionStatusChangeCallback onConnectionStatusChange;
@@ -50,12 +64,52 @@ public class LiveEventSubscriber {
             .build();
     }
 
-    public LiveEventSubscriber() {
-        this.client = buildClient(DEFAULT_PING_INTERVAL_SECONDS);
+    // One thread per subscriber that exits when idle, instead of a Timer thread per reconnect left waiting for GC.
+    private static ScheduledThreadPoolExecutor newReconnectScheduler() {
+        ScheduledThreadPoolExecutor scheduler = new ScheduledThreadPoolExecutor(1, runnable -> {
+            Thread thread = new Thread(runnable, "fastcomments-ws-reconnect");
+            thread.setDaemon(true);
+            return thread;
+        });
+        scheduler.setKeepAliveTime(30, TimeUnit.SECONDS);
+        scheduler.allowCoreThreadTimeOut(true);
+        scheduler.setRemoveOnCancelPolicy(true);
+        return scheduler;
     }
 
-    private LiveEventSubscriber(long pingIntervalSeconds) {
+    /**
+     * Delay before reconnect attempt number {@code attempt} (0-based): full jitter over a window that starts at 4s and
+     * doubles to a 60s cap. A server restart drops every client at once, so the first retry (and the event-log fetch
+     * each reconnect makes) has to spread over seconds, not land in one burst.
+     */
+    static long reconnectDelayMs(int attempt, double random) {
+        long window = Math.min(RECONNECT_DELAY_MAX_MS, RECONNECT_DELAY_INITIAL_MS << Math.min(attempt, 4));
+        return (long) (window * random);
+    }
+
+    /**
+     * State shared by every socket one subscribeToChanges call opens, since reconnects replace the socket.
+     */
+    private static final class SubscriptionState {
+        final AtomicBoolean closed = new AtomicBoolean();
+        final AtomicReference<WebSocket> socket = new AtomicReference<>();
+        // Only the newest connection may reconnect, so a late failure from a replaced socket can't open a second one.
+        final AtomicInteger generation = new AtomicInteger();
+        final AtomicInteger failedAttempts = new AtomicInteger();
+    }
+
+    public LiveEventSubscriber() {
+        this(DEFAULT_PING_INTERVAL_SECONDS, null);
+    }
+
+    LiveEventSubscriber(long pingIntervalSeconds, String wsHostOverride) {
+        this(pingIntervalSeconds, wsHostOverride, Math::random);
+    }
+
+    LiveEventSubscriber(long pingIntervalSeconds, String wsHostOverride, DoubleSupplier jitter) {
         this.client = buildClient(pingIntervalSeconds);
+        this.wsHostOverride = wsHostOverride;
+        this.jitter = jitter;
     }
 
     /**
@@ -63,9 +117,19 @@ public class LiveEventSubscriber {
      * useful for Android NAT environments where connections drop more aggressively.
      */
     public static LiveEventSubscriber createTesting() {
-        return new LiveEventSubscriber(TESTING_PING_INTERVAL_SECONDS);
+        return new LiveEventSubscriber(TESTING_PING_INTERVAL_SECONDS, null);
     }
-    private long lastEventTime;
+    // Written from socket reader threads and the event-log fetch's callback thread; a lost max() update moves it
+    // backwards, and the next reconnect then refetches events already delivered.
+    private final AtomicLong lastEventTime = new AtomicLong();
+
+    void recordEventTime(long timestamp) {
+        lastEventTime.accumulateAndGet(timestamp, Math::max);
+    }
+
+    long getLastEventTime() {
+        return lastEventTime.get();
+    }
 
     /**
      * Interface for a callback that checks if comments can be seen before handling a live event.
@@ -121,7 +185,7 @@ public class LiveEventSubscriber {
                 try {
                     // Update the last live event time
                     if (eventData.getTimestamp() != null) {
-                        lastEventTime = Math.max(lastEventTime, eventData.getTimestamp());
+                        recordEventTime(eventData.getTimestamp());
                     }
 
                     // Extract comment ID for blocking check
@@ -168,53 +232,62 @@ public class LiveEventSubscriber {
     private class FastCommentsWebSocketListener extends WebSocketListener {
         private final HandleLiveEventCallback handleLiveEvent;
         private final CanSeeCommentsCallback canSeeCommentsCallback;
-        private final boolean[] isIntentionallyClosed;
+        private final SubscriptionState state;
+        private final int generation;
         private final CommentWidgetConfig config;
-        private Timer reconnectTimer;
+        // onClosing and onClosed both fire for one close, on different OkHttp threads, so this must be atomic: two
+        // reconnects would leave a socket open that close() never reaches, delivering every event twice.
+        private final AtomicBoolean reconnectScheduled = new AtomicBoolean();
         private final String tenantId;
         private final String urlId;
+        private final String urlIdWS;
         private final String userIdWS;
 
         public FastCommentsWebSocketListener(
                 HandleLiveEventCallback handleLiveEvent,
                 CanSeeCommentsCallback canSeeCommentsCallback,
-                boolean[] isIntentionallyClosed,
+                SubscriptionState state,
                 CommentWidgetConfig config,
                 String tenantId,
                 String urlId,
+                String urlIdWS,
                 String userIdWS
         ) {
             this.handleLiveEvent = handleLiveEvent;
             this.canSeeCommentsCallback = canSeeCommentsCallback;
-            this.isIntentionallyClosed = isIntentionallyClosed;
+            this.state = state;
+            this.generation = state.generation.get();
             this.config = config;
             this.tenantId = tenantId;
             this.urlId = urlId;
+            this.urlIdWS = urlIdWS;
             this.userIdWS = userIdWS;
         }
 
         @Override
         public void onOpen(WebSocket webSocket, Response response) {
-            if (isIntentionallyClosed[0]) {
+            if (state.closed.get()) {
                 webSocket.close(1000, "Intentionally closed");
                 return;
             }
+            state.failedAttempts.set(0);
 
             // Fetch missed events if we have a last event time
-            if (lastEventTime > 0) {
-                fetchEventLog(config.region, tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
+            long since = lastEventTime.get();
+            if (since > 0) {
+                fetchEventLog(config.region, tenantId, urlId, userIdWS, since, new Date().getTime(),
                         events -> processEvents(events, canSeeCommentsCallback, handleLiveEvent));
             }
 
             // Call connection status change callback
             if (onConnectionStatusChange != null) {
-                onConnectionStatusChange.onChange(true, lastEventTime);
+                onConnectionStatusChange.onChange(true, since);
             }
         }
 
         @Override
         public void onMessage(WebSocket webSocket, String text) {
-            if (isIntentionallyClosed[0]) {
+            if (state.closed.get()) {
                 return;
             }
 
@@ -224,7 +297,7 @@ public class LiveEventSubscriber {
 
                 // Update last event time
                 if (eventDataParsed.getTimestamp() != null) {
-                    lastEventTime = Math.max(lastEventTime, eventDataParsed.getTimestamp());
+                    recordEventTime(eventDataParsed.getTimestamp());
                 } else {
                     // otherwise getTs() might not be null, but those are for presence updates only, and those are not stored in the log so we don't
                     // want to track them
@@ -251,31 +324,24 @@ public class LiveEventSubscriber {
             }
             t.printStackTrace();
 
-            // Fetch missed events if we have a last event time
-            if (lastEventTime > 0) {
-                fetchEventLog(config.region, tenantId, urlId, userIdWS, lastEventTime, new Date().getTime(),
-                        events -> processEvents(events, canSeeCommentsCallback, handleLiveEvent));
-            }
+            // A failed connect or a dropped socket (a server restart, a network change) ends here, not in onClosed,
+            // so this has to reconnect too. The reconnect's onOpen fetches the events missed meanwhile.
+            boolean rejected = response != null && response.code() >= 400 && response.code() < 500;
+            cleanup(rejected);
         }
 
         @Override
         public void onClosing(WebSocket webSocket, int code, String reason) {
             webSocket.close(1000, "Client closing");
-            cleanup();
+            cleanup(false);
         }
 
         @Override
         public void onClosed(WebSocket webSocket, int code, String reason) {
-            cleanup();
+            cleanup(false);
         }
 
-        private void cleanup() {
-            // Cancel any existing reconnect timer
-            if (reconnectTimer != null) {
-                reconnectTimer.cancel();
-                reconnectTimer = null;
-            }
-
+        private void cleanup(boolean rejected) {
             // Clean up all debouncer timers
             for (Timer timer : debouncers.values()) {
                 timer.cancel();
@@ -283,38 +349,25 @@ public class LiveEventSubscriber {
             debouncers.clear();
 
             // Initialize last event time if not set
-            if (lastEventTime <= 0) {
-                lastEventTime = new Date().getTime();
-            }
+            lastEventTime.compareAndSet(0, new Date().getTime());
 
             // Call connection status change callback
-            if (!isIntentionallyClosed[0]) {
+            if (!state.closed.get() && state.generation.get() == generation
+                    && reconnectScheduled.compareAndSet(false, true)) {
                 if (onConnectionStatusChange != null) {
-                    onConnectionStatusChange.onChange(false, lastEventTime);
+                    onConnectionStatusChange.onChange(false, lastEventTime.get());
                 }
 
-                // Schedule reconnection with jitter
-                double jitter = Math.random();
-                long reconnectDelay = (long) (RECONNECT_INTERVAL_BASE * jitter);
-
-                reconnectTimer = new Timer();
-                reconnectTimer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        if (!isIntentionallyClosed[0]) {
-                            // Reconnect using the subscribeToChanges method to handle the full setup
-                            subscribeToChanges(
-                                    config,
-                                    tenantId,
-                                    urlId,
-                                    urlId, // We'll use urlId for urlIdWS too since it's already normalized
-                                    userIdWS,
-                                    canSeeCommentsCallback,
-                                    handleLiveEvent
-                            );
-                        }
+                long delay = rejected
+                        ? REJECTED_RECONNECT_DELAY_MS
+                        : reconnectDelayMs(state.failedAttempts.getAndIncrement(), jitter.getAsDouble());
+                reconnectScheduler.schedule(() -> {
+                    if (!state.closed.get()) {
+                        // Same subscription state, so the caller's close() reaches the new socket
+                        connect(config, tenantId, urlId, urlIdWS, userIdWS, canSeeCommentsCallback, handleLiveEvent,
+                                state);
                     }
-                }, reconnectDelay);
+                }, delay, TimeUnit.MILLISECONDS);
             }
         }
     }
@@ -432,41 +485,20 @@ public class LiveEventSubscriber {
                 return null;
             }
 
-            final boolean[] isIntentionallyClosed = {false};
-            lastEventTime = lastEventTime != 0 ? lastEventTime : new Date().getTime();
+            final SubscriptionState state = new SubscriptionState();
+            lastEventTime.compareAndSet(0, new Date().getTime());
 
-            // Check if we should use polling instead of WebSocket
-
-            // Use WebSocket for live updates
             try {
-                // Build the WebSocket URL with query parameters
-                final String WS_HOST = Objects.equals(config.region, "eu") ? "wss://ws-eu.fastcomments.com" : "wss://ws.fastcomments.com";
-                String wsUrl = WS_HOST + "/sub" + "?urlId=" + urlIdWS +
-                        "&userIdWS=" + userIdWS +
-                        "&tenantIdWS=" + tenantIdWS;
-                // Create WebSocket listener
-                FastCommentsWebSocketListener listener = new FastCommentsWebSocketListener(
-                        handleLiveEvent,
-                        canSeeCommentsCallback,
-                        isIntentionallyClosed,
-                        config,
-                        tenantIdWS,
-                        urlId,
-                        userIdWS
-                );
-
-                // Create request for WebSocket connection
-                Request request = new Request.Builder()
-                        .url(wsUrl)
-                        .build();
-
-                // Connect to WebSocket
-                final WebSocket webSocket = client.newWebSocket(request, listener);
+                connect(config, tenantIdWS, urlId, urlIdWS, userIdWS, canSeeCommentsCallback, handleLiveEvent, state);
 
                 // Return result with close handler
                 return new SubscribeToChangesResult(() -> {
-                    isIntentionallyClosed[0] = true;
-                    webSocket.close(1000, "Closed by user");
+                    state.closed.set(true);
+                    // Reconnects replace the socket, so this closes whichever one is current.
+                    WebSocket webSocket = state.socket.get();
+                    if (webSocket != null) {
+                        webSocket.close(1000, "Closed by user");
+                    }
                 });
             } catch (Exception e) {
                 System.err.println("FastComments: Error setting up WebSocket: " + e.getMessage());
@@ -476,6 +508,39 @@ public class LiveEventSubscriber {
             System.err.println("FastComments: Error in subscribeToChanges: " + e.getMessage());
             return null;
         }
+    }
+
+    private void connect(
+            CommentWidgetConfig config,
+            String tenantIdWS,
+            String urlId,
+            String urlIdWS,
+            String userIdWS,
+            CanSeeCommentsCallback canSeeCommentsCallback,
+            HandleLiveEventCallback handleLiveEvent,
+            SubscriptionState state
+    ) {
+        state.generation.incrementAndGet();
+        // Build the WebSocket URL with query parameters
+        final String WS_HOST = wsHostOverride != null ? wsHostOverride
+                : Objects.equals(config.region, "eu") ? "wss://ws-eu.fastcomments.com" : "wss://ws.fastcomments.com";
+        String wsUrl = WS_HOST + "/sub" + "?urlId=" + urlIdWS +
+                "&userIdWS=" + userIdWS +
+                "&tenantIdWS=" + tenantIdWS;
+        FastCommentsWebSocketListener listener = new FastCommentsWebSocketListener(
+                handleLiveEvent,
+                canSeeCommentsCallback,
+                state,
+                config,
+                tenantIdWS,
+                urlId,
+                urlIdWS,
+                userIdWS
+        );
+        Request request = new Request.Builder()
+                .url(wsUrl)
+                .build();
+        state.socket.set(client.newWebSocket(request, listener));
     }
 
 }

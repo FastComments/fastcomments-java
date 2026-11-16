@@ -110,11 +110,27 @@ public class CustomConfigParametersTest {
     }
 
     /**
+     * Test the property 'allowSimpleSSOAdmins'
+     */
+    @Test
+    public void allowSimpleSSOAdminsTest() {
+        // TODO: test allowSimpleSSOAdmins
+    }
+
+    /**
      * Test the property 'autoGenerateUsername'
      */
     @Test
     public void autoGenerateUsernameTest() {
         // TODO: test autoGenerateUsername
+    }
+
+    /**
+     * Test the property 'autoVerifySimpleSSOComments'
+     */
+    @Test
+    public void autoVerifySimpleSSOCommentsTest() {
+        // TODO: test autoVerifySimpleSSOComments
     }
 
     /**

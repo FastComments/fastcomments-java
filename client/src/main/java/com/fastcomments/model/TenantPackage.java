@@ -88,6 +88,21 @@ public class TenantPackage {
   @javax.annotation.Nullable
   private Double yearlyCostUSD;
 
+  public static final String SERIALIZED_NAME_PRICING_CURRENCY = "pricingCurrency";
+  @SerializedName(SERIALIZED_NAME_PRICING_CURRENCY)
+  @javax.annotation.Nullable
+  private String pricingCurrency;
+
+  public static final String SERIALIZED_NAME_MONTHLY_COST_LOCAL = "monthlyCostLocal";
+  @SerializedName(SERIALIZED_NAME_MONTHLY_COST_LOCAL)
+  @javax.annotation.Nullable
+  private Double monthlyCostLocal;
+
+  public static final String SERIALIZED_NAME_YEARLY_COST_LOCAL = "yearlyCostLocal";
+  @SerializedName(SERIALIZED_NAME_YEARLY_COST_LOCAL)
+  @javax.annotation.Nullable
+  private Double yearlyCostLocal;
+
   public static final String SERIALIZED_NAME_MONTHLY_STRIPE_PLAN_ID = "monthlyStripePlanId";
   @SerializedName(SERIALIZED_NAME_MONTHLY_STRIPE_PLAN_ID)
   @javax.annotation.Nullable
@@ -467,7 +482,7 @@ public class TenantPackage {
   }
 
   /**
-   * Get monthlyCostUSD
+   * Always the USD list price, also on regionally priced tenants (commissions and plan comparisons read it).
    * @return monthlyCostUSD
    */
   @javax.annotation.Nullable
@@ -496,6 +511,63 @@ public class TenantPackage {
 
   public void setYearlyCostUSD(@javax.annotation.Nullable Double yearlyCostUSD) {
     this.yearlyCostUSD = yearlyCostUSD;
+  }
+
+
+  public TenantPackage pricingCurrency(@javax.annotation.Nullable String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+    return this;
+  }
+
+  /**
+   * Regional prices the tenant is charged, when pricingCurrency is set; the Stripe plan ids below are then in that currency.
+   * @return pricingCurrency
+   */
+  @javax.annotation.Nullable
+  public String getPricingCurrency() {
+    return pricingCurrency;
+  }
+
+  public void setPricingCurrency(@javax.annotation.Nullable String pricingCurrency) {
+    this.pricingCurrency = pricingCurrency;
+  }
+
+
+  public TenantPackage monthlyCostLocal(@javax.annotation.Nullable Double monthlyCostLocal) {
+    this.monthlyCostLocal = monthlyCostLocal;
+    return this;
+  }
+
+  /**
+   * Get monthlyCostLocal
+   * @return monthlyCostLocal
+   */
+  @javax.annotation.Nullable
+  public Double getMonthlyCostLocal() {
+    return monthlyCostLocal;
+  }
+
+  public void setMonthlyCostLocal(@javax.annotation.Nullable Double monthlyCostLocal) {
+    this.monthlyCostLocal = monthlyCostLocal;
+  }
+
+
+  public TenantPackage yearlyCostLocal(@javax.annotation.Nullable Double yearlyCostLocal) {
+    this.yearlyCostLocal = yearlyCostLocal;
+    return this;
+  }
+
+  /**
+   * Get yearlyCostLocal
+   * @return yearlyCostLocal
+   */
+  @javax.annotation.Nullable
+  public Double getYearlyCostLocal() {
+    return yearlyCostLocal;
+  }
+
+  public void setYearlyCostLocal(@javax.annotation.Nullable Double yearlyCostLocal) {
+    this.yearlyCostLocal = yearlyCostLocal;
   }
 
 
@@ -1551,6 +1623,50 @@ public class TenantPackage {
     this.aiAgentMonthlyBudgetCents = aiAgentMonthlyBudgetCents;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the TenantPackage instance itself
+   */
+  public TenantPackage putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -1569,6 +1685,9 @@ public class TenantPackage {
         Objects.equals(this.templateId, tenantPackage.templateId) &&
         Objects.equals(this.monthlyCostUSD, tenantPackage.monthlyCostUSD) &&
         Objects.equals(this.yearlyCostUSD, tenantPackage.yearlyCostUSD) &&
+        Objects.equals(this.pricingCurrency, tenantPackage.pricingCurrency) &&
+        Objects.equals(this.monthlyCostLocal, tenantPackage.monthlyCostLocal) &&
+        Objects.equals(this.yearlyCostLocal, tenantPackage.yearlyCostLocal) &&
         Objects.equals(this.monthlyStripePlanId, tenantPackage.monthlyStripePlanId) &&
         Objects.equals(this.yearlyStripePlanId, tenantPackage.yearlyStripePlanId) &&
         Objects.equals(this.maxMonthlyPageLoads, tenantPackage.maxMonthlyPageLoads) &&
@@ -1623,12 +1742,13 @@ public class TenantPackage {
         Objects.equals(this.hasAIAgents, tenantPackage.hasAIAgents) &&
         Objects.equals(this.maxAIAgents, tenantPackage.maxAIAgents) &&
         Objects.equals(this.aiAgentDailyBudgetCents, tenantPackage.aiAgentDailyBudgetCents) &&
-        Objects.equals(this.aiAgentMonthlyBudgetCents, tenantPackage.aiAgentMonthlyBudgetCents);
+        Objects.equals(this.aiAgentMonthlyBudgetCents, tenantPackage.aiAgentMonthlyBudgetCents)&&
+        Objects.equals(this.additionalProperties, tenantPackage.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, tenantId, createdAt, templateId, monthlyCostUSD, yearlyCostUSD, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, flexFreeModerators, isSSOBillingMonthlyActiveUsers, hasAIAgents, maxAIAgents, aiAgentDailyBudgetCents, aiAgentMonthlyBudgetCents);
+    return Objects.hash(id, name, tenantId, createdAt, templateId, monthlyCostUSD, yearlyCostUSD, pricingCurrency, monthlyCostLocal, yearlyCostLocal, monthlyStripePlanId, yearlyStripePlanId, maxMonthlyPageLoads, maxMonthlyAPICredits, maxMonthlySmallWidgetsCredits, maxMonthlyComments, maxConcurrentUsers, maxTenantUsers, maxSSOUsers, maxModerators, maxDomains, maxWhiteLabeledTenants, maxMonthlyEventLogRequests, maxCustomCollectionSize, hasWhiteLabeling, hasDebranding, hasLLMSpamDetection, forWhoText, featureTaglines, hasAuditing, hasFlexPricing, enableSAML, enableCanvasLTI, flexPageLoadCostCents, flexPageLoadUnit, flexCommentCostCents, flexCommentUnit, flexSSOUserCostCents, flexSSOUserUnit, flexAPICreditCostCents, flexAPICreditUnit, flexSmallWidgetsCreditCostCents, flexSmallWidgetsCreditUnit, flexModeratorCostCents, flexModeratorUnit, flexAdminCostCents, flexAdminUnit, flexDomainCostCents, flexDomainUnit, flexChatGPTCostCents, flexChatGPTUnit, flexLLMCostCents, flexLLMUnit, flexMinimumCostCents, flexManagedTenantCostCents, flexSSOAdminCostCents, flexSSOAdminUnit, flexSSOModeratorCostCents, flexSSOModeratorUnit, flexFreeModerators, isSSOBillingMonthlyActiveUsers, hasAIAgents, maxAIAgents, aiAgentDailyBudgetCents, aiAgentMonthlyBudgetCents, additionalProperties);
   }
 
   @Override
@@ -1642,6 +1762,9 @@ public class TenantPackage {
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    monthlyCostUSD: ").append(toIndentedString(monthlyCostUSD)).append("\n");
     sb.append("    yearlyCostUSD: ").append(toIndentedString(yearlyCostUSD)).append("\n");
+    sb.append("    pricingCurrency: ").append(toIndentedString(pricingCurrency)).append("\n");
+    sb.append("    monthlyCostLocal: ").append(toIndentedString(monthlyCostLocal)).append("\n");
+    sb.append("    yearlyCostLocal: ").append(toIndentedString(yearlyCostLocal)).append("\n");
     sb.append("    monthlyStripePlanId: ").append(toIndentedString(monthlyStripePlanId)).append("\n");
     sb.append("    yearlyStripePlanId: ").append(toIndentedString(yearlyStripePlanId)).append("\n");
     sb.append("    maxMonthlyPageLoads: ").append(toIndentedString(maxMonthlyPageLoads)).append("\n");
@@ -1697,6 +1820,7 @@ public class TenantPackage {
     sb.append("    maxAIAgents: ").append(toIndentedString(maxAIAgents)).append("\n");
     sb.append("    aiAgentDailyBudgetCents: ").append(toIndentedString(aiAgentDailyBudgetCents)).append("\n");
     sb.append("    aiAgentMonthlyBudgetCents: ").append(toIndentedString(aiAgentMonthlyBudgetCents)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1715,7 +1839,7 @@ public class TenantPackage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "templateId", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "flexFreeModerators", "isSSOBillingMonthlyActiveUsers", "hasAIAgents", "maxAIAgents", "aiAgentDailyBudgetCents", "aiAgentMonthlyBudgetCents"));
+    openapiFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "templateId", "monthlyCostUSD", "yearlyCostUSD", "pricingCurrency", "monthlyCostLocal", "yearlyCostLocal", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing", "enableSAML", "enableCanvasLTI", "flexPageLoadCostCents", "flexPageLoadUnit", "flexCommentCostCents", "flexCommentUnit", "flexSSOUserCostCents", "flexSSOUserUnit", "flexAPICreditCostCents", "flexAPICreditUnit", "flexSmallWidgetsCreditCostCents", "flexSmallWidgetsCreditUnit", "flexModeratorCostCents", "flexModeratorUnit", "flexAdminCostCents", "flexAdminUnit", "flexDomainCostCents", "flexDomainUnit", "flexChatGPTCostCents", "flexChatGPTUnit", "flexLLMCostCents", "flexLLMUnit", "flexMinimumCostCents", "flexManagedTenantCostCents", "flexSSOAdminCostCents", "flexSSOAdminUnit", "flexSSOModeratorCostCents", "flexSSOModeratorUnit", "flexFreeModerators", "isSSOBillingMonthlyActiveUsers", "hasAIAgents", "maxAIAgents", "aiAgentDailyBudgetCents", "aiAgentMonthlyBudgetCents"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("_id", "name", "tenantId", "createdAt", "monthlyCostUSD", "yearlyCostUSD", "monthlyStripePlanId", "yearlyStripePlanId", "maxMonthlyPageLoads", "maxMonthlyAPICredits", "maxMonthlySmallWidgetsCredits", "maxMonthlyComments", "maxConcurrentUsers", "maxTenantUsers", "maxSSOUsers", "maxModerators", "maxDomains", "maxWhiteLabeledTenants", "maxMonthlyEventLogRequests", "maxCustomCollectionSize", "hasWhiteLabeling", "hasDebranding", "hasLLMSpamDetection", "forWhoText", "featureTaglines", "hasAuditing", "hasFlexPricing"));
@@ -1731,14 +1855,6 @@ public class TenantPackage {
       if (jsonElement == null) {
         if (!TenantPackage.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TenantPackage is not found in the empty JSON string", TenantPackage.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TenantPackage.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TenantPackage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
@@ -1760,6 +1876,9 @@ public class TenantPackage {
       }
       if ((jsonObj.get("templateId") != null && !jsonObj.get("templateId").isJsonNull()) && !jsonObj.get("templateId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `templateId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("templateId").toString()));
+      }
+      if ((jsonObj.get("pricingCurrency") != null && !jsonObj.get("pricingCurrency").isJsonNull()) && !jsonObj.get("pricingCurrency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pricingCurrency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pricingCurrency").toString()));
       }
       if ((jsonObj.get("monthlyStripePlanId") != null && !jsonObj.get("monthlyStripePlanId").isJsonNull()) && !jsonObj.get("monthlyStripePlanId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `monthlyStripePlanId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monthlyStripePlanId").toString()));
@@ -1793,6 +1912,28 @@ public class TenantPackage {
            @Override
            public void write(JsonWriter out, TenantPackage value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -1800,7 +1941,28 @@ public class TenantPackage {
            public TenantPackage read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             TenantPackage instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

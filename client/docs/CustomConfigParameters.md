@@ -13,7 +13,9 @@
 |**allowAnonFlag** | **Boolean** |  |  [optional] |
 |**allowAnonVotes** | **Boolean** |  |  [optional] |
 |**allowedLanguages** | **List&lt;String&gt;** |  |  [optional] |
+|**allowSimpleSSOAdmins** | **Boolean** | Simple SSO users on this page or domain can be admins and moderators: they keep those flags and pick them up from a matching email. |  [optional] |
 |**autoGenerateUsername** | **Boolean** | Serve each new visitor a unique generated username as the prefilled defaultUsername. |  [optional] |
+|**autoVerifySimpleSSOComments** | **Boolean** | Comments from Simple SSO users on this page or domain are verified right away, instead of through an emailed link. |  [optional] |
 |**collapseReplies** | **Boolean** |  |  [optional] |
 |**commentCountFormat** | **String** |  |  [optional] |
 |**commentHTMLRenderingMode** | **CommentHTMLRenderingMode** |  |  [optional] |
