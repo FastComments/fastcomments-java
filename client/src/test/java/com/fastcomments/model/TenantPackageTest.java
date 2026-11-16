@@ -97,6 +97,30 @@ public class TenantPackageTest {
     }
 
     /**
+     * Test the property 'pricingCurrency'
+     */
+    @Test
+    public void pricingCurrencyTest() {
+        // TODO: test pricingCurrency
+    }
+
+    /**
+     * Test the property 'monthlyCostLocal'
+     */
+    @Test
+    public void monthlyCostLocalTest() {
+        // TODO: test monthlyCostLocal
+    }
+
+    /**
+     * Test the property 'yearlyCostLocal'
+     */
+    @Test
+    public void yearlyCostLocalTest() {
+        // TODO: test yearlyCostLocal
+    }
+
+    /**
      * Test the property 'monthlyStripePlanId'
      */
     @Test

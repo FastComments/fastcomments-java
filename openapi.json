@@ -50,8 +50,7 @@
 					"name",
 					"type"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UserSearchSectionResult": {
 				"properties": {
@@ -69,8 +68,7 @@
 					"section",
 					"users"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"SearchUsersSectionedResponse": {
 				"properties": {
@@ -213,8 +211,7 @@
 				"required": [
 					"actions"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"SSOSecurityLevel": {
 				"enum": [
@@ -296,8 +293,7 @@
 						"format": "date-time"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentTranslationMode": {
 				"type": "string",
@@ -331,9 +327,17 @@
 						"type": "array",
 						"nullable": true
 					},
+					"allowSimpleSSOAdmins": {
+						"type": "boolean",
+						"description": "Simple SSO users on this page or domain can be admins and moderators: they keep those flags and pick them up from a matching email."
+					},
 					"autoGenerateUsername": {
 						"type": "boolean",
 						"description": "Serve each new visitor a unique generated username as the prefilled defaultUsername."
+					},
+					"autoVerifySimpleSSOComments": {
+						"type": "boolean",
+						"description": "Comments from Simple SSO users on this page or domain are verified right away, instead of through an emailed link."
 					},
 					"collapseReplies": {
 						"type": "boolean"
@@ -664,8 +668,7 @@
 						"nullable": true
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIError": {
 				"properties": {
@@ -701,8 +704,7 @@
 					"reason",
 					"code"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Record_string.boolean_": {
 				"properties": {},
@@ -895,8 +897,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetUserNotificationCountResponse": {
 				"properties": {
@@ -912,8 +913,7 @@
 					"status",
 					"count"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"EnumAsObject_typeofNotificationType_": {
 				"properties": {},
@@ -933,8 +933,7 @@
 					"type",
 					"count"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"HeaderAccountNotification": {
 				"properties": {
@@ -995,8 +994,7 @@
 					"linkText",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"HeaderState": {
 				"properties": {
@@ -1033,8 +1031,7 @@
 					"notificationCounts",
 					"accountNotifications"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UserNotificationWriteResponse": {
 				"properties": {
@@ -1055,8 +1052,7 @@
 					"matchedCount",
 					"modifiedCount"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"IgnoredResponse": {
 				"properties": {
@@ -1075,8 +1071,7 @@
 					"status",
 					"note"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"MediaAsset": {
 				"properties": {
@@ -1097,8 +1092,7 @@
 					"h",
 					"src"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UploadImageResponse": {
 				"properties": {
@@ -1124,8 +1118,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"SizePreset": {
 				"type": "string",
@@ -1337,8 +1330,7 @@
 					"label",
 					"votes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PollPrivacy": {
 				"description": "Who may see which voter picked which option. Chosen by the poll's author when they build the poll, so it\nlives on the poll itself rather than in the widget config. Anonymous is the default and is never stored on\nthe poll or sent to the client, so an unset value means Anonymous.",
@@ -1388,8 +1380,7 @@
 					"options",
 					"totalVotes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"VotePollResponse": {
 				"properties": {
@@ -1415,8 +1406,7 @@
 					"myPollVotes",
 					"voterId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"VotePollBody": {
 				"properties": {
@@ -1427,8 +1417,7 @@
 				"required": [
 					"optionId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PollVoterEntry": {
 				"properties": {
@@ -1443,8 +1432,7 @@
 					"name",
 					"optionLabel"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetPollVoterNamesSuccessResponse": {
 				"properties": {
@@ -1481,8 +1469,7 @@
 					"total",
 					"hasMore"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PageReactUser": {
 				"properties": {
@@ -1699,8 +1686,7 @@
 						"description": "Set by the `exact=\"...\"` search syntax. The comment text must equal this value exactly\n(case-sensitive, full-string), as opposed to the substring matching of commentTextSearch."
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BuildModerationFilterResponse": {
 				"properties": {
@@ -1715,8 +1701,7 @@
 					"status",
 					"moderationFilter"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BuildModerationFilterParams": {
 				"properties": {
@@ -1757,8 +1742,7 @@
 					"status",
 					"count"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationAPIGetCommentIdsResponse": {
 				"properties": {
@@ -1827,8 +1811,7 @@
 					"type",
 					"description"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationAPIComment": {
 				"properties": {
@@ -2009,8 +1992,7 @@
 					"locale",
 					"verified"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationAPIGetCommentsResponse": {
 				"properties": {
@@ -2018,7 +2000,6 @@
 						"$ref": "#/components/schemas/APIStatus"
 					},
 					"translations": {
-						"additionalProperties": false,
 						"type": "object"
 					},
 					"comments": {
@@ -2036,8 +2017,7 @@
 					"translations",
 					"comments"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationExportResponse": {
 				"properties": {
@@ -2052,8 +2032,7 @@
 					"status",
 					"batchJobId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationExportStatusResponse": {
 				"properties": {
@@ -2076,8 +2055,7 @@
 					"jobStatus",
 					"recordCount"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationUserSearchProjected": {
 				"properties": {
@@ -2100,8 +2078,7 @@
 					"_id",
 					"username"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationUserSearchResponse": {
 				"properties": {
@@ -2143,8 +2120,7 @@
 					"title",
 					"commentCount"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationPageSearchResponse": {
 				"properties": {
@@ -2177,8 +2153,7 @@
 				"required": [
 					"domain"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationSiteSearchResponse": {
 				"properties": {
@@ -2238,8 +2213,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PreBanSummary": {
 				"properties": {
@@ -2262,8 +2236,7 @@
 					"usernames",
 					"count"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BulkPreBanSummary": {
 				"properties": {
@@ -2307,8 +2280,7 @@
 					"userIds",
 					"ipHashes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BulkPreBanParams": {
 				"properties": {
@@ -2322,8 +2294,7 @@
 				"required": [
 					"commentIds"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIBannedUser": {
 				"properties": {
@@ -2384,8 +2355,7 @@
 					"bannedUntil",
 					"hasEmailWildcard"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIBanUserChangedValues": {
 				"properties": {
@@ -2436,8 +2406,7 @@
 						"type": "string"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIBanUserChangeLog": {
 				"properties": {
@@ -2457,8 +2426,7 @@
 						"$ref": "#/components/schemas/APIBanUserChangedValues"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BanUserFromCommentResult": {
 				"properties": {
@@ -2478,8 +2446,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BannedUserMatchType": {
 				"type": "string",
@@ -2512,8 +2479,7 @@
 					"matchedOn",
 					"matchedOnValue"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APICommentCommonBannedUser": {
 				"properties": {
@@ -2553,8 +2519,7 @@
 					"bannedUntil",
 					"hasEmailWildcard"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIBannedUserWithMultiMatchInfo": {
 				"allOf": [
@@ -2622,8 +2587,7 @@
 				"required": [
 					"changelog"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"DeleteCommentAction": {
 				"type": "string",
@@ -2661,8 +2625,7 @@
 					"status",
 					"action"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"SetCommentApprovedResponse": {
 				"properties": {
@@ -2699,8 +2662,7 @@
 					"actionName",
 					"messageHTML"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ModerationAPIGetLogsResponse": {
 				"properties": {
@@ -2765,8 +2727,7 @@
 				"required": [
 					"ids"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetCommentTextResponse": {
 				"properties": {
@@ -2807,8 +2768,7 @@
 				"required": [
 					"comment"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AdjustVotesResponse": {
 				"properties": {
@@ -2824,8 +2784,7 @@
 					"status",
 					"newCommentVotes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AdjustCommentVotesParams": {
 				"properties": {
@@ -2837,8 +2796,7 @@
 				"required": [
 					"adjustVoteAmount"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"VoteResponseUser": {
 				"properties": {
@@ -2847,8 +2805,7 @@
 						"nullable": true
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"VoteResponse": {
 				"properties": {
@@ -2881,8 +2838,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"VoteDeleteResponse": {
 				"properties": {
@@ -2896,8 +2852,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetCommentBanStatusResponse": {
 				"properties": {
@@ -2918,8 +2873,7 @@
 					"emailDomain",
 					"canIPBan"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIModerateUserBanPreferences": {
 				"properties": {
@@ -2942,8 +2896,7 @@
 					"lastBanType",
 					"lastBanDuration"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIModerateGetUserBanPreferencesResponse": {
 				"properties": {
@@ -3063,8 +3016,7 @@
 					"isAwaitingReprocess",
 					"isAwaitingDeletion"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantManualBadgesResponse": {
 				"properties": {
@@ -3170,8 +3122,7 @@
 					"displayedOnComments",
 					"receivedAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetUserManualBadgesResponse": {
 				"properties": {
@@ -3436,8 +3387,7 @@
 					"h",
 					"src"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FeedPostMediaItem": {
 				"properties": {
@@ -3457,8 +3407,7 @@
 				"required": [
 					"sizes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FeedPostLink": {
 				"properties": {
@@ -3475,8 +3424,7 @@
 						"type": "string"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Int32Map": {
 				"properties": {},
@@ -3557,8 +3505,7 @@
 					"tenantId",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UserSessionInfo": {
 				"properties": {
@@ -3614,8 +3561,7 @@
 						"type": "string"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetPublicFeedPostsResponse": {
 				"properties": {
@@ -3641,8 +3587,7 @@
 					"status",
 					"feedPosts"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"TenantIdWS": {
 				"type": "string"
@@ -3710,8 +3655,7 @@
 					"reactType",
 					"isUndo"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ReactBodyParams": {
 				"properties": {
@@ -3719,8 +3663,7 @@
 						"type": "string"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UserReactsResponse": {
 				"properties": {
@@ -3743,8 +3686,7 @@
 					"status",
 					"reacts"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateFeedPostResponse": {
 				"properties": {
@@ -3759,8 +3701,7 @@
 					"status",
 					"feedPost"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateFeedPostParams": {
 				"properties": {
@@ -3798,8 +3739,7 @@
 						"$ref": "#/components/schemas/Record_string.string_"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateFeedPostParams": {
 				"properties": {
@@ -3831,8 +3771,7 @@
 						"$ref": "#/components/schemas/Record_string.string_"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FeedPostStats": {
 				"properties": {
@@ -3844,8 +3783,7 @@
 						"format": "int32"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FeedPostsStatsResponse": {
 				"properties": {
@@ -3864,8 +3802,7 @@
 					"status",
 					"stats"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"EventLogEntry": {
 				"properties": {
@@ -3901,8 +3838,7 @@
 					"broadcastId",
 					"data"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetEventLogResponse": {
 				"properties": {
@@ -4062,8 +3998,7 @@
 					"type",
 					"optedOut"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PubSubVote": {
 				"properties": {
@@ -4109,8 +4044,7 @@
 					"createdAt",
 					"verificationId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FDomain": {
 				"type": "string"
@@ -4302,8 +4236,7 @@
 					"approved",
 					"locale"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PubSubComment": {
 				"allOf": [
@@ -4433,7 +4366,6 @@
 						"type": "object"
 					},
 					"config": {
-						"additionalProperties": false,
 						"type": "object"
 					},
 					"isClosed": {
@@ -4462,8 +4394,7 @@
 				"required": [
 					"type"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PublicAPIGetCommentTextResponse": {
 				"properties": {
@@ -4497,8 +4428,7 @@
 					"approved",
 					"commentHTML"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PublicAPISetCommentTextResponse": {
 				"properties": {
@@ -4541,8 +4471,7 @@
 					"id",
 					"tag"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentUserHashTagInfo": {
 				"properties": {
@@ -4565,8 +4494,7 @@
 					"tag",
 					"url"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentTextUpdateRequest": {
 				"properties": {
@@ -4589,8 +4517,7 @@
 				"required": [
 					"comment"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Pick_GetCommentsResponse.Exclude_keyofGetCommentsResponse.lastGenDate-or-pageNumber__": {
 				"properties": {},
@@ -4813,8 +4740,7 @@
 					"date",
 					"verified"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Record_string.any_": {
 				"properties": {},
@@ -4934,8 +4860,7 @@
 					"user",
 					"pageNumber"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetCommentsResponseWithPresence_PublicComment_": {
 				"allOf": [
@@ -4972,8 +4897,7 @@
 					"comment",
 					"user"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"SaveCommentsResponseWithPresence": {
 				"allOf": [
@@ -5042,8 +4966,7 @@
 					"question",
 					"options"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentData": {
 				"properties": {
@@ -5113,7 +5036,6 @@
 						"type": "string"
 					},
 					"meta": {
-						"additionalProperties": false,
 						"type": "object"
 					},
 					"moderationGroupIds": {
@@ -5158,8 +5080,7 @@
 					"url",
 					"urlId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"DeletedCommentResultComment": {
 				"properties": {
@@ -5181,8 +5102,7 @@
 					"commentHTML",
 					"commenterName"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PublicAPIDeleteCommentResponse": {
 				"properties": {
@@ -5245,8 +5165,7 @@
 					"voteDir",
 					"url"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetCommentVoteUserNamesSuccessResponse": {
 				"properties": {
@@ -5268,8 +5187,7 @@
 					"voteUserNames",
 					"hasMore"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentTranslationPublic": {
 				"properties": {
@@ -5284,8 +5202,7 @@
 					"commentHTML",
 					"sourceLanguage"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Record_string.CommentTranslationPublic-or-null_": {
 				"properties": {},
@@ -5326,8 +5243,7 @@
 					"translations",
 					"failed"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentTranslationsRequest": {
 				"properties": {
@@ -5341,8 +5257,7 @@
 				"required": [
 					"commentIds"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ChangeCommentPinStatusResponse": {
 				"properties": {
@@ -5372,8 +5287,7 @@
 					"status",
 					"commentStatuses"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PublicBlockFromCommentParams": {
 				"properties": {
@@ -5389,8 +5303,7 @@
 				"required": [
 					"commentIds"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UnblockSuccess": {
 				"properties": {
@@ -5405,8 +5318,7 @@
 					"status",
 					"commentStatuses"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIUserSubscription": {
 				"properties": {
@@ -5642,8 +5554,7 @@
 					"displayLabel",
 					"displayName"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetSSOUserByIdAPIResponse": {
 				"properties": {
@@ -6158,8 +6069,7 @@
 					"to",
 					"type"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"MigrateAPIPagesData": {
 				"properties": {
@@ -6324,8 +6234,7 @@
 					"enabled",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetWebhooksResponse": {
 				"properties": {
@@ -6343,8 +6252,7 @@
 					"status",
 					"webhooks"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"WebhookComment": {
 				"properties": {
@@ -6458,6 +6366,12 @@
 							"type": "string"
 						},
 						"type": "array"
+					},
+					"badges": {
+						"items": {
+							"$ref": "#/components/schemas/CommentUserBadgeInfo"
+						},
+						"type": "array"
 					}
 				},
 				"required": [
@@ -6489,10 +6403,10 @@
 					"locale",
 					"mentions",
 					"domain",
-					"moderationGroupIds"
+					"moderationGroupIds",
+					"badges"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetWebhookSamplePayloadsResponse": {
 				"properties": {
@@ -6510,8 +6424,7 @@
 					"status",
 					"payloads"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateWebhookResponse": {
 				"properties": {
@@ -6526,8 +6439,7 @@
 					"status",
 					"webhook"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateWebhookParams": {
 				"properties": {
@@ -6551,8 +6463,7 @@
 					"url",
 					"event"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PublicVote": {
 				"properties": {
@@ -6584,8 +6495,7 @@
 					"direction",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetVotesResponse": {
 				"properties": {
@@ -6617,8 +6527,7 @@
 					"appliedAnonymousVotes",
 					"pendingVotes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetVotesForUserResponse": {
 				"properties": {
@@ -6650,8 +6559,7 @@
 					"appliedAnonymousVotes",
 					"pendingVotes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"DigestEmailFrequency": {
 				"enum": [
@@ -6892,8 +6800,7 @@
 					"loginId",
 					"loginIdDate"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetUserResponse": {
 				"properties": {
@@ -6908,8 +6815,7 @@
 					"status",
 					"user"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIGetUserBadgeResponse": {
 				"properties": {
@@ -6924,8 +6830,7 @@
 					"status",
 					"userBadge"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIGetUserBadgesResponse": {
 				"properties": {
@@ -6943,8 +6848,7 @@
 					"status",
 					"userBadges"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APICreateUserBadgeResponse": {
 				"properties": {
@@ -6965,8 +6869,7 @@
 					"status",
 					"userBadge"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateUserBadgeParams": {
 				"properties": {
@@ -6984,8 +6887,7 @@
 					"userId",
 					"badgeId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIEmptySuccessResponse": {
 				"properties": {
@@ -6996,8 +6898,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateUserBadgeParams": {
 				"properties": {
@@ -7005,8 +6906,7 @@
 						"type": "boolean"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UserBadgeProgress": {
 				"properties": {
@@ -7050,8 +6950,7 @@
 					"firstCommentDate",
 					"progress"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIGetUserBadgeProgressResponse": {
 				"properties": {
@@ -7066,8 +6965,7 @@
 					"status",
 					"userBadgeProgress"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIGetUserBadgeProgressListResponse": {
 				"properties": {
@@ -7085,8 +6983,7 @@
 					"status",
 					"userBadgeProgresses"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APITicket": {
 				"properties": {
@@ -7134,8 +7031,7 @@
 					"state",
 					"fileCount"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTicketsResponse": {
 				"properties": {
@@ -7153,8 +7049,7 @@
 					"status",
 					"tickets"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTicketResponse": {
 				"properties": {
@@ -7169,8 +7064,7 @@
 					"status",
 					"ticket"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTicketBody": {
 				"properties": {
@@ -7181,8 +7075,7 @@
 				"required": [
 					"subject"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APITicketFile": {
 				"properties": {
@@ -7229,8 +7122,7 @@
 					"url",
 					"expiresAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APITicketDetail": {
 				"properties": {
@@ -7297,8 +7189,7 @@
 					"fileCount",
 					"files"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTicketResponse": {
 				"properties": {
@@ -7321,8 +7212,7 @@
 					"ticket",
 					"availableStates"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ChangeTicketStateResponse": {
 				"properties": {
@@ -7337,8 +7227,7 @@
 					"status",
 					"ticket"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ChangeTicketStateBody": {
 				"properties": {
@@ -7350,8 +7239,7 @@
 				"required": [
 					"state"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ImportedSiteType": {
 				"enum": [
@@ -7425,8 +7313,7 @@
 					"domain",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BillingInfo": {
 				"properties": {
@@ -7471,8 +7358,7 @@
 					"zip",
 					"country"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APITenant": {
 				"properties": {
@@ -7587,8 +7473,7 @@
 					"enableProfanityFilter",
 					"enableSpamFilter"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantResponse": {
 				"properties": {
@@ -7603,8 +7488,7 @@
 					"status",
 					"tenant"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantsResponse": {
 				"properties": {
@@ -7622,8 +7506,7 @@
 					"status",
 					"tenants"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTenantResponse": {
 				"properties": {
@@ -7638,8 +7521,7 @@
 					"status",
 					"tenant"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTenantBody": {
 				"properties": {
@@ -7721,8 +7603,7 @@
 					"name",
 					"domainConfiguration"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateTenantBody": {
 				"properties": {
@@ -7803,8 +7684,7 @@
 						"type": "string"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantUserResponse": {
 				"properties": {
@@ -7819,8 +7699,7 @@
 					"status",
 					"tenantUser"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantUsersResponse": {
 				"properties": {
@@ -7838,8 +7717,7 @@
 					"status",
 					"tenantUsers"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTenantUserResponse": {
 				"properties": {
@@ -7854,8 +7732,7 @@
 					"status",
 					"tenantUser"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTenantUserBody": {
 				"properties": {
@@ -7942,8 +7819,7 @@
 					"username",
 					"email"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ReplaceTenantUserBody": {
 				"properties": {
@@ -8044,8 +7920,7 @@
 					"username",
 					"email"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateTenantUserBody": {
 				"properties": {
@@ -8128,8 +8003,7 @@
 						"type": "string"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"TenantPackage": {
 				"properties": {
@@ -8152,9 +8026,24 @@
 					"monthlyCostUSD": {
 						"type": "number",
 						"format": "double",
-						"nullable": true
+						"nullable": true,
+						"description": "Always the USD list price, also on regionally priced tenants (commissions and plan comparisons read it)."
 					},
 					"yearlyCostUSD": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"pricingCurrency": {
+						"type": "string",
+						"description": "Regional prices the tenant is charged, when pricingCurrency is set; the Stripe plan ids below are then in that currency."
+					},
+					"monthlyCostLocal": {
+						"type": "number",
+						"format": "double",
+						"nullable": true
+					},
+					"yearlyCostLocal": {
 						"type": "number",
 						"format": "double",
 						"nullable": true
@@ -8401,8 +8290,7 @@
 					"hasAuditing",
 					"hasFlexPricing"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantPackageResponse": {
 				"properties": {
@@ -8417,8 +8305,7 @@
 					"status",
 					"tenantPackage"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantPackagesResponse": {
 				"properties": {
@@ -8436,8 +8323,7 @@
 					"status",
 					"tenantPackages"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTenantPackageResponse": {
 				"properties": {
@@ -8452,8 +8338,7 @@
 					"status",
 					"tenantPackage"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateTenantPackageBody": {
 				"properties": {
@@ -8665,8 +8550,7 @@
 					"featureTaglines",
 					"hasFlexPricing"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"ReplaceTenantPackageBody": {
 				"properties": {
@@ -8810,8 +8694,7 @@
 					"featureTaglines",
 					"hasFlexPricing"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateTenantPackageBody": {
 				"properties": {
@@ -8941,8 +8824,7 @@
 						"format": "double"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APITenantDailyUsage": {
 				"properties": {
@@ -9040,8 +8922,7 @@
 					"ignored",
 					"apiErrorCount"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetTenantDailyUsagesResponse": {
 				"properties": {
@@ -9059,8 +8940,7 @@
 					"status",
 					"tenantDailyUsages"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"MetaItem": {
 				"properties": {
@@ -9078,8 +8958,7 @@
 					"name",
 					"values"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"QuestionResult": {
 				"properties": {
@@ -9144,8 +9023,7 @@
 					"questionId",
 					"ipHash"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetQuestionResultResponse": {
 				"properties": {
@@ -9160,8 +9038,7 @@
 					"status",
 					"questionResult"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetQuestionResultsResponse": {
 				"properties": {
@@ -9179,8 +9056,7 @@
 					"status",
 					"questionResults"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateQuestionResultResponse": {
 				"properties": {
@@ -9195,8 +9071,7 @@
 					"status",
 					"questionResult"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateQuestionResultBody": {
 				"properties": {
@@ -9306,8 +9181,7 @@
 					"v",
 					"total"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Record_string.QuestionDatum_": {
 				"properties": {},
@@ -9345,8 +9219,7 @@
 					"total",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AggregateQuestionResultsResponse": {
 				"properties": {
@@ -9361,8 +9234,7 @@
 					"status",
 					"data"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AggregateTimeBucket": {
 				"type": "string",
@@ -9393,8 +9265,7 @@
 					"status",
 					"data"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BulkAggregateQuestionItem": {
 				"properties": {
@@ -9424,8 +9295,7 @@
 				"required": [
 					"aggId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BulkAggregateQuestionResultsRequest": {
 				"properties": {
@@ -9439,8 +9309,7 @@
 				"required": [
 					"aggregations"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentTranslation": {
 				"properties": {
@@ -9468,8 +9337,7 @@
 					"model",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Record_string.CommentTranslation_": {
 				"properties": {},
@@ -9773,8 +9641,7 @@
 						"type": "boolean"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentLogEntry": {
 				"properties": {
@@ -9793,8 +9660,7 @@
 					"d",
 					"t"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FComment": {
 				"properties": {
@@ -10141,8 +10007,7 @@
 					"approved",
 					"locale"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FindCommentsByRangeItem": {
 				"properties": {
@@ -10162,8 +10027,7 @@
 					"comment",
 					"result"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FindCommentsByRangeResponse": {
 				"properties": {
@@ -10182,8 +10046,7 @@
 					"results",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CombineQuestionResultsWithCommentsResponse": {
 				"properties": {
@@ -10198,8 +10061,7 @@
 					"status",
 					"data"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"QuestionConditionOperator": {
 				"enum": [
@@ -10232,8 +10094,7 @@
 					"value",
 					"subQuestionId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"QuestionCondition": {
 				"description": "A rule evaluated against a question's answer. value is the score for nps/slider/star/emoji/scale, 1 or 0 for\nthumbs, and the option index for choice/multi.",
@@ -10250,8 +10111,7 @@
 					"operator",
 					"value"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"QuestionConfig": {
 				"properties": {
@@ -10384,8 +10244,7 @@
 					"alwaysShowSubQuestions",
 					"reportingOrder"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetQuestionConfigResponse": {
 				"properties": {
@@ -10400,8 +10259,7 @@
 					"status",
 					"questionConfig"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetQuestionConfigsResponse": {
 				"properties": {
@@ -10419,8 +10277,7 @@
 					"status",
 					"questionConfigs"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateQuestionConfigResponse": {
 				"properties": {
@@ -10435,8 +10292,7 @@
 					"status",
 					"questionConfig"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateQuestionConfigBody": {
 				"properties": {
@@ -10628,8 +10484,7 @@
 					"status",
 					"poll"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"SavePollResponse": {
 				"properties": {
@@ -10644,8 +10499,7 @@
 					"status",
 					"poll"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentPollOptionInput": {
 				"properties": {
@@ -10660,8 +10514,7 @@
 				"required": [
 					"label"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentPollPutInput": {
 				"properties": {
@@ -10692,8 +10545,7 @@
 					"question",
 					"options"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CommentPollPatch": {
 				"properties": {
@@ -10734,8 +10586,7 @@
 						"nullable": true
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PublicPollVote": {
 				"description": "A single vote cast on a comment's poll.",
@@ -10776,8 +10627,7 @@
 					"optionId",
 					"createdAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetPollVotesResponse": {
 				"properties": {
@@ -10795,8 +10645,7 @@
 					"status",
 					"pollVotes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetPollVoteResponse": {
 				"properties": {
@@ -10811,8 +10660,7 @@
 					"status",
 					"pollVote"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreatePollVoteResponse": {
 				"properties": {
@@ -10831,8 +10679,7 @@
 					"pollVote",
 					"poll"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreatePollVoteBody": {
 				"properties": {
@@ -10856,8 +10703,7 @@
 					"commentId",
 					"optionId"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"DeletePollVoteResponse": {
 				"properties": {
@@ -10872,8 +10718,7 @@
 					"status",
 					"poll"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PendingCommentToSyncOutbound": {
 				"properties": {
@@ -10917,7 +10762,6 @@
 						"type": "string"
 					},
 					"lastError": {
-						"additionalProperties": false,
 						"type": "object"
 					},
 					"webhookId": {
@@ -10937,8 +10781,7 @@
 					"domain",
 					"lastError"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetPendingWebhookEventsResponse": {
 				"properties": {
@@ -10956,8 +10799,7 @@
 					"status",
 					"pendingWebhookEvents"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetPendingWebhookEventCountResponse": {
 				"properties": {
@@ -10973,8 +10815,7 @@
 					"status",
 					"count"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetNotificationsResponse": {
 				"properties": {
@@ -10992,8 +10833,7 @@
 					"status",
 					"notifications"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetNotificationCountResponse": {
 				"properties": {
@@ -11009,8 +10849,7 @@
 					"status",
 					"count"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateNotificationBody": {
 				"properties": {
@@ -11048,8 +10887,7 @@
 					"createdAt",
 					"expireAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetCachedNotificationCountResponse": {
 				"properties": {
@@ -11064,8 +10902,7 @@
 					"status",
 					"data"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Moderator": {
 				"properties": {
@@ -11165,8 +11002,7 @@
 					"createdAt",
 					"moderationGroupIds"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetModeratorResponse": {
 				"properties": {
@@ -11181,8 +11017,7 @@
 					"status",
 					"moderator"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetModeratorsResponse": {
 				"properties": {
@@ -11200,8 +11035,7 @@
 					"status",
 					"moderators"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateModeratorResponse": {
 				"properties": {
@@ -11216,8 +11050,7 @@
 					"status",
 					"moderator"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateModeratorBody": {
 				"properties": {
@@ -11318,8 +11151,7 @@
 					"authType",
 					"scopes"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"TenantHashTag": {
 				"properties": {
@@ -11346,8 +11178,7 @@
 					"tenantId",
 					"tag"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetHashTagsResponse": {
 				"properties": {
@@ -11365,8 +11196,7 @@
 					"status",
 					"hashTags"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateHashTagResponse": {
 				"properties": {
@@ -11381,8 +11211,7 @@
 					"status",
 					"hashTag"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateHashTagBody": {
 				"properties": {
@@ -11399,8 +11228,7 @@
 				"required": [
 					"tag"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BulkCreateHashTagsResponse": {
 				"properties": {
@@ -11425,8 +11253,7 @@
 					"status",
 					"results"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BulkCreateHashTagsBody": {
 				"properties": {
@@ -11454,8 +11281,7 @@
 				"required": [
 					"tags"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateHashTagResponse": {
 				"properties": {
@@ -11470,8 +11296,7 @@
 					"status",
 					"hashTag"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateHashTagBody": {
 				"properties": {
@@ -11485,8 +11310,7 @@
 						"type": "string"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetFeedPostsResponse": {
 				"properties": {
@@ -11504,8 +11328,7 @@
 					"status",
 					"feedPosts"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateFeedPostsResponse": {
 				"properties": {
@@ -11520,8 +11343,7 @@
 					"status",
 					"feedPost"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"Record_string.unknown_": {
 				"properties": {},
@@ -11558,8 +11380,7 @@
 					"defaultTranslationsByLocale",
 					"defaultEJS"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetEmailTemplateDefinitionsResponse": {
 				"properties": {
@@ -11577,8 +11398,7 @@
 					"status",
 					"definitions"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"EmailTemplateRenderErrorResponse": {
 				"properties": {
@@ -11616,8 +11436,7 @@
 					"createdAt",
 					"lastOccurredAt"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetEmailTemplateRenderErrorsResponse": {
 				"properties": {
@@ -11635,8 +11454,7 @@
 					"status",
 					"renderErrors"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CustomEmailTemplate": {
 				"properties": {
@@ -11689,8 +11507,7 @@
 					"translationOverridesByLocale",
 					"testData"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetEmailTemplateResponse": {
 				"properties": {
@@ -11705,8 +11522,7 @@
 					"status",
 					"emailTemplate"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetEmailTemplatesResponse": {
 				"properties": {
@@ -11724,8 +11540,7 @@
 					"status",
 					"emailTemplates"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateEmailTemplateResponse": {
 				"properties": {
@@ -11740,8 +11555,7 @@
 					"status",
 					"emailTemplate"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateEmailTemplateBody": {
 				"properties": {
@@ -11769,8 +11583,7 @@
 					"displayName",
 					"ejs"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateEmailTemplateBody": {
 				"properties": {
@@ -11793,8 +11606,7 @@
 						"$ref": "#/components/schemas/Record_string.unknown_"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"RenderEmailTemplateResponse": {
 				"properties": {
@@ -11809,8 +11621,7 @@
 					"status",
 					"html"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"RenderEmailTemplateBody": {
 				"properties": {
@@ -11831,8 +11642,7 @@
 					"emailTemplateId",
 					"ejs"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AddDomainConfigParams": {
 				"properties": {
@@ -11861,8 +11671,7 @@
 				"required": [
 					"domain"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdateDomainConfigParams": {
 				"properties": {
@@ -11891,8 +11700,7 @@
 				"required": [
 					"domain"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PatchDomainConfigParams": {
 				"properties": {
@@ -11918,8 +11726,7 @@
 						"$ref": "#/components/schemas/Record_string.string_"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APICommentBase": {
 				"properties": {
@@ -12164,8 +11971,7 @@
 					"urlId",
 					"verified"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIComment": {
 				"allOf": [
@@ -12200,8 +12006,7 @@
 					"status",
 					"comment"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIGetCommentsResponse": {
 				"properties": {
@@ -12219,8 +12024,7 @@
 					"status",
 					"comments"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UpdatableCommentParams": {
 				"properties": {
@@ -12390,8 +12194,7 @@
 						"type": "array"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APISaveCommentResponse": {
 				"properties": {
@@ -12418,8 +12221,7 @@
 					"comment",
 					"user"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateCommentParams": {
 				"properties": {
@@ -12489,7 +12291,6 @@
 						"type": "string"
 					},
 					"meta": {
-						"additionalProperties": false,
 						"type": "object"
 					},
 					"moderationGroupIds": {
@@ -12569,8 +12370,7 @@
 					"urlId",
 					"locale"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"FlagCommentResponse": {
 				"properties": {
@@ -12594,8 +12394,7 @@
 				"required": [
 					"status"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"BlockFromCommentParams": {
 				"properties": {
@@ -12606,8 +12405,7 @@
 						"type": "array"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"UnBlockFromCommentParams": {
 				"properties": {
@@ -12618,8 +12416,7 @@
 						"type": "array"
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PageMigrationSuccess": {
 				"properties": {
@@ -12647,8 +12444,7 @@
 					"status",
 					"commentsMigrated"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PageMigrationFailure": {
 				"properties": {
@@ -12679,8 +12475,7 @@
 					"code",
 					"reason"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"PageMigrationUndoCounts": {
 				"properties": {
@@ -12705,8 +12500,7 @@
 					"skipped",
 					"notRestorable"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"APIBatchJob": {
 				"properties": {
@@ -12893,8 +12687,7 @@
 					"resourceName",
 					"crudType"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"GetAuditLogsResponse": {
 				"properties": {
@@ -12912,8 +12705,7 @@
 					"status",
 					"auditLogs"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"SORT_DIR": {
 				"type": "string",
@@ -13007,8 +12799,7 @@
 					"status",
 					"data"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AggregationAPIError": {
 				"properties": {
@@ -13033,8 +12824,7 @@
 					"reason",
 					"code"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"QueryPredicate": {
 				"properties": {
@@ -13071,8 +12861,7 @@
 					"value",
 					"operator"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AggregationOpType": {
 				"type": "string",
@@ -13110,8 +12899,7 @@
 					"field",
 					"op"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"AggregationRequest": {
 				"description": "The aggregation request accepts a resource, optional grouping keys, an array of operations, and an optional sort",
@@ -13161,8 +12949,7 @@
 					"resourceName",
 					"operations"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateAgentTenantResponse": {
 				"properties": {
@@ -13201,8 +12988,7 @@
 					"apiBaseUrl",
 					"mcpUrl"
 				],
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			},
 			"CreateAgentTenantBody": {
 				"properties": {
@@ -13222,8 +13008,7 @@
 						"description": "Free-form identifier of the agent making the request, e.g. \"claude-code\"."
 					}
 				},
-				"type": "object",
-				"additionalProperties": false
+				"type": "object"
 			}
 		},
 		"securitySchemes": {

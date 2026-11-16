@@ -36,6 +36,7 @@
 |**mentions** | [**List&lt;CommentUserMentionInfo&gt;**](CommentUserMentionInfo.md) |  |  |
 |**domain** | **String** |  |  |
 |**moderationGroupIds** | **List&lt;String&gt;** |  |  |
+|**badges** | [**List&lt;CommentUserBadgeInfo&gt;**](CommentUserBadgeInfo.md) |  |  |
 
 
 

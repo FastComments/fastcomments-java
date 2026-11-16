@@ -11388,7 +11388,6 @@ components:
       - onThisSite
       type: string
     UserSearchResult:
-      additionalProperties: false
       example:
         displayName: displayName
         name: name
@@ -11416,7 +11415,6 @@ components:
       - type
       type: object
     UserSearchSectionResult:
-      additionalProperties: false
       example:
         section: moderators
         users:
@@ -11554,7 +11552,6 @@ components:
       - 2
       type: integer
     SpamRule:
-      additionalProperties: false
       example:
         commentContains: commentContains
         actions:
@@ -11625,7 +11622,6 @@ components:
       - 3
       type: integer
     TOSConfig:
-      additionalProperties: false
       example:
         lastUpdated: 2000-01-23T04:56:07.000+00:00
         textByLocale:
@@ -11652,7 +11648,6 @@ components:
       - manual
       type: string
     CustomConfigParameters:
-      additionalProperties: false
       example:
         disableAutoHashTagCreation: true
         disableCommenterCommentDelete: true
@@ -11756,6 +11751,7 @@ components:
         ticketFileUploadsEnabled: true
         maxCommentCharacterLength: 5
         useSingleLineCommentInput: true
+        autoVerifySimpleSSOComments: true
         allowedLanguages:
         - allowedLanguages
         - allowedLanguages
@@ -11764,6 +11760,7 @@ components:
         widgetQuestionResultsStyle: 2
         showLiveRightAway: true
         widgetQuestionsRequired: 1
+        allowSimpleSSOAdmins: true
         hasDarkBackground: true
         wrap: true
         ticketBaseUrl: ticketBaseUrl
@@ -11783,9 +11780,17 @@ components:
             type: string
           nullable: true
           type: array
+        allowSimpleSSOAdmins:
+          description: "Simple SSO users on this page or domain can be admins and\
+            \ moderators: they keep those flags and pick them up from a matching email."
+          type: boolean
         autoGenerateUsername:
           description: Serve each new visitor a unique generated username as the prefilled
             defaultUsername.
+          type: boolean
+        autoVerifySimpleSSOComments:
+          description: "Comments from Simple SSO users on this page or domain are\
+            \ verified right away, instead of through an emailed link."
           type: boolean
         collapseReplies:
           type: boolean
@@ -12004,7 +12009,6 @@ components:
           nullable: true
       type: object
     APIError:
-      additionalProperties: false
       example:
         reason: reason
         code: code
@@ -12112,6 +12116,7 @@ components:
           ticketFileUploadsEnabled: true
           maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
+          autoVerifySimpleSSOComments: true
           allowedLanguages:
           - allowedLanguages
           - allowedLanguages
@@ -12120,6 +12125,7 @@ components:
           widgetQuestionResultsStyle: 2
           showLiveRightAway: true
           widgetQuestionsRequired: 1
+          allowSimpleSSOAdmins: true
           hasDarkBackground: true
           wrap: true
           ticketBaseUrl: ticketBaseUrl
@@ -12382,7 +12388,6 @@ components:
       - status
       type: object
     ResetUserNotificationsResponse:
-      additionalProperties: false
       example:
         code: ignored-since-impersonated
         status: success
@@ -12398,7 +12403,6 @@ components:
       - status
       type: object
     GetUserNotificationCountResponse:
-      additionalProperties: false
       example:
         count: 0
         status: success
@@ -12416,7 +12420,6 @@ components:
       properties: {}
       type: object
     NotificationAndCount:
-      additionalProperties: false
       properties:
         type:
           $ref: "#/components/schemas/NotificationType"
@@ -12428,7 +12431,6 @@ components:
       - type
       type: object
     HeaderAccountNotification:
-      additionalProperties: false
       properties:
         _id:
           type: string
@@ -12472,7 +12474,6 @@ components:
       - title
       type: object
     HeaderState:
-      additionalProperties: false
       properties:
         status:
           $ref: "#/components/schemas/APIStatus"
@@ -12500,7 +12501,6 @@ components:
       - userIdWS
       type: object
     UserNotificationWriteResponse:
-      additionalProperties: false
       example:
         modifiedCount: 6
         matchedCount: 0
@@ -12520,7 +12520,6 @@ components:
       - status
       type: object
     IgnoredResponse:
-      additionalProperties: false
       properties:
         status:
           $ref: "#/components/schemas/APIStatus"
@@ -12534,7 +12533,6 @@ components:
       - status
       type: object
     MediaAsset:
-      additionalProperties: false
       example:
         src: src
         w: 0
@@ -12554,7 +12552,6 @@ components:
       - w
       type: object
     UploadImageResponse:
-      additionalProperties: false
       example:
         reason: reason
         code: code
@@ -12795,7 +12792,6 @@ components:
       - users
       type: object
     CommentPollOption:
-      additionalProperties: false
       example:
         votes: 0
         id: id
@@ -12824,7 +12820,6 @@ components:
       - 2
       type: integer
     CommentPoll:
-      additionalProperties: false
       description: A poll attached to a comment. Vote counts are denormalized here;
         individual votes live in PollVote.
       example:
@@ -12867,7 +12862,6 @@ components:
       - totalVotes
       type: object
     VotePollResponse:
-      additionalProperties: false
       example:
         myPollVotes:
         - myPollVotes
@@ -12905,7 +12899,6 @@ components:
       - voterId
       type: object
     VotePollBody:
-      additionalProperties: false
       example:
         optionId: optionId
       properties:
@@ -12915,7 +12908,6 @@ components:
       - optionId
       type: object
     PollVoterEntry:
-      additionalProperties: false
       example:
         optionLabel: optionLabel
         name: name
@@ -12929,7 +12921,6 @@ components:
       - optionLabel
       type: object
     GetPollVoterNamesSuccessResponse:
-      additionalProperties: false
       example:
         total: 1
         voters:
@@ -13143,7 +13134,6 @@ components:
     DeleteV2PageReact:
       $ref: "#/components/schemas/CreateV1PageReact"
     ModerationFilter:
-      additionalProperties: false
       example:
         flagCountGt: 7.061401241503109
         approved: true
@@ -13199,7 +13189,6 @@ components:
           type: string
       type: object
     BuildModerationFilterResponse:
-      additionalProperties: false
       properties:
         status:
           type: string
@@ -13227,7 +13216,6 @@ components:
       - userId
       type: object
     ModerationAPICountCommentsResponse:
-      additionalProperties: false
       example:
         count: 0.8008281904610115
         status: success
@@ -13265,7 +13253,6 @@ components:
     UserId:
       type: string
     CommentUserBadgeInfo:
-      additionalProperties: false
       example:
         displayLabel: displayLabel
         backgroundColor: backgroundColor
@@ -13308,7 +13295,6 @@ components:
       - type
       type: object
     ModerationAPIComment:
-      additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
         votesDown: 5.962133916683182
@@ -13504,7 +13490,6 @@ components:
       - verified
       type: object
     ModerationAPIGetCommentsResponse:
-      additionalProperties: false
       example:
         moderationFilter:
           flagCountGt: 7.061401241503109
@@ -13658,7 +13643,6 @@ components:
         status:
           $ref: "#/components/schemas/APIStatus"
         translations:
-          additionalProperties: false
           type: object
         comments:
           items:
@@ -13672,7 +13656,6 @@ components:
       - translations
       type: object
     ModerationExportResponse:
-      additionalProperties: false
       example:
         batchJobId: batchJobId
         status: status
@@ -13686,7 +13669,6 @@ components:
       - status
       type: object
     ModerationExportStatusResponse:
-      additionalProperties: false
       example:
         jobStatus: jobStatus
         recordCount: 0
@@ -13708,7 +13690,6 @@ components:
       - status
       type: object
     ModerationUserSearchProjected:
-      additionalProperties: false
       example:
         displayName: displayName
         avatarSrc: avatarSrc
@@ -13753,7 +13734,6 @@ components:
       - users
       type: object
     ModerationPageSearchProjected:
-      additionalProperties: false
       example:
         urlId: urlId
         title: title
@@ -13799,7 +13779,6 @@ components:
       - status
       type: object
     ModerationSiteSearchProjected:
-      additionalProperties: false
       example:
         logoSrc100px: logoSrc100px
         domain: domain
@@ -13846,7 +13825,6 @@ components:
       - status
       type: object
     ModerationSuggestResponse:
-      additionalProperties: false
       example:
         pages:
         - urlId: urlId
@@ -13885,7 +13863,6 @@ components:
       - status
       type: object
     PreBanSummary:
-      additionalProperties: false
       example:
         count: 0.8008281904610115
         usernames:
@@ -13908,7 +13885,6 @@ components:
       - usernames
       type: object
     BulkPreBanSummary:
-      additionalProperties: false
       example:
         emails:
         - emails
@@ -13955,7 +13931,6 @@ components:
       - userIds
       type: object
     BulkPreBanParams:
-      additionalProperties: false
       example:
         commentIds:
         - commentIds
@@ -13969,7 +13944,6 @@ components:
       - commentIds
       type: object
     APIBannedUser:
-      additionalProperties: false
       example:
         bannedUntil: 2000-01-23T04:56:07.000+00:00
         ipHash: ipHash
@@ -14029,7 +14003,6 @@ components:
       - tenantId
       type: object
     APIBanUserChangedValues:
-      additionalProperties: false
       example:
         bannedUntil: 2000-01-23T04:56:07.000+00:00
         ipHash: ipHash
@@ -14080,7 +14053,6 @@ components:
           type: string
       type: object
     APIBanUserChangeLog:
-      additionalProperties: false
       example:
         deletedBannedUsers:
         - bannedUntil: 2000-01-23T04:56:07.000+00:00
@@ -14138,7 +14110,6 @@ components:
           $ref: "#/components/schemas/APIBanUserChangedValues"
       type: object
     BanUserFromCommentResult:
-      additionalProperties: false
       example:
         reason: reason
         code: code
@@ -14207,7 +14178,6 @@ components:
       - IP
       type: string
     BannedUserMatch:
-      additionalProperties: false
       example:
         matchedOn: userId
         matchedOnValue: BannedUserMatch_matchedOnValue
@@ -14221,7 +14191,6 @@ components:
       - matchedOnValue
       type: object
     APICommentCommonBannedUser:
-      additionalProperties: false
       properties:
         _id:
           type: string
@@ -14332,7 +14301,6 @@ components:
       - status
       type: object
     BanUserUndoParams:
-      additionalProperties: false
       example:
         changelog:
           deletedBannedUsers:
@@ -14404,7 +14372,6 @@ components:
       - status
       type: object
     RemoveCommentActionResponse:
-      additionalProperties: false
       properties:
         status:
           type: string
@@ -14427,7 +14394,6 @@ components:
       - status
       type: object
     ModerationAPICommentLog:
-      additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
         messageHTML: messageHTML
@@ -14692,7 +14658,6 @@ components:
       - status
       type: object
     CommentsByIdsParams:
-      additionalProperties: false
       example:
         ids:
         - ids
@@ -14732,7 +14697,6 @@ components:
       - status
       type: object
     SetCommentTextParams:
-      additionalProperties: false
       example:
         comment: comment
       properties:
@@ -14742,7 +14706,6 @@ components:
       - comment
       type: object
     AdjustVotesResponse:
-      additionalProperties: false
       example:
         newCommentVotes: 0
         status: status
@@ -14757,7 +14720,6 @@ components:
       - status
       type: object
     AdjustCommentVotesParams:
-      additionalProperties: false
       example:
         adjustVoteAmount: 0.8008281904610115
       properties:
@@ -14768,7 +14730,6 @@ components:
       - adjustVoteAmount
       type: object
     VoteResponseUser:
-      additionalProperties: false
       example:
         sessionId: sessionId
       properties:
@@ -14777,7 +14738,6 @@ components:
           type: string
       type: object
     VoteResponse:
-      additionalProperties: false
       example:
         editKey: editKey
         isVerified: true
@@ -14804,7 +14764,6 @@ components:
       - status
       type: object
     VoteDeleteResponse:
-      additionalProperties: false
       example:
         wasPendingVote: true
         status: success
@@ -14817,7 +14776,6 @@ components:
       - status
       type: object
     GetCommentBanStatusResponse:
-      additionalProperties: false
       example:
         emailDomain: emailDomain
         canIPBan: true
@@ -14837,7 +14795,6 @@ components:
       - status
       type: object
     APIModerateUserBanPreferences:
-      additionalProperties: false
       properties:
         shouldBanEmail:
           type: boolean
@@ -14869,7 +14826,6 @@ components:
       - status
       type: object
     TenantBadge:
-      additionalProperties: false
       example:
         displayLabel: displayLabel
         createdByUserId: createdByUserId
@@ -15025,7 +14981,6 @@ components:
       - status
       type: object
     UserBadge:
-      additionalProperties: false
       example:
         displayLabel: displayLabel
         backgroundColor: backgroundColor
@@ -15354,7 +15309,6 @@ components:
       - status
       type: object
     FeedPostMediaItemAsset:
-      additionalProperties: false
       example:
         src: src
         w: 6
@@ -15374,7 +15328,6 @@ components:
       - w
       type: object
     FeedPostMediaItem:
-      additionalProperties: false
       example:
         sizes:
         - src: src
@@ -15398,7 +15351,6 @@ components:
       - sizes
       type: object
     FeedPostLink:
-      additionalProperties: false
       example:
         description: description
         text: text
@@ -15421,7 +15373,6 @@ components:
       properties: {}
       type: object
     FeedPost:
-      additionalProperties: false
       example:
         fromUserDisplayName: fromUserDisplayName
         fromUserId: fromUserId
@@ -15529,7 +15480,6 @@ components:
       - tenantId
       type: object
     UserSessionInfo:
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -15568,7 +15518,6 @@ components:
           type: string
       type: object
     GetPublicFeedPostsResponse:
-      additionalProperties: false
       properties:
         status:
           $ref: "#/components/schemas/APIStatus"
@@ -15716,7 +15665,6 @@ components:
         tenantIdWS: tenantIdWS
         status: success
     ReactFeedPostResponse:
-      additionalProperties: false
       example:
         isUndo: true
         reactType: reactType
@@ -15734,7 +15682,6 @@ components:
       - status
       type: object
     ReactBodyParams:
-      additionalProperties: false
       example:
         reactType: reactType
       properties:
@@ -15742,7 +15689,6 @@ components:
           type: string
       type: object
     UserReactsResponse:
-      additionalProperties: false
       example:
         reacts:
           key:
@@ -15764,7 +15710,6 @@ components:
       - status
       type: object
     CreateFeedPostResponse:
-      additionalProperties: false
       example:
         feedPost:
           fromUserDisplayName: fromUserDisplayName
@@ -15824,7 +15769,6 @@ components:
       - status
       type: object
     CreateFeedPostParams:
-      additionalProperties: false
       example:
         fromUserDisplayName: fromUserDisplayName
         fromUserId: fromUserId
@@ -15893,7 +15837,6 @@ components:
           type: object
       type: object
     UpdateFeedPostParams:
-      additionalProperties: false
       example:
         meta:
           key: meta
@@ -15956,7 +15899,6 @@ components:
           type: object
       type: object
     FeedPostStats:
-      additionalProperties: false
       example:
         reacts:
           key: 0
@@ -15973,7 +15915,6 @@ components:
           type: integer
       type: object
     FeedPostsStatsResponse:
-      additionalProperties: false
       example:
         stats:
           key:
@@ -15994,7 +15935,6 @@ components:
       - status
       type: object
     EventLogEntry:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         data: data
@@ -16087,7 +16027,6 @@ components:
     TenantId:
       type: string
     UserNotification:
-      additionalProperties: false
       example:
         isUnreadMessage: true
         fromUserAvatarSrc: fromUserAvatarSrc
@@ -16199,7 +16138,6 @@ components:
       - viewed
       type: object
     PubSubVote:
-      additionalProperties: false
       properties:
         _id:
           type: string
@@ -16236,7 +16174,6 @@ components:
     FDomain:
       type: string
     PubSubCommentBase:
-      additionalProperties: false
       properties:
         _id:
           type: string
@@ -16410,7 +16347,6 @@ components:
     CommentPositions:
       $ref: "#/components/schemas/Record_string._before-string-or-null--after-string-or-null__"
     LiveEvent:
-      additionalProperties: false
       properties:
         type:
           $ref: "#/components/schemas/LiveEventType"
@@ -16443,7 +16379,6 @@ components:
         extraInfo:
           $ref: "#/components/schemas/LiveEvent_extraInfo"
         config:
-          additionalProperties: false
           type: object
         isClosed:
           type: boolean
@@ -16485,7 +16420,6 @@ components:
       - status
       type: object
     SetCommentTextResult:
-      additionalProperties: false
       example:
         commentHTML: commentHTML
         approved: true
@@ -16514,7 +16448,6 @@ components:
       - status
       type: object
     CommentUserMentionInfo:
-      additionalProperties: false
       example:
         rawTag: rawTag
         id: id
@@ -16540,7 +16473,6 @@ components:
       - tag
       type: object
     CommentUserHashTagInfo:
-      additionalProperties: false
       example:
         retain: true
         id: id
@@ -16562,7 +16494,6 @@ components:
       - url
       type: object
     CommentTextUpdateRequest:
-      additionalProperties: false
       example:
         hashTags:
         - retain: true
@@ -16728,7 +16659,6 @@ components:
         isSpam: true
         isByAdmin: true
     PublicCommentBase:
-      additionalProperties: false
       properties:
         _id:
           type: string
@@ -16831,7 +16761,6 @@ components:
       properties: {}
       type: object
     GetCommentsResponse_PublicComment_:
-      additionalProperties: false
       properties:
         statusCode:
           format: int32
@@ -17021,6 +16950,7 @@ components:
           ticketFileUploadsEnabled: true
           maxCommentCharacterLength: 5
           useSingleLineCommentInput: true
+          autoVerifySimpleSSOComments: true
           allowedLanguages:
           - allowedLanguages
           - allowedLanguages
@@ -17029,6 +16959,7 @@ components:
           widgetQuestionResultsStyle: 2
           showLiveRightAway: true
           widgetQuestionsRequired: 1
+          allowSimpleSSOAdmins: true
           hasDarkBackground: true
           wrap: true
           ticketBaseUrl: ticketBaseUrl
@@ -17182,7 +17113,6 @@ components:
         statusCode: 0
         status: status
     SaveCommentResponseOptimized:
-      additionalProperties: false
       properties:
         status:
           $ref: "#/components/schemas/APIStatus"
@@ -17288,7 +17218,6 @@ components:
       properties: {}
       type: object
     CommentPollInput:
-      additionalProperties: false
       example:
         question: question
         options:
@@ -17319,7 +17248,6 @@ components:
       - question
       type: object
     CommentData:
-      additionalProperties: false
       example:
         date: 0
         pageTitle: pageTitle
@@ -17426,7 +17354,6 @@ components:
         urlId:
           type: string
         meta:
-          additionalProperties: false
           type: object
         moderationGroupIds:
           items:
@@ -17463,7 +17390,6 @@ components:
       - urlId
       type: object
     DeletedCommentResultComment:
-      additionalProperties: false
       example:
         commentHTML: commentHTML
         isDeleted: true
@@ -17522,7 +17448,6 @@ components:
       - status
       type: object
     VoteBodyParams:
-      additionalProperties: false
       example:
         commenterName: commenterName
         voteDir: up
@@ -17550,7 +17475,6 @@ components:
       - voteDir
       type: object
     GetCommentVoteUserNamesSuccessResponse:
-      additionalProperties: false
       example:
         hasMore: true
         voteUserNames:
@@ -17572,7 +17496,6 @@ components:
       - voteUserNames
       type: object
     CommentTranslationPublic:
-      additionalProperties: false
       properties:
         commentHTML:
           type: string
@@ -17591,7 +17514,6 @@ components:
       properties: {}
       type: object
     CommentTranslationsResponse:
-      additionalProperties: false
       example:
         translations:
           key: ""
@@ -17625,7 +17547,6 @@ components:
       - translations
       type: object
     CommentTranslationsRequest:
-      additionalProperties: false
       example:
         commentIds:
         - commentIds
@@ -17659,7 +17580,6 @@ components:
       - status
       type: object
     BlockSuccess:
-      additionalProperties: false
       example:
         commentStatuses:
           key: true
@@ -17678,7 +17598,6 @@ components:
       - status
       type: object
     PublicBlockFromCommentParams:
-      additionalProperties: false
       example:
         commentIds:
         - commentIds
@@ -17695,7 +17614,6 @@ components:
       - commentIds
       type: object
     UnblockSuccess:
-      additionalProperties: false
       example:
         commentStatuses:
           key: true
@@ -17884,7 +17802,6 @@ components:
       - status
       type: object
     APISSOUser:
-      additionalProperties: false
       example:
         displayLabel: displayLabel
         displayName: displayName
@@ -18611,7 +18528,6 @@ components:
       - domain
       type: string
     PageMigration:
-      additionalProperties: false
       example:
         from: from
         to: to
@@ -18736,7 +18652,6 @@ components:
       - api
       type: string
     PublicWebhook:
-      additionalProperties: false
       example:
         disabledReason: auto
         method: PUT
@@ -18797,7 +18712,6 @@ components:
       - url
       type: object
     GetWebhooksResponse:
-      additionalProperties: false
       example:
         webhooks:
         - disabledReason: auto
@@ -18839,7 +18753,6 @@ components:
       - webhooks
       type: object
     WebhookComment:
-      additionalProperties: false
       example:
         date: date
         pageNumber: 5.962133916683182
@@ -18862,6 +18775,25 @@ components:
         url: url
         parentId: parentId
         commenterEmail: commenterEmail
+        badges:
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 2
+          textColor: textColor
+          displaySrc: displaySrc
+        - displayLabel: displayLabel
+          backgroundColor: backgroundColor
+          borderColor: borderColor
+          cssClass: cssClass
+          description: description
+          id: id
+          type: 2
+          textColor: textColor
+          displaySrc: displaySrc
         moderationGroupIds:
         - moderationGroupIds
         - moderationGroupIds
@@ -18963,10 +18895,15 @@ components:
           items:
             type: string
           type: array
+        badges:
+          items:
+            $ref: "#/components/schemas/CommentUserBadgeInfo"
+          type: array
       required:
       - aiDeterminedSpam
       - approved
       - avatarSrc
+      - badges
       - comment
       - commentHTML
       - commenterEmail
@@ -18995,7 +18932,6 @@ components:
       - votesUp
       type: object
     GetWebhookSamplePayloadsResponse:
-      additionalProperties: false
       example:
         payloads:
         - date: date
@@ -19019,6 +18955,25 @@ components:
           url: url
           parentId: parentId
           commenterEmail: commenterEmail
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 2
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 2
+            textColor: textColor
+            displaySrc: displaySrc
           moderationGroupIds:
           - moderationGroupIds
           - moderationGroupIds
@@ -19060,6 +19015,25 @@ components:
           url: url
           parentId: parentId
           commenterEmail: commenterEmail
+          badges:
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 2
+            textColor: textColor
+            displaySrc: displaySrc
+          - displayLabel: displayLabel
+            backgroundColor: backgroundColor
+            borderColor: borderColor
+            cssClass: cssClass
+            description: description
+            id: id
+            type: 2
+            textColor: textColor
+            displaySrc: displaySrc
           moderationGroupIds:
           - moderationGroupIds
           - moderationGroupIds
@@ -19093,7 +19067,6 @@ components:
       - status
       type: object
     CreateWebhookResponse:
-      additionalProperties: false
       example:
         webhook:
           disabledReason: auto
@@ -19120,7 +19093,6 @@ components:
       - webhook
       type: object
     CreateWebhookParams:
-      additionalProperties: false
       example:
         method: PUT
         domain: domain
@@ -19143,7 +19115,6 @@ components:
       - url
       type: object
     PublicVote:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         commentId: commentId
@@ -19174,7 +19145,6 @@ components:
       - userId
       type: object
     GetVotesResponse:
-      additionalProperties: false
       example:
         appliedAuthorizedVotes:
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -19238,7 +19208,6 @@ components:
       - status
       type: object
     GetVotesForUserResponse:
-      additionalProperties: false
       example:
         appliedAuthorizedVotes:
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -19318,7 +19287,6 @@ components:
     AgentApprovalNotificationFrequency:
       $ref: "#/components/schemas/ImportedAgentApprovalNotificationFrequency"
     User:
-      additionalProperties: false
       example:
         socialLinks:
         - socialLinks
@@ -19539,7 +19507,6 @@ components:
       - verified
       type: object
     GetUserResponse:
-      additionalProperties: false
       example:
         user:
           socialLinks:
@@ -19617,7 +19584,6 @@ components:
       - user
       type: object
     APIGetUserBadgeResponse:
-      additionalProperties: false
       example:
         userBadge:
           displayLabel: displayLabel
@@ -19650,7 +19616,6 @@ components:
       - userBadge
       type: object
     APIGetUserBadgesResponse:
-      additionalProperties: false
       example:
         userBadges:
         - displayLabel: displayLabel
@@ -19704,7 +19669,6 @@ components:
       - userBadges
       type: object
     APICreateUserBadgeResponse:
-      additionalProperties: false
       example:
         userBadge:
           displayLabel: displayLabel
@@ -19744,7 +19708,6 @@ components:
       - userBadge
       type: object
     CreateUserBadgeParams:
-      additionalProperties: false
       example:
         badgeId: badgeId
         userId: userId
@@ -19761,7 +19724,6 @@ components:
       - userId
       type: object
     APIEmptySuccessResponse:
-      additionalProperties: false
       example:
         status: success
       properties:
@@ -19771,7 +19733,6 @@ components:
       - status
       type: object
     UpdateUserBadgeParams:
-      additionalProperties: false
       example:
         displayedOnComments: true
       properties:
@@ -19779,7 +19740,6 @@ components:
           type: boolean
       type: object
     UserBadgeProgress:
-      additionalProperties: false
       example:
         firstCommentDate: 2000-01-23T04:56:07.000+00:00
         autoTrustFactor: 0.8008281904610115
@@ -19828,7 +19788,6 @@ components:
       - userId
       type: object
     APIGetUserBadgeProgressResponse:
-      additionalProperties: false
       example:
         userBadgeProgress:
           firstCommentDate: 2000-01-23T04:56:07.000+00:00
@@ -19852,7 +19811,6 @@ components:
       - userBadgeProgress
       type: object
     APIGetUserBadgeProgressListResponse:
-      additionalProperties: false
       example:
         status: success
         userBadgeProgresses:
@@ -19888,7 +19846,6 @@ components:
       - userBadgeProgresses
       type: object
     APITicket:
-      additionalProperties: false
       example:
         createdAt: createdAt
         subject: subject
@@ -19936,7 +19893,6 @@ components:
       - userId
       type: object
     GetTicketsResponse:
-      additionalProperties: false
       example:
         tickets:
         - createdAt: createdAt
@@ -19974,7 +19930,6 @@ components:
       - tickets
       type: object
     CreateTicketResponse:
-      additionalProperties: false
       example:
         ticket:
           createdAt: createdAt
@@ -19999,7 +19954,6 @@ components:
       - ticket
       type: object
     CreateTicketBody:
-      additionalProperties: false
       example:
         subject: subject
       properties:
@@ -20009,7 +19963,6 @@ components:
       - subject
       type: object
     APITicketFile:
-      additionalProperties: false
       example:
         originalFileName: originalFileName
         s3Key: s3Key
@@ -20055,7 +20008,6 @@ components:
       - url
       type: object
     APITicketDetail:
-      additionalProperties: false
       example:
         resolvedAt: resolvedAt
         subject: subject
@@ -20141,7 +20093,6 @@ components:
       - userId
       type: object
     GetTicketResponse:
-      additionalProperties: false
       example:
         availableStates:
         - 5.962133916683182
@@ -20199,7 +20150,6 @@ components:
       - ticket
       type: object
     ChangeTicketStateResponse:
-      additionalProperties: false
       example:
         ticket:
           createdAt: createdAt
@@ -20224,7 +20174,6 @@ components:
       - ticket
       type: object
     ChangeTicketStateBody:
-      additionalProperties: false
       example:
         state: 0
       properties:
@@ -20243,7 +20192,6 @@ components:
     SiteType:
       $ref: "#/components/schemas/ImportedSiteType"
     APIDomainConfiguration:
-      additionalProperties: false
       example:
         emailFromEmail: emailFromEmail
         footerUnsubscribeURL: footerUnsubscribeURL
@@ -20311,7 +20259,6 @@ components:
       - id
       type: object
     BillingInfo:
-      additionalProperties: false
       example:
         zip: zip
         country: country
@@ -20356,7 +20303,6 @@ components:
       - zip
       type: object
     APITenant:
-      additionalProperties: false
       example:
         enableProfanityFilter: true
         paymentFrequency: 6.027456183070403
@@ -20516,7 +20462,6 @@ components:
       - signUpDate
       type: object
     GetTenantResponse:
-      additionalProperties: false
       example:
         tenant:
           enableProfanityFilter: true
@@ -20601,7 +20546,6 @@ components:
       - tenant
       type: object
     GetTenantsResponse:
-      additionalProperties: false
       example:
         tenants:
         - enableProfanityFilter: true
@@ -20759,7 +20703,6 @@ components:
       - tenants
       type: object
     CreateTenantResponse:
-      additionalProperties: false
       example:
         tenant:
           enableProfanityFilter: true
@@ -20844,7 +20787,6 @@ components:
       - tenant
       type: object
     CreateTenantBody:
-      additionalProperties: false
       example:
         enableProfanityFilter: true
         stripePlanId: stripePlanId
@@ -20971,7 +20913,6 @@ components:
       - name
       type: object
     UpdateTenantBody:
-      additionalProperties: false
       example:
         enableProfanityFilter: true
         stripePlanId: stripePlanId
@@ -21098,7 +21039,6 @@ components:
           type: string
       type: object
     GetTenantUserResponse:
-      additionalProperties: false
       example:
         tenantUser:
           socialLinks:
@@ -21176,7 +21116,6 @@ components:
       - tenantUser
       type: object
     GetTenantUsersResponse:
-      additionalProperties: false
       example:
         tenantUsers:
         - socialLinks:
@@ -21320,7 +21259,6 @@ components:
       - tenantUsers
       type: object
     CreateTenantUserResponse:
-      additionalProperties: false
       example:
         tenantUser:
           socialLinks:
@@ -21398,7 +21336,6 @@ components:
       - tenantUser
       type: object
     CreateTenantUserBody:
-      additionalProperties: false
       example:
         isHelpRequestAdmin: true
         displayLabel: displayLabel
@@ -21485,7 +21422,6 @@ components:
       - username
       type: object
     ReplaceTenantUserBody:
-      additionalProperties: false
       example:
         isHelpRequestAdmin: true
         displayName: displayName
@@ -21586,7 +21522,6 @@ components:
       - username
       type: object
     UpdateTenantUserBody:
-      additionalProperties: false
       example:
         isHelpRequestAdmin: true
         displayLabel: displayLabel
@@ -21670,55 +21605,57 @@ components:
           type: string
       type: object
     TenantPackage:
-      additionalProperties: false
       example:
-        maxMonthlySmallWidgetsCredits: 5.637376656633329
-        flexAPICreditCostCents: 9.965781217890562
-        flexMinimumCostCents: 3.353193347011243
-        flexCommentUnit: 1.1730742509559433
-        maxMonthlyAPICredits: 5.962133916683182
+        maxMonthlySmallWidgetsCredits: 7.061401241503109
+        flexAPICreditCostCents: 6.683562403749608
+        flexMinimumCostCents: 7.143538047012306
+        monthlyCostLocal: 1.4658129805029452
+        flexCommentUnit: 5.025004791520295
+        maxMonthlyAPICredits: 2.3021358869347655
         templateId: templateId
         createdAt: 2000-01-23T04:56:07.000+00:00
-        flexManagedTenantCostCents: 3.0937452626664474
-        flexSmallWidgetsCreditUnit: 8.762042012749001
+        flexManagedTenantCostCents: 0.8851374739011653
+        flexSmallWidgetsCreditUnit: 6.438423552598547
         yearlyStripePlanId: yearlyStripePlanId
-        aiAgentDailyBudgetCents: 8.969578798196912
-        maxSSOUsers: 3.616076749251911
+        aiAgentDailyBudgetCents: 3.0205796992916243
+        maxSSOUsers: 4.145608029883936
         hasFlexPricing: true
-        flexSSOModeratorCostCents: 7.058770351582356
+        flexSSOModeratorCostCents: 0.10263654006109402
         monthlyCostUSD: 0.8008281904610115
-        maxTenantUsers: 9.301444243932576
-        maxCustomCollectionSize: 1.0246457001441578
+        maxTenantUsers: 2.027123023002322
+        maxCustomCollectionSize: 6.84685269835264
         enableSAML: true
         enableCanvasLTI: true
         forWhoText: forWhoText
-        flexAPICreditUnit: 9.369310271410669
-        flexAdminCostCents: 3.5571952270680973
-        maxConcurrentUsers: 7.061401241503109
-        flexLLMCostCents: 5.944895607614016
+        flexAPICreditUnit: 8.762042012749001
+        flexAdminCostCents: 1.284659006116532
+        maxConcurrentUsers: 3.616076749251911
+        flexLLMCostCents: 3.353193347011243
         name: name
         _id: _id
-        aiAgentMonthlyBudgetCents: 7.740351818741173
-        flexModeratorUnit: 6.438423552598547
-        flexChatGPTCostCents: 6.778324963048013
-        flexSSOAdminCostCents: 7.143538047012306
-        flexSSOUserCostCents: 4.965218492984954
-        flexLLMUnit: 6.704019297950036
-        flexFreeModerators: 0.10263654006109402
-        flexSSOModeratorUnit: 6.519180951018382
-        maxDomains: 4.145608029883936
-        maxMonthlyEventLogRequests: 1.2315135367772556
-        maxAIAgents: 4.652396432933246
-        flexDomainUnit: 2.8841621266687802
+        aiAgentMonthlyBudgetCents: 3.0576100241049344
+        yearlyCostLocal: 5.962133916683182
+        flexModeratorUnit: 6.965117697638846
+        flexChatGPTCostCents: 5.944895607614016
+        pricingCurrency: pricingCurrency
+        flexSSOAdminCostCents: 7.058770351582356
+        flexSSOUserCostCents: 9.965781217890562
+        flexLLMUnit: 3.0937452626664474
+        flexFreeModerators: 8.969578798196912
+        flexSSOModeratorUnit: 4.652396432933246
+        maxDomains: 1.2315135367772556
+        maxMonthlyEventLogRequests: 1.4894159098541704
+        maxAIAgents: 7.740351818741173
+        flexDomainUnit: 6.878052220127876
         hasWhiteLabeling: true
-        flexChatGPTUnit: 6.878052220127876
-        maxMonthlyComments: 2.3021358869347655
-        maxModerators: 2.027123023002322
+        flexChatGPTUnit: 6.704019297950036
+        maxMonthlyComments: 9.301444243932576
+        maxModerators: 7.386281948385884
         hasAuditing: true
         hasAIAgents: true
-        flexSSOUserUnit: 5.025004791520295
-        maxMonthlyPageLoads: 1.4658129805029452
-        flexDomainCostCents: 1.284659006116532
+        flexSSOUserUnit: 9.369310271410669
+        maxMonthlyPageLoads: 5.637376656633329
+        flexDomainCostCents: 6.778324963048013
         hasLLMSpamDetection: true
         isSSOBillingMonthlyActiveUsers: true
         featureTaglines:
@@ -21726,16 +21663,16 @@ components:
         - featureTaglines
         yearlyCostUSD: 6.027456183070403
         hasDebranding: true
-        flexPageLoadCostCents: 1.4894159098541704
-        flexAdminUnit: 6.965117697638846
-        maxWhiteLabeledTenants: 7.386281948385884
-        flexSmallWidgetsCreditCostCents: 6.683562403749608
+        flexPageLoadCostCents: 7.457744773683766
+        flexAdminUnit: 2.8841621266687802
+        maxWhiteLabeledTenants: 1.0246457001441578
+        flexSmallWidgetsCreditCostCents: 9.018348186070783
         tenantId: tenantId
-        flexCommentCostCents: 7.457744773683766
-        flexModeratorCostCents: 9.018348186070783
-        flexPageLoadUnit: 6.84685269835264
+        flexCommentCostCents: 4.965218492984954
+        flexModeratorCostCents: 3.5571952270680973
+        flexPageLoadUnit: 1.1730742509559433
         monthlyStripePlanId: monthlyStripePlanId
-        flexSSOAdminUnit: 0.8851374739011653
+        flexSSOAdminUnit: 6.519180951018382
       properties:
         _id:
           type: string
@@ -21749,10 +21686,24 @@ components:
         templateId:
           type: string
         monthlyCostUSD:
+          description: "Always the USD list price, also on regionally priced tenants\
+            \ (commissions and plan comparisons read it)."
           format: double
           nullable: true
           type: number
         yearlyCostUSD:
+          format: double
+          nullable: true
+          type: number
+        pricingCurrency:
+          description: "Regional prices the tenant is charged, when pricingCurrency\
+            \ is set; the Stripe plan ids below are then in that currency."
+          type: string
+        monthlyCostLocal:
+          format: double
+          nullable: true
+          type: number
+        yearlyCostLocal:
           format: double
           nullable: true
           type: number
@@ -21942,56 +21893,58 @@ components:
       - yearlyStripePlanId
       type: object
     GetTenantPackageResponse:
-      additionalProperties: false
       example:
         tenantPackage:
-          maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 3.353193347011243
-          flexCommentUnit: 1.1730742509559433
-          maxMonthlyAPICredits: 5.962133916683182
+          maxMonthlySmallWidgetsCredits: 7.061401241503109
+          flexAPICreditCostCents: 6.683562403749608
+          flexMinimumCostCents: 7.143538047012306
+          monthlyCostLocal: 1.4658129805029452
+          flexCommentUnit: 5.025004791520295
+          maxMonthlyAPICredits: 2.3021358869347655
           templateId: templateId
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 3.0937452626664474
-          flexSmallWidgetsCreditUnit: 8.762042012749001
+          flexManagedTenantCostCents: 0.8851374739011653
+          flexSmallWidgetsCreditUnit: 6.438423552598547
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 8.969578798196912
-          maxSSOUsers: 3.616076749251911
+          aiAgentDailyBudgetCents: 3.0205796992916243
+          maxSSOUsers: 4.145608029883936
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.058770351582356
+          flexSSOModeratorCostCents: 0.10263654006109402
           monthlyCostUSD: 0.8008281904610115
-          maxTenantUsers: 9.301444243932576
-          maxCustomCollectionSize: 1.0246457001441578
+          maxTenantUsers: 2.027123023002322
+          maxCustomCollectionSize: 6.84685269835264
           enableSAML: true
           enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.369310271410669
-          flexAdminCostCents: 3.5571952270680973
-          maxConcurrentUsers: 7.061401241503109
-          flexLLMCostCents: 5.944895607614016
+          flexAPICreditUnit: 8.762042012749001
+          flexAdminCostCents: 1.284659006116532
+          maxConcurrentUsers: 3.616076749251911
+          flexLLMCostCents: 3.353193347011243
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 7.740351818741173
-          flexModeratorUnit: 6.438423552598547
-          flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 7.143538047012306
-          flexSSOUserCostCents: 4.965218492984954
-          flexLLMUnit: 6.704019297950036
-          flexFreeModerators: 0.10263654006109402
-          flexSSOModeratorUnit: 6.519180951018382
-          maxDomains: 4.145608029883936
-          maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 4.652396432933246
-          flexDomainUnit: 2.8841621266687802
+          aiAgentMonthlyBudgetCents: 3.0576100241049344
+          yearlyCostLocal: 5.962133916683182
+          flexModeratorUnit: 6.965117697638846
+          flexChatGPTCostCents: 5.944895607614016
+          pricingCurrency: pricingCurrency
+          flexSSOAdminCostCents: 7.058770351582356
+          flexSSOUserCostCents: 9.965781217890562
+          flexLLMUnit: 3.0937452626664474
+          flexFreeModerators: 8.969578798196912
+          flexSSOModeratorUnit: 4.652396432933246
+          maxDomains: 1.2315135367772556
+          maxMonthlyEventLogRequests: 1.4894159098541704
+          maxAIAgents: 7.740351818741173
+          flexDomainUnit: 6.878052220127876
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.878052220127876
-          maxMonthlyComments: 2.3021358869347655
-          maxModerators: 2.027123023002322
+          flexChatGPTUnit: 6.704019297950036
+          maxMonthlyComments: 9.301444243932576
+          maxModerators: 7.386281948385884
           hasAuditing: true
           hasAIAgents: true
-          flexSSOUserUnit: 5.025004791520295
-          maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 1.284659006116532
+          flexSSOUserUnit: 9.369310271410669
+          maxMonthlyPageLoads: 5.637376656633329
+          flexDomainCostCents: 6.778324963048013
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -21999,16 +21952,16 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.4894159098541704
-          flexAdminUnit: 6.965117697638846
-          maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 6.683562403749608
+          flexPageLoadCostCents: 7.457744773683766
+          flexAdminUnit: 2.8841621266687802
+          maxWhiteLabeledTenants: 1.0246457001441578
+          flexSmallWidgetsCreditCostCents: 9.018348186070783
           tenantId: tenantId
-          flexCommentCostCents: 7.457744773683766
-          flexModeratorCostCents: 9.018348186070783
-          flexPageLoadUnit: 6.84685269835264
+          flexCommentCostCents: 4.965218492984954
+          flexModeratorCostCents: 3.5571952270680973
+          flexPageLoadUnit: 1.1730742509559433
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 0.8851374739011653
+          flexSSOAdminUnit: 6.519180951018382
         status: success
       properties:
         status:
@@ -22020,56 +21973,58 @@ components:
       - tenantPackage
       type: object
     GetTenantPackagesResponse:
-      additionalProperties: false
       example:
         tenantPackages:
-        - maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 3.353193347011243
-          flexCommentUnit: 1.1730742509559433
-          maxMonthlyAPICredits: 5.962133916683182
+        - maxMonthlySmallWidgetsCredits: 7.061401241503109
+          flexAPICreditCostCents: 6.683562403749608
+          flexMinimumCostCents: 7.143538047012306
+          monthlyCostLocal: 1.4658129805029452
+          flexCommentUnit: 5.025004791520295
+          maxMonthlyAPICredits: 2.3021358869347655
           templateId: templateId
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 3.0937452626664474
-          flexSmallWidgetsCreditUnit: 8.762042012749001
+          flexManagedTenantCostCents: 0.8851374739011653
+          flexSmallWidgetsCreditUnit: 6.438423552598547
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 8.969578798196912
-          maxSSOUsers: 3.616076749251911
+          aiAgentDailyBudgetCents: 3.0205796992916243
+          maxSSOUsers: 4.145608029883936
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.058770351582356
+          flexSSOModeratorCostCents: 0.10263654006109402
           monthlyCostUSD: 0.8008281904610115
-          maxTenantUsers: 9.301444243932576
-          maxCustomCollectionSize: 1.0246457001441578
+          maxTenantUsers: 2.027123023002322
+          maxCustomCollectionSize: 6.84685269835264
           enableSAML: true
           enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.369310271410669
-          flexAdminCostCents: 3.5571952270680973
-          maxConcurrentUsers: 7.061401241503109
-          flexLLMCostCents: 5.944895607614016
+          flexAPICreditUnit: 8.762042012749001
+          flexAdminCostCents: 1.284659006116532
+          maxConcurrentUsers: 3.616076749251911
+          flexLLMCostCents: 3.353193347011243
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 7.740351818741173
-          flexModeratorUnit: 6.438423552598547
-          flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 7.143538047012306
-          flexSSOUserCostCents: 4.965218492984954
-          flexLLMUnit: 6.704019297950036
-          flexFreeModerators: 0.10263654006109402
-          flexSSOModeratorUnit: 6.519180951018382
-          maxDomains: 4.145608029883936
-          maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 4.652396432933246
-          flexDomainUnit: 2.8841621266687802
+          aiAgentMonthlyBudgetCents: 3.0576100241049344
+          yearlyCostLocal: 5.962133916683182
+          flexModeratorUnit: 6.965117697638846
+          flexChatGPTCostCents: 5.944895607614016
+          pricingCurrency: pricingCurrency
+          flexSSOAdminCostCents: 7.058770351582356
+          flexSSOUserCostCents: 9.965781217890562
+          flexLLMUnit: 3.0937452626664474
+          flexFreeModerators: 8.969578798196912
+          flexSSOModeratorUnit: 4.652396432933246
+          maxDomains: 1.2315135367772556
+          maxMonthlyEventLogRequests: 1.4894159098541704
+          maxAIAgents: 7.740351818741173
+          flexDomainUnit: 6.878052220127876
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.878052220127876
-          maxMonthlyComments: 2.3021358869347655
-          maxModerators: 2.027123023002322
+          flexChatGPTUnit: 6.704019297950036
+          maxMonthlyComments: 9.301444243932576
+          maxModerators: 7.386281948385884
           hasAuditing: true
           hasAIAgents: true
-          flexSSOUserUnit: 5.025004791520295
-          maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 1.284659006116532
+          flexSSOUserUnit: 9.369310271410669
+          maxMonthlyPageLoads: 5.637376656633329
+          flexDomainCostCents: 6.778324963048013
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -22077,63 +22032,66 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.4894159098541704
-          flexAdminUnit: 6.965117697638846
-          maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 6.683562403749608
+          flexPageLoadCostCents: 7.457744773683766
+          flexAdminUnit: 2.8841621266687802
+          maxWhiteLabeledTenants: 1.0246457001441578
+          flexSmallWidgetsCreditCostCents: 9.018348186070783
           tenantId: tenantId
-          flexCommentCostCents: 7.457744773683766
-          flexModeratorCostCents: 9.018348186070783
-          flexPageLoadUnit: 6.84685269835264
+          flexCommentCostCents: 4.965218492984954
+          flexModeratorCostCents: 3.5571952270680973
+          flexPageLoadUnit: 1.1730742509559433
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 0.8851374739011653
-        - maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 3.353193347011243
-          flexCommentUnit: 1.1730742509559433
-          maxMonthlyAPICredits: 5.962133916683182
+          flexSSOAdminUnit: 6.519180951018382
+        - maxMonthlySmallWidgetsCredits: 7.061401241503109
+          flexAPICreditCostCents: 6.683562403749608
+          flexMinimumCostCents: 7.143538047012306
+          monthlyCostLocal: 1.4658129805029452
+          flexCommentUnit: 5.025004791520295
+          maxMonthlyAPICredits: 2.3021358869347655
           templateId: templateId
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 3.0937452626664474
-          flexSmallWidgetsCreditUnit: 8.762042012749001
+          flexManagedTenantCostCents: 0.8851374739011653
+          flexSmallWidgetsCreditUnit: 6.438423552598547
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 8.969578798196912
-          maxSSOUsers: 3.616076749251911
+          aiAgentDailyBudgetCents: 3.0205796992916243
+          maxSSOUsers: 4.145608029883936
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.058770351582356
+          flexSSOModeratorCostCents: 0.10263654006109402
           monthlyCostUSD: 0.8008281904610115
-          maxTenantUsers: 9.301444243932576
-          maxCustomCollectionSize: 1.0246457001441578
+          maxTenantUsers: 2.027123023002322
+          maxCustomCollectionSize: 6.84685269835264
           enableSAML: true
           enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.369310271410669
-          flexAdminCostCents: 3.5571952270680973
-          maxConcurrentUsers: 7.061401241503109
-          flexLLMCostCents: 5.944895607614016
+          flexAPICreditUnit: 8.762042012749001
+          flexAdminCostCents: 1.284659006116532
+          maxConcurrentUsers: 3.616076749251911
+          flexLLMCostCents: 3.353193347011243
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 7.740351818741173
-          flexModeratorUnit: 6.438423552598547
-          flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 7.143538047012306
-          flexSSOUserCostCents: 4.965218492984954
-          flexLLMUnit: 6.704019297950036
-          flexFreeModerators: 0.10263654006109402
-          flexSSOModeratorUnit: 6.519180951018382
-          maxDomains: 4.145608029883936
-          maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 4.652396432933246
-          flexDomainUnit: 2.8841621266687802
+          aiAgentMonthlyBudgetCents: 3.0576100241049344
+          yearlyCostLocal: 5.962133916683182
+          flexModeratorUnit: 6.965117697638846
+          flexChatGPTCostCents: 5.944895607614016
+          pricingCurrency: pricingCurrency
+          flexSSOAdminCostCents: 7.058770351582356
+          flexSSOUserCostCents: 9.965781217890562
+          flexLLMUnit: 3.0937452626664474
+          flexFreeModerators: 8.969578798196912
+          flexSSOModeratorUnit: 4.652396432933246
+          maxDomains: 1.2315135367772556
+          maxMonthlyEventLogRequests: 1.4894159098541704
+          maxAIAgents: 7.740351818741173
+          flexDomainUnit: 6.878052220127876
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.878052220127876
-          maxMonthlyComments: 2.3021358869347655
-          maxModerators: 2.027123023002322
+          flexChatGPTUnit: 6.704019297950036
+          maxMonthlyComments: 9.301444243932576
+          maxModerators: 7.386281948385884
           hasAuditing: true
           hasAIAgents: true
-          flexSSOUserUnit: 5.025004791520295
-          maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 1.284659006116532
+          flexSSOUserUnit: 9.369310271410669
+          maxMonthlyPageLoads: 5.637376656633329
+          flexDomainCostCents: 6.778324963048013
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -22141,16 +22099,16 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.4894159098541704
-          flexAdminUnit: 6.965117697638846
-          maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 6.683562403749608
+          flexPageLoadCostCents: 7.457744773683766
+          flexAdminUnit: 2.8841621266687802
+          maxWhiteLabeledTenants: 1.0246457001441578
+          flexSmallWidgetsCreditCostCents: 9.018348186070783
           tenantId: tenantId
-          flexCommentCostCents: 7.457744773683766
-          flexModeratorCostCents: 9.018348186070783
-          flexPageLoadUnit: 6.84685269835264
+          flexCommentCostCents: 4.965218492984954
+          flexModeratorCostCents: 3.5571952270680973
+          flexPageLoadUnit: 1.1730742509559433
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 0.8851374739011653
+          flexSSOAdminUnit: 6.519180951018382
         status: success
       properties:
         status:
@@ -22164,56 +22122,58 @@ components:
       - tenantPackages
       type: object
     CreateTenantPackageResponse:
-      additionalProperties: false
       example:
         tenantPackage:
-          maxMonthlySmallWidgetsCredits: 5.637376656633329
-          flexAPICreditCostCents: 9.965781217890562
-          flexMinimumCostCents: 3.353193347011243
-          flexCommentUnit: 1.1730742509559433
-          maxMonthlyAPICredits: 5.962133916683182
+          maxMonthlySmallWidgetsCredits: 7.061401241503109
+          flexAPICreditCostCents: 6.683562403749608
+          flexMinimumCostCents: 7.143538047012306
+          monthlyCostLocal: 1.4658129805029452
+          flexCommentUnit: 5.025004791520295
+          maxMonthlyAPICredits: 2.3021358869347655
           templateId: templateId
           createdAt: 2000-01-23T04:56:07.000+00:00
-          flexManagedTenantCostCents: 3.0937452626664474
-          flexSmallWidgetsCreditUnit: 8.762042012749001
+          flexManagedTenantCostCents: 0.8851374739011653
+          flexSmallWidgetsCreditUnit: 6.438423552598547
           yearlyStripePlanId: yearlyStripePlanId
-          aiAgentDailyBudgetCents: 8.969578798196912
-          maxSSOUsers: 3.616076749251911
+          aiAgentDailyBudgetCents: 3.0205796992916243
+          maxSSOUsers: 4.145608029883936
           hasFlexPricing: true
-          flexSSOModeratorCostCents: 7.058770351582356
+          flexSSOModeratorCostCents: 0.10263654006109402
           monthlyCostUSD: 0.8008281904610115
-          maxTenantUsers: 9.301444243932576
-          maxCustomCollectionSize: 1.0246457001441578
+          maxTenantUsers: 2.027123023002322
+          maxCustomCollectionSize: 6.84685269835264
           enableSAML: true
           enableCanvasLTI: true
           forWhoText: forWhoText
-          flexAPICreditUnit: 9.369310271410669
-          flexAdminCostCents: 3.5571952270680973
-          maxConcurrentUsers: 7.061401241503109
-          flexLLMCostCents: 5.944895607614016
+          flexAPICreditUnit: 8.762042012749001
+          flexAdminCostCents: 1.284659006116532
+          maxConcurrentUsers: 3.616076749251911
+          flexLLMCostCents: 3.353193347011243
           name: name
           _id: _id
-          aiAgentMonthlyBudgetCents: 7.740351818741173
-          flexModeratorUnit: 6.438423552598547
-          flexChatGPTCostCents: 6.778324963048013
-          flexSSOAdminCostCents: 7.143538047012306
-          flexSSOUserCostCents: 4.965218492984954
-          flexLLMUnit: 6.704019297950036
-          flexFreeModerators: 0.10263654006109402
-          flexSSOModeratorUnit: 6.519180951018382
-          maxDomains: 4.145608029883936
-          maxMonthlyEventLogRequests: 1.2315135367772556
-          maxAIAgents: 4.652396432933246
-          flexDomainUnit: 2.8841621266687802
+          aiAgentMonthlyBudgetCents: 3.0576100241049344
+          yearlyCostLocal: 5.962133916683182
+          flexModeratorUnit: 6.965117697638846
+          flexChatGPTCostCents: 5.944895607614016
+          pricingCurrency: pricingCurrency
+          flexSSOAdminCostCents: 7.058770351582356
+          flexSSOUserCostCents: 9.965781217890562
+          flexLLMUnit: 3.0937452626664474
+          flexFreeModerators: 8.969578798196912
+          flexSSOModeratorUnit: 4.652396432933246
+          maxDomains: 1.2315135367772556
+          maxMonthlyEventLogRequests: 1.4894159098541704
+          maxAIAgents: 7.740351818741173
+          flexDomainUnit: 6.878052220127876
           hasWhiteLabeling: true
-          flexChatGPTUnit: 6.878052220127876
-          maxMonthlyComments: 2.3021358869347655
-          maxModerators: 2.027123023002322
+          flexChatGPTUnit: 6.704019297950036
+          maxMonthlyComments: 9.301444243932576
+          maxModerators: 7.386281948385884
           hasAuditing: true
           hasAIAgents: true
-          flexSSOUserUnit: 5.025004791520295
-          maxMonthlyPageLoads: 1.4658129805029452
-          flexDomainCostCents: 1.284659006116532
+          flexSSOUserUnit: 9.369310271410669
+          maxMonthlyPageLoads: 5.637376656633329
+          flexDomainCostCents: 6.778324963048013
           hasLLMSpamDetection: true
           isSSOBillingMonthlyActiveUsers: true
           featureTaglines:
@@ -22221,16 +22181,16 @@ components:
           - featureTaglines
           yearlyCostUSD: 6.027456183070403
           hasDebranding: true
-          flexPageLoadCostCents: 1.4894159098541704
-          flexAdminUnit: 6.965117697638846
-          maxWhiteLabeledTenants: 7.386281948385884
-          flexSmallWidgetsCreditCostCents: 6.683562403749608
+          flexPageLoadCostCents: 7.457744773683766
+          flexAdminUnit: 2.8841621266687802
+          maxWhiteLabeledTenants: 1.0246457001441578
+          flexSmallWidgetsCreditCostCents: 9.018348186070783
           tenantId: tenantId
-          flexCommentCostCents: 7.457744773683766
-          flexModeratorCostCents: 9.018348186070783
-          flexPageLoadUnit: 6.84685269835264
+          flexCommentCostCents: 4.965218492984954
+          flexModeratorCostCents: 3.5571952270680973
+          flexPageLoadUnit: 1.1730742509559433
           monthlyStripePlanId: monthlyStripePlanId
-          flexSSOAdminUnit: 0.8851374739011653
+          flexSSOAdminUnit: 6.519180951018382
         status: success
       properties:
         status:
@@ -22242,7 +22202,6 @@ components:
       - tenantPackage
       type: object
     CreateTenantPackageBody:
-      additionalProperties: false
       example:
         maxMonthlySmallWidgetsCredits: 5.637376656633329
         flexAPICreditCostCents: 9.965781217890562
@@ -22454,7 +22413,6 @@ components:
       - name
       type: object
     ReplaceTenantPackageBody:
-      additionalProperties: false
       example:
         flexAPICreditCostCents: 1.1730742509559433
         flexMinimumCostCents: 6.438423552598547
@@ -22598,7 +22556,6 @@ components:
       - yearlyCostUSD
       type: object
     UpdateTenantPackageBody:
-      additionalProperties: false
       example:
         flexAPICreditCostCents: 1.1730742509559433
         flexMinimumCostCents: 6.438423552598547
@@ -22729,7 +22686,6 @@ components:
           type: number
       type: object
     APITenantDailyUsage:
-      additionalProperties: false
       example:
         commentFetchCount: 5.962133916683182
         ignored: true
@@ -22826,7 +22782,6 @@ components:
       - yearNumber
       type: object
     GetTenantDailyUsagesResponse:
-      additionalProperties: false
       example:
         tenantDailyUsages:
         - commentFetchCount: 5.962133916683182
@@ -22880,7 +22835,6 @@ components:
       - tenantDailyUsages
       type: object
     MetaItem:
-      additionalProperties: false
       example:
         values:
         - values
@@ -22898,7 +22852,6 @@ components:
       - values
       type: object
     QuestionResult:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         questionId: questionId
@@ -22971,7 +22924,6 @@ components:
       - value
       type: object
     GetQuestionResultResponse:
-      additionalProperties: false
       example:
         questionResult:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -23007,7 +22959,6 @@ components:
       - status
       type: object
     GetQuestionResultsResponse:
-      additionalProperties: false
       example:
         questionResults:
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -23067,7 +23018,6 @@ components:
       - status
       type: object
     CreateQuestionResultResponse:
-      additionalProperties: false
       example:
         questionResult:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -23209,7 +23159,6 @@ components:
       properties: {}
       type: object
     QuestionDatum:
-      additionalProperties: false
       example:
         total: 6
         v:
@@ -23236,7 +23185,6 @@ components:
       properties: {}
       type: object
     QuestionResultAggregationOverall:
-      additionalProperties: false
       example:
         average: 5.637376656633329
         createdAt: 2000-01-23T04:56:07.000+00:00
@@ -23286,7 +23234,6 @@ components:
       - total
       type: object
     AggregateQuestionResultsResponse:
-      additionalProperties: false
       example:
         data:
           average: 5.637376656633329
@@ -23327,7 +23274,6 @@ components:
       properties: {}
       type: object
     BulkAggregateQuestionResultsResponse:
-      additionalProperties: false
       example:
         data:
           key:
@@ -23361,7 +23307,6 @@ components:
       - status
       type: object
     BulkAggregateQuestionItem:
-      additionalProperties: false
       example:
         questionId: questionId
         timeBucket: day
@@ -23391,7 +23336,6 @@ components:
       - aggId
       type: object
     BulkAggregateQuestionResultsRequest:
-      additionalProperties: false
       example:
         aggregations:
         - questionId: questionId
@@ -23419,7 +23363,6 @@ components:
       - aggregations
       type: object
     CommentTranslation:
-      additionalProperties: false
       properties:
         comment:
           type: string
@@ -23550,7 +23493,6 @@ components:
       - 15
       type: integer
     CommentLogData:
-      additionalProperties: false
       example:
         votesDownAfter: 9.369310271410669
         repeatAction: 6
@@ -23738,7 +23680,6 @@ components:
           type: boolean
       type: object
     CommentLogEntry:
-      additionalProperties: false
       example:
         d: 2000-01-23T04:56:07.000+00:00
         t: 7
@@ -23811,7 +23752,6 @@ components:
       - t
       type: object
     FComment:
-      additionalProperties: false
       example:
         date: 2000-01-23T04:56:07.000+00:00
         editKey: editKey
@@ -24286,7 +24226,6 @@ components:
       - verified
       type: object
     FindCommentsByRangeItem:
-      additionalProperties: false
       example:
         result:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -24324,7 +24263,6 @@ components:
       - result
       type: object
     FindCommentsByRangeResponse:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         results:
@@ -24389,7 +24327,6 @@ components:
       - results
       type: object
     CombineQuestionResultsWithCommentsResponse:
-      additionalProperties: false
       example:
         data:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -24464,7 +24401,6 @@ components:
       - excludes
       type: string
     SubQuestionCondition:
-      additionalProperties: false
       example:
         subQuestionId: subQuestionId
         value: 2.3021358869347655
@@ -24483,7 +24419,6 @@ components:
       - value
       type: object
     QuestionCondition:
-      additionalProperties: false
       description: |-
         A rule evaluated against a question's answer. value is the score for nps/slider/star/emoji/scale, 1 or 0 for
         thumbs, and the option index for choice/multi.
@@ -24501,7 +24436,6 @@ components:
       - value
       type: object
     QuestionConfig:
-      additionalProperties: false
       example:
         commentBoxCondition:
           value: 7.061401241503109
@@ -24635,7 +24569,6 @@ components:
       - usedCount
       type: object
     GetQuestionConfigResponse:
-      additionalProperties: false
       example:
         status: success
         questionConfig:
@@ -24687,7 +24620,6 @@ components:
       - status
       type: object
     GetQuestionConfigsResponse:
-      additionalProperties: false
       example:
         questionConfigs:
         - commentBoxCondition:
@@ -24779,7 +24711,6 @@ components:
       - status
       type: object
     CreateQuestionConfigResponse:
-      additionalProperties: false
       example:
         status: success
         questionConfig:
@@ -25005,7 +24936,6 @@ components:
           type: number
       type: object
     GetPollResponse:
-      additionalProperties: false
       example:
         poll:
           question: question
@@ -25031,7 +24961,6 @@ components:
       - status
       type: object
     SavePollResponse:
-      additionalProperties: false
       example:
         poll:
           question: question
@@ -25057,7 +24986,6 @@ components:
       - status
       type: object
     CommentPollOptionInput:
-      additionalProperties: false
       example:
         id: id
         label: label
@@ -25071,7 +24999,6 @@ components:
       - label
       type: object
     CommentPollPutInput:
-      additionalProperties: false
       example:
         question: question
         options:
@@ -25104,7 +25031,6 @@ components:
       - question
       type: object
     CommentPollPatch:
-      additionalProperties: false
       example:
         question: question
         options:
@@ -25136,7 +25062,6 @@ components:
           type: boolean
       type: object
     PublicPollVote:
-      additionalProperties: false
       description: A single vote cast on a comment's poll.
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
@@ -25176,7 +25101,6 @@ components:
       - voterId
       type: object
     GetPollVotesResponse:
-      additionalProperties: false
       example:
         pollVotes:
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -25208,7 +25132,6 @@ components:
       - status
       type: object
     GetPollVoteResponse:
-      additionalProperties: false
       example:
         pollVote:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -25230,7 +25153,6 @@ components:
       - status
       type: object
     CreatePollVoteResponse:
-      additionalProperties: false
       example:
         pollVote:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -25268,7 +25190,6 @@ components:
       - status
       type: object
     CreatePollVoteBody:
-      additionalProperties: false
       example:
         ip: ip
         commentId: commentId
@@ -25291,7 +25212,6 @@ components:
       - optionId
       type: object
     DeletePollVoteResponse:
-      additionalProperties: false
       example:
         poll:
           question: question
@@ -25317,7 +25237,6 @@ components:
       - status
       type: object
     PendingCommentToSyncOutbound:
-      additionalProperties: false
       example:
         lastError: "{}"
         webhookId: webhookId
@@ -25599,7 +25518,6 @@ components:
         domain:
           type: string
         lastError:
-          additionalProperties: false
           type: object
         webhookId:
           type: string
@@ -25617,7 +25535,6 @@ components:
       - type
       type: object
     GetPendingWebhookEventsResponse:
-      additionalProperties: false
       example:
         pendingWebhookEvents:
         - lastError: "{}"
@@ -26133,7 +26050,6 @@ components:
       - status
       type: object
     GetPendingWebhookEventCountResponse:
-      additionalProperties: false
       example:
         count: 0.8008281904610115
         status: success
@@ -26148,7 +26064,6 @@ components:
       - status
       type: object
     GetNotificationsResponse:
-      additionalProperties: false
       example:
         notifications:
         - isUnreadMessage: true
@@ -26224,7 +26139,6 @@ components:
       - status
       type: object
     GetNotificationCountResponse:
-      additionalProperties: false
       example:
         count: 0.8008281904610115
         status: success
@@ -26250,7 +26164,6 @@ components:
           type: boolean
       type: object
     UserNotificationCount:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         count: 0.8008281904610115
@@ -26275,7 +26188,6 @@ components:
       - expireAt
       type: object
     GetCachedNotificationCountResponse:
-      additionalProperties: false
       example:
         data:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -26293,7 +26205,6 @@ components:
       - status
       type: object
     Moderator:
-      additionalProperties: false
       example:
         unFlaggedCount: 3.616076749251911
         isEmailSuppressed: true
@@ -26393,7 +26304,6 @@ components:
       - verificationId
       type: object
     GetModeratorResponse:
-      additionalProperties: false
       example:
         moderator:
           unFlaggedCount: 3.616076749251911
@@ -26428,7 +26338,6 @@ components:
       - status
       type: object
     GetModeratorsResponse:
-      additionalProperties: false
       example:
         status: success
         moderators:
@@ -26486,7 +26395,6 @@ components:
       - status
       type: object
     CreateModeratorResponse:
-      additionalProperties: false
       example:
         moderator:
           unFlaggedCount: 3.616076749251911
@@ -26576,7 +26484,6 @@ components:
       - write
       type: string
     GetMeResponse:
-      additionalProperties: false
       example:
         tenantName: tenantName
         tenantId: tenantId
@@ -26617,7 +26524,6 @@ components:
       - tenantName
       type: object
     TenantHashTag:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         tenantId: tenantId
@@ -26643,7 +26549,6 @@ components:
       - tenantId
       type: object
     GetHashTagsResponse:
-      additionalProperties: false
       example:
         hashTags:
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -26669,7 +26574,6 @@ components:
       - status
       type: object
     CreateHashTagResponse:
-      additionalProperties: false
       example:
         status: success
         hashTag:
@@ -26688,7 +26592,6 @@ components:
       - status
       type: object
     CreateHashTagBody:
-      additionalProperties: false
       example:
         tenantId: tenantId
         tag: tag
@@ -26704,7 +26607,6 @@ components:
       - tag
       type: object
     BulkCreateHashTagsResponse:
-      additionalProperties: false
       example:
         results:
         - status: success
@@ -26734,7 +26636,6 @@ components:
       - status
       type: object
     BulkCreateHashTagsBody:
-      additionalProperties: false
       example:
         tenantId: tenantId
         tags:
@@ -26753,7 +26654,6 @@ components:
       - tags
       type: object
     UpdateHashTagResponse:
-      additionalProperties: false
       example:
         status: success
         hashTag:
@@ -26772,7 +26672,6 @@ components:
       - status
       type: object
     UpdateHashTagBody:
-      additionalProperties: false
       example:
         tenantId: tenantId
         tag: tag
@@ -26786,7 +26685,6 @@ components:
           type: string
       type: object
     GetFeedPostsResponse:
-      additionalProperties: false
       example:
         feedPosts:
         - fromUserDisplayName: fromUserDisplayName
@@ -26894,7 +26792,6 @@ components:
       - status
       type: object
     CreateFeedPostsResponse:
-      additionalProperties: false
       example:
         feedPost:
           fromUserDisplayName: fromUserDisplayName
@@ -26965,7 +26862,6 @@ components:
       properties: {}
       type: object
     EmailTemplateDefinition:
-      additionalProperties: false
       example:
         emailTemplateId: emailTemplateId
         defaultTranslationsByLocale:
@@ -26996,7 +26892,6 @@ components:
       - emailTemplateId
       type: object
     GetEmailTemplateDefinitionsResponse:
-      additionalProperties: false
       example:
         definitions:
         - emailTemplateId: emailTemplateId
@@ -27024,7 +26919,6 @@ components:
       - status
       type: object
     EmailTemplateRenderErrorResponse:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         customTemplateId: customTemplateId
@@ -27061,7 +26955,6 @@ components:
       - tenantId
       type: object
     GetEmailTemplateRenderErrorsResponse:
-      additionalProperties: false
       example:
         renderErrors:
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -27091,7 +26984,6 @@ components:
       - status
       type: object
     CustomEmailTemplate:
-      additionalProperties: false
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         testData: ""
@@ -27149,7 +27041,6 @@ components:
       - updatedByUserId
       type: object
     GetEmailTemplateResponse:
-      additionalProperties: false
       example:
         emailTemplate:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -27175,7 +27066,6 @@ components:
       - status
       type: object
     GetEmailTemplatesResponse:
-      additionalProperties: false
       example:
         emailTemplates:
         - createdAt: 2000-01-23T04:56:07.000+00:00
@@ -27215,7 +27105,6 @@ components:
       - status
       type: object
     CreateEmailTemplateResponse:
-      additionalProperties: false
       example:
         emailTemplate:
           createdAt: 2000-01-23T04:56:07.000+00:00
@@ -27241,7 +27130,6 @@ components:
       - status
       type: object
     CreateEmailTemplateBody:
-      additionalProperties: false
       example:
         testData:
           key: ""
@@ -27277,7 +27165,6 @@ components:
       - emailTemplateId
       type: object
     UpdateEmailTemplateBody:
-      additionalProperties: false
       example:
         testData:
           key: ""
@@ -27309,7 +27196,6 @@ components:
           type: object
       type: object
     RenderEmailTemplateResponse:
-      additionalProperties: false
       example:
         html: html
         status: success
@@ -27323,7 +27209,6 @@ components:
       - status
       type: object
     RenderEmailTemplateBody:
-      additionalProperties: false
       example:
         testData:
           key: ""
@@ -27352,7 +27237,6 @@ components:
       - emailTemplateId
       type: object
     AddDomainConfigParams:
-      additionalProperties: false
       example:
         emailHeaders: {}
         emailFromName: emailFromName
@@ -27385,7 +27269,6 @@ components:
       - domain
       type: object
     UpdateDomainConfigParams:
-      additionalProperties: false
       example:
         emailHeaders: {}
         emailFromName: emailFromName
@@ -27418,7 +27301,6 @@ components:
       - domain
       type: object
     PatchDomainConfigParams:
-      additionalProperties: false
       example:
         emailHeaders: {}
         emailFromName: emailFromName
@@ -27449,7 +27331,6 @@ components:
           type: object
       type: object
     APICommentBase:
-      additionalProperties: false
       properties:
         id:
           type: string
@@ -27725,7 +27606,6 @@ components:
         votes: 5
         isByAdmin: true
     APIGetCommentResponse:
-      additionalProperties: false
       example:
         comment:
           date: 9.301444243932576
@@ -27834,7 +27714,6 @@ components:
       - status
       type: object
     APIGetCommentsResponse:
-      additionalProperties: false
       example:
         comments:
         - date: 9.301444243932576
@@ -28040,7 +27919,6 @@ components:
       - status
       type: object
     UpdatableCommentParams:
-      additionalProperties: false
       example:
         date: 0.8008281904610115
         externalParentId: externalParentId
@@ -28201,7 +28079,6 @@ components:
           type: array
       type: object
     APISaveCommentResponse:
-      additionalProperties: false
       example:
         comment:
           date: 9.301444243932576
@@ -28323,7 +28200,6 @@ components:
       - user
       type: object
     CreateCommentParams:
-      additionalProperties: false
       example:
         date: 0
         votesDown: 7
@@ -28440,7 +28316,6 @@ components:
         urlId:
           type: string
         meta:
-          additionalProperties: false
           type: object
         moderationGroupIds:
           items:
@@ -28502,7 +28377,6 @@ components:
       - urlId
       type: object
     FlagCommentResponse:
-      additionalProperties: false
       example:
         reason: reason
         code: code
@@ -28525,7 +28399,6 @@ components:
       - status
       type: object
     BlockFromCommentParams:
-      additionalProperties: false
       example:
         commentIdsToCheck:
         - commentIdsToCheck
@@ -28537,7 +28410,6 @@ components:
           type: array
       type: object
     UnBlockFromCommentParams:
-      additionalProperties: false
       example:
         commentIdsToCheck:
         - commentIdsToCheck
@@ -28549,7 +28421,6 @@ components:
           type: array
       type: object
     PageMigrationSuccess:
-      additionalProperties: false
       example:
         commentsMigrated: 5
         from: from
@@ -28576,7 +28447,6 @@ components:
       - type
       type: object
     PageMigrationFailure:
-      additionalProperties: false
       properties:
         from:
           type: string
@@ -28599,7 +28469,6 @@ components:
       - type
       type: object
     PageMigrationUndoCounts:
-      additionalProperties: false
       example:
         notRestorable: 1
         restored: 0
@@ -28803,7 +28672,6 @@ components:
       - status
       type: object
     APIAuditLog:
-      additionalProperties: false
       example:
         targetId: targetId
         ip: ip
@@ -28877,7 +28745,6 @@ components:
       - resourceName
       type: object
     GetAuditLogsResponse:
-      additionalProperties: false
       example:
         auditLogs:
         - targetId: targetId
@@ -28974,7 +28841,6 @@ components:
       example:
         groups: null
     AggregationResponse:
-      additionalProperties: false
       description: The API response returns the aggregated data along with simple
         stats
       example:
@@ -28999,7 +28865,6 @@ components:
       - status
       type: object
     AggregationAPIError:
-      additionalProperties: false
       properties:
         status:
           $ref: "#/components/schemas/APIStatus"
@@ -29017,7 +28882,6 @@ components:
       - status
       type: object
     QueryPredicate:
-      additionalProperties: false
       example:
         value: QueryPredicate_value
         key: key
@@ -29052,7 +28916,6 @@ components:
       - count
       type: string
     AggregationOperation:
-      additionalProperties: false
       description: An operation that will be applied on a field
       example:
         op: sum
@@ -29076,7 +28939,6 @@ components:
       - op
       type: object
     AggregationRequest:
-      additionalProperties: false
       description: "The aggregation request accepts a resource, optional grouping\
         \ keys, an array of operations, and an optional sort"
       example:
@@ -29125,7 +28987,6 @@ components:
       - resourceName
       type: object
     CreateAgentTenantResponse:
-      additionalProperties: false
       example:
         apiBaseUrl: apiBaseUrl
         mcpUrl: mcpUrl
@@ -29166,7 +29027,6 @@ components:
       - tenantId
       type: object
     CreateAgentTenantBody:
-      additionalProperties: false
       example:
         agent: agent
         name: name
